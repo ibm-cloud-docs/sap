@@ -1,0 +1,68 @@
+---
+
+copyright:
+  years: 2020
+lastupdated: "2020-09-21"
+
+keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
+
+subcollection: sap
+
+---
+
+{:shortdesc: .shortdesc}
+{:codeblock: .codeblock}
+{:screen: .screen}
+{:external: target="_blank" .external}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:note: .note}
+{:tip: .tip}
+
+# AnyDB - SAP MaxDB
+{: #anydb-sap-maxdb}
+
+The SAP systems in a landscape have specific requirements for servers, operating systems, network setup, and supported storage.
+{: shortdesc}
+
+Deploying SAP AnyDB on {{site.data.keyword.cloud_notm}} is similar to deploying the infrastructure with on-premises data centers. Therefore, use the information that is provided from SAP and the RDBMS providers.
+
+To assist your project's planning phase, extra design considerations are listed for **SAP AnyDB - SAP Max DB** with {{site.data.keyword.ibm_cloud_sap}}.
+
+
+## Overview of SAP MaxDB with IBM Cloud
+{: #anydb-sap-maxdb-overview}
+
+Before you start deploying SAP MaxDB software, be sure to:
+- Check all relevant SAP MaxDB information and prerequisites (for example, SAP Notes)
+- Verify that all required packages are installed for the relevant OS that that is used for SAP MaxDB
+
+
+### Documentation of SAP MaxDB
+{: #anydb-sap-maxdb-documentation}
+
+A good entry point into the documentation is the [SAP community page for SAP MaxDB](https://community.sap.com/topics/maxdb){: external}.
+
+SAP MaxDB documentation:
+- [SAP Help Portal - SAP MaxDB](https://help.sap.com/viewer/product/SAP_MAXDB/latest/en-US){: external}
+- [SAP Note 767598 - Available SAP MaxDB documentation](https://launchpad.support.sap.com/#/notes/767598){: external}
+- [SAP Note 1020175 - FAQ: SAP MaxDB installation, upgrade, or applying a patch](https://launchpad.support.sap.com/#/notes/1020175){: external}
+
+For a current overview of the combinations of SAP MaxDB, SAP NetWeaver (or other SAP components), and operating systems, see the [Product Availability Matrix (PAM)](http://support.sap.com/pam){: external}.
+
+### SAP MaxDB using Intel Bare Metal
+{: #anydb-sap-maxdb-bare-metal}
+
+See [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097){: external} for supported SAP MaxDB versions.
+
+
+### SAP MaxDB using Intel Virtual Servers (Gen2)
+{: #anydb-sap-maxdb-intel-vs-gen2}
+
+See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported SAP MaxDB versions.
+
+### SAP MaxDB using IBM Power Virtual Servers)
+{: #anydb-sap-maxdb-power-vs}
+
+See [SAP Note 2855850 - SAP Applications on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported SAP MaxDB versions.
+

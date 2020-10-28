@@ -1,0 +1,155 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="sap" category="compute" audience="compute" href="/docs/sap?topic=sap-get-started" product-page="https://ibm.com/cloud/sap" path="sap"}
+IBM Cloud for SAP | IBM Power Virtual Servers for SAP
+
+    {: .navgroup id="learn"}
+    sap-getting-started.md
+    sap-offerings-overview.md
+
+    [Executive solution brief of IBM Cloud for SAP](https://www.ibm.com/cloud/smartpapers/accelerate-SAP/)
+
+    {: .topicgroup}
+    Infrastructure environments
+        sap-environment-classic-infrastructure.md
+        sap-environment-vpc-infrastructure.md
+        sap-environment-power-infrastructure.md
+
+    sap-offerings-certified-iaas.md
+
+    {: .topicgroup}
+    Infrastructure profiles for SAP HANA database server
+        sap-offerings-hana-iaas-intel-bare-metal-profiles.md
+        sap-offerings-hana-iaas-intel-virtual-server-gen2-profiles.md
+        sap-offerings-hana-iaas-power-virtual-server-profiles.md
+        sap-offerings-hana-iaas-vmware-sddc-profiles.md
+
+    {: .topicgroup}
+    Infrastructure profiles for SAP NetWeaver Application Server
+        sap-offerings-netweaver-iaas-intel-bare-metal-profiles.md
+        sap-offerings-netweaver-iaas-intel-virtual-server-gen2-profiles.md
+        sap-offerings-netweaver-iaas-power-virtual-server-profiles.md
+        sap-offerings-netweaver-iaas-vmware-sddc-profiles.md
+
+    {: .topicgroup}
+    Plan your SAP workloads
+        sap-sizing-planning-process.md
+        sap-sizing-planning-your-system-landscape.md
+        sap-prereq-determining-access.md
+        sap-prereq-software.md
+        sap-prereq-byol.md
+
+    {: .topicgroup}
+    Infrastructure for SAP design considerations
+        sap-design-considerations-networking.md
+        sap-design-considerations-storage.md
+        sap-design-considerations-compute-os.md
+
+    sap-design-considerations-sap-hana.md
+    sap-design-considerations-sap-netweaver.md
+
+    {: .topicgroup}
+    SAP Business Applications additional design considerations
+        sap-app-s4hana.md
+        sap-app-bw4hana.md
+        sap-app-commerce.md
+        sap-app-b1.md
+        sap-app-data-hub-2x.md
+
+    {: .topicgroup}
+    SAP Technical Applications additional design considerations
+        sap-app-content-server.md
+
+    {: .topicgroup}
+    SAP AnyDB databases additional design considerations
+        sap-anydb-ibm-db2.md
+        sap-anydb-sap-maxdb.md
+        sap-anydb-sap-sybase-ase.md
+        sap-anydb-sap-sybase-iq.md
+
+    {: .topicgroup}
+    SAP Partner certified solutions
+        sap-partners-veeam.md
+        sap-partners-ibm-security-services.md
+
+    {: .topicgroup}
+    Innovations with IBM Cloud for SAP
+        sap-abap-sdk-watson.md
+        sap-cloud-migration-program.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    /overview/overview-ui
+
+    {: .topicgroup}
+    Pre-Requisites for SAP Workloads
+        sap-prereq-necessary-credentials.md
+        sap-prereq-account-structure.md
+
+    {: .topicgroup}
+    Provisioning Intel Bare Metal for SAP HANA and SAP NetWeaver
+        sap-provision-intel-bare-metal-plan-deploy.md
+        sap-provision-intel-bare-metal-deploy-infrastructure.md
+
+    {: .topicgroup}
+    Provisioning Intel Virtual Server (Gen2) for SAP HANA and SAP NetWeaver
+        sap-provision-intel-virtual-server-gen2-plan-deploy.md
+        sap-provision-intel-virtual-server-gen2-deploy-infrastructure.md
+        sap-ibm-metrics-collector-linux.md
+
+
+    {: .topicgroup}
+    Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver
+        sap-provision-power-virtual-server-plan-deploy.md
+        sap-provision-power-virtual-server-deploy-infrastructure.md
+
+    {: .topicgroup}
+    Provisioning VMware SDDC for SAP HANA and SAP NetWeaver for SAP HANA and SAP NetWeaver
+        sap-provision-vmware-sddc-plan-deploy.md
+        sap-provision-vmware-sddc-deploy-infrastructure.md
+
+    {: .topicgroup}
+    Provisioning Red Hat OpenShift clusters for SAP Data Hub 2.x
+        sap-datahub-provision-redhat-openshift-plan-deploy.md
+        sap-datahub-provision-redhat-openshift-deploy-clusters.md
+        sap-datahub-provision-redhat-openshift-install-datahub.md
+    {: .navgroup-end}
+
+    {: .navgroup id="tutorial"}
+
+    {: .topicgroup}
+    Quick Study Deployment of SAP
+        sap-quickstudy-nw-bm-rhel.md
+        sap-quickstudy-nw-bm-wins.md
+        sap-quickstudy-nw-vs-gen2-rhel.md
+        sap-quickstudy-nw-power-vs-aix.md
+        sap-quickstudy-hana-power-vs-sles.md
+
+    {: .topicgroup}
+    SAP Partner solution tutorials
+        sap-tutorial-veeam.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+
+    {: .topicgroup}
+    Infrastructure Reference Architectures for SAP
+        sap-refarch-hana-scaleup.md
+        sap-refarch-hana-scaleout.md
+    {: .navgroup-end}
+
+
+    {: .navgroup id="help"}
+    sap-getting-help.md
+
+    {: .topicgroup}
+    FAQs
+        sap-faq.md
+        sap-faq-moving-sap-workloads.md
+        sap-faq-profile-specs.md
+
+    sap-fast-path-site-map.md
+
+    [Documentation Changelog](https://github.com/ibm-cloud-docs/sap/commits/)
+    {: .navgroup-end}
