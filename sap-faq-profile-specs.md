@@ -32,7 +32,7 @@ Below is a summary table of the certifications, highest benchmark scores, and ma
 | -- | -- | -- | -- | -- |
 | IBM Cloud Intel Bare Metal with Local Disk | 550,670<br />_(world record of Intel-based IaaS)_ | 12,288 | 6,144 | 92,160 from 15 nodes (excl. 1 standby)<br />_(world record of all IaaS)_  |
 | IBM Cloud Intel Virtual Server (Gen2) | 56,970 | 384 | - | - |
-| IBM Power Virtual Server<br />_(complementary offering from IBM Systems)_ | 840,000<br />_(world record of all IaaS)_ | 7,000 | 7,000 | - |
+| IBM Power Virtual Server<br />_(complementary offering from IBM Systems)_ | 840,000<br />_(world record of all IaaS)_ | 14,400 | 14,000 | - |
 | IBM Cloud for VMware | 495,603 | 6,144 | 3,072 | 30,720 from 15 nodes (excl. 1 standby) |
 {: caption="Table 1. Highest specifications of the SAP-certified IaaS" caption-side="top"}
 
