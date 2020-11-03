@@ -79,6 +79,20 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-cloud-migration-program.md
     {: .navgroup-end}
 
+
+    {: .navgroup id="tutorial"}
+    {: .topicgroup}
+    Quick Study Deployment of SAP
+        sap-quickstudy-nw-bm-rhel.md
+        sap-quickstudy-nw-bm-wins.md
+        sap-quickstudy-nw-vs-gen2-rhel.md
+
+    {: .topicgroup}
+    SAP Partner solution tutorials
+        sap-tutorial-veeam.md
+    {: .navgroup-end}
+
+
     {: .navgroup id="howto"}
     /overview/overview-ui
 
@@ -98,7 +112,6 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-provision-intel-virtual-server-gen2-deploy-infrastructure.md
         sap-ibm-metrics-collector-linux.md
 
-
     {: .topicgroup}
     Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver
         sap-provision-power-virtual-server-plan-deploy.md
@@ -116,23 +129,7 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-datahub-provision-redhat-openshift-install-datahub.md
     {: .navgroup-end}
 
-    {: .navgroup id="tutorial"}
-
-    {: .topicgroup}
-    Quick Study Deployment of SAP
-        sap-quickstudy-nw-bm-rhel.md
-        sap-quickstudy-nw-bm-wins.md
-        sap-quickstudy-nw-vs-gen2-rhel.md
-        sap-quickstudy-nw-power-vs-aix.md
-        sap-quickstudy-hana-power-vs-sles.md
-
-    {: .topicgroup}
-    SAP Partner solution tutorials
-        sap-tutorial-veeam.md
-    {: .navgroup-end}
-
     {: .navgroup id="reference"}
-
     {: .topicgroup}
     Infrastructure Reference Architectures for SAP
         sap-refarch-hana-scaleup.md
