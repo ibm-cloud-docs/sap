@@ -80,26 +80,15 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
-
     {: .topicgroup}
     Quick Study Deployment of SAP
         sap-quickstudy-nw-bm-rhel.md
         sap-quickstudy-nw-bm-wins.md
         sap-quickstudy-nw-vs-gen2-rhel.md
-        sap-quickstudy-nw-power-vs-aix.md
-        sap-quickstudy-hana-power-vs-sles.md
 
     {: .topicgroup}
     SAP Partner solution tutorials
         sap-tutorial-veeam.md
-    {: .navgroup-end}
-
-    {: .navgroup id="reference"}
-
-    {: .topicgroup}
-    Infrastructure Reference Architectures for SAP
-        sap-refarch-hana-scaleup.md
-        sap-refarch-hana-scaleout.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -138,32 +127,13 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-datahub-provision-redhat-openshift-install-datahub.md
     {: .navgroup-end}
 
-<<<<<<< Updated upstream
-    {: .navgroup id="tutorial"}
-    {: .topicgroup}
-    Quick Study Deployment of SAP
-        sap-quickstudy-nw-bm-rhel.md
-        sap-quickstudy-nw-bm-wins.md
-        sap-quickstudy-nw-vs-gen2-rhel.md
-        sap-quickstudy-nw-power-vs-aix.md
-        sap-quickstudy-hana-power-vs-sles.md
-
-    {: .topicgroup}
-    SAP Partner solution tutorials
-        sap-tutorial-veeam.md
-    {: .navgroup-end}
-
     {: .navgroup id="reference"}
-
     {: .topicgroup}
     Infrastructure Reference Architectures for SAP
         sap-refarch-hana-scaleup.md
         sap-refarch-hana-scaleout.md
     {: .navgroup-end}
 
-
-=======
->>>>>>> Stashed changes
     {: .navgroup id="help"}
     sap-getting-help.md
 
