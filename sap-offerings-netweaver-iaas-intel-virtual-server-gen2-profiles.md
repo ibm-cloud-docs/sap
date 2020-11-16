@@ -65,7 +65,7 @@ The Virtual Server profile names are contextual and sequential; this example use
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
-| mx2-16x128 | m | Memory family (higher on the CPU to Memory ratio), 1:16 ratio|
+| mx2-16x128 | m | Memory family (higher on the CPU to Memory ratio), 1:8 ratio|
 | | x | Intel x86_64 CPU Architecture |
 | | 2 | Generation 2 |
 | | - | _spacer_ |
