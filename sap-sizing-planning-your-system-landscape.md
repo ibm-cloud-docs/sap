@@ -140,7 +140,7 @@ SAP system monitoring is available through the [SAP Host Agent](https://help.sap
 ### Monitoring for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s
 {: #monitoring-intel-vs-gen2}
 
-The operating system metrics that the SAP Host Agent provides require the use of [{{site.data.keyword.cloud_notm}} Metrics Collector for SAP](/docs/sap?topic=sap-ibm-metrics-collector-for-sap) and the correct SAP Host Agent patch level.
+The operating system metrics that the SAP Host Agent provides require the use of [{{site.data.keyword.cloud_notm}} Metrics Collector for SAP](/docs/sap?topic=sap-ibm-metrics-collector-for-sap-linux) and the correct SAP Host Agent patch level.
 
 ### Monitoring for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s
 {: #monitoring-power}
