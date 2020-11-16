@@ -484,7 +484,7 @@ An SAP installation requires that certain prerequisites are met regarding the pa
 {: #install-metrics-collector}
 {: step}
 
-SAP requires the installation of the {{site.data.keyword.cloud_notm}} Metrics Collector for SAP to analyze your infrastructure if a support case is submitted. Install the collector by using the instructions in [{{site.data.keyword.cloud_notm}} Metrics Collector for SAP](/docs/sap?topic=sap-ibm-metrics-collector-for-sap).
+SAP requires the installation of the {{site.data.keyword.cloud_notm}} Metrics Collector for SAP to analyze your infrastructure if a support case is submitted. Install the collector by using the instructions in [{{site.data.keyword.cloud_notm}} Metrics Collector for SAP](/docs/sap?topic=sap-ibm-metrics-collector-for-sap-linux).
 
 ### Downloading your SAP software
 {: #download-sap-software}
