@@ -122,7 +122,7 @@ Use the following steps to download the IMCS.
    {: pre}
 
 ## Verifying data collection
-{: #verify-data-collection}
+{: #verify-data-collection-linux}
 
 After the installation completes and the service is started, it can take time for the IMCS begins collecting metrics. It will be at least 2 minutes after the installation before you see full and accurate metrics.
 
@@ -150,12 +150,12 @@ After the installation completes and the service is started, it can take time fo
    {: note}
 
 ## Troubleshooting
-{: #troubleshooting}
+{: #troubleshooting-linux}
 
 Use the following troubleshooting tips for IMCS.
 
 ### Uninstalling the Metrics Collector
-{: #uninstall-icmc}
+{: #uninstall-icmc-linux}
 
 1. Run the following command to uninstall IMCS if you have any issues during the installation process. Then, reinstall it.
 
@@ -171,7 +171,7 @@ Use the following troubleshooting tips for IMCS.
    {: screen}
 
 ### No metrics reported when running `curl` command
-{: #no-metrics}
+{: #no-metrics-linux}
 
 No reported metrics message is often due to the port not assigned to SAP Metrics Collector. It needs port `18181` available for `localhost`. If you have any other applications that use the port, you must close the applications.
 
