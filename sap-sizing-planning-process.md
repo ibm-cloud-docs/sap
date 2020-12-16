@@ -160,10 +160,10 @@ For more information about sizing, see the following resources:
 * [SAP Note 1872170 - Suite on HANA memory sizes](https://service.sap.com/sap/support/notes/1872170){: external}
 * [SAP Note 1793345 - Sizing for SAP Suite on HANA](http://service.sap.com/sap/support/notes/1793345){: external}
 * [SAP Note 1514966 - SAP HANA: Sizing SAP HANA](https://service.sap.com/sap/support/notes/1514966){: external}
-* [SAP Certified and Supported SAP HANA Hardware](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/index.html){: external}
+* [SAP Certified and Supported SAP HANA Hardware](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN){: external}
 * [SAP Note 2055470 - SAP HANA on Power Planning and Installation Specifics - Central Note](https://service.sap.com/sap/support/notes/2055470){: external}
 * [SAP HANA TDI - Storage Requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html){: external}
-* [SAP Certified Enterprise Storage Hardware for SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/enterprise-storage.html){: external}
+* [SAP Certified Enterprise Storage Hardware for SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=storage){: external}
 
 
 
@@ -195,6 +195,6 @@ Beyond the topic group "Sizing and Planning SAP Workloads", there are individual
 - **SAP AnyDB databases**
   - [AnyDB - IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2)
   - [AnyDB - SAP MaxDB](/docs/sap?topic=sap-anydb-sap-maxdb)
-  - [AnyDB - SAP Sybase ASE](/docs/sap?topic=sap-anydb-sap-sybase-ase)
-  - [AnyDB - SAP Sybase IQ](/docs/sap?topic=sap-anydb-sap-sybase-iq)
+  - [AnyDB - SAP ASE](/docs/sap?topic=sap-anydb-sap-ase)
+  - [AnyDB - SAP IQ](/docs/sap?topic=sap-anydb-sap-iq)
 

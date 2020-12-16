@@ -87,8 +87,9 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 - SAP Secure Logon Server (SLS)
 - AnyDB - IBM Db2
 - AnyDB - Microsoft SQL Server
+   <!--- AnyDB - Oracle DB  -->
 - AnyDB - SAP MaxDB
-- AnyDB - SAP Sybase ASE
+- AnyDB - SAP ASE
 - ...more
 
 
@@ -106,10 +107,11 @@ The {{site.data.keyword.cloud_notm}} SAP-Certified IaaS gives you the flexibilit
 * Supplementing existing on-premises virtualized infrastructure architectures.
 
 
-The {{site.data.keyword.ibm_cloud_sap}} portfolio primarily consists of four offerings:
+The {{site.data.keyword.ibm_cloud_sap}} portfolio primarily consists of four<!---five--> offerings:
 1. {{site.data.keyword.cloud_notm}} Bare Metal
+<!---1. {{site.data.keyword.cloud_notm}} Bare Metal with Intel Optane DC Persistent Memory-->
 1. {{site.data.keyword.cloud_notm}} Virtual Servers (Gen2)
-1. IBM Power Virtual Servers (complementary offering from IBM Systems, with connection through {{site.data.keyword.cloud_notm}})
+1. IBM Power Virtual Servers (complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with connection through {{site.data.keyword.cloud_notm}})
 1. {{site.data.keyword.cloud_notm}} for VMware
 
 More information on the these Infrastructure offerings within the {{site.data.keyword.ibm_cloud_sap}} portfolio, see [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
@@ -117,7 +119,7 @@ More information on the these Infrastructure offerings within the {{site.data.ke
 **These offerings are spread across two primary infrastructure environments, and one separated environment that uses IBM Power technologies:**
 - [{{site.data.keyword.cloud_notm}} Classic Infrastructure environment](/docs/sap?topic=sap-classic-env-introduction). The original environment and network, formerly known as the Softlayer network.
 - [{{site.data.keyword.cloud_notm}} VPC Infrastructure environment](/docs/sap?topic=sap-vpc-env-introduction). The latest environment and network, with the newest technologies and networking capabilities.
-- [IBM Power Systems Infrastructure environment](/docs/sap?topic=sap-power-env-introduction). The environment maintained by IBM Systems built of IBM Power enterprise components, which has links to either Classic Infrastructure and VPC Infrastructure.
+- [{{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment](/docs/sap?topic=sap-power-env-introduction). The environment maintained by {{site.data.keyword.IBM_notm}} Power Systems built of IBM Power enterprise components, which has links to either Classic Infrastructure and VPC Infrastructure.
 
 Our documents provide detailed considerations and information for building your SAP environments at each layer for all offerings. However, if you are interested in quickly finding the information related specifically to one of the IaaS offerings, then you may consider using the [Fast Path Site Map](/docs/sap?topic=sap-fast-path-site-map).
 {: tip}
@@ -195,7 +197,7 @@ When you compare the different SAP-certified IaaS offerings available on {{site.
 Each of these SAP-certified offerings is available to support numerous different SAP Business or SAP Technical Applications. However they differ in the performance they can achieve:
 - Bare Metal very offers high performance. This option has no software-related overheads as it is purely an OS and the SAP software that uses local SSD storage. However, the SAP workload cannot move around as easily.
 - Intel Virtual Servers for VPC uses an {{site.data.keyword.cloud_notm}} managed hypervisor. This option provides lower total cost of ownership when coupling Suspend Discounts and Sustained Usage Discounts, with more flexibility and an abundance of extra features for security and networking. However, the performance and sizing are lower than other options.
-- IBM Power Virtual Servers use the enterprise-grade IBM PowerVM Type 1. This option is a complementary offering from IBM Systems, with connection through {{site.data.keyword.cloud_notm}}, that provides significant scalability on robust hardware with significant flexibility and many more features available. But, this option does not allow root-access control of IBM PowerVM underneath where some SAP tools would ordinarily provide integration. **_Commonly this is paired with existing IBM Power or IBM Z infrastructure in on-premises data centers, to create a Hybrid Cloud model which drives modernization using paired capabilities from either on-premises or Cloud that address the business needs (e.g. security, flexibility, speed etc.) and business strategy_**
+- IBM Power Virtual Servers use the enterprise-grade IBM PowerVM Type 1. This option is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with connection through {{site.data.keyword.cloud_notm}}, that provides significant scalability on robust hardware with significant flexibility and many more features available. But, this option does not allow root-access control of IBM PowerVM underneath where some SAP tools would ordinarily provide integration. **_Commonly this is paired with existing IBM Power or IBM Z infrastructure in on-premises data centers, to create a Hybrid Cloud model which drives modernization using paired capabilities from either on-premises or Cloud that address the business needs (e.g. security, flexibility, speed etc.) and business strategy_**
 - VMware is a Type 2 hypervisor. This option has a minor reduction in the available performance. But this option also has vastly more flexibility and optimization in running SAP workloads, including:
  - Full root-access control to all VMware features
  - Capability to install more software that uses VMware capabilities (for example, SAP Landscape Management)
