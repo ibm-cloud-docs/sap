@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-07"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -129,7 +129,7 @@ SAP BW/4HANA is built to take advantage of the analytical capabilities of SAP HA
 
 It is important to understand SAP BW/4HANA certifications to ensure your infrastructure selection meets business requirements, particularly for business decisions on lead times of analytics and reporting or quantity of data to be analyzed.
 
-All SAP-certified infrastructure on Cloud for OLAP (i.e. SAP BW/4HANA) is listed in [SAP HANA Directory - IaaS Platforms - OLAP application type](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=OLAP){: external}. For performance benchmarks of the SAP-certified infrastructure for SAP BW/4HANA, these are listed in the [SAP BW edition for SAP HANA benchmark directory (BWH)](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/bwh){: external}.
+All SAP-certified infrastructure on Cloud for OLAP (i.e. SAP BW/4HANA) is listed in [SAP HANA Directory - Certified IaaS Platforms - OLAP application type](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;v:105){: external}. For performance benchmarks of the SAP-certified infrastructure for SAP BW/4HANA, these are listed in the [SAP BW edition for SAP HANA benchmark directory (BWH)](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/bwh){: external}.
 
 There are a few considerations to be mindful of when looking at the directories from SAP and comparing infrastructure performance for SAP BW/4HANA:
 - The CSV Export file of the SAP BWH benchmark directory will not contain important configuration notes, such as "Segmentation" notes where the quoted memory is reduced (for example, 4,048 GB DRAM is only permitted with 3,904 GB DRAM). This often occurs when the certified infrastructure is a virtual machine. This is also not shown on the main site; it is only viewable on the certification PDF of each certified infrastructure.

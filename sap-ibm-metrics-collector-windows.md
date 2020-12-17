@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-08"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, SAP HANA, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS
 
@@ -22,9 +22,6 @@ subcollection: sap
 
 # Using {{site.data.keyword.IBM_notm}} Metrics Collector for SAP (IMCS) on Windows
 {: #ibm-metrics-collector-for-sap-windows}
-
-<!-- #comment for now **_INCOMPLETE: This page only appears in Test/Staging, it is not complete or ready to be published_**
-{: important}) -->
 
 The {{site.data.keyword.IBM}} Metrics Collector for SAP (IMCS) on Windows is a requirement by SAP Support for {{site.data.keyword.vpc_full}} Infrastructure only when SAP workloads are running on the virtual server instance (VSI).
 {: note}
@@ -52,7 +49,6 @@ You need to first create a Service ID and then the related API key. Use the foll
 1. Click **Access Policies** > **Assign Access**.
 1. Click **IAM Services** for **Assign Service ID additional access**.
 1. Select **VPC Infrastructure service** for **What type of access do you want to assign?**
-<!-- 1. Select **All resource groups** for **in** .... this would be the right option; but it's not available in the UI! -->
 1. Leave the default **Account** for **in**
 1. Leave **All resource types** for **Resource type** and click **Viewer** for **Platform Access**.
 1. Click **Add** > **Assign**. The VPC Infrastructure Service policy is assigned to your Service ID.

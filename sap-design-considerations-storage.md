@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -138,14 +138,14 @@ Table 1 is a sample storage configuration for a 256 GB server with 50,000 [SAPS]
 
 * 6,000 IOPS/1,500 GB = 4 IOPS/GB needed for external storage. It is assumed that 3,000 GB is for backup at 2 IOPS/GB (medium performance.
 
-| File system | # of volumes | Storage type | IOPS/GB | GB | # IOPS |
+| File system | # of volumes | Storage type | IOPS/GB | GB | \# IOPS |
 | --- | --- | --- | --- | --- | --- |
 | `/` | 1 | Internal | N/A | 150 GB | N/A |
 | `/boot` | 1 | Internal | N/A | 0.25 GB | N/A |
 | `swap` | 1 | Internal | N/A | 256 GB | N/A |
 | `/db2` (including logs) | 1 | Internal | N/A | 250 GB | N/A |
-| `sapdata` | 1 | External | 4 IOPS/GB | 1,500 GB | 6,000 IOPS |
-| `backup/log and backup` | 1 | External | 2 IOPS/GB | 3,000 GB | 6,000 IOPS |
+| `sapdata` | 1 | External | 4 IOPS/GB | 1,500 GB | 6,000 |
+| `backup/log and backup` | 1 | External | 2 IOPS/GB | 3,000 GB | 6,000 |
 {: caption="Table 1. Sample storage layout based on IOPS calculation" caption-side="top"}
 
 
@@ -171,8 +171,8 @@ After you attach the two data volumes, two new virtual disks will appear in the 
 | --- | --- | --- | --- | --- | --- |
 | `/` | `vdal` | Pre-configured boot volume | N/A | 100 GB | 3,000 |
 | `/boot` | `vda2` | Pre-configured boot volume | N/A | 0.25 GB | 3,000 |
-| `/db2` | `vdd` (can vary) | Data volume | N/A | 500 GB | 10,000 |
-| `backup/log` and `backup` | `vde` (can vary) | Data volume | 5 IOPS/GB | 2000 GB | 4,000 |
+| `/db2` | `vdd` (can vary) | Data volume | 20 IOPS/GB | 500 GB | 10,000 |
+| `backup/log` and `backup` | `vde` (can vary) | Data volume | 5 IOPS/GB | 2,000 GB | 4,000 |
 {: caption="Table 2. Sample storage configuration" caption-side="top"}
 
 Table 1 shows a basic layout of the file system to support an IBM Db2 installation. Generally, an IBM Db2 installation uses subdirectories that can be segmented into independent volumes.
@@ -306,7 +306,7 @@ The following entries to `/etc/fstab` mount the file systems after their mount p
 ## Sample storage configurations on IBM Power Infrastructure
 {: #sample-power}
 
-This is a complementary offering from IBM Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
 The following sections demonstrate storage configurations in various different SAP workload scenarios, when you are using **IBM Power Infrastructure**.
@@ -337,7 +337,7 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | Application disk | `app<sid>vg` | `lvusrsap` | `/usr/sap` |
 | | | `lvusrsap<SID>` | `/usr/sap/<SID` |
 | | | `lvusrsapmnt` | `/sapmnt/<SID>` |
-| | | `lvusrsaptrans` | '/usr/sap/trans' |
+| | | `lvusrsaptrans` | `/usr/sap/trans` |
 | | | `lvsapDAH` | `/usr/sap/DAH` |
 {: caption="Table 3. Sample storage layout for Linux" caption-side="top"}
 
@@ -358,7 +358,7 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | Application disk | `app<sid>vg` | `lvusrsap` | `/usr/sap` |
 | | | `lvusrsap<SID>` | `/usr/sap/<SID>` |
 | | | `lvusrsapmnt` | `/sapmnt/<SID>` |
-| | | `lvusrsaptrans` | '/usr/sap/trans' |
+| | | `lvusrsaptrans` | `/usr/sap/trans` |
 | | | `lvsapDAH` | `/usr/sap/DAH` |
 | Database storage | `db<sid>vg` | `lv<SID>arch` | `/oracle/<SID>/oraarch` |
 | | | `lv<SID>reorg` | `/oracle/<SID>/sapreorg` |
@@ -391,7 +391,7 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | Application disk | `app<sid>vg` | `lvusrsap` | `/usr/sap` |
 | | | `lvusrsap<SID>` | `/usr/sap/<SID>` |
 | | | `lvusrsapmnt` | `/sapmnt/<SID>` |
-| | | `lvusrsaptrans` | '/usr/sap/trans' |
+| | | `lvusrsaptrans` | `/usr/sap/trans` |
 | | | `lvsapDAH` | `/usr/sap/DAH` |
 | Db2 database storage I | `<sid>db2vg` | `loglv<SID>` | NA |
 | | | `lv<SID>db2` | `/db2/<SID>` |

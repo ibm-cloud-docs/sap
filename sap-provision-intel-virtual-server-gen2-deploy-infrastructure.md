@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -36,19 +36,19 @@ Before you can create a virtual server, you must create a VPC.
 The following steps summarize the setup of VPC and subnets, which is detailed further in the [Create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 
 
-1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs** and click **New virtual private cloud**.
+1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
 
-  SAP-certified virtual servers are available on the Generation 2 compute environment.
+  SAP-certified virtual servers are available on the Generation 2 compute environment only.
   {: note}
 
-1. Click **Create VPC for Gen 2**.
+1. Click **Create**.
 1. Enter a unique **Name** for the VPC.
 2. Select a **Resource group**. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup) and [What makes a good resource group strategy?](/docs/account?topic=account-account_setup#resource-group-strategy).
 3. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 4. Select whether the **Default security group** allows inbound SSH and ping traffic to virtual server instances in this VPC. We'll configure more rules for the default security group later.
 5. _Optional: Classic access_. Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
-    When you create a VPC, you can only enable it for classic access. In addition, you can have only one classic access VPC in your account at any time.
+    You can only enable a VPC for classic access when it is created. You cannot update a VPC to add or remove classic access. In addition, you can have only one classic access VPC in your account at any time.
     {: important}
 
 6. _Optional: Default address prefixes_. Disable this option if you don't want to assign default subnet address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own subnet address prefixes. If you do disable this option, the **New subnet for VPC** section will be hidden, and will require manual definition after the VPC is created. Leave the value default.
@@ -100,17 +100,16 @@ Use the following steps to order your virtual server and necessary components. F
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
 1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Virtual server instances**.
-1. Click **New instance**.
-1. Select **Switch to Gen 2 compute**, click the **2** and **Continue**.
+1. Click **Create**.
 1. Enter a unique **Name** for the virtual server, which becomes the **hostname**. SAP hostnames must consist of a maximum of 13 alpha-numeric characters. For more information about SAP hostnames, see [SAP Notes 611361](https://launchpad.support.sap.com/#/notes/611361){: external} and [129997](https://launchpad.support.sap.com/#/notes/129997){: external}.
-1. Select the **Virtual private cloud** in which to attach the virtual server.
 1. Choose a **Resource group**.
 
    The resource group can't be changed after the virtual server is created.
    {: note}
 
-1. Select the same **Location** in which you created your subnets. The location consists of a region and zone.
-1. Select **catalog Image** > **`ibm-redhat-7-6-amd64-sap-hana-1`** as the OS image for SAP HANA, or  **`ibm-redhat-7-6-amd64-sap-applications-1`** as the OS image for SAP NetWeaver.
+1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+1. Select the same **Location** in which you created your VPC and subnets. The location consists of a region and zone.
+1. Select your preferred **Operating System** from either Windows Server, Red Hat Linux or SUSE Linux to run SAP Netweaver, or from Red Hat or SUSE to run SAP HANA; you find the Linux versions in the tile **Catalog image** > **`...-sap-hana-...`** as the OS images for SAP HANA, or **Catalog image** > **`...-sap-applications-...`** as the OS images for SAP NetWeaver.
 1. Select a **Profile** based on the guidance detailed in [Intel Virtual Server (Gen2) certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server (Gen2) certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc), which lists the profiles that are certified for SAP HANA and SAP NetWeaver.
 1. Select the **SSH key** you want to add to the virtual server. For this step, you can create a new SSH key.
 1. Click **New volume** for **Data volumes**. Data volumes are required.
@@ -118,7 +117,8 @@ Use the following steps to order your virtual server and necessary components. F
    - For SAP NetWeaver, these volumes are based on the requirements of the installed SAP NetWeaver instance. The standard tiered options are 3K, 5K, and 10K IOPS, and custom IOPS. These options can be used to attune to the specific requirements.
 1. You can enable **Auto Delete** to automatically delete the data volume if the virtual server is deleted. This option is not recommended.
 1. **Attach** the appropriate data volumes to your virtual server.
-1. Let **Network interfaces** default.
+1. Under **Networking**, select the **Virtual private cloud** in which to attach the virtual server.
+1. Under **Network interfaces**, the first virtual network interface is shown attached to the default subnet of the VPC. This can be amended as required.
 1. Click **Create virtual server instance**. After the {{site.data.keyword.vsi_is_short}} is provisioned and ready for SSH logon, you can begin installing SAP HAAN or SAP NetWeaver applications.
 
 
@@ -130,14 +130,14 @@ Table 1 is a summary of the fields and values that are used to provision {{site.
 | Virtual private cloud | Specify the VPC where you want to create your virtual server. |
 | Resource group | Use resource groups to organize your account resources for access control and billing purposes. |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want to create your virtual server. |
-| Image | Select Catalog images > **`ibm-redhat-7-6-amd64-sap-hana-1`** for SAP HANA workloads, or **`ibm-redhat-7-6-amd64-sap-applications-1`** for SAP NetWeaver workloads. |
+| Operating System | <ul><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-hana-...`**</li><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-applications...`**</li><li>Windows Server for SAP NetWeaver workloads, select Windows Server</li></ul>. Choose an operating system version that is supported by SAP as documented in [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external} |
 | Profile |  Select one of the profiles outlined in [Intel Virtual Server (Gen2) certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server (Gen2) certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key before you can create the instance. SSH keys are used to securely connect to a running instance. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | User data | You can add user data to automatically complete common configuration tasks or run scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
-| Boot volume | The default boot volume size for all profiles is 100 GB. You can edit the boot volume by clicking the pencil icon. You can add one or more secondary data volumes when you provision the instance. To add volumes, click **New volume**. For more information about provisioning the volume, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
-| Data volume  | Attach data volumes to your virtual server depending on your SAP HANA or SAP NetWeaver virtual server profile. |
-| Network interfaces | Assign networking options to connect into the {{site.data.keyword.cloud_notm}} VPC. You can create and assign up to five network interfaces to each instance. |
+| Boot volume | The default boot volume size for all profiles is 100 GB. You can edit the boot volume by clicking the pencil icon.|
+| Data volume  | You can add one or more secondary data volumes when you provision the instance. To add volumes, click **New volume**. For more information about provisioning the volume, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). Attach data volumes to your virtual server depending on your SAP HANA or SAP NetWeaver virtual server profile. |
+| Network interfaces | Assign networking options to connect into the {{site.data.keyword.cloud_notm}} VPC. You can create and assign up to five network interfaces to each instance - see below. |
 {: caption="Table 1. Instance provisioning selections" caption-side="top"}
 
 
@@ -209,12 +209,11 @@ If your virtual server instance is running when you complete the following steps
 
 1. In the **Network interfaces** section of the Instance details page, click **New interface**.
 2. On the **New network interface** page, the interface name defaults to an incremented number. If this is the first new interface after your primary interface, the default name is `eth1`. You can change the name if you want.
-3. Select a subnet that is unique from the subnets that are assigned to your existing network interfaces.
+3. Select a subnet from the subnets that are assigned to your existing network interfaces.
 4. Select the security group that you want to associate with the network interface.
 5. Click **Create**.
 
 More information is shown on [VPC Infrastructure - Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
-
 
 
 ## Readying your Operating System

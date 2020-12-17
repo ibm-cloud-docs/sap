@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-07"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -227,7 +227,7 @@ In this tutorial, we simplify the process and use sample VSI profiles, volume an
 Depending on the database vendor you should consult their specific documentation, recommendations and best practises how to setup the file systems. You may start here.
 * [IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2) 
 * [SAP MaxDB](/docs/sap?topic=sap-anydb-ibm-maxdb) 
-* [SAP ASE](/docs/sap?topic=sap-anydb-sybase-ase) 
+* [SAP ASE](/docs/sap?topic=sap-anydb-ase) 
 
 We let `sapinst`, the SAP installation programm, care about the user management, the disk partitioning as well as folder and subfolder creations that are required for the SAP application and the RDBMS. 
 
@@ -274,13 +274,6 @@ A more complex scenario involves installing two virtual servers. One server is t
 
 Both VSIs have one extra attached volume and a _Floating IP_. A smaller volume is attached to *sap-wapp*, which is the SAP primary application server (PAS). *sap-wdb* has a larger volume to host the RDBMS and the SAP Central Services (ASCS) instance.
 
-<!-- !!! Other images (or no) need be here !!!
-Given that we have two virtual servers of the same layout, per the example, Figures 4 and 5 are an overview of the virtual servers and the block storage volumes. -->
-
-<!-- ![Figure 4. Virtual server instances](/images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Figure 4. Virtual server instances" caption-side="bottom"} -->
-
-<!-- ![Figure 5. Block storage volumes for VPC](/images/quickstudy-intel-vs-gen2-image15.png "Block storage volumes for VPC"){: caption="Figure 5. Block storage volumes for VPC" caption-side="bottom"} -->
-
 
 ## Preparing your network
 {: #prepare-network-3-tier-wins}
@@ -296,7 +289,6 @@ The two VSIs need to connect to the new network.
 1. Select *sap-test-net2* as **Subnet**.
 1. Leave the other vaulues default and click **Create**.
 
-<!-- ![Figure 13. Data volumes](/images/quickstudy-intel-vs-gen2-image4.png "Data volumes"){: caption="Figure 13. Data volumes" caption-side="bottom"} -->
 
 Maintain your `hosts` files on both servers according to the targeted setup. Usually you find it in the following path: `C:\Windows\System32\drivers\etc\hosts`.
 

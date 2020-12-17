@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -93,10 +93,10 @@ A sample configuration is shown in:
 ### SAP on IBM Db2 using IBM Power Virtual Servers
 {: #anydb-ibm-db2-power-vs}
 
-This is a complementary offering from IBM Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
-See [SAP Note 2855850 - SAP Applications on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported IBM Db2 database versions on AIX running on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
+See [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported IBM Db2 database versions on AIX running on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
 
 
 ## Infrastructure size considerations

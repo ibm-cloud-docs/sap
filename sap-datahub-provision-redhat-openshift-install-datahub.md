@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Data Hub, {{site.data.keyword.cos_full_notm}}, {{site.data.keyword.cos_short}}, {{site.data.keyword.openshiftlong_notm}}, {{site.data.keyword.openshiftshort}}, Red Hat Enterprise Linux, SAP Data Hub on {{site.data.keyword.cloud_notm}}, data orchestration, data governance, data integration
 
@@ -18,7 +18,7 @@ subcollection: sap
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 
-# Preparation and Installation of SAP Data Hub
+# Preparing and Installing SAP Data Hub
 {: #rhos-datahub}
 
 ## Deploying Red Hat's SAP Data Hub (SDH) Observer
@@ -159,7 +159,7 @@ If you're setting up a test environment, you can select **yes** or **no**. Howev
   {: note}
 
 1. Leave **connection timeout in second** blank. It will default to 180 seconds.
-1. Enter the bucket and directory names you entered in [Creating the bucket and the directory](#create-bucket) for **S3 bucket and directory**. In the example, it's `sdh-cos-vora-bucket/checkpoints`.
+1. Enter the bucket and directory names you entered in [Creating the bucket and the directory](#rhos-create-bucket) for **S3 bucket and directory**. In the example, it's `sdh-cos-vora-bucket/checkpoints`.
 1. Enter **yes** to **validate the checkpoint store**.
 
 

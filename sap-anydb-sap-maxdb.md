@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -64,5 +64,5 @@ See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported
 ### SAP MaxDB using IBM Power Virtual Servers)
 {: #anydb-sap-maxdb-power-vs}
 
-See [SAP Note 2855850 - SAP Applications on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported SAP MaxDB versions.
+See [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported SAP MaxDB versions.
 

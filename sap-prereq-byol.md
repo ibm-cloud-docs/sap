@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP NetWeaver, BYOL, bring your own license, SAP certified, SAP License, SAP license key, saplikey, OEM, ASL, SAP OEM
 
@@ -30,7 +30,7 @@ The {{site.data.keyword.cloud}} SAP-Certified infrastructure is "bring your own 
 
 It is recommended to check the license type of your Database Server for your SAP installation scenario onto {{site.data.keyword.cloud_notm}} to avoid unsupported scenarios. Typically the license types are:
 - Full-use database license. Supports both SAP and non-SAP software, unrestricted usage of all functions
-- Runtime database license. Solely to support software licensed from SAP, restricted usage of functions required by the SAP Business Application. This usage can include other database vendors that use OEM.
+- Runtime database license. Solely to support software licensed from SAP, restricted usage of functions required by the SAP Business Application. This usage can include databases from other vendors if those databases were purchases as OEM products through SAP.
 
 ## SAP AnyDB - Bring your own IBM Db2 license
 {: #byol-anydb-ibmdb2}
@@ -65,11 +65,11 @@ Use the following steps to create your SAP license key.
 ### SAP license key with {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s
 {: #byol-netweaver-powervs}
 
-This is a complementary offering from IBM Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
 SAP changed the mechanism for licensing when an {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} is running on the {{site.data.keyword.cloud}}. In the {{site.data.keyword.cloud_notm}}, the product license is not dependent on the underlying hardware that's running the server. The license is associated with the virtual server.
 
 The hardware key is no longer based on the hardware ID, but on the partition UUID of the logical partition (LPAR). The partition UUID is persisted by the platform across restarts, reconfigurations, OS reinstalls, and partition migrations, making it independent of the hardware that is running the virtual servers.
 
-When you request an SAP software license, be sure to use the `HARDWARE KEY` that was generated with an SAP kernel that has the minimum level that is required for running on {[site.data.keyword.cloud_notm]}. The minimum SAP Kernel patch level of the kernel is found in [SAP Note 2879336](https://launchpad.support.sap.com/#/notes/2879336){: external}. Otherwise, your SAP software license becomes invalid as soon as your virtual server is moved to different hardware in the {{site.data.keyword.cloud}}.
+When you request an SAP software license, be sure to use the `HARDWARE KEY` that was generated with an SAP kernel that has the minimum level that is required for running on {{site.data.keyword.cloud_notm}}. The minimum SAP Kernel patch level of the kernel is found in [SAP Note 2879336](https://launchpad.support.sap.com/#/notes/2879336){: external}. Otherwise, your SAP software license becomes invalid as soon as your virtual server is moved to different hardware in the {{site.data.keyword.cloud}}.

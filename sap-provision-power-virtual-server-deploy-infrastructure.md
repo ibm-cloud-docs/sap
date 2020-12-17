@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -23,10 +23,10 @@ subcollection: sap
 # Deploying your infrastructure
 {: #power-vs-set-up-infrastructure}
 
-This is a complementary offering from IBM Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
-**Deploying your infrastructure** describes how to deploy and set up SAP HANA and SAP NetWeaver on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}. The guide includes references to previous sections and includes setting up your network, security, storage, and operating system (OS).
+**Deploying your infrastructure** describes how to deploy and set up SAP HANA and SAP NetWeaver on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}. The guide includes references to previous sections and covers setting up your network, security, storage, and operating system (OS).
 {:shortdesc}
 
 
@@ -75,7 +75,8 @@ Use the following steps to provision a new {{site.data.keyword.IBM_notm}} {{site
 3. Specify the VM-pinning rule. You can choose to soft pin or hard pin a VM to the host where it is running. When you soft pin a VM for high availability, IBM PowerVC automatically migrates the VM back to the original host when the host is back to its operating state. IBM PowerVC runs in the background. If the VM has a licensing restriction with the host, the hard pin option restricts the movement of the VM during maintenance. The default pinning policy is none.
    - For SAP HANA, the recommended choice is soft pin.
    - For SAP NetWeaver, the recommended choice is soft pin. The hard pin option is not required because the SAP license is bound to the virtual instance by a unique ID and not to the physical server's hardware ID.
-4. Select your **SSH key** or define a new SSH key.
+4. Select your **SSH key** or define a new SSH key. For more information, see [Adding an SSH key](/docs/ssh-keys?topic=ssh-keys-adding-an-ssh-key) and an example is shown on [Creating an AIX virtual machine (VM) with SSH keys for root login](/docs/power-iaas?topic=power-iaas-create-vm).
+   - When using an AIX stock image as the boot volume, the root password is not set. You must connect to the AIX VM and set the root password for the system. Without completing this step, SSH login as root appears as being disabled.
 5. Under **Boot Image**, select the **Operating System** and one of the {{site.data.keyword.IBM_notm}}-provided Images of the OS that you want to deploy (usually defined by the OS version). The image might also be a custom image that is loaded to {{site.data.keyword.cloud_notm}}. However, the custom image is not supported currently.
    - For SAP HANA, select **SLES for SAP (HANA) - Client supplied subscription** for the operating system and select the Image
    - For SAP NetWeaver, either select **AIX** or select **SLES for SAP (NetWeaver) - Client supplied subscription** for the operating system and select the Image
@@ -85,10 +86,10 @@ Use the following steps to provision a new {{site.data.keyword.IBM_notm}} {{site
      - The {{site.data.keyword.IBM_notm}}i operating system, is not supported currently
 6. Under **Profile**, select a machine type (which determines the number of available cores and memory)
    - For SAP HANA, only machine type E980 is allowed [(link to specifications information on E980)](https://www.ibm.com/us-en/marketplace/power-system-e980){: external}.
-   - For SAP NetWeaver, use either S922 (see [specifications information on S922)](https://www.ibm.com/products/power-system-s922?mhsrc=ibmsearch_a&mhq=S922)){: external}, or E980 [(link to specifications information on E980)](https://www.ibm.com/us-en/marketplace/power-system-e980){: external}
+   - For SAP NetWeaver, use either S922 (see [specifications information on S922](https://www.ibm.com/products/power-system-s922?mhsrc=ibmsearch_a&mhq=S922){: external}), or E980 (see [specifications information on E980](https://www.ibm.com/us-en/marketplace/power-system-e980){: external}).
 7. Under **Profile**, after the machine type is selected, define the number of CPU **Cores** and **Memory** (RAM) that match the size of your SAP HANA database server or SAP NetWeaver application server
 8. Under **Profile**, choose a Processor type. For a description of the technical differences between *Dedicated processor*, *Shared uncapped processor*, and *Shared capped processor*, see the [FAQ](/docs/power-iaas?topic=power-iaas-power-iaas-faqs#processor) for Power Systems Virtual Servers.
-9. You can either create a **New storage volume** or attach existing storage volumes that are already defined in your {{site.data.keyword.cloud}} account. If you create a new storage volume, specify a unique name for the volume so you can identify it in the list of all volumes.
+9.  You can either create a **New storage volume** or attach existing storage volumes that are already defined in your {{site.data.keyword.cloud}} account. If you create a new storage volume, specify a unique name for the volume so you can identify it in the list of all volumes.
    - For SAP HANA data and log volumes, file systems must be striped over eight volumes. Specify *8* for the quantity of new storage volumes.
 10. Select **Private networks** for communication between SAP instances. For more information, see [Configuring a private network](/docs/power-iaas?topic=power-iaas-configuring-subnet). Optionally, you can configure an extra public network, for example, to get OS updates over the internet.
 11. Click **I have read and agree to the agreements listed below** and click **Create**. The new instance becomes visible in the list of virtual servers with a status of `Creating` for a few minutes. When the status changes to `Active`, you can log in to the server (for example, by using SSH).
@@ -122,7 +123,11 @@ Use the following steps to add a storage volume:
 
   **AIX:** Run the `cfgmgr` command. Server restart isn't necessary. To get the disk overview, run `lsdev -Cc disk`.
 
-1. Extend your existing file systems or create a new one with the OS Logic Volume Manager (LVM).
+1. Extend your existing file systems or create a new one with the OS Logic Volume Manager (LVM). For AIX, see the following links:
+    * [Adding storage for the rootvg during AIX server provisioning](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-adding_storage)
+    * [Extending /tmp](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-extending_tmp)
+    * [Extending or adding paging space](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-extending_paging_space)
+    * [Storage and the AIX Logical Volume Manager](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-storage_aix_lvm)
 
 If you'd like to attach or detach a volume, click **Manage existing volumes** and select the volume. You can also change the boot status of a volume by clicking the **Bootable** toggle.
 
@@ -238,7 +243,11 @@ echo "/dev/mapper/$vg_name-$lv_name ${mount} xfs defaults 1 2 " >> /etc/fstab
 ### Configuring AIX for SAP NetWeaver
 {: #power-vs-config-aix}
 
-After successfully deploying an {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} with AIX, make sure you follow the configuration steps in [SAP Note 323816 - AIX: User limit settings](https://launchpad.support.sap.com/#/notes/323816) and [SAP Note 1972803 - SAP on AIX: Recommendations](https://launchpad.support.sap.com/#/notes/1972803). Also, make sure that you implement any specific configurations that might be required for the SAP products that you are planning to install. For more information, see the respective installation guides for these products.
+After successfully deploying an {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} with AIX, make sure you follow the configuration steps in [SAP Note 323816 - AIX: User limit settings](https://launchpad.support.sap.com/#/notes/323816) and [SAP Note 1972803 - SAP on AIX: Recommendations](https://launchpad.support.sap.com/#/notes/1972803).
+
+For more information, see [Creating an AIX virtual machine (VM) with SSH keys for root login](/docs/power-iaas?topic=power-iaas-create-vm).
+
+Also, make sure to implement any specific configurations that might be required for the SAP products that you are planning to install. For more information, see the respective installation guides for these products.
 
 
 
@@ -319,3 +328,11 @@ The following network options are available to manage your SAP systems from outs
 {: #power-vs-network-for-production}
 
 When you use SAP systems in production, it might be required to configure network connections to servers that are distributed around the world. {{site.data.keyword.cloud_notm}} classic infrastructure has several network options for various customer use cases. The connection between separated and secure {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s and the {{site.data.keyword.cloud_notm}} is realized by using {{site.data.keyword.dlc_full}}. For example, access to the SAP systems that run on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s can be routed from the external systems by an SAP router that is installed in classic {{site.data.keyword.cloud_notm}} through {{site.data.keyword.dlc_short}}.
+
+## For more information
+
+For deployment tips and resources, see the following links:
+
+* [Preparing AIX OS on IBM Power VS for SAP NetWeaver](/docs/sap?topic=sap-power-vs-aix-nw)
+* [Preparing SLES OS on IBM Power VS for SAP HANA](/docs/sap?topic=sap-power-vs-sles-hana)
+

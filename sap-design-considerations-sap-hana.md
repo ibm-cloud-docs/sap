@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -182,7 +182,7 @@ System Types are listed by SAP on [SAP HANA System Types](https://help.sap.com/v
 
 A single-host system is the simplest system installation type. It is possible to run an SAP HANA system entirely on one host server and then scale the system up as needed.
 
-A multi-node / distributed / scale-out cluster is a system installation across multiple host servers with a limit on the CPU/RAM for each host node and a limit on the number of host nodes that can be used. _Information on the maximum scale-out configurations, is listed in the [SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html){: external}._
+A multi-node / distributed / scale-out cluster is a system installation across multiple host servers with a limit on the CPU/RAM for each host node and a limit on the number of host nodes that can be used. _Information on the maximum scale-out configurations, is listed in the [SAP HANA Hardware Directory - Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas){: external}._
 
 
 ### SAP HANA scale-out cluster
@@ -207,7 +207,7 @@ SAP HANA multi-node requires certain networks be in place to function. Before yo
 * An internode network for SAP HANA internal communication that is set up equivalent to the storage network. The internode network is only used for communication between nodes and the data transfer that might be required between the nodes during operations.
 
 
-Within each environment is a separate networking design. The classic infrastructure environment network is the forerunner and is the most robust option of many traditional and physical networking concepts. The VPC Infrastructure environment network is a software-defined network. The IBM Power environment network (as a complementary offering from IBM Systems) is designed with networking principles for enterprise-grade performance.
+Within each environment is a separate networking design. The classic infrastructure environment network is the forerunner and is the most robust option of many traditional and physical networking concepts. The VPC Infrastructure environment network is a software-defined network. The IBM Power environment network (as a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems) is designed with networking principles for enterprise-grade performance.
 
 Given these environment networks are different, configuring additional NIC throughput changes for the different infrastructure options:
 * **Bare Metal, on Classic Infrastructure network:**  To maximize performance and redundancy, the physical network interfaces (NIC) are provided with 10 Gbps and then provisioned with bonding using Link Aggregation Control Protocol (LACP). The switches are configured automatically when ordering redundancy on the physical NIC. _Additional NIC cards might be added, depending on the physical machine specificiation and physical switch availability of ports._

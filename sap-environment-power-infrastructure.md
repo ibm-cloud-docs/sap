@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -20,10 +20,10 @@ subcollection: sap
 {:tip: .tip}
 {:important: .important}
 
-# IBM Power Systems Infrastructure environment introduction
+# {{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment introduction
 {: #power-env-introduction}
 
-This is a complementary offering from IBM Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
 An Infrastructure-as-a-Service (IaaS) environment consists of many components - primarily compute, storage, and network from a specified region (such as the US) and a designated site location (also referred to as zone, which is a data center site).
@@ -32,11 +32,11 @@ An Infrastructure-as-a-Service (IaaS) environment consists of many components - 
 ## Deployment and management
 {: #power-env-deployment-and-management}
 
-{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} is an IBM Power Systems enterprise Infrastructure-as-a-service (IaaS) offering.
+{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} is an {{site.data.keyword.IBM_notm}} Power Systems enterprise Infrastructure-as-a-service (IaaS) offering.
 
 These {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are physically located with low-latency connectivity to the {{site.data.keyword.cloud_notm}} Classic Infrastructure or VPC Infrastructure. In the data centers, the {{site.data.keyword.powerSys_notm}}s are separated from the rest of the {{site.data.keyword.cloud_notm}} servers with separate networks and direct-attached storage. This infrastructure design enables {{site.data.keyword.powerSys_notm}}s to maintain key enterprise software certification and support as its architecture is identical to certified on-premises infrastructure. The internal networks are fenced but have connectivity options to the rest of environments and services on {{site.data.keyword.cloud_notm}}.
 
-IBM Power Systems Infrastructure offerings (such as {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}) are deployed using the [IBM Power Infrastructure console available through {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/services/power-systems-virtual-server).
+{{site.data.keyword.IBM_notm}} Power Systems Infrastructure offerings (such as {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}) are deployed using the [IBM Power Infrastructure console available through {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/services/power-systems-virtual-server).
 
 Alternatively, you can create and manage deployments with any of the following methods:
 - IBM Power Infrastructure plug-in for {{site.data.keyword.cloud_notm}} CLI
@@ -61,7 +61,7 @@ For more information about {{site.data.keyword.cloud_notm}} availability zones /
 ## Networking
 {: #power-env-networking}
 
-The IBM Power Systems Infrastructure network, is built upon IBM Power's enterprise-grade secure networking hardware and connectivity; it can be bridged to the separate {{site.data.keyword.cloud_notm}} networks (either Classic Infrastructure network or VPC Infrastructure network).
+The {{site.data.keyword.IBM_notm}} Power Systems Infrastructure network, is built upon IBM Power's enterprise-grade secure networking hardware and connectivity; it can be bridged to the separate {{site.data.keyword.cloud_notm}} networks (either Classic Infrastructure network or VPC Infrastructure network).
 
 | IBM Power Virtual Server Group network on {{site.data.keyword.cloud_notm}} |
 | -- |
@@ -74,7 +74,7 @@ The IBM Power Systems Infrastructure network, is built upon IBM Power's enterpri
 | Subnet (Public and Private) |
 {: caption="Table 1. Networking component layers overview" caption-side="top"}
 
-Connectivity is available to the IBM Power Systems Infrastructure network leveraging connectivity options available from leading global network providers and TelCo providers in addition to the connectivity options available using the {{site.data.keyword.cloud_notm}} global footprint of more than 60 {{site.data.keyword.cloud_notm}} data centers and 28 points of presence (PoPs).
+Connectivity is available to the {{site.data.keyword.IBM_notm}} Power Systems Infrastructure network leveraging connectivity options available from leading global network providers and TelCo providers in addition to the connectivity options available using the {{site.data.keyword.cloud_notm}} global footprint of more than 60 {{site.data.keyword.cloud_notm}} data centers and 28 points of presence (PoPs).
 
 
 ### Networking VLANs and Subnets
@@ -82,7 +82,7 @@ Connectivity is available to the IBM Power Systems Infrastructure network levera
 
 The following information is a summary of [Configuring connectivity to Power Systems Virtual Server](/docs/power-iaas?topic=power-iaas-configuring-power) and [ Configuring and adding a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet).
 
-The Virtual LAN (VLAN) on the IBM Power Systems Infrastructure network, provides an enterprise-grade private network with full isolation and security. Each VLAN is Public or Private, and is assigned to a specific data center for a specific {{site.data.keyword.cloud_notm}} Account.
+The Virtual LAN (VLAN) on the {{site.data.keyword.IBM_notm}} Power Systems Infrastructure network, provides an enterprise-grade private network with full isolation and security. Each VLAN is Public or Private, and is assigned to a specific data center for a specific {{site.data.keyword.cloud_notm}} Account.
 
 Each VLAN is associated with a single Subnet, for example:
 - Public VLAN `(only one per region)`
@@ -122,15 +122,17 @@ Issues with network connectivity can cause delays for your project if you do not
 If you need to connect to your virtual server through the public internet, in other words, inbound to a virtual server, you can order **_Public IPs_** and attach them to the virtual server per vNIC.
 
 **Various interconnectivity options available, for example:**
-- IBM Power Systems Infrastructure bridged to {{site.data.keyword.cloud_notm}} Classic Infrastructure
-- IBM Power Systems Infrastructure bridged to {{site.data.keyword.cloud_notm}} VPC Infrastructure
-- IBM Power Systems Infrastructure bridged to on-premises data centers by using IBM Direct Link
+- {{site.data.keyword.IBM_notm}} Power Systems Infrastructure bridged to {{site.data.keyword.cloud_notm}} Classic Infrastructure
+- {{site.data.keyword.IBM_notm}} Power Systems Infrastructure bridged to {{site.data.keyword.cloud_notm}} VPC Infrastructure
+- {{site.data.keyword.IBM_notm}} Power Systems Infrastructure bridged to on-premises data centers by using IBM Direct Link
 
 {{site.data.keyword.dlc_full_notm}} must be used to connect your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s with your {{site.data.keyword.cloud_notm}} Classic Infrastructure and VPC Infrastructure resources.
 
+After you configure {{site.data.keyword.dlc_short}}, you must configure routing on your virtual server instance. For more information, see [Adding routes on your instance for the jump server](/docs/sap?topic=sap-quickstudy-nw-power-vs-aix#adding_routes-aix).
+
 {{site.data.keyword.dlc_short}} is also used for closer integration into your backbone infrastructure, for more information, see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access).
 
-For more explanation information about IBM Power Systems Infrastructure, see [IBM Power Virtual Servers](https://www.ibm.com/cloud/power-virtual-server){: external}.
+For more explanation information about {{site.data.keyword.IBM_notm}} Power Systems Infrastructure, see [IBM Power Virtual Servers](https://www.ibm.com/cloud/power-virtual-server){: external}.
 
 Have your networking department contact the IBM Power Virtual Servers Support Team, handled by using [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) after you determine the layout of your landscape and the connectivity that is required on the SAP application layer.
 {: note}
@@ -139,7 +141,7 @@ Have your networking department contact the IBM Power Virtual Servers Support Te
 ## Storage
 {: #power-env-storage}
 
-Within IBM Power Systems Infrastructure, there are two types of storage available:
+Within {{site.data.keyword.IBM_notm}} Power Systems Infrastructure, there are two types of storage available:
 - Block Storage Tier 1 (storage for mission critical application with best characteristics, e.g. NVMe flash storage)
 - Block Storage Tier 3 (default storage type with optimized price/performance, e.g. SSD flash storage)
 
@@ -150,9 +152,9 @@ Block Storage is provided with your {{site.data.keyword.IBM_notm}} {{site.data.k
 
 All Block Storage is selected based on capacity (GB), currently the performance (IOPS) measurement cannot be fine-tuned.
 
-Block Storage for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s is powered underneath by [{{site.data.keyword.IBM_notm}} Storwize](https://www.ibm.com/it-infrastructure/storage/storwize){: external} connected through the Fibre Channel protocol. Example IBM Storwize solutions used underneath Block Storage for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, include:
-- Storwize V7000F (2076-AF6) Dual Controller
-- Storwize V7000 (2076-624) Dual Controller
+Block Storage for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s is powered underneath by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/it-infrastructure/storage){: external} connected through the Fibre Channel protocol.
+
+For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-about-virtual-server#hardware-specifications).
 
 Contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
 
@@ -160,12 +162,12 @@ Contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-s
 ## Compute
 {: #power-env-compute}
 
-There is only one type of IaaS available within the IBM Power Systems Infrastructure environment:
+There is only one type of IaaS available within the {{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment:
 1. {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s
 
 The {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are SAP-certified.
 
-Currently following IBM Power Systems hardware are utilised by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s:
+Currently following {{site.data.keyword.IBM_notm}} Power Systems hardware are utilised by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s:
 -	 S922 – optimized for SAP NetWeaver application server
 -	 E980 – optimized for SAP HANA database server
 

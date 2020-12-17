@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-08"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, SAP HANA, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS
 
@@ -65,7 +65,6 @@ You need to first create a Service ID and then the related API key. Use the foll
 1. Click **Access Policies** > **Assign Access**.
 1. Click **IAM Services** for **Assign Service ID additional access**.
 1. Select **VPC Infrastructure service** for **What type of access do you want to assign?**
-<!-- 1. Select **All resource groups** for **in** .... this would be the right option; but it's not available in the UI! -->
 1. Leave the default **Account** for **in**
 1. Leave **All resource types** for **Resource type** and click **Viewer** for **Platform Access**.
 1. Click **Add** > **Assign**. The VPC Infrastructure Service policy is assigned to your Service ID.
@@ -87,7 +86,7 @@ This is the only opportunity to access the API Key's data. You cannot view this 
 ## Installing the {{site.data.keyword.IBM_notm}} Metrics Collector for SAP on Linux
 {: #install-imcs-linux}
 
-The IMCS is a daemon or service that automatically starts as soon as it is installed and requires an API key. It collects metrics from a virtual server's metadata, {{site.data.keyword.cloud_notm}} infrastructure services, runtime data about resources, such as CPU, memory, network, and disk. The metrics are aggregated and displayed through the web server for SAP customers. SAPOSCOL uses the XML output of this web server.
+The IMCS is a daemon or service that automatically starts as soon as it is installed and requires an API key. It collects metrics from the metadata of the virtual server, {{site.data.keyword.cloud_notm}} infrastructure services, runtime data about resources, such as CPU, memory, network, and disk. The metrics are aggregated and displayed through the web server for SAP customers. SAPOSCOL uses the XML output of this web server.
 
 The IMCS uses port 18181 to display the metrics. Make sure that `port 18181` is not used by any other application. For more information about checking port availability, see [Troubleshooting](#troubleshooting-linux).
 {: important}
@@ -98,10 +97,10 @@ The commands that are listed in this section were run on a Red Hat virtual serve
 Use the following steps to download the IMCS.
 
 1. [Download the IMCS](ftp://public.dhe.ibm.com/cloud/bluemix/sap/linux/){: external}.
-1. Select the appropriate `tar.gz` file. In most cases, use the current version. Connect as **guest**.
-1. Save the file to your internal Downloads folder and click **OK**.
-1. Move or copy the IMCS `tar.gz` file to your VPC virtual server instance.
-1. Extract the file and open the extracted folder.
+2. Select the appropriate `tar.gz` file. In most cases, use the current version. Connect as **guest**.
+3. Save the file to your internal Downloads folder and click **OK**.
+4. Move or copy the IMCS `tar.gz` file to your VPC virtual server instance.
+5. Extract the file and open the extracted folder.
 
    ```
    tar -xvf sap-metrics-collector-v1.3.tar.gz
@@ -109,14 +108,14 @@ Use the following steps to download the IMCS.
    ```
    {: pre}
 
-1. Run the `install-linux.sh` file.
+6. Run the `install-linux.sh` file.
 
    ```
    ./install-linux.sh
    ```
    {: pre}
-1. Paste your [API key](#api-key) when prompted. If you don't have an API key, see [Getting an {{site.data.keyword.cloud_notm}} API key](#get-api-key).
-1. Check to make sure that the IMCS is running after the installation is complete. The service status displays `active` when it is ready.
+7. Paste your [API key](#api-key) when prompted. If you don't have an API key, see [Getting an {{site.data.keyword.cloud_notm}} API key](#get-api-key).
+8. Check to make sure that the IMCS is running after the installation is complete. The service status displays `active` when it is ready.
 
    ```
    sudo systemctl is-active sap-metrics-collector
@@ -126,7 +125,7 @@ Use the following steps to download the IMCS.
 ## Verifying data collection
 {: #verify-data-collection-linux}
 
-After the installation completes and the service is started, it can take time for the IMCS begins collecting metrics. Wait at least 2 minutes after the installation before you you expect full and accurate metrics.
+After the installation completes and the service is started, it can take time for the IMCS begins collecting metrics. Wait at least 2 minutes after the installation before you expect full and accurate metrics.
 
 1. Run the following `curl` command for your localhost address to see your metrics:
 

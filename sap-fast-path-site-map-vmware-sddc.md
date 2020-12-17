@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -30,7 +30,7 @@ Use the links in this section to quickly access relevant documents that you are 
 ## Learn
 {: #fast-path-vmware-sddc-learn}
 
-An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated site location (also referred to as zone, which is a data center site).For more information:
+An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated site location (also referred to as zone, which is a data center site). For more information:
 - [IBM Cloud Classic Infrastructure environment introduction](/docs/sap?topic=sap-classic-env-introduction)
 
 

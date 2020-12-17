@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -141,7 +141,7 @@ For some network requirements, such as DR setup replication scenarios, you must 
 ### Configure high availability for IBM Power Infrastructure
 {: #netweaver-ha-power}
 
-This is a complementary offering from IBM Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
 The {{site.data.keyword.cloud}} environment does not support any pre-configured high-availability (HA) scenarios for SAP. However, you can configure HA scenarios based on the HA extension for the operating system you choose.

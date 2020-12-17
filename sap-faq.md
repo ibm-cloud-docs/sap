@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -308,7 +308,7 @@ Most versions of SAP NetWeaver Application Server (ABAP or JAVA) from 7.0 or hig
 For a full updated list of SAP NetWeaver versions and SAP Kernel Patch Levels supported for the various IaaS options, see the following SAP Notes:
 - [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}}: Supported DB/OS and {{site.data.keyword.cloud_notm}} Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
 - [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances](https://launchpad.support.sap.com/#/notes/2927211)
-- [SAP Note 2855850 - SAP Applications on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)
+- [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)
 
 ## Full list of SAP Notes for the {{site.data.keyword.ibm_cloud_sap}} portfolio
 {: #faq-ibm-cloud-for-sap-portfolio-snotes}
@@ -331,10 +331,10 @@ For a full updated list of SAP NetWeaver versions and SAP Kernel Patch Levels su
 ### SAP Notes that are related to IBM Power Infrastructure connected to {{site.data.keyword.cloud_notm}}
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-power}
 
-- [SAP Note 2923984 - SAP on IBM Power Systems Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984)
-- [SAP Note 2947579 - SAP HANA on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579)
-- [SAP Note 2855850 - SAP Applications on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)
-- [SAP Note 2932766 - Key Monitoring Metrics for SAP on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2932766)
+- [SAP Note 2923984 - SAP on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984)
+- [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579)
+- [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)
+- [SAP Note 2932766 - Key Monitoring Metrics for SAP on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2932766)
 
 
 ### SAP Notes that are related to any Public Cloud or Virtualized Environments

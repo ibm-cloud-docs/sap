@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -65,7 +65,7 @@ Some {{site.data.keyword.ibm_cloud_sap}} Bare Metal profiles do allow alteration
 ### Compute Profiles of SAP-certified IBM Power Virtual Servers
 {: #compute-power}
 
-This is a complementary offering from IBM Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
 You have two compute options for SAP workloads: Power System E980 and Power System S922. Both can run SAP NetWeaver application servers on AIX or Linux&reg;, or SAP database servers with IBM Db2 or Oracle on AIX. SAP HANA runs E980 on Linux.
@@ -74,9 +74,9 @@ Currently, Power System E980 is supported for SAP HANA.
 
 Currently, SAP Workloads on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} are available in Washington, D.C., Dallas, London, and Frankfurt. The number of supported locations is planned to be extended.
 
-All SAP NetWeaver Application Server ABAP-based products and SAP NetWeaver Application Server Java-based products are supported on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}. For SAP NetWeaver-based SAP products, see [SAP Note 2855850 - SAP Applications on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}.
+All SAP NetWeaver Application Server ABAP-based products and SAP NetWeaver Application Server Java-based products are supported on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}. For SAP NetWeaver-based SAP products, see [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}.
 
-All SAP HANA-based products are supported on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s. For support requirements, see [SAP Note 2923984 - SAP on IBM Power Systems Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984){: external}.
+All SAP HANA-based products are supported on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s. For support requirements, see [SAP Note 2923984 - SAP on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984){: external}.
 
 For all other software components or third-party products, contact [SAP Support](https://support.sap.com/en/index.html){: external}.
 
@@ -92,7 +92,7 @@ When you run SAP workloads on VMware, you have significant flexibility and the f
 
 Using VMware for SAP workloads on {{site.data.keyword.cloud_notm}} is certified, by using the "TDI" delivery model for which you would need to run validation checks to gain SAP Support.
 
-However, this is a Type 2 hypervisor and therefore does have a small overhead of CPU/RAM for running ESXi on the Bare Metal, to what is then available for virtual machines to use. On average this overhead is 10%, and is expected by VMware-SAP in virtualized environments. Therefore, customers are encouraged to size correctly and test performance before you go live [SAP Note 2393917 - SAP HANA on VMware vSphere 6.5 and 6.7 in production](https://launchpad.support.sap.com/#/notes/0002393917).
+However, VMware SDDC is a Type 2 hypervisor and therefore does have a small overhead of CPU/RAM that is used for running ESXi on the Bare Metal server. This CPU/RAM overhead is then available for virtual machines to use. On average this overhead is 10%, and is expected by VMware-SAP in virtualized environments. Therefore, customers are encouraged to size correctly and test performance before you go live [SAP Note 2393917 - SAP HANA on VMware vSphere 6.5 and 6.7 in production](https://launchpad.support.sap.com/#/notes/0002393917).
 
 Also, both VMware and SAP agree to the physical to virtual overhead of <10% on average, and provide:
 - The estimation of <10% average overhead with equation `"physical SAPS - 10%"` for virtualized SAPS to use when you size virtual machines
@@ -156,9 +156,9 @@ Therefore for the OS Images it is still required to perform:
 ### OS for IBM Power Virtual Servers
 {: #os-power}
 
-For the Linux&reg; versions to deploy for SAP HANA, see [SAP Note 2947579 - SAP HANA on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}. An SAP S-user ID is required to access the SAP Note. Licensing for Linux is covered by client's "bring your own license" model.
+For the Linux&reg; versions to deploy for SAP HANA, see [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}. An SAP S-user ID is required to access the SAP Note. Licensing for Linux is covered by client's "bring your own license" model.
 
-For the version of IBM AIX or Linux on Power to deploy for SAP NetWeaver-based systems, see [SAP Note 2855850 - SAP Applications on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}. An SAP S-user ID is required to access the SAP Note. License fees for AIX are covered by your monthly billing rate.
+For the version of IBM AIX or Linux on Power to deploy for SAP NetWeaver-based systems, see [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}. An SAP S-user ID is required to access the SAP Note. License fees for AIX are covered by your monthly billing rate.
 
 {{site.data.keyword.cloud_notm}} integrates your SUSE Linux&reg; Enterprise Server (SLES) capabilities into the {{site.data.keyword.cloud_notm}} experience to meet your specific business needs. Licensing for Linux is covered by the "bring your own license (BYOL)" model.
 
