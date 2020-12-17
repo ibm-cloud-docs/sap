@@ -74,7 +74,7 @@ Now is the only opportunity to access the API Key data. You cannot view this API
 ## Installing the {{site.data.keyword.IBM_notm}} Metrics Collector for SAP on Windows
 {: #install-imcs-windows}
 
-The IMCS is a service that automatically starts after the installation is and requires an API key. It collects metrics from a VSI's metadata, {{site.data.keyword.cloud_notm}} infrastructure services, runtime data about resources, such as CPU, memory, network, and disk. The metrics are aggregated and displayed through the web server for SAP customers. SAPOSCOL uses the XML output of this web server.
+The IMCS is a service that automatically starts after the installation is and requires an API key. It collects metrics from the metadata of the virtual server, {{site.data.keyword.cloud_notm}} infrastructure services, runtime data about resources, such as CPU, memory, network, and disk. The metrics are aggregated and displayed through the web server for SAP customers. SAPOSCOL uses the XML output of this web server.
 
 The IMCS uses port 18181 to show the metrics. Make sure that port `18181` is not used by any other application. For more information on how to check port availability, see [Troubleshooting](#troubleshooting-win).
 {:important}
