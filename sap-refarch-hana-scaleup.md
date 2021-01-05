@@ -91,7 +91,7 @@ SAP HANA servers come with a preselected storage layout that fulfills SAP's stor
 
 All SAP Software solutions based on either SAP HANA or on SAP NetWeaver include the entire SAP Business Suite, and SAP S/4HANA can be deployed in the {{site.data.keyword.cloud_notm}} environment. For other software components outside of these components, you need to contact SAP Support. Follow the SAP sizing process to determine the right server size for your project, and choose from the servers that are listed for either the SAP HANA or SAP NetWeaver offering.
 
-For more information on the SAP HANA-certified servers, see the [Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=IBM%20Cloud){: external}.
+For more information on the SAP HANA-certified servers, see the [SAP Certified and Supported SAP HANA Hardware Directory - Certified IaaS Platforms - {{site.data.keyword.cloud_notm}}](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}.
 
 For more information on SAP HANA and SAP NetWeaver sizing, see [Sizing process for SAP Systems)](/docs/sap?topic=sap-sizing).
 

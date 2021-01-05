@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -77,7 +77,7 @@ Training is also available on the different SAP Business One modules. For more i
 ## Infrastructure options for SAP Business One
 {: #b1-iaas}
 
-[All the listed servers for SAP Business One on SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=IBM%20Cloud%23SAP%20Business%20One){: external} are currently certified for the SLES 12 SP4 operating system only.
+[All the listed servers for SAP Business One on SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:120){: external} are currently certified for the SLES 12 SP4 operating system only.
 
 SAP Business One is supported on the following Bare Metal servers:
 - BI.S3.H2.192

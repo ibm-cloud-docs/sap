@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Landscape
 
@@ -58,10 +58,10 @@ If you plan to migrate an on-premises SAP installation into the {{site.data.keyw
 
 Each deployment of SAP HANA Database Server or SAP NetWeaver Application Server will have items to consider. These are included under each relevant section of this documentation.
 
-For further information regarding SAP Landscapes, guidance has been released by IBM Power Systems which provide excellent detailed agnostic information and guidance regarding SAP Landscapes components and setup (which applies to running SAP on any infrastructure, on-premises data centers or Cloud IaaS):
-* [SAP on IBM Power Systems Best Practices Guide](https://www-03.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/WP102618){: external} (click the link in the middle of the page)
-* [IBM Power Systems Virtualization Operation Management for SAP Applications](http://www.redbooks.ibm.com/abstracts/redp5579.html?Open){: external}
-* [SAP HANA on IBM Power Systems and IBM System Storage - Guides](http://www-03.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/WP102502){: external}
+For further information regarding SAP Landscapes, guidance has been released by {{site.data.keyword.IBM_notm}} Power Systems which provide excellent detailed agnostic information and guidance regarding SAP Landscapes components and setup (which applies to running SAP on any infrastructure, on-premises data centers or Cloud IaaS):
+* [SAP on {{site.data.keyword.IBM_notm}} Power Systems Best Practices Guide](https://www-03.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/WP102618){: external} (click the link in the middle of the page)
+* [{{site.data.keyword.IBM_notm}} Power Systems Virtualization Operation Management for SAP Applications](http://www.redbooks.ibm.com/abstracts/redp5579.html?Open){: external}
+* [SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems and IBM System Storage - Guides](http://www-03.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/WP102502){: external}
 
 
 ## Reviewing any relevant SAP and {{site.data.keyword.cloud_notm}} documentation
@@ -116,7 +116,7 @@ Full details of the Profiles available for each Infrastructure option available 
 ### Mapping CPUs derived from SAPS to an IBM Power Virtual Server
 {: #selecting-iaas-power}
 
-This is a complementary offering from IBM Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
 When you create a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} by using the {{site.data.keyword.cloud_notm}} console:
@@ -125,11 +125,11 @@ When you create a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_no
 
 While your data must fit into the instance memory with space for data growth defined by the business and SAP Sizing process, choosing an instance profile with more CPUs improves performance.
 
-To find SAP certified profiles for Cloud IaaS, see [SAP HANA Directory - IaaS Platforms - {{site.data.keyword.cloud_notm}}](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=IBM%20Cloud){: external}; this includes {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s which can be found by using filter "CPU Architeceture" and selecting IBM POWER9.
+To find SAP certified profiles for Cloud IaaS, see [SAP Certified and Supported SAP HANA Hardware Directory - Certified IaaS Platforms - {{site.data.keyword.cloud_notm}}](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}; this includes {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s which can be found by using filter "CPU Architeceture" and selecting IBM POWER9.
 
-To find SAP certified IBM Power Systems hardware, see [SAP HANA Directory - IBM Power Systems](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/power-systems.html){: external}.
+To find SAP certified {{site.data.keyword.IBM_notm}} Power Systems hardware, see [SAP Certified and Supported SAP HANA Hardware Directory - {{site.data.keyword.IBM_notm}} Power Systems](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=power){: external}.
 
-For more information, see [Creating a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server). For information about the pricing difference between CPU types, see [Pricing for IBM Power Systems Virtual Servers on {{site.data.keyword.cloud}}](/docs/power-iaas?topic=power-iaas-pricing-virtual-server). For a description of the technical differences between dedicated, shared capped, and shared uncapped CPUs, see [this FAQ](/docs/power-iaas?topic=power-iaas-power-iaas-faqs#processor).
+For more information, see [Creating a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server). For information about the pricing difference between CPU types, see [Pricing for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers on {{site.data.keyword.cloud}}](/docs/power-iaas?topic=power-iaas-pricing-virtual-server). For a description of the technical differences between dedicated, shared capped, and shared uncapped CPUs, see [this FAQ](/docs/power-iaas?topic=power-iaas-power-iaas-faqs#processor).
 
 
 ## Monitoring your system with SAP tools
@@ -137,7 +137,7 @@ For more information, see [Creating a {{site.data.keyword.IBM_notm}} {{site.data
 
 SAP system monitoring is available through the [SAP Host Agent](https://help.sap.com/viewer/3ce0859db2164fe19541dda577d29020/7.5.9/en-US/48c6f9627a004da5e10000000a421937.html){: external}, which provides monitoring functions that are similar to on-premises installations.
 
-### Monitoring for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s
+### Monitoring for IBM Cloud Intel Virtual Servers (Gen2), on VPC Infrastructure
 {: #monitoring-intel-vs-gen2}
 
 The operating system metrics that the SAP Host Agent provides require the use of [{{site.data.keyword.cloud_notm}} Metrics Collector for SAP](/docs/sap?topic=sap-ibm-metrics-collector-for-sap-linux) and the correct SAP Host Agent patch level.
@@ -145,7 +145,7 @@ The operating system metrics that the SAP Host Agent provides require the use of
 ### Monitoring for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s
 {: #monitoring-power}
 
-For Infrastructure as a Service (IaaS) environments such as {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, the operating system metrics that the SAP Host Agent provides were enhanced. Make sure you have the prerequisite SAP Host Agent patch level installed. For a description of the new metrics and required SAP Host Agent patch level, see [SAP Note 2932766 - Key Monitoring Metrics for SAP on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2932766){: external}.
+For Infrastructure as a Service (IaaS) environments such as {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, the operating system metrics that the SAP Host Agent provides were enhanced. Make sure you have the prerequisite SAP Host Agent patch level installed. For a description of the new metrics and required SAP Host Agent patch level, see [SAP Note 2932766 - Key Monitoring Metrics for SAP on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2932766){: external}.
 
 
 ## Support from IBM Cloud or SAP

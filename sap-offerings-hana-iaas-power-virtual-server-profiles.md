@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -22,7 +22,7 @@ subcollection: sap
 # IBM Power Virtual Server certified profiles for SAP HANA
 {: #hana-iaas-offerings-profiles-power-vs}
 
-This is a complementary offering from IBM Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
 ## Profiles list
@@ -77,7 +77,7 @@ The following is an overview of the SAP-certified profiles with IBM Power Virtua
 | umh1-60x14400 | 60 | 480 | 14400 GB | 360,000 | OLTP |
 {: caption="Table 1. SAP HANA servers" caption-side="top"}
 
-Those marked with an `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median and largest within each profile family. This action has been taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. See [SAP Note 2947579 - SAP HANA on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} for additional detail.
+Those marked with an `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median and largest within each profile family. This action has been taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. See [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} for additional detail.
 {: note}
 
 ### Other Profiles

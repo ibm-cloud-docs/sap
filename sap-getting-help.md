@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, support, support case, premium support, advanced support, basic support, support page, help, SAP ONE Support
 
@@ -65,11 +65,11 @@ If you need to open a support case, collect as much information as possible to h
 ### Requesting support for SAP-certified IBM Power Virtual Servers
 {: #ibm-power-support-case}
 
-All performance-related issues need to be checked by IBM Systems and IBM Cloud support first, to establish whether any infrastructure-related issues exist, before a case of the software stack (SAP Workloads) can be opened.
+All performance-related issues need to be checked by {{site.data.keyword.IBM_notm}} Power Systems and IBM Cloud support first, to establish whether any infrastructure-related issues exist, before a case of the software stack (SAP Workloads) can be opened.
 
 If the issue is operating system (OS) related, go the support portal of the distribution (AIX or Linux&reg;) to open a case.
 
-You can check whether the infrastructure is set up correctly by running a python script on Linux&reg;: `python chk_numa_lpm.py`. For more information, see [SAP Note 2923962 -  - Check SAP HANA NUMA Layout on IBM Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2923962).
+You can check whether the infrastructure is set up correctly by running a python script on Linux&reg;: `python chk_numa_lpm.py`. For more information, see [SAP Note 2923962 -  - Check SAP HANA NUMA Layout on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2923962).
 {: tip}
 
 ### Requesting support for resources in the European Union

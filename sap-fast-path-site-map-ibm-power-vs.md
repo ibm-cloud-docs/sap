@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -62,9 +62,8 @@ Depending on your scenarios, the following information may be also relevant:
 - [SAP NetWeaver - Configure high availability for IBM Power Infrastructure](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha-power)
 - [SAP on IBM Db2 using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-power-vs)
 - [SAP MaxDB using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-maxdb#anydb-sap-maxdb-power-vs)
-- [SAP Sybase ASE using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-sybase-ase#anydb-sap-sybase-ase-power-vs)
+- [SAP ASE using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-ase#anydb-sap-ase-power-vs)
 - [SAP to IBM Power Virtual Server Migration Acceleration Program](/docs/sap?topic=sap-cloud-migration-acceleration-program)
-
 
 
 ## How To
@@ -82,3 +81,4 @@ Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver:
 - [SAP ONE Support process for IBM Power](/docs/sap?topic=sap-help-support#sap-one-support-ibm-power)
 - [FAQ - SAP-certified IBM Power Virtual Servers](/docs/sap?topic=sap-faq-ibm-cloud-for-sap#faq-sap-certified-power-vsi)
 - [FAQ - Profile List with Benchmarks and Specifications](/docs/sap?topic=sap-faq-profile-specs)
+

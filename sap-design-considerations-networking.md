@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -105,9 +105,9 @@ Using the Enterprise Resource Planning (ERP) business application, for example, 
   - SAP HANA secondary failover node _(using SAP HANA System Replication)_
   - SAP HANA tertiary disaster recovery failover node _(using SAP HANA System Replication)_
 
-This describes 1 SAP System within the SAP Landscape. An SAP Landscape might use:
-- One Track, 5 SAP Systems (SBX > DEV > QA > PRE > PRD)
-- Dual Track, 5 SAP Systems (SBX > Proj. DEV + Maint. DEV > Proj. QA + Maint. QA > PRE > PRD)
+  This describes 1 SAP System within the SAP Landscape. An SAP Landscape might use:
+  - One Track, 5 SAP Systems (Sandbox > Development > Testing > Staging > Production)
+  - Dual Track, 5 SAP Systems (Sandbox > New Feature Development + Maintenance Development > New feature testing + Maintenance testing > Staging > Production)
 
 **Therefore for an SAP Landscape potentially 30 to 50 instances of SAP, spread across 10-50 host servers (physical or virtualized) might be required.** This is before more business applications are added for specific business operations, industry, or geographic functions.
 
@@ -120,14 +120,16 @@ Typically, although this varies from case to case, the following networks are re
 
 However, in the simplest scenario there might be one private network for all purposes. It depends on business requirements.
 
-### Additional management systems to enable SAP Systems
+### Additional management systems to enable SAP systems
 {: #network-topology-management-systems}
 
-Depending on your operating system, SAP workload, and network connectivity, you would need to configure access to many more SAP and non-SAP systems. The following is an example of the various management systems that your SAP workloads might require to operate:
+Depending on your operating system, SAP workload, and network connectivity, you might need to configure access to many more SAP and non-SAP systems. The following is a list of various management systems that your SAP workloads might require to operate:
 
-* OS Packages update server; with the different subscription channels of the OS Packages for SAP HANA and SAP NetWeaver
-* Software and patches download server; when the software is downloaded onto the server, you can use various protocols to transfer the files such as SCP or SFTP to transfer the software to the target server for installation
+* OS packages update server, with the different subscription channels of the OS packages for SAP HANA and SAP NetWeaver.
+  * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers. To avoid a common issue that occurs when you use the AIX NIM service handler, see [Using the NIM service handler](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-nim_service_handler).
+* Software and patches download server. When the software is downloaded onto the server, you can use various protocols to transfer the files such as SCP or SFTP to transfer the software to the target server for installation.
 * Time server (NTP), using NTP on {{site.data.keyword.cloud_notm}} private backbone, public internet NTP or private NTP host.
+  * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, see [Configuring the NTP client](/docs/sap?topic=sap-power-vs-sles-hana#power-vs-sles-hana-ntp_time_server) (Linux) or [Configuring the NTP client](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-ntp_time_server_netweaver) (AIX).
 * Gateway (and Proxy) and Firewall hosts
 * Bastion/Jump host. Enables secured pass-through to your Cloud resources from public internet or other network access; often this uses tightly secured SSH on a non-default port.
 * Jump host that is enabled with VNC or RDP. Enables GUI access to a target machine (if GUI and VNC or RDP is installed on the target).
@@ -138,7 +140,7 @@ Depending on your operating system, SAP workload, and network connectivity, you 
 * Network block storage, using iSCSI protocol controlled by MPIO. Runs SCSI commands encapsulated by TCP/IP packets.
 * Network block storage, using Fibre Channel (FC) protocol. Runs SCSI commands encapsulated by FC frames.
 
-Fibre Channel is only required for IBM Power Virtual Servers, and is handled for you during provisioning.
+Fibre Channel is only required for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, and is handled for you during provisioning.
 {: note}
 
 ### Hybrid Cloud setup for SAP
@@ -206,7 +208,7 @@ In particular, for VPC Infrastructure the Availability Zones are geographically 
 
 The following information is a brief summary of [SAP Help Portal - TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports){: external}, which provides an example of the considerations that are required for the security of your SAP Systems and entire IT infrastructure landscape on {{site.data.keyword.cloud_notm}}.
 
-Depending on the SAP Technical Applications used, and the business scenarios being addressed, different hosts are need ports to be opened - traditionally this has been the use of Firewall Port Groups that are combined with Firewall Rules (or individual Firewall Rules per host, although is often becomes unmanageable).
+Depending on the SAP Technical Applications used and the business scenarios being addressed, different hosts will need ports to be opened. Typically, to meet this requirement, the Firewall Port Groups are combined with Firewall Rules. You can also use individual Firewall Rules per host, although is often becomes unmanageable.
 
 The below table includes some of the key Ports to use with SAP Systems that use SAP NetWeaver and SAP HANA, which need correction, depending on the SAP Technical Application’s instance number; the instance numbers 00, 01, 02 are the defaults across the various SAP Technical Applications and will be in different patterns (these patterns are shown with `code blocks` highlighting):
 
@@ -236,10 +238,10 @@ The below table includes some of the key Ports to use with SAP Systems that use 
 | | SAP Web Dispatcher ICM HTTP (Port 80 prefix) Instance Number `90` | 80`90` |
 | | SAP Web Dispatcher ICM HTTPS (Secure, Port 443 prefix) Instance Number `90` | 443`90` |
 | SAP HANA XSA | | |
-| | SAP HANA XSA Instance 00 Client HTTPS via xsuaaserver to xscontroller Web Dispatcher | 3`00`32 |
-| | SAP HANA XSA Instance 00 Internal HTTPS xscontroller to xsuaaserver User Authentication | 3`00`31 |
-| | SAP HANA XSA Instance 00 Client HTTPS to xscontroller Web Dispatcher | 3`00`30 |
-| | SAP HANA XSA Instance 00 Dynamic Range Internal HTTPS xscontroller router to xscontroller data access and application instances | 510`00`-515`00` |
+| | SAP HANA XSA Instance 00 Client HTTPS for the connection to the xscontroller-managed Web Dispatcher (platform router) for purposes of user authentication. | 3`00`32 |
+| | SAP HANA XSA Instance 00 Internal HTTPS for the connection from the xscontroller-managed Web Dispatcher (platform router) to xsuaaserver for purposes of user authentication. | 3`00`31 |
+| | SAP HANA XSA Instance 00 Client HTTPS for the connection to the xscontroller-managed Web Dispatcher for purposes of data access.  | 3`00`30 |
+| | SAP HANA XSA Instance 00 Dynamic Range Internal HTTPS for the connection from the client to the xscontroller-managed Web Dispatcher (Platform Router) for access to the application instance. | 510`00`-515`00` |
 | | SAP HANA XSA Instance 00 Internal HTTPS xsexecagent to xscontroller | 3`00`29 |
 | | SAP HANA XSA Instance 00 Web Dispatcher HTTP(S) routing | 3`00`33 |
 | SAP NetWeaver JAVA | | |

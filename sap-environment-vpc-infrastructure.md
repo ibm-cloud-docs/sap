@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -88,7 +88,7 @@ The following interconnectivity options available:
 * VPC zone to zone,
 * VPC to VPC,
 * VPC to Classic Infrastructure,
-* VPC to IBM Power Systems Infrastructure,
+* VPC to {{site.data.keyword.IBM_notm}} Power Systems Infrastructure,
 * VPC to on-premises data centers by using a VPC VPN Gateway
 
 When a connection to the public internet is not acceptable because of security measures, you can deploy an IPsec Gateway into your VPC to connect to your virtual server. For more information, see [Connectivity to your SAP system landscape - VPC VPN Gateway](/docs/sap?topic=sap-determine-access#determine-access-vpc-vpn-gateway). Or, you can have an even closer integration into your backbone infrastructure by an {{site.data.keyword.cloud_notm}} Direct Link. For more information, see [Connectivity to your SAP system landscape - {{site.data.keyword.cloud_notm}} Direct Link](/docs/sap?topic=sap-determine-access#determine-access-vpc-direct-link).

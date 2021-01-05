@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -133,7 +133,7 @@ Instead, we advise customers who have exceptionally large SAP HANA requirements 
 
 Alternates can include, the creation of a Hybrid Cloud model with the use of the available high-performance scale-up options in traditional datacenter deployments.
 
-An example of Hybrid Cloud used with SAP S/4HANA when exceeding 14-18TB of DRAM, would be the use of IBM Power9 hardware provided by IBM Systems, deployed into Traditional On-Premises datacenters. The maximum **IBM Power9 hardware can support 28TB of DRAM for SAP HANA 2.0 scale-up**. These complementary offerings are already succesfully running many customers SAP workloads at these largest memory footprints, through a close partnership and engineering discussions with SAP, therefore may suit the business needs for such exceptional scale-up requirements. For more information regarding SAP HANA on IBM Power Systems, see [SAP Note 2188482 - SAP HANA on IBM Power Systems: Allowed Hardware](https://launchpad.support.sap.com/#/notes/2188482){: external}.
+An example of Hybrid Cloud used with SAP S/4HANA when exceeding 14-18TB of DRAM, would be the use of IBM Power9 hardware provided by {{site.data.keyword.IBM_notm}} Power Systems, deployed into Traditional On-Premises datacenters. The maximum **IBM Power9 hardware can support 28TB of DRAM for SAP HANA 2.0 scale-up**. These complementary offerings are already succesfully running many customers SAP workloads at these largest memory footprints, through a close partnership and engineering discussions with SAP, therefore may suit the business needs for such exceptional scale-up requirements. For more information regarding SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems, see [SAP Note 2188482 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems: Allowed Hardware](https://launchpad.support.sap.com/#/notes/2188482){: external}.
 
 ## SAP NetWeaver considerations
 {: #s4hana-netweaver}
@@ -145,7 +145,7 @@ The SAP S/4HANA business application is impacted by multiple [SAP NetWeaver Appl
 
 SAP S/4HANA no longer has a stand-alone shipment of SAP NetWeaver Application Server (ABAP) which can be used.
 
-The **SAP S/4HANA Server** component is required to install SA{ S/4HANA}. This component is briefly titled as SAP ABAP Platform and historically called SAP NetWeaver AS ABAP.
+The **SAP S/4HANA Server** component is required to install SAP S/4HANA. This component is briefly titled as SAP ABAP Platform and historically called SAP NetWeaver AS ABAP.
 
 For SAP S/4HANA "AnyPremise" 20xx (for example, 2020), the **SAP S/4HANA Server contains**:
 - SAP ABAP Platform 20xx and SAP Kernel 7.7x _(the version number of these components are only shown after the installation is completed)_

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -515,5 +515,8 @@ Depending on your network bandwidth and latency, you might need to run the SAP S
 
 After you download the installation media, follow the standard SAP installation procedure that is documented in the [SAP installation guides](https://help.sap.com/viewer/index){: external} for your SAP version and components. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2).
 
-As you installed Red Hat Enterprise Linux 7 using this sample deployment, also see [SAP Note 2002167](https://launchpad.support.sap.com/#/notes/2002167){: external}.
-Follow [SAP Note 900929](https://launchpad.support.sap.com/#/notes/900929){: external}.
+
+### Relevant SAP Notes
+
+* [SAP Note 2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167){: external}.
+* [SAP Note 2923773 - Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773){: external}.

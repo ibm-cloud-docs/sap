@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -110,11 +110,11 @@ For Virtual Servers created based on the **mx2-16x128** and **mx2-32x256** profi
 
 After the three data volumes are attached, three new virtual disks appear in the Virtual Server. For the example in this table, those disks are `vdd`, `vde`, and `vdf`.
 
-| Volume Group | Volume | Storage type | IOPS/GB | GB |
-| --- | --- | --- | --- | --- |
-| `hana_vg` | `vdd` | Data volume | 10,000 | 500 GB
-| `hana_vg` | `vde` | Data volume | 10,000 | 500 GB
-| `hana_vg` | `vdf` | Data volume | 10,000 | 500 GB
+| Volume Group | Volume | Storage type | IOPS/GB | GB | \# IOPS |
+| --- | --- | --- | --- | --- | --- |
+| `hana_vg` | `vdd` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
+| `hana_vg` | `vde` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
+| `hana_vg` | `vdf` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
 {: caption="Table 4. Storage for mx2-16x128 and mx2-32x256 profile based VSIs" caption-side="top"}
 
 
@@ -131,13 +131,13 @@ For Virtual Servers created based on the **mx2-48x384** profile the storage volu
 
 After the seven data volumes are attached, seven new virtual disks appear in the Virtual Server. In the example in this table, those disks are `vdd`, `vde`, `vdf`, `vdg`, `vdh`, `vdi`, and `vdj`.
 
-| Volume Group | Volume | Storage type | IOPS/GB | GB |
-| --- | --- | --- | --- | --- |
-| `hana_log_vg` | `vdd` | Data volume | 6,000 | 100 GB
-| `hana_log_vg` | `vde` | Data volume | 6,000 | 100 GB
-| `hana_log_vg` | `vdf` | Data volume | 6,000 | 100 GB
-| `hana_log_vg` | `vdg` | Data volume | 6,000 | 100 GB
-| `hana_vg` | `vdh` | Data volume | 10,000 | 500 GB
-| `hana_vg` | `vdi` | Data volume | 10,000 | 500 GB
-| `hana_vg` | `vdj` | Data volume | 10,000 | 500 GB
+| Volume Group | Volume | Storage type | IOPS/GB | GB | \# IOPS |
+| --- | --- | --- | --- | --- | --- |
+| `hana_log_vg` | `vdd` | Data volume | 60IOPS/GB | 100 GB | 6,000 |
+| `hana_log_vg` | `vde` | Data volume | 60IOPS/GB | 100 GB | 6,000 |
+| `hana_log_vg` | `vdf` | Data volume | 60IOPS/GB | 100 GB | 6,000 |
+| `hana_log_vg` | `vdg` | Data volume | 60IOPS/GB | 100 GB | 6,000 |
+| `hana_vg` | `vdh` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
+| `hana_vg` | `vdi` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
+| `hana_vg` | `vdj` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
 {: caption="Table 5. Storage for mx2-48x384 profile based virtual servers" caption-side="top"}
