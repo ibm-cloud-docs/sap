@@ -46,7 +46,7 @@ The following is an overview of the SAP-certified profiles with IBM Power Virtua
 
 Your business and functional requirements determine the SAP solutions powered by the SAP HANA Database Server or SAP NetWeaver Application Server, and therefore determine how your applications are run in the available infrastructure. For more information:
 - [Mapping CPUs derived from SAPS to an IBM Power Virtual Server](/docs/sap?topic=sap-planning-your-system-landscape#selecting-iaas-power)
-- [Monitoring for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://test.cloud.ibm.com/docs/sap?topic=sap-planning-your-system-landscape#monitoring-power)
+- [Monitoring for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-planning-your-system-landscape#monitoring-power)
 - [Connectivity options within the IBM Power Virtual Server network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-power)
 - [SAP license key with {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-bring-your-own-sap-product-license#byol-netweaver-powervs)
 - [Network Block Storage for IBM Power Virtual Servers](/docs/sap?topic=sap-storage-design-considerations#storage-performance-network-block-power)
