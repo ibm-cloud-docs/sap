@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-01-24"
 
-keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
+keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Balanced, bh1, Compute Intensive, ch1, High Memory, mh1, Ultra Memory, umh1
 
 subcollection: sap
 
@@ -59,7 +59,20 @@ The following is an overview of the SAP-certified profiles with IBM Power Virtua
 | ch1-120x6000 | 120 | 900 | 6000 GB | 720,000 | OLAP * |
 | ch1-140x7000 | 140 | 1,120 | 7000 GB | 840,000 | OLAP |
 | **High Memory** |   |   |   |   |  |
-| - |  |  |  |  |  |
+| mh1-8x1440 | 8 | 64 | 1440 GB | 48,000 | OLAP |
+| mh1-10x1800 | 10 | 80 | 1800 GB | 60,000 | OLAP |
+| mh1-12x2160 | 12 | 96 | 2160 GB | 72,000 | OLAP * |
+| mh1-16x2880 | 16 | 128 | 2880 GB | 96,000 | OLAP * |
+| mh1-20x3600 | 20 | 160 | 3600 GB | 120,000 | OLAP * |
+| mh1-22x3960 | 22 | 176 | 3960 GB | 132,000 | OLAP * |
+| mh1-25x4500 | 25 | 200 | 4500 GB | 150,000 | OLAP * |
+| mh1-30x5400 | 30 | 240 | 5400 GB | 180,000 | OLAP * |
+| mh1-35x6300 | 35 | 280 | 6300 GB | 210,000 | OLAP * |
+| mh1-40x7200 | 40 | 320 | 7200 GB | 240,000 | OLAP * |
+| mh1-50x9000 | 50 | 400 | 9000 GB | 300,000 | OLAP * |
+| mh1-60x10800 | 60 | 460 | 10800 GB | 360,000 | OLAP * |
+| mh1-70x12600 | 70 | 560 | 12600 GB | 420,000 | OLAP * |
+| mh1-80x14400 | 80 | 640 | 14400 GB | 480,000 | OLAP |
 | **Ultra Memory** |   |   |   |   |  |
 | umh1-4x960 | 4 | 32 | 960 GB | 24,000 | OLTP |
 | umh1-6x1440 | 6 | 48 | 1440 GB | 36,000 | OLTP * |
@@ -80,30 +93,6 @@ The following is an overview of the SAP-certified profiles with IBM Power Virtua
 Those marked with an `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median and largest within each profile family. This action has been taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. See [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} for additional detail.
 {: note}
 
-### Other Profiles
-{: #hana-iaas-power-vs-other-list}
-
-The following are other Profiles with IBM Power Virtual Servers, which are not certified for SAP Production when using SAP HANA, but can be useful for testing purposes:
-
-| **Profile** | **CPU Cores** | **CPU Threads (also known as. vCPU, using SMT-8)** | **Memory (RAM GB)** |
-| -- | -- | -- | -- |
-| **High Memory** |   |   |   |
-| mh1-8x1440 | 8 | 64 | 1440 GB |
-| mh1-10x1800 | 10 | 80 | 1800 GB |
-| mh1-12x2160 | 12 | 96 | 2160 GB |
-| mh1-16x2880 | 16 | 128 | 2880 GB |
-| mh1-20x3600 | 20 | 160 | 3600 GB |
-| mh1-22x3960 | 22 | 176 | 3960 GB |
-| mh1-25x4500 | 25 | 200 | 4500 GB |
-| mh1-30x5400 | 30 | 240 | 5400 GB |
-| mh1-35x6300 | 35 | 280 | 6300 GB |
-| mh1-40x7200 | 40 | 320 | 7200 GB |
-| mh1-50x9000 | 50 | 400 | 9000 GB |
-| mh1-60x10800 | 60 | 460 | 10800 GB |
-| mh1-70x12600 | 70 | 560 | 12600 GB |
-| mh1-80x14400 | 80 | 640 | 14400 GB |
-{: caption="Table 2. Additional profiles" caption-side="top"}
-
 
 ## Understanding IBM Power Virtual Server profile names
 {: #hana-iaas-power-vs-names}
@@ -119,7 +108,7 @@ The Virtual Server profile names are contextual and sequential, the following ta
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
-| umh1-16x3840 | umh1 | Ultra Memory SAP HANA for OLTP (higher on the CPU to Memory ratio), 1:40 ratio|
+| umh1-16x3840 | umh1 | Ultra Memory SAP HANA for OLTP (higher on the CPU to Memory ratio), 1:240 ratio|
 | | - | _spacer_ |
 | | 16 | 16 CPU Cores |
 | | x | _spacer_ |
