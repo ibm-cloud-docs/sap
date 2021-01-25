@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-24"
+lastupdated: "2021-01-25"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Balanced, bh1, Compute Intensive, ch1, High Memory, mh1, Ultra Memory, umh1
 
@@ -113,7 +113,7 @@ The Virtual Server profile names are contextual and sequential, the following ta
 | | 16 | 16 CPU Cores |
 | | x | _spacer_ |
 | | 3840 | 3840 GB RAM |
-{: caption="Table 3. Profile naming for SAP HANA" caption-side="top"}
+{: caption="Table 2. Profile naming for SAP HANA" caption-side="top"}
 
 ## Profiles available on Hourly Consumption Billing
 {: #hana-iaas-power-vs-hourly}
