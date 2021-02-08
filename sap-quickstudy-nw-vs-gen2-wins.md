@@ -275,10 +275,10 @@ A more complex scenario involves installing two virtual servers. One server is t
 Both VSIs have one extra attached volume and a _Floating IP_. A smaller volume is attached to *sap-wapp*, which is the SAP primary application server (PAS). *sap-wdb* has a larger volume to host the RDBMS and the SAP Central Services (ASCS) instance.
 
 
+<!-- either these diagrams should be replaced or removed>
+<!--![Figure 4. Virtual server instances](/images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Figure 4. Virtual server instances" caption-side="bottom"} -->
 
-![Figure 4. Virtual server instances](/images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Figure 4. Virtual server instances" caption-side="bottom"} 
-
-![Figure 5. Block storage volumes for VPC](/images/quickstudy-intel-vs-gen2-image15.png "Block storage volumes for VPC"){: caption="Figure 5. Block storage volumes for VPC" caption-side="bottom"}
+<!--![Figure 5. Block storage volumes for VPC](/images/quickstudy-intel-vs-gen2-image15.png "Block storage volumes for VPC"){: caption="Figure 5. Block storage volumes for VPC" caption-side="bottom"}-->
 
 
 ## Preparing your network
