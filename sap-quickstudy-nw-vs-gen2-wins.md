@@ -183,7 +183,7 @@ ibmcloud target -r eu-de
 
 ```
 
-### Get the instance ID
+### Get the instance ID 
 
 ```
 ibmcloud is ins
