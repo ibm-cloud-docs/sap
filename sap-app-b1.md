@@ -77,7 +77,7 @@ Training is also available on the different SAP Business One modules. For more i
 ## Infrastructure options for SAP Business One
 {: #b1-iaas}
 
-[All the listed servers for SAP Business One on SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:120){: external} are currently certified for the SLES 12 SP4 operating system only.
+[All the listed servers for SAP Business One on SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:120){: external} are currently certified for the SLES 12 SP4 and SLES 15 SP1 operating systems only.
 
 SAP Business One is supported on the following Bare Metal servers:
 - BI.S3.H2.192
@@ -86,6 +86,11 @@ SAP Business One is supported on the following Bare Metal servers:
 - BI.S4.H2.192
 - BI.S4.H2.384
 - BI.S4.H2.768
+
+SAP Business One is also supported for the following Intel virtual server (Gen2) profiles:
+- mx2-16x128
+- mx2-32x256
+- mx2-48x384
 
 {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are not available for SAP Business One
 {: note}
