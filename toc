@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="sap" category="compute" audience="compute" href="/docs/sap?topic=sap-get-started" product-page="https://ibm.com/cloud/sap" path="sap"}
+{: .toc subcollection="sap" category="compute" audience="service" href="/docs/sap?topic=sap-get-started" product-page="https://ibm.com/cloud/sap" path="sap"}
 IBM Cloud for SAP | IBM Power Virtual Servers for SAP
 
     {: .navgroup id="learn"}
