@@ -136,6 +136,10 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
     Infrastructure Reference Architectures for SAP
         sap-refarch-hana-scaleup.md
         sap-refarch-hana-scaleout.md
+        sap-refarch-nw-sybase.md
+        sap-refarch-nw-db2.md
+        sap-refarch-nw-mssql.md
+        sap-refarch-nw-hana.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
