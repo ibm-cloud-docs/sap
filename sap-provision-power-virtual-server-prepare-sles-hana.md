@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial, network connectivity, jump server, routes, AIX, Linux, NTP, time server, SSH tunnelling
 
@@ -23,7 +23,7 @@ completion-time: 90m
 {:tip: .tip}
 {:important: .important}
 
-# Preparing SLES OS on IBM Power VS for SAP HANA
+# Preparing Linux OS on IBM Power VS for SAP HANA
 {: #power-vs-sles-hana}
 
 The following information provides an introduction for customers who are new to IBM Power Infrastructure environment.
@@ -45,7 +45,7 @@ ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=600 <user>@<Public IP Addre
 ### SSH tunneling for SAP GUI
 {: #power-vs-sles-hana-sap_gui}
 
-Establish an SSH tunnel from your client machine to the cloud server. For example, if your client machine is running on a Windows operating system, run the following command:
+Establish an SSH tunnel from your client system to the cloud server. For example, if your client system is running on a Windows&reg; operating system, run the following command:
 
 ```
 ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -4 -L 3200:localhost:3200 -N -f -l root <Public IP Address> -p 22
@@ -56,7 +56,7 @@ In this command, 3200 is the port number that is used to connect to an applicati
 ### SSH tunneling for SAP Software Provisioning Manager
 {: #power-vs-sles-hana-swpm}
 
-Establish an SSH tunnel from your client machine to the cloud server. For example, if your client machine is running on a Windows operating system, run the following command:
+Establish an SSH tunnel from your client system to the cloud server. For example, if your client system is running on a Windows&reg; operating system, run the following command:
 
 ```
 ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -4 -L 4237:localhost:4237 -N -f -l root 149.81.129.28 -p 22
@@ -84,12 +84,12 @@ For SSH tunnelling, missing SSH host keys must be generated. For more informatio
 
 A newly provisioned {{site.data.keyword.powerSys_notm}} might not show the correct time when you run the `date` command. The initial time setting on the server often differs by 10 - 15 minutes from the correct time. This time difference can cause problems when you install and run your SAP system on the server, or when you connect the SAP system to your on-premises landscape.
 
-Ensure that time is synchronized for all {{site.data.keyword.powerSys_notm}}s in your SAP system by using the same time server. For information about setting up NTP on Linux, see [Time Synchronization with NTP](https://documentation.suse.com/sles/12-SP5/html/SLES-all/cha-netz-xntp.html){: external}.
+Ensure that time is synchronized for all {{site.data.keyword.powerSys_notm}}s in your SAP system by using the same time server. For information about setting up NTP on Linux&reg;, see [Time Synchronization with NTP](https://documentation.suse.com/sles/12-SP5/html/SLES-all/cha-netz-xntp.html){: external}.
 
 ## Disk provisioning and layout
 {: #power-vs-sles-hana-disk_provisioning_and_layout}
 
-When you provision a new Linux server, the default size of the boot logical volume is 100 GB. To prepare your {{site.data.keyword.powerSys_notm}} instance, see the following resources.
+When you provision a new Linux&reg; server, the default size of the boot logical volume is 100 GB. To prepare your {{site.data.keyword.powerSys_notm}} instance, see the following resources.
 
 | Link                                                                          | Description                               |
 |-------------------------------------------------------------------------------|-------------------------------------------|
@@ -101,7 +101,7 @@ When you provision a new Linux server, the default size of the boot logical volu
 For test systems, follow these guidelines for storage allocation:
 
 * 52 GB of free disk space for the partition `/usr/sap`.
-* Space for three partitions for SAP HANA file storage locations as shown in Table 2:
+* Space for three partitions for SAP HANA file storage locations as shown in Table 2.
 
 | Directory    | Purpose                                    |
 |--------------|--------------------------------------------|
@@ -113,14 +113,14 @@ For test systems, follow these guidelines for storage allocation:
 | /backup      | A preliminary backup on disk **           |
 {: caption="Table 2. SAP HANA file storage locations" caption-side="top"}
 
-** Optional directory for the Linux server
+** Optional directory for the Linux&reg; server
 
-If all disks that you want to use to construct the storage layer for SAP HANA are equal in size, it can be complicated to determine which disks to include in which volume groups.
+It can be complicated to determine which disks are to be included in which volume groups if all the disks you want to use for constructing the storage layer for SAP HANA are equal in size.
 
 Create an Excel spreadsheet with an overview of the naming convention that you want to use, the size of the disks, and LVM information.
 {: tip}
 
-For example, multiple disks aren't needed for the SAPVG using the `/usr/sap` directory. The amount of I/O workload is negligible and not intensive compared to `/hana/data` and `/hana/log` (`/hana/log` depends on your log archive mode).
+For example, multiple disks aren't needed for the SAPVG that uses the `/usr/sap` directory. The amount of I/O workload is negligible and not intensive compared to `/hana/data` and `/hana/log` (`/hana/log` depends on your log archive mode).
 
 ### Example
 {: #power-vs-sles-hana-disk_provisioning_example}
@@ -130,7 +130,7 @@ For `/hana/data` and `hdb_data_vg`, the data is accessed randomly, depending on 
 
 **Add storage volumes:** New Storage Volume
 
-**Provide the name of the new storage volume(s):** datavolumes1-8
+**Provide the name of the new storage volumes:** datavolumes1-8
 
 **Size of volumes to be created**: 60G
 
@@ -149,11 +149,11 @@ For the `/hana/log` and the `hdb_log_vg`, logs are created every 5 minutes, so t
 ### Another example
 {: #power-vs-sles-hana-disk_provisioning_example2}
 
-If `log_mode=normal` and you are using a backup method such as Spectrum Protect that backs up log files and removes them after saving them, provision more storage space. If the process is interrupted, the space in `/hana/log` will be reduced quickly, which can result in a database crash and possible loss of data. See the following example of provisioning storage for `/hana/log` when more space is added.
+If `log_mode=normal` and you are using a backup method such as IBM Spectrum Protect that backs up log files and removes the log files after the files are saved, provision more storage space. If the process is interrupted, the space in `/hana/log` is reduced quickly, which can result in a database crash and possible loss of data. See the following example of provisioning storage for `/hana/log` when more space is added.
 
 **Add Storage Volumes** New Storage Volume
 
-**Provide the name of the new storage volume(s)** logvolumes1-8
+**Provide the name of the new storage volumes** logvolumes1-8
 
 **Size of Volumes to be created** 70G
 
@@ -165,11 +165,11 @@ Disk type is automatically set to **Tier 1**
 
 560 GB of space is allocated for the `hdb_log_vg`.
 
-For `/hana/shared`, provision one physical volume by using the following formula:
+For `/hana/shared`, provision one physical volume by using the following formula.
 
 Size = installation(single - node) = MIN(1x RAM ; 1 TB)
 
-For example, a test HANA server is a scale up sized at 400 GB, thus provisioning a single PD of 400 GB.
+For example, a test HANA server is a scale up that is sized at 400 GB, thus provisioning a single PD of 400 GB.
 
 Currently, scale out is not supported on {{site.data.keyword.powerSys_notm}}s.
 
@@ -178,7 +178,7 @@ When custom sizes are assigned to each of the physical volumes, you can use a si
 ### Disk discovery and storage setup
 {: #power-vs-sles-hana-disk_discovery_and_storage_setup}
 
-On the Linux operating system, scan for the new storage that was provisioned. Run the following command for storage and disk discovery:
+On the Linux&reg; operating system, scan for the new storage that was provisioned. Run the following command for storage and disk discovery:
 
 ```
 /usr/bin/rescan-scsi-bus.sh -a -c -v
@@ -199,7 +199,7 @@ size=100G features='0' hwhandler='1 alua' wp=rwv
 The WWN in the {{site.data.keyword.cloud}} UI contains uppercase letters. In the operating system, the same ID contains lowercase letters.
 {: note}
 
-The following example shows how to identify disks by using disk sizes. The eight data volumes are 60 GB each, the eight log volumes are 70 GB each, the single volume for `sapdata` is 52 GB, and the single volume for the `/hana/shared` directory is 400 GB.
+The following example shows how to identify disks by using disk sizes. The eight data volumes are 60 GB each. The eight log volumes are 70 GB each. The single volume for `sapdata` is 52 GB and the single volume for the `/hana/shared` directory is 400 GB.
 
 Run the following command to check how many volumes were created based on size:
 
@@ -276,7 +276,7 @@ To check the status of the multipathd, run the following command:
 systemctl status multipathd
 ```
 
-To stop the service, run the following command. This isn't advisable because it can cause the partition to no longer boot.
+To stop the service, run the following command. This step isn't advisable because it can cause the partition to no longer boot.
 
 ```
 systemctl stop multipathd
@@ -317,12 +317,12 @@ To change the network adapter for the private network, follow the steps in [Conf
 
 Make sure that your {{site.data.keyword.powerSys_notm}} hostname resolves correctly. Check that the DNS server is entered correctly in `/etc/resolv.conf` and that instance hostname resolution is possible (in the simplest case, through an entry in `/etc/hosts`).
 
-If you are using virtual hostnames for the SAP HANA database server, make sure that the IP addresses, short name, and fully qualified domain names are includes in the hosts file on the SAP HANA server and on any application servers that are connected to the database instance. Issues with hostname or virtual hostname resolution cause problems when you connect the application server to the database backend and configure the hdbuserstore.
+If you are using virtual hostnames for the SAP HANA database server, make sure that the IP addresses, short name, and fully qualified domain names are included in the hosts file on the SAP HANA server and on any application servers that are connected to the database instance. Issues with hostname or virtual hostname resolution can cause problems when you connect the application server to the database backend and configure the hdbuserstore.
 
-## Registering the system
+## Registering the SLES system
 {: #power-vs-sles-hana-register_system}
 
-You can register your {{site.data.keyword.powerSys_notm}}s with SUSE for operating system updates in one of two ways.
+You can register your {{site.data.keyword.powerSys_notm}}s with SLES for operating system updates in one of two ways.
 
 * Register your system by using a public SUSE repository server. This method isn't recommended for SAP HANA systems because connectivity to the internet is required through a public network adapter.
 
@@ -339,10 +339,34 @@ You can register your {{site.data.keyword.powerSys_notm}}s with SUSE for operati
     ./rmt-client-setup https://<RMT_SERVER_IP>
     ```
 
-## Using saptune
+## Registering the RHEL system
+{: #power-vs-rhel-hana-register_system}
+
+You can register your {{site.data.keyword.powerSys_notm}}s with RHEL for operating system updates in one of two ways.
+
+* Register your system by using a public RHEL repository server. This method isn't recommended for SAP HANA systems because connectivity to the internet is required through a public network adapter.
+
+    To register by using a public RHEL repository server, run the following command:
+    ```
+    subscription-manager register --username <USER_ID> --password <PASSWORD>
+    ```
+* Mirror operating system repositories with the Red Hat satellite server and register your systems by using this satellite server. Because the mirror is running in the private network, connectivity to the internet through the public network isn't required. For more information, see [Product Documentation for Red Hat Satellite (6.9 Beta)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.9-beta/){: external}. The Red Hat Satellite server is only available for x86 systems. While you can install the Red Hat Satellite server in your on-premise landscape and configure network access Direct Link, you cannot install Red Hat Satellite server directly in IBM Power VS.
+
+After registering your RHEL OS, you must attach it to the correct repositories. Other repositories must be disabled. Red Hat provides special repository servers for applications like SAP that require extended support. For more information, see [Red Hat Enterprise Linux (RHEL) Extended Update Support (EUS) Overview](https://access.redhat.com/articles/rhel-eus). Also, refer to Red Hat documentation about the required repositories that must be enabled. This information can be changed by RHEL at any time. Thus, the following code is only an example for required SAP repositories with RHEL 8.1 at the time this documentation was written. In this example, specifically state the release your operating system must remain on. Otherwise, your operating system might be upgraded automatically to the next minor release.
+
+    ```
+    subscription-manager release --set=8.1
+    subscription-manager repos --disable="*"
+    subscription-manager repos --enable="rhel-8-for-ppc64le-baseos-e4s-rpms" --enable="rhel-8-for-ppc64le-appstream-e4s-rpms" --enable="rhel-8-for-ppc64le-sap-solutions-e4s-rpms" --enable="rhel-8-for-ppc64le-sap-netweaver-e4s-rpms" --enable="rhel-8-for-ppc64le-highavailability-e4s-rpms"
+
+    ```
+
+After the registration is completed and the correct repositories are assigned, Red Hat recommends updating the system to get all the required patches.
+
+## Using saptune on SLES for SAP
 {: #power-vs-sles-hana-using_saptune}
 
-Use the `saptune` tool to apply the HANA solution to your server. The HANA solution applies recommended operating system settings for SAP HANA on SUSE Linux Enterprise Server.
+Use the `saptune` tool to apply the HANA solution to your server. The HANA solution applies recommended operating system settings for SAP HANA on SUSE&reg; Enterprise Server.
 
 The following sample workflow shows how you can use the `saptune` tool to apply the HANA solution to your server. For more information about `saptune`, see [SAP Note 1275776 - Linux: Preparing SLES for SAP environments](https://launchpad.support.sap.com/#/notes/1275776){: external}.
 
@@ -366,7 +390,7 @@ The following sample workflow shows how you can use the `saptune` tool to apply 
     ```
     sysctl -a| grep -E
     ```
-1. Optional: Simulate the changes that will be applied.
+1. Optional: Simulate the changes to be applied.
     ```
     saptune solution simulate HANA
     ```
@@ -384,6 +408,61 @@ The following sample workflow shows how you can use the `saptune` tool to apply 
 To diagnose startup issues, see [SAP Note 401162 - Linux: Avoiding TCP/IP port conflicts and start problems](https://launchpad.support.sap.com/#/notes/401162){: external}.
 {: tip}
 
+## Using Ansible scripts on RHEL
+{: #power-vs-ansible-scripts-RHEL}
+
+The Red Hat automated operating system preparation for SAP workloads delivers this automation as a set of ansible roles. The RHEL image that is provided by IBM already includes the Ansible execution engine, SAP-related system roles, and the ansible execution files for SAP preparation for SAP NetWeaver and SAP HANA. If you got the most recent updates as mentioned in a previous step, you might get updated SAP-related system roles as well. The execution files are located in the root directory.
+
+   ```
+   [root@rhel-81]# ls -ltr /root/
+   total 28
+   -rw-------. 1 root root 6777 Oct 29  2019 original-ks.cfg
+   -rw-------. 1 root root 7030 Oct 29  2019 anaconda-ks.cfg
+   -rw-r--r--. 1 root root  104 Jan 30 03:38 sap-netweaver.yml
+   -rw-r--r--. 1 root root   99 Jan 30 03:38 sap-hana.yml
+   -rw-r--r--. 1 root root   71 Jan 30 03:38 sap-preconfigure.yml
+   
+   ```
+   
+   - For SAP NetWeaver
+   
+   ```
+   [root@rhel-81]# ansible-playbook /root/sap-netweaver.yml
+   
+   ```
+   
+   - For SAP HANA
+   
+   ```
+   [root@rhel-81]# ansible-playbook /root/sap-hana.yml
+   
+   ```
+   
+For more information about executed tasks, see the following documentation.
+
+   -[SAP Note 2772999 “Red Hat Enterprise Linux 8.x: Installation and Configuration” ](https://launchpad.support.sap.com/#/notes/2772999)
+   -[SAP Note 2777782 “SAP HANA DB: Recommended OS Settings for RHEL 8” ](https://launchpad.support.sap.com/#/notes/2777782)
+   -[SAP Note 2382421 “Optimizing the Network Configuration on HANA- and OS-Level”] (https://launchpad.support.sap.com/#/notes/2382421)
+   -[Red Hat Enterprise Linux System Roles for SAP](https://access.redhat.com/sites/default/files/attachments/rhel_system_roles_for_sap_1.pdf)
+   
+Since these Ansible scripts are executed on the local host, certain tasks must be executed manually. You must set jumbo frames(`MTU='9000'`) and enable TSO on private networks that are used for communication between multiple instances in the SAP three-tier system.
+
+   ```
+   # cd /etc/sysconfig/network-scripts
+   # vi ifcfg-envX <--- name of ethernet device used for communication between SAP instances
+   BROADCAST=''
+   ETHTOOL_OPTS='-K envX tso on '  # <---devicename may differ in config fileBOOTPROTO='static'
+   IPADDR='xx.xx.xx.xx/xx'
+   NAME='Virtual Ethernet card 0' NETWORK=''
+   REMOTE_IPADDR=''
+   STARTMODE='auto'
+   USERCONTROL='no'
+   MTU='9000'
+   
+   ```
+   
+To activate the changes, restart your network (`ifdown envX; nmcli con down 'System envX'; nmcli con up 'System envX'`), or set the MTU for the current configuration (with `ip link set dev <envX> mtu 9000 ` and `ethtool -K <envX> tso on`).
+
 ## NUMA layout
 {: #power-vs-sles-hana-numa_layout}
 
@@ -396,7 +475,7 @@ Download the `chk_numa_lpm.py` script from the following SAP Note: [SAP Note 292
 
 Then, run the `chk_numa_lpm.py` script on your newly provisioned {{site.data.keyword.cloud}} {{site.data.keyword.powerSys_notm}}.
 
-Run the script as follows:
+Run the script as follows.
 
 ```
 ibmdmhan01:/backup/software/numa # ./chk_numa_lpm.py
@@ -425,7 +504,7 @@ In this example, a warning was generated. There are two NUMA nodes with an equal
 ## Installing SAP HANA
 {: #power-vs-sles-hana-installing}
 
-Instead of a Windows jump server, you can provision a Linux jump server and a server with a public and private network. You can use this server as a software repository.
+Instead of a Windows&reg; jump server, you can provision a &reg; jump server and a server with a public and private network. You can use this server as a software repository.
 
 When you provision the jump server, remember to request more disk space so you can create the LVM setup and directory structure. Because the jump server has public access, it can access SAP Market Place and download the software on to the locations you specify. Then, you can enable the file system to be shared with NFS across your new cloud landscape.
 
@@ -456,9 +535,9 @@ When you use this setup, you can mount remotely through NFS. Remember to activat
 ## Information resources for SAP HANA
 {: #power-vs-sles-hana-information_resources_hana}
 
-The following links will assist you with the installation and configuration of your {{site.data.keyword.powerSys_notm}} instances with SAP HANA on Linux. Links with numbers in the title point to the SAP Support Portal.
+The following links can assist you with the installation and configuration of your {{site.data.keyword.powerSys_notm}} instances with SAP HANA on Linux&reg;. Links with numbers in the title point to the SAP Support Portal.
 
-### Operating systems – General Linux
+### Operating systems – General Linux&reg;
 {: #power-vs-sles-hana-snote-os_linux}
 
 | Link                                                                                                                               | Description                                                         |
@@ -490,8 +569,20 @@ The following links will assist you with the installation and configuration of y
 | [1275776 - Linux: Preparing SLES for SAP environments](https://launchpad.support.sap.com/#/notes/1275776)                                                 | Preparing SLES for SAP environments           |
 | [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap)                                                                   | A useful collection of SUSE documentation     |
 | [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/)                                                                              | IBM and SUSE                                  |
-{: caption="Table 4. Operating systems – SUSE Linux" caption-side="top"}
+{: caption="Table 4. Operating systems – SUSE Linux&reg;" caption-side="top"}
 
+
+### Operating systems – Red Hat Linux&reg;
+{: #power-vs-rehl-hana-snote-redhat_linux}
+
+| Link                                                                                                                                                      | Description                                   |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| [SAP Note 2772999 “Red Hat Enterprise Linux 8.x: Installation and Configuration](https://launchpad.support.sap.com/#/notes/2772999)            | -- |
+| [SAP Note 2777782 “SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)                                        | -- |
+| [SAP Note 2382421 “Optimizing the Network Configuration on HANA- and OS-Level”](https://launchpad.support.sap.com/#/notes/2578899)                                         | SLES 15 installation note                     |
+| [2684254 - SAP HANA DB: Recommended OS settings for SLES 15 / SLES for SAP Applications 15](https://launchpad.support.sap.com/#/notes/2382421)            | -- |
+| [Red Hat Enterprise Linux System Roles for SAP](https://access.redhat.com/sites/default/files/attachments/rhel_system_roles_for_sap_1.pdf) | -- |
+{: caption="Table 4. Operating systems – Red Hat Linux&reg;" caption-side="top"}
 
 ### SAP HANA-related information
 {: #power-vs-sles-hana-snote-hana_info}
