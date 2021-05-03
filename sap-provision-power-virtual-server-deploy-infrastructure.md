@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2020-05-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -23,7 +23,7 @@ subcollection: sap
 # Deploying your infrastructure
 {: #power-vs-set-up-infrastructure}
 
-This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This feature is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
 **Deploying your infrastructure** describes how to deploy and set up SAP HANA and SAP NetWeaver on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}. The guide includes references to previous sections and covers setting up your network, security, storage, and operating system (OS).
@@ -37,15 +37,15 @@ Before you order your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSy
 
  * Set up your [resource groups](/docs/account?topic=account-rgs) if you are setting up multiple servers for various purposes.
  * [Invite users](/docs/account?topic=account-access-getstarted) and determine what resources and resource groups they can access.
- * Select a version of the {{site.data.keyword.IBM_notm}} provided SUSE Enterprise Linux&reg; Server (SLES) or IBM AIX stock images (depending on SAP HANA or SAP NetWeaver workload). The operating system version levels of the stock images are subject to change. For more information, see [SAP Note 2855850](https://launchpad.support.sap.com/#/notes/2855850){: external}.
-   * You must use your own SLES license.
-   * You cannot use an existing AIX license for logical partitions (LPARs) in a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} instance. For Linux images, you must use your own license.
+ * Select a version of the {{site.data.keyword.IBM_notm}} provided SUSE Enterprise Linux&reg; Server (SLES), Red Hat Enterprise Linux&reg; (RHEL), or IBM AIX stock images (depending on SAP HANA or SAP NetWeaver workload). The operating system version levels of the stock images are subject to change. For more information, see [SAP Note 2855850](https://launchpad.support.sap.com/#/notes/2855850){: external}.
+   * You must use your own Linux&reg; license.
+   * You cannot use an existing AIX license for logical partitions (LPARs) in a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} instance. For Linux&reg; images, you must use your own license.
 
 
 ## Create your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service
 {: #power-vs-create-power-service-group}
 
-The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an {{site.data.keyword.IBM_notm}}id. Do the following steps to create your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service. For more information, see [Creating a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server).
+The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an {{site.data.keyword.IBM_notm}} ID. Do the following steps to create your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service. For more information, see [Creating a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server).
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
 2. Click **Create resource** > **Compute** > **Infrastructure** > **{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}**.
@@ -72,23 +72,24 @@ Use the following steps to provision a new {{site.data.keyword.IBM_notm}} {{site
 
 1. Highlight your provisioned {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service from the Resources list and click **New Instance**.
 2. Enter a **Name** for your servers and enter the **Number of instances** to be provisioned. More options appear if you enter more than one instance. See [Creating a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server) for option details.
-3. Specify the VM-pinning rule. You can choose to soft pin or hard pin a VM to the host where it is running. When you soft pin a VM for high availability, IBM PowerVC automatically migrates the VM back to the original host when the host is back to its operating state. IBM PowerVC runs in the background. If the VM has a licensing restriction with the host, the hard pin option restricts the movement of the VM during maintenance. The default pinning policy is none.
+3. Specify the VM-pinning rule. You can choose to soft pin or hard pin a VM to the host where it is running. When you choose a soft pin a VM for high availability, IBM PowerVC automatically migrates the VM back to the original host when the host is back to its operating state. IBM PowerVC runs in the background. If the VM has a licensing restriction with the host, the hard pin option restricts the movement of the VM during maintenance. The default pinning policy is none.
    - For SAP HANA, the recommended choice is soft pin.
    - For SAP NetWeaver, the recommended choice is soft pin. The hard pin option is not required because the SAP license is bound to the virtual instance by a unique ID and not to the physical server's hardware ID.
 4. Select your **SSH key** or define a new SSH key. For more information, see [Adding an SSH key](/docs/ssh-keys?topic=ssh-keys-adding-an-ssh-key) and an example is shown on [Creating an AIX virtual machine (VM) with SSH keys for root login](/docs/power-iaas?topic=power-iaas-create-vm).
-   - When using an AIX stock image as the boot volume, the root password is not set. You must connect to the AIX VM and set the root password for the system. Without completing this step, SSH login as root appears as being disabled.
+   - When you use an AIX stock image as the boot volume, the root password is not set. You must connect to the AIX VM and set the root password for the system. Without completing this step, SSH login as 'root' appears disabled.
 5. Under **Boot Image**, select the **Operating System** and one of the {{site.data.keyword.IBM_notm}}-provided Images of the OS that you want to deploy (usually defined by the OS version). The image might also be a custom image that is loaded to {{site.data.keyword.cloud_notm}}. However, the custom image is not supported currently.
-   - For SAP HANA, select **SLES for SAP (HANA) - Client supplied subscription** for the operating system and select the Image
-   - For SAP NetWeaver, either select **AIX** or select **SLES for SAP (NetWeaver) - Client supplied subscription** for the operating system and select the Image
+   - For SAP HANA, select **Linux for SAP (HANA) - Client supplied subscription** for the operating system and select the Image
+   - For SAP NetWeaver, either select **AIX** or select **Linux for SAP (NetWeaver) - Client supplied subscription** for the operating system and select the Image
      - With AIX 7.1, only images at version 7100-05-05 or higher are supported for SAP
      - With AIX 7.2, only images at version 7200-04-01 or higher are supported for SAP
-     - With SLES for SAP (NetWeaver) - Client supplied subscription, all the listed images are supported
-     - The {{site.data.keyword.IBM_notm}}i operating system, is not supported currently
+     - With Linux&reg; for SAP (NetWeaver) - Client supplied subscription, all the listed images are supported
+     - With Linux&reg; for SAP (HANA) - Client supplied subscription, all the listed images are support.
+     - The {{site.data.keyword.IBM_notm}}i operating system is not supported currently
 6. Under **Profile**, select a machine type (which determines the number of available cores and memory)
    - For SAP HANA, only machine type E980 is allowed [(link to specifications information on E980)](https://www.ibm.com/us-en/marketplace/power-system-e980){: external}.
    - For SAP NetWeaver, use either S922 (see [specifications information on S922](https://www.ibm.com/products/power-system-s922?mhsrc=ibmsearch_a&mhq=S922){: external}), or E980 (see [specifications information on E980](https://www.ibm.com/us-en/marketplace/power-system-e980){: external}).
 7. Under **Profile**, after the machine type is selected, define the number of CPU **Cores** and **Memory** (RAM) that match the size of your SAP HANA database server or SAP NetWeaver application server
-8. Under **Profile**, choose a Processor type. For a description of the technical differences between *Dedicated processor*, *Shared uncapped processor*, and *Shared capped processor*, see the [FAQ](/docs/power-iaas?topic=power-iaas-power-iaas-faqs#processor) for Power Systems Virtual Servers.
+8. Under **Profile**, choose a processor type. For a description of the technical differences between *Dedicated processor*, *Shared uncapped processor*, and *Shared capped processor*, see the [FAQ](/docs/power-iaas?topic=power-iaas-power-iaas-faqs#processor) for Power Systems Virtual Servers.
 9.  You can either create a **New storage volume** or attach existing storage volumes that are already defined in your {{site.data.keyword.cloud}} account. If you create a new storage volume, specify a unique name for the volume so you can identify it in the list of all volumes.
    - For SAP HANA data and log volumes, file systems must be striped over eight volumes. Specify *8* for the quantity of new storage volumes.
 10. Select **Private networks** for communication between SAP instances. For more information, see [Configuring a private network](/docs/power-iaas?topic=power-iaas-configuring-subnet). Optionally, you can configure an extra public network, for example, to get OS updates over the internet.
@@ -100,7 +101,7 @@ Use the following steps to provision a new {{site.data.keyword.IBM_notm}} {{site
 ## Adding Network Block Storage
 {: #power-vs-adding-block-storage}
 
-A 20 GB boot disk is automatically created when you provision a new {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} with AIX. The size of the Linux root volume is 100 GB. If you need more space for the root volume group, create a new storage volume and attach it to the virtual server instance. Next, rescan for the new devices and extend the root volume group with the new disk in the operating system.
+A 20 GB boot disk is automatically created when you provision a new {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} with AIX. The size of the Linux&reg; root volume is 100 GB. If you need more space for the root volume group, create a new storage volume and attach it to the virtual server instance. Next, rescan for the new devices and extend the root volume group with the new disk in the operating system.
 
 Use the following steps to add a storage volume:
 
@@ -110,16 +111,16 @@ Use the following steps to add a storage volume:
   Specify a unique name for the volume so you can identify it in the list of all volumes.
   {: tip}
 
-1. Select **Affinity** for the **Affinity policy** and specify the boot disk as the **Affinity volume**. Specifying an Affinity Policy ensures that the new storage will be available in the list to attach to your virtual server instance. By identifying the boot disk as an Affinity Volume, your volumes are on the same backbone storage.
+1. Select **Affinity** for the **Affinity policy** and specify the boot disk as the **Affinity volume**. Specifying an Affinity Policy ensures that the new storage is available in the list to attach to your virtual server instance. By identifying the boot disk as an Affinity Volume, your volumes are on the same backbone storage.
 
    Mixing storage tiers is not supported. If you have a virtual server instance that uses Tier 1, you cannot define Tier 3 disks.
    {: important}
 
 2. Agree to the **Service Agreement** and **Terms and Conditions**, then click **Create Storage Volume**.
 3. Go to the Storage Volume overview to see your new volume listed.
-4. Attach the new volume to your virtual server instance by selecting your instance in the list of Attached Volumes, then click **Manage Existing**. Select the volume that you created and click **Finish**.  
+4. Attach the new volume to your virtual server instance by selecting your instance in the list of Attached Volumes, then click **Manage Existing**. Select the volume that you created and then click **Finish**.  
 
-  **Linux:** If you attached new volumes to your Linux OS, you must run a SCSI scan or restart the operating system (OS) to see the disks (for example: `/usr/bin/rescan-scsi-bus.sh -a -c -v`).
+  **Linux:** If you attached new volumes to your Linux&reg; OS, you must run a SCSI scan or restart the operating system (OS) to see the disks (for example: `/usr/bin/rescan-scsi-bus.sh -a -c -v`).
 
   **AIX:** Run the `cfgmgr` command. Server restart isn't necessary. To get the disk overview, run `lsdev -Cc disk`.
 
@@ -170,12 +171,28 @@ For more information about AIX or IBM i, see:
 {: #power-vs-os}
 
 
-### Bring your own OS product license
+### Bring your own License (BYOL) for OS
 {: #power-vs-os-byol}
 
-When you have your own operating system license, you can install it on your virtual server based on the vendor's instructions. For more information about custom images, see [OS for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-power).
+Linux&reg; OS that uses an OS Image that is provided by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, requires the OS License (BYOL) to be provided. This option is supported by SAP.
 
-Remember, the OS you choose must be certified for SAP and have access to the necessary OS Packages for SAP.
+Unix&reg; OS that uses an OS Image that is provided {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, can use either a monthly subscription or BYOL. This option is supported by SAP.
+
+When you have your own operating system license, you install it based on the vendor's instructions. The OS you choose must be certified for SAP and have access to the necessary OS Packages for SAP.
+
+For more information, see [OS for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-power).
+
+
+### Bring your own OS
+{: #power-vs-os-byos}
+
+Linux&reg; OS that uses an OS Image that is provided by / created by a customer, is **not** supported by SAP.
+
+Unix&reg; OS that uses an OS Image that is provided by / created by a customer, is supported by SAP.
+
+For more information, see [Bring-your-own-OS (custom OS Image and BYOL License)](/docs/sap?topic=sap-compute-os-design-considerations#os-byos) and [OS for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-power).
+
+
 
 ### Configuring SUSE for the SAP HANA or SAP NetWeaver workload
 {: #power-vs-configure_system}
@@ -206,20 +223,96 @@ After you deploy {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_not
   To activate the changes, restart your network (`ifdown ethX; ifup ethX`), or set the MTU for the current configuration (with `ip link set dev <ethX> mtu 9000`).
 1. Verify hostname resolution. Check that the DNS server is correctly entered in `/etc/resolv.conf` and that instance hostname resolution is possible (in the simplest case, through an entry in `/etc/hosts`).
 1. Synchronize time. Ensure that the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s that belong to the same SAP system have their time synchronized. For example, connect your partition to the time server with `ntpdate -u <ntpserver>`.
-1. Tune SUSE Linux Enterprise Server for the SAP HANA or SAP NetWeaver workload. On {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, the same SUSE Linux Enterprise Server image is used for SAP NetWeaver and SAP HANA.
+1. Tune SUSE Linux Enterprise Server for the SAP HANA or SAP NetWeaver workload. On {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, the same SUSE Linux&reg; Enterprise Server image is used for SAP NetWeaver and SAP HANA.
    - For SAP HANA, run the following command to tune the operating system for the SAP HANA workload: `saptune solution apply HANA`. Enable the tuning daemon by running `systemctl enable tuned`.
    - For SAP NetWeaver, run the following command to tune the operating system for the SAP HANA workload: `saptune solution apply NETWEAVER`. Enable the tuning daemon by running `systemctl enable tuned`.
-2. Prepare file systems on extra storage volumes. If you attached extra storage volumes to your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, you must create file systems by using Linux Logical Volume Manager.
+1. Prepare file systems on extra storage volumes. If you attached extra storage volumes to your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, you must create file systems by using Linux&reg; Logical Volume Manager.
    - For an example with SAP HANA, see the following section [Create file systems on SLES12 SP4 by using the command-line interface](#power-vs-create_file_systems).
-3. Register your SAP virtual server by using SUSE. Register your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s by using SUSE (for example, through SUSE RMT server as described in the [SUSE documentation](https://documentation.suse.com/sles/15-SP1/html/SLES-all/cha-rmt-client.html){: external}).
+1. Register your SAP virtual server by using SUSE. Register your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s by using SUSE (for example, through SUSE RMT server as described in the [SUSE documentation](https://documentation.suse.com/sles/15-SP1/html/SLES-all/cha-rmt-client.html){: external}).
 
 
-### Create file systems on SLES12 SP4 by using the command-line interface
+### Configuring RHEL for the SAP HANA or SAP NetWeaver workload
+{: #power-vs-configure_system}
+
+After you deploy {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, do the following steps within the operating system.
+
+1. Configure root user access. You can log in to the system as a root user by using a configured SSH key. Logging in as a root user with a password through SSH is deactivated. You can log in as a root user by using the default password `root` in a virtual console window. After you log in, change the default password for the root user.
+1. Register the operating system by Red Hat. The following example shows registration by public Red Hat repository servers.
+
+   ```
+   subscription-manager register --username <USER> --password <PASSWORD>
+   
+   ```
+
+1. Attach your operating system to a repository pool that contains SAP repositories.
+
+   ```
+   subscription-manager attach --pool=<POOL_ID>
+   
+   ```
+
+1. Configure repositories for SAP workload for RHEL 8.1, then install RHEL updates.
+
+   ```
+   subscription-manager release --set=8.1
+   yum clean all
+   subscription-manager repos --disable="*"
+   subscription-manager repos --enable="rhel-8-for-ppc64le-baseos-e4s-rpms" --enable="rhel-8-for-ppc64le-appstream-e4s-rpms"     --enable="rhel-8-for-ppc64le-sap-solutions-e4s-rpms" --enable="rhel-8-for-ppc64le-sap-netweaver-e4s-rpms" --enable="rhel-  8-for-ppc64le-highavailability-e4s-rpms"
+   yum -y update
+
+   ```
+
+1. Set jumbo frames for internal network adapters. "Jumbo frames" is another way of saying network maximum transmission units (MTU) of 9000-byte payload frames. All the network components in {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s support jumbo frames. In cases where certain network components don't support jumbo frames (for example, in communication to the external world), setting MTU=9000 can cause network issues. Therefore, set MTU=9000 only on adapters that are used internally.
+
+  You must set TCP segmentation offload (tso) on private networks that are used for communication between multiple instances in SAP three-tier systems as follows:
+
+     ```
+    # cd /etc/sysconfig/network-scripts
+    # vi ifcfg-envX <--- name of ethernet device used for communication between SAP instances
+    BROADCAST=''
+    ETHTOOL_OPTS='-K envX tso on '  # <---devicename may differ in config fileBOOTPROTO='static'
+    IPADDR='xx.xx.xx.xx/xx'
+    NAME='Virtual Ethernet card 0' NETWORK=''
+    REMOTE_IPADDR=''
+    STARTMODE='auto'
+    USERCONTROL='no'
+    MTU='9000'
+    
+    ```
+  {: pre}
+
+  To activate the changes, restart your network (`ifdown envX; nmcli con down 'System envX'; nmcli con up 'System envX'`), or set the MTU for the current configuration (with `ip link set dev <envX> mtu 9000` and `ethtool -K <envX> tso on`).
+1. Verify hostname resolution. Check that the DNS server is correctly entered in `/etc/resolv.conf` and that instance hostname resolution is possible (in the simplest case, through an entry in `/etc/hosts`).
+1. Prepare the operating system for SAP by using following ansible file.
+   - For SAP Hana
+   
+   ```
+   ansible-playbook /root/sap-hana.yml
+   
+   ```
+   - For SAP NetWeaver
+   
+   ```
+   ansible-playbook /root/sap-netweaver.yml
+   
+   ```
+   
+1. Install python. This step is required to verify partition readiness for SAP HANA with “chk_numa_lpm.py” script.
+
+   ```
+   yum -y install python36 
+   
+   ```
+
+1. Prepare file systems on extra storage volumes. If you attached extra storage volumes to your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, you must create file systems by using Linux&reg; Logical Volume Manager.
+   - For an example with SAP HANA, see the following section [Create file systems on SLES12 SP4 by using the command-line interface](#power-vs-create_file_systems).
+
+### Create file systems on SLES12 SP4 or RHEL 8.1 by using the command-line interface
 {: #power-vs-create_file_systems}
 
 You can use this example to create volumes for file systems that are required by SAP HANA (HANA data, HANA log, and HANA shared).
 
-The following example shows how you can use Linux Logical Volume Manager to create a file system that is called `/hana/data` based on eight storage volumes, each with a size of 110 GB. The name of the volume group is `hana_data_vg`, and the name of the logical volume is `hana_data_lv`. The volume size must be unique so it can be used as an identifier to find a required storage volume.
+The following example shows how you can use Linux&reg; Logical Volume Manager to create a file system that is called `/hana/data` based on eight storage volumes, each with a size of 110 GB. The name of the volume group is `hana_data_vg`, and the name of the logical volume is `hana_data_lv`. The volume size must be unique so it can be used as an identifier to find a required storage volume.
 
 The root volume is 100 GB. Use different sizes for more volumes.
 {: note}
@@ -229,7 +322,10 @@ export pv_size=110G
 export lv_name=hana_data_lv
 export vg_name=hana_data_vg
 export mount=/hana/data
+# use following command if you DO NOT USE multipath aliases 
 devices=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$2}' | tr '\n' ' ')
+# use following command if you USE multipath aliases 
+devices=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$3}' | tr '\n' ' ')
 stripes=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$2}' | wc | awk '{print $1}')
 pvcreate $devices
 vgcreate ${vg_name} ${devices}
@@ -258,7 +354,7 @@ After you provision your new {{site.data.keyword.IBM_notm}} {{site.data.keyword.
 
 Memory NUMA configuration is not supported by SAP HANA when {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are deployed on a physical server where most of the CPUs and memory are already allocated.
 
-You can run a Python script on Linux to see whether the infrastructure is set up correctly. Download the script from [SAP Note 2923962](https://launchpad.support.sap.com/#/notes/2923962){: external} and run the script on the command line (without any parameters). First, add the execution permissions to the script file. For example, download the script to the `/root` location and run as follows:
+You can run a Python script on Linux&reg; to see whether the infrastructure is set up correctly. Download the script from [SAP Note 2923962](https://launchpad.support.sap.com/#/notes/2923962){: external} and run the script on the command line (without any parameters). First, add the execution permissions to the script file. For example, download the script to the `/root` location and run as follows:
 
 ```
 chmod +x /root/chk_numa_lpm.py
@@ -309,7 +405,7 @@ The following network options are available to manage your SAP systems from outs
 
 1. **{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s that host an SAP workload accessible through a virtual server in {{site.data.keyword.cloud}}.**
 
-  This virtual server can be a Windows or Linux server. This server can be used, for example:
+  This virtual server can be a Windows&reg; or Linux&reg; server. This server can be used, for example:
   * For downloading software and patches. When the software is on the server, you can use SCP or WinSCP or another SSH file transfer protocol (SFTP) application to transfer the software to the SAP virtual server for installation.
   * As a VNC server for installing SAP with the SAP Software Provisioning Manager (SWPM).
   * For management with SAP Logon and SAP GUI.
@@ -317,7 +413,7 @@ The following network options are available to manage your SAP systems from outs
 
   You can set up the virtual server with a public network interface, or restrict the connection through VPN only. For more information about virtual servers in {{site.data.keyword.cloud}} classic infrastructure, see [Getting started with virtual servers](/docs/virtual-servers?topic=virtual-servers-getting-started-tutorial).
 
-  Direct Link Connect for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s is required in this scenario. For more information, see [Direct Link Connect for Power Systems Virtual Servers](/docs/power-iaas?topic=power-iaas-ordering-direct-link-connect).
+  Direct Link connection between {{site.data.keyword.cloud}} and {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s is required in this scenario. For more information, see [Direct Link Connect for Power Systems Virtual Servers](/docs/power-iaas?topic=power-iaas-ordering-direct-link-connect).
 
 2. **{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s that host an SAP workload connected to on-premises networks.**
 
@@ -327,7 +423,7 @@ The following network options are available to manage your SAP systems from outs
 ### Network for production
 {: #power-vs-network-for-production}
 
-When you use SAP systems in production, it might be required to configure network connections to servers that are distributed around the world. {{site.data.keyword.cloud_notm}} classic infrastructure has several network options for various customer use cases. The connection between separated and secure {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s and the {{site.data.keyword.cloud_notm}} is realized by using {{site.data.keyword.dlc_full}}. For example, access to the SAP systems that run on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s can be routed from the external systems by an SAP router that is installed in classic {{site.data.keyword.cloud_notm}} through {{site.data.keyword.dlc_short}}.
+When you use SAP systems in production, it might be required to configure network connections to servers that are distributed around the world. {{site.data.keyword.cloud_notm}} classic infrastructure has several network options for various customer use cases. The connection between separated and secure {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s and the {{site.data.keyword.cloud_notm}} is realized by using {{site.data.keyword.dlc_full}}. For example, access to the SAP systems that run on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s can be routed from the external systems by an SAP router that is installed in classic {{site.data.keyword.cloud_notm}} through {{site.data.keyword.dlc_short}} connection.
 
 ## For more information
 
