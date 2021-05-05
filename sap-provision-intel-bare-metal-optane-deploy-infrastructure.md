@@ -26,16 +26,12 @@ subcollection: sap
 ## Before you begin
 {: #bm-optane-before-you-set-up-infrastructure}
 
-Determine the amount of memory that you need for your application. You have three memory options for PMem:
-
-*  1.5 TB DRAM and 1.5 TB PMem
-*  3.0 TB DRAM and 3.0 TB PMem
-*  6.0 TB DRAM and 6.0 TB PMem
+Determine the amount of memory that you need for your application. 
 
 ## Step 1: Provision your server
 {: #bm-optane-order-server}
 
-Order your Bare Metal SAP HANA server that uses the steps in [Deploying your infrastructure](/docs/sap?topic=sap-bm-set-up-infrastructure). Select the profile for the amount of PMem that you need for your application. 
+Order your Bare Metal SAP HANA server using the steps in [Deploying your infrastructure](/docs/sap?topic=sap-bm-set-up-infrastructure). Select the profile for the amount of PMem that you need for your application. 
 
 ## Step 2: Post-Provisioning Intel Optane PMem
 {: #bm-optane-post-provisioning}
