@@ -21,6 +21,7 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
     {: .topicgroup}
     Infrastructure profiles for SAP HANA database server
         sap-offerings-hana-iaas-intel-bare-metal-profiles.md
+        sap-offerings-hana-iaas-intel-optane-profiles.md
         sap-offerings-hana-iaas-intel-virtual-server-gen2-profiles.md
         sap-offerings-hana-iaas-power-virtual-server-profiles.md
         sap-offerings-hana-iaas-vmware-sddc-profiles.md
@@ -72,6 +73,8 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
     SAP Partner certified solutions
         sap-partners-veeam.md
         sap-partners-ibm-security-services.md
+        sap-partners-intel-optane-pmem.md
+
 
     {: .topicgroup}
     Innovations with IBM Cloud for SAP
@@ -106,6 +109,11 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-provision-intel-bare-metal-deploy-infrastructure.md
 
     {: .topicgroup}
+    Provisioning Intel Bare Metal with Intel Optane DC PMEM for SAP HANA and SAP NetWeaver
+        sap-provision-intel-bare-metal-optane-plan-deploy.md
+        sap-provision-intel-bare-metal-optane-deploy-infrastructure.md
+
+       {: .topicgroup}
     Provisioning Intel Virtual Server (Gen2) for SAP HANA and SAP NetWeaver
         sap-provision-intel-virtual-server-gen2-plan-deploy.md
         sap-provision-intel-virtual-server-gen2-deploy-infrastructure.md
