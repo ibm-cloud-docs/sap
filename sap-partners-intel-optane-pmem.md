@@ -34,7 +34,7 @@ Many systems with large data storage and retrieval needs use DRAM for fast data 
 
 With Intel Optane PMEM, data is retained in memory during system restarts and power outages, providing faster start times. PMEM provides near-DRAM performance and is also byte-addressable. 
 
-Intel Optane PMEM modules are installed with DRAM in the same dual in-line memory module (DIMM) slot. PMEM modules do not function without any DRAM DIMMS installed. The current configurations support a DRAM to PMEM ration of 1:1, providing an equal amount of DRAM and PMEM.
+Intel Optane PMEM modules are installed with DRAM in the same dual in-line memory module (DIMM) slot. PMEM modules do not function without any DRAM DIMMS installed. The current configurations supports profiles for a DRAM to PMEM ratios of 1:1, 1:2, and 1:4.
 
 SAP HANA uses App Direct mode, in which the application stores data on the persistent memory. HANA2 SP04 release or higher was co-engineered by SAP and Intel to use the unique dual memory and storage capability of the PMem modules.   
 
@@ -45,13 +45,25 @@ In App Direct mode, the applications directly access the memory and control the 
 
 You order persistent memory as part of ordering your Bare Metal server. 
 
-Bare Metal server profiles include three options for persistent memory:
+Bare Metal server profiles for the DRAM:PMEM ratios include:
 
-|Profile|Cores|Speed|RAM|Storage|Features|  
-|-------|-------------|---------------|----|----|-----| 
-|[BI.S4.H2.1.5 TB RAM + 1.5 TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=825){: external}|56|2.70 GHx|1536 GB|12 Drives|SAP|
-|[BI.S4.H4.3 TB RAM + 3 TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=1041&itemId=10831){: external}|112|2.70 GHz|3072 GB|12 Drives|SAP|
-|[BI.S4.H8.6 TB RAM + 6 TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=1041&itemId=10831){: external}|224 |2.70 GHz|6144 GB|12 Drives|SAP|
+|DRAM:PMEM ratio|Bare Metal Profile|
+|----|-----|
+|1:1|BI.S4.H2.1.5TB RAM + 1.5TB Persistent Memory|
+|1:1|BI.S4.H4.3TB RAM + 3TB Persistent Memory|
+|1:1|BI.S4.H8.6TB RAM + 6TB Persistent Memory|
+|1:2|BI.S4.H2.768GB RAM + 1.5TB Persistent Memory|
+|1:2|BI.S4.H2.1.5TB RAM + 3TB Persistent Memory|
+|1:2|BI.S4.H2.768GB RAM + 3TB Persistent Memory|
+|1:2|BI.S4.H4.1.5TB RAM + 3TB Persistent Memory|
+|1:2|BI.S4.H4.3TB RAM + 6TB Persistent Memory|
+|1:2|BI.S4.H8.3TB RAM + 6TB Persistent Memory|
+|1:2|BI.S4.H8.6TB RAM + 12TB Persistent Memory|
+|1:4|BI.S4.H2.384GB RAM + 1.5TB Persistent Memory|
+|1:4|BI.S4.H4.768GB RAM + 3TB Persistent Memory|
+|1:4|BI.S4.H4.1.5TB RAM + 6TB Persistent Memory|
+|1:4|BI.S4.H8.1.5TB RAM + 6TB Persistent Memory|
+|1:4|BI.S4.H8.3TB RAM + 12TB Persistent Memory|
 
 ## Sizing 
 {: #sap-partner-intel-optane-sizing}
