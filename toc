@@ -65,9 +65,12 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
     {: .topicgroup}
     SAP AnyDB databases additional design considerations
         sap-anydb-ibm-db2.md
+        sap-anydb-ms-sql.md
         sap-anydb-sap-maxdb.md
         sap-anydb-sap-ase.md
         sap-anydb-sap-iq.md
+        sap-anydb-sap-hana.md
+
 
     {: .topicgroup}
     SAP Partner certified solutions
