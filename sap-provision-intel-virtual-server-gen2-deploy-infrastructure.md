@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -37,10 +37,6 @@ The following steps summarize the setup of VPC and subnets, which is detailed fu
 
 
 1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
-
-  SAP-certified virtual servers are available on the Generation 2 compute environment only.
-  {: note}
-
 1. Click **Create**.
 1. Enter a unique **Name** for the VPC.
 2. Select a **Resource group**. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup) and [What makes a good resource group strategy?](/docs/account?topic=account-account_setup#resource-group-strategy).
@@ -90,7 +86,7 @@ If you disabled _Default address prefixes_, which hid the _New subnet for VPC_ s
 1. Click **Create subnet**.
 
 
-## Provisioning your Intel virtual server (Gen2)
+## Provisioning your Intel virtual server
 {: #vs-provision-server}
 
 Before you can create a virtual server, you must create the VPC and you must create an **SSH key** that you add to the server instance during its creation - see more details on [SSH keys with virtual servers](/docs/vpc?topic=vpc-ssh-keys).
@@ -110,7 +106,7 @@ Use the following steps to order your virtual server and necessary components. F
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 1. Select the same **Location** in which you created your VPC and subnets. The location consists of a region and zone.
 1. Select your preferred **Operating System** from either Windows Server, Red Hat Linux or SUSE Linux to run SAP Netweaver, or from Red Hat or SUSE to run SAP HANA; you find the Linux versions in the tile **Catalog image** > **`...-sap-hana-...`** as the OS images for SAP HANA, or **Catalog image** > **`...-sap-applications-...`** as the OS images for SAP NetWeaver.
-1. Select a **Profile** based on the guidance detailed in [Intel Virtual Server (Gen2) certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server (Gen2) certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc), which lists the profiles that are certified for SAP HANA and SAP NetWeaver.
+1. Select a **Profile** based on the guidance detailed in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc), which lists the profiles that are certified for SAP HANA and SAP NetWeaver.
 1. Select the **SSH key** you want to add to the virtual server. For this step, you can create a new SSH key.
 1. Click **New volume** for **Data volumes**. Data volumes are required.
    - For SAP HANA, these volumes must meet special KPI needs that are defined by SAP and are mandatory. See [Storage specifications - Intel Virtual Server (Gen2) certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-storage-specs) or [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations) to learn these special needs and how you should configure the data volumes.
@@ -131,7 +127,7 @@ Table 1 is a summary of the fields and values that are used to provision {{site.
 | Resource group | Use resource groups to organize your account resources for access control and billing purposes. |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want to create your virtual server. |
 | Operating System | <ul><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-hana-...`**</li><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-applications...`**</li><li>Windows Server for SAP NetWeaver workloads, select Windows Server</li></ul>. Choose an operating system version that is supported by SAP as documented in [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external} |
-| Profile |  Select one of the profiles outlined in [Intel Virtual Server (Gen2) certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server (Gen2) certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc). |
+| Profile |  Select one of the profiles outlined in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key before you can create the instance. SSH keys are used to securely connect to a running instance. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | User data | You can add user data to automatically complete common configuration tasks or run scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
