@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
+  years: 2020, 2021
+lastupdated: "2021-05-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -19,7 +19,7 @@ subcollection: sap
 {:note: .note}
 {:tip: .tip}
 
-# Intel Virtual Server (Gen2) certified profiles for SAP NetWeaver
+# Intel Virtual Server certified profiles for SAP NetWeaver
 {: #nw-iaas-offerings-profiles-intel-vs-vpc}
 
 ## Profiles list
@@ -86,7 +86,7 @@ The Virtual Server profile names are contextual and sequential; this example use
 | | 128 | 128 GB RAM |
 {: caption="Table 2. Profile naming for SAP NetWeaver" caption-side="top"}
 
-For more information, see [Intel Virtual Server (Gen2) for VPC Infrastructure documentation](/docs/vpc?topic=vpc-profiles).
+For more information, see [Intel Virtual Server for VPC Infrastructure documentation](/docs/vpc?topic=vpc-profiles).
 
 
 ## Profiles available on Hourly Consumption Billing
