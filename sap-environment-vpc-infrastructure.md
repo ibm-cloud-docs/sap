@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -157,9 +157,6 @@ No shared storage for virtual servers is available in VPC Gen2 at time of writin
 {: #vpc-env-compute}
 
 There is only one type of IaaS available within the VPC Infrastructure environment:
-1. ~~Intel Virtual Servers (Generation 1)~~ `no longer available, not SAP certified`
-2. Intel Virtual Servers (Generation 2)
-
-The Intel Virtual Servers (Generation 2) are SAP-certified
+- Intel Virtual Servers 
 
 For more information, see [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
