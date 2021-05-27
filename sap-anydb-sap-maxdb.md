@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -56,7 +56,7 @@ For a current overview of the combinations of SAP MaxDB, SAP NetWeaver (or other
 See [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097){: external} for supported SAP MaxDB versions.
 
 
-### SAP MaxDB using Intel Virtual Servers (Gen2)
+### SAP MaxDB using Intel Virtual Servers
 {: #anydb-sap-maxdb-intel-vs-gen2}
 
 See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported SAP MaxDB versions.
