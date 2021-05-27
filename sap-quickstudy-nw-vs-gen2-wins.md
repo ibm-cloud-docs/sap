@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -24,7 +24,7 @@ completion-time:
 {:important: .important}
 {:step: data-tutorial-type='step'}
 
-# SAP NetWeaver deployment to Intel Virtual Server (Gen2) on VPC Infrastructure that uses Windows Server
+# SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure that uses Windows Server
 {: #quickstudy-vs-gen2-netweaver-wins}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="90m"}
@@ -35,9 +35,9 @@ completion-time:
 These Quick Study Tutorials provide a single sample configuration, with less detailed instructions, as an introduction for customers who prefer hands-on tasks to increase their pace of learning.
 {: shortdesc}
 
-The following information provides an introduction for customers who are new to {{site.data.keyword.vpc_full}} (VPC) Gen 2 environment. Two sample configurations are provided to help you through the ordering process to the start of the SAP installation.
+The following information provides an introduction for customers who are new to {{site.data.keyword.vpc_full}} (VPC) environment. Two sample configurations are provided to help you through the ordering process to the start of the SAP installation.
 
-The first configuration sample is simple, a single node 128 GB, 32 vCPU virtual server instance (VSI). The second is an advanced configuration of two nodes by adding a second VSI to the landscape. The sample layouts might not be your preferred layout. The purpose of this guidance is to show you two possibilities if you are not experienced with the Windows&reg; operating system or with VPC Gen 2.
+The first configuration sample is simple, a single node 128 GB, 32 vCPU virtual server instance (VSI). The second is an advanced configuration of two nodes by adding a second VSI to the landscape. The sample layouts might not be your preferred layout. The purpose of this guidance is to show you two possibilities if you are not experienced with the Windows&reg; operating system or with VPC.
 
 Although we want to start quickly, you first must be able to log in to {{site.data.keyword.cloud_notm}} and make sure that you have access to important SAP resources. Read the *Pre-Requisites for SAP Workloads* topic group, under [Necessary account credentials for SAP and {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-necessary-credentials).
 
@@ -105,7 +105,7 @@ Use the following steps to create a virtual server instance.
 1. Select **Windows Server** > **_2016 Standard Edition_** as the _Operating System_.
 1. Click **All profiles** > **Balanced** and select *bx2-32x128*.
 
-For more information about SAP-certified profiles, see [Intel Virtual Server (Gen2) certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
+For more information about SAP-certified profiles, see [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
 
 ### Setting an SSH key
 {: #ssh-key-wins}
