@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -61,7 +61,7 @@ SAP ASE and SAP NetWeaver **on Windows**:
 - [Installation of SAP Systems Based on the Application Server **Java** of SAP NetWeaver 7.3 to 7.5 on Windows: SAP Adaptive Server Enterprise](https://help.sap.com/viewer/2b04bc65d45544bb8ba67c258d4fb2e2/CURRENT_VERSION/en-US)
 
 
-### SAP ASE using Intel Virtual Servers (Gen2)
+### SAP ASE using Intel Virtual Servers
 {: #anydb-sap-ase-intel-vs-vpc}
 
 See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported SAP ASE database versions.
