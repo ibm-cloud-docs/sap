@@ -74,9 +74,9 @@ Resources are deployed into this subnet.
 ### Networking connectivity
 {: #vpc-env-networking-connectivity}
 
-[{{site.data.keyword.vpc_full}} Gen2 network overview](/docs/vpc?topic=vpc-about-networking-for-vpc) demonstrates the connectivity for the environment. Issues with network connectivity can cause delays for your project if you do not plan properly, regardless of how you plan to use your system.
+[{{site.data.keyword.vpc_full}} network overview](/docs/vpc?topic=vpc-about-networking-for-vpc) demonstrates the connectivity for the environment. Issues with network connectivity can cause delays for your project if you do not plan properly, regardless of how you plan to use your system.
 
-In general, {{site.data.keyword.cloud_notm}} VPC Gen2 has a highly available, high-bandwidth network that is connected to every physical server, which serves the hypervisor. Each physical server (host) has a hypervisor that divides the network into virtual network interfaces (vNICs) that are attached to the virtual server.
+In general, {{site.data.keyword.cloud_notm}} VPC has a highly available, high-bandwidth network that is connected to every physical server, which serves the hypervisor. Each physical server (host) has a hypervisor that divides the network into virtual network interfaces (vNICs) that are attached to the virtual server.
 
 Depending on the profile of your virtual server, the total available network bandwidth to the virtual server is in the range of 4 Gbps to 64 Gbps. It's important to consider that each vNIC has a maximum throughput of 16 Gbps, so to achieve maximum throughput, up to 4 additional vNICs must be attached to the virtual server (i.e. a virtual server may have maximum 5 vNICs attached).
 
@@ -134,9 +134,9 @@ A Security Group is a set of _allow_-only firewall rules. You can apply these ru
 ## Storage
 {: #vpc-env-storage}
 
-Only Block Storage with a specified IOPS threshold is available with Virtual Servers (Gen2).
+Only Block Storage with a specified IOPS threshold is available with Virtual Servers.
 
-Block storage is provided with your Virtual Servers (Gen2) and uses input/output operations per second (IOPS) to determine storage needs. It is ideal for storage-intensive applications with high I/O needs, such as an OS, and database and application software. This option is the perfect companion for SAP HANA workloads.
+Block storage is provided with your Virtual Servers and uses input/output operations per second (IOPS) to determine storage needs. It is ideal for storage-intensive applications with high I/O needs, such as an OS, and database and application software. This option is the perfect companion for SAP HANA workloads.
 
 All Block storage is selected based on capacity (GB) and performance (IOPS) measurements and is required to meet a specific SAP Workload.
 
@@ -151,7 +151,7 @@ If you need more than the initially provisioned storage in your virtual server, 
 
 Block storage can be detached and attached to other virtual servers at any time, but, only to one virtual server at the same time.
 
-No shared storage for virtual servers is available in VPC Gen2 at time of writing.
+No shared storage for virtual servers is available in VPC at time of writing.
 
 ## Compute
 {: #vpc-env-compute}
