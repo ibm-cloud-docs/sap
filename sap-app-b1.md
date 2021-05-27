@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -87,7 +87,7 @@ SAP Business One is supported on the following Bare Metal servers:
 - BI.S4.H2.384
 - BI.S4.H2.768
 
-SAP Business One is also supported for the following Intel virtual server (Gen2) profiles:
+SAP Business One is also supported for the following Intel virtual server profiles:
 - mx2-16x128
 - mx2-32x256
 - mx2-48x384
