@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -24,7 +24,7 @@ completion-time: 90m
 {:important: .important}
 {:step: data-tutorial-type='step'}
 
-# SAP NetWeaver deployment to Intel Virtual Server (Gen2) on VPC Infrastructure that uses RHEL
+# SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure that uses RHEL
 {: #quickstudy-vs-gen2-netweaver-rhel}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="90m"}
@@ -39,7 +39,7 @@ The following information provides an introduction for customers who are new to 
 
 The first configuration sample is simple, a single node 128 GB, 32 vCPU server. The second is an advanced configuration of two nodes by adding a second virtual server to the landscape. The sample layouts might not be your preferred layout. The purpose of this guidance is to show you two possibilities if you are not experienced with the Linux&reg; operating system or with VPC Gen 2.
 
-![Figure 1. {{site.data.keyword.cloud_notm}} VPC Gen 2](/images/quickstudy-intel-vs-gen2-image1.png "{{site.data.keyword.cloud_notm}} VPC Gen 2"){: caption="Figure 1. {{site.data.keyword.cloud_notm}} VPC Gen 2" caption-side="bottom"}
+![Figure 1. {{site.data.keyword.cloud_notm}} VPC](/images/quickstudy-intel-vs-gen2-image1.png "{{site.data.keyword.cloud_notm}} VPC Gen 2"){: caption="Figure 1. {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
 
 ## Securing Access
@@ -127,7 +127,7 @@ Use the following steps to create a virtual server instance.
   For every SUSE Linux&reg; Enterprise and Red Hat&reg; Enterprise Linux&reg; version there are two different Catalog Images available each: one for SAP HANA and one for SAP NetWeaver (Applications). In these images, the specific repositories are enabled, so you can install the OS packages that are required to install SAP HANA or SAP NetWeaver.
   {: note}
 
-1. Click **All profiles** > **Balanced** and select *bx2-32x128*. For more information about SAP-certified profiles, see [Intel Virtual Server (Gen2) certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
+1. Click **All profiles** > **Balanced** and select *bx2-32x128*. For more information about SAP-certified profiles, see [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
 
 ![Figure 4. Balanced Profiles for SAP NetWeaver](/images/quickstudy-intel-vs-gen2-image9.png "Balanced Profiles for SAP NetWeaver"){: caption="Figure 4. Balanced profiles for SAP NetWeaver" caption-side="bottom"}
 
