@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -47,7 +47,7 @@ Because customization is controlled on bare metal servers, fast provisioning tim
 For more explanation information about Bare Metal servers on Classic Infrastructure, see [{{site.data.keyword.cloud_notm}} Bare Metal Servers](https://www.ibm.com/cloud/bare-metal-servers){: external} and [{{site.data.keyword.cloud_notm}} Bare Metal Server](/docs/bare-metal?topic=bare-metal-about-bm){: external}.
 
 
-## Intel Virtual Server (Gen2)
+## Intel Virtual Server
 {: #iaas-intel-vs}
 
 {{site.data.keyword.virtualmachineslong}} are virtual machine servers with extensive customization capabilities.
@@ -59,10 +59,9 @@ These servers are managed by the account holder, either you, your customer, or y
 These servers are provisioned with your choice of operating system (OS) image that is installed to {{site.data.keyword.virtualmachinesshort}}.
 
 {{site.data.keyword.vpc_short}} Infrastructure is available for:
-* ~~Intel Virtual Servers (Generation 1), formerly known as VPC on Classic~~ `no longer available, not SAP certified`
-* Intel Virtual Servers (Generation 2), based on the latest hardware designs with large improvements across networking performance (up to 80 Gbps), provision times (5x faster), and a flexible selection of extra features
+* Intel Virtual Servers, based on the latest hardware designs with large improvements across networking performance (up to 80 Gbps), provision times (5x faster), and a flexible selection of extra features
 
-For more explanation information about Virtual Servers on VPC Infrastructure, see [What is {{site.data.keyword.vpc_short}}?](https://www.ibm.com/cloud/learn/vpc){: external} and [{{site.data.keyword.cloud_notm}} Intel Virtual Servers (Gen2) on VPC Infrastructure](/docs/vpc?topic=vpc-about-advanced-virtual-servers){: external}.
+For more explanation information about Virtual Servers on VPC Infrastructure, see [What is {{site.data.keyword.vpc_short}}?](https://www.ibm.com/cloud/learn/vpc){: external} and [{{site.data.keyword.cloud_notm}} Intel Virtual Servers on VPC Infrastructure](/docs/vpc?topic=vpc-about-advanced-virtual-servers){: external}.
 
 
 
