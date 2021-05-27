@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-17"
+lastupdated: "2021-05-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -19,7 +19,7 @@ subcollection: sap
 {:table: .aria-labeledby="caption"}
 
 
-# Fast Path of IBM Cloud Intel Virtual Servers (Gen2)
+# Fast Path of IBM Cloud Intel Virtual Servers
 {: #fast-path-site-map-intel-vs-gen2}
 
 This page is a collection of shortcuts to the documentation sections for each offering, excluding general information that applies to all offerings, such as SAP Sizing.
@@ -35,13 +35,13 @@ An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute,
 
 
 Certified Infrastructure-as-a-Service for SAP HANA database server is available in many variations, each with different capabilities and sizes to fit many different SAP workload scenarios. For more information:
-- [Infrastructure certified for SAP - IBM Intel Virtual Server (Gen2)](/docs/sap?topic=sap-iaas-offerings#iaas-intel-vs)
+- [Infrastructure certified for SAP - IBM Intel Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-intel-vs)
 
 
 The following is an overview of the SAP-certified profiles with IBM Power Virtual Servers for SAP HANA and SAP NetWeaver. For more information:
-- [IBM Cloud Intel Virtual Server (Gen2) certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc)
-- [IBM Cloud Intel Virtual Server (Gen2) certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
-- [Compute Profiles of SAP-certified IBM Cloud Intel Virtual Server (Gen2)](/docs/sap?topic=sap-compute-os-design-considerations#compute-vs-vpc)
+- [IBM Cloud Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc)
+- [IBM Cloud Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
+- [Compute Profiles of SAP-certified IBM Cloud Intel Virtual Server](/docs/sap?topic=sap-compute-os-design-considerations#compute-vs-vpc)
 
 
 Your business and functional requirements determine the SAP solutions powered by the SAP HANA Database Server or SAP NetWeaver Application Server, and therefore determine how your applications are run in the available infrastructure. For more information:
@@ -61,7 +61,7 @@ Depending on your scenarios, the following information may be also relevant:
 ## Tutorials
 {: #fast-path-intel-vs-gen2-tutorials}
 
-- [SAP NetWeaver deployment to Intel Virtual Server (Gen2) on VPC Infrastructure that uses RHEL](/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-rhel)
+- [SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure that uses RHEL](/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-rhel)
 
 
 ## How To
