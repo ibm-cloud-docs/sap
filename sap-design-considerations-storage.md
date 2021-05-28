@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -155,7 +155,7 @@ Table 1 is a sample storage configuration for a 256 GB server with 50,000 [SAPS]
 
 The following sections demonstrate storage configurations in various different SAP workload scenarios, when you are using **VPC Infrastructure**.
 
-### Sample storage configuration for SAP AnyDB with IBM Db2 that uses Intel Virtual Server (Gen2)
+### Sample storage configuration for SAP AnyDB with IBM Db2 that uses Intel Virtual Server
 {: #sample-intel-vs-vpc-anydb-ibm-db2}
 
 For SAP AnyDB that uses IBM Db2 on `mx2-32x256` profile the volumes that are needed are:
