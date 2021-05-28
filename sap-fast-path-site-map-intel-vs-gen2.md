@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2021-05-27"
+  years: 2020, 2021
+lastupdated: "2021-05-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -76,7 +76,7 @@ Provisioning IBM Cloud Bare Metal server for SAP HANA and SAP NetWeaver:
 ## Help
 {: #fast-path-intel-vs-gen2-help}
 
-- [Requesting support for SAP-certified IBM Cloud Intel Virtual Servers (Gen2)](/docs/sap?topic=sap-help-support#ibm-cloud-support-case)
+- [Requesting support for SAP-certified IBM Cloud Intel Virtual Servers](/docs/sap?topic=sap-help-support#ibm-cloud-support-case)
 - [SAP ONE Support process](/docs/sap?topic=sap-help-support#sap-one-support)
 - [FAQ - IBM Cloud for SAP](/docs/sap?topic=sap-faq-ibm-cloud-for-sap)
 - [FAQ - Profile List with Benchmarks and Specifications](/docs/sap?topic=sap-faq-profile-specs)
