@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -126,7 +126,7 @@ You can set up high availability at either the:
 
 How you set up high availability differs depending on the infrastructure types and network types:
 - For Intel Bare Metal that uses Classic Infrastructure network
-- For Intel Virtual Servers (Gen2) that use VPC Infrastructure network _(does not currently support SAP NetWeaver high availability or SAP HANA high availability)_
+- For Intel Virtual Servers that use VPC Infrastructure network _(does not currently support SAP NetWeaver high availability or SAP HANA high availability)_
 - For IBM Power Virtual Servers, on {{site.data.keyword.cloud_notm}} that use IBM Power Virtual Server Group network
 - For VMware that uses Classic Infrastructure network
 
