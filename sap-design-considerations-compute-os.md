@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05028"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -59,7 +59,7 @@ Some {{site.data.keyword.ibm_cloud_sap}} Bare Metal profiles do allow alteration
 ### Compute Profiles of SAP-certified Virtual Servers on VPC Infrastructure
 {: #compute-vs-vpc}
 
-{{site.data.keyword.ibm_cloud_sap}} provides SAP-certified infrastructure by using the latest Generation 2 Virtual Servers. These virtual servers are available with instantaneous provisioning, and are offered in different profiles that define CPU and RAM combinations.
+{{site.data.keyword.ibm_cloud_sap}} provides SAP-certified infrastructure by using the latest Virtual Servers. These virtual servers are available with instantaneous provisioning, and are offered in different profiles that define CPU and RAM combinations.
 
 
 ### Compute Profiles of SAP-certified IBM Power Virtual Servers
