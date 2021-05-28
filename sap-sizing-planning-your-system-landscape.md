@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Landscape
 
@@ -103,12 +103,12 @@ Full details of the Profiles available for each Infrastructure option available 
 
 - SAP HANA profiles
   - [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-intel-bm)
-  - [Intel Virtual Server (Gen2) certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc)
+  - [Intel Virtual Server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc)
   - [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-power-vs)
   - [VMware SDDC certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-vmware)
 - SAP NetWeaver profiles
   - [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-intel-bm)
-  - [Intel Virtual Server (Gen2) certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
+  - [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
   - [IBM Power Virtual Server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-power-vs)
   - [VMware SDDC certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-vmware)
 
