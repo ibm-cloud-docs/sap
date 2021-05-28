@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -211,7 +211,7 @@ Within each environment is a separate networking design. The classic infrastruct
 
 Given these environment networks are different, configuring additional NIC throughput changes for the different infrastructure options:
 * **Bare Metal, on Classic Infrastructure network:**  To maximize performance and redundancy, the physical network interfaces (NIC) are provided with 10 Gbps and then provisioned with bonding using Link Aggregation Control Protocol (LACP). The switches are configured automatically when ordering redundancy on the physical NIC. _Additional NIC cards might be added, depending on the physical machine specificiation and physical switch availability of ports._
-* **Intel Virtual Server (Gen2), on VPC Infrastructure network:** To maximize performance and redundancy, up to 5 network interfaces (vNIC) on multiple Subnets can be added.
+* **Intel Virtual Server, on VPC Infrastructure network:** To maximize performance and redundancy, up to 5 network interfaces (vNIC) on multiple Subnets can be added.
 * **IBM Power Virtual Server, on IBM Power Infrastructure network:** To maximize performance redundancy, multiple network interfaces (vNIC) attached to different VLANs (and their respective Subnets) can be added.
 * **VMware for SAP, on Classic Infrastructure network....**
   * **IBM Cloud for VMware Solutions, on Classic Infrastructure network:** redundant adapters for VMware are set up by the VMware vSphere Distributed Switch (VDS) using either [VDS on NSX-V](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-nsx-v-design#nsx-v-design-distr-switch) or [VDS on NSX-T](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-nsx-t-design#nsx-t-design-distr-switch), in accordance with current VMware best practices for SDDC. While subject to change, redundancy is configured by setting every distributed switch with the [Route Based on Originating Virtual Port](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-959E1CFE-2AE4-4A67-B4D4-2D2E13765715.html) load balancing algorithm. All port groups used by the algorithm should be configured to use use teaming across 2 uplinks (Active: 0,1).
