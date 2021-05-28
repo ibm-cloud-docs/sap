@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-05-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -108,7 +108,7 @@ The {{site.data.keyword.cloud_notm}} SAP-Certified IaaS gives you the flexibilit
 
 The {{site.data.keyword.ibm_cloud_sap}} portfolio primarily consists of four offerings:
 1. {{site.data.keyword.cloud_notm}} Bare Metal
-1. {{site.data.keyword.cloud_notm}} Virtual Servers (Gen2)
+1. {{site.data.keyword.cloud_notm}} Virtual Servers
 1. IBM Power Virtual Servers (complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with connection through {{site.data.keyword.cloud_notm}})
 1. {{site.data.keyword.cloud_notm}} for VMware
 
