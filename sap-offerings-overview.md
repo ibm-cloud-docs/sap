@@ -119,7 +119,7 @@ More information on the these Infrastructure offerings within the {{site.data.ke
 - [{{site.data.keyword.cloud_notm}} VPC Infrastructure environment](/docs/sap?topic=sap-vpc-env-introduction). The latest environment and network, with the newest technologies and networking capabilities.
 - [{{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment](/docs/sap?topic=sap-power-env-introduction). The environment maintained by {{site.data.keyword.IBM_notm}} Power Systems built of IBM Power enterprise components, which has links to either Classic Infrastructure and VPC Infrastructure.
 
-Our documents provide detailed considerations and information for building your SAP environments at each layer for all offerings. However, if you are interested in quickly finding the information related specifically to one of the IaaS offerings, then you may consider using the [Fast Path Site Map](/docs/sap?topic=sap-fast-path-site-map).
+Our documents provide detailed considerations and information for building your SAP environments at each layer for all offerings. However, if you are interested in quickly finding the information related specifically to one of the IaaS offerings, then you may consider using the Fast Path Site Map's for [Intel Bare Metal](/docs/sap?topic=sap-fast-path-site-map-intel-bm), [Intel Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2), [IBM Power Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-power-vs) and [VMware SDDC](/docs/sap?topic=sap-fast-path-site-map-vmware-sddc).
 {: tip}
 
 
