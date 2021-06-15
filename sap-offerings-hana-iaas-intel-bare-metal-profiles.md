@@ -486,8 +486,8 @@ This table compares the file storage (using NFS protocol) and the performance IO
 | 4,000-7,999 | 300-48,000 |
 | 8,000-9,999 | 500-48,000 |
 | 10,000-12,000 | 1,000-48,000 |
-| Up to 24,000 | Up to 96,000 [by special request](./docs/FileStorage?topic=FileStorage-expandCapacity#increasecapacityover12TB) |
-| Up to 18,000 | Up to 180,000 [by special request](./docs/FileStorage?topic=FileStorage-expandCapacity#increasecapacityover12TB) |
+| Up to 24,000 | Up to 96,000 [by special request](/docs/FileStorage?topic=FileStorage-expandCapacity#increasecapacityover12TB) |
+| Up to 18,000 | Up to 180,000 [by special request](/docs/FileStorage?topic=FileStorage-expandCapacity#increasecapacityover12TB) |
 {: caption="Table 3. {{site.data.keyword.filestorage_full_notm}} Performance storage GB and IOPS" caption-side="top"}
 
 

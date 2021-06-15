@@ -111,7 +111,7 @@ In the absence of an IPMI-enabled device, shared storage devices are used.
 In an {{site.data.keyword.cloud_notm}} environment, shared storage devices are implemented by deploying an iSCSI LUN to your servers as a quorum device.
 
 For example, a File Share Witness (FSW) on a Microsoft Cluster, and for storage-based death (SDB) for Linux Pacemaker's Stonith.
-* Click [here](http://linux-ha.org/wiki/Cluster_Concepts){: external} for more information on Linux High Availability Cluster Concepts.
+* Click [here](http://www.linux-ha.org/wiki/Cluster_Concepts){: external} for more information on Linux High Availability Cluster Concepts.
 * Click [here](https://docs.microsoft.com/en-us/windows-server/failover-clustering/manage-cluster-quorum){: external} for more information on configuring and managing quorum servers for Windows Server 2012 and Windows Server 2012 R2.
 
 {{site.data.keyword.cloud_notm}} Block Storage has built-in HA capabilities, so a single shared iSCSI LUN does not introduce a Single Point Of Failure (SPOF) because your network layout is redundant. However, the specifics of your cluster product might require multiple quorum devices.

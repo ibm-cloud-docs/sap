@@ -109,7 +109,7 @@ Use the following steps to download the IMCS.
 After the installation completes and the service is started, it can take time for the IMCS begins collecting metrics. Wait at least 2 minutes after the installation before you expect full and accurate metrics.
 
 1. Open the browser of your choice.
-1. Open the following link: http://localhost:18181/sap/metrics
+1. Open the following link: `http://localhost:18181/sap/metrics`
 
    ```
     <metrics>

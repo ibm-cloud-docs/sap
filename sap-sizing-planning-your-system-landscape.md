@@ -79,7 +79,7 @@ If your organization is new to {{site.data.keyword.cloud_notm}}, read the follow
   * SAP release notes, which can be found in the application help of the relevant SAP product documentation on the [SAP Help Portal](https://help.sap.com/viewer/index){: external}; requires an SAP S-user ID.
   * [SAP HANA Help](https://help.sap.com/viewer/product/SAP_HANA_PLATFORM){: external}
   * [SAP NetWeaver Help](https://help.sap.com/viewer/product/SAP_NETWEAVER/ALL/en-US){: external}
-  * [SAP HANA Installation Guide](https://www.sap.com/products/hana/implementation/resources.html){: external}
+  * [SAP HANA Installation Guide](https://www.sap.com/products/hana/technical.html){: external}
   * [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}; requires an SAP S-user ID.
   * [SAP Notes](https://support.sap.com/en/my-support/knowledge-base.html){: external}; requires an SAP S-user ID.
   * Third-party documentation

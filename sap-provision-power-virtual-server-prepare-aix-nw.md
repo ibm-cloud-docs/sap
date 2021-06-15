@@ -497,7 +497,7 @@ The following links will assist you in the installation and configuration of you
 | [1972803 - SAP on AIX: Recommendations](https://launchpad.support.sap.com/#/notes/1972803)                                                 | Guidance on how to optimally configure AIX for SAP     |
 | [2630086 - Avoid signal 33, out of memory on AIX](https://launchpad.support.sap.com/#/notes/2630086)                                       | Signals paging and memory situations - recommended      |
 | [AIX Service Strategy and Best Practices](https://www.ibm.com/support/pages/node/3464613)                                               | The AIX journey and strategy                               |
-| [IBM Knowledge Center AIX](https://www.ibm.com/support/knowledgecenter/ssw_aix)                                                             | A central link for AIX information                                |
+| [IBM Knowledge Center AIX](https://www.ibm.com/docs/en/aix)                                                             | A central link for AIX information                                |
 | [Troubleshooting AIX 7.2](https://www.ibm.com/support/knowledgecenter/ssw_aix_72/navigation/troubleshooting.html)                                                               | Useful problem solving                               |
 | [IBM Fix Central](https://www.ibm.com/support/fixcentral/)                                                                       | Fix Central for your AIX filesets and operating system upgrade source    |
 | [Services and Support Best Practices POWER9](https://www14.software.ibm.com/webapp/set2/sas/f/best/home.html)                                            | Download the PDF and see the command reference        |
