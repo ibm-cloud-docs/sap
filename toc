@@ -55,34 +55,72 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-app-s4hana.md
         sap-app-bw4hana.md
         sap-app-commerce.md
+        sap-app-ecc.md
+        sap-app-bw.md
         sap-app-b1.md
+        sap-app-bo-bi.md
         sap-app-data-hub-2x.md
+        sap-app-data-intelligence-3x.md
 
     {: .topicgroup}
     SAP Technical Applications additional design considerations
+        sap-app-router.md
+        sap-app-web-dispatcher.md
+        sap-app-fiori-fes.md
+        sap-app-gateway.md
+        sap-app-solution-mgr.md
         sap-app-content-server.md
+        sap-app-adobe-doc.md
+        sap-app-po-pi.md
+        sap-app-lama.md
+        sap-app-secure-logon-server.md
 
     {: .topicgroup}
     SAP AnyDB databases additional design considerations
         sap-anydb-ibm-db2.md
         sap-anydb-ms-sql.md
+        sap-anydb-oracle-db.md
         sap-anydb-sap-maxdb.md
         sap-anydb-sap-ase.md
         sap-anydb-sap-iq.md
         sap-anydb-sap-hana.md
 
+    {: .topicgroup}
+    SAP Development Applications additional design considerations
+        sap-app-scp.md
+        sap-app-scp-single-tenant.md
+
+    {: .topicgroup}
+    Operating Systems for SAP additional design considerations
+        sap-os-rhel.md
+        sap-os-sles.md
+        sap-os-ibm-aix.md
+        sap-os-windows-server.md
 
     {: .topicgroup}
     SAP Partner certified solutions
         sap-partners-veeam.md
+        sap-partners-actifio.md
+        sap-partners-f5.md
+        sap-partners-hytrust.md
         sap-partners-ibm-security-services.md
         sap-partners-intel-optane-pmem.md
 
+    {: .topicgroup}
+    IBM certified for SAP solutions
+        sap-ibm-cloud-paks-mcm.md
+        sap-ibm-cloud-paks-integration.md
 
     {: .topicgroup}
     Innovations with IBM Cloud for SAP
         sap-ibm-abap-sdk-watson.md
+        sap-ibm-the-weather-company.md
         sap-ibm-cloud-migration-program.md
+
+    {: .topicgroup}
+    Billing Considerations for SAP Workloads
+        sap-billing-considerations-storage.md
+        sap-billing-considerations-networking.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
@@ -92,10 +130,16 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-quickstudy-nw-bm-wins.md
         sap-quickstudy-nw-vs-gen2-rhel.md
         sap-quickstudy-nw-vs-gen2-wins.md
+        sap-quickstudy-nw-power-vs-aix.md
+        sap-quickstudy-hana-power-vs-sles.md
 
     {: .topicgroup}
     SAP Partner solution tutorials
-        sap-tutorial-veeam.md
+        sap-tutorial-partner-veeam.md
+
+    {: .topicgroup}
+    Proof of Concept (POC) innovation tutorials
+        sap-tutorial-poc-overview.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -116,7 +160,7 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-provision-intel-bare-metal-optane-plan-deploy.md
         sap-provision-intel-bare-metal-optane-deploy-infrastructure.md
 
-       {: .topicgroup}
+    {: .topicgroup}
     Provisioning Intel Virtual Server (Gen2) for SAP HANA and SAP NetWeaver
         sap-provision-intel-virtual-server-gen2-plan-deploy.md
         sap-provision-intel-virtual-server-gen2-deploy-infrastructure.md
@@ -134,24 +178,56 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
     Provisioning VMware SDDC for SAP HANA and SAP NetWeaver for SAP HANA and SAP NetWeaver
         sap-provision-vmware-sddc-plan-deploy.md
         sap-provision-vmware-sddc-deploy-infrastructure.md
+        sap-provision-vmware-sddc-moving-workloads.md
 
     {: .topicgroup}
     Provisioning Red Hat OpenShift clusters for SAP Data Hub 2.x
         sap-datahub-provision-redhat-openshift-plan-deploy.md
         sap-datahub-provision-redhat-openshift-deploy-clusters.md
         sap-datahub-provision-redhat-openshift-install-datahub.md
-    {: .navgroup-end}
+    
+    {: .topicgroup}
+    Provisioning Red Hat OpenShift clusters for SAP Data Intelligence 3.x
+        sap-data-intelligence-provision-redhat-openshift-plan-deploy.md
+        sap-data-intelligence-provision-redhat-openshift-deploy-clusters.md
+        sap-data-intelligence-provision-redhat-openshift-install-data-intelligence.md
+    
+    {: .topicgroup} 
+    Terraform
+        sap-terraform-create-single-tier.md
 
+    {: .topicgroup}   
+    Creating Single-Tier VPC for SAP Using Terraform 
+        sap-terraform-configure-single-tier.md
+        sap-terraform-creating-single-tier.md
+    {: .navgroup-end}
+    
     {: .navgroup id="reference"}
+    sap-case-studies.md
+
     {: .topicgroup}
     Infrastructure Reference Architectures for SAP
         sap-refarch-hana-scaleup.md
         sap-refarch-hana-scaleout.md
+        sap-refarch-nw-scaleup.md
+        sap-refarch-nw-scaleout.md
         sap-refarch-nw-sybase.md
         sap-refarch-nw-db2.md
         sap-refarch-nw-mssql.md
         sap-refarch-nw-hana.md
+
+    {: .topicgroup}
+    Infrastructure Deployment Patterns for SAP
+        sap-deploypattern-bm-vs-gen2.md
+        sap-deploypattern-bm-vmware-sddc.md
+        sap-deploypattern-power-vs-vs-gen2.md
+
+    sap-solarch-examples.md
+    sap-roadmap.md
+
+    /hardware-firewall-dedicated/hardware-firewall-dedicated-ibm-cloud-ip-ranges
     {: .navgroup-end}
+
 
     {: .navgroup id="help"}
     sap-getting-help.md
@@ -169,5 +245,5 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-fast-path-site-map-ibm-power-vs.md
         sap-fast-path-site-map-vmware-sddc.md
 
-    [Documentation Changelog](https://github.com/ibm-cloud-docs/sap/commits/)
+    [Documentation Changelog](https://github.ibm.com/cloud-docs/sap/commits/)
     {: .navgroup-end}
