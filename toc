@@ -193,6 +193,7 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-data-intelligence-provision-redhat-openshift-install-data-intelligence.md
     
     sap-terraform-create-single-tier.md
+    {: .navgroup-end}
     
     {: .navgroup id="reference"}
     sap-case-studies.md
