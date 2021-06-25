@@ -192,15 +192,7 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-data-intelligence-provision-redhat-openshift-deploy-clusters.md
         sap-data-intelligence-provision-redhat-openshift-install-data-intelligence.md
     
-    {: .topicgroup} 
-    Terraform
-        sap-terraform-create-single-tier.md
-
-    {: .topicgroup}   
-    Creating Single-Tier VPC for SAP Using Terraform 
-        sap-terraform-configure-single-tier.md
-        sap-terraform-creating-single-tier.md
-    {: .navgroup-end}
+    sap-terraform-create-single-tier.md
     
     {: .navgroup id="reference"}
     sap-case-studies.md
