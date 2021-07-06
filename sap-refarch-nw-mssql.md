@@ -21,7 +21,7 @@ subcollection: sap
 {:deprecated: .deprecated}
 
 
-# SAP NetWeaver 7.x on UNIX with MS SQL on VPC IBM Cloud
+# SAP NetWeaver 7.x on Windows Servers with MS SQL on VPC IBM Cloud
 {: #sap-refarch-nw-mssql}
 
 MS SQL Server is one of several databases that can be deployed on NetWeaver in the {{site.data.keyword.cloud}}. The most common architecture deployments are standard and distributed systems. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, Java, and SAP products based on these application server stacks.
@@ -65,7 +65,7 @@ Within the Public Subnet, the [SAP router](https://support.sap.com/en/tools/conn
 
 A jumphost is used to access, manage, and administer SAP virtual server instances from the same customer ZONE directly from their premises. These SAP virtual server instances can be in a separate security zone but should be on same {{site.data.keyword.cloud_notm}} region. The customer connection to the jumphost follows the same rules as the direct connection from customer premises to the virtual server instance SAP instances. The connection uses the CFN IP and security group 1 firewall rules from a designated public subnet. In this architecture, there are two security groups defined; this arrangement is the simplest method for separating the public and private subnets. You can add more security groups if you require more isolation.
 
-## Virtual server instances on SAP NetWeaver 7.x APAB stack, JAVA stack, and dual stack (ABAP+JAVA)stack on Unix with SAP ASE MS SQL Server db
+## Virtual server instances on SAP NetWeaver 7.x APAB stack, JAVA stack, and dual stack (ABAP+JAVA) stack on Windows Servers with MS SQL Server DB
 {: #sap-refarch-nw-mssql-vsis}
 
 ### Standard system
