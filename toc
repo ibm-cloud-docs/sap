@@ -192,7 +192,15 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-data-intelligence-provision-redhat-openshift-deploy-clusters.md
         sap-data-intelligence-provision-redhat-openshift-install-data-intelligence.md
     
-    sap-terraform-create-single-tier.md
+    {: .topicgroup}
+    Automating and deploying IBM Cloud architectures for SAP by using Terraform
+        sap-terraform-create-single-tier.md
+
+        {: topicgroup}
+        NetWeaver and DB2 single-tier on IBM Cloud VPC
+            sap-terraform-overview-nw-db2-ansible.md
+            sap-terraform-nw-db2-ansible-create-vpc.md
+            sap-terraform-nw-db2-ansible-existing-vpc.md
     {: .navgroup-end}
     
     {: .navgroup id="reference"}
