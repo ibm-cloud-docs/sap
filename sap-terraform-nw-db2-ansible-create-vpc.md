@@ -12,6 +12,7 @@ subcollection: sap
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
+{:note: .note}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip} 
@@ -132,9 +133,6 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
 5. Customize your SAP system configuration. Modify the ``input.auto.tfvars`` file to specify SAP system configuration and enter the location of the downloaded SAP Kits. For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
   
-    Remember, you must manually decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the SAP kit files. For more information, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
-    {: note}  
-
     ```
     ##SAP system configuration
     sap_sid	= "NWS"
@@ -154,6 +152,10 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     kit_db2_dir = "/storage/NW75DB2/51051007/DB2_FOR_LUW_10.5_FP7SAP2_LINUX_"
     kit_db2client_dir = "/storage/NW75DB2/51051049"
     ```
+
+    Remember, you must manually decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the SAP kit files. For more information, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2).
+    {: note}  
+
 
 6. Initialize the Terraform CLI. 
 
