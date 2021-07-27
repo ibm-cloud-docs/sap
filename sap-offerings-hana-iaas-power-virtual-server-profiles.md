@@ -36,6 +36,12 @@ The following is an overview of the SAP-certified profiles with IBM Power Virtua
 
 | **Profile** | **CPU Cores** | **CPU Threads (also known as. vCPU, using SMT-8)** | **Memory (RAM GB)** | **SAPS** | **SAP HANA Processing Type** |
 | -- | -- | -- | -- | -- | -- |
+| **Small** |   |   |   |   |   |
+| ush1-4x128 | 4 | 32 | 128 GB | 24,000 | OLAP/OLTP |
+| ush1-4x256 | 4 | 32 | 256 GB | 24,000 | OLAP/OLTP |
+| ush1-4x384 | 4 | 32 | 384 GB | 24,000 | OLAP/OLTP |
+| ush1-4x512 | 4 | 32 | 512 GB | 24,000 | OLAP/OLTP |
+| ush1-4x768 | 4 | 32 | 768 GB | 24,000 | OLAP/OLTP |
 | **Balanced** |   |   |   |   |   |
 | bh1-16x1600 | 16 | 128 | 1600 GB | 96,000 | OLAP/OLTP |
 | bh1-20x2000 | 20 | 160 | 2000 GB | 120,000 | OLAP * |
@@ -73,6 +79,7 @@ The following is an overview of the SAP-certified profiles with IBM Power Virtua
 | mh1-60x10800 | 60 | 460 | 10800 GB | 360,000 | OLAP * |
 | mh1-70x12600 | 70 | 560 | 12600 GB | 420,000 | OLAP * |
 | mh1-80x14400 | 80 | 640 | 14400 GB | 480,000 | OLAP |
+| mh1-125x22500 | 125 | 1000 | 22500 GB | 750,000 | OLAP |
 | **Ultra Memory** |   |   |   |   |  |
 | umh1-4x960 | 4 | 32 | 960 GB | 24,000 | OLTP |
 | umh1-6x1440 | 6 | 48 | 1440 GB | 36,000 | OLTP * |
