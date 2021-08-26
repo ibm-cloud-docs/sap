@@ -225,8 +225,6 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
 
     sap-solarch-examples.md
     sap-roadmap.md
-
-    /hardware-firewall-dedicated/hardware-firewall-dedicated-ibm-cloud-ip-ranges
     {: .navgroup-end}
 
 
