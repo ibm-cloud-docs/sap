@@ -122,7 +122,7 @@ Optionally, you can install the ASCS instance with an integrated:
 **HANA for standard system**
 
 * Primary application server instance (PAS) - The global directories of the ASCS instance can be used as the global file system. That means that the host with the ASCS instance is the SAP global host. However, you can also separately install the global directories on any host of your SAP system landscape.  You can also use the SAP transport host or the host with the global file system (SAP global host) as your primary application server instance host.  Optionally, you can install one or more additional application server instances.     
-* Database instance (DB) - To assist your project's planning phase, more design considerations are provided at SAP AnyDB – HANA database with {site.data.keyword.cloud_notm}} for SAP. For more information, see [AnyDB - SAP HANA](/docs/sap?topic=sap-anydb-hana-db) and [Infrastructure certified by SAP](/docs/sap?topic=sap-iaas-offerings).
+* Database instance (DB) - To assist your project's planning phase, more design considerations are provided at SAP AnyDB – HANA database with {{site.data.keyword.cloud_notm}} for SAP. For more information, see [AnyDB - SAP HANA](/docs/sap?topic=sap-anydb-hana-db) and [Infrastructure certified by SAP](/docs/sap?topic=sap-iaas-offerings).
 * Additional Application Server (AAS) - You can install one or more additional application server instances for an existing SAP system. Additional application server instances are optional and can be installed on separate hosts.
 * SAP Dialog Instance (DI) / Additional Application Instance (AAS) - Dialog Instance (DI) is an additional application instance on top of the Central Instance (CI). Normally the DI is set up on a different host.
 
