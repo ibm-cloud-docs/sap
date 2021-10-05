@@ -195,12 +195,20 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
     {: .topicgroup}
     Automating and deploying IBM Cloud architectures for SAP by using Terraform
         sap-terraform-create-single-tier.md
+        sap-terraform-multi-tier-anydb-nonhana.md
 
         {: topicgroup}
         NetWeaver and DB2 single-tier on IBM Cloud VPC
             sap-terraform-overview-nw-db2-ansible.md
             sap-terraform-nw-db2-ansible-create-vpc.md
             sap-terraform-nw-db2-ansible-existing-vpc.md
+
+        {: topicgroup}
+        SAP HANA stand-alone VSI on IBM Cloud VPC
+            sap-terraform-background-hana-standalone-vsi.md
+            sap-terraform-automate-hana-standalone-vsi.md
+            
+        sap-terraform-automate-s4hana-ansible.md
     {: .navgroup-end}
     
     {: .navgroup id="reference"}
