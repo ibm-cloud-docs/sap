@@ -20,8 +20,11 @@ subcollection: sap
 # Deploy NW7.X and Db2 on an existing {{site.data.keyword.cloud_notm}} VPC by using Terraform and Ansible
 {: #sap-terraform-nw-db2-existing-vpc}
 
-You can use Terraform scripts to create a single-tier Virtual Private Cloud (VPC) and create the SAP and Db2 infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC. 
+
+Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
 {: shortdesc}
+
+You can use Terraform scripts to create a single-tier Virtual Private Cloud (VPC) and create the SAP and Db2 infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC. 
 
 ## What is created
 {: #sap-terraform-nw-db2-existing-vpc-components}

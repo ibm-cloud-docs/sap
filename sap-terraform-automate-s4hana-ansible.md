@@ -20,6 +20,10 @@ subcollection: sap
 # Automating S/4HANA on 3-tier IBM VPC Cloud with Terraform and Ansible
 {: #automate-s4hana-terraform-ansible}
 
+
+Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
+{: shortdesc}
+
 You can use Terraform scripts to create a single-tier Virtual Private Cloud (VPC) and create the SAP and Db2 infrastructure on the VPC. The Terraform scripts create the VPC and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on your Deployment Server. The Deployment Server needs to have Terraform and Ansible installed.
 
 ## SAP Solution implemented 

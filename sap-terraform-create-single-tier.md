@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-23"
+lastupdated: "2021-06-25"
 
-subcollection:
+subcollection: sap
 
 ---
 
@@ -19,14 +19,15 @@ subcollection:
 # Creating single-tier virtual private cloud for SAP by using Terraform
 {: #create-terraform-single-tier-vpc-sap}
 
-Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments.
+Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
 {: shortdesc}
 
-Terraform on {{site.data.keyword.cloud_notm}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} solutions. For more information about Terraform on {{site.data.keyword.cloud}}, see [Terraform on {{site.data.keyword.cloud_notm}} getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+For more information about Terraform on {{site.data.keyword.cloud}}, see [Terraform on {{site.data.keyword.cloud_notm}} getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 
-To create resources with Terraform, you use Terraform configuration files that describe the {{site.data.keyword.cloud_notm}} resources that you need and how you want to configure them. Based on your configuration, Terraform creates an execution plan and describes the actions that need to be run to create the resources. You can review the execution plan, change it, or run the plan. When you change your configuration, Terraform on {{site.data.keyword.cloud_notm}} can determine what changed and create incremental execution plans that you can apply to your existing {{site.data.keyword.cloud}} resources. 
+To create resources with Terraform, you use Terraform configuration files that describe the {{site.data.keyword.cloud_notm}} resources that you need and how you want to configure them. Based on your configuration, Terraform creates an execution plan and describes the actions that need to be run to create the resources. You can review the execution plan, change it, or run the plan. When you change your configuration, Terraform on {{site.data.keyword.cloud_notm}} can determine what changed and create incremental execution plans that you can apply to your existing {{site.data.keyword.cloud_notm}} resources. 
 
 ## Script files
+{: #terraform-single-tier-vpc-sap-files}
 
 The configuration and script files are provided on the GitHub repository [sap-automated-deployment-scripts/sapsingletiervpc/](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletiervpc). 
 
@@ -41,6 +42,7 @@ All of the other configuration files are provided and do not need to be modified
 The IBM Cloud Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account. 
 
 ## What is created
+{: #terraform-single-tier-vpc-sap-components}
 
 A VPC is a private space in {{site.data.keyword.cloud_notm}} where you can run an isolated environment with custom network policies. The variables that you define are used by the scripts to provision the following virtual private cloud infrastructure resources for you: 
 
@@ -52,6 +54,7 @@ A VPC is a private space in {{site.data.keyword.cloud_notm}} where you can run a
 *	1 floating IP address that you use to access your VPC virtual server instance over the public network
 
 ## Support
+{: #terraform-single-tier-vpc-sap-support}
  
 There are no warranties of any kind, and there is no service or technical support available for these materials from IBM®. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
@@ -116,7 +119,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
    ```
    terraform plan
    ```
-   An example of a Terraform plan is here.
+   This is an example of a Terraform plan:
 
    ```
     Resource actions are indicated with the following symbols:
