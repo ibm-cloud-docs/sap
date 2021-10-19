@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2020-05-03"
+lastupdated: "2021-10-19"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -203,22 +203,22 @@ After you deploy {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_not
 1. Start and enable the multipath daemon, for example, by running `systemctl start multipathd` and `systemctl enable multipathd`.
 1. Set jumbo frames for internal network adapters. "Jumbo frames" is another way of saying network maximum transmission units (MTU) of 9000-byte payload frames. All the network components in {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s support jumbo frames. In cases where certain network components don't support jumbo frames (for example, in communication to the external world), setting MTU=9000 can cause network issues. Therefore, set MTU=9000 only on adapters that are used internally.
 
-  You must set jumbo frames on private networks that are used for communication between multiple instances in SAP three-tier systems as follows:
-
-  ```
-  # cd /etc/sysconfig/network
-  # vi ifcfg-ethX <--- name of ethernet device used for communication between SAP instances
-  BROADCAST=''
-  ETHTOOL_OPTIONS=''
-  BOOTPROTO='static'
-  IPADDR='xx.xx.xx.xx/xx'
-  NAME='Virtual Ethernet card 0' NETWORK=''
-  REMOTE_IPADDR=''
-  STARTMODE='auto'
-  USERCONTROL='no'
-  MTU='9000'
-  ```
-  {: pre}
+   You must set jumbo frames on private networks that are used for communication between multiple instances in SAP three-tier systems as follows:
+   
+   ```
+   # cd /etc/sysconfig/network
+   # vi ifcfg-ethX <--- name of ethernet device used for communication between SAP instances
+   BROADCAST=''
+   ETHTOOL_OPTIONS=''
+   BOOTPROTO='static'
+   IPADDR='xx.xx.xx.xx/xx'
+   NAME='Virtual Ethernet card 0' NETWORK=''
+   REMOTE_IPADDR=''
+   STARTMODE='auto'
+   USERCONTROL='no'
+   MTU='9000'
+   ```
+   {: pre}
 
   To activate the changes, restart your network (`ifdown ethX; ifup ethX`), or set the MTU for the current configuration (with `ip link set dev <ethX> mtu 9000`).
 1. Verify hostname resolution. Check that the DNS server is correctly entered in `/etc/resolv.conf` and that instance hostname resolution is possible (in the simplest case, through an entry in `/etc/hosts`).
@@ -241,15 +241,15 @@ After you deploy {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_not
 
    ```
    subscription-manager register --username <USER> --password <PASSWORD>
-   
    ```
+   {: pre}
 
 1. Attach your operating system to a repository pool that contains SAP repositories.
 
    ```
    subscription-manager attach --pool=<POOL_ID>
-   
    ```
+   {: pre}
 
 1. Configure repositories for SAP workload for RHEL 8.1, then install RHEL updates.
 
@@ -259,14 +259,14 @@ After you deploy {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_not
    subscription-manager repos --disable="*"
    subscription-manager repos --enable="rhel-8-for-ppc64le-baseos-e4s-rpms" --enable="rhel-8-for-ppc64le-appstream-e4s-rpms"     --enable="rhel-8-for-ppc64le-sap-solutions-e4s-rpms" --enable="rhel-8-for-ppc64le-sap-netweaver-e4s-rpms" --enable="rhel-  8-for-ppc64le-highavailability-e4s-rpms"
    yum -y update
-
    ```
+   {: pre}
 
 1. Set jumbo frames for internal network adapters. "Jumbo frames" is another way of saying network maximum transmission units (MTU) of 9000-byte payload frames. All the network components in {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s support jumbo frames. In cases where certain network components don't support jumbo frames (for example, in communication to the external world), setting MTU=9000 can cause network issues. Therefore, set MTU=9000 only on adapters that are used internally.
 
-  You must set TCP segmentation offload (tso) on private networks that are used for communication between multiple instances in SAP three-tier systems as follows:
+   You must set TCP segmentation offload (tso) on private networks that are used for communication between multiple instances in SAP three-tier systems as follows:
 
-     ```
+   ```
     # cd /etc/sysconfig/network-scripts
     # vi ifcfg-envX <--- name of ethernet device used for communication between SAP instances
     BROADCAST=''
@@ -279,7 +279,7 @@ After you deploy {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_not
     MTU='9000'
     
     ```
-  {: pre}
+    {: codeblock}
 
   To activate the changes, restart your network (`ifdown envX; nmcli con down 'System envX'; nmcli con up 'System envX'`), or set the MTU for the current configuration (with `ip link set dev <envX> mtu 9000` and `ethtool -K <envX> tso on`).
 1. Verify hostname resolution. Check that the DNS server is correctly entered in `/etc/resolv.conf` and that instance hostname resolution is possible (in the simplest case, through an entry in `/etc/hosts`).
@@ -288,21 +288,22 @@ After you deploy {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_not
    
    ```
    ansible-playbook /root/sap-hana.yml
-   
    ```
+   {: pre}
+
    - For SAP NetWeaver
    
    ```
    ansible-playbook /root/sap-netweaver.yml
-   
    ```
+   {: pre}
    
 1. Install python. This step is required to verify partition readiness for SAP HANA with “chk_numa_lpm.py” script.
 
    ```
    yum -y install python36 
-   
    ```
+   {: pre}
 
 1. Prepare file systems on extra storage volumes. If you attached extra storage volumes to your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, you must create file systems by using Linux&reg; Logical Volume Manager.
    - For an example with SAP HANA, see the following section [Create file systems on SLES12 SP4 by using the command-line interface](#power-vs-create_file_systems).
@@ -314,27 +315,28 @@ You can use this example to create volumes for file systems that are required by
 
 The following example shows how you can use Linux&reg; Logical Volume Manager to create a file system that is called `/hana/data` based on eight storage volumes, each with a size of 110 GB. The name of the volume group is `hana_data_vg`, and the name of the logical volume is `hana_data_lv`. The volume size must be unique so it can be used as an identifier to find a required storage volume.
 
-The root volume is 100 GB. Use different sizes for more volumes.
-{: note}
+   The root volume is 100 GB. Use different sizes for more volumes.
+   {: note}
 
-```
-export pv_size=110G
-export lv_name=hana_data_lv
-export vg_name=hana_data_vg
-export mount=/hana/data
-# use following command if you DO NOT USE multipath aliases 
-devices=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$2}' | tr '\n' ' ')
-# use following command if you USE multipath aliases 
-devices=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$3}' | tr '\n' ' ')
-stripes=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$2}' | wc | awk '{print $1}')
-pvcreate $devices
-vgcreate ${vg_name} ${devices}
-lvcreate -i${stripes} -I64 -l100%VG -n ${lv_name} ${vg_name}
-mkfs.xfs /dev/mapper/${vg_name}-${lv_name}
-mkdir -p ${mount}
-mount /dev/mapper/$vg_name-$lv_name ${mount}
-echo "/dev/mapper/$vg_name-$lv_name ${mount} xfs defaults 1 2 " >> /etc/fstab
-```
+   ```
+   export pv_size=110G
+   export lv_name=hana_data_lv
+   export vg_name=hana_data_vg
+   export mount=/hana/data
+   # use following command if you DO NOT USE multipath aliases 
+   devices=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$2}' | tr '\n' ' ')
+   # use following command if you USE multipath aliases 
+   devices=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$3}' | tr '\n' ' ')
+   stripes=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$2}' | wc | awk '{print $1}')
+   pvcreate $devices
+   vgcreate ${vg_name} ${devices}
+   lvcreate -i${stripes} -I64 -l100%VG -n ${lv_name} ${vg_name}
+   mkfs.xfs /dev/mapper/${vg_name}-${lv_name}
+   mkdir -p ${mount}
+   mount /dev/mapper/$vg_name-$lv_name ${mount}
+   echo "/dev/mapper/$vg_name-$lv_name ${mount} xfs defaults 1 2 " >> /etc/fstab
+   ```
+   {: codeblock}
 
 ### Configuring AIX for SAP NetWeaver
 {: #power-vs-config-aix}
@@ -345,8 +347,6 @@ For more information, see [Creating an AIX virtual machine (VM) with SSH keys fo
 
 Also, make sure to implement any specific configurations that might be required for the SAP products that you are planning to install. For more information, see the respective installation guides for these products.
 
-
-
 ## Verifying system readiness for SAP HANA on IBM Power Virtual Servers
 {: #power-vs-verify_system}
 
@@ -356,11 +356,12 @@ Memory NUMA configuration is not supported by SAP HANA when {{site.data.keyword.
 
 You can run a Python script on Linux&reg; to see whether the infrastructure is set up correctly. Download the script from [SAP Note 2923962](https://launchpad.support.sap.com/#/notes/2923962){: external} and run the script on the command line (without any parameters). First, add the execution permissions to the script file. For example, download the script to the `/root` location and run as follows:
 
-```
-chmod +x /root/chk_numa_lpm.py
+   ```
+   chmod +x /root/chk_numa_lpm.py
 
-/root/chk_numa_lpm.py
-```
+   /root/chk_numa_lpm.py
+   ```
+   {: pre}
 
 The tool checks the NUMA layout and whether a Live Partition Mobility (LPM) operation happened. Both can impact performance.
 
@@ -377,7 +378,6 @@ The tool writes a log file (`chk_numa_lpm.log`) in the current directory with it
 After you configure your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s for SAP HANA, verify your system with [SAP HANA hardware and cloud measurement tools](https://help.sap.com/viewer/02bb1e64c2ae4de7a11369f4e70a6394/latest/en-US){: external}.
 
 For more information about downloading, installing, and configuring the HCMT tool, see [SAP Note 2493172](https://launchpad.support.sap.com/#/notes/2493172){: external}. The document also provides an upload link for loading the file that is generated by HCMT so you can get a pictorial view of the health and readiness of your system.
-
 
 
 ## Networking for SAP HANA and SAP NetWeaver on IBM Power Virtual Servers
