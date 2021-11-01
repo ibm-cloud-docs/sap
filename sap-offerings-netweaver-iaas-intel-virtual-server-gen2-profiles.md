@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-27"
+lastupdated: "2021-11-01"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -48,18 +48,19 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | mx2-48x384 | 48 | 384 GB | 56,970 |
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP NetWeaver" caption-side="top"}
 
-| **Profile** | **vCPU** | **Memory (RAM GiB)** | **Network Performance Cap (Gbps)** | **Storage (GB)** | **SAPS** |
-| --- | --- | --- | --- | --- | --- |
-| **Ultra High Memory** | | | | | | 
-| ux2d-8x224 | 8 | 224 | 8 | 1x240 | 8,623 |
-| ux2d-16x448 | 16 | 448 | 16 | 1x480 | 17,246 |
-| ux2d-36x1008 | 36 | 1008 | 36 | 1x1080 | 38,803 |
-| ux2d-52x1456 | 52 | 1456 | 52 | 2x780 | 56,049 |
-| ux2d-72x2016 | 72 | 2016 | 72 | 2x1080 | 77,606 |
-| ux2d-104x2912 | 104 | 2912 | 80 | 2x1560 | 112,097 |
-| ux2d-200x5600 | 200 | 5600 | 80 | 2x3000 | 215,570 |
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **Network Performance Cap (Gbps)**  | **SAPS** |
+| --- | --- | --- | --- | --- | 
+| **Ultra High Memory** | | | | |
+| ux2d-2x56 | 2 | 56 | 2 | 2155 |
+| ux2d-4x112 | 4 | 112 | 4 | 4311 |
+| ux2d-8x224 | 8 | 224 | 8 |  8,623 |
+| ux2d-16x448 | 16 | 448 | 16 |  17,246 |
+| ux2d-36x1008 | 36 | 1008 | 36 |  38,803 |
+| ux2d-48x1344| 48 | 1344 | 80 | 51,738 |
+| ux2d-72x2016 | 72 | 2016 | 72 |  77,606 |
+| ux2d-100x2800 | 100 | 2800 | 80 | 107,785 |
+| ux2d-200x5600 | 200 | 5600 | 80 |  215,570 |
 {: caption="Table 2. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP NetWeaver" caption-side="top"}
-
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Servers](https://launchpad.support.sap.com/#/notes/2927211){: external}.
 
 
