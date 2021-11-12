@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-04"
+lastupdated: "2021-11-12"
 
 subcollection: sap
 
@@ -21,10 +21,8 @@ subcollection: sap
 {: #automate-s4hana-terraform-ansible}
 
 
-Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
+Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies. The Terraform scripts create the VPC and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on your Deployment Server. The Deployment Server needs to have Terraform and Ansible installed.
 {: shortdesc}
-
-You can use Terraform scripts to create a single-tier Virtual Private Cloud (VPC) and create the SAP and Db2 infrastructure on the VPC. The Terraform scripts create the VPC and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on your Deployment Server. The Deployment Server needs to have Terraform and Ansible installed.
 
 ## SAP Solution implemented 
 {: #automate-s4hana-terraform-ansible}
@@ -158,9 +156,14 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
 	APP-IMAGE       = "ibm-redhat-7-6-amd64-sap-applications-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP NOTE: 2927211.
     ```
 
-5.	Customize your SAP system configuration. Modify the `input.auto.tfvars` file to specify SAP system configuration and enter the location of the downloaded SAP Kits. 
+5.	Customize your SAP system configuration.edit the SAP system configuration variables that are passed to the Ansible automated deployment. You must enter a `hana_master_password = ""` and the `sap_master-password = ""`. 
 
-    You must provide the `hana_master_password = ""` and `sap_master_password = ""`. For descriptions of the variables and password requirements, see the README file. 
+    The `hana_master_password = ""` must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
+    
+    The `sap_master-password`must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!` and must not start with a digit or an underscore ( _ )
+
+    When you are done creating your resources, the passwords remain in `input.auto.tfvars` file on your system unencrypted and in its generated log file `terraform.tfstate`. You should save these files as they are in a secured archive or remove the input passwords from these 2 files after you are done creating resources. You must preserve these 2 files intact in case you want to destroy the created VPC at a later time.
+    {: note}
 
     ```
 	#HANA DB configuration

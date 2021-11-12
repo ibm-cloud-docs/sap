@@ -17,6 +17,7 @@ subcollection: sap
 {:tip: .tip}
 
 # Background for automating SAP HANA stand-alone VSI 
+{: #sap-hana-vpc-background}
 
 ## IBM VPC introduction
 {: #sap-hana-vpc-intro}

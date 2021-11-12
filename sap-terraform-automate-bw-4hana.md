@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-08"
+lastupdated: "2021-11-12"
 
 subcollection: sap
 
@@ -200,7 +200,7 @@ The virtual server instance is configured with:
     
     The `sap_master-password`must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ )
 
-    When you are done creating your resources, the passwords remain in `input.auto.tfvars` file on your system unencrypted and on its generated log file `terraform.tfstate`. You should save these files as they are in a secured archive or remove the input passwords from these 2 files after you are done creating resources. You must preserve these 2 files intact in case you want to `terraform destroy` the created VPC at a later time.
+    When you are done creating your resources, the passwords remain in `input.auto.tfvars` file on your system unencrypted and in its generated log file `terraform.tfstate`. You should save these files as they are in a secured archive or remove the input passwords from these 2 files after you are done creating resources. You must preserve these 2 files intact in case you want to destroy the created VPC at a later time.
     {: note}
 
     ```
