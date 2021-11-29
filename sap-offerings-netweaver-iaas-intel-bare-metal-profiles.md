@@ -37,7 +37,7 @@ The following is an overview of the SAP-certified profiles with Intel Bare Metal
 | [BI.S3.NW192](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=989&itemId=10437) | 36 | 72 | 192 GB | 78,850 |
 | [BI.S3.NW384](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=987&itemId=10437) | 36 | 72 | 384 GB | 79,430 |
 | [BI.S3.NW768](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=985&itemId=10437) | 36 | 72 | 768 GB | 79,630 |
-| [BI.S4.NW192](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2640&itemId=13285) | 32 | 64 | 192 GB | 60,984 |
+| [BI.S4.NW192](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2640&itemId=13285) | 32 | 64 | 192 GB | 82,470 |
 | [BI.S4.NW384](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2642&itemId=13285) | 32 | 64 | 384 GB | 85,130 |
 | [BI.S4.NW768](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2644&itemId=13289) | 40 | 80 | 768 GB | 112,830 |
 {: caption="Table 1. SAP NetWeaver servers" caption-side="top"}
