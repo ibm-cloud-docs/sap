@@ -70,7 +70,7 @@ Revisit *Task 3*, and follow the relevant SAP software documentation to install 
 
 Review the following documentionat for your relevant configuration:
 
-* [Fast Path of IBM Cloud Intel Bare Metal](docs/sap?topic=sap-fast-path-site-map-intel-bm)
+* [Fast Path of IBM Cloud Intel Bare Metal](/docs/sap?topic=sap-fast-path-site-map-intel-bm)
 * [Fast Path of IBM Cloud Intel Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2)
 * [Fast Path of IBM Power Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-power-vs)
 * [Fast Path of IBM Cloud for VMware](/docs/sap?topic=sap-fast-path-site-map-vmware-sddc)
