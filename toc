@@ -8,6 +8,13 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
     sap-getting-started.md
     sap-offerings-overview.md
 
+    {: .topicgroup}
+    Fast Path Site Maps
+        sap-fast-path-site-map-intel-bm.md
+        sap-fast-path-site-map-intel-vs-gen2.md
+        sap-fast-path-site-map-ibm-power-vs.md
+        sap-fast-path-site-map-vmware-sddc.md
+
     [Executive solution brief of IBM Cloud for SAP](https://www.ibm.com/cloud/smartpapers/accelerate-SAP/)
 
     {: .topicgroup}
@@ -246,13 +253,6 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
         sap-faq.md
         sap-faq-moving-sap-workloads.md
         sap-faq-profile-specs.md
-
-    {: .topicgroup}
-    Fast Path Site Maps
-        sap-fast-path-site-map-intel-bm.md
-        sap-fast-path-site-map-intel-vs-gen2.md
-        sap-fast-path-site-map-ibm-power-vs.md
-        sap-fast-path-site-map-vmware-sddc.md
 
     [Documentation Changelog](https://github.ibm.com/cloud-docs/sap/commits/)
     {: .navgroup-end}
