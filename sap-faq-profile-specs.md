@@ -30,9 +30,9 @@ Below is a summary table of the certifications, highest benchmark scores, and ma
 
 | IaaS Type | SAPS benchmark | OLTP scale-up memory (GB) | OLAP scale-up memory (GB) | OLAP scale-out memory (GB) |
 | -- | -- | -- | -- | -- |
-| IBM Cloud Intel Bare Metal with Local Disk | 550,670<br />_(world record of Intel-based IaaS)_ | 12,288 | 6,144 | 92,160 from 15 nodes (excl. 1 standby)<br />_(world record of all IaaS)_  |
+| IBM Cloud Intel Bare Metal with Local Disk | 550,670  \n _(world record of Intel-based IaaS)_ | 12,288 | 6,144 | 92,160 from 15 nodes (excl. 1 standby)  \n _(world record of all IaaS)_  |
 | IBM Cloud Intel Virtual Server | 56,970 | 384 | - | - |
-| IBM Power Virtual Server<br />_(complementary offering from {{site.data.keyword.IBM_notm}} Power Systems)_ | 840,000<br />_(world record of all IaaS)_ | 14,400 | 14,000 | - |
+| IBM Power Virtual Server  \n _(complementary offering from {{site.data.keyword.IBM_notm}} Power Systems)_ | 840,000  \n _(world record of all IaaS)_ | 14,400 | 14,000 | - |
 | IBM Cloud for VMware | 495,603 | 6,144 | 3,072 | 30,720 from 15 nodes (excl. 1 standby) |
 {: caption="Table 1. Highest specifications of the SAP-certified IaaS" caption-side="top"}
 
@@ -62,11 +62,11 @@ This can be copied into spreadsheet software
 
 
 | Profile | IaaS Type | CPU Cores | CPU Threads (aka. vCPU) | CPU Architecture | Memory (DRAM GB) | DRAM per CPU Thread | SD Two-Tier benchmark (SAPS) | SAP NetWeaver support | SAP HANA Deployment Method | SAP HANA Processing Type |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | 
 | BI.S3.H2.192 | IBM Cloud Intel Bare Metal with Local Disk | 36 | 72 | Intel Skylake SP | 192 | 2.67 | 78,850 | Yes | Appliance | OLAP/OLTP and SAP Business One for HANA |
 | BI.S3.H2.384 | IBM Cloud Intel Bare Metal with Local Disk | 36 | 72 | Intel Skylake SP | 384 | 5.33 | 79,430 | Yes | Appliance | OLAP/OLTP and SAP Business One for HANA|
 | BI.S3.H2.768 | IBM Cloud Intel Bare Metal with Local Disk | 36 | 72 | Intel Skylake SP | 768 | 10.67 | 79,630 | Yes | Appliance | OLAP/OLTP and SAP Business One for HANA|
-| BI.S4.H2.192 | IBM Cloud Intel Bare Metal with Local Disk | 32 | 64 | Intel Cascade Lake SP | 192 | 3.00 | 60,984 | Yes | Appliance | OLAP/OLTP and SAP Business One for HANA|
+| BI.S4.H2.192 | IBM Cloud Intel Bare Metal with Local Disk | 32 | 64 | Intel Cascade Lake SP | 192 | 3.00 |  82,470 | Yes | Appliance | OLAP/OLTP and SAP Business One for HANA|
 | BI.S4.H2.384 | IBM Cloud Intel Bare Metal with Local Disk | 32 | 64 | Intel Cascade Lake SP | 384 | 6.00 | 85,130 | Yes | Appliance | OLAP/OLTP and SAP Business One for HANA|
 | BI.S4.H2.768 | IBM Cloud Intel Bare Metal with Local Disk | 40 | 80 | Intel Cascade Lake SP | 768 | 9.60 | 112,830 | Yes | Appliance | OLAP/OLTP and SAP Business One for HANA|
 | BI.S4.H2.1500 | IBM Cloud Intel Bare Metal with Local Disk | 56 | 112 | Intel Cascade Lake SP | 1,536 | 13.71 | 147,220 | Yes | Appliance | OLAP/OLTP|
@@ -75,12 +75,12 @@ This can be copied into spreadsheet software
 | BI.S4.H4.6000 | IBM Cloud Intel Bare Metal with Local Disk | 112 | 224 | Intel Cascade Lake SP | 6,144 | 27.43 | 285,970 | Yes | Appliance | OLAP/OLTP|
 | BI.S4.H8.6000 | IBM Cloud Intel Bare Metal with Local Disk | 224 | 448 | Intel Cascade Lake SP | 6,144 | 13.71 | 550,670 | Yes | Appliance | OLAP/OLTP|
 | BI.S4.H8.12000 | IBM Cloud Intel Bare Metal with Local Disk | 224 | 448 | Intel Cascade Lake SP | 12,288 | 27.43 | 550,670 | Yes | Appliance | OLAP/OLTP|
-| mx2-16x128 | IBM Cloud Intel Virtual Server | - | 16 | Intel Cascade Lake SP | 128 | 8.00 | 20,560 | Yes | Appliance | OLTP and SAP Business One for HANA |
-| mx2-32x256 | IBM Cloud Intel Virtual Server | - | 32 | Intel Cascade Lake SP | 256 | 8.00 | 41,130 | Yes | Appliance | OLTP and SAP Business One for HANA |
-| mx2-48x384 | IBM Cloud Intel Virtual Server | - | 48 | Intel Cascade Lake SP | 384 | 8.00 | 56,970 | Yes | Appliance | OLTP and SAP Business One for HANA |
+| mx2-16x128 | IBM Cloud Intel Virtual Server (Gen2) | - | 16 | Intel Cascade Lake SP | 128 | 8.00 | 20,560 | Yes | Appliance | OLTP and SAP Business One for HANA |
+| mx2-32x256 | IBM Cloud Intel Virtual Server (Gen2) | - | 32 | Intel Cascade Lake SP | 256 | 8.00 | 41,130 | Yes | Appliance | OLTP and SAP Business One for HANA |
+| mx2-48x384 | IBM Cloud Intel Virtual Server (Gen2) | - | 48 | Intel Cascade Lake SP | 384 | 8.00 | 56,970 | Yes | Appliance | OLTP and SAP Business One for HANA |
 | bh1-16x1600 | IBM Power Virtual Server | 16 | 128 | IBM POWER9 | 1,600 | 12.50 | 96,000 | Yes | Appliance | OLAP |
 | bh1-20x2000 | IBM Power Virtual Server | 20 | 160 | IBM POWER9 | 2,000 | 12.50 | 120,000 | Yes | Appliance | OLAP * |
-| bh1-22x2200 | IBM Power Virtual Server | 22 | 178 | IBM POWER9 | 2,200 | 12.36 | 132,000 | Yes | Appliance | OLAP * |
+| bh1-22x2200 | IBM Power Virtual Server | 22 | 176 | IBM POWER9 | 2,200 | 12.36 | 132,000 | Yes | Appliance | OLAP * |
 | bh1-25x2500 | IBM Power Virtual Server | 25 | 200 | IBM POWER9 | 2,500 | 12.50 | 150,000 | Yes | Appliance | OLAP * |
 | bh1-30x3000 | IBM Power Virtual Server | 30 | 240 | IBM POWER9 | 3,000 | 12.50 | 180,000 | Yes | Appliance | OLAP * |
 | bh1-35x3500 | IBM Power Virtual Server | 35 | 280 | IBM POWER9 | 3,500 | 12.50 | 210,000 | Yes | Appliance | OLAP * |
@@ -90,7 +90,7 @@ This can be copied into spreadsheet software
 | bh1-70x7000 | IBM Power Virtual Server | 70 | 560 | IBM POWER9 | 7,000 | 12.50 | 420,000 | Yes | Appliance | OLAP * |
 | bh1-80x8000 | IBM Power Virtual Server | 80 | 640 | IBM POWER9 | 8,000 | 12.50 | 480,000 | Yes | Appliance | OLAP * |
 | bh1-100x10000 | IBM Power Virtual Server | 100 | 800 | IBM POWER9 | 10,000 | 12.50 | 600,000 | Yes | Appliance | OLAP * |
-| bh1-120x12000 | IBM Power Virtual Server | 120 | 900 | IBM POWER9 | 12,000 | 13.33 | 720,000 | Yes | Appliance | OLAP * |
+| bh1-120x12000 | IBM Power Virtual Server | 120 | 960 | IBM POWER9 | 12,000 | 13.33 | 720,000 | Yes | Appliance | OLAP * |
 | bh1-140x14000 | IBM Power Virtual Server | 140 | 1,120 | IBM POWER9 | 14,000 | 12.50 | 840,000 | Yes | Appliance | OLAP |
 | ch1-60x3000 | IBM Power Virtual Server | 60 | 480 | IBM POWER9 | 3,000 | 6.25 | 360,000 | Yes | Appliance | OLAP |
 | ch1-70x3500 | IBM Power Virtual Server | 70 | 560 | IBM POWER9 | 3,500 | 6.25 | 420,000 | Yes | Appliance | OLAP * |
@@ -115,7 +115,7 @@ This can be copied into spreadsheet software
 | BI.S3.H2.192 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 192 | 2.67 | 70,965 | Yes | TDI | OLAP/OLTP and SAP Business One for HANA |
 | BI.S3.H2.384 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 384 | 5.33 | 71,487 | Yes | TDI | OLAP/OLTP and SAP Business One for HANA |
 | BI.S3.H2.768 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 768 | 10.67 | 71,667 | Yes | TDI | OLAP/OLTP and SAP Business One for HANA |
-| BI.S4.H2.192 (VMware) | IBM Cloud for VMware | 32 | 64 | Intel Cascade Lake SP | 192 | 3.00 | 54,886 | Yes | TDI | OLAP/OLTP and SAP Business One for HANA |
+| BI.S4.H2.192 (VMware) | IBM Cloud for VMware | 32 | 64 | Intel Cascade Lake SP | 192 | 3.00 | 74,223 | Yes | TDI | OLAP/OLTP and SAP Business One for HANA |
 | BI.S4.H2.384 (VMware) | IBM Cloud for VMware | 32 | 64 | Intel Cascade Lake SP | 384 | 6.00 | 76,617 | Yes | TDI | OLAP/OLTP and SAP Business One for HANA |
 | BI.S4.H2.768 (VMware) | IBM Cloud for VMware | 40 | 80 | Intel Cascade Lake SP | 768 | 9.60 | 101,547 | Yes | TDI | OLAP/OLTP and SAP Business One for HANA |
 | BI.S4.H2.1500 (VMware) | IBM Cloud for VMware | 56 | 112 | Intel Cascade Lake SP | 1,536 | 13.71 | 132,498 | Yes | TDI | OLAP/OLTP |
@@ -128,7 +128,7 @@ This can be copied into spreadsheet software
 | BI.S3.NW192 | IBM Cloud Intel Bare Metal with Local Disk | 36 | 72 | Intel Skylake SP | 192 | 2.67 | 78,850 | Yes |   |   |
 | BI.S3.NW384 | IBM Cloud Intel Bare Metal with Local Disk | 36 | 72 | Intel Skylake SP | 384 | 5.33 | 79,430 | Yes |   |   |
 | BI.S3.NW768 | IBM Cloud Intel Bare Metal with Local Disk | 36 | 72 | Intel Skylake SP | 768 | 10.67 | 79,630 | Yes |   |   |
-| BI.S4.NW192 | IBM Cloud Intel Bare Metal with Local Disk | 32 | 64 | Intel Cascade Lake SP | 192 | 3.00 | 60,984 | Yes |   |   |
+| BI.S4.NW192 | IBM Cloud Intel Bare Metal with Local Disk | 32 | 64 | Intel Cascade Lake SP | 192 | 3.00 | 82,470 | Yes |   |   |
 | BI.S4.NW384 | IBM Cloud Intel Bare Metal with Local Disk | 32 | 64 | Intel Cascade Lake SP | 384 | 6.00 | 85,130 | Yes |   |   |
 | BI.S4.NW768 | IBM Cloud Intel Bare Metal with Local Disk | 40 | 80 | Intel Cascade Lake SP | 768 | 9.60 | 112,830 | Yes |   |   |
 | bx2-2x8 | IBM Cloud Intel Virtual Server | - | 2 | Intel Cascade Lake SP | 8 | 4.00 | 2,300 | Yes |   |   |
@@ -146,7 +146,7 @@ This can be copied into spreadsheet software
 | BI.S3.NW192 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 192 | 2.67 | 70,965 | Yes |   |   |
 | BI.S3.NW384 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 384 | 5.33 | 71,487 | Yes |   |   |
 | BI.S3.NW768 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 768 | 10.67 | 71,667 | Yes |   |   |
-| BI.S4.NW192 (VMware) | IBM Cloud for VMware | 32 | 64 | Intel Cascade Lake SP | 192 | 3.00 | 54,886 | Yes |   |   |
+| BI.S4.NW192 (VMware) | IBM Cloud for VMware | 32 | 64 | Intel Cascade Lake SP | 192 | 3.00 | 74,223 | Yes |   |   |
 | BI.S4.NW384 (VMware) | IBM Cloud for VMware | 32 | 64 | Intel Cascade Lake SP | 384 | 6.00 | 76,617 | Yes |   |   |
 | BI.S4.NW768 (VMware) | IBM Cloud for VMware | 40 | 80 | Intel Cascade Lake SP | 768 | 9.60 | 101,547 | Yes |   |   |
 | BI.S4.NW1500 (VMware) | IBM Cloud for VMware | 56 | 112 | Intel Cascade Lake SP | 1,536 | 13.71 | 132,498 | Yes |   |   |
@@ -166,10 +166,11 @@ This can be copied into spreadsheet software
 {: note}
 
 
-| Profile | IaaS Type | SAP HANA Deployment Method | SAP HANA System Type | SAP HANA Processing Type | Scale-out Configuration | Total CPU Cores | Total CPU Threads (aka. vCPU) | Total Memory (DRAM GB) | SAP HANA Directory | SAP Benchmark Directory |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| BI.S4.H4.3000 | IBM Cloud Intel Bare Metal with Local Disk | Appliance | Scale-out | OLAP | Up to 16 nodes:<br/>15 active nodes _(1 parent, 14 worker nodes)_ and 1 standby node | 1,680 | 3,360 | 46,080 | [OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2212){: external} | [Certification 2020027](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/bwh?filters=4a9e824336e2837bf9081e423d57e5c9&id=69bb07e8-0dab-476a-8682-f3af9c6fdd53){: external} |
-| BI.S4.H4.6000 | IBM Cloud Intel Bare Metal with Local Disk | TDI | Scale-out | OLAP | Up to 16 nodes:<br/>15 active nodes _(1 parent, 14 worker nodes)_ and 1 standby node | 1,680 | 3,360 | 92,160 | [OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2213){: external} | [Certification 2020032](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/bwh?filters=4a9e824336e2837bf9081e423d57e5c9&id=44417c84-5010-4fae-9245-18e2cbd971d2){: external} |
+| Profile | IaaS Type | SAP HANA Deployment Method | SAP HANA Processing Type | Scale-out Configuration | Total CPU Cores | Total CPU Threads (aka. vCPU) | Total Memory (DRAM GB) | SAP HANA Directory | SAP Benchmark Directory |
+| --- | --- | --- | --- |--- | --- | --- | --- | --- | --- |
+| BI.S4.H4.3000 | IBM Cloud Intel Bare Metal | TDI | OLAP | Up to 16 nodes:  \n15 active nodes _(1 parent, 14 worker nodes)_ and 1 standby node | 1,680 | 3,360 | 46,080 | [OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2212){: external} | [Certification 2020027](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/bwh?filters=4a9e824336e2837bf9081e423d57e5c9&id=69bb07e8-0dab-476a-8682-f3af9c6fdd53){: external} |
+| BI.S4.H4.6000 | IBM Cloud Intel Bare Metal | TDI | OLAP | Up to 16 nodes:  \n 15 active nodes _(1 parent, 14 worker nodes)_ and 1 standby node | 1,680 | 3,360 | 92,160 | [OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2213){: external} | [Certification 2020032](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/bwh?filters=4a9e824336e2837bf9081e423d57e5c9&id=44417c84-5010-4fae-9245-18e2cbd971d2){: external} |
+| BI.S4.H8.12000 | IBM Cloud Intel Bare Metal | TDI | OLTP | Up to 4 nodes:  \n 3 active nodes _(1 parent, 2 worker nodes)_ and 1 standby node | 672 | 1,344 | 36,864 | [OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;iaas;ve:28&id=s:2304){: external} | [Certification 2020007]( https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd?filters=v:4a9e824336e2837bf9081e423d57e5c9;v:6bc6523a-6abc-4c6d-8964-91e7d3b5f5be&id=bm:bd3c43e8-012d-4217-b177-857c4f769b44){: external} |
 {: caption="Table 3. Full list of SAP-certified IaaS in scale-out deployment" caption-side="top"}
 
 

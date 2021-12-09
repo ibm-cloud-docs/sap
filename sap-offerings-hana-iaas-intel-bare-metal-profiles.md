@@ -35,7 +35,7 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 | [BI.S3.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=823){: external} | 36 | 72 | 192 GB | 78,850 | OLAP/OLTP |
 | [BI.S3.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=825){: external} | 36 | 72 | 384 GB | 79,430 | OLAP/OLTP |
 | [BI.S3.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=827){: external} | 36 | 72 | 768 GB | 79,630 | OLAP/OLTP |
-| [BI.S4.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1087){: external} | 32 | 64 | 192 GB | 60,984 | OLAP/OLTP |
+| [BI.S4.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1087){: external} | 32 | 64 | 192 GB | 82,470 | OLAP/OLTP |
 | [BI.S4.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1091){: external} | 32 | 64 | 384 GB | 85,130 | OLAP/OLTP |
 | [BI.S4.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1095){: external} | 40 | 80 | 768 GB | 112,830 | OLAP/OLTP |
 | [BI.S4.H2.1500 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1099){: external} | 56 | 112 | 1536 GB | 147,220 | OLAP/OLTP |

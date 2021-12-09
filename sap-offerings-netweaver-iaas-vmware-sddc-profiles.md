@@ -39,7 +39,7 @@ The following table is an overview of the SAP-certified profiles with either:
 | BI.S3.NW192 (VMware) | 36 | 72 | 192 GB | 70,965 |
 | BI.S3.NW384 (VMware) | 36 | 72 | 384 GB | 71,487 |
 | BI.S3.NW768 (VMware) | 36 | 72 | 768 GB | 71,667 |
-| BI.S4.NW192 (VMware) | 32 | 64 | 192 GB | 54,886 |
+| BI.S4.NW192 (VMware) | 32 | 64 | 192 GB | 74,223 |
 | BI.S4.NW384 (VMware) | 32 | 64 | 384 GB | 76,617 |
 | BI.S4.NW768 (VMware) | 40 | 80 | 768 GB | 101,547 |
 | BI.S4.NW1500 (VMware) | 56 | 112 | 1536 GB | 132,498 |
@@ -55,7 +55,7 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP HA
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
 | BI.S3.H8401 | BI | {{site.data.keyword.cloud_notm}} Infrastructure |
-| | S2 | Series 2 (processor generation)<br/><ul><li>S2 is Intel Broadwell</li><li>S3 is Intel Skylake/Kaby Lake</li><li>S4 is Intel Cascade Lake</li></ul> |
+| | S2 | Series 2 (processor generation)  \n <ul><li>S2 is Intel Broadwell</li><li>S3 is Intel Skylake/Kaby Lake</li><li>S4 is Intel Cascade Lake</li></ul> |
 | | H | HANA-certified server |
 | | 8 | 8-socket server |
 | | 4 | 4 TB RAM |
