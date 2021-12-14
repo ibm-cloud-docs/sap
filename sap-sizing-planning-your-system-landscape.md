@@ -70,19 +70,19 @@ For further information regarding SAP Landscapes, guidance has been released by 
 Review the following documentation to help you determine any prerequisites for the SAP products that you plan to install.
 
 If your organization is new to {{site.data.keyword.cloud_notm}}, read the following SAP documentation to help with your planning phase and implementation:
-  * [SAP workloads on {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/sap/certified-infrastructure){: external}
-  * [Get started with {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/get-started){: external}
-  * [Creating an {{site.data.keyword.cloud}} account](/docs/account?topic=account-account-getting-started)
-  * [How to create an SAP S-user ID](https://www.youtube.com/watch?v=4wICiRTP8u0){: external} Note that only super administrators or S-users with the required authorization are allowed to create S-user IDs for your company's SAP Customer Number (SCN)
-  * The [Guide Finder for SAP NetWeaver and ABAP Platform](https://help.sap.com/viewer/nwguidefinder){: external} to search for SAP NetWeaver-related documentation, including installation guides.
-  * Applicable [installation guides](https://support.sap.com/en/my-support/software-downloads.html){: external}; requires an SAP S-user ID.
-  * SAP release notes, which can be found in the application help of the relevant SAP product documentation on the [SAP Help Portal](https://help.sap.com/viewer/index){: external}; requires an SAP S-user ID.
-  * [SAP HANA Help](https://help.sap.com/viewer/product/SAP_HANA_PLATFORM){: external}
-  * [SAP NetWeaver Help](https://help.sap.com/viewer/product/SAP_NETWEAVER/ALL/en-US){: external}
-  * [SAP HANA Installation Guide](https://www.sap.com/products/hana/technical.html){: external}
-  * [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}; requires an SAP S-user ID.
-  * [SAP Notes](https://support.sap.com/en/my-support/knowledge-base.html){: external}; requires an SAP S-user ID.
-  * Third-party documentation
+    * [SAP workloads on {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/sap/certified-infrastructure){: external}
+    * [Get started with {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/get-started){: external}
+    * [Creating an {{site.data.keyword.cloud}} account](/docs/account?topic=account-account-getting-started)
+    * [How to create an SAP S-user ID](https://www.youtube.com/watch?v=4wICiRTP8u0){: external} Note that only super administrators or S-users with the required authorization are allowed to create S-user IDs for your company's SAP Customer Number (SCN)
+    * The [Guide Finder for SAP NetWeaver and ABAP Platform](https://help.sap.com/viewer/nwguidefinder){: external} to search for SAP NetWeaver-related documentation, including installation guides.
+    * Applicable [installation guides](https://support.sap.com/en/my-support/software-downloads.html){: external}; requires an SAP S-user ID.
+    * SAP release notes, which can be found in the application help of the relevant SAP product documentation on the [SAP Help Portal](https://help.sap.com/viewer/index){: external}; requires an SAP S-user ID.
+    * [SAP HANA Help](https://help.sap.com/viewer/product/SAP_HANA_PLATFORM){: external}
+    * [SAP NetWeaver Help](https://help.sap.com/viewer/product/SAP_NETWEAVER/ALL/en-US){: external}
+    * [SAP HANA Installation Guide](https://www.sap.com/products/hana/technical.html){: external}
+    * [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}; requires an SAP S-user ID.
+    * [SAP Notes](https://support.sap.com/en/my-support/knowledge-base.html){: external}; requires an SAP S-user ID.
+    * Third-party documentation
 
 
 
@@ -102,15 +102,27 @@ Often your first filter of the infrastructure options will be the minimum SAPS w
 Full details of the Profiles available for each Infrastructure option available through {{site.data.keyword.cloud_notm}}, were provided in the previous topic group which lists all the IaaS Offerings available for either SAP HANA or SAP NetWeaver (and SAP AnyDB):
 
 - SAP HANA profiles
-  - [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-intel-bm)
-  - [Intel Virtual Server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc)
-  - [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-power-vs)
-  - [VMware SDDC certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-vmware)
+    - [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-intel-bm)
+    - [Intel Virtual Server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc)
+    - [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-power-vs)
+    - [VMware SDDC certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-vmware)
 - SAP NetWeaver profiles
-  - [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-intel-bm)
-  - [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
-  - [IBM Power Virtual Server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-power-vs)
-  - [VMware SDDC certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-vmware)
+    - [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-intel-bm)
+    - [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
+    - [IBM Power Virtual Server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-power-vs)
+    - [VMware SDDC certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-vmware)
+
+
+### Distributing your SAP Landscape on IBM Cloud Bare Metal and Virtual Servers
+{: #distributing-the-landscape}
+
+Generally, the entire infrastructure for the operation of all closely coupled runtime components of an SAP software solution must be installed on either Intel Virtual Servers (Gen2) or on Bare Metal Servers from IBM Cloud.
+
+To assist customers looking to combine performance for the database and flexibility for the application solution/s, testing has been performed when combining environments and networks.
+
+Intel Bare Metal Servers from IBM Cloud in the IBM Cloud Classic Infrastructure environment may offer greater performance capabilities. Notably this includes larger memory, local SSD storage in RAID arrays, access to IPMI, and more. Intel Virtual Servers (Gen2), on the other hand provide more flexibility.
+
+RDBMs on Intel Bare Metal Servers in the older IBM Cloud Classic Infrastructure environment that comply to [SAP Note 2414097](https://launchpad.support.sap.com/#/notes/2414097){: external}, are supported when connected to the SAP AS on Intel Virtual Server (Gen2) in the IBM Cloud VPC Infrastructure environment - when placed in the same location (i.e. Datacenter / Availability Zone) and using an IBM Cloud Transit Gateway local routing.
 
 
 ### Mapping CPUs derived from SAPS to an IBM Power Virtual Server
