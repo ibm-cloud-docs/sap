@@ -217,6 +217,7 @@ IBM Cloud for SAP | IBM Power Virtual Servers for SAP
             
         sap-terraform-automate-s4hana-ansible.md
         sap-terraform-automate-bw-4hana.md
+        sap-terraform-automate-3tier-nw-db2.md
 
     {: .navgroup-end}
     
