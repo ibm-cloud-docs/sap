@@ -1,0 +1,270 @@
+---
+toc:
+  properties:
+    subcollection: sap
+    version: 2
+    category: compute
+    audience: service
+    href: /docs/sap
+    console-page: "/classic"
+    product-page: "https://www.ibm.com/cloud/sap"
+    path: sap
+    label: IBM Cloud for SAP | IBM Power Virtual Servers for SAP
+#  List your getting started tutorial (getting-started.md) as the first item in the Get started nav group. See https://test.cloud.ibm.com/docs/writing?topic=writing-navigation for more details on the toc design.
+  entries: 
+  - navgroup:
+      id: learn
+      topics:
+        - sap-getting-started.md
+        - sap-offerings-overview.md
+        - topicgroup:
+            label: Fast Path Site Maps
+            topics:
+              - sap-fast-path-site-map-intel-bm.md
+              - sap-fast-path-site-map-intel-vs-gen2.md
+              - sap-fast-path-site-map-ibm-power-vs.md
+              - sap-fast-path-site-map-vmware-sddc.md
+        - link:
+            label: Executive solution brief of IBM Cloud for SAP
+            href: https://www.ibm.com/cloud/smartpapers/accelerate-SAP/
+        - topicgroup:
+            label: Infrastructure environments
+            topics:
+              - sap-environment-classic-infrastructure.md
+              - sap-environment-vpc-infrastructure.md
+              - sap-environment-power-infrastructure.md
+        - sap-offerings-certified-iaas.md
+        - topicgroup:
+            label: Infrastructure profiles for SAP HANA database server
+            topics:
+              - sap-offerings-hana-iaas-intel-bare-metal-profiles.md
+              - sap-offerings-hana-iaas-intel-optane-profiles.md
+              - sap-offerings-hana-iaas-intel-virtual-server-gen2-profiles.md
+              - sap-offerings-hana-iaas-power-virtual-server-profiles.md
+              - sap-offerings-hana-iaas-vmware-sddc-profiles.md
+        - topicgroup:
+            label: Infrastructure profiles for SAP NetWeaver Application Server
+            topics:
+              - sap-offerings-netweaver-iaas-intel-bare-metal-profiles.md
+              - sap-offerings-netweaver-iaas-intel-virtual-server-gen2-profiles.md
+              - sap-offerings-netweaver-iaas-power-virtual-server-profiles.md
+              - sap-offerings-netweaver-iaas-vmware-sddc-profiles.md
+        - topicgroup:
+            label: Plan your SAP workloads
+            topics:
+              - sap-sizing-planning-process.md
+              - sap-sizing-planning-your-system-landscape.md
+              - sap-prereq-determining-access.md
+              - sap-prereq-software.md
+              - sap-prereq-byol.md
+        - topicgroup:
+            label: Infrastructure for SAP design considerations
+            topics:
+              - sap-design-considerations-networking.md
+              - sap-design-considerations-storage.md
+              - sap-design-considerations-compute-os.md
+        - sap-design-considerations-sap-hana.md
+        - sap-design-considerations-sap-netweaver.md
+        - topicgroup:
+            label: SAP Business Applications additional design considerations
+            topics:
+              - sap-app-s4hana.md
+              - sap-app-bw4hana.md
+              - sap-app-commerce.md
+              - sap-app-ecc.md
+              - sap-app-bw.md
+              - sap-app-b1.md
+              - sap-app-bo-bi.md
+              - sap-app-data-hub-2x.md
+              - sap-app-data-intelligence-3x.md
+        - topicgroup:
+            label: SAP Technical Applications additional design considerations
+            topics:
+              - sap-app-router.md
+              - sap-app-web-dispatcher.md
+              - sap-app-fiori-fes.md
+              - sap-app-gateway.md
+              - sap-app-solution-mgr.md
+              - sap-app-content-server.md
+              - sap-app-adobe-doc.md
+              - sap-app-po-pi.md
+              - sap-app-lama.md
+              - sap-app-secure-logon-server.md
+        - topicgroup:
+            label: SAP AnyDB databases additional design considerations
+            topics:
+                - sap-anydb-ibm-db2.md
+                - sap-anydb-ms-sql.md
+                - sap-anydb-oracle-db.md
+                -  sap-anydb-sap-maxdb.md
+                - sap-anydb-sap-ase.md
+                - sap-anydb-sap-iq.md
+                - sap-anydb-sap-hana.md
+        - topicgroup:
+            label: SAP Development Applications additional design considerations
+            topics:
+              - sap-app-scp.md
+              - sap-app-scp-single-tenant.md
+        - topicgroup:
+            label: Operating Systems for SAP additional design considerations
+            topics:
+              - sap-os-rhel.md
+              - sap-os-sles.md
+              - sap-os-ibm-aix.md
+              - sap-os-windows-server.md
+        - topicgroup:
+            label: SAP Partner certified solutions
+            topics:
+              - sap-partners-veeam.md
+              - sap-partners-actifio.md
+              - sap-partners-f5.md
+              - sap-partners-hytrust.md
+              - sap-partners-ibm-security-services.md
+              - sap-partners-intel-optane-pmem.md
+        - topicgroup:
+            label: IBM certified for SAP solutions
+            topics:
+              - sap-ibm-cloud-paks-mcm.md
+              - sap-ibm-cloud-paks-integration.md
+        - topicgroup:
+            label: Innovations with IBM Cloud for SAP
+            topics:
+              - sap-ibm-abap-sdk-watson.md
+              - sap-ibm-the-weather-company.md
+              - sap-ibm-cloud-migration-program.md
+        - topicgroup:
+            label: Billing Considerations for SAP Workloads
+            topics:
+              - sap-billing-considerations-storage.md
+              - sap-billing-considerations-networking.md
+
+  - navgroup:
+      id: tutorial
+      topics:
+      - topicgroup:
+          label: Quick Study Deployment of SAP
+          topics:
+              - sap-quickstudy-nw-bm-rhel.md
+              - sap-quickstudy-nw-bm-wins.md
+              - sap-quickstudy-nw-vs-gen2-rhel.md
+              - sap-quickstudy-nw-vs-gen2-wins.md
+              - sap-quickstudy-nw-power-vs-aix.md
+              - sap-quickstudy-hana-power-vs-sles.md
+      - topicgroup:
+          label: SAP Partner solution tutorials
+          topics:
+              - sap-tutorial-partner-veeam.md
+      - topicgroup:
+          label: Proof of Concept (POC) innovation tutorials
+          topics:
+              - sap-tutorial-poc-overview.md
+
+  - navgroup:
+      id: howto
+      topics:
+      -  /overview/overview-ui
+      - topicgroup:
+          label: Pre-Requisites for SAP Workloads
+          topics:
+            - sap-prereq-necessary-credentials.md
+            - sap-prereq-account-structure.md
+      - topicgroup:
+          label: Provisioning Intel Bare Metal for SAP HANA and SAP NetWeaver
+          topics:
+             - sap-provision-intel-bare-metal-plan-deploy.md
+             - sap-provision-intel-bare-metal-deploy-infrastructure.md
+      - topicgroup:
+          label: Provisioning Intel Bare Metal with Intel Optane DC PMEM for SAP HANA and SAP NetWeaver
+          topics:
+              - sap-provision-intel-bare-metal-optane-plan-deploy.md
+              - sap-provision-intel-bare-metal-optane-deploy-infrastructure.md
+      - topicgroup:
+          label: Provisioning Intel Virtual Server (Gen2) for SAP HANA and SAP NetWeaver
+          topics:
+              - sap-provision-intel-virtual-server-gen2-plan-deploy.md
+              - sap-provision-intel-virtual-server-gen2-deploy-infrastructure.md
+              - sap-ibm-metrics-collector-linux.md
+              - sap-ibm-metrics-collector-windows.md
+      - topicgroup:
+          label: Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver
+          topics:
+              - sap-provision-power-virtual-server-plan-deploy.md
+              - sap-provision-power-virtual-server-deploy-infrastructure.md
+              - sap-provision-power-virtual-server-prepare-aix-nw.md
+              - sap-provision-power-virtual-server-prepare-sles-hana.md
+      - topicgroup:
+          label: Provisioning VMware SDDC for SAP HANA and SAP NetWeaver for SAP HANA and SAP NetWeaver
+          topics:
+              - sap-provision-vmware-sddc-plan-deploy.md
+              - sap-provision-vmware-sddc-deploy-infrastructure.md
+              - sap-provision-vmware-sddc-moving-workloads.md
+      - topicgroup:
+          label: Provisioning Red Hat OpenShift clusters for SAP Data Hub 2.x
+          topics:
+              - sap-datahub-provision-redhat-openshift-plan-deploy.md
+              - sap-datahub-provision-redhat-openshift-deploy-clusters.md
+              - sap-datahub-provision-redhat-openshift-install-datahub.md
+      - topicgroup:
+          label: Provisioning Red Hat OpenShift clusters for SAP Data Intelligence 3.x
+          topics:
+              - sap-data-intelligence-provision-redhat-openshift-plan-deploy.md
+              - sap-data-intelligence-provision-redhat-openshift-deploy-clusters.md
+              - sap-data-intelligence-provision-redhat-openshift-install-data-intelligence.md
+      - topicgroup:
+          label: Automating and deploying IBM Cloud architectures for SAP by using Terraform
+          topics:
+              - sap-terraform-create-single-tier.md
+              - sap-terraform-multi-tier-anydb-nonhana.md
+              - topicgroup:
+                  label: NetWeaver and DB2 single-tier on IBM Cloud VPC
+                  topics:
+                    - sap-terraform-overview-nw-db2-ansible.md
+                    - sap-terraform-nw-db2-ansible-create-vpc.md
+                    - sap-terraform-nw-db2-ansible-existing-vpc.md
+              - topicgroup:
+                    label: SAP HANA stand-alone VSI on IBM Cloud VPC
+                    topics:
+                      - sap-terraform-background-hana-standalone-vsi.md
+                      - sap-terraform-automate-hana-standalone-vsi.md
+              - sap-terraform-automate-s4hana-ansible.md
+              - sap-terraform-automate-bw-4hana.md
+              - sap-terraform-automate-3tier-nw-db2.md
+
+  - navgroup:
+      id: reference
+      topics:
+        - sap-case-studies.md
+        - topicgroup:
+            label: Infrastructure Reference Architectures for SAP
+            topics:
+                - sap-refarch-hana-scaleup.md
+                - sap-refarch-hana-scaleout.md
+                - sap-refarch-nw-scaleup.md
+                - sap-refarch-nw-scaleout.md
+                - sap-refarch-nw-sybase.md
+                - sap-refarch-nw-db2.md
+                - sap-refarch-nw-mssql.md
+                - sap-refarch-nw-hana.md
+        - topicgroup:
+            label: Infrastructure Deployment Patterns for SAP
+            topics:
+                - sap-deploypattern-bm-vs-gen2.md
+                - sap-deploypattern-bm-vmware-sddc.md
+                - sap-deploypattern-power-vs-vs-gen2.md
+        - sap-solarch-examples.md
+        - sap-roadmap.md
+
+  - navgroup:
+      id: help
+      topics:
+        - sap-getting-help.md
+        - topicgroup:
+            label: FAQs
+            topics:
+              - sap-faq.md
+              - sap-faq-moving-sap-workloads.md
+              - sap-faq-profile-specs.md
+        - link: 
+            label: Documentation Changelog
+            href: https://github.ibm.com/cloud-docs/sap/commits/
+
