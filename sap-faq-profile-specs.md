@@ -30,9 +30,9 @@ Below is a summary table of the certifications, highest benchmark scores, and ma
 
 | IaaS Type | SAPS benchmark | OLTP scale-up memory (GB) | OLAP scale-up memory (GB) | OLAP scale-out memory (GB) |
 | -- | -- | -- | -- | -- |
-| IBM Cloud Intel Bare Metal with Local Disk | 550,670  \n _(world record of Intel-based IaaS)_ | 12,288 | 6,144 | 92,160 from 15 nodes (excl. 1 standby)  \n _(world record of all IaaS)_  |
-| IBM Cloud Intel Virtual Server | 56,970 | 384 | - | - |
-| IBM Power Virtual Server  \n _(complementary offering from {{site.data.keyword.IBM_notm}} Power Systems)_ | 840,000  \n _(world record of all IaaS)_ | 14,400 | 14,000 | - |
+| IBM Cloud Intel Bare Metal with Local Disk | 550,670  \n _(world record of Intel-based IaaS)_ | 18,432 \n _(6,144 GB RAM plus 12,288 GB PMEM)_ | 18,432 \n _(6,144 GB RAM plus 12,288 GB PMEM)_ | 92,160 from 15 nodes (excl. 1 standby)  \n _(world record of all IaaS)_  |
+| IBM Cloud Intel Virtual Server | 187,500 | 384 | 2,464 | — |
+| IBM Power Virtual Server  \n _(complementary offering from {{site.data.keyword.IBM_notm}} Power Systems)_ | 840,000  \n _(world record of all IaaS)_ | 14,400 | 14,000 | — |
 | IBM Cloud for VMware | 495,603 | 6,144 | 3,072 | 30,720 from 15 nodes (excl. 1 standby) |
 {: caption="Table 1. Highest specifications of the SAP-certified IaaS" caption-side="top"}
 
@@ -75,9 +75,9 @@ This can be copied into spreadsheet software
 | BI.S4.H4.6000 | IBM Cloud Intel Bare Metal with Local Disk | 112 | 224 | Intel Cascade Lake SP | 6,144 | 27.43 | 285,970 | Yes | Appliance | OLAP/OLTP|
 | BI.S4.H8.6000 | IBM Cloud Intel Bare Metal with Local Disk | 224 | 448 | Intel Cascade Lake SP | 6,144 | 13.71 | 550,670 | Yes | Appliance | OLAP/OLTP|
 | BI.S4.H8.12000 | IBM Cloud Intel Bare Metal with Local Disk | 224 | 448 | Intel Cascade Lake SP | 12,288 | 27.43 | 550,670 | Yes | Appliance | OLAP/OLTP|
-| mx2-16x128 | IBM Cloud Intel Virtual Server (Gen2) | - | 16 | Intel Cascade Lake SP | 128 | 8.00 | 20,560 | Yes | Appliance | OLTP and SAP Business One for HANA |
-| mx2-32x256 | IBM Cloud Intel Virtual Server (Gen2) | - | 32 | Intel Cascade Lake SP | 256 | 8.00 | 41,130 | Yes | Appliance | OLTP and SAP Business One for HANA |
-| mx2-48x384 | IBM Cloud Intel Virtual Server (Gen2) | - | 48 | Intel Cascade Lake SP | 384 | 8.00 | 56,970 | Yes | Appliance | OLTP and SAP Business One for HANA |
+| mx2-16x128 | IBM Cloud Intel Virtual Server (Gen2) | — | 16 | Intel Cascade Lake SP | 128 | 8.00 | 20,565 | Yes | Appliance | OLTP and SAP Business One for HANA |
+| mx2-32x256 | IBM Cloud Intel Virtual Server (Gen2) | — | 32 | Intel Cascade Lake SP | 256 | 8.00 | 41,130 | Yes | Appliance | OLTP and SAP Business One for HANA |
+| mx2-48x384 | IBM Cloud Intel Virtual Server (Gen2) | — | 48 | Intel Cascade Lake SP | 384 | 8.00 | 56,970 | Yes | Appliance | OLTP and SAP Business One for HANA |
 | bh1-16x1600 | IBM Power Virtual Server | 16 | 128 | IBM POWER9 | 1,600 | 12.50 | 96,000 | Yes | Appliance | OLAP |
 | bh1-20x2000 | IBM Power Virtual Server | 20 | 160 | IBM POWER9 | 2,000 | 12.50 | 120,000 | Yes | Appliance | OLAP * |
 | bh1-22x2200 | IBM Power Virtual Server | 22 | 176 | IBM POWER9 | 2,200 | 12.36 | 132,000 | Yes | Appliance | OLAP * |
@@ -131,18 +131,34 @@ This can be copied into spreadsheet software
 | BI.S4.NW192 | IBM Cloud Intel Bare Metal with Local Disk | 32 | 64 | Intel Cascade Lake SP | 192 | 3.00 | 82,470 | Yes |   |   |
 | BI.S4.NW384 | IBM Cloud Intel Bare Metal with Local Disk | 32 | 64 | Intel Cascade Lake SP | 384 | 6.00 | 85,130 | Yes |   |   |
 | BI.S4.NW768 | IBM Cloud Intel Bare Metal with Local Disk | 40 | 80 | Intel Cascade Lake SP | 768 | 9.60 | 112,830 | Yes |   |   |
-| bx2-2x8 | IBM Cloud Intel Virtual Server | - | 2 | Intel Cascade Lake SP | 8 | 4.00 | 2,300 | Yes |   |   |
-| bx2-4x16 | IBM Cloud Intel Virtual Server | - | 4 | Intel Cascade Lake SP | 16 | 4.00 | 4,600 | Yes |   |   |
-| bx2-8x32 | IBM Cloud Intel Virtual Server | - | 8 | Intel Cascade Lake SP | 32 | 4.00 | 9,200 | Yes |   |   |
-| bx2-16x64 | IBM Cloud Intel Virtual Server | - | 16 | Intel Cascade Lake SP | 64 | 4.00 | 18,450 | Yes |   |   |
-| bx2-32x128 | IBM Cloud Intel Virtual Server | - | 32 | Intel Cascade Lake SP | 128 | 4.00 | 36,900 | Yes |   |   |
-| bx2-48x192 | IBM Cloud Intel Virtual Server | - | 48 | Intel Cascade Lake SP | 192 | 4.00 | 55,350 | Yes |   |   |
-| mx2-2x16 | IBM Cloud Intel Virtual Server | - | 2 | Intel Cascade Lake SP | 16 | 8.00 | 2,570 | Yes |   |   |
-| mx2-4x32 | IBM Cloud Intel Virtual Server | - | 4 | Intel Cascade Lake SP | 32 | 8.00 | 5,140 | Yes |   |   |
-| mx2-8x64 | IBM Cloud Intel Virtual Server | - | 8 | Intel Cascade Lake SP | 64 | 8.00 | 10,280 | Yes |   |   |
-| mx2-16x128 | IBM Cloud Intel Virtual Server | - | 16 | Intel Cascade Lake SP | 128 | 8.00 | 20,560 | Yes |   |   |
-| mx2-32x256 | IBM Cloud Intel Virtual Server | - | 32 | Intel Cascade Lake SP | 256 | 8.00 | 41,130 | Yes |   |   |
-| mx2-48x384 | IBM Cloud Intel Virtual Server | - | 48 | Intel Cascade Lake SP | 384 | 8.00 | 56,970 | Yes |   |   |
+| bx2-2x8 | IBM Cloud Intel Virtual Server | — | 2 | Intel Cascade Lake SP | 8 | 4.00 | 2,306 | Yes |   |   |
+| bx2-4x16 | IBM Cloud Intel Virtual Server | – | 4 | Intel Cascade Lake SP | 16 | 4.00 | 4,613 | Yes |   |   |
+| bx2-8x32 | IBM Cloud Intel Virtual Server | – | 8 | Intel Cascade Lake SP | 32 | 4.00 | 9,225 | Yes |   |   |
+| bx2-16x64 | IBM Cloud Intel Virtual Server | – | 16 | Intel Cascade Lake SP | 64 | 4.00 | 18,450 | Yes |   |   |
+| bx2-32x128 | IBM Cloud Intel Virtual Server | – | 32 | Intel Cascade Lake SP | 128 | 4.00 | 36,900 | Yes |   |   |
+| bx2-48x192 | IBM Cloud Intel Virtual Server | – | 48 | Intel Cascade Lake SP | 192 | 4.00 | 55,350 | Yes |   |   |
+| mx2-2x16 | IBM Cloud Intel Virtual Server | – | 2 | Intel Cascade Lake SP | 16 | 8.00 | 2,571 | Yes |   |   |
+| mx2-4x32 | IBM Cloud Intel Virtual Server | – | 4 | Intel Cascade Lake SP | 32 | 8.00 | 5,141 | Yes |   |   |
+| mx2-8x64 | IBM Cloud Intel Virtual Server | – | 8 | Intel Cascade Lake SP | 64 | 8.00 | 10,283 | Yes |   |   |
+| mx2-16x128 | IBM Cloud Intel Virtual Server | – | 16 | Intel Cascade Lake SP | 128 | 8.00 | 20,565 | Yes |   |   |
+| mx2-32x256 | IBM Cloud Intel Virtual Server | – | 32 | Intel Cascade Lake SP | 256 | 8.00 | 41,130 | Yes |   |   |
+| mx2-48x384 | IBM Cloud Intel Virtual Server | — | 48 | Intel Cascade Lake SP | 384 | 8.00 | 56,970 | Yes |   |   |
+| mx2-64x512 | IBM Cloud Intel Virtual Server | — | 64 | Intel Cascade Lake SP | 512 | 8.00 | 81,015 | Yes |   |   |
+| mx2-96x768 | IBM Cloud Intel Virtual Server | — | 96 | Intel Cascade Lake SP | 768 | 8.00 | 121,523 | Yes |   |   |
+| mx2-128x1024 | IBM Cloud Intel Virtual Server | — | 128 | Intel Cascade Lake SP | 1024 | 8.00 | 162,030 | Yes |   |   |
+| ux2d-8x224 | IBM Cloud Intel Virtual Server | — | 8 | Intel Cascade Lake SP | 224 | 28.00 |  8,623 | Yes |   |   |
+| ux2d-16x448 | IBM Cloud Intel Virtual Server | — | 16 | Intel Cascade Lake SP | 448 | 28.00 | 17,246 | Yes |   |   |
+| ux2d-36x1008 | IBM Cloud Intel Virtual Server | — | 36 | Intel Cascade Lake SP | 1,008 | 28.00 | 38,803 | Yes |   |   |
+| ux2d-48x1344 | IBM Cloud Intel Virtual Server | — | 48 | Intel Cascade Lake SP | 1,344 | 28.00 | 51,737 | Yes |   |   |
+| ux2d-72x2016 | IBM Cloud Intel Virtual Server | — | 72 | Intel Cascade Lake SP | 2,016 | 28.00 | 77,606 | Yes |   |   |
+| ux2d-100x2800 | IBM Cloud Intel Virtual Server | — | 100 | Intel Cascade Lake SP | 2,800 | 28.00 | 107,785 | Yes |   |   |
+| ux2d-200x5600 | IBM Cloud Intel Virtual Server | — | 200 | Intel Cascade Lake SP | 5,600 | 28.00 | 215,570 | Yes |   |   |
+| vx2d-8x112 | IBM Cloud Intel Virtual Server | — | 8 | Intel Cascade Lake SP | 112 | 14.00 | 8,523 | Yes |   |   |
+| vx2d-16x224 | IBM Cloud Intel Virtual Server | — | 16 | Intel Cascade Lake SP | 224 | 14.00 | 17,046 | Yes |   |   |
+| vx2d-44x616 | IBM Cloud Intel Virtual Server | — | 44 | Intel Cascade Lake SP | 616 | 14.00 | 46,875 | Yes |   |   |
+| vx2d-88x1232 | IBM Cloud Intel Virtual Server | — | 88 | Intel Cascade Lake SP | 1,232 | 14.00 | 93,750 | Yes |   |   |
+| vx2d-144x2016 | IBM Cloud Intel Virtual Server | — | 144 | Intel Cascade Lake SP | 2,016 | 14.00 | 153,409 | Yes |   |   |
+| vx2d-176x2464 | IBM Cloud Intel Virtual Server | — | 176 | Intel Cascade Lake SP | 2,464 | 14.00 | 187,500 | Yes |   |   |
 | BI.S3.NW192 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 192 | 2.67 | 70,965 | Yes |   |   |
 | BI.S3.NW384 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 384 | 5.33 | 71,487 | Yes |   |   |
 | BI.S3.NW768 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 768 | 10.67 | 71,667 | Yes |   |   |
@@ -153,7 +169,7 @@ This can be copied into spreadsheet software
 | BI.S4.NW3000 (VMware) | IBM Cloud for VMware | 56 | 112 | Intel Cascade Lake SP | 3,072 | 27.43 | 121,614 | Yes |   |   |
 {: caption="Table 2. Full list of SAP-certified IaaS" caption-side="top"}
 
-Those marked with * asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median and largest within each profile family. This action has been taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. See [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} for additional detail.
+Those marked with * asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median and largest within each profile family. This action has been taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. See [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} for additional detail.
 {: note}
 
 
@@ -196,6 +212,10 @@ This can be copied into spreadsheet software
 | mx2-16x128 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2369){: external}</li><li>[Business One Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:120&id=s:2418){: external}</li></ul> |
 | mx2-32x256 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2370){: external}</li><li>[Business One Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:120&id=s:2419){: external}</li></ul> |
 | mx2-48x384 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2371){: external}</li><li>[Business One Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:120&id=s:2420){: external}</li></ul> |
+| vx2d-44x616 | IBM Cloud Intel Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2603){: external}</li></ul> |
+| vx2d-88x1232 | IBM Cloud Intel Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2604){: external}</li></ul> |
+| vx2d-144x2016 | IBM Cloud Intel Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2605){: external}</li></ul> |
+| vx2d-176x2464 | IBM Cloud Intel Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2606){: external}</li></ul> |
 | bh1-16x1600 | IBM Power Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2358){: external}</li></ul> |
 | bh1-60x6000 | IBM Power Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2372){: external}</li><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2359){: external}</li></ul> |
 | bh1-140x14000 | IBM Power Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2387){: external}</li></ul> |
