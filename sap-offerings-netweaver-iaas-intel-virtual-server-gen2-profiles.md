@@ -85,26 +85,35 @@ For more information, see [SAP Note 2927211 - SAP Applications on IBM Virtual Pr
 {: #nw-iaas-intel-vs-vpc-names}
 
 With {{site.data.keyword.vsi_is_full}}, the profile families that are certified for SAP are: Balanced, Memory Optimized, Very High and Ultra High Memory.
-- Balanced family profiles, provide a good mix of performance and scalability for more common workloads
-- All the Memory family profiles, provide for memory intensive workloads, such as intensive database applications and in-memory analytics workloads, especially designed for SAP HANA workloads
+- Balanced family profiles, provide a good mix of performance and scalability for more common workloads.
+- All the Memory family profiles provide for memory intensive workloads, such as intensive database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads.
 
-For SAP NetWeaver, multiple profile families are used. The Virtual Server profile names are contextual and sequential.
+For more information, see [Intel Virtual Server for VPC Infrastructure documentation](/docs/vpc?topic=vpc-profiles).
+
+
+The first letter of the profile name indicates the profile family mentioned above:
+
+| First letter | Characteristics of the related profile family |
+| --- | --- |
+| b | *Balanced* family, CPU to Memory ratio 1:4 |
+| m | *Memory Optimized* family, higher CPU to Memory ratio 1:8 |
+| v | *Very High Memory Optimized*  family, very high CPU to Memory ratio 1:14 |
+| u | *Ultra High Memory Optimized* family, ultra high CPU to Memory ratio 1:28 |
+{: caption="Table 2. {{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
+
+
+For SAP HANA, only the memory profile families are used, for NetWeaver also the balanced family may be considereed. The Virtual Server profile names are contextual and sequential. See here one example:
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
-| mx2-16x128 | b | *Balanced* family, CPU to Memory ratio 1:4|
-| | m | *Memory Optimized* family, higher CPU to Memory ratio 1:8|
-| | v | *Very High Memory Optimized*  family, very high CPU to Memory ratio 1:14|
-| | u | *Ultra High Memory Optimized* family, ultra high CPU to Memory ratio 1:28|
+| mx2-16x128 | m | *Memory Optimized* family |
 | | x | Intel x86_64 CPU Architecture |
 | | 2 | The generation for the underlying hardware |
 | | — | _spacer_ |
 | | 16 | 16 vCPU |
 | | x | _spacer_ |
 | | 128 | 128 GiB RAM |
-{: caption="Table 2. Profile naming for SAP NetWeaver" caption-side="top"}
-
-For more information, see [Intel Virtual Server for VPC Infrastructure documentation](/docs/vpc?topic=vpc-profiles).
+{: caption="Table 3. Profile naming for SAP HANA" caption-side="top"}
 
 
 ## Profiles available on Hourly Consumption Billing
@@ -122,7 +131,7 @@ When the server profiles for SAP NetWeaver are initially provisioned, the server
 | --- | --- | --- | --- | --- | --- |
 | `/` | `vda1` | Pre-configured boot volume | N/A | 100 GB | 3,000 |
 | `/boot` | `vda2` | Pre-configured boot volume | N/A | 0.25 GB | 3,000 |
-{: caption="Table 3. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
+{: caption="Table 4. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
 
 To fulfill the size and I/O requirements for SAP NetWeaver or SAP AnyDB, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.
 

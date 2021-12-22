@@ -40,7 +40,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | **Very High Memory** | | | | |
 | vx2d-44x616 | 44 | 616 | 48,875 | OLAP |
 | vx2d-88x1232 | 88 | 1,232 | 93,750 | OLAP |
-| vx2d-72x2016 | 144 | 2,016 | 153,409 | OLAP |
+| vx2d-144x2016 | 144 | 2,016 | 153,409 | OLAP |
 | vx2d-176x2464 | 176 | 2,464 | 187,500 | OLAP |
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA" caption-side="bottom"}
 
@@ -56,26 +56,35 @@ For SAP HANA deployments using {{site.data.keyword.cloud_notm}} {{site.data.keyw
 {: #hana-iaas-intel-vs-vpc-names}
 
 With {{site.data.keyword.vsi_is_full}}, the profile families that are certified for SAP are: Balanced, Memory Optimized, Very High and Ultra High Memory.
-- Balanced family profiles, provide a good mix of performance and scalability for more common workloads
-- All the Memory family profiles, provide for memory intensive workloads, such as intensive database applications and in-memory analytics workloads, especially designed for SAP HANA workloads
+- Balanced family profiles, provide a good mix of performance and scalability for more common workloads.
+- All the Memory family profiles provide for memory intensive workloads, such as intensive database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads.
 
-For SAP HANA, only the memory profile families are used. The Virtual Server profile names are contextual and sequential.
+For more information, see [Intel Virtual Server for VPC Infrastructure documentation](/docs/vpc?topic=vpc-profiles).
+
+
+The first letter of the profile name indicates the profile family mentioned above:
+
+| First letter | Characteristics of the related profile family |
+| --- | --- |
+| b | *Balanced* family, CPU to Memory ratio 1:4 |
+| m | *Memory Optimized* family, higher CPU to Memory ratio 1:8 |
+| v | *Very High Memory Optimized*  family, very high CPU to Memory ratio 1:14 |
+| u | *Ultra High Memory Optimized* family, ultra high CPU to Memory ratio 1:28 |
+{: caption="Table 2. {{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
+
+
+For SAP HANA, only the memory profile families are used. The Virtual Server profile names are contextual and sequential. See here one example:
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
-| mx2-16x128 | b | *Balanced* family, CPU to Memory ratio 1:4|
-| | m | *Memory Optimized* family, higher CPU to Memory ratio 1:8|
-| | v | *Very High Memory Optimized*  family, very high CPU to Memory ratio 1:14|
-| | u | *Ultra High Memory Optimized* family, ultra high CPU to Memory ratio 1:28|
+| mx2-16x128 | m | *Memory Optimized* family |
 | | x | Intel x86_64 CPU Architecture |
 | | 2 | The generation for the underlying hardware |
 | | — | _spacer_ |
 | | 16 | 16 vCPU |
 | | x | _spacer_ |
 | | 128 | 128 GiB RAM |
-{: caption="Table 2. Profile naming for SAP HANA" caption-side="top"}
-
-For more information, see [Intel Virtual Server for VPC Infrastructure documentation](/docs/vpc?topic=vpc-profiles).
+{: caption="Table 3. Profile naming for SAP HANA" caption-side="top"}
 
 
 ## Profiles available on Hourly Consumption Billing
@@ -92,18 +101,23 @@ When the virtual server profiles for SAP HANA are initially provisioned, the ser
 | --- | --- | --- | --- | --- | --- |
 | `/` | `vda1` | Pre-configured boot volume | N/A | 100 GB | 3,000 |
 | `/boot` | `vda2` | Pre-configured boot volume | N/A | 0.25 GB | 3,000 |
-{: caption="Table 3. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
+{: caption="Table 4. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
 
-To fulfill the size and I/O requirements for SAP HANA, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.
+### {{site.data.keyword.block_storage_is_full}}
+{: #hana-iaas-intel-vs-vpc-storage-specs-general}
 
-Block Storage Volumes for Virtual Servers can be created based on different **volume profiles** that provide different levels of IOPS per gigabyte (IOPS/GB). For more information, see [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
+[{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes for Virtual Servers can be created based on different **volume profiles** that provide different levels of IOPS per gigabyte (IOPS/GB). For more information, see [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
 
 You must consider the total IOPS required for your installation and the performance characteristics of your database. One option is to colocate multiple directories into a single large volume with high IOPS, versus isolating directories into individual small volumes with an insufficient number of IOPS for the workload characteristics.
 
 For an overview of all available storage profiles, see [VPC Block Storage Profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 
+### Storage for SAP HANA
+{: #hana-iaas-intel-vs-vpc-storage-specs-sap-hana}
+
 To fulfill the KPIs defined by SAP HANA, each profile needs different storage volumes. The following sections list the storage needs for different profiles. **These are mandatory storage configurations, not sample storage configurations**.
 
+Below there are the tested and certified storage layouts that comply to **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when ordering different storage sizes and types.
 
 ### mx2-16x128 and mx2-32x256 profiles
 {: #hana-iaas-intel-vs-vpc-mx2-16x128-32x256}
@@ -122,7 +136,7 @@ After the three data volumes are attached, three new virtual disks appear in the
 | `hana_vg` | `vdd` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
 | `hana_vg` | `vde` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
 | `hana_vg` | `vdf` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
-{: caption="Table 4. Storage for mx2-16x128 and mx2-32x256 profile based VSIs" caption-side="top"}
+{: caption="Table 5. Storage for mx2-16x128 and mx2-32x256 profile based VSIs" caption-side="top"}
 
 
 ### mx2-48x384 profile
@@ -147,7 +161,7 @@ After the seven data volumes are attached, seven new virtual disks appear in the
 | `hana_vg` | `vdh` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
 | `hana_vg` | `vdi` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
 | `hana_vg` | `vdj` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
-{: caption="Table 5. Storage for mx2-48x384 profile based virtual servers" caption-side="top"}
+{: caption="Table 6. Storage for mx2-48x384 profile based virtual servers" caption-side="top"}
 
 
 ### vx2d* profiles
@@ -186,7 +200,7 @@ After the seven data volumes are attached, seven new virtual disks appear in the
 | | `/hana/log` | `hana_log_vg` | `vdi` | 192 |
 | | | | `vdj` | 192 |
 | | | | `vdk` | 192 |
-{: caption="Table 5. Storage for mx2-48x384 profile based virtual servers" caption-side="top"}
+{: caption="Table 7. Storage for vx2* profile based virtual servers" caption-side="top"}
 
 All block storage volumes must be ordered with the predefined profile of 10 IOPS/GB (high performance). The volume names may differ - here we assume that the naming follows the sequence of ordering the storage, i.e. 1st order -> `vdd`, 2nd order -> `vde`, etc
 {: note}

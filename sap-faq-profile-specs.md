@@ -75,9 +75,13 @@ This can be copied into spreadsheet software
 | BI.S4.H4.6000 | IBM Cloud Intel Bare Metal with Local Disk | 112 | 224 | Intel Cascade Lake SP | 6,144 | 27.43 | 285,970 | Yes | Appliance | OLAP/OLTP|
 | BI.S4.H8.6000 | IBM Cloud Intel Bare Metal with Local Disk | 224 | 448 | Intel Cascade Lake SP | 6,144 | 13.71 | 550,670 | Yes | Appliance | OLAP/OLTP|
 | BI.S4.H8.12000 | IBM Cloud Intel Bare Metal with Local Disk | 224 | 448 | Intel Cascade Lake SP | 12,288 | 27.43 | 550,670 | Yes | Appliance | OLAP/OLTP|
-| mx2-16x128 | IBM Cloud Intel Virtual Server (Gen2) | — | 16 | Intel Cascade Lake SP | 128 | 8.00 | 20,565 | Yes | Appliance | OLTP and SAP Business One for HANA |
-| mx2-32x256 | IBM Cloud Intel Virtual Server (Gen2) | — | 32 | Intel Cascade Lake SP | 256 | 8.00 | 41,130 | Yes | Appliance | OLTP and SAP Business One for HANA |
-| mx2-48x384 | IBM Cloud Intel Virtual Server (Gen2) | — | 48 | Intel Cascade Lake SP | 384 | 8.00 | 56,970 | Yes | Appliance | OLTP and SAP Business One for HANA |
+| mx2-16x128 | IBM Cloud Intel Virtual Server | — | 16 | Intel Cascade Lake SP | 128 | 8.00 | 20,565 | Yes | TDI | OLTP and SAP Business One for HANA |
+| mx2-32x256 | IBM Cloud Intel Virtual Server | — | 32 | Intel Cascade Lake SP | 256 | 8.00 | 41,130 | Yes | TDI | OLTP and SAP Business One for HANA |
+| mx2-48x384 | IBM Cloud Intel Virtual Server | — | 48 | Intel Cascade Lake SP | 384 | 8.00 | 56,970 | Yes | TDI | OLTP and SAP Business One for HANA |
+| vx2d-44x616 | IBM Cloud Intel Virtual Server | — | 44 | Intel Cascade Lake SP | 616 | 14.00 | 46,875 | Yes | TDI | OLAP |
+| vx2d-88x1232 | IBM Cloud Intel Virtual Server | — | 88 | Intel Cascade Lake SP | 1,232 | 14.00 | 93,750 | Yes | TDI | OLAP |
+| vx2d-144x2016 | IBM Cloud Intel Virtual Server | — | 144 | Intel Cascade Lake SP | 2,016 | 14.00 | 153,409 | Yes | TDI | OLAP |
+| vx2d-176x2464 | IBM Cloud Intel Virtual Server | — | 176 | Intel Cascade Lake SP | 2,464 | 14.00 | 187,500 | Yes | TDI | OLAP |
 | bh1-16x1600 | IBM Power Virtual Server | 16 | 128 | IBM POWER9 | 1,600 | 12.50 | 96,000 | Yes | Appliance | OLAP |
 | bh1-20x2000 | IBM Power Virtual Server | 20 | 160 | IBM POWER9 | 2,000 | 12.50 | 120,000 | Yes | Appliance | OLAP * |
 | bh1-22x2200 | IBM Power Virtual Server | 22 | 176 | IBM POWER9 | 2,200 | 12.36 | 132,000 | Yes | Appliance | OLAP * |
@@ -209,9 +213,9 @@ This can be copied into spreadsheet software
 | BI.S4.H4.6000 | IBM Cloud Intel Bare Metal with Local Disk | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2247){: external}</li><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2213){: external}</li></ul> |
 | BI.S4.H8.6000 | IBM Cloud Intel Bare Metal with Local Disk | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2303){: external}</li><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2305){: external}</li></ul> |
 | BI.S4.H8.12000 | IBM Cloud Intel Bare Metal with Local Disk | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2304){: external}</li><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2302){: external}</li></ul> |
-| mx2-16x128 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2369){: external}</li><li>[Business One Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:120&id=s:2418){: external}</li></ul> |
-| mx2-32x256 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2370){: external}</li><li>[Business One Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:120&id=s:2419){: external}</li></ul> |
-| mx2-48x384 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2371){: external}</li><li>[Business One Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:120&id=s:2420){: external}</li></ul> |
+| mx2-16x128 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2369){: external}</li><li>[Business One Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2418){: external}</li></ul> |
+| mx2-32x256 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2370){: external}</li><li>[Business One Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2419){: external}</li></ul> |
+| mx2-48x384 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2371){: external}</li><li>[Business One Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2420){: external}</li></ul> |
 | vx2d-44x616 | IBM Cloud Intel Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2603){: external}</li></ul> |
 | vx2d-88x1232 | IBM Cloud Intel Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2604){: external}</li></ul> |
 | vx2d-144x2016 | IBM Cloud Intel Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2605){: external}</li></ul> |
