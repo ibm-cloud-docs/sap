@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-12"
+lastupdated: "2022-01-13"
 
 subcollection: sap
 
@@ -138,11 +138,6 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
     The sap_master-password must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
 
-    When you are done creating your resources, the password remains in this file on your system unecrypted. You should remove the password from the file after you are done creating resources.
-
-    When you are done creating your resources, the password remains in the `input.auto.tfvars` file on your system unencrypted and in its generated log file `terraform.tfstate`. You should save these files as they are in a secured archive or remove the the value for `sap_master-password` from these 2 files after you are done creating resources. You must preserve these 2 files intact in case you want to destroy the created VPC at a later time.
-    {: note}
-    
     For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
     
   
@@ -151,7 +146,6 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     sap_sid	= "NWS"
     sap_ci_instance_number = "00"
     sap_ascs_instance_number = "01"
-    sap_master_password = "xxxxxxxxx"
 
     #Kits paths
     kit_sapcar_file = "/storage/NW75DB2/SAPCAR_1010-70006178.EXE"

@@ -42,6 +42,14 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | vx2d-88x1232 | 88 | 1,232 | 93,750 | OLAP |
 | vx2d-144x2016 | 144 | 2,016 | 153,409 | OLAP |
 | vx2d-176x2464 | 176 | 2,464 | 187,500 | OLAP |
+| **Ultra High Memory** | | | | |
+| ux2d-8x224 | 8 | 224 | 8,623 | OLTP |
+| ux2d-16x448 | 16 | 448 | 17,246 | OLTP |
+| ux2d-36x1008 | 36 | 1,008 | 38,803 | OLTP |
+| ux2d-48x1344 | 48 | 1,344 | 51,737 | OLTP |
+| ux2d-72x2016 | 72 | 2,016 | 77,606 | OLTP |
+| ux2d-100x2800 | 100 | 2,800 | 107,785 | OLTP |
+| ux2d-200x5600 | 200 | 5,600 | 215,570 | OLTP |
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA" caption-side="bottom"}
 
 
@@ -164,7 +172,7 @@ After the seven data volumes are attached, seven new virtual disks appear in the
 {: caption="Table 6. Storage for mx2-48x384 profile based virtual servers" caption-side="top"}
 
 
-### vx2d* profiles
+### vx2d* and ux2d* profiles
 {: #hana-iaas-intel-vs-vpc-vx2d}
 
 [SAP's recommended file system layout](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.latest/en-US/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
@@ -202,7 +210,66 @@ After the seven data volumes are attached, seven new virtual disks appear in the
 | | | | `vdk` | 192 |
 {: caption="Table 7. Storage for vx2* profile based virtual servers" caption-side="top"}
 
-All block storage volumes must be ordered with the predefined profile of 10 IOPS/GB (high performance). The volume names may differ - here we assume that the naming follows the sequence of ordering the storage, i.e. 1st order -> `vdd`, 2nd order -> `vde`, etc
+| Profile | File system | Volume Group | Volume | Size (GB) |
+| --- | --- | --- | --- | --- |
+| `ux2d-8x224` | `/hana/shared` |  | `vdd` | 250 |
+| | `/hana/data` | | `vde` | 750 |
+| | `/hana/log` | `hana_log_vg` | `vdf` | 192 |
+| |  |  | `vdg` | 192 |
+| |  |  | `vdh` | 192 |
+| --- | --- | --- | --- | --- |
+| `ux2d-16x448` | `/hana/shared` |  | `vdd` | 450 |
+| | `/hana/data` | | `vde` | 1,350 |
+| | `/hana/log` | `hana_log_vg` | `vdf` | 192 |
+| |  |  | `vdg` | 192 |
+| |  |  | `vdh` | 192 |
+| --- | --- | --- | --- | --- |
+| `ux2d-36x1008` | `/hana/shared` |  | `vdd` | 1,000 |		ok
+| | `/hana/data` | `hana_data_vg` | `vde` | 1,008 |
+| | | | `vdf` | 1,008 |
+| | `/hana/log` | `hana_log_vg` | `vdg` | 128 |
+| | | | `vdh` | 128 |
+| | | | `vdi` | 128 |
+| | | | `vdj` | 128 |
+| --- | --- | --- | --- | --- |
+| `ux2d-48x1344` | `/hana/shared` |  | `vdd` | 1,344 |		ok
+| | `/hana/data` | `hana_data_vg` | `vde` | 1,350 |
+| | | | `vdf` | 1,350 |
+| | `/hana/log` | `hana_log_vg` | `vdg` | 128 |
+| | | | `vdh` | 128 |
+| | | | `vdi` | 128 |
+| | | | `vdj` | 128 |
+| --- | --- | --- | --- | --- |
+| `ux2d-72x2016` | `/hana/shared` |  | `vdd` | 2,048 |
+| | `/hana/data` | `hana_data_vg` | `vde` | 1,024 |
+| | | | `vdf` | 1,024 |
+| | | | `vdg` | 1,024 |
+| | | | `vdh` | 1,024 |
+| | `/hana/log` | `hana_log_vg` | `vdi` | 192 |
+| | | | `vdj` | 192 |
+| | | | `vdk` | 192 |
+| --- | --- | --- | --- | --- |
+| `ux2d-100x2800` | `/hana/shared` |  | `vdd` | 2,800 |
+| | `/hana/data` | `hana_data_vg` | `vde` | 2,100 |
+| | | | `vdf` | 2,100 |
+| | | | `vdg` | 2,100 |
+| | | | `vdh` | 2,100 |
+| | `/hana/log` | `hana_log_vg` | `vdi` | 192 |
+| | | | `vdj` | 192 |
+| | | | `vdk` | 192 |
+| --- | --- | --- | --- | --- |
+| `ux2d-200x5600` | `/hana/shared` |  | `vdd` | 5,600 |
+| | `/hana/data` | `hana_data_vg` | `vde` | 4,200 |
+| | | | `vdf` | 4,200 |
+| | | | `vdg` | 4,200 |
+| | | | `vdh` | 4,200 |
+| | `/hana/log` | `hana_log_vg` | `vdi` | 192 |
+| | | | `vdj` | 192 |
+| | | | `vdk` | 192 |
+{: caption="Table 8. Storage for ux2* profile based virtual servers" caption-side="top"}
+
+
+The volume names may differ - here we assume that the naming follows the sequence of ordering the storage, i.e. 1st order -> `vdd`, 2nd order -> `vde`, etc. All block storage volumes must be ordered with the predefined profile of 10 IOPS/GB (high performance). One exception may be /hana/shared partition where 5 IOPS/GB (medium performance) are sufficient - but ONLY IF you have assigned a dedicated volume for this partition.
 {: note}
 
 For all profiles optional: one appropriately sized  block storage volume or several equally sized volumes gathered to a volume group, with the predefined profile of 5 IOPS/GB (medium performance) attached to the Virtual Server for backups.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-12"
+lastupdated: "2022-01-13"
 
 subcollection: sap
 
@@ -129,19 +129,12 @@ The virtual server instance is configured with:
 
     The `hana_master_password` must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ).
 
-    When you are done creating your resources, the password remains in this file on your system unecrypted. You should remove the password from the file after you are done creating resources.
-
-    When you are done creating your resources, the password remains in the `input.auto.tfvars` file on your system unencrypted and in its generated log file `terraform.tfstate`. You should save these files as they are in a secured archive or remove the values for `hana_master_password` from these 2 files after you are done creating resources. You must preserve these 2 files intact in case you want to destroy the created VPC at a later time.
-    {: note}
-
-
     See the README file for variable descriptions.
 
     ```
     #HANA DB configuration
     hana_sid = "HDB"
     hana_sysno = "00"
-    hana_master_password = ""
     hana_system_usage = "custom"  # default	value is: "custom"
     hana_components = "server"    # default	value is: "server"
     

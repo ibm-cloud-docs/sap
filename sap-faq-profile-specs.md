@@ -82,6 +82,13 @@ This can be copied into spreadsheet software
 | vx2d-88x1232 | IBM Cloud Intel Virtual Server | — | 88 | Intel Cascade Lake SP | 1,232 | 14.00 | 93,750 | Yes | TDI | OLAP |
 | vx2d-144x2016 | IBM Cloud Intel Virtual Server | — | 144 | Intel Cascade Lake SP | 2,016 | 14.00 | 153,409 | Yes | TDI | OLAP |
 | vx2d-176x2464 | IBM Cloud Intel Virtual Server | — | 176 | Intel Cascade Lake SP | 2,464 | 14.00 | 187,500 | Yes | TDI | OLAP |
+| ux2d-8x224 | IBM Cloud Intel Virtual Server | — | 8 | Intel Cascade Lake SP | 224 | 28.00 | 8,623 | Yes | TDI | OLTP |
+| ux2d-16x448 | IBM Cloud Intel Virtual Server | — | 16 | Intel Cascade Lake SP | 448 | 28.00 | 17,246 | Yes | TDI | OLTP |
+| ux2d-36x1008 | IBM Cloud Intel Virtual Server | — | 36 | Intel Cascade Lake SP | 1,008 | 28.00 | 38,803 | Yes | TDI | OLTP |
+| ux2d-48x1344 | IBM Cloud Intel Virtual Server | — | 48 | Intel Cascade Lake SP | 1,344 | 28.00 | 51,737 | Yes | TDI | OLTP |
+| ux2d-72x2016 | IBM Cloud Intel Virtual Server | — | 72 | Intel Cascade Lake SP | 2,016 | 28.00 | 77,606 | Yes | TDI | OLTP |
+| ux2d-100x2800 | IBM Cloud Intel Virtual Server | — | 100 | Intel Cascade Lake SP | 2,800 | 28.00 | 107,785 | Yes | TDI | OLTP |
+| ux2d-200x5600 | IBM Cloud Intel Virtual Server | — | 200 | Intel Cascade Lake SP | 5,600 | 28.00 | 215,570 | Yes | TDI | OLTP |
 | bh1-16x1600 | IBM Power Virtual Server | 16 | 128 | IBM POWER9 | 1,600 | 12.50 | 96,000 | Yes | Appliance | OLAP |
 | bh1-20x2000 | IBM Power Virtual Server | 20 | 160 | IBM POWER9 | 2,000 | 12.50 | 120,000 | Yes | Appliance | OLAP * |
 | bh1-22x2200 | IBM Power Virtual Server | 22 | 176 | IBM POWER9 | 2,200 | 12.36 | 132,000 | Yes | Appliance | OLAP * |
@@ -150,19 +157,19 @@ This can be copied into spreadsheet software
 | mx2-64x512 | IBM Cloud Intel Virtual Server | — | 64 | Intel Cascade Lake SP | 512 | 8.00 | 81,015 | Yes |   |   |
 | mx2-96x768 | IBM Cloud Intel Virtual Server | — | 96 | Intel Cascade Lake SP | 768 | 8.00 | 121,523 | Yes |   |   |
 | mx2-128x1024 | IBM Cloud Intel Virtual Server | — | 128 | Intel Cascade Lake SP | 1024 | 8.00 | 162,030 | Yes |   |   |
-| ux2d-8x224 | IBM Cloud Intel Virtual Server | — | 8 | Intel Cascade Lake SP | 224 | 28.00 |  8,623 | Yes |   |   |
-| ux2d-16x448 | IBM Cloud Intel Virtual Server | — | 16 | Intel Cascade Lake SP | 448 | 28.00 | 17,246 | Yes |   |   |
-| ux2d-36x1008 | IBM Cloud Intel Virtual Server | — | 36 | Intel Cascade Lake SP | 1,008 | 28.00 | 38,803 | Yes |   |   |
-| ux2d-48x1344 | IBM Cloud Intel Virtual Server | — | 48 | Intel Cascade Lake SP | 1,344 | 28.00 | 51,737 | Yes |   |   |
-| ux2d-72x2016 | IBM Cloud Intel Virtual Server | — | 72 | Intel Cascade Lake SP | 2,016 | 28.00 | 77,606 | Yes |   |   |
-| ux2d-100x2800 | IBM Cloud Intel Virtual Server | — | 100 | Intel Cascade Lake SP | 2,800 | 28.00 | 107,785 | Yes |   |   |
-| ux2d-200x5600 | IBM Cloud Intel Virtual Server | — | 200 | Intel Cascade Lake SP | 5,600 | 28.00 | 215,570 | Yes |   |   |
 | vx2d-8x112 | IBM Cloud Intel Virtual Server | — | 8 | Intel Cascade Lake SP | 112 | 14.00 | 8,523 | Yes |   |   |
 | vx2d-16x224 | IBM Cloud Intel Virtual Server | — | 16 | Intel Cascade Lake SP | 224 | 14.00 | 17,046 | Yes |   |   |
 | vx2d-44x616 | IBM Cloud Intel Virtual Server | — | 44 | Intel Cascade Lake SP | 616 | 14.00 | 46,875 | Yes |   |   |
 | vx2d-88x1232 | IBM Cloud Intel Virtual Server | — | 88 | Intel Cascade Lake SP | 1,232 | 14.00 | 93,750 | Yes |   |   |
 | vx2d-144x2016 | IBM Cloud Intel Virtual Server | — | 144 | Intel Cascade Lake SP | 2,016 | 14.00 | 153,409 | Yes |   |   |
 | vx2d-176x2464 | IBM Cloud Intel Virtual Server | — | 176 | Intel Cascade Lake SP | 2,464 | 14.00 | 187,500 | Yes |   |   |
+| ux2d-8x224 | IBM Cloud Intel Virtual Server | — | 8 | Intel Cascade Lake SP | 224 | 28.00 | 8,623 | Yes |   |   |
+| ux2d-16x448 | IBM Cloud Intel Virtual Server | — | 16 | Intel Cascade Lake SP | 448 | 28.00 | 17,246 | Yes |   |   |
+| ux2d-36x1008 | IBM Cloud Intel Virtual Server | — | 36 | Intel Cascade Lake SP | 1,008 | 28.00 | 38,803 | Yes |   |   |
+| ux2d-48x1344 | IBM Cloud Intel Virtual Server | — | 48 | Intel Cascade Lake SP | 1,344 | 28.00 | 51,737 | Yes |   |   |
+| ux2d-72x2016 | IBM Cloud Intel Virtual Server | — | 72 | Intel Cascade Lake SP | 2,016 | 28.00 | 77,606 | Yes |   |   |
+| ux2d-100x2800 | IBM Cloud Intel Virtual Server | — | 100 | Intel Cascade Lake SP | 2,800 | 28.00 | 107,785 | Yes |   |   |
+| ux2d-200x5600 | IBM Cloud Intel Virtual Server | — | 200 | Intel Cascade Lake SP | 5,600 | 28.00 | 215,570 | Yes |   |   |
 | BI.S3.NW192 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 192 | 2.67 | 70,965 | Yes |   |   |
 | BI.S3.NW384 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 384 | 5.33 | 71,487 | Yes |   |   |
 | BI.S3.NW768 (VMware) | IBM Cloud for VMware | 36 | 72 | Intel Skylake SP | 768 | 10.67 | 71,667 | Yes |   |   |
@@ -220,6 +227,13 @@ This can be copied into spreadsheet software
 | vx2d-88x1232 | IBM Cloud Intel Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2604){: external}</li></ul> |
 | vx2d-144x2016 | IBM Cloud Intel Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2605){: external}</li></ul> |
 | vx2d-176x2464 | IBM Cloud Intel Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2606){: external}</li></ul> |
+| ux2d-8x224 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2613){: external}</li></ul> |
+| ux2d-16x448 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2614){: external}</li></ul> |
+| ux2d-36x1008 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2615){: external}</li></ul> |
+| ux2d-48x1344 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2616){: external}</li></ul> |
+| ux2d-72x2016 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2617){: external}</li></ul> |
+| ux2d-100x2800 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2618){: external}</li></ul> |
+| ux2d-200x5600 | IBM Cloud Intel Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;&id=s:2619){: external}</li></ul> |
 | bh1-16x1600 | IBM Power Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2358){: external}</li></ul> |
 | bh1-60x6000 | IBM Power Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2372){: external}</li><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2359){: external}</li></ul> |
 | bh1-140x14000 | IBM Power Virtual Server | <ul><li>[OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2387){: external}</li></ul> |

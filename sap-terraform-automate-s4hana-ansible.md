@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-12"
+lastupdated: "2022-01-13"
 
 subcollection: sap
 
@@ -162,14 +162,10 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
     
     The `sap_master-password`must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!` and must not start with a digit or an underscore ( _ )
 
-    When you are done creating your resources, the passwords remain in `input.auto.tfvars` file on your system unencrypted and in its generated log file `terraform.tfstate`. You should save these files as they are in a secured archive or remove the input passwords from these 2 files after you are done creating resources. You must preserve these 2 files intact in case you want to destroy the created VPC at a later time.
-    {: note}
-
     ```
 	#HANA DB configuration
 	hana_sid = "HDB"
 	hana_sysno = "00"
-	hana_master_password = ""
 	hana_system_usage = "custom"
 	hana_components = "server"
 
@@ -179,7 +175,6 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
 	sap_sid = "S4A"
 	sap_ascs_instance_number = "01"
 	sap_ci_instance_number = "00"
-	sap_master_password = ""
 
 	# Number of concurrent jobs used to load and/or extract archives to HANA Host
 	hdb_concurrent_jobs = "23"
