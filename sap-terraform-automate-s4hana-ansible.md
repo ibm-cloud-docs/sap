@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-01-13"
+  years: 2021, 2022
+lastupdated: "2022-01-14"
 
 subcollection: sap
 
@@ -156,11 +156,7 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
 	APP-IMAGE       = "ibm-redhat-7-6-amd64-sap-applications-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP NOTE: 2927211.
     ```
 
-5.	Customize your SAP system configuration.edit the SAP system configuration variables that are passed to the Ansible automated deployment. You must enter a `hana_master_password = ""` and the `sap_master-password = ""`. 
-
-    The `hana_master_password = ""` must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
-    
-    The `sap_master-password`must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!` and must not start with a digit or an underscore ( _ )
+5.	Customize your SAP system configuration.edit the SAP system configuration variables that are passed to the Ansible automated deployment.
 
     ```
 	#HANA DB configuration
@@ -202,7 +198,15 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
     ```
 	terraform plan
     ```
-	Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the input.auto.tfvars file to correct resources and run terraform plan again.
+
+	You must enter a Hana master password and the SAP master password. 
+
+    The HANA master password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
+    
+    The SAP master password must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!` and must not start with a digit or an underscore ( _ ).
+
+	Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the `input.auto.tfvars` file to correct resources and run terraform plan again.
+
 8.	Create the virtual private cloud for SAP instance and IAM access policy in IBM Cloud.
 
     ```

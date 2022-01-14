@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-01-13"
+  years: 2021, 2022
+lastupdated: "2022-01-14"
 
 subcollection: sap
 
@@ -61,26 +61,6 @@ A single-host system is the simplest system installation type that runs an SAP H
 
 The scripts are designed to create a new VPC and install SAP (BW/4HANA release) solution together with its dedicated DB Hana box in one task flow. If you want to install SAP BW/4HANA on an existing VPC with already installed and configured HANA box VSI, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
 
-## Script files
-
-The configuration and script files are provided on the GitHub repository [sap-automated-deployment-scripts/sapthreetiers4hana/](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/dev).
-
-To run the scripts to create a VPC and install the SAP BW/4HANA release on dedicated HANA 2.0 BOX VSI, you need to modify:
-
-*	The terraform.tfvars file to add your IBM Cloud API-key.
-*	The input.auto.tfvars file to customize the resources for your solution. By default, the VSI is configured with: 
-    *	Red Hat Enterprise Linux® 7.x for SAP Applications (amd64),
-    *	Two SSH keys that are configured to access as root user on SSH,
-    *	Five storage volumes.
-
-You can change the default settings to match your solution. 
-
-You can change the default SAP system configuration settings to match your solution. You also specify the location where you downloaded the SAP kits. 
-
-All of the other configuration files are provided and do not need to be modified.
-
-The IBM Cloud Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account.
-
 ## SAP Kits
 
 For each {{site.data.keyword.cloud_notm}} region IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment (Bastion) Server. All file archives are decompressed by Ansible during the automatic deploying process. For more information, see the readme file.
@@ -90,19 +70,6 @@ For each {{site.data.keyword.cloud_notm}} region IBM allocates temporary storage
 There are no warranties of any kind, and there is no service or technical support available for these materials from IBM®. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
 Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, re-adapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
-
-## Before you begin
-
-Before you use the scripts:
-
-*	Log in to your Deployment Server and verify that Terraform and Ansible are installed.
-*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the readme file.
-*	Create or retrieve an IBM Cloud API key. The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
-*	Create or retrieve your SSH key ID. You need the 40-digit UUID for the SSH key, not the SSH key name.
-
-During configuration you can specify an existing VPC to use, instead of creating a new VPC.
-
-For the detailed steps about using Terraform to create only a VPC for SAP, see [Creating single-tier virtual private cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
 
 ## Script files
 {: #terraform-sap-hana-vsi-files}
@@ -141,6 +108,10 @@ The virtual server instance is configured with:
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the readme file. 
 *  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
+
+During configuration you can specify an existing VPC to use, instead of creating a new VPC.
+
+For the detailed steps about using Terraform to create only a VPC for SAP, see [Creating single-tier virtual private cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
 
 ## Procedure
 
@@ -194,11 +165,7 @@ The virtual server instance is configured with:
     The hostname must have up to 13 characters as required by SAP. For more information about the rules that apply to hostnames for SAP systems, see SAP Note 611361 - Hostnames of SAP ABAP Platform servers
     {: note}
 
-5.	In the same file (`input.auto.tfvars`), edit the SAP system configuration variables that are passed to the Ansible automated deployment. You must enter a `hana_master_password = ""` and the `sap_master-password = ""`. 
-
-    The `hana_master_password = ""` must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
-    
-    The `sap_master-password`must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ )
+5.	In the same file (`input.auto.tfvars`), edit the SAP system configuration variables that are passed to the Ansible automated deployment. 
 
     ```
     #HANA DB configuration
@@ -256,6 +223,12 @@ The virtual server instance is configured with:
 8.	Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
 
     ``terraform plan``
+
+    You must enter a HANA maste password and an SAP master password. 
+
+    The HANA master password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
+    
+    The SAP master password must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
 
 9. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
 

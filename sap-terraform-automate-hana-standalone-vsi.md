@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-01-13"
+  years: 2021, 2022
+lastupdated: "2022-01-14"
 
 subcollection: sap
 
@@ -125,9 +125,7 @@ The virtual server instance is configured with:
     The hostname must have up to 13 characters as required by SAP. For more information about the rules that apply to hostnames for SAP systems, see SAP Note 611361 - Hostnames of SAP ABAP Platform servers
     {: note}
 
-5.	In the same file (`input.auto.tfvars`), You must enter a `hana_master_password = ""`.
-
-    The `hana_master_password` must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ).
+5.	In the same file (`input.auto.tfvars`), set the DB configuration.
 
     See the README file for variable descriptions.
 
@@ -169,6 +167,10 @@ The virtual server instance is configured with:
 8.	Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
 
     ``terraform plan``
+
+    You must enter a HANA master password.
+
+    The HANA master password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ).
 
 9. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
 

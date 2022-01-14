@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-01-13"
+  years: 2021, 2022
+lastupdated: "2022-01-14"
 
 subcollection: sap
 
@@ -134,9 +134,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     VOL5			= "256"
     ```
 
-4. Customize your SAP system configuration. In the same file, `input.auto.tfvars`, edit the SAP system configuration variables that are passed to the Ansible automated deployment. You must enter a sap_master-password = "".
-
-    The sap_master-password must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
+4. Customize your SAP system configuration. In the same file, `input.auto.tfvars`, edit the SAP system configuration variables that are passed to the Ansible automated deployment.
 
     For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
 
@@ -213,6 +211,9 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
    ```
    terraform plan
    ```
+  You must enter an SAP master password.
+
+  The SAP master password must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
 
 8. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
 
