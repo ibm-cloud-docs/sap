@@ -38,10 +38,11 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | mx2-32x256 | 32 | 256 | 41,130 | OLTP |
 | mx2-48x384 | 48 | 384 | 56,970 | OLTP |
 | **Very High Memory** | | | | |
-| vx2d-44x616 | 44 | 616 | 48,875 | OLAP |
-| vx2d-88x1232 | 88 | 1,232 | 93,750 | OLAP |
-| vx2d-144x2016 | 144 | 2,016 | 153,409 | OLAP |
-| vx2d-176x2464 | 176 | 2,464 | 187,500 | OLAP |
+| vx2d-16x224 | 16 | 224 | 17,046 | OLTP |
+| vx2d-44x616 | 44 | 616 | 46,875 | OLAP/OLTP |
+| vx2d-88x1232 | 88 | 1,232 | 93,750 | OLAP/OLTP |
+| vx2d-144x2016 | 144 | 2,016 | 153,409 | OLAP/OLTP |
+| vx2d-176x2464 | 176 | 2,464 | 187,500 | OLAP/OLTP |
 | **Ultra High Memory** | | | | |
 | ux2d-8x224 | 8 | 224 | 8,623 | OLTP |
 | ux2d-16x448 | 16 | 448 | 17,246 | OLTP |
@@ -178,6 +179,12 @@ After the seven data volumes are attached, seven new virtual disks appear in the
 [SAP's recommended file system layout](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.latest/en-US/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
 
 | Profile | File system | Volume Group | Volume | Size (GB) |
+| --- | --- | --- | --- | --- |
+| `vx2d-16x224` | `/hana/shared` |  | `vdd` | 250 |
+| | `/hana/data` | | `vde` | 750 |
+| | `/hana/log` | `hana_log_vg` | `vdf` | 192 |
+| |  |  | `vdg` | 192 |
+| |  |  | `vdh` | 192 |
 | --- | --- | --- | --- | --- |
 | `vx2d-44x616` | `/hana/shared` |  | `vdd` | 616 |
 | | `/hana/data` | | `vde` | 1,848 |

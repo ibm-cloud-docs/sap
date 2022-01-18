@@ -52,6 +52,13 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | mx2-64x512 | 64 | 512 | 81,015 |
 | mx2-96x768 | 96 | 768 | 121,523 |
 | mx2-128x1024 | 128 | 1,024 | 162,030 |
+| **Very High Memory** | |		
+| vx2d-8x112 | 8 | 112 | 8,523 |
+| vx2d-16x224| 16 | 224 |17,046 |
+| vx2d-44x616 | 44 | 616 |46,875 |
+| vx2d-88x1232 | 88 | 1,232 | 93,750 |
+| vx2d-144x2016 | 144 | 2,016 | 153,409 |
+| vx2d-176x2464 | 176 | 2,464 | 187,500 |
 | **Ultra High Memory** | | | |
 | ux2d-8x224 | 8 | 224 |  8,623 |
 | ux2d-16x448 | 16 | 448 |  17,246 |
@@ -60,22 +67,15 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | ux2d-72x2016 | 72 | 2,016 |  77,606 |
 | ux2d-100x2800 | 100 | 2,800 | 107,785 |
 | ux2d-200x5600 | 200 | 5,600 | 215,570 |
-| **Very High Memory** | |		
-| vx2d-8x112 | 8 | 112 | 8,523 |
-| vx2d-16x224| 16 | 224 |17,046 |
-| vx2d-44x616 | 44 | 616 |46,875 |
-| vx2d-88x1232 | 88 | 1,232 | 93,750 |
-| vx2d-144x2016 | 144 | 2,016 | 153,409 |
-| vx2d-176x2464 | 176 | 2,464 | 187,500 |
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP NetWeaver" caption-side="bottom"}
 
-<!--- The following two ux2d profiles have not been entered in the SAP Note yet
-| ux2d-2x56 | 2 | 56 | 2,156 |
-| ux2d-4x112 | 4 | 112 | 4,312 |
---->
 <!--- The following two vx2d-profiles have not been entered in the SAP Note yet
 | vx2d-2x28 | 2 | 28 | 2,131 |
 | vx2d-4x56 | 4 | 56 | 4,262 |
+--->
+<!--- The following two ux2d profiles have not been entered in the SAP Note yet
+| ux2d-2x56 | 2 | 56 | 2,156 |
+| ux2d-4x112 | 4 | 112 | 4,312 |
 --->
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}.
