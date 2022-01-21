@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-27"
+  years: 2020, 2021, 2022
+lastupdated: "2022-01-20"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -31,7 +31,7 @@ The published names are subject to change.
 
 The following list gives you an overview of the SAP-certified profiles with {{site.data.keyword.vsi_is_short}}:
 
-| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA Processing Type** |
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- |
 | **Memory optimized** | | | | |
 | mx2-16x128 | 16 | 128 | 20,565 | OLTP |
@@ -41,7 +41,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | vx2d-16x224 | 16 | 224 | 17,046 | OLTP |
 | vx2d-44x616 | 44 | 616 | 46,875 | OLAP/OLTP |
 | vx2d-88x1232 | 88 | 1,232 | 93,750 | OLAP/OLTP |
-| vx2d-144x2016 | 144 | 2,016 | 153,409 | OLAP/OLTP |
+| vx2d-144x2016 | 144 | 2,016 | 153,410 | OLAP/OLTP |
 | vx2d-176x2464 | 176 | 2,464 | 187,500 | OLAP/OLTP |
 | **Ultra High Memory** | | | | |
 | ux2d-8x224 | 8 | 224 | 8,623 | OLTP |
@@ -104,9 +104,9 @@ All {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are avai
 ## Storage specifications
 {: #hana-iaas-intel-vs-vpc-storage-specs}
 
-When the virtual server profiles for SAP HANA are initially provisioned, the servers all have a basic boot layout of the file system:
+When the virtual server profiles for SAP HANA are initially provisioned, the servers all have one pre-configured volume (vda) attached with the following basic layout:
 
-| File system | Volume | Storage type | IOPS/GB | GB | \# IOPS |
+| File system | Partition | Storage type | IOPS/GB | GB | Nr. of\nIOPS |
 | --- | --- | --- | --- | --- | --- |
 | `/` | `vda1` | Pre-configured boot volume | N/A | 100 GB | 3,000 |
 | `/boot` | `vda2` | Pre-configured boot volume | N/A | 0.25 GB | 3,000 |
@@ -128,55 +128,44 @@ To fulfill the KPIs defined by SAP HANA, each profile needs different storage vo
 
 Below there are the tested and certified storage layouts that comply to **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when ordering different storage sizes and types.
 
+For all following layouts please consider that the volume names may differ - we assume that the naming follows the sequence of ordering the storage, i.e. 1st order -> `vdd`, 2nd order -> `vde`, etc. **All block storage volumes** must be ordered with the predefined profile of **10 IOPS/GB** (high performance). One exception may be /hana/shared partition where 5 IOPS/GB (medium performance) are sufficient - but ONLY IF you have assigned a dedicated volume for this partition. For all profiles optional: one appropriately sized  block storage volume or several equally sized volumes gathered to a volume group, with the predefined profile of 5 IOPS/GB (medium performance) attached to the Virtual Server for backups.
+{: note}
+
+[SAP's recommended file system layout](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.latest/en-US/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. 
+
 ### mx2-16x128 and mx2-32x256 profiles
-{: #hana-iaas-intel-vs-vpc-mx2-16x128-32x256}
+{: #hana-iaas-intel-vs-vpc-mx2-small}
 
-For Virtual Servers created based on the **mx2-16x128** and **mx2-32x256** profiles the storage volumes that are needed are:
-- 3x 500 GB volumes; three 500 GB block storage volumes are required, with a custom volume profile that supports up to 10,000 **Max IOPS** attached to the Virtual Server
-- _Optional:_ 1x 2,000 GB volume; one 2,000 GB block storage volume, with a lower 4,000 IOPS (medium performance) attached to the Virtual Server for backups
+The following table shows the required physical volumes, related volume groups, logical volumes, and their characteristics. See the [step by step instructions for setting up the assets here](https://cloud.ibm.com/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-16x128-32x256-configure){: external}.
 
-#### Disk mount points and volumes
-{: #hana-iaas-intel-vs-vpc-mx2-16x128-32x256-logical}
-
-After the three data volumes are attached, three new virtual disks appear in the Virtual Server. For the example in this table, those disks are `vdd`, `vde`, and `vdf`.
-
-| Volume Group | Volume | Storage type | IOPS/GB | GB | \# IOPS |
-| --- | --- | --- | --- | --- | --- |
-| `hana_vg` | `vdd` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
-| `hana_vg` | `vde` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
-| `hana_vg` | `vdf` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
-{: caption="Table 5. Storage for mx2-16x128 and mx2-32x256 profile based VSIs" caption-side="top"}
-
+| Profile | File\nsystem | Logical\nVolume | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(GB) |
+| --- | --- | --- | --- | --- | --- | --- |
+| `mx2-16x128`\nand\n`mx2-32x256`  | `/hana/shared` | `hana_shared_lv` | 256 | `hana_vg` | `vdd` | 500 |
+| | `/hana/data` | `hana_data_lv` | 256 | | `vde` | 500 |
+| | `/hana/log` | `hana_log_lv` | 988 | | `vdf` | 500 |
+{: caption="Table 5. Storage for mx2-16x128 and mx2-32x256 profiles based virtual servers" caption-side="top"}
 
 ### mx2-48x384 profile
-{: #hana-iaas-intel-vs-vpc-mx2-48x384}
+{: #hana-iaas-intel-vs-vpc-mx2-48x348}
 
-For Virtual Servers created based on the **mx2-48x384** profile the storage volumes that are needed are:
-- 3x 500 GB volumes; three 500 GB block storage volumes are required, with a custom volume profile that supports up to 10,000 **Max IOPS** attached to the Virtual Server
-- 4x 100 GB volumes; four 100 GB block storage volumes are required, with a custom volume profile that supports up to 6,000 **Max IOPS** attached to the Virtual Server
-- _Optional:_ 1x 2,000 GB volume; one 2,000 GB block storage volume, with a lower 4,000 IOPS (medium performance) attached to the Virtual Server for backups
+The following table shows the required physical volumes, related volume groups, logical volumes, and their characteristics. See the [step by step instructions for setting up the assets here](https://cloud.ibm.com/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-48x384-configure){: external}. Mind the different volume names.
 
-#### Disk mount points and volumes
-{: #hana-iaas-intel-vs-vpc-mx2-48x384-logical}
-
-After the seven data volumes are attached, seven new virtual disks appear in the Virtual Server. In the example in this table, those disks are `vdd`, `vde`, `vdf`, `vdg`, `vdh`, `vdi`, and `vdj`.
-
-| Volume Group | Volume | Storage type | IOPS/GB | GB | \# IOPS |
-| --- | --- | --- | --- | --- | --- |
-| `hana_log_vg` | `vdd` | Data volume | 60IOPS/GB | 100 GB | 6,000 |
-| `hana_log_vg` | `vde` | Data volume | 60IOPS/GB | 100 GB | 6,000 |
-| `hana_log_vg` | `vdf` | Data volume | 60IOPS/GB | 100 GB | 6,000 |
-| `hana_log_vg` | `vdg` | Data volume | 60IOPS/GB | 100 GB | 6,000 |
-| `hana_vg` | `vdh` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
-| `hana_vg` | `vdi` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
-| `hana_vg` | `vdj` | Data volume | 20IOPS/GB | 500 GB | 10,000 |
+| Profile | File\nsystem | Logical\nVolume | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(GB) |
+| --- | --- | --- | --- | --- | --- | --- |
+| `mx2-48x384` | `/hana/shared` | `hana_shared_lv` | 384 | `hana_vg` | `vdd` | 500 |
+| | `/hana/data` | `hana_data_lv` | 616 | | `vde` | 500 |
+| | | | | | `vdf` | 500 |
+| | `/hana/log` | `hana_log_lv` | 400 | `hana_log_vg` | `vdg` | 100 |
+| | | | | | `vdh` | 100 |
+| | | | | | `vdi` | 100 |
+| | | | | | `vdj` | 100 |
 {: caption="Table 6. Storage for mx2-48x384 profile based virtual servers" caption-side="top"}
 
 
-### vx2d* and ux2d* profiles
+### vx2d-* profiles
 {: #hana-iaas-intel-vs-vpc-vx2d}
 
-[SAP's recommended file system layout](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.latest/en-US/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
+The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
 
 | Profile | File system | Volume Group | Volume | Size (GB) |
 | --- | --- | --- | --- | --- |
@@ -216,6 +205,12 @@ After the seven data volumes are attached, seven new virtual disks appear in the
 | | | | `vdj` | 192 |
 | | | | `vdk` | 192 |
 {: caption="Table 7. Storage for vx2* profile based virtual servers" caption-side="top"}
+
+
+### ux2d-* profiles
+{: #hana-iaas-intel-vs-vpc-ux2d}
+
+The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
 
 | Profile | File system | Volume Group | Volume | Size (GB) |
 | --- | --- | --- | --- | --- |
@@ -274,11 +269,3 @@ After the seven data volumes are attached, seven new virtual disks appear in the
 | | | | `vdj` | 192 |
 | | | | `vdk` | 192 |
 {: caption="Table 8. Storage for ux2* profile based virtual servers" caption-side="top"}
-
-
-The volume names may differ - here we assume that the naming follows the sequence of ordering the storage, i.e. 1st order -> `vdd`, 2nd order -> `vde`, etc. All block storage volumes must be ordered with the predefined profile of 10 IOPS/GB (high performance). One exception may be /hana/shared partition where 5 IOPS/GB (medium performance) are sufficient - but ONLY IF you have assigned a dedicated volume for this partition.
-{: note}
-
-For all profiles optional: one appropriately sized  block storage volume or several equally sized volumes gathered to a volume group, with the predefined profile of 5 IOPS/GB (medium performance) attached to the Virtual Server for backups.
-
-

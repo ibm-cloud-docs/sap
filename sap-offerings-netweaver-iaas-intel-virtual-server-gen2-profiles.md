@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-27"
+  years: 2020, 2021, 2022
+lastupdated: "2022-01-20"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -57,7 +57,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | vx2d-16x224| 16 | 224 |17,046 |
 | vx2d-44x616 | 44 | 616 |46,875 |
 | vx2d-88x1232 | 88 | 1,232 | 93,750 |
-| vx2d-144x2016 | 144 | 2,016 | 153,409 |
+| vx2d-144x2016 | 144 | 2,016 | 153,410 |
 | vx2d-176x2464 | 176 | 2,464 | 187,500 |
 | **Ultra High Memory** | | | |
 | ux2d-8x224 | 8 | 224 |  8,623 |
@@ -125,13 +125,13 @@ All {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are avai
 ## Storage specifications
 {: #nw-iaas-intel-vs-vpc-storage-specs}
 
-When the server profiles for SAP NetWeaver are initially provisioned, the servers all have a basic boot layout of the file system:
+When the virtual server profiles for SAP HANA are initially provisioned, the servers all have one pre-configured volume (vda) attached with the following basic layout:
 
-| File system | Volume | Storage type | IOPS/GB | GB | \# IOPS |
+| File system | Partition | Storage type | IOPS/GB | GB | Nr. of\nIOPS |
 | --- | --- | --- | --- | --- | --- |
 | `/` | `vda1` | Pre-configured boot volume | N/A | 100 GB | 3,000 |
 | `/boot` | `vda2` | Pre-configured boot volume | N/A | 0.25 GB | 3,000 |
-{: caption="Table 4. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
+: caption="Table 4. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
 
 To fulfill the size and I/O requirements for SAP NetWeaver or SAP AnyDB, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.
 
