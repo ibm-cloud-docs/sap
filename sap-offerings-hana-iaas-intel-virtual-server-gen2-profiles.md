@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021, 2022
-lastupdated: "2022-01-20"
+lastupdated: "2022-01-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -128,29 +128,24 @@ To fulfill the KPIs defined by SAP HANA, each profile needs different storage vo
 
 Below there are the tested and certified storage layouts that comply to **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when ordering different storage sizes and types.
 
+Even if you stick to the storage sizes and layouts and follow the instructions below, you must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://launchpad.support.sap.com/#/notes/2493172){: external} and follow the instuctions of the [HCMT guide](https://help.sap.com/viewer/product/HANA_HW_CLOUD_TOOLS/latest/en-US){: external}.
+{: important}
+
 For all following layouts please consider that the volume names may differ - we assume that the naming follows the sequence of ordering the storage, i.e. 1st order -> `vdd`, 2nd order -> `vde`, etc. **All block storage volumes** must be ordered with the predefined profile of **10 IOPS/GB** (high performance). One exception may be /hana/shared partition where 5 IOPS/GB (medium performance) are sufficient - but ONLY IF you have assigned a dedicated volume for this partition. For all profiles optional: one appropriately sized  block storage volume or several equally sized volumes gathered to a volume group, with the predefined profile of 5 IOPS/GB (medium performance) attached to the Virtual Server for backups.
 {: note}
 
 [SAP's recommended file system layout](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.latest/en-US/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. 
 
-### mx2-16x128 and mx2-32x256 profiles
-{: #hana-iaas-intel-vs-vpc-mx2-small}
+### mx2* profiles - Storage Layouts
+{: #hana-iaas-intel-vs-vpc-mx2-profiles}
 
-The following table shows the required physical volumes, related volume groups, logical volumes, and their characteristics. See the [step by step instructions for setting up the assets here](https://cloud.ibm.com/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-16x128-32x256-configure){: external}.
+The following table shows the required physical volumes, related volume groups, logical volumes, and their characteristics:
 
 | Profile | File\nsystem | Logical\nVolume | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(GB) |
 | --- | --- | --- | --- | --- | --- | --- |
 | `mx2-16x128`\nand\n`mx2-32x256`  | `/hana/shared` | `hana_shared_lv` | 256 | `hana_vg` | `vdd` | 500 |
 | | `/hana/data` | `hana_data_lv` | 256 | | `vde` | 500 |
 | | `/hana/log` | `hana_log_lv` | 988 | | `vdf` | 500 |
-{: caption="Table 5. Storage for mx2-16x128 and mx2-32x256 profiles based virtual servers" caption-side="top"}
-
-### mx2-48x384 profile
-{: #hana-iaas-intel-vs-vpc-mx2-48x348}
-
-The following table shows the required physical volumes, related volume groups, logical volumes, and their characteristics. See the [step by step instructions for setting up the assets here](https://cloud.ibm.com/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-48x384-configure){: external}. Mind the different volume names.
-
-| Profile | File\nsystem | Logical\nVolume | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(GB) |
 | --- | --- | --- | --- | --- | --- | --- |
 | `mx2-48x384` | `/hana/shared` | `hana_shared_lv` | 384 | `hana_vg` | `vdd` | 500 |
 | | `/hana/data` | `hana_data_lv` | 616 | | `vde` | 500 |
@@ -159,113 +154,276 @@ The following table shows the required physical volumes, related volume groups, 
 | | | | | | `vdh` | 100 |
 | | | | | | `vdi` | 100 |
 | | | | | | `vdj` | 100 |
-{: caption="Table 6. Storage for mx2-48x384 profile based virtual servers" caption-side="top"}
+{: caption="Table 5. Storage layout for mx2-* profiles based virtual servers" caption-side="top"}
+
+### mx2-* profiles - Setup Instructions
+{: #hana-iaas-intel-vs-vpc-mx2-setup}
+
+See the step by step instructions for setting up the assets here
+- [for the mx2-16x128 and mx2-32x256 profiles](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-16x128-32x256-configure)
+- [for the mx2-48x384 profile](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-48x384-configure). Mind the different volume names.
 
 
-### vx2d-* profiles
-{: #hana-iaas-intel-vs-vpc-vx2d}
-
-The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
-
-| Profile | File system | Volume Group | Volume | Size (GB) |
-| --- | --- | --- | --- | --- |
-| `vx2d-16x224` | `/hana/shared` |  | `vdd` | 250 |
-| | `/hana/data` | | `vde` | 750 |
-| | `/hana/log` | `hana_log_vg` | `vdf` | 192 |
-| |  |  | `vdg` | 192 |
-| |  |  | `vdh` | 192 |
-| --- | --- | --- | --- | --- |
-| `vx2d-44x616` | `/hana/shared` |  | `vdd` | 616 |
-| | `/hana/data` | | `vde` | 1,848 |
-| | `/hana/log` | `hana_log_vg` | `vdf` | 192 |
-| |  |  | `vdg` | 192 |
-| |  |  | `vdh` | 192 |
-| --- | --- | --- | --- | --- |
-| `vx2d-88x1232` | `/hana/shared` |  | `vdd` | 1,250 |
-| | `/hana/data` | | `vde` | 2,500 |
-| | `/hana/log` | `hana_log_vg` | `vdf` | 192 |
-| | | | `vdg` | 192 |
-| | | | `vdh` | 192 |
-| --- | --- | --- | --- | --- |
-| `vx2d-144x2016` | `/hana/shared` |  | `vdd` | 2,048 |
-| | `/hana/data` | `hana_data_vg` | `vde` | 1,024 |
-| | | | `vdf` | 1,024 |
-| | | | `vdg` | 1,024 |
-| | | | `vdh` | 1,024 |
-| | `/hana/log` | `hana_log_vg` | `vdi` | 192 |
-| | | | `vdj` | 192 |
-| | | | `vdk` | 192 |
-| --- | --- | --- | --- | --- |
-| `vx2d-176x2464` | `/hana/shared` |  | `vdd` | 2,500 |
-| | `/hana/data` | `hana_data_vg` | `vde` | 1,280 |
-| | | | `vdf` | 1,280 |
-| | | | `vdg` | 1,280 |
-| | | | `vdh` | 1,280 |
-| | `/hana/log` | `hana_log_vg` | `vdi` | 192 |
-| | | | `vdj` | 192 |
-| | | | `vdk` | 192 |
-{: caption="Table 7. Storage for vx2* profile based virtual servers" caption-side="top"}
-
-
-### ux2d-* profiles
-{: #hana-iaas-intel-vs-vpc-ux2d}
+### vx2d-* profiles - Storage Layouts
+{: #hana-iaas-intel-vs-vpc-vx2-profiles}
 
 The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
 
-| Profile | File system | Volume Group | Volume | Size (GB) |
-| --- | --- | --- | --- | --- |
-| `ux2d-8x224` | `/hana/shared` |  | `vdd` | 250 |
-| | `/hana/data` | | `vde` | 750 |
-| | `/hana/log` | `hana_log_vg` | `vdf` | 192 |
-| |  |  | `vdg` | 192 |
-| |  |  | `vdh` | 192 |
-| --- | --- | --- | --- | --- |
-| `ux2d-16x448` | `/hana/shared` |  | `vdd` | 450 |
-| | `/hana/data` | | `vde` | 1,350 |
-| | `/hana/log` | `hana_log_vg` | `vdf` | 192 |
-| |  |  | `vdg` | 192 |
-| |  |  | `vdh` | 192 |
-| --- | --- | --- | --- | --- |
-| `ux2d-36x1008` | `/hana/shared` |  | `vdd` | 1,000 |		ok
-| | `/hana/data` | `hana_data_vg` | `vde` | 1,008 |
-| | | | `vdf` | 1,008 |
-| | `/hana/log` | `hana_log_vg` | `vdg` | 128 |
-| | | | `vdh` | 128 |
-| | | | `vdi` | 128 |
-| | | | `vdj` | 128 |
-| --- | --- | --- | --- | --- |
-| `ux2d-48x1344` | `/hana/shared` |  | `vdd` | 1,344 |		ok
-| | `/hana/data` | `hana_data_vg` | `vde` | 1,350 |
-| | | | `vdf` | 1,350 |
-| | `/hana/log` | `hana_log_vg` | `vdg` | 128 |
-| | | | `vdh` | 128 |
-| | | | `vdi` | 128 |
-| | | | `vdj` | 128 |
-| --- | --- | --- | --- | --- |
-| `ux2d-72x2016` | `/hana/shared` |  | `vdd` | 2,048 |
-| | `/hana/data` | `hana_data_vg` | `vde` | 1,024 |
-| | | | `vdf` | 1,024 |
-| | | | `vdg` | 1,024 |
-| | | | `vdh` | 1,024 |
-| | `/hana/log` | `hana_log_vg` | `vdi` | 192 |
-| | | | `vdj` | 192 |
-| | | | `vdk` | 192 |
-| --- | --- | --- | --- | --- |
-| `ux2d-100x2800` | `/hana/shared` |  | `vdd` | 2,800 |
-| | `/hana/data` | `hana_data_vg` | `vde` | 2,100 |
-| | | | `vdf` | 2,100 |
-| | | | `vdg` | 2,100 |
-| | | | `vdh` | 2,100 |
-| | `/hana/log` | `hana_log_vg` | `vdi` | 192 |
-| | | | `vdj` | 192 |
-| | | | `vdk` | 192 |
-| --- | --- | --- | --- | --- |
-| `ux2d-200x5600` | `/hana/shared` |  | `vdd` | 5,600 |
-| | `/hana/data` | `hana_data_vg` | `vde` | 4,200 |
-| | | | `vdf` | 4,200 |
-| | | | `vdg` | 4,200 |
-| | | | `vdh` | 4,200 |
-| | `/hana/log` | `hana_log_vg` | `vdi` | 192 |
-| | | | `vdj` | 192 |
-| | | | `vdk` | 192 |
-{: caption="Table 8. Storage for ux2* profile based virtual servers" caption-side="top"}
+| Profile | File\nsystem | Logical\nVolume | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(GB) |
+| --- | --- | --- | --- | --- | --- | --- |
+| `vx2d-16x224`  | `/hana/shared` | `hana_shared_lv` | 224 | `hana_vg` | `vde` | 1,120 |
+| | `/hana/data` | `hana_data_lv` | 672 | | | |
+| | `/hana/log` | `hana_log_lv` | 224 | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| `vx2d-44x616`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 616 |
+| | `/hana/data` |<td class="foot" colspan="2">n/a</td>| `vde` | 1,848 |
+| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdf` | 192 |
+| | | | | | `vdg` | 192 |
+| | | | | | `vdh` | 192 |
+| --- | --- | --- | --- | --- | --- | --- |
+| `vx2d-88x1232`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 1,232 |
+| | `/hana/data` |<td class="foot" colspan="2">n/a</td>| `vde` | 3,696 |
+| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdf` | 192 |
+| | | | | | `vdg` | 192 |
+| | | | | | `vdh` | 192 |
+| --- | --- | --- | --- | --- | --- | --- |
+| `vx2d-144x2016`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 2,016 |
+| | `/hana/data` | `hana_data_lv` | 4,096 | `hana_data_vg` | `vde` | 1,024 |
+| | | | | | `vdf` | 1,024 |
+| | | | | | `vdg` | 1,024 |
+| | | | | | `vdh` | 1,024 |
+| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdi` | 192 |
+| | | | | | `vdj` | 192 |
+| | | | | | `vdk` | 192 |
+| --- | --- | --- | --- | --- | --- | --- |
+| `vx2d-176x2464`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 2,464 |
+| | `/hana/data` | `hana_data_lv` | 5,120 | `hana_data_vg` | `vde` | 1,280 |
+| | | | | | `vdf` | 1,280 |
+| | | | | | `vdg` | 1,280 |
+| | | | | | `vdh` | 1,280 |
+| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdi` | 192 |
+| | | | | | `vdj` | 192 |
+| | | | | | `vdk` | 192 |
+{: caption="Table 6. Storage for vx2* profile based virtual servers" caption-side="top"}
+
+
+### vx2-* profiles - Setup Instructions
+{: #hana-iaas-intel-vs-vpc-vx2-setup}
+
+See the step by step instructions for setting up the filesystems here. The according volume sizes are captured in the table 6 above. Read the section [**Adding Network Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks will be governed by the Linux Logical Volume Manager LVM or lvm2.
+
+For each profile consider the given volume sizes in table 6 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` will show which disk has been mapped to the volume, e.g. `/dev/vde`.
+{: note}
+
+
+#### vx2d-16x224
+
+1. Create the volume group for LVM.
+
+    ```
+    [root@vx2d-16x224 ~]# pvcreate /dev/vde
+    [root@vx2d-16x224 ~]# vgcreate hana_vg /dev/vde
+    ```
+
+2. After creating the volume group, three logical volumes are defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
+
+    ```
+    [root@vx2d-16x224 ~]# lvcreate -L 224G -n hana_shared_lv hana_vg
+    [root@vx2d-16x224 ~]# lvcreate -L 224G -n hana_log_lv hana_vg
+    [root@vx2d-16x224 ~]# lvcreate -l 100%VG -n hana_data_lv hana_vg
+    ```
+
+3. Next, add these entries to /etc/fstab
+
+    ```
+    LABEL=HANA_SHARED /hana/shared xfs defaults,inode64 0 0
+    LABEL=HANA_LOG /hana/log xfs defaults,swalloc,inode64 0 0
+    LABEL=HANA_DATA /hana/data xfs defaults,largeio,swalloc,inode64 0 0
+    ```
+
+4. Finally, a file system needs to be created on top of each volume group and then mounted:
+
+    ```
+    [root@vx2d-16x224 ~]# mkfs.xfs -L HANA_SHARED /dev/mapper/hana_vg-hana_shared_lv
+    [root@vx2d-16x224 ~]# mkfs.xfs -L HANA_LOG /dev/mapper/hana_vg-hana_log_lv 
+    [root@vx2d-16x224 ~]# mkfs.xfs -L HANA_DATA /dev/mapper/hana_vg-hana_data_lv
+
+    [root@vx2d-16x224 ~]# mkdir -p /hana/shared
+    [root@vx2d-16x224 ~]# mkdir -p /hana/log
+    [root@vx2d-16x224 ~]# mkdir -p /hana/data
+
+    [root@vx2d-16x224 ~]# mount -a
+    ```
+
+
+#### vx2d-44x616 and vx2d-88x1232
+
+1. Create the volume group for LVM. Note that only /hana/log is assigned to the LVM.
+
+    ```
+    [root@vx2d-44x616 ~]# pvcreate /dev/vdf /dev/vdg /dev/vdh
+    [root@vx2d-44x616 ~]# vgcreate hana_log_vg /dev/vdf /dev/vdg /dev/vdh
+    ```
+
+2. After creating the volume group, the logical volume for /hana/log needs to be defined on top. This logical volume reflects the file system size requirement for SAP HANA.
+
+    ```
+    [root@vx2d-44x616 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
+    ```
+
+3. Now proceed with the same instructions that are listed in steps 3 and 4 above (profile vx2d-16x224).
+
+
+#### vx2d-144x2016 and vx2d-176x2464
+
+1. Create the volume group for LVM. Note that /hana/log and /hana/data are assigned to the LVM.
+
+    ```
+    [root@vx2d-144x2016 ~]# pvcreate /dev/vde /dev/vdf /dev/vdg /dev/vdh
+    [root@vx2d-144x2016 ~]# pvcreate /dev/vdi /dev/vdj /dev/vdk
+    [root@vx2d-144x2016 ~]# vgcreate hana_data_vg /dev/vde /dev/vdf /dev/vdg /dev/vdh
+    [root@vx2d-144x2016 ~]# vgcreate hana_log_vg /dev/vdi /dev/vdj /dev/vdk
+    ```
+
+2. After creating the volume group, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
+
+    ```
+    [root@vx2d-144x2016 ~]# lvcreate -i 4 -I 64 -l 100%VG -n hana_data_lv hana_data_vg
+    [root@vx2d-144x2016 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
+    ```
+
+3. Now proceed with the same instructions that are listed in steps 3 and 4 above (profile vx2d-16x224).
+
+
+#### ux2d-* profiles - Storage Layouts
+{: #hana-iaas-intel-vs-vpc-ux2-profiles}
+
+The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
+
+| Profile | File\nsystem | Logical\nVolume | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(GB) |
+| --- | --- | --- | --- | --- | --- | --- |
+| `ux2d-8x224`  | `/hana/shared` | `hana_shared_lv` | 224 | `hana_vg` | `vde` | 1,120 |
+| | `/hana/data` | `hana_data_lv` | 672 | | | |
+| | `/hana/log` | `hana_log_lv` | 224 | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| `ux2d-16x448`  | `/hana/shared` | `hana_shared_lv` | 448 | `hana_vg` | `vde` | 2,240 |
+| | `/hana/data` | `hana_data_lv` | 1,344 | | | |
+| | `/hana/log` | `hana_log_lv` | 448 | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| `ux2d-36x1008`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 1,008 |
+| | `/hana/data` | `hana_data_lv` | 2,016 | `hana_data_vg` | `vde` | 1,008 |
+| | | | | | `vdf` | 1,008 |
+| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdg` | 192 |
+| | | | | | `vdh` | 192 |
+| | | | | | `vdi` | 192 |
+| --- | --- | --- | --- | --- | --- | --- |
+| `ux2d-48x1344`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 1,344 |
+| | `/hana/data` | `hana_data_lv` | 2,700 | `hana_data_vg` | `vde` | 1,350 |
+| | | | | | `vdf` | 1,350 |
+| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdg` | 192 |
+| | | | | | `vdh` | 192 |
+| | | | | | `vdi` | 192 |
+| --- | --- | --- | --- | --- | --- | --- |
+| `ux2d-72x2016`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 2,016 |
+| | `/hana/data` | `hana_data_lv` | 4,096 | `hana_data_vg` | `vde` | 1,024 |
+| | | | | | `vdf` | 1,024 |
+| | | | | | `vdg` | 1,024 |
+| | | | | | `vdh` | 1,024 |
+| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdi` | 192 |
+| | | | | | `vdj` | 192 |
+| | | | | | `vdk` | 192 |
+| --- | --- | --- | --- | --- | --- | --- |
+| `ux2d-100x2800`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 2,800 |
+| | `/hana/data` | `hana_data_lv` | 8,400 | `hana_data_vg` | `vde` | 2,100 |
+| | | | | | `vdf` | 2,100 |
+| | | | | | `vdg` | 2,100 |
+| | | | | | `vdh` | 2,100 |
+| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdi` | 192 |
+| | | | | | `vdj` | 192 |
+| | | | | | `vdk` | 192 |
+| --- | --- | --- | --- | --- | --- | --- |
+| `ux2d-200x5600`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 5,600 |
+| | `/hana/data` | `hana_data_lv` | 16,800 | `hana_data_vg` | `vde` | 4,200 |
+| | | | | | `vdf` | 4,200 |
+| | | | | | `vdg` | 4,200 |
+| | | | | | `vdh` | 4,200 |
+| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdi` | 192 |
+| | | | | | `vdj` | 192 |
+| | | | | | `vdk` | 192 |
+{: caption="Table 7. Storage for ux2* profile based virtual servers" caption-side="top"}
+
+
+#### ux2-* profiles - Setup Instructions
+{: #hana-iaas-intel-vs-vpc-ux2-setup}
+
+See the step by step instructions for setting up the filesystems here. The according volume sizes are captured in the table 7 above. Read the section [**Adding Network Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks will be governed by the Linux Logical Volume Manager LVM or lvm2.
+
+For each profile consider the given volume sizes in table 7 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` will show which disk has been mapped to the volume, e.g. `/dev/vde`.
+{: note}
+
+
+#### ux2d-8x224 and ux2d-16x448
+
+1. Create the volume group for LVM.
+
+    ```
+    [root@ux2d-8x224 ~]# pvcreate /dev/vde
+    [root@ux2d-8x224 ~]# vgcreate hana_vg /dev/vde
+    ```
+
+2. After creating the volume group, three logical volumes are defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
+
+    ```
+    [root@ux2d-8x224 ~]# lvcreate -L 224G -n hana_shared_lv hana_vg
+    ## or lvcreate -L 448G -n hana_shared_lv hana_vg
+    
+    [root@ux2d-8x224 ~]# lvcreate -L 224G -n hana_log_lv hana_vg
+    ## or lvcreate -L 448G -n hana_log_lv hana_vg
+    
+    [root@ux2d-8x224 ~]# lvcreate -l 100%VG -n hana_data_lv hana_vg
+    ```
+
+3. Now proceed with the same instructions that are listed in steps 3 and 4 above (profile vx2d-16x224).
+
+
+#### ux2d-36x1008 and ux2d-48x1344
+
+1. Create the volume groups for LVM. Note that /hana/log and /hana/data are assigned to the LVM.
+
+    ```
+    [root@ux2d-36x1008 ~]# pvcreate /dev/vde /dev/vdf
+    [root@ux2d-36x1008 ~]# pvcreate /dev/vdg /dev/vdh /dev/vdi
+    [root@ux2d-36x1008 ~]# vgcreate hana_data_vg /dev/vdg /dev/vdh /dev/vdi
+    [root@ux2d-36x1008 ~]# vgcreate hana_log_vg /dev/vdg /dev/vdh /dev/vdi
+    ```
+
+2. After creating the volume groups, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
+
+    ```
+    [root@ux2d-36x1008 ~]# lvcreate -i 2 -I 64 -l 100%VG -n hana_data_lv hana_data_vg
+    [root@ux2d-36x1008 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
+    ```
+
+3. Now proceed with the same instructions that are listed in steps 3 and 4 above (profile vx2d-16x224).
+
+
+#### ux2d-72x2016, ux2d-100x2800 and ux2d-200x5600
+
+1. Create the volume groups for LVM. Note that /hana/log and /hana/data are assigned to the LVM.
+
+    ```
+    [root@ux2d-72x2016 ~]# pvcreate /dev/vde /dev/vdf /dev/vdg /dev/vdh
+    [root@ux2d-72x2016 ~]# pvcreate /dev/vdi /dev/vdj /dev/vdk
+    [root@ux2d-72x2016 ~]# vgcreate hana_data_vg /dev/vde /dev/vdf /dev/vdg /dev/vdh
+    [root@ux2d-72x2016 ~]# vgcreate hana_log_vg /dev/vdi /dev/vdj /dev/vdk
+    ```
+
+2. After creating the volume groups, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
+
+    ```
+    [root@ux2d-72x2016 ~]# lvcreate -i 4 -I 64 -l 100%VG -n hana_data_lv hana_data_vg
+    [root@ux2d-72x2016 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
+    ```
+
+3. Now proceed with the same instructions that are listed in steps 3 and 4 above (profile vx2d-16x224).
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021, 2022
-lastupdated: "2022-01-20"
+lastupdated: "2022-01-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -131,7 +131,7 @@ When the virtual server profiles for SAP HANA are initially provisioned, the ser
 | --- | --- | --- | --- | --- | --- |
 | `/` | `vda1` | Pre-configured boot volume | N/A | 100 GB | 3,000 |
 | `/boot` | `vda2` | Pre-configured boot volume | N/A | 0.25 GB | 3,000 |
-: caption="Table 4. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
+{: caption="Table 4. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
 
 To fulfill the size and I/O requirements for SAP NetWeaver or SAP AnyDB, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.
 
