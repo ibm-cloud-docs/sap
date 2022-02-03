@@ -102,7 +102,7 @@ The first letter of the profile name indicates the profile family mentioned abov
 {: caption="Table 2. {{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
 
 
-For SAP HANA, only the memory profile families are used, for NetWeaver also the balanced family may be considereed. The Virtual Server profile names are contextual and sequential. See here one example:
+For SAP HANA, only the memory profile families are used, for NetWeaver also the balanced family may be considered. The Virtual Server profile names are contextual and sequential. See here one example:
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
@@ -127,10 +127,10 @@ All {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are avai
 
 When the virtual server profiles for SAP HANA are initially provisioned, the servers all have one pre-configured volume (vda) attached with the following basic layout:
 
-| File system | Partition | Storage type | IOPS/GB | GB | Nr. of\nIOPS |
-| --- | --- | --- | --- | --- | --- |
-| `/` | `vda1` | Pre-configured boot volume | N/A | 100 GB | 3,000 |
-| `/boot` | `vda2` | Pre-configured boot volume | N/A | 0.25 GB | 3,000 |
+| File system | Partition | Storage type | size (GB) | Nr. of\nIOPS |
+| --- | --- | --- | --- | --- |
+| `/` | `vda1` | Pre-configured boot volume | 100 | 3,000 |
+| `/boot` | `vda2` | Pre-configured boot volume | 0.25 | 3,000 |
 {: caption="Table 4. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
 
 To fulfill the size and I/O requirements for SAP NetWeaver or SAP AnyDB, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.

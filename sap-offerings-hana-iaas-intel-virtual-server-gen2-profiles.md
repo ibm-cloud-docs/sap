@@ -106,10 +106,10 @@ All {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are avai
 
 When the virtual server profiles for SAP HANA are initially provisioned, the servers all have one pre-configured volume (vda) attached with the following basic layout:
 
-| File system | Partition | Storage type | IOPS/GB | GB | Nr. of\nIOPS |
-| --- | --- | --- | --- | --- | --- |
-| `/` | `vda1` | Pre-configured boot volume | N/A | 100 GB | 3,000 |
-| `/boot` | `vda2` | Pre-configured boot volume | N/A | 0.25 GB | 3,000 |
+| File system | Partition | Storage type | size (GB) | Nr. of\nIOPS |
+| --- | --- | --- | --- | --- |
+| `/` | `vda1` | Pre-configured boot volume | 100 | 3,000 |
+| `/boot` | `vda2` | Pre-configured boot volume | 0.25 | 3,000 |
 {: caption="Table 4. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
 
 ### {{site.data.keyword.block_storage_is_full}}
@@ -117,18 +117,16 @@ When the virtual server profiles for SAP HANA are initially provisioned, the ser
 
 [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes for Virtual Servers can be created based on different **volume profiles** that provide different levels of IOPS per gigabyte (IOPS/GB). For more information, see [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
 
-You must consider the total IOPS required for your installation and the performance characteristics of your database. One option is to colocate multiple directories into a single large volume with high IOPS, versus isolating directories into individual small volumes with an insufficient number of IOPS for the workload characteristics.
+You must consider the total IOPS required for your installation and the performance characteristics of your database. One option is to collocate multiple directories into a single large volume with high IOPS, versus isolating directories into individual small volumes with an insufficient number of IOPS for the workload characteristics.
 
 For an overview of all available storage profiles, see [VPC Block Storage Profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 
 ### Storage for SAP HANA
 {: #hana-iaas-intel-vs-vpc-storage-specs-sap-hana}
 
-To fulfill the KPIs defined by SAP HANA, each profile needs different storage volumes. The following sections list the storage needs for different profiles. **These are mandatory storage configurations, not sample storage configurations**.
+To fulfill the KPIs defined by SAP HANA, each profile needs different storage volumes which are listed in details in the following sections. **These are mandatory storage configurations, not sample storage configurations**, because they are the tested and certified storage layouts that comply to **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. It's highly recommended to stick to these given specifications.
 
-Below there are the tested and certified storage layouts that comply to **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when ordering different storage sizes and types.
-
-Even if you stick to the storage sizes and layouts and follow the instructions below, you must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://launchpad.support.sap.com/#/notes/2493172){: external} and follow the instuctions of the [HCMT guide](https://help.sap.com/viewer/product/HANA_HW_CLOUD_TOOLS/latest/en-US){: external}.
+Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when ordering different storage sizes and types. Then they must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://launchpad.support.sap.com/#/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/viewer/product/HANA_HW_CLOUD_TOOLS/latest/en-US){: external}. 
 {: important}
 
 For all following layouts please consider that the volume names may differ - we assume that the naming follows the sequence of ordering the storage, i.e. 1st order -> `vdd`, 2nd order -> `vde`, etc. **All block storage volumes** must be ordered with the predefined profile of **10 IOPS/GB** (high performance). One exception may be /hana/shared partition where 5 IOPS/GB (medium performance) are sufficient - but ONLY IF you have assigned a dedicated volume for this partition. For all profiles optional: one appropriately sized  block storage volume or several equally sized volumes gathered to a volume group, with the predefined profile of 5 IOPS/GB (medium performance) attached to the Virtual Server for backups.
@@ -271,7 +269,7 @@ For each profile consider the given volume sizes in table 6 and always make sure
     [root@vx2d-44x616 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 above (profile vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 above [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
 
 #### vx2d-144x2016 and vx2d-176x2464
@@ -292,7 +290,7 @@ For each profile consider the given volume sizes in table 6 and always make sure
     [root@vx2d-144x2016 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 above (profile vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 above [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
 
 #### ux2d-* profiles - Storage Layouts
@@ -383,7 +381,7 @@ For each profile consider the given volume sizes in table 7 and always make sure
     [root@ux2d-8x224 ~]# lvcreate -l 100%VG -n hana_data_lv hana_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 above (profile vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 above [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
 
 #### ux2d-36x1008 and ux2d-48x1344
@@ -404,7 +402,7 @@ For each profile consider the given volume sizes in table 7 and always make sure
     [root@ux2d-36x1008 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 above (profile vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 above [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
 
 #### ux2d-72x2016, ux2d-100x2800 and ux2d-200x5600
@@ -425,5 +423,5 @@ For each profile consider the given volume sizes in table 7 and always make sure
     [root@ux2d-72x2016 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 above (profile vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 above [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
