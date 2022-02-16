@@ -134,7 +134,7 @@ For all following layouts please consider that the volume names may differ - we 
 
 [SAP's recommended file system layout](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.latest/en-US/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. 
 
-### mx2* profiles - Storage Layouts
+### mx2-* profiles - Storage Layouts
 {: #hana-iaas-intel-vs-vpc-mx2-profiles}
 
 The following table shows the required physical volumes, related volume groups, logical volumes, and their characteristics:
@@ -157,9 +157,9 @@ The following table shows the required physical volumes, related volume groups, 
 ### mx2-* profiles - Setup Instructions
 {: #hana-iaas-intel-vs-vpc-mx2-setup}
 
-See the step by step instructions for setting up the assets here
+See the step by step instructions for setting up the assets here. Mind the different volume names.
 - [for the mx2-16x128 and mx2-32x256 profiles](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-16x128-32x256-configure)
-- [for the mx2-48x384 profile](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-48x384-configure). Mind the different volume names.
+- [for the mx2-48x384 profile](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-48x384-configure)
 
 
 ### vx2d-* profiles - Storage Layouts
@@ -205,10 +205,10 @@ The following table shows the required volumes and related volume groups, if nec
 {: caption="Table 6. Storage for vx2* profile based virtual servers" caption-side="top"}
 
 
-### vx2-* profiles - Setup Instructions
+### vx2d-* profiles - Setup Instructions
 {: #hana-iaas-intel-vs-vpc-vx2-setup}
 
-See the step by step instructions for setting up the filesystems here. The according volume sizes are captured in the table 6 above. Read the section [**Adding Network Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks will be governed by the Linux Logical Volume Manager LVM or lvm2.
+See the step by step instructions for setting up the filesystems here. The according volume sizes are captured in the table 6 above. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks will be governed by the Linux Logical Volume Manager LVM or lvm2.
 
 For each profile consider the given volume sizes in table 6 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` will show which disk has been mapped to the volume, e.g. `/dev/vde`.
 {: note}
@@ -293,7 +293,7 @@ For each profile consider the given volume sizes in table 6 and always make sure
 3. Now proceed with the same instructions that are listed in steps 3 and 4 above [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
 
-#### ux2d-* profiles - Storage Layouts
+### ux2d-* profiles - Storage Layouts
 {: #hana-iaas-intel-vs-vpc-ux2-profiles}
 
 The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
@@ -351,10 +351,10 @@ The following table shows the required volumes and related volume groups, if nec
 {: caption="Table 7. Storage for ux2* profile based virtual servers" caption-side="top"}
 
 
-#### ux2-* profiles - Setup Instructions
+### ux2d-* profiles - Setup Instructions
 {: #hana-iaas-intel-vs-vpc-ux2-setup}
 
-See the step by step instructions for setting up the filesystems here. The according volume sizes are captured in the table 7 above. Read the section [**Adding Network Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks will be governed by the Linux Logical Volume Manager LVM or lvm2.
+See the step by step instructions for setting up the filesystems here. The according volume sizes are captured in the table 7 above. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks will be governed by the Linux Logical Volume Manager LVM or lvm2.
 
 For each profile consider the given volume sizes in table 7 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` will show which disk has been mapped to the volume, e.g. `/dev/vde`.
 {: note}
