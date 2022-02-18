@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-16"
+lastupdated: "2021-12-06"
 
-keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Balanced, bh1, Compute Intensive, ch1, High Memory, mh1, Ultra Memory, umh1, small, ush1, 
+keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Balanced, bh1, Compute Intensive, ch1, High Memory, mh1, Ultra Memory, umh, Small, ush1, Nonproduction, np1
 
 subcollection: sap
 
@@ -132,20 +132,20 @@ Each profile must have at least two dedicated cores. You can choose between Tier
 
 | **Profile** | **CPU Cores** | **CPU Threads (also known as vCPU that uses SMT-8)** | **GiB RAM** | **Minimum Storage (GiB)** | **SAPS** | **SAP HANA Processing Type** |
 | -- | -- | -- | -- | -- | -- | --|
-| umh1-4x960 | 4 | 32 | 960 | 2,490 | 24,000 | OLTP |
-| umh1-6x1440 | 6 | 48 | 1,440 | 3,010 | 36,000 | OLTP * |
-| umh1-8x1920 | 8 | 64 | 1,920 | 3,490 | 48,000 | OLTP * |
-| umh1-10x2400 | 10 | 80 | 2,400 | 3,970 | 60,000 | OLTP * |
-| umh1-12x2880 | 12 | 96 | 2,880 | 4,450 | 72,000 | OLTP * |
-| umh1-16x3840 | 16 | 128 | 3,840 | 5,410 | 96,000 | OLTP |
-| umh1-20x4800 | 20 | 160 | 4,800 | 6,370 | 120,000 | OLTP * |
-| umh1-22x5280 | 22 | 176 | 5,280 | 6,850 | 132,000 | OLTP * |
-| umh1-25x6000 | 25 | 200 | 6,000 | 7,570 | 150,000 | OLTP * |
-| umh1-30x7200 | 30 | 240 | 7,200 | 8,770 | 180,000 | OLTP * |
-| umh1-35x8400 | 35 | 280 | 8,400 | 10,370 | 210,000 | OLTP * |
-| umh1-40x9600 | 40 | 320 | 9,600 | 11,170 | 240,000 | OLTP * |
-| umh1-50x12000 | 50 | 400 | 12,000 | 13,570 | 300,000 | OLTP * |
-| umh1-60x14400 | 60 | 480 | 14,400 | 15,970 | 360,000 | OLTP |
+| umh-4x960 | 4 | 32 | 960 | 2,490 | 24,000 | OLTP |
+| umh-6x1440 | 6 | 48 | 1,440 | 3,010 | 36,000 | OLTP * |
+| umh-8x1920 | 8 | 64 | 1,920 | 3,490 | 48,000 | OLTP * |
+| umh-10x2400 | 10 | 80 | 2,400 | 3,970 | 60,000 | OLTP * |
+| umh-12x2880 | 12 | 96 | 2,880 | 4,450 | 72,000 | OLTP * |
+| umh-16x3840 | 16 | 128 | 3,840 | 5,410 | 96,000 | OLTP |
+| umh-20x4800 | 20 | 160 | 4,800 | 6,370 | 120,000 | OLTP * |
+| umh-22x5280 | 22 | 176 | 5,280 | 6,850 | 132,000 | OLTP * |
+| umh-25x6000 | 25 | 200 | 6,000 | 7,570 | 150,000 | OLTP * |
+| umh-30x7200 | 30 | 240 | 7,200 | 8,770 | 180,000 | OLTP * |
+| umh-35x8400 | 35 | 280 | 8,400 | 10,370 | 210,000 | OLTP * |
+| umh-40x9600 | 40 | 320 | 9,600 | 11,170 | 240,000 | OLTP * |
+| umh-50x12000 | 50 | 400 | 12,000 | 13,570 | 300,000 | OLTP * |
+| umh-60x14400 | 60 | 480 | 14,400 | 15,970 | 360,000 | OLTP |
 {: caption="Table 4. SAP HANA servers Ultra Memory profile family" caption-side="top"}
 
 Profile types that are marked with an `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median, and largest within each profile family. This action was taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. For more information, see [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}.
@@ -158,7 +158,7 @@ The IBM Power Virtual Server for SAP HANA have profile names that are contextual
 
 * `cnp1` = Nonproduct development for testing or development use only. Not intended for production deployments; not supported or certified by SAP production.
 * `ush1` = Small for OLAP/OLTP workloads that don't require as much CPU and storage consumption
-* `umh1` = Ultra Memory HANA for OLTP that use 1:240 as the cpu:memory ratio
+* `umh` = Ultra Memory HANA for OLTP that use 1:240 as the cpu:memory ratio
 * `mh1` = High Memory for OLAP that use 1:180 as the cpu:memory ratio
 * `bh1` = Balanced for OLAP that use 1:100 as the cpu:memory ratio
 * `ch1` = Compute Intensive for OLAP that use 1:50 as the cpu:memory ratio
@@ -167,7 +167,7 @@ The Virtual Server profile names are contextual and sequential. The following ta
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
-| umh1-16x3840 | umh1 | Ultra Memory SAP HANA for OLTP (higher on the CPU to Memory ratio), 1:240 ratio|
+| umh-16x3840 | umh | Ultra Memory SAP HANA for OLTP (higher on the CPU to Memory ratio), 1:240 ratio|
 | | - | _spacer_ |
 | | 16 | 16 CPU Cores |
 | | x | _spacer_ |

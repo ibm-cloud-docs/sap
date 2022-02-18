@@ -82,7 +82,8 @@ The first letter of the profile name indicates the profile family mentioned abov
 {: caption="Table 2. {{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
 
 
-For SAP HANA, only the memory profile families are used. The Virtual Server profile names are contextual and sequential. See here one example:
+<br/>
+The Virtual Server profile names are contextual and sequential. See the following example:
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
