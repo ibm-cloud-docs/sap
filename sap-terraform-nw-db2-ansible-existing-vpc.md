@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-25"
+lastupdated: "2022-03-17"
 
 subcollection: sap
 
@@ -16,11 +16,13 @@ subcollection: sap
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:ui: .ph data-hd-interface="ui"}
+{:cli: .ph data-hd-interface="cli"}
 
 # Deploy NW7.X and Db2 on an existing {{site.data.keyword.cloud_notm}} VPC by using Terraform and Ansible
 {: #sap-terraform-nw-db2-existing-vpc}
 
-Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
+Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.
 {: shortdesc}
 
 You can use Terraform scripts to create a single-tier Virtual Private Cloud (VPC) and create the SAP and Db2 infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC. 
@@ -32,12 +34,17 @@ The scripts use the information that you provide for an existing VPC and deploy 
 
 The scripts call the Ansible Playbook to install the SAP architecture. 
 
-If you want to create a new VPC and install SAP all in one task flow, see [Creating a single-tier Virtual Private Cloud (VPC) with NW7.X and Db2 on IBM Cloud by using Terraform and Ansible](/docs/sap?topic=sap-create-terraform-nw-db2-vpc-ansible).  
-
 ## Script files
 {: #terraform-nw-db2-existing-vpc-files}
 
-The configuration and script files are provided on the [GitHub repository `sap-automated-deployment-scripts/sapsingletierdb2/`](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2)
+The configuration and script files are provided on GitHub. There are usually 2 repositories for each of the SAP solution:
+
+*  Using the Bastion server CLI - [GitHub repository `sap-automated-deployment-scripts/sapsingletierdb2/`](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2).
+*  Using Schematics uiser interface on {{site.data.keyword.cloud}} - [GitHub repository sap-automated-deployment-scripts/sapsingletierdb2/ibm-schematics](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2/ibm-schematics).
+
+### Terraform CLI interface
+{: #sap-terraform-nw-db2-cli}
+{: cli}
 
 To run the scripts, you modify:
 
@@ -60,10 +67,13 @@ All of the other configuration files are provided and do not need to be modified
 
 The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to install NW7.X with Db2 on the specified VPC in your {{site.data.keyword.cloud_notm}} account. 
 
-## SAP Kits
-{: #terraform-nw-db2-existing-vpc-sap-kits}
+### Schematics user interface
+{: #sap-terraform-nw-db2-schematics}
+{: ui}
 
-For each {{site.data.keyword.cloud_notm}} region {{site.data.keyword.IBM_notm}} allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your local workstation. There are three files that you must manually decompress, the other files are decompressed by Ansible. For more information, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
+When you run the scripts with the Schematics interface, you:
+*  Enter the URL for the GitHub repository for the Terraform files
+*  Modify the parameters in the Schematics interface. They are the same parameters as the `input.auto.tfvars` file that you use with the cli. 
 
 ## Support
 {: #terraform-nw-db2-support-existing-vpc}
@@ -75,41 +85,37 @@ Though the materials provided herein are not supported by the IBM Service organi
 ## Before you begin
 {: #terraform-nw-db2-ansible-before}
 
-Before you use the scripts:
+Before you use the scripts in the cli or Schematics:
 
 *  Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct). 
 
-*  If you have not already, create a bastion server to store the SAP kits.  For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
+*  If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 
-*  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. You must decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the files. For more information, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
+*  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
 
 *  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
 
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
-* If Terraform is not already installed on your workstation, install Terraform v0.15.1 on your local workstation. For more information, see [Install the Terraform CLI and the {{site.data.keyword.cloud_notm}} Provider plug-in](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-setup_cli).  
+* Terraform should be already installed on the bastion server that you deployed. For more information, see [Bastion server for SAP deployment](/docs/sap?topic=sap-sap-bastion-server). {: cli}
 
-    If you are using Terraform 0.13 and higher, you do not need to install the {{site.data.keyword.cloud_notm}} Provider plug-in. You modify the configuration files provided on the 1-Tier VPC for SAP GitHub repository to specify the plug-in version to use. 
-
-    If you are using Terraform 1.12.x and earlier, follow these {{site.data.keyword.cloud_notm}} Provider plug-in [installation instructions](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-setup_cli#install-provider-v12). Do not configure the plug-in.
-
-    Do not do any {{site.data.keyword.cloud_notm}} Provider plug-in configuration because those files are provided for you.  
-
-* If Ansible is not already installed on your workstation, install Ansible 2.9.18 on your local workstation. For more information, see [Installing Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
-
-## Procedure
+## Creating the VPC by using the CLI
+{: #create-vpc-cli}
+{: cli}
 
 Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-in and use Terraform to install SAP NW7.X with Db2 on your existing VPC. The scripts can take 1 - 2 hours to complete. 
 
-1.  Clone the `terraform` and `ansbile` folders and `README` file from `sap-automated-deployment-scripts/sapsingletierdb2/` and `cd` to the `sap-automated-deployment-scripts/sapsingletierdb2/terraform` folder.
+1.  Access the Bastion server cli.
 
-    ```
+2.  Clone the `terraform` and `ansbile` folders and `README` file from `sap-automated-deployment-scripts/sapsingletierdb2/` and `cd` to the `sap-automated-deployment-scripts/sapsingletierdb2/terraform` folder.
+
+    ```terraform
     $ git clone https://github.com/IBM-Cloud/sap-automated-deployment-scripts.git
     
     $ cd sap-automated-deployment-scripts/sapsingletierdb2/terraform
     ```
 
-2.  Edit the ``terraform.tfvars`` variable file and enter the IBM Cloud API key that you retrieved. 
+3.  Edit the ``terraform.tfvars`` variable file and enter the IBM Cloud API key that you retrieved. 
 
     ```ibmcloud_api_key = "<ibmcloud_apikey>"```
 
@@ -117,9 +123,9 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
     Because the `terraform.tfvars` file contains confidential information, do not push this file to a version control system. Keep this file on your local system only. 
   
-3.	Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the `README`[file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2).
+4.	Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the `README`[file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2).
 
-    ```
+    ```terraform
     #Infra VPC variables
     ZONE			= "eu-de-2"
     VPC			= "sap"
@@ -136,11 +142,11 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     VOL5			= "256"
     ```
 
-4. Customize your SAP system configuration. In the same file, `input.auto.tfvars`, edit the SAP system configuration variables that are passed to the Ansible automated deployment.
+5.  Customize your SAP system configuration. In the same file, `input.auto.tfvars`, edit the SAP system configuration variables that are passed to the Ansible automated deployment.
 
     For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
 
-    ```
+    ```terraform
     ##SAP system configuration
     sap_sid	= "NWS"
     sap_ci_instance_number = "00"
@@ -162,9 +168,9 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     Remember, you must manually decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the SAP kit files. For more information, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
     {: note}
     
-5. Configure the scripts to use your existing VPC.  Modify the `main.tf` file to comment out the `vpc` module and remove the `module.vpc` from the `depends_on` statement in the `vsi` module. When you are done, the file looks like this example:
+6.  Configure the scripts to use your existing VPC. Modify the `main.tf` file to comment out the `vpc` module and remove the `module.vpc` from the `depends_on` statement in the `vsi` module. When you are done, the file looks like this example:
 
-    ``` 
+    ```terraform
     /*module "vpc" {
       source		= "./modules/vpc"
       ZONE			= var.ZONE
@@ -202,33 +208,83 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     If you do not comment out the `vpc` module, the scripts try to create the VPC that you specified in the input.auto.tfvars file and you get an error. 
     {: note}
 
-6. Initialize the Terraform CLI. 
+7.  Initialize the Terraform CLI. 
 
-   ```
-   terraform init
-   ```
-
-7. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.      
-
-   ```
-   terraform plan
-   ```
-  You must enter an SAP master password.
-
-  The SAP master password must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
-
-8. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
-
-9. Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
-
-    ```
-     terraform apply
+    ```terraform
+     terraform init
      ```
-     The virtual private cloud and components are created and you see output similar to the `terraform plan` output.  
 
-10. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm).
+8.  Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.      
+
+    ```terraform
+     terraform plan
+     ```
+    You must enter an SAP master password.
+
+    The SAP master password must be 10 to 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
+
+9.  Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
+
+10.  Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
+
+        ```teraform
+         terraform apply
+         ```
+        The virtual private cloud and components are created and you see output similar to the `terraform plan` output.  
+
+11. Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
+
+12. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm).
+
+## Creating the VPC with Schematics user interface
+{: #create-vpc-schematics-ui}
+{: ui}
+
+Use these steps to configure the  SAP NW7.X with Db2 on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete. 
+
+
+1.	From the IBM Cloud menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
+2.	Click **Create workspace**.
+3.  On the **Specify template** page:
+    * Enter the URL of bastion setup folder. 
+    * Select the **Terraform version** that is listed in the readme file.
+    * Click **Next**.  
+4.  On the **Workspace details** page:
+    * Enter a name for the workspace.
+    * Select a **Resource group**.
+    * Select a **Location** for your workspace. The workspace location does not have to match the resource location.
+    * Select **Next**.
+5.  Select **Create** to create your workspace.
+6.  On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
+     * Your API key
+     * Your private SSH key from your local machine
+     * The ID for the SSH key that you created and uploaded to IBM Cloud. Enter the SSH key Id in square brackets and quotes, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
+     * The Region for your resources
+     * The Zone for your resources
+     * Whether to use an existing VPC or create one
+     * Whether to use an existing subnet
+     * Whether to create new port only when a new subnet is created
+     * TCP port range, nimimun and maximum
+     * VPC name
+     * Subnet name
+     * Security group name
+     * Hostname
+     * Profile
+     * Image
+     * Minimal recommended disk sizes
+     * SAP master password -must be at least 10 characters, upper and lower case letters, a number, and a special character, not an exclamation point. 
+     * Click **Save changes**.
+
+     For a more detailed description of each of the parameters, check the github repo README file, chapter “Input parameter file”. Also make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API and ssh private keys (they are marked as “sensitive” in the README file, under “Input parameter file”)
+
+7.	On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
+8.	Click **View log** to review the log files of your Terraform execution plan.
+9.	Apply your Terraform template by clicking **Apply plan**.
+10.	Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
 
 ## Next steps
+{: #next-steps-cli}
+{: cli}
 
 If you need to rename your resources after they are created, modify the ``input.auto.tfvars`` file to change the names and run ``terraform plan`` and ``terraform apply`` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results. 
 
