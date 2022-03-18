@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021, 2022  
+  years: 2021, 2022
 lastupdated: "2022-03-17"
 
 subcollection: sap

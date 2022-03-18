@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-07-14"
+  years: 2021, 2022
+lastupdated: "2022-03-08"
 
 subcollection: sap
 
@@ -42,7 +42,7 @@ For more information about SAP system architectures in IBM Cloud VPC, see the in
 
 Manually deploying a VPC and installing an SAP system can be time-consuming. The Terraform automation assures not only a much quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
 
-The Terraform scripts solution provides the automated deployment of a single host with SAP Netweaver with Db2 on the Red Hat&reg; Enterprise Linux&reg; 7.6 for SAP Applications.
+The Terraform scripts solution provides the automated deployment of a single host with SAP Netweaver with Db2 on the Red Hat Enterprise Linux&reg; 7.6 for SAP Applications.
 
 The SAP installation media that are used for this deployment are the default media for SAP Netweaver 7.5 with Db2 10.5FP7 available at the SAP Support Portal under INSTALLATION AND UPGRADE area. You provide the installation media as an input parameter for Terraform.
 
@@ -62,21 +62,12 @@ The recommended way to run the scripts is from your Deployment Server because th
 
 For both the Deployment Server and local workstation, you must download the SAP Kits to the temporary storage assigned to you on the Deployment Server. Ansible installs the kits for you. You specify the location of the Kits in the configuration files.
 
-## Scenarios
-{: #sap-terraform-nw-db2-where-use-cases}
+## Prerequisite, where to run the scripts
+{: #sap-terraform-nw-db2-prereqs}
 
-The two scenarios that are documented are: 
+Before you deploy any of the SAP automated solutions in IBM Cloud VPC, you create a bastion server VPC in your chosen region. The bastion server is used for downloading and storing specific SAP solution media that are needed for later automation deployment. The Bastion server is used for both CLI deployment scenarios, as well for Schematics UI deployments. For more information about how to create the Bastion server and its corresponding VPC, see [Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 
-*  **Create a VPC and install SAP NW 7.X and Db2**   
-   In this scenario, you create a VPC and install SAP by running the scripts on your Deployment Server. You must use your S-user to download the SAP Kits from the SAP Portal to your Deployment Server. You define the VPC and update the SAP-specific information:
-   - VPC: VPC name, component names, region, images, profiles, and volumes.
-   - SAP: system configuration and Kits paths on your Deployment Server.
+After bastion VPC deployment is complete, you must download the SAP Kits to the temporary storage assigned to you on the Bastion Server. Ansible installs the kits for you. You specify the location of the Kits in the configuration files.
 
-   See [Creating a single-tier Virtual Private Cloud (VPC) with NW7.X and Db2 on IBM Cloud by using Terraform and Ansible](/docs/sap?topic=sap-create-terraform-nw-db2-vpc-ansible).
-
-*  **Install SAP on an existing VPC**  
-   In this scenario, you install SAP on an existing VPC by running the scripts on your local workstation. You must use your S-user to download the SAP Kits from the SAP Portal to your Deployment Server. You run the Terraform scripts from your local workstation, but you point to the Deployment Server to access the SAP Kits. You set the VPC variables to the values of your existing VPC and update the SAP-specific information:
-   - VPC: VPC name, component names, region, images, profiles, and volumes.
-   - SAP: system configuration and Kits paths on your Deployment Server.
-
-   See [Deploy NW7.X and Db2 on an existing {{site.data.keyword.cloud_notm}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-sap-terraform-nw-db2-existing-vpc).  
+To save costs the bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on IBM VPC cloud. Or, you can keep the bastion server and use it as a jump host for that specific region. 
+{: note}

@@ -220,7 +220,6 @@ toc:
                   label: NetWeaver and DB2 single-tier on IBM Cloud VPC
                   topics:
                     - sap-terraform-overview-nw-db2-ansible.md
-                    - sap-terraform-nw-db2-ansible-create-vpc.md
                     - sap-terraform-nw-db2-ansible-existing-vpc.md
               - topicgroup:
                     label: SAP HANA stand-alone VSI on IBM Cloud VPC
