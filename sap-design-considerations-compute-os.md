@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-28"
+  years: 2020, 2022
+lastupdated: "2022-03-29"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -165,6 +165,20 @@ For the version of IBM AIX or Linux on Power to deploy for SAP NetWeaver-based s
 OS Packages update server with IBM Power Power Virtual Servers:
 * For SAP NetWeaver you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers.
 * For SAP HANA you can use publicly available SUSE update repositories, or use your own private SUSE RMT servers.
+
+| Operating system for SAP HANA | Operating system image | 
+|---------|---------|
+| Red Hat Enterprise Linux (RHEL) 8.1 | Linux-RHEL-SAP-8-1|
+| SUSE Linux Enterprise Server (SLES) for SAP 12 SP4 | Linux-SLES-SAP-12-4 | 
+{: caption="Table 1. Operating systems for IBM Power virtual servers on SAP HANA" caption-side="bottom"}
+
+| Operating system for SAP NetWeaver | Operating system image | 
+|---------|---------|
+| Red Hat Enterprise Linux (RHEL) 8.1 | Linux-RHEL-SAP-8-1|
+| SUSE Linux Enterprise Server (SLES) for SAP 12 SP4 | Linux-SLES-SAP-12-4 | 
+| AIX 7.1 | 7100-05-05 or later |
+| AIX 7.2 | 7200-04-01 or later |
+{: caption="Table 2. Operating systems for IBM Power virtual servers on SAP NetWeaver" caption-side="bottom"}
 
 ### OS for Virtual Servers on VPC Infrastructure
 {: #os-vs-vpc}
