@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-25"
+lastupdated: "2022-03-29"
 
 subcollection: sap
 
@@ -20,10 +20,7 @@ subcollection: sap
 # Automating NW7.X and HANA 3-tier distributed architecture on {{site.data.keyword.cloud_notm}} with Terraform and Ansible
 {: #create-terraform-3tier-nw-hana-vpc-ansible}
 
-Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware by using Intel Xeon CPUs and additional Intel technologies.
-{: shortdesc}
-
-You can use Terraform scripts to create a 3-tier Virtual Private Cloud (VPC) and create the SAP and Db2 infrastructure on the VPC. The Terraform scripts create the VPC and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on your Deployment Server. The Deployment Server needs to have Terraform and Ansible installed. 
+You can use Terraform scripts to deploy the SAP NW app server and HANA db infrastructure on the VPC created with the SAP BASTION Deployment Server. The Terraform scripts create the virtual infrastructure and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on the SAP Bastion Deployment Server which has Terraform and Ansible installed on it, along with the necessary storage space for SAP Kits. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
 {: shortdesc}
 
 ## SAP Solution implemented
@@ -45,21 +42,21 @@ There is one restriction in the SAP HANA as primary persistence for SAP NetWeave
 ## What is created
 {: #terraform-3tier-nw-db2-components}
 
-The scripts work in two phases. The first phase automates the VPC provisioning process. The second phase creates the SAP architecture in a distributed environment SAP NW 7.x (ABAP or Java) App server on a distinct virtual server instance VPC machine and HANA DB on a dedicated server type virtual server instance VPC box machine.
+The scripts automate the virtual infrastructure resources, provisioning processes for the  SAP architecture in an Existing VPC with a distributed environment SAP NW 7.x (ABAP or Java) App server on a distinct virtual server instance VPC machine and HANA DB on a dedicated server type virtual server instance VPC box machine. The scripts work in two phases. 
 
-During the first phase, the VPC is provisioned with these components: 
+During the first phase ([Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server)), the virtual infrastructure resources based on the components from the existing VPC created by the BASTION Server are:
 
 *	1 VPC where the virtual server instance is provisioned
-*	1 security group. The rules for this security group allow:
-    - Inbound DNS (port 53) and 
-    - Inbound SSH (TCP port 22) connections to your virtual server instance 
-    - All outbound traffic from the virtual server instance
+*	1 security group. The rules for this security group are:
+    - Allow inbound DNS traffic (port 53)  
+    - Allow nbound SSH traffic (TCP port 22)
+    - Allow all outbound traffic from the virtual server instance
+    - Allow all traffic in the security group
 *	1 subnet to enable networking in your VPC
 *	2 virtual server instances with SAP certified storage and network configurations
 *	2 floating IP address that you use to access your VPC virtual server instance over the public network
 
 During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP NW 7.x release on stand-alone dedicated Hana 2.0 box release. For more information about this architecture, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi)
-
 
 ## Single-host HANA system
 {: terraform-3tier-nw-hana-single}
@@ -78,17 +75,13 @@ For each IBM Cloud region, IBM allocates temporary storage on a dedicated tempor
 ## Script files
 {: #terraform-3tier-nw-db2-ansible-files}
 
-The configuration and script files are provided on the [GitHub repository sap-automated-deployment-scripts/tree/master/sapthreetiernwjavahana/](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapthreetiernwdb2). 
+The configuration and script files are provided on the [GitHub repository sap-automated-deployment-scripts/tree/master/sapthreetierjavahdb/](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapthreetierjavahdb). 
 
 For SAP HANA stand-alone virtual server instance on IBM virtual private cloud, you modify the:
 
-*	The `terraform.tfvars` file to add your {{site.data.keyword.cloud_notm}} API-key.
 *	The `input.auto.tfvars` file to customize the resources for your solution. You specify zones, resource names, SSH keys, and SAP variables.
     
 All of the other configuration files are provided and do not need to be modified. 
-
-The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account. 
-
 
 ## Support
 {: #terraform-nw-db2-support}
@@ -102,7 +95,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 The virtual server instance is configured with:
 •	Red Hat Enterprise Linux 7.6 for SAP HANA (x86_64) 
 •	Two SSH keys configured to access as root user on SSH
-•	Three storage volumes as described in the input.auto.tfvars file.
+•	Three storage volumes as described in the `input.auto.tfvars` file.
 
 ## Before you begin
 {: #terraform-3tier-nw-db2-ansible-before}
@@ -121,31 +114,24 @@ For the detailed steps about using Terraform to create only a VPC for SAP, see [
 
 ## Procedure
 
-Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-in and use Terraform to create a VPC for SAP. The scripts can take 2 hours to complete. 
+Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-in and use Terraform to create VPC resources for SAP. The scripts can take 2 hours to complete. 
 
-1.  Log in to the Deployment Server by using `ssh`.
+1.  Log in to the Bastion Deployment Server by using `ssh`.
 
-2.  Clone the `terraform` and `ansbile` folders and `README` file from `sap-automated-deployment-scripts/sapthreetiernwjavahana/` and change to the `sap-automated-deployment-scripts/sapthreetiernwjavahana/terraform` folder.
+2.  Clone the `terraform` and `ansible` folders and `README` file from `sap-automated-deployment-scripts/sapthreetierjavahdb/` and change to the `sap-automated-deployment-scripts/sapthreetierjavahdb/terraform` folder.
 
     ```
     $ git clone https://github.com/IBM-Cloud/sap-automated-deployment-scripts.git
     
-    $ cd sap-automated-deployment-scripts/sapthreetiernwjavahana/terraform
+    $ cd sap-automated-deployment-scripts/sapthreetierjavahdb/terraform
     ```
-3. Edit the terraform.tfvars variable file and enter the IBM Cloud API key that you retrieved.
 
-    `ibmcloud_api_key = "<ibmcloud_apikey>"`    
-
-    Variables that are defined in the terraform.tfvars file are automatically loaded by Terraform when the IBM Cloud Provider plug-in is initialized. You can reference them in every Terraform configuration file that you use.
-    
-    Because the terraform.tfvars file contains confidential information, do not push this file to a version control system. Keep this file on your local system only.
-
-4.	Define your VPC. Modify the `input.auto.tfvars` file to specify your zone, VPC component names, profile, and image. The file is preset with the minimal recommended disk sizes. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2).
+3.	Define your existing VPC variables. Modify the `input.auto.tfvars` file to specify your zone, VPC component names, profile, and image. The file is preset with the minimal recommended disk sizes. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapthreetierjavahdb).
 
     Whether you are creating a VPC or using an existing VPC, you must modify:
-    *	VPC - New or existing VPC name.
-    *	SECURITYGROUP - change ic4sap to the VPC name.
-    *	SUBNET - change ic4sap to the VPC name.
+    *	VPC - Existing VPC name.
+    *	SECURITYGROUP - Change ic4sap-securitygroup to the existing securitygroup name.
+    *	SUBNET - Change ic4sap-subnet to the existing subnet name.
     *	DB-HOSTNAME - enter a hostname up to 13 characters. For more information, see the readme file.
     *	APP-HOSTNAME - enter a hostname up to 13 characters. For more information, see the readme file.
 
@@ -162,12 +148,12 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     SSH_KEYS		= [ "ssh key1" , "ssh key2" ]
 
     # SAP Database VSI variables:
-    DB-HOSTNAME     = "sapbw4db"
+    DB-HOSTNAME     = "sapjavadb"
     DB-PROFILE      = "mx2-16x128" 
     DB-IMAGE        = "ibm-redhat-7-6-amd64-sap-hana-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP NOTE: 2927211.
 
     # SAP APPs VSI variables:
-    APP-HOSTNAME    = "sapbw4app"
+    APP-HOSTNAME    = "sapjavci"
     APP-PROFILE     = "bx2-4x16"
     APP-IMAGE       = "ibm-redhat-7-6-amd64-sap-applications-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP NOTE: 2927211.
 
@@ -175,11 +161,11 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
     The hostname must have up to 13 characters as required by SAP. For more information about the rules that apply to hostnames for SAP systems, see SAP Note 611361 - Hostnames of SAP ABAP Platform servers
 
-5. Customize your SAP system configuration. Modify the ``input.auto.tfvars`` file to specify SAP system configuration and enter the location of the downloaded SAP Kits. For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
+4. Customize your SAP system configuration. Modify the ``input.auto.tfvars`` file to specify SAP system configuration and enter the location of the downloaded SAP Kits. For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
   
     ```
     #HANA DB configuration
-    hana_sid = "BWH"
+    hana_sid = "HDB"
     hana_sysno = "00"
     hana_system_usage = "custom"
     hana_components = "server"
@@ -188,63 +174,41 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     kit_saphana_file = "/storage/HANADB/51054623.ZIP"
 
     #SAP system configuration
-    sap_sid = "BWH"
+    sap_sid = "JV1"
     sap_ascs_instance_number = "01"
     sap_ci_instance_number = "00"
 
-    # Number of concurrent jobs used to load and/or extract archives to HANA Host
-    hdb_concurrent_jobs = "6"
-
-    #SAP BW4HANA APP Installation kit path
-    kit_sapcar_file = "/storage/BW4HANA/SAPCAR_1010-70006178.EXE"
-    kit_swpm_file = "/storage/BW4HANA/SWPM20SP09_4-80003424.SAR"
-    kit_sapexe_file = "/storage/BW4HANA/SAPEXE_400-80004393.SAR"
-    kit_sapexedb_file = "/storage/BW4HANA/SAPEXEDB_400-80004392.SAR"
-    kit_igsexe_file = "/storage/BW4HANA/igsexe_13-80003187.sar"
-    kit_igshelper_file = "/storage/BW4HANA/igshelper_17-10010245.sar"
-    kit_saphotagent_file = "/storage/BW4HANA/SAPHOSTAGENT51_51-20009394.SAR"
-    kit_hdbclient_file = "/storage/BW4HANA/IMDB_CLIENT20_009_28-80002082.SAR"
-    kit_bw4hana_export = "/storage/BW4HANA/export"
-
+    #SAP S4HANA APP Installation kit path
+    kit_sapcar_file = "/storage/NW75HDB/SAPCAR_1010-70006178.EXE"
+    kit_swpm_file = "/storage/NW75HDB/SWPM10SP31_7-20009701.SAR"
+    kit_sapexe_file = "/storage/NW75HDB/SAPEXE_801-80002573.SAR"
+    kit_sapexedb_file = "/storage/NW75HDB/SAPEXEDB_801-80002572.SAR"
+    kit_igsexe_file = "/storage/NW75HDB/igsexe_13-80003187.sar"
+    kit_igshelper_file = "/storage/NW75HDB/igshelper_17-10010245.sar"
+    kit_saphotagent_file = "/storage/NW75HDB/SAPHOSTAGENT51_51-20009394.SAR"
+    kit_hdbclient_file = "/storage/NW75HDB/IMDB_CLIENT20_009_28-80002082.SAR"
+    kit_sapjvm_file = "/storage/NW75HDB/SAPJVM8_73-80000202.SAR"
+    kit_java_export = "/storage/NW75HDB/export"
     ```
 
-6.	Edit the `terraform/main.tf` file and specify the VPC to use. You can have the scripts create a new VPC or you can use an existing VPC. By default the scripts use an existing VPC. If you are using an existing VPC, be sure that the VPC name is in the `input.auto.tfvars` file.
-
-    To create a new VPC, uncomment the `# source = "./modules/vpc"` line and comment out the `source = "./modules/vpc/existing"` line. 
-    
-    To use an existing VPC, make sure the `source = "./modules/vpc/existing"` line is uncommented and leave the `# source = "./modules/vpc"` line commented out.
-
-    ```terraform
-    /*module "vpc" {
-    #  source		= "./modules/vpc"
-      source		= "./modules/vpc/existing"
-      ZONE			= var.ZONE
-      VPC			= var.VPC
-      SECURITYGROUP 	= var.SECURITYGROUP
-      SUBNET		= var.SUBNET
-    }
-    */
-    ```
-
-7. Initialize the Terraform CLI. 
+5. Initialize the Terraform CLI. 
 
    ```
    terraform init
    ```
 
-8. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account. During the Terraform plan, you are prompted to enter your API key, and initial SAP and DB passwords.  
+6. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account. During the Terraform plan, you are prompted to enter your API key, and initial SAP and DB passwords.  
 
    ```
    terraform plan --out plan1
    ```
-    You must enter a HANA maste password and an SAP master password.
-    The HANA master password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can contain only the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ).
-
+    You must enter an SAP master password.
+    
     The SAP master password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain !. It must not start with a digit or an underscore ( _ ).
 
-9. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan --out plan1` again.
+7. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan --out plan1` again.
 
-10. Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
+8. Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
     ```
      terraform apply "plan1"
