@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-16"
+  years: 2020, 2022
+lastupdated: "2022-04-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -249,14 +249,14 @@ After you deploy {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_not
 1. Configure repositories for SAP workload for RHEL 8.1 or for RHEL 8.2
 
    ```
-   subscription-managerrelease--set=8.1
+   subscription-manager release--set=8.1
    ```
    {: pre}
 
    Or
 
    ```
-   subscription-managerrelease--set=8.2
+   subscription-manager release--set=8.2
    ```
    {: pre}
 
