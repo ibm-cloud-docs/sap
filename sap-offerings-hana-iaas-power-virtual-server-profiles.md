@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-06"
+  years: 2020, 2022
+lastupdated: "2022-04-25"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Balanced, bh1, Compute Intensive, ch1, High Memory, mh1, Ultra Memory, umh, Small, ush1, Nonproduction, np1
 
@@ -122,9 +122,9 @@ Each profile must have at least two dedicated cores. You can choose between Tier
 | mh1-60x10800 | 60 | 460 | 10,800 | 12,770 | 360,000 | OLAP * |
 | mh1-70x12600 | 70 | 560 | 12,600 | 14,370 | 420,000 | OLAP * |
 | mh1-80x14400 | 80 | 640 | 14,400 | 15,970 | 480,000 | OLAP |
-| mh1-90x16200 | 90 | 720| 16,200 | 19,170 | 540,000| OLAP |
-| mh1-100x18000 | 100 | 800 | 18,000 | 20,770 | 600,000 | OLAP |
-| mh1-125x22500 | 125 | 1,000  | 22,500  | 25,570 | 750,000 | OLAP |
+<!--| mh1-90x16200 | 90 | 720| 16,200 | 19,170 | 540,000| OLAP |-->
+<!--| mh1-100x18000 | 100 | 800 | 18,000 | 20,770 | 600,000 | OLAP |-->
+<!--| mh1-125x22500 | 125 | 1,000  | 22,500  | 25,570 | 750,000 | OLAP |-->
 {: caption="Table 3. SAP HANA servers High Memory profile family" caption-side="top"}
 
 ## Ultra Memory
