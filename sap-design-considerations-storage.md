@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-28"
+  years: 2020, 2022
+lastupdated: "2022-05-19"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -415,7 +415,7 @@ For more information, see [Required File Systems for IBM Db2 for Linux, UNIX, an
 
 The following table shows an example of a storage layout for an SAP HANA system.
 
-SAP HANA Data and SAP HANA Log directory file systems must be striped over eight storage volumes.
+SAP HANA Data and SAP HANA Log directory file systems must be striped over 4 or 8 storage volumes.
 
 Striping for other file systems (SAP executable files, HANA Shared, HANA Backup, HANA Export) is not required. See the SAP TDI documents for general storage requirements.
 
