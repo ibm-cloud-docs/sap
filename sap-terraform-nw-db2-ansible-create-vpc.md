@@ -50,7 +50,7 @@ The scripts are designed to create a new VPC and install SAP in one task flow. I
 ## Script files
 {: #terraform-nw-db2-ansible-files}
 
-The configuration and script files are provided on the [GitHub repository `sap-automated-deployment-scripts/sapsingletierdb2/`](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2)
+The configuration and script files are provided on the GitHub repository [`https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard`](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard)
 
 To run the scripts to create a VPC and install NW7.X and Db2, you modify:
 
@@ -101,12 +101,12 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
 1.  Log in to the Deployment Server by using `ssh`.
 
-2.  Clone the `terraform` and `ansbile` folders and `README` file from `sap-automated-deployment-scripts/sapsingletierdb2/` and change to the `sap-automated-deployment-scripts/sapsingletierdb2/terraform` folder.
+2.  Clone the `terraform` and `ansbile` folders and `README` file from `https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard` and change to the `sap-netweaver-abap-db2-standard/terraform` folder.
 
     ```
-    $ git clone https://github.com/IBM-Cloud/sap-automated-deployment-scripts.git
+    $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard.git
     
-    $ cd sap-automated-deployment-scripts/sapsingletierdb2/terraform
+    $ cd sap-netweaver-abap-db2-standard/terraform
     ```
 
 3.  Edit the ``terraform.tfvars`` variable file and enter the {{site.data.keyword.cloud_notm}} API key that you retrieved. 

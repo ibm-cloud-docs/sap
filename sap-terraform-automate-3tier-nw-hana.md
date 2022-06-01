@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-29"
+lastupdated: "2022-05-23"
 
 subcollection: sap
 
@@ -75,7 +75,7 @@ For each IBM Cloud region, IBM allocates temporary storage on a dedicated tempor
 ## Script files
 {: #terraform-3tier-nw-db2-ansible-files}
 
-The configuration and script files are provided on the [GitHub repository sap-automated-deployment-scripts/tree/master/sapthreetierjavahdb/](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapthreetierjavahdb). 
+The configuration and script files are provided on the [GitHub repository github.com/IBM-Cloud/sap-netweaver-java-hana](https://github.com/IBM-Cloud/sap-netweaver-java-hana). 
 
 For SAP HANA stand-alone virtual server instance on IBM virtual private cloud, you modify the:
 
@@ -118,12 +118,12 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
 1.  Log in to the Bastion Deployment Server by using `ssh`.
 
-2.  Clone the `terraform` and `ansible` folders and `README` file from `sap-automated-deployment-scripts/sapthreetierjavahdb/` and change to the `sap-automated-deployment-scripts/sapthreetierjavahdb/terraform` folder.
+2.  Clone the `terraform` and `ansible` folders and `README` file from `https://github.com/IBM-Cloud/sap-netweaver-java-hana` and change to the `sap-netweaver-java-hana/cli/terraform` folder.
 
     ```
-    $ git clone https://github.com/IBM-Cloud/sap-automated-deployment-scripts.git
+    $ git clone https://github.com/IBM-Cloud/sap-netweaver-java-hana.git
     
-    $ cd sap-automated-deployment-scripts/sapthreetierjavahdb/terraform
+    $ cd sap-netweaver-java-hana/cli/terraform
     ```
 
 3.	Define your existing VPC variables. Modify the `input.auto.tfvars` file to specify your zone, VPC component names, profile, and image. The file is preset with the minimal recommended disk sizes. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapthreetierjavahdb).

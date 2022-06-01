@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-25"
+lastupdated: "2022-05-23"
 
 subcollection: sap
 
@@ -16,6 +16,8 @@ subcollection: sap
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip} 
+{:ui: .ph data-hd-interface="ui"}
+{:cli: .ph data-hd-interface="terraform"}
 
 # Automating S/4HANA on 3-tier IBM VPC Cloud with Terraform and Ansible
 {: #automate-s4hana-terraform-ansible}
@@ -49,7 +51,7 @@ During the first phase, the VPC is provisioned with these components:
 *	2 X virtual server instance with SAP certified storage and network configurations
 *	2 floating IP’s address that you use to access your VPC virtual server instance over the public network
 
-During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on stand-alone dedicated Hana 2.0 box release. For more information about this architecture, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSIs SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on stand-alone dedicated Hana 2.0 box release. For more information about this architecture, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
 
 ## Single-host HANA system
 {: #automate-s4hana-terraform-ansible}
@@ -63,7 +65,15 @@ The scripts are designed to create a new VPC and install SAP (S/4HANA release) s
 ## Script files
 {: #automate-s4hana-terraform-ansible}
 
-The configuration and script files are provided on the GitHub repository [sap-automated-deployment-scripts/sapthreetiers4hana/](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/dev).
+The configuration and script files are provided on GitHub. There are 2 repositories for each of the SAP solution:
+
+*	Using the Bastion server CLI - GitHub repository https://github.com/ibm-cloud/sap-s4hana/tree/main/cli.
+*	Using Schematics user interface on IBM Cloud® - GitHub repository https://github.com/ibm-cloud/sap-s4hana/tree/main/schematics.
+
+
+### Terraform scripts
+{: #automate-s4hana-terraform-ansible-terraform}
+{: terraform}
 
 To run the scripts to create a VPC and install the SAP S/4HANA release on dedicated HANA 2.0 BOX VSI, you need to modify:
 
@@ -80,6 +90,15 @@ You can change the default SAP system configuration settings to match your solut
 All of the other configuration files are provided and do not need to be modified. 
 
 The IBM Cloud Provider plug-in for Terraform on IBM Cloud uses these configuration files to provision a VPC in your IBM Cloud account. 
+
+### Schematics 
+{: #automate-s4hana-terraform-ansible-schematics}
+{: ui}
+
+When you run the scripts with the Schematics interface, you:
+
+*	Enter the URL for the GitHub repository for the Terraform files
+*	Modify the parameters in the Schematics interface. They are the same parameters as the input.auto.tfvars file that you use with the cli.
 
 ## SAP Kits
 {: #automate-s4hana-terraform-ansible}
@@ -98,24 +117,25 @@ Though the materials provided herein are not supported by the IBM Service organi
 
 Before you use the scripts:
 
-*	Log in to your Deployment Server and verify that Terraform and Ansible are installed. 
+*	Set up your account toaccess the VPC.  Make sure your account is upgraded to a paid account.
 *	If you have not already, create a bastion server to store the SAP kits.  For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the README file. 
 *	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
 *	[Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
-## Procedure
+## Procedure for Terraform
 {: #automate-s4hana-terraform-ansible}
+{: terraform}
 
 Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to create a VPC for SAP. The scripts can take 2 hours to complete. 
 
 1.	Log in to the Deployment Server by using `ssh`.
-2.	Clone the terraform and ansbile folders and readme file from ``sap-automated-deployment-scripts/sapthreetiers4hana/`` and change to the ``sap-automated-deployment-scripts/sapthreetiers4hana/terraform`` folder.
+2.	Clone the terraform and ansbile folders and readme file from ``https://github.com/IBM-Cloud/sap-s4hana/tree/main/cli`` and change to the ``sap-s4hana/cli/terraform`` folder.
 
     ```
-	$ git clone https://github.com/IBM-Cloud/sap-automated-deployment-scripts.git
+	$ git clone https://github.com/IBM-Cloud/sap-s4hana.git
 	
-	$ cd sap-automated-deployment-scripts/sapthreetiers4hana/terraform
+	$ cd sap-s4hana/cli/terraform
     ```
 
 3.	Edit the ``terraform.tfvars`` variable file and enter the IBM Cloud API key that you retrieved. 
@@ -219,10 +239,58 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
 9.	Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see SAP GUI.
 
 ## Next steps
+{: next-steps-terraform}
+{: terraform}
 
 If you need to rename your resources after they are created, modify the `input.auto.tfvars` file to change the names and run `terraform plan` and `terraform apply` again. Do not use the IBM Cloud Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results. 
 
 If you need to remove your VPC, go to your project folder and run `terraform destroy`.
+
+## Creating the VPC with Schematics user interface
+{: #create-vpc-schematics-ui}
+{: ui}
+
+Use these steps to configure the  SAP S/4HANA on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete. 
+
+1.	From the IBM Cloud menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
+2.	Click **Create workspace**.
+3.  On the **Specify template** page:
+    * Enter the URL for the Schematics interface. 
+    * Select the **Terraform version** that is listed in the readme file.
+    * Click **Next**.  
+4.  On the **Workspace details** page:
+    * Enter a name for the workspace.
+    * Select a **Resource group**.
+    * Select a **Location** for your workspace. The workspace location does not have to match the resource location.
+    * Select **Next**.
+5.  Select **Create** to create your workspace.
+6.  On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
+     * Your API key
+     * Your private SSH key from your local machine
+     * The ID for the SSH key that you created and uploaded to IBM Cloud. Enter the SSH key Id in square brackets and quotes, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
+     * The Region for your resources
+     * The Zone for your resources
+     * Whether to use an existing VPC or create one
+     * Whether to use an existing subnet
+     * Whether to create new port only when a new subnet is created
+     * TCP port range, nimimun and maximum
+     * VPC name
+     * Subnet name
+     * Security group name
+     * Hostname
+     * Profile
+     * Image
+     * Minimal recommended disk sizes
+     * SAP master password - This must be at least 10 characters, upper and lower case letters, a number, and a special character, not an exclamation point. 
+     * Click **Save changes**.
+
+     For a more detailed description of each of the parameters, check the github repo README file, chapter “Input parameter file”. Also make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API and ssh private keys (they are marked as “sensitive” in the README file, under “Input parameter file”)
+
+7.	On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
+8.	Click **View log** to review the log files of your Terraform execution plan.
+9.	Apply your Terraform template by clicking **Apply plan**.
+10.	Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
+
 
 
 ## Related information

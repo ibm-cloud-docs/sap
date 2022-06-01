@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-25"
+lastupdated: "2022-05-23"
 
 subcollection: sap
 
@@ -74,9 +74,9 @@ Though the materials provided herein are not supported by the IBM Service organi
 ## Script files
 {: #terraform-sap-hana-vsi-files}
 
-The configuration and script files are provided on the GitHub repository [sap-automated-deployment-scripts/tree/master/sapthreetierbw4hana](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapthreetierbw4hana). 
+The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-bw4hana/tree/main/cli](https://github.com/IBM-Cloud/sap-bw4hana/tree/main/cli). 
 
-For SAP HANA stand-alone virtual server instance on {{site.data.keyword.IBM}} virtual private cloud, you modify the:
+For SAP BW/4HANA virtual server instance on {{site.data.keyword.IBM}} virtual private cloud, you modify the:
 
 *  ``terraform.tfvars`` file to add your {{site.data.keyword.cloud_notm}} API-key
 
@@ -117,12 +117,12 @@ For the detailed steps about using Terraform to create only a VPC for SAP, see [
 ## Procedure
 
 1.	Log in to the Deployment Server by using `ssh`.
-2.	Clone the terraform and ansbile folders and readme file from ``sap-automated-deployment-scripts/sapthreetierbw4hana/`` and change to the ``sap-automated-deployment-scripts/sapthreetierbw4hana/terraform`` folder.
+2.	Clone the terraform and ansbile folders and readme file from ``https://github.com/IBM-Cloud/sap-bw4hana/tree/main/cli`` and change to the ``sap-bw4hana/terraform`` folder.
 
     
-	    $ git clone https://github.com/IBM-Cloud/sap-automated-deployment-scripts.git
+	    $ git clone https://github.com/IBM-Cloud/sap-bw4hana.git
     	
-	    $ cd sap-automated-deployment-scripts/sapthreetierbw4hana/terraform
+	    $ cd sap-bw4hana/cli/terraform
     
 3.  Edit the ``terraform.tfvars`` variable file and enter the IBM Cloud API key that you retrieved. 
 

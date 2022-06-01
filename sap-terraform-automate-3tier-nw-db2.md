@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-25"
+lastupdated: "2022-05-23"
 
 subcollection: sap
 
@@ -75,7 +75,7 @@ The scripts are designed to create a new VPC and install SAP (NW 7.x release) so
 ## Script files
 {: #terraform-3tier-nw-db2-ansible-files}
 
-The configuration and script files are provided on the [GitHub repository `sap-automated-deployment-scripts/sapthreetiernwwithdb2/`](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapthreetiernwdb2). This solution  performs an automated deployment of a distributed system (two nodes) with SAP Netweaver with DB2 on top of Red Hat Enterprise Linux 7.6 for SAP Applications :
+The configuration and script files are provided on the GitHub repository [`https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed`](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed). This solution  performs an automated deployment of a distributed system (two nodes) with SAP Netweaver with DB2 on top of Red Hat Enterprise Linux 7.6 for SAP Applications :
 
 To run the scripts to create a VPC and install NW7.X and Db2, you modify:
 
@@ -133,12 +133,12 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
 1.  Log in to the Deployment Server by using `ssh`.
 
-2.  Clone the `terraform` and `ansbile` folders and `README` file from `sap-automated-deployment-scripts/sapthreetiernwdb2/` and change to the `sap-automated-deployment-scripts/sapthreetiernwdb2/terraform` folder.
+2.  Clone the `terraform` and `ansbile` folders and `README` file from `https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed/` and change to the `sap-netweaver-abap-db2-distributed/cli/terraform` folder.
 
     ```
-    $ git clone https://github.com/IBM-Cloud/sap-automated-deployment-scripts.git
+    $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed.git
     
-    $ cd sap-automated-deployment-scripts/sapthreetiernwdb2/terraform
+    $ cd sap-netweaver-abap-db2-distributed/cli/terraform
     ```
 
 3.	Define your VPC. Modify the `input.auto.tfvars` file to specify your zone, VPC component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2).

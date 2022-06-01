@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-17"
+lastupdated: "2022-05-23"
 
 subcollection: sap
 
@@ -17,7 +17,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip}
 {:ui: .ph data-hd-interface="ui"}
-{:cli: .ph data-hd-interface="cli"}
+{:terraform: .ph data-hd-interface="terraform"}
 
 # Deploy NW7.X and Db2 on an existing {{site.data.keyword.cloud_notm}} VPC by using Terraform and Ansible
 {: #sap-terraform-nw-db2-existing-vpc}
@@ -37,16 +37,16 @@ The scripts call the Ansible Playbook to install the SAP architecture.
 ## Script files
 {: #terraform-nw-db2-existing-vpc-files}
 
-The configuration and script files are provided on GitHub. There are usually 2 repositories for each of the SAP solution:
+The configuration and script files are provided on GitHub. Each SAP solution has 2 repositories:
 
-*  Using the Bastion server CLI - [GitHub repository `sap-automated-deployment-scripts/sapsingletierdb2/`](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2).
-*  Using Schematics uiser interface on {{site.data.keyword.cloud}} - [GitHub repository sap-automated-deployment-scripts/sapsingletierdb2/ibm-schematics](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2/ibm-schematics).
+*  Using Terraform on the Bastion server - [GitHub repository for Terraform `https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/cli`](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/cli).
+*  Using the Schematics user interface on {{site.data.keyword.cloud}} - [GitHub repository for IBM Schematics `https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/schematics`](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/schematics).
 
-### Terraform CLI interface
-{: #sap-terraform-nw-db2-cli}
-{: cli}
+### Terraform interface
+{: #sap-terraform-nw-db2-terraform}
+{: terraform}
 
-To run the scripts, you modify:
+To run the Terraform scripts, you modify:
 
 *	The `terraform.tfvars` file to add your IBM Cloud API-key
 *	The `input.auto.tfvars` file to specify the existing VPC resources for your solution. You specify the variables for the existing VPC:
@@ -72,7 +72,7 @@ The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.da
 {: ui}
 
 When you run the scripts with the Schematics interface, you:
-*  Enter the URL for the GitHub repository for the Terraform files
+*  Enter the URL for the GitHub repository for the Schematics Terraform files
 *  Modify the parameters in the Schematics interface. They are the same parameters as the `input.auto.tfvars` file that you use with the cli. 
 
 ## Support
@@ -85,7 +85,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 ## Before you begin
 {: #terraform-nw-db2-ansible-before}
 
-Before you use the scripts in the cli or Schematics:
+Before you use the scripts in the Bastion cli or Schematics:
 
 *  Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct). 
 
@@ -97,22 +97,22 @@ Before you use the scripts in the cli or Schematics:
 
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
-* Terraform should be already installed on the bastion server that you deployed. For more information, see [Bastion server for SAP deployment](/docs/sap?topic=sap-sap-bastion-server). {: cli}
+* Terraform should be already installed on the bastion server that you deployed. For more information, see [Bastion server for SAP deployment](/docs/sap?topic=sap-sap-bastion-server). {: terraform}
 
-## Creating the VPC by using the CLI
-{: #create-vpc-cli}
-{: cli}
+## Creating the infrastructure by using Terraform with the Bastion server CLI
+{: #create-vpc-terraform}
+{: terraform}
 
 Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-in and use Terraform to install SAP NW7.X with Db2 on your existing VPC. The scripts can take 1 - 2 hours to complete. 
 
 1.  Access the Bastion server cli.
 
-2.  Clone the `terraform` and `ansbile` folders and `README` file from `sap-automated-deployment-scripts/sapsingletierdb2/` and `cd` to the `sap-automated-deployment-scripts/sapsingletierdb2/terraform` folder.
+2.  Clone the `terraform` and `ansbile` folders and `README` file from `https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard` and `cd` to the `sap-netweaver-abap-db2-standard/cli/terraform` folder.
 
     ```terraform
-    $ git clone https://github.com/IBM-Cloud/sap-automated-deployment-scripts.git
+    $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard.git
     
-    $ cd sap-automated-deployment-scripts/sapsingletierdb2/terraform
+    $ cd sap-netweaver-abap-db2-standard/cli/terraform
     ```
 
 3.  Edit the ``terraform.tfvars`` variable file and enter the IBM Cloud API key that you retrieved. 
@@ -221,7 +221,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
      ```
     You must enter an SAP master password.
 
-    The SAP master password must be 10 to 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
+    The SAP master password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
 
 9.  Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
 
@@ -236,7 +236,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
 12. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm).
 
-## Creating the VPC with Schematics user interface
+## Creating the infrastructure with the Schematics user interface
 {: #create-vpc-schematics-ui}
 {: ui}
 
@@ -246,7 +246,7 @@ Use these steps to configure the  SAP NW7.X with Db2 on your existing VPC by usi
 1.	From the IBM Cloud menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
 2.	Click **Create workspace**.
 3.  On the **Specify template** page:
-    * Enter the URL of bastion setup folder. 
+    * Enter the URL of Schematics folder. 
     * Select the **Terraform version** that is listed in the readme file.
     * Click **Next**.  
 4.  On the **Workspace details** page:
@@ -258,7 +258,7 @@ Use these steps to configure the  SAP NW7.X with Db2 on your existing VPC by usi
 6.  On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
      * Your API key
      * Your private SSH key from your local machine
-     * The ID for the SSH key that you created and uploaded to IBM Cloud. Enter the SSH key Id in square brackets and quotes, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
+     * The ID for the SSH key that you created and uploaded to IBM Cloud. Enter the SSH key ID in square brackets and quotes, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
      * The Region for your resources
      * The Zone for your resources
      * Whether to use an existing VPC or create one
@@ -272,10 +272,10 @@ Use these steps to configure the  SAP NW7.X with Db2 on your existing VPC by usi
      * Profile
      * Image
      * Minimal recommended disk sizes
-     * SAP master password -must be at least 10 characters, upper and lower case letters, a number, and a special character, not an exclamation point. 
+     * SAP master password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point. 
      * Click **Save changes**.
 
-     For a more detailed description of each of the parameters, check the github repo README file, chapter “Input parameter file”. Also make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API and ssh private keys (they are marked as “sensitive” in the README file, under “Input parameter file”)
+     For a more detailed description of each of the parameters, check the GitHub repo readme file, chapter “Input parameter file”. Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API, and ssh private keys (they are marked as “sensitive” in the readme file, under “Input parameter file”)
 
 7.	On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
 8.	Click **View log** to review the log files of your Terraform execution plan.
@@ -283,8 +283,8 @@ Use these steps to configure the  SAP NW7.X with Db2 on your existing VPC by usi
 10.	Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
 
 ## Next steps
-{: #next-steps-cli}
-{: cli}
+{: #next-steps-terraform}
+{: terraform}
 
 If you need to rename your resources after they are created, modify the ``input.auto.tfvars`` file to change the names and run ``terraform plan`` and ``terraform apply`` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results. 
 

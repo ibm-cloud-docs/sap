@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-14"
+lastupdated: "2022-05-23"
 
 subcollection: sap
 
@@ -44,7 +44,7 @@ For the detailed steps about using Terraform to create only a VPC for SAP, see [
 ## Script files
 {: #terraform-sap-hana-vsi-files}
 
-The configuration and script files are provided on the GitHub repository [sap-automated-deployment-scripts/tree/dev/saphanasinglehost](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/dev/saphanasinglehost). 
+The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-hana-single-vsi](https://github.com/IBM-Cloud/sap-hana-single-vsi). 
 
 For SAP HANA stand-alone virtual server instance on {{site.data.keyword.IBM}} virtual private cloud, you modify the:
 
@@ -83,12 +83,12 @@ The virtual server instance is configured with:
 ## Procedure
 
 1.	Log in to the Deployment Server by using `ssh`.
-2.	Clone the terraform and ansbile folders and readme file from ``sap-automated-deployment-scripts/saphanasinglehost/`` and change to the ``sap-automated-deployment-scripts/saphanasinglehost/terraform`` folder.
+2.	Clone the terraform and ansbile folders and readme file from ``https://github.com/IBM-Cloud/sap-hana-single-vsi/tree/main/cli`` and change to the ``sap-hana-single-vsi/cli/terraform`` folder.
 
     ```
-	$ git clone https://github.com/IBM-Cloud/sap-automated-deployment-scripts.git
+	$ git clone https://github.com/IBM-Cloud/sap-hana-single-vsi.git
     	
-	$ cd sap-automated-deployment-scripts/saphanasinglehost/terraform
+	$ cd sap-hana-single-vsi/cli/terraform
     ```
 3.  Edit the ``terraform.tfvars`` variable file and enter the IBM Cloud API key that you retrieved. 
 
