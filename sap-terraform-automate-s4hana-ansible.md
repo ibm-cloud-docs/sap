@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-05-23"
+lastupdated: "2022-06-10"
 
 subcollection: sap
 
@@ -22,7 +22,7 @@ subcollection: sap
 # Automating S/4HANA on 3-tier IBM VPC Cloud with Terraform and Ansible
 {: #automate-s4hana-terraform-ansible}
 
-Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies. The Terraform scripts create the VPC and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on your Deployment Server. The Deployment Server needs to have Terraform and Ansible installed.
+Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies. The Terraform scripts create the VPC and then call the Ansible playbook to create the SAP architecture on the VPC. 
 {: shortdesc}
 
 ## SAP Solution implemented 
@@ -37,7 +37,7 @@ While previous SAP ERP solutions support the most common databases, SAP S/4HANA 
 ## What is created
 {: #automate-s4hana-terraform-ansible}
 
-The scripts work in two phases. The first phase automates the VPC provisioning process. The second phase creates the SAP architecture in a distributed environment SAP S/4HANA App server on a distinct VSI VPC machine and HANA DB on a dedicated server type VSI VPC box machine.
+The scripts work in two phases. The first phase automates the VPC provisioning process. The second phase creates the SAP architecture in a distributed environment SAP S/4HANA App server on a distinct VSI VPC machine and HANA DB on a dedicated server type VSI VPC box machine. For more information about this architecture, see [SAP NetWeaver 7.x with HANA VPC IBM Cloud](/docs/sap?topic=sap-sap-refarch-nw-hana&interface=ui).
 
 During the first phase, the VPC is provisioned with these components: 
 
@@ -50,12 +50,12 @@ During the first phase, the VPC is provisioned with these components:
 *	2 X virtual server instance with SAP certified storage and network configurations
 *	2 floating IP’s address that you use to access your VPC virtual server instance over the public network
 
-During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSIs SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on stand-alone dedicated Hana 2.0 box release. For more information about this architecture, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSIs SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on stand-alone dedicated Hana 2.0 box release as a distributed deployment model. For more information about this architecture, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
 
 ## Single-host HANA system
 {: #automate-s4hana-terraform-ansible}
 
-A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components: 
+A single-host system is the simplest system installation type that runs an SAP HANA db system entirely on one host. You can scale the system up as needed. The single-host system has these components: 
  
  ![Figure 1. SAP NetWeaver 7.x HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x HANA standard installation with AAS"){: caption="Figure 2. SAP NetWeaver 7.x HANA single-host installation with AAS" caption-side="bottom"}
 
@@ -64,9 +64,9 @@ The scripts are designed to create a new VPC and install SAP (S/4HANA release) s
 ## Script files
 {: #automate-s4hana-terraform-ansible}
 
-The configuration and script files are provided on GitHub. There are 2 repositories for each of the SAP solution:
+The configuration and script files are provided on GitHub. There are 2 repositories for each SAP solution:
 
-*	Using the Bastion server CLI - GitHub repository https://github.com/ibm-cloud/sap-s4hana/tree/main/cli.
+*	Using the Bastion server CLI to run the Terraform scripts - GitHub repository https://github.com/ibm-cloud/sap-s4hana/tree/main/cli.
 *	Using Schematics user interface on IBM Cloud® - GitHub repository https://github.com/ibm-cloud/sap-s4hana/tree/main/schematics.
 
 
@@ -91,39 +91,39 @@ All of the other configuration files are provided and do not need to be modified
 The IBM Cloud Provider plug-in for Terraform on IBM Cloud uses these configuration files to provision a VPC in your IBM Cloud account. 
 
 ### Schematics 
-{: #automate-s4hana-terraform-ansible-schematics}
+{: #s4hana-automation-schematics}
 {: ui}
 
 When you run the scripts with the Schematics interface, you:
 
 *	Enter the URL for the GitHub repository for the Terraform files
-*	Modify the parameters in the Schematics interface. They are the same parameters as the input.auto.tfvars file that you use with the cli.
+*	Modify the parameters in the Schematics interface. They are the same parameters as the `input.auto.tfvars` file that you use when running the Terraform scripts in the cli.
 
 ## SAP Kits
-{: #automate-s4hana-terraform-ansible}
+{: #s4hana-automation-sap-kits}
 
 For each IBM Cloud region IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment Server. All files archives are decompressed by Ansible during the automation deploying process. For more information, see the README file.
 
 ## Support
-{: #automate-s4hana-terraform-ansible}
+{: #s4hana-automation-support}
 
 There are no warranties of any kind, and there is no service or technical support available for these materials from IBM®. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
 Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, re-adapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
 ## Before you begin
-{: #automate-s4hana-terraform-ansible}
+{: #s4hana-automation-before}
 
 Before you use the scripts:
 
-*	Set up your account toaccess the VPC.  Make sure your account is upgraded to a paid account.
+*	Set up your account to access the VPC.  Make sure your account is upgraded to a [paid account](/docs/account?topic=account-upgrading-account).
 *	If you have not already, create a bastion server to store the SAP kits.  For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the README file. 
 *	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
 *	[Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
 ## Procedure for Terraform
-{: #automate-s4hana-terraform-ansible}
+{: #s4hana-automation-procedure-terraform}
 {: terraform}
 
 Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to create a VPC for SAP. The scripts can take 2 hours to complete. 
@@ -237,16 +237,16 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
 
 9.	Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see SAP GUI.
 
-## Next steps
-{: next-steps-terraform}
+## Next steps for Terraform
+{: #s4hana-automation-next-steps-terraform}
 {: terraform}
 
 If you need to rename your resources after they are created, modify the `input.auto.tfvars` file to change the names and run `terraform plan` and `terraform apply` again. Do not use the IBM Cloud Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results. 
 
 If you need to remove your VPC, go to your project folder and run `terraform destroy`.
 
-## Creating the VPC with Schematics user interface
-{: #create-vpc-schematics-ui}
+## Procedure for the Schematics user interface
+{: #s4hana-automation-procedure-schematics-ui}
 {: ui}
 
 Use these steps to configure the  SAP S/4HANA on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete. 
@@ -255,7 +255,7 @@ Use these steps to configure the  SAP S/4HANA on your existing VPC by using the 
 2.	Click **Create workspace**.
 3.  On the **Specify template** page:
     * Enter the URL for the Schematics interface. 
-    * Select the **Terraform version** that is listed in the readme file.
+    * Select the **Terraform version**.
     * Click **Next**.  
 4.  On the **Workspace details** page:
     * Enter a name for the workspace.
@@ -267,6 +267,7 @@ Use these steps to configure the  SAP S/4HANA on your existing VPC by using the 
      * Your API key
      * Your private SSH key from your local machine
      * The ID for the SSH key that you created and uploaded to IBM Cloud. Enter the SSH key Id in square brackets and quotes, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
+     * The floating IP address for your bastion server.
      * The Region for your resources
      * The Zone for your resources
      * Whether to use an existing VPC or create one
