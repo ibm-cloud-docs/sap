@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-10"
+lastupdated: "2022-06-23"
 
 subcollection: sap
 
@@ -19,7 +19,7 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating S/4HANA on 3-tier IBM VPC Cloud with Terraform and Ansible
+# Automating S/4HANA on 3-tier {{site.data.keyword.cloud}} VPC with Terraform and Ansible
 {: #automate-s4hana-terraform-ansible}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies. The Terraform scripts create the VPC and then call the Ansible playbook to create the SAP architecture on the VPC. 
@@ -50,7 +50,7 @@ During the first phase, the VPC is provisioned with these components:
 *	2 X virtual server instance with SAP certified storage and network configurations
 *	2 floating IP’s address that you use to access your VPC virtual server instance over the public network
 
-During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSIs SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on stand-alone dedicated Hana 2.0 box release as a distributed deployment model. For more information about this architecture, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSIs SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on stand-alone dedicated Hana 2.0 box release as a distributed deployment model. For more information about this architecture, see [How to automate SAP HANA stand-alone VSI on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
 
 ## Single-host HANA system
 {: #automate-s4hana-terraform-ansible}
@@ -59,7 +59,7 @@ A single-host system is the simplest system installation type that runs an SAP H
  
  ![Figure 1. SAP NetWeaver 7.x HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x HANA standard installation with AAS"){: caption="Figure 2. SAP NetWeaver 7.x HANA single-host installation with AAS" caption-side="bottom"}
 
-The scripts are designed to create a new VPC and install SAP (S/4HANA release) solution together with its dedicated DB Hana box in one task flow. If you want to install SAP S/4HANA on an existing VPC with already installed and configured HANA box VSI, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+The scripts are designed to create a new VPC and install SAP (S/4HANA release) solution together with its dedicated DB Hana box in one task flow. If you want to install SAP S/4HANA on an existing VPC with already installed and configured HANA box VSI, see [How to automate SAP HANA stand-alone VSI on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
 
 ## Script files
 {: #automate-s4hana-terraform-ansible}
@@ -147,9 +147,9 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
 
     Because the terraform.tfvars file contains confidential information, do not push this file to a version control system. Keep this file on your local system only. 
 
-4.	Define your VPC. Modify the input.auto.tfvars file to specify your zone, VPC component names, profile, and image. You must modify:
+4.	Edit the input parameter file, `input.auto.tfvars` and modify the variables to match your solution. The file is preset with the minimal recommended disk sizes. For using an existing VPC, you must modify:
 
-    * VPC - Unique VPC name.
+    * VPC - An existing VPC name.
     * SECURITYGROUP - Change ic4sap to the VPC name.
     * SUBNET - Change ic4sap to the VPC name.
     * HOSTNAME - Enter a hostname up to 12 characters.  For more information, see the README file. 
@@ -281,7 +281,8 @@ Use these steps to configure the  SAP S/4HANA on your existing VPC by using the 
      * Profile
      * Image
      * Minimal recommended disk sizes
-     * SAP master password - This must be at least 10 characters, upper and lower case letters, a number, and a special character, not an exclamation point. 
+     * HANA master password - This must be 8 - 14 characters, upper and lower case letters, a number, and a special character. 
+     * SAP master password - This must be 10 - 14 characters, upper and lower case letters, a number, and a special character that is not an exclamation point. 
      * Click **Save changes**.
 
      For a more detailed description of each of the parameters, check the github repo README file, chapter “Input parameter file”. Also make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API and ssh private keys (they are marked as “sensitive” in the README file, under “Input parameter file”)
@@ -302,18 +303,18 @@ For more information about using Terraform for creating only a VPC for SAP, with
 
 SAP One Support Notes that apply to this document:
 
-*	[SAP Note 84555 Windows Server, Linux&reg;, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
-*	[SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2923773 Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
-*	[SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
-*	[SAP Note 2369910 SAP Software on Linux&reg;: General information](https://launchpad.support.sap.com/#/notes/2369910)
-*	[SAP Note 171380 Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
-*	[SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://launchpad.support.sap.com/#/notes/2369910)
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 
 This document is referenced by:
 
-*	[SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2588225 How to protect against speculative execution vulnerabilities on IBM Cloud?](https://launchpad.support.sap.com/#/notes/2588225)
-*	[SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)]
-*	[SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)]
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
 
