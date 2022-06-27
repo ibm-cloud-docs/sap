@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-25"
+lastupdated: "2021-05-23"
 
 subcollection: sap
 
@@ -29,7 +29,7 @@ To create resources with Terraform, you use Terraform configuration files that d
 ## Script files
 {: #terraform-single-tier-vpc-sap-files}
 
-The configuration and script files are provided on the GitHub repository [sap-automated-deployment-scripts/sapsingletiervpc/](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletiervpc). 
+The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli). 
 
 For single-tier virtual private cloud on SAP, you modify the:
 
@@ -82,7 +82,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
     `mkdir myproject && cd myproject`
 
-3.  Copy the files from [sap-automated-deployment-scripts/sapsingletiervpc/](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletiervpc) to the project folder that you created in the Terraform installation directory. 
+3.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli) to the project folder that you created in the Terraform installation directory. 
 
 4.  Edit the ``terraform.tfvars`` variable file and enter the IBM Cloud API key that you retrieved. 
 

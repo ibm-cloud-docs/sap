@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-23"
+lastupdated: "2022-05-23"
 
 subcollection: sap
 
@@ -18,7 +18,7 @@ subcollection: sap
 {:tip: .tip}
 
 # Automate SAP bastion server – SAP media storage repository 
-{: #sap-bastion-server}
+{: #sap-bastion-server} 
 
 This task describes how to do an automated deployment of SAP bastion and storage setup on top of Red Hat Enterprise Linux 8.4. It shows how to deploy an IBM Cloud Gen2 VPC with a bastion host with secure remote SSH access. In SAP Terraform and Ansible deployments, the bastion host is used to give external administrative access to the other servers and applications. The bastion server is accessed through the Floating IP. The bastion server includes a customizable security group and subnet to enable access to the same region zones on its dedicated SAP/DBs and the VSI's IPs and ports. The Floating IP also allows the bastion host access to the internet so the sap and DB kits can be downloaded. 
 
@@ -106,7 +106,8 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
 3.	Be sure that you have the [required IBM Cloud IAM permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources) to create and work with VPC infrastructure and you are [assigned the correct permissions](/docs/schematics?topic=schematics-access) to create the workspace and deploy resources.
 
 4.	[Generate an SSH key](/docs/vpc?topic=vpc-ssh-keys). The SSH key is required to access the provisioned VPC virtual server instances through the bastion host. After you create your SSH key, make sure to [upload this SSH key to your IBM Cloud account](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-managing-ssh-keys#managing-ssh-keys-with-ibm-cloud-console) in the VPC region and resource group where you want to deploy the bastion server.
-5.  Identify the correct URL to Schematics use for this solution. Check the [public GitHub repo](https://github.com/IBM-Cloud/sap-automated-deployment-scripts) and locate the URL for the bastion setup folder. 
+
+5.  Verify that you can access the URL used for this solution [Automation script for SAP solutions using a BASTION & STORAGE setup deployment through Terraform and IBM Schematics](https://github.com/IBM-Cloud/sap-bastion-setup). 
 
 6.  Check the readme file for the version of Terraform to use. 
 
