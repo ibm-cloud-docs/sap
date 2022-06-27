@@ -217,12 +217,19 @@ After you deploy {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_not
 
 1. Verify hostname resolution. Check that the DNS server is correctly entered in `/etc/resolv.conf` and that instance hostname resolution is possible (in the simplest case, through an entry in `/etc/hosts`).
 1. Synchronize time. Make sure that the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s that belong to the same SAP system have their time synchronized. For example, connect your partition to the time server with `ntpdate -u <ntpserver>`.
-1. Tune SUSE Linux Enterprise Server for the SAP HANA or SAP NetWeaver workload. On {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, the same SUSE Linux&reg; Enterprise Server image is used for SAP NetWeaver and SAP HANA.
+2. Install irqbalance
+
+   ```
+   zypper install -y irqbalance; systemctl start irqbalance; systemctl enable irqbalance
+   
+   ```
+   {: pre}
+4. Tune SUSE Linux Enterprise Server for the SAP HANA or SAP NetWeaver workload. On {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, the same SUSE Linux&reg; Enterprise Server image is used for SAP NetWeaver and SAP HANA.
    - For SAP HANA, run the following command to tune the operating system for the SAP HANA workload: `saptune solution apply HANA`. Enable the tuning daemon by running `systemctl enable tuned`.
    - For SAP NetWeaver, run the following command to tune the operating system for the SAP HANA workload: `saptune solution apply NETWEAVER`. Enable the tuning daemon by running `systemctl enable tuned`.
-1. Prepare file systems on extra storage volumes. If you attached extra storage volumes to your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, you must create file systems by using Linux&reg; Logical Volume Manager.
+5. Prepare file systems on extra storage volumes. If you attached extra storage volumes to your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, you must create file systems by using Linux&reg; Logical Volume Manager.
    - For an example with SAP HANA, see the following section [Create file systems on SLES12 SP4 by using the command-line interface](#power-vs-create_file_systems).
-1. Register your SAP virtual server by using SUSE. Register your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s by using SUSE (for example, through SUSE RMT server as described in the [SUSE documentation](https://documentation.suse.com/sles/15-SP1/html/SLES-all/cha-rmt-client.html){: external}).
+6. Register your SAP virtual server by using SUSE. Register your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s by using SUSE (for example, through SUSE RMT server as described in the [SUSE documentation](https://documentation.suse.com/sles/15-SP1/html/SLES-all/cha-rmt-client.html){: external}).
 
 ### Configuring RHEL for the SAP HANA or SAP NetWeaver workload
 {: #power-vs-configure_system}
@@ -271,7 +278,14 @@ After you deploy {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_not
    ```
    {: codeblock}
 
-1. Set jumbo frames for internal network adapters. All the network components in {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s support jumbo frames. In cases where certain network components don't support jumbo frames (for example, in communication to the external world), setting MTU=9000 can cause network issues. Therefore, set MTU=9000 only on adapters that are used internally.
+1.  Install irqbalance
+
+    ```
+    dnf install -y irqbalance; systemctl start irqbalance; systemctl enable irqbalance
+    ```
+    {: pre}
+
+3. Set jumbo frames for internal network adapters. All the network components in {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s support jumbo frames. In cases where certain network components don't support jumbo frames (for example, in communication to the external world), setting MTU=9000 can cause network issues. Therefore, set MTU=9000 only on adapters that are used internally.
 
    You must set TCP segmentation offload (TSO) on private networks that are used for communication between multiple instances in SAP three-tier systems as follows:
 
