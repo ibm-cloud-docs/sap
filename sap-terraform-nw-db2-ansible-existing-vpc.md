@@ -39,8 +39,8 @@ The scripts call the Ansible Playbook to install the SAP architecture.
 
 The configuration and script files are provided on GitHub. Each supported interface for the SAP solution installation has its own folder in the Github repository:
 
-*  Using Terraform on the Bastion server - [GitHub repository for Terraform `https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/cli`](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/cli).
-*  Using the Schematics user interface on {{site.data.keyword.cloud}} - [GitHub repository for IBM Schematics `https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/schematics`](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/schematics).
+*  Using Terraform on the Bastion server - [GitHub repository for Terraform](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/cli).
+*  Using the Schematics user interface on {{site.data.keyword.cloud}} - [GitHub repository for IBM Schematics](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/schematics).
 
 ### Terraform interface
 {: #sap-terraform-nw-db2-terraform}
@@ -85,7 +85,7 @@ Before you use the scripts in the Bastion cli or Schematics:
 
 *  If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 
-*  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
+*  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme). 
 
 *  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 
@@ -109,7 +109,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     $ cd sap-netweaver-abap-db2-standard/cli/terraform
     ```
 
-3.	Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the `README`[file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2).
+3.	Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme).
 
     ```terraform
     #Infra VPC variables
@@ -125,7 +125,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
 4.  Customize your SAP system configuration. In the same file, `input.auto.tfvars`, edit the SAP system configuration variables that are passed to the Ansible automated deployment.
 
-    For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
+    For descriptions of the variables, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme). 
 
     ```terraform
     ##SAP system configuration
@@ -146,7 +146,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     kit_db2client_dir = "/storage/NW75DB2/51051049"
     ```
 
-    Remember, you must manually decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the SAP kit files. For more information, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
+    Remember, you must manually decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the SAP kit files. For more information, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme). 
     {: note}
 
 5.  Initialize the Terraform CLI. 
@@ -185,7 +185,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 Use these steps to configure the  SAP NW7.X with Db2 on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete. 
 
 
-1.	From the IBM Cloud menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
+1.	From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
 2.	Click **Create workspace**.
 3.  On the **Specify template** page:
     * Enter the URL of Schematics folder. 
@@ -200,7 +200,7 @@ Use these steps to configure the  SAP NW7.X with Db2 on your existing VPC by usi
 6.  On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
      * Your API key
      * Your private SSH key from your local machine
-     * The ID for the SSH key that you created and uploaded to IBM Cloud. Enter the SSH key ID in square brackets and quotes, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
+     * The ID for the SSH key that you created and uploaded to {{site.data.keyword.cloud_notm}}. Enter the SSH key ID in square brackets and quotes, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
      * The Region for your resources
      * The Zone for your resources
      * Whether to use an existing VPC or create one
@@ -214,7 +214,7 @@ Use these steps to configure the  SAP NW7.X with Db2 on your existing VPC by usi
      * Profile
      * Image
      * Minimal recommended disk sizes
-     * SAP master password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point. 
+     * SAP mastert password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point. 
      * Click **Save changes**.
 
      For a more detailed description of each of the parameters, check the GitHub repo readme file, chapter “Input parameter file”. Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API, and ssh private keys (they are marked as “sensitive” in the readme file, under “Input parameter file”)
@@ -239,16 +239,16 @@ For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [T
 For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier virtual private cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
 
 SAP One Support Notes that apply to this document:
-*	[SAP Note 84555 Windows Server, Linux&reg;, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
-*	[SAP Note 2927211 SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2923773 Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
-*	[SAP Note 2414097 SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
-*	[SAP Note 2369910 SAP Software on Linux&reg;: General information](https://launchpad.support.sap.com/#/notes/2369910)
-*	[SAP Note 171380 Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
-*	[SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://launchpad.support.sap.com/#/notes/2369910)
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 
 This document is referenced by:
-*	[SAP Note 2927211 SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2588225 SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
-*	[SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)]
-*	[SAP Note 2414097 SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)

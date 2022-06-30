@@ -19,26 +19,26 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating BW/4HANA on 3-tier IBM Cloud VPC with Terraform and Ansible
+# Automating BW/4HANA on 3-tier {{site.data.keyword.cloud}} VPC with Terraform and Ansible
 {: #bw4hana-automation-on-vpc}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and other Intel technologies.
 {: shortdesc}
 
-You can use Terraform scripts to create a single-tier VPC and create the SAP and Db2 infrastructure on the VPC. The Terraform scripts create the VPC and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on your Deployment Server. The Deployment Server needs to have Terraform and Ansible installed.
+You can use Terraform scripts to create a single-tier VPC and create the SAP and HANA in a distributed architecture on the bastion server that you create. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.  
 
 ## SAP Solution implemented 
 {: #bw4hana-automation-solution}
 
 SAP BW/4HANA is a packaged data warehouse based on SAP HANA. As the on-premises data warehouse layer of SAP’s Business Technology Platform, SAP BW/4HANA can be used to consolidate data across the enterprise to get a consistent, agreed-upon view of your data.
 
-SAP BW/4HANA is a new, next-generation data warehouse product from SAP that, like SAP S/4HANA&reg;, is optimized for the SAP HANA platform, including inheriting the high performance, simplicity, and agility of SAP HANA. SAP BW/4HANA delivers real-time, enterprise-wide analytics that minimize the movement of data and can connect all the data in an organization into a single, logical view, including new data types and sources. Organizations now have a data warehousing solution that can meet their current and future business needs. A solution that handles more data, from more sources to deliver the solutions that increase an organization’s success in the next generation of business.
+SAP BW/4HANA is a next-generation data warehouse SAP product that, like SAP S/4HANA&reg;, is optimized for the SAP HANA platform, including inheriting the high performance, simplicity, and agility of SAP HANA. SAP BW/4HANA delivers real-time, enterprise-wide analytics that minimize the movement of data and can connect all the data in an organization into a single, logical view, including new data types and sources. Organizations now have a data warehousing solution that can meet their current and future business needs. A solution that handles more data, from more sources to deliver the solutions that increase an organization’s success in the next generation of business.
 
 SAP BW/4HANA, combined with SAP S/4HANA and the SAP HANA platform, combines traditional data warehousing, such as operational reporting and historical analysis, with the future  - logical data warehouse, Internet of Things, and data lakes.
 
 SAP BW/4HANA combines with SAP S/4HANA to meet your operational and historical analytics needs by using the same data as your applications, so you are always using fresh data.
 
-With a logical data warehouse approach that uses smart data integration, SAP BW/4HANA eliminates duplication and expensive data movement to connect the data silos in your organization. All data sources can be connected, including SAP and non-SAP data sources.
+With a logical data warehouse approach that uses intelligent data integration, SAP BW/4HANA eliminates duplication and expensive data movement to connect the data silos in your organization. All data sources can be connected, including SAP and non-SAP data sources.
 
 ## What is created
 {: #bw4hana-automation-created}
@@ -56,21 +56,29 @@ During the first phase, the VPC is provisioned in an existing VSI created when y
 *	2 X virtual server instance with SAP certified storage and network configurations
 *	2 floating IP’s address that you use to access your VPC virtual server instance over the public network
 
-During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP BW/4HANA release on stand-alone dedicated Hana 2.0 box release. For more information about this architecture, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP BW/4HANA release on stand-alone dedicated HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
+
 
 ## Single-host HANA system
 {: #bw4hana-automation-single-hana-system}
 
 A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components:
 
-![Figure 1. SAP NetWeaver 7.x HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x HANA standard installation with AAS"){: caption="Figure 2. SAP NetWeaver 7.x HANA single-host installation with AAS" caption-side="bottom"}
+![Figure 1. SAP NetWeaver 7.x HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x HANA standard installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x HANA single-host installation with AAS" caption-side="bottom"}
 
-The scripts are designed to create a new VPC and install SAP (BW/4HANA release) solution together with its dedicated DB Hana box in one task flow. If you want to install SAP BW/4HANA on an existing VPC with already installed and configured HANA box VSI, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+The scripts are designed to create a new VPC and install SAP (BW/4HANA release) solution together with its dedicated DB Hana box in one task flow. 
+
+<!--- 
+The mentioned reference link is not available. I did not find an approriate page/section to hyperlink to.
+
+If you want to install SAP BW/4HANA on an existing VPC with already installed and configured HANA box VSI, see [HAutomating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+
+--->
 
 ## SAP Kits
 {: #bw4hana-automation-sap-kits}
 
-For each {{site.data.keyword.cloud_notm}} region IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment (Bastion) Server. All file archives are decompressed by Ansible during the automatic deploying process. For more information, see the readme file.
+For each {{site.data.keyword.cloud_notm}} region, IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment (Bastion) Server. All file archives are decompressed by Ansible during the automatic deploying process. For more information, see the readme file.
 
 ## Support
 {: #bw4hana-automation-support}
@@ -109,7 +117,7 @@ The IBM Cloud Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}}
 When you run the scripts with the Schematics interface, you:
 
 *	Enter the URL for the GitHub repository for the Terraform files
-*	Modify the parameters in the Schematics interface. They are the same parameters as the `input.auto.tfvars` file that you use when running the Terraform scripts in the cli.
+*	Modify the parameters in the Schematics interface. They are the same parameters as the `input.auto.tfvars` file that you use when you are running the Terraform scripts in the cli.
 
 ## Virtual server instance configuration
 {: #bw4hana-automation-vsi-config}
@@ -117,13 +125,13 @@ When you run the scripts with the Schematics interface, you:
 The virtual server instance is configured with:
 
 * Red Hat Enterprise Linux 7.6 for SAP HANA (x86_64)
-* Minimum one or more SSH keys configured to access as root user on SSH  
+* Minimum one or more SSH keys that are configured to access as root user on SSH  
 
 ## Before you begin
 {: #bw4hana-automation-before-begin}
 
-*	Set up your account to access the VPC.  Make sure your account is upgraded to a [paid account](/docs/account?topic=account-upgrading-account).
-*   If you have not already, create a bastion server to store the SAP kits.  For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
+*	Set up your account to access the VPC. Make sure that your account is upgraded to a [paid account](/docs/account?topic=account-upgrading-account).
+*   If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the readme file. 
 *  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
@@ -174,12 +182,12 @@ For the detailed steps about using Terraform to create only a VPC for SAP, see [
     # SAP Database VSI variables:
     DB-HOSTNAME     = "sapbw4db"
     DB-PROFILE      = "mx2-16x128" 
-    DB-IMAGE        = "ibm-redhat-7-6-amd64-sap-hana-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP NOTE: 2927211.
+    DB-IMAGE        = "ibm-redhat-7-6-amd64-sap-hana-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP Note: 2927211.
 
     # SAP APPs VSI variables:
     APP-HOSTNAME    = "sapbw4app"
     APP-PROFILE     = "bx2-4x16"
-    APP-IMAGE       = "ibm-redhat-7-6-amd64-sap-applications-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP NOTE: 2927211.
+    APP-IMAGE       = "ibm-redhat-7-6-amd64-sap-applications-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP Note: 2927211.
 
     ```
 
@@ -226,11 +234,11 @@ For the detailed steps about using Terraform to create only a VPC for SAP, see [
 
     ``terraform plan``
 
-    You must enter a HANA maste password and an SAP master password. 
+    You must enter a HANA main password and an SAP main password. 
 
-    The HANA master password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
+    The HANA main password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can contain only the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
     
-    The SAP master password must be 10 to 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
+    The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
 
 8. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
 
@@ -270,7 +278,7 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
 6.  On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
      * Your API key
      * Your private SSH key from your local machine
-     * The ID for the SSH key that you created and uploaded to IBM Cloud. Enter the SSH key Id in square brackets and quotes, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
+     * The ID for the SSH key that you created and uploaded to IBM Cloud. Enter the SSH key ID in square brackets and quotation marks, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
      * The floating IP address for your bastion server.
      * The Region for your resources
      * The Zone for your resources
@@ -285,11 +293,11 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
      * Profile
      * Image
      * Minimal recommended disk sizes
-     * HANA master password - This must be 8 - 14 characters, upper and lower case letters, a number, and a special character.
-     * SAP master password - This must be 10 - 14 characters, upper and lower case letters, a number, and a special character that is not an exclamation point. 
+     * HANA main password - This password must be 8 - 14 characters, upper and lowercase letters, a number, and a special character.
+     * SAP main password - This password must be 10 - 14 characters, upper and lowercase letters, a number, and a special character that is not an exclamation point. 
      * Click **Save changes**.
 
-     For a more detailed description of each of the parameters, check the github repo README file, chapter “Input parameter file”. Also make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API and ssh private keys (they are marked as “sensitive” in the README file, under “Input parameter file”)
+     For a more detailed description of each of the parameters, check the GitHub repo readme file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". these paramters are marked as “sensitive” in the readme file, under “Input parameter file”.
 
 7.	On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
 8.	Click **View log** to review the log files of your Terraform execution plan.
@@ -307,18 +315,18 @@ For more information about using Terraform for creating only a VPC for SAP, with
 
 SAP One Support Notes that apply to this document:
 
-*	[SAP Note 84555 Windows Server, Linux&reg;, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
-*	[SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2923773 Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
-*	[SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
-*	[SAP Note 2369910 SAP Software on Linux&reg;: General information](https://launchpad.support.sap.com/#/notes/2369910)
-*	[SAP Note 171380 Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
-*	[SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://launchpad.support.sap.com/#/notes/2369910)
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 
 This document is referenced by:
 
-*	[SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2588225 How to protect against speculative execution vulnerabilities on IBM Cloud?](https://launchpad.support.sap.com/#/notes/2588225)
-*	[SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)]
-*	[SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)]
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
 

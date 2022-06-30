@@ -17,10 +17,10 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip} 
 
-# Automating NW7.X and HANA 3-tier distributed architecture on {{site.data.keyword.cloud_notm}} with Terraform and Ansible
+# Automating NetWeaver 7.x and HANA 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC with Terraform and Ansible
 {: #create-terraform-3tier-nw-hana-vpc-ansible}
 
-You can use Terraform scripts to deploy the SAP NW app server and HANA db infrastructure on the VPC created with the SAP BASTION Deployment Server. The Terraform scripts create the virtual infrastructure and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on the SAP Bastion Deployment Server which has Terraform and Ansible installed on it, along with the necessary storage space for SAP Kits. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
+You can use Terraform scripts to deploy the SAP NW app server and HANA db infrastructure on the VPC created with the SAP Bastion Deployment Server. The Terraform scripts create the virtual infrastructure and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on the SAP Bastion Deployment Server which has Terraform and Ansible installed on it, along with the necessary storage space for SAP Kits. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
 {: shortdesc}
 
 ## SAP Solution implemented
@@ -44,7 +44,7 @@ There is one restriction in the SAP HANA as primary persistence for SAP NetWeave
 
 The scripts automate the virtual infrastructure resources, provisioning processes for the  SAP architecture in an Existing VPC with a distributed environment SAP NW 7.x (ABAP or Java) App server on a distinct virtual server instance VPC machine and HANA DB on a dedicated server type virtual server instance VPC box machine. The scripts work in two phases. 
 
-During the first phase ([Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server)), the virtual infrastructure resources based on the components from the existing VPC created by the BASTION Server are:
+During the first phase ([Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server)), the virtual infrastructure resources based on the components from the existing VPC created by the Bastion Server are:
 
 *	1 VPC where the virtual server instance is provisioned
 *	1 security group. The rules for this security group are:
@@ -56,7 +56,8 @@ During the first phase ([Automate SAP bastion server – SAP media storage repos
 *	2 virtual server instances with SAP certified storage and network configurations
 *	2 floating IP address that you use to access your VPC virtual server instance over the public network
 
-During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP NW 7.x release on stand-alone dedicated Hana 2.0 box release. For more information about this architecture, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi)
+During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP NW 7.x release on stand-alone dedicated HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
+
 
 ## Single-host HANA system
 {: terraform-3tier-nw-hana-single}
@@ -65,19 +66,26 @@ A single-host system is the simplest system installation type that runs an SAP H
 
 ![Figure 1. Sample reference architecture](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x with HANA standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}"){: caption="Figure 1. SAP NetWeaver 7.x with HANA standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
-The scripts are designed to create a new VPC and install SAP (SAP NW 7.x release) solution together with its dedicated DB Hana box in one task flow. If you want to install SAP NW 7.x on an existing VPC with an already installed and configured HANA box VSI, see [How to automate SAP HANA stand-alone VSI on IBM VPC Cloud by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+The scripts are designed to create a new VPC and install SAP (SAP NW 7.x release) solution together with its dedicated DB HANA box in one task flow.
+
+<!--- 
+The mentioned reference link is not available. I did not find an approriate page/section to hyperlink to.
+
+If you want to install SAP NW 7.x on an existing VPC with already installed and configured HANA box VSI, see [How to automate SAP HANA stand-alone VSI on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+--->
+
 
 ## SAP Kits
 {: #terraform-3tier-nw-db2-sap-kits}
 
-For each IBM Cloud region, IBM allocates temporary storage on a dedicated temporary Deployment server (Bastion server) that is used for terraform environment. It is your responsibility to download the necessary SAP and DB kits to your Deployment (Bastion) Server. All file archives are decompressed by Ansible during the automatic deploying process. For more information, see the readme file in the dedicated GitHub repository.
+For each {{site.data.keyword.cloud_notm}} region, IBM allocates temporary storage on a dedicated temporary Deployment server (Bastion Server) that is used for terraform environment. It is your responsibility to download the necessary SAP and DB kits to your Deployment (Bastion) Server. All file archives are decompressed by Ansible during the automatic deploying process. For more information, see the readme file in the dedicated GitHub repository.
 
 ## Script files
 {: #terraform-3tier-nw-db2-ansible-files}
 
 The configuration and script files are provided on the [GitHub repository github.com/IBM-Cloud/sap-netweaver-java-hana](https://github.com/IBM-Cloud/sap-netweaver-java-hana). 
 
-For SAP HANA stand-alone virtual server instance on IBM virtual private cloud, you modify the:
+For SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud_notm}} Virtual Private Cloud, you modify the:
 
 *	The `input.auto.tfvars` file to customize the resources for your solution. You specify zones, resource names, SSH keys, and SAP variables.
     
@@ -103,13 +111,13 @@ The virtual server instance is configured with:
 Before you use the scripts:
 
 *  Log in to your previously created Deployment Server and verify that Terraform and Ansible are installed.  
-*  If you have not already, create a bastion server to store the SAP kits.  For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-*  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. You must decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the files. For more information, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
-*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
+*  If you have not already, create a Bastion Server to store the SAP kits.  For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
+*  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. You must decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the files. For more information, see the `README` [file](https://github.com/IBM-Cloud/sap-netweaver-java-hana). 
+*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
 During configuration you can specify an existing VPC to use, instead of creating a new VPC.
-For the detailed steps about using Terraform to create only a VPC for SAP, see [Creating single-tier virtual private cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
+For the detailed steps about using Terraform to create only a VPC for SAP, see [Creating single-tier Virtual Private Cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
 
 
 ## Procedure
@@ -126,7 +134,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     $ cd sap-netweaver-java-hana/cli/terraform
     ```
 
-3.	Define your existing VPC variables. Modify the `input.auto.tfvars` file to specify your zone, VPC component names, profile, and image. The file is preset with the minimal recommended disk sizes. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapthreetierjavahdb).
+3.	Define your existing VPC variables. Modify the `input.auto.tfvars` file to specify your zone, VPC component names, profile, and image. The file is preset with the minimal recommended disk sizes. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-netweaver-java-hana).
 
     Whether you are creating a VPC or using an existing VPC, you must modify:
     *	VPC - Existing VPC name.
@@ -150,18 +158,18 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     # SAP Database VSI variables:
     DB-HOSTNAME     = "sapjavadb"
     DB-PROFILE      = "mx2-16x128" 
-    DB-IMAGE        = "ibm-redhat-7-6-amd64-sap-hana-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP NOTE: 2927211.
+    DB-IMAGE        = "ibm-redhat-7-6-amd64-sap-hana-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP Note: 2927211.
 
     # SAP APPs VSI variables:
     APP-HOSTNAME    = "sapjavci"
     APP-PROFILE     = "bx2-4x16"
-    APP-IMAGE       = "ibm-redhat-7-6-amd64-sap-applications-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP NOTE: 2927211.
+    APP-IMAGE       = "ibm-redhat-7-6-amd64-sap-applications-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP Note: 2927211.
 
     ```
 
     The hostname must have up to 13 characters as required by SAP. For more information about the rules that apply to hostnames for SAP systems, see SAP Note 611361 - Hostnames of SAP ABAP Platform servers
 
-4. Customize your SAP system configuration. Modify the ``input.auto.tfvars`` file to specify SAP system configuration and enter the location of the downloaded SAP Kits. For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-automated-deployment-scripts/tree/master/sapsingletierdb2). 
+4. Customize your SAP system configuration. Modify the ``input.auto.tfvars`` file to specify SAP system configuration and enter the location of the downloaded SAP Kits. For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-netweaver-java-hana). 
   
     ```
     #HANA DB configuration
@@ -202,9 +210,9 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
    ```
    terraform plan --out plan1
    ```
-    You must enter an SAP master password.
+    You must enter an SAP main password.
     
-    The SAP master password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain !. It must not start with a digit or an underscore ( _ ).
+    The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain !. It must not start with a digit or an underscore ( _ ).
 
 7. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan --out plan1` again.
 
@@ -229,16 +237,16 @@ For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [T
 For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier virtual private cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
 
 SAP One Support Notes that apply to this document:
-*	[SAP Note 84555 Windows Server, Linux&reg;, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
-*	[SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2923773 Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
-*	[SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
-*	[SAP Note 2369910 SAP Software on Linux&reg;: General information](https://launchpad.support.sap.com/#/notes/2369910)
-*	[SAP Note 171380 Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
-*	[SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://launchpad.support.sap.com/#/notes/2369910)
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 
 This document is referenced by:
-*	[SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2588225 How to protect against speculative execution vulnerabilities on IBM Cloud?](https://launchpad.support.sap.com/#/notes/2588225)
-*	[SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)]
-*	[SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)]
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
