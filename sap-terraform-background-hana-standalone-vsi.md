@@ -16,25 +16,25 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Background for automating SAP HANA stand-alone VSI 
+# Background for automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC
 {: #sap-hana-vpc-background}
 
-## IBM VPC introduction
+## {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) introduction
 {: #sap-hana-vpc-intro}
 
-{{site.data.keyword.cloud}} Virtual Private Cloud (VPC) offers the possibility to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public) infrastructure. A VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+{{site.data.keyword.cloud}} VPC offers the possibility to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public) infrastructure. A VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 {: shortdesc}
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building with multiple families living inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium. No one else has the key, and no one can enter the space without your permission.
 
 A VPC’s logical isolation is implemented by using virtual network functions and security features that give an enterprise customer granular control over which IP addresses or applications can access particular resources. It is analogous to the “friends-only” or “public/private” controls on social media accounts used to restrict who can or can’t see your otherwise public posts.
 
-With {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC), you can use the UI, CLI, and API to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about more VPC overviews and VPC tutorials. [Getting started with Virtual Private Cloud (VPC)](/docs/vpc/getting-started.html)
+With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about more VPC overviews and VPC tutorials. [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started)
 
 ## SAP HANA in {{site.data.keyword.cloud_notm}}
 {: #sap-hana-in-cloud}
 
-The IBM public cloud is an open, security-rich, and enterprise-ready public cloud for business. This design makes it easier for global enterprises to modernize and build new business applications in the cloud to meet the evolving needs of the business and its customers. {{site.data.keyword.cloud_notm}} offerings include a broader portfolio of SAP-certified infrastructure, ranging from bare metal, VMware, virtual private cloud (VPC), and IBM Power® Systems Virtual Server products.
+The IBM public cloud is an open, security-rich, and enterprise-ready public cloud for business. This design makes it easier for global enterprises to modernize and build new business applications in the cloud to meet the evolving needs of the business and its customers. {{site.data.keyword.cloud_notm}} offerings include a broader portfolio of SAP-certified infrastructure, ranging from bare metal, VMware, VPC, and IBM Power® Systems Virtual Server products.
 
 ## SAP HANA defined 
 {: #sap-hana-defined}
@@ -63,8 +63,8 @@ Manually deploying a VPC and installing an SAP system can be time-consuming. The
 
 The solution that is presented in this how-to guide is the automated deployment of a single host with SAP HANA stand-alone VSI on Red Hat Enterprise Linux 7.6 for SAP Applications.
 
-Database instance (DB) - To assist your project's planning phase, more design considerations are provided at SAP AnyDB – HANA database with {{site.data.keyword.cloud_notm}} for SAP. For more information, see [AnyDB - SAP HANA](/docs/sap?topic=sap-anydb-hana-db) and [Infrastructure certified by SAP](/docs/sap?topic=sap-iaas-offerings).
-A dedicated reference architecture about this AnyDB SAP HANA on IBM VPC cloud can be found on [AnyDB - HANA Database](/docs/sap?topic=sap-anydb-hana-db).
+Database instance (DB) - To assist your project's planning phase, more design considerations are provided at SAP AnyDB – HANA database with {{site.data.keyword.cloud_notm}} for SAP. For more information, see [AnyDB - SAP HANA](/docs/sap?topic=sap-anydb-hana-db) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
+A dedicated reference architecture about this AnyDB SAP HANA on {{site.data.keyword.cloud_notm}} VPC cloud can be found on [AnyDB - HANA Database](/docs/sap?topic=sap-anydb-hana-db).
 
 SAP HANA installation media that are used for this deployment is the default one for SAP HANA, platform edition 2.0 SPS05. The media is available at SAP Support Portal in the INSTALLATION AND UPGRADE area and it must be provided manually in the input parameter file.
 
@@ -80,7 +80,7 @@ Terraform is used to provision of the infrastructure components in {{site.data.k
 *	Allow inbound SSH traffic (TCP port 22)
 
 After the successful deployment of the infrastructure, the Terraform script calls the Ansible Playbook, which automatically installs the SAP application.
-Access creating single-tier virtual private cloud for SAP by using Terraform to get the detailed steps about using Terraform only for the creation of a VPC for SAP.
+Access creating single-tier VPC for SAP by using Terraform to get the detailed steps about using Terraform only for the creation of a VPC for SAP.
 
 ## Ansible for SAP installation
 {: #sap-hana-ansible-for-install}

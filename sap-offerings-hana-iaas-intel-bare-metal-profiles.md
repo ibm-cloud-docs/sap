@@ -19,7 +19,7 @@ subcollection: sap
 {:note: .note}
 {:tip: .tip}
 
-# Intel Bare Metal server certified profiles for SAP HANA
+# Intel Bare Metal server certified profiles on Classic infrastructure for SAP HANA
 {: #hana-iaas-offerings-profiles-intel-bm}
 
 ## Profiles list
@@ -46,7 +46,7 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 | [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1129){: external} | 224 | 448 | 12288 GB | 550,670 | OLAP/OLTP |
 {: caption="Table 1. SAP HANA servers" caption-side="top"}
 
-For more information see [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}}: Supported DB/OS and {{site.data.keyword.cloud_notm}} Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097){: external}.
+For more information see [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external}.
 
 A number of these Profiles are also available as "Boot-only" which have the same configuration but only the boot drives are inserted. This configuration lets you customize the Local SSD Storage and the attachment of either Network Block or File storage options.
 

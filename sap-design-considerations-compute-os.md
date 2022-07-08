@@ -72,11 +72,11 @@ You have two compute options for SAP workloads: Power System E980 and Power Syst
 
 Currently, Power System E980 is supported for SAP HANA.
 
-Currently, SAP Workloads on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} are available in Washington, D.C., Dallas, London, and Frankfurt. The number of supported locations is planned to be extended.
+Currently, SAP Workloads on {{site.data.keyword.IBM_notm}} Power Virtual Servers are available in Washington, D.C., Dallas, London, and Frankfurt. The number of supported locations is planned to be extended.
 
-All SAP NetWeaver Application Server ABAP-based products and SAP NetWeaver Application Server Java-based products are supported on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}. For SAP NetWeaver-based SAP products, see [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}.
+All SAP NetWeaver Application Server ABAP-based products and SAP NetWeaver Application Server Java-based products are supported on {{site.data.keyword.IBM_notm}} Power Virtual Servers. For SAP NetWeaver-based SAP products, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}.
 
-All SAP HANA-based products are supported on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s. For support requirements, see [SAP Note 2923984 - SAP on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984){: external}.
+All SAP HANA-based products are supported on {{site.data.keyword.IBM_notm}} Power Virtual Servers. For support requirements, see [SAP Note 2923984 - SAP on IBM Power Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984){: external}.
 
 For all other software components or third-party products, contact [SAP Support](https://support.sap.com/en/index.html){: external}.
 
@@ -86,7 +86,7 @@ For all other software components or third-party products, contact [SAP Support]
 VMware runs on the same SAP-certified Bare Metals.  Therefore, the VMware vSphere (ESXi) installation on the certified hardware enables the VMware-SAP certification and agreements to be valid. Therefore, all VMware-SAP certification guidance must be followed (as described in SAP Notes for VMware-SAP).
 {: note}
 
-VMware SDDC is available as a customer-controlled root-access hypervisor, which are certified to run SAP workloads.  Providing VMware SDDC does not automatically provide a pre-sized virtual machine for SAP HANA or SAP NetWeaver upon provisioning either the OS Image with VMware vSphere (ESXi) for the Bare Metal or the fully automated setup from {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated. YOu choose how to size and configure your SAP Workloads (for SAP HANA, this is under the SAP HANA TDI delivery model).
+VMware SDDC is available as a customer-controlled root-access hypervisor, which are certified to run SAP workloads.  Providing VMware SDDC does not automatically provide a pre-sized virtual machine for SAP HANA or SAP NetWeaver upon provisioning either the OS Image with VMware vSphere (ESXi) for the Bare Metal or the fully automated setup from {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated. You choose how to size and configure your SAP Workloads (for SAP HANA, this is under the SAP HANA TDI delivery model).
 
 When you run SAP workloads on VMware, you have significant flexibility and the full capabilities which VMware has built to run SAP workloads over decades is available to use.
 
@@ -153,14 +153,20 @@ Therefore for the OS Images it is still required to perform:
 - OS configuration according to SAP guidance
 - OS package updates according to SAP guidance, this includes updates to specified OS kernel versions (e.g. RHEL4SAP 7.6 ships with `3.10.0-957.el7.x86_64` however SAP requires the 1.3 version `3.10.0-957.1.3.el7.x86_64`)
 
+### OS for Virtual Servers on VPC Infrastructure
+{: #os-vs-vpc}
+
+For a list of operating systems and databases available for SAP NetWeaver-based system deployments, see [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external}.
+
+An SAP S-user ID is required to access the SAP Note.
+{: note}
+
 ### OS for IBM Power Virtual Servers
 {: #os-power}
 
-For the Linux&reg; versions to deploy for SAP HANA, see [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}. An SAP S-user ID is required to access the SAP Note. Licensing for Linux is covered by client's "bring your own license" model.
+For the Linux&reg; versions to deploy for SAP HANA, see [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}. An SAP S-user ID is required to access the SAP Note. The OS Image is provided by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, and the licensing for Linux is covered through a "bring your own license" (BYOL) model.
 
-For the version of IBM AIX or Linux on Power to deploy for SAP NetWeaver-based systems, see [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}. An SAP S-user ID is required to access the SAP Note. License fees for AIX are covered by your monthly billing rate.
-
-{{site.data.keyword.cloud_notm}} integrates your SUSE Linux&reg; Enterprise Server (SLES) capabilities into the {{site.data.keyword.cloud_notm}} experience to meet your specific business needs. Licensing for Linux is covered by the "bring your own license (BYOL)" model.
+For the version of IBM AIX or Linux on Power to deploy for SAP NetWeaver-based systems, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}. An SAP S-user ID is required to access the SAP Note. License fees for AIX are covered by your monthly billing rate.
 
 OS Packages update server with IBM Power Power Virtual Servers:
 * For SAP NetWeaver you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers.
@@ -180,13 +186,6 @@ OS Packages update server with IBM Power Power Virtual Servers:
 | AIX 7.2 | 7200-04-01 or later |
 {: caption="Table 2. Operating systems for IBM Power virtual servers on SAP NetWeaver" caption-side="bottom"}
 
-### OS for Virtual Servers on VPC Infrastructure
-{: #os-vs-vpc}
-
-For a list of operating systems and databases available for SAP NetWeaver-based system deployments, see [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external}.
-
-An SAP S-user ID is required to access the SAP Note.
-{: note}
 
 ### OS when you use VMware SDDC
 {: #os-vmware}
@@ -207,12 +206,16 @@ See [SAP Note 2414097)](https://launchpad.support.sap.com/#/notes/2414097){: ext
 
 Refer to [Installing VMware vSphere ESXi via Remote Console and Virtual Media](/docs/vmware?topic=vmware-installing-vsphere-esxi#installing-vsphere-esxi) and other VMware.com documentation to install a Guest OS.
 
-## OS Bring-your-own-License and install image
-{: #os-byol}
 
-When you have your own operating system license, this can be used with {{site.data.keyword.cloud_notm}} and the OS install based on the vendor's instructions:
+## Bring-your-own-OS (custom OS Image and BYOL License)
+{: #os-byos}
 
-- OS BYOL and Custom Image with {{site.data.keyword.baremetal_short}} on Classic Infrastructure using the ["no OS" option during provisioning](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os)
-- OS BYOL and Custom Image with Virtual Servers on VPC Infrastructure using [Importing and managing custom images](/docs/vpc?topic=vpc-managing-images)
-- Linux OS BYOL and Custom Image with {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} on IBM Power Infrastructure using [Importing a boot image for IBM AIX or IBM i](/docs/power-iaas?topic=power-iaas-importing-boot-image#console-import-image) and [Linux within the Power Systems Virtual Server - Capturing and importing a SLES image](/docs/power-iaas?topic=power-iaas-using-linux#preparing-linux-image)
-- OS BYOL and Images for VMware SDDC, use the standard Virtual Machine Guest OS guidance from VMware documentation
+When you have your own operating system image and license, this can be used with {{site.data.keyword.cloud_notm}} and the OS install based on the vendor's instructions:
+
+| Infrastructure | BYOS | SAP workloads support |
+| -- | -- | -- |
+| Intel {{site.data.keyword.baremetal_short}} on Classic Infrastructure | OS BYOL and Custom Image (aka. BYOS) using the ["no OS" option during provisioning](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os) | <ul><li>SAP HANA using TDI deployment</li><li>SAP NetWeaver AS</li></ul> |
+| Intel Virtual Servers (Gen2) on VPC Infrastructure | OS BYOL and Custom Image (aka. BYOS) using [Importing and managing custom images](/docs/vpc?topic=vpc-managing-images) | <ul><li>SAP HANA using TDI deployment</li><li>SAP NetWeaver AS</li></ul> |
+| {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} in the IBM Power Infrastructure environment | Linux OS BYOL and Custom Image (aka. BYOS) using [Linux within the Power Virtual Server - Capturing and importing a SLES image](/docs/power-iaas?topic=power-iaas-using-linux#preparing-linux-image) | Not supported for SAP HANA or SAP NetWeaver workloads, available for non-SAP workloads |
+| {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} in the IBM Power Infrastructure environment | Unix OS BYOL and Custom Image (aka. BYOS) using [Importing a boot image for IBM AIX or IBM i](/docs/power-iaas?topic=power-iaas-importing-boot-image#console-import-image) | <ul><li>SAP NetWeaver AS</li></ul> |
+| VMware SDDC on IBM Cloud |  OS BYOL and Custom Image (aka. BYOS) using standard Virtual Machine Guest OS guidance from VMware documentation | Supported as per SAP-VMware guidance |

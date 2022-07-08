@@ -20,7 +20,7 @@ subcollection: sap
 {:tip: .tip}
 {:deprecated: .deprecated}
 
-# SAP NetWeaver 7.x on UNIX with Db2 on VPC IBM Cloud
+# SAP NetWeaver 7.x on UNIX with Db2 on {{site.data.keyword.cloud}} VPC
 {: #sap-refarch-nw-db2}
 
 Db2 is one of the many databases that can be run with NetWeaver and deployed on the {{site.data.keyword.cloud}}. The most common architecture deployments are standard and distributed. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, Java, and SAP products based on these application server stacks. 
@@ -51,24 +51,24 @@ The three installation types for SAP NetWeaver Application Server are:
 
 This diagram shows the SAP NetWeaver 7.X on Db2 integrated with {{site.data.keyword.cloud_notm}} on the SAP NetWeaver 7.x architecture:
 
-![Figure 1. Sample reference architecture](images/refarch-sap-db2-std-all.svg "SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}"){: caption="Figure 1. SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+![Figure 1. Sample reference architecture](images/refarch-sap-db2-std-all.svg "SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC"){: caption="Figure 1. SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC" caption-side="bottom"}
 
 ## Access from an external network
 {: #sap-refarch-nw-db2-access}
 
-Clients on the customer facing network (CFN) use a floating IP to access virtual server instances within the {{site.data.keyword.cloud_notm}}. Virtual server instances are hosted in availability zones (data centers) within geographic regions. For more information about access, see [Connectivity to your SAP system landscape](https://cloud.ibm.com/docs/sap?topic=sap-determine-access) and [Getting started with transit gateway](https://cloud.ibm.com/docs/transit-gateway?topic=transit-gateway-getting-started).
+Clients on the customer facing network (CFN) use a floating IP to access virtual server instances within the {{site.data.keyword.cloud_notm}}. Virtual server instances are hosted in availability zones (data centers) within geographic regions. For more information about access, see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access) and [Getting started with {{site.data.keyword.cloud_notm}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started).
 
 Within the Public Subnet, the [SAP router](https://support.sap.com/en/tools/connectivity-tools/saprouter.html) and the jump host provide secure connections to the virtual server instances. The SAP router is a software application that provides a remote connection between the customer's network and SAP. The SAP Router and jump host are within a single security group with rules for inbound and outbound traffic between the private subnets in the zone. SAP routers are used with traditional SAP products and analytics solutions and offerings that are acquired from Sybase. For a comprehensive list of which SAP Business Analytics products benefits from SAP router connections, see [SAP Note 1478974](https://launchpad.support.sap.com/#/notes/1478974).
 
 A jump host is used to access, manage, and administer SAP virtual server instances from the same customer ZONE directly from their premises. These SAP virtual server instances can be in a separate security zone but must be on same {{site.data.keyword.cloud_notm}} region. The customer connection to the jump host follows the same rules as the direct connection from customer premises to the virtual server instance SAP instances. The connection uses the CFN IP and security group 1 firewall rules from a designated public subnet. This architecture uses two defined security groups; this arrangement is the simplest method for separating the public and private subnets. You can add more security groups if you require more isolation.
 
-## Virtual server instances on SAP NetWeaver 7.x APAB stack, JAVA stack, and dual stack (ABAP+JAVA) architectural design on IBM VPC Cloud on Unix 
+## Virtual server instances on SAP NetWeaver 7.x APAB stack, JAVA stack, and dual stack (ABAP+JAVA) architectural design on {{site.data.keyword.cloud}} VPC on Unix 
 {: #sap-refarch-nw-db2-vsis}
 
 ### Standard system
 {: #sap-refarch-nw-db2-standard}
 
-In a standard system, all main instances run on a single virtual server instance within a private subnet. For more information, see [about virtual servers for VPC](https://cloud.ibm.com/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-virtual-private-cloud). The virtual server instance has these components: 
+In a standard system, all main instances run on a single virtual server instance within a private subnet. For more information, see [About virtual server instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers). The virtual server instance has these components: 
 
 ![Figure 2. Standard installation](images/refarch-sap-db2-std-only.svg "SAP NetWeaver 7.x with Db2 standard installation with AAS"){: caption="Figure 2. SAP NetWeaver 7.x with Db2 standard installation with AAS" caption-side="bottom"}
 
@@ -112,13 +112,13 @@ Optionally, you can install the ASCS instance with an integrated:
 
 **Db2 for standard system**
 
-* Database instance (DB) - Db2 in this case. For more information, see [AnyDB - IBM Db2](https://cloud.ibm.com/docs/sap?topic=sap-anydb-ibm-db2) and [Infrastructure certified by SAP](https://cloud.ibm.com/docs/sap?topic=sap-iaas-offerings).
+* Database instance (DB) - Db2 in this case. For more information, see [AnyDB - IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
 * Primary application server instance (PAS instance)  - The global directories of the ASCS instance can be used as the global file system. That means that the host with the ASCS instance is the SAP global host. However, you can also separately install the global directories on any host of your SAP system landscape. You can also use the SAP transport host or the host with the global file system (SAP global host) as your primary application server instance host. Optionally, you can install one or more extra application server instances.  
 * Additional Application Server (AAS) - You can install one or more extra application server instances for an existing SAP system. Additional application server instances are optional and can be installed on separate hosts.
 
-  An extra application server instance can run on:  
-  * The host of any instance of the existing SAP system   
-  * On a dedicated host  
+    An extra application server instance can run on:  
+    * The host of any instance of the existing SAP system   
+    * On a dedicated host  
 
 ### Distributed system
 {: #sap-refarch-nw-db2-dist}
@@ -134,17 +134,17 @@ The components in a distributed system are the same as the components in a stand
 
 SAP One Support Notes that apply to this document:
 
-* [SAP Note 84555 Windows Server, Linux, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
-* [SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-* [SAP Note 2923773 Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
-* [SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
-* [SAP Note 2369910 SAP Software on Linux: General information](https://launchpad.support.sap.com/#/notes/2369910)
-* [SAP Note 171380 Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
-* [SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+* [SAP Note 84555 - Windows Server, Linux, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
+* [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+* [SAP Note 2923773 - Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
+* [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
+* [SAP Note 2369910 - SAP Software on Linux: General information](https://launchpad.support.sap.com/#/notes/2369910)
+* [SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
+* [SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 
 This document is referenced by:
 
-* [SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-* [SAP Note 2588225 How to protect against speculative execution vulnerabilities on IBM Cloud?](https://launchpad.support.sap.com/#/notes/2588225)
-* [SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
-* [SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
+* [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+* [SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
+* [SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+* [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)

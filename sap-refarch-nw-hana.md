@@ -21,10 +21,10 @@ subcollection: sap
 {:deprecated: .deprecated}
 
 
-# SAP NetWeaver 7.x with HANA VPC IBM Cloud
+# SAP NetWeaver 7.x with HANA {{site.data.keyword.cloud}} VPC
 {: #sap-refarch-nw-hana}
 
-HANA is one of several databases that can be deployed on SAP NetWeaver in the {{site.data.keyword.cloud}}.  SAP HANA is an in-memory database installed on a dedicated database server. The main architecture deployments for HANA are single-host or multiple-host systems. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, Java, and SAP products based on these application server stacks. 
+HANA is one of several databases that can be deployed on SAP NetWeaver in the {{site.data.keyword.cloud}}. SAP HANA is an in-memory database installed on a dedicated database server. The main architecture deployments for HANA are single-host or multiple-host systems. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, Java, and SAP products based on these application server stacks. 
 
 ## SAP NetWeaver architecture
 {: #sap-netweaver-arch-syb}
@@ -122,23 +122,23 @@ Optionally, you can install the ASCS instance with an integrated:
 **HANA for standard system**
 
 * Primary application server instance (PAS) - The global directories of the ASCS instance can be used as the global file system. That means that the host with the ASCS instance is the SAP global host. However, you can also separately install the global directories on any host of your SAP system landscape.  You can also use the SAP transport host or the host with the global file system (SAP global host) as your primary application server instance host.  Optionally, you can install one or more additional application server instances.     
-* Database instance (DB) - To assist your project's planning phase, more design considerations are provided at SAP AnyDB – HANA database with {{site.data.keyword.cloud_notm}} for SAP. For more information, see [AnyDB - SAP HANA](/docs/sap?topic=sap-anydb-hana-db) and [Infrastructure certified by SAP](/docs/sap?topic=sap-iaas-offerings).
+* Database instance (DB) - To assist your project's planning phase, more design considerations are provided at SAP AnyDB – HANA database with {{site.data.keyword.cloud_notm}} for SAP. For more information, see [AnyDB - SAP HANA](/docs/sap?topic=sap-anydb-hana-db) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
 * Additional Application Server (AAS) - You can install one or more additional application server instances for an existing SAP system. Additional application server instances are optional and can be installed on separate hosts.
 * SAP Dialog Instance (DI) / Additional Application Instance (AAS) - Dialog Instance (DI) is an additional application instance on top of the Central Instance (CI). Normally the DI is set up on a different host.
 
-  Dialog instance consists of Gateway (GW), Internet Communication Manager (ICM), and Dispatcher Process (Disp) only. The DI has no Message Server and Enqueue Work Process.
+    Dialog instance consists of Gateway (GW), Internet Communication Manager (ICM), and Dispatcher Process (Disp) only. The DI has no Message Server and Enqueue Work Process.
 
-  DI always starts after the CI starts because the DI depends on CI as the main instance where message server and enqueue server exist. DI is used to balance the load and handle more workload rather than use only the Central Instance. The new name for DI is Additional Application Server (AAS).
+    DI always starts after the CI starts because the DI depends on CI as the main instance where message server and enqueue server exist. DI is used to balance the load and handle more workload rather than use only the Central Instance. The new name for DI is Additional Application Server (AAS).
   
-  Structure:
+    Structure:
 
-  DI/AAS = GW + ICM + Disp
+    DI/AAS = GW + ICM + Disp
 
-  For more information about configuring and adding a AAS instance in heterogeneous SAP environment, see [SAP Note - 680617  INST: Appl. Server in Heterogeneous SAP System Environment](https://launchpad.support.sap.com/#/notes/680617).
+    For more information about configuring and adding a AAS instance in heterogeneous SAP environment, see [SAP Note - 680617  INST: Appl. Server in Heterogeneous SAP System Environment](https://launchpad.support.sap.com/#/notes/680617).
   
-  The benefit of an AAS and DI is to balance the load from the PAS instance by distributing a significant percent of the workload, to an additional DI and AAS server. With help of SAP load balancer mechanism, the AAS and DI provide good performance. Having an AAS and additional DI increases the processing power as well, using the resources of its new server capacity for all system business workload.
+    The benefit of an AAS and DI is to balance the load from the PAS instance by distributing a significant percent of the workload, to an additional DI and AAS server. With help of SAP load balancer mechanism, the AAS and DI provide good performance. Having an AAS and additional DI increases the processing power as well, using the resources of its new server capacity for all system business workload.
   
-  For more information, see [SAP Note 26317 - Set up for LOGON group for autom load balancing](https://launchpad.support.sap.com/#/notes/26317). 
+    For more information, see [SAP Note 26317 - Set up for LOGON group for autom load balancing](https://launchpad.support.sap.com/#/notes/26317). 
 
 ## Multiple-host HANA system
 {: #sap-refarch-nw-hana-dist}
@@ -160,17 +160,17 @@ When configuring a multiple-host system, the individual hosts must be defined as
 
 SAP One Support Notes that apply to this document:
 
-* [SAP Note 84555 Windows Server, Linux, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
-* [SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-* [SAP Note 2923773 Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
-* [SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
-* [SAP Note 2369910 SAP Software on Linux: General information](https://launchpad.support.sap.com/#/notes/2369910)
-* [SAP Note 171380 Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
-* [SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+* [SAP Note 84555 - Windows Server, Linux, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
+* [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+* [SAP Note 2923773 - Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
+* [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
+* [SAP Note 2369910 - SAP Software on Linux: General information](https://launchpad.support.sap.com/#/notes/2369910)
+* [SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
+* [SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 
 This document is referenced by:
 
-* [SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-* [SAP Note 2588225 How to protect against speculative execution vulnerabilities on IBM Cloud?](https://launchpad.support.sap.com/#/notes/2588225)
-* [SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
-* [SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
+* [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+* [SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
+* [SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+* [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)

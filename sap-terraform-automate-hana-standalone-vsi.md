@@ -16,7 +16,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Automating SAP HANA stand-alone virtual server instance on IBM Cloud by using Terraform
+# Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible
 {: #automate-terraform-sap-hana-vsi}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
@@ -39,14 +39,14 @@ To automate this process, the current solution uses a Terraform script to deploy
 
 During configuration you can specify an existing VPC to use, instead of creating a new VPC.
 
-For the detailed steps about using Terraform to create only a VPC for SAP, see [Creating single-tier virtual private cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
+For the detailed steps about using Terraform to create only a VPC for SAP, see [Creating single-tier Virtual Private Cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
 
 ## Script files
 {: #terraform-sap-hana-vsi-files}
 
 The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-hana-single-vsi](https://github.com/IBM-Cloud/sap-hana-single-vsi). 
 
-For SAP HANA stand-alone virtual server instance on {{site.data.keyword.IBM}} virtual private cloud, you modify the:
+For SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud_notm}} VPC, you modify the:
 
 *  ``terraform.tfvars`` file to add your {{site.data.keyword.cloud_notm}} API-key
 
@@ -54,7 +54,7 @@ For SAP HANA stand-alone virtual server instance on {{site.data.keyword.IBM}} vi
 
 All of the other configuration files are provided and do not need to be modified. 
 
-The IBM Cloud Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account. 
+The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account. 
 
 ## Support
 {: #terraform-sap-hana-vsi-support}
@@ -76,7 +76,7 @@ The virtual server instance is configured with:
 
 *	Log in to your Deployment Server and verify that Terraform and Ansible are installed. 
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the README file. 
-*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
+*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
@@ -90,7 +90,7 @@ The virtual server instance is configured with:
     	
 	$ cd sap-hana-single-vsi/cli/terraform
     ```
-3.  Edit the ``terraform.tfvars`` variable file and enter the IBM Cloud API key that you retrieved. 
+3.  Edit the ``terraform.tfvars`` variable file and enter the {{site.data.keyword.cloud_notm}} API key that you retrieved. 
 
     ``ibmcloud_api_key = "<ibmcloud_apikey>"``
 
@@ -140,7 +140,7 @@ The virtual server instance is configured with:
     kit_saphana_file = "/storage/HANADB/51054623.ZIP"
     ```
 
-    For each IBM VPC cloud region, IBM allocates temporary storage on a dedicated Jump host (Deployment server). The Jump host is used for any IBM client to be able to download and decompress the necessary SAP and DB kits for their solutions in scope. Then, the kits variables (paths) need to be updated into the dedicated Terraform variables in order for the ansible playbook to identify them correctly during SAP and Db2 automation. 
+    For each {{site.data.keyword.cloud_notm}} VPC region, IBM allocates temporary storage on a dedicated Jump host (Deployment server). The Jump host is used for any IBM client to be able to download and decompress the necessary SAP and DB kits for their solutions in scope. Then, the kits variables (paths) need to be updated into the dedicated Terraform variables in order for the Ansible playbook to identify them correctly during SAP and Db2 automation. 
 
 6.	Edit the `sapsingletierdb2/terraform/main.tf` file and specify the VPC to use. You can have the scripts create a new VPC or you can use an existing VPC. By default the scripts use an existing VPC. If you are using an existing VPC, be sure that the VPC name is in the `input.auto.tfvars` file.
 
@@ -168,9 +168,9 @@ The virtual server instance is configured with:
 
     ``terraform plan``
 
-    You must enter a HANA master password.
+    You must enter a HANA main password.
 
-    The HANA master password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ).
+    The HANA main password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ).
 
 9. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
 
@@ -191,17 +191,17 @@ If you need to remove your VPC, go to your project folder and run ``terraform de
 
 SAP One Support Notes that apply to this document:
 
-*	[SAP Note 84555 Windows Server, Linux&reg;, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
-*	[SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2923773 Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
-*	[SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
-*	[SAP Note 2369910 SAP Software on Linux&reg;: General information](https://launchpad.support.sap.com/#/notes/2369910)
-*	[SAP Note 171380 Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
-*	[SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://launchpad.support.sap.com/#/notes/2369910)
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 
 This document is referenced by:
 
-*	[SAP Note 2927211 SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2588225 How to protect against speculative execution vulnerabilities on IBM Cloud?](https://launchpad.support.sap.com/#/notes/2588225)
-*	[SAP Note 1380654 SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)]
-*	[SAP Note 2414097 SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
