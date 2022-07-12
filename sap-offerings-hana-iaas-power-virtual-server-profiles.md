@@ -22,7 +22,7 @@ subcollection: sap
 # IBM Power Virtual Server certified profiles for SAP HANA
 {: #hana-iaas-offerings-profiles-power-vs}
 
-When you provision {{site.data.keyword.IBM_notm}} Power Systems, you can select from the following families of profiles: [Small](#small), [Balanced](#balanced), [Compute Intensive](#computeintensive), [Ultra Memory](#umemory), and [High Memory](#hmemory).
+When you provision {{site.data.keyword.IBM_notm}} Power Virtual Servers, you can select from the following families of profiles: [Small](#small), [Balanced](#balanced), [Compute Intensive](#computeintensive), [Ultra Memory](#umemory), and [High Memory](#hmemory).
 {: shortdesc}
 
 Certified profiles for SAP HANA are a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
@@ -36,11 +36,11 @@ A profile is a combination of instance attributes, such as the number of vCPUs, 
 The published names are subject to change.
 {: note}
 
-The following section provides an overview of the SAP-certified profiles with {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers and available profile families.
+The following section provides an overview of the SAP-certified profiles with {{site.data.keyword.IBM_notm}} Power Virtual Servers and available profile families.
 
 | Families | Description |
 | -------- | ----------- |
-| [Custom](#custom) | Custom profiles are for nonproduct development for testing or development use only. These profiles are not intended for production deployments and are not supported or certified by SAP production. |
+| [Custom](#custom) | Custom profiles are for nonproduct development for testing or development use only. These profiles are not intended for production deployments and are not supported or certified for SAP production. |
 | [Small](#small) | Small profiles are best for balanced workloads that require less CPU and storage consumption. |
 | [Balanced](#balanced) | Balanced profiles are best for midsize databases and common cloud applications with moderate traffic. |
 | [Compute Intensive](#computeintensive)  | Compute Intensive profiles are best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
@@ -50,9 +50,9 @@ The following section provides an overview of the SAP-certified profiles with {{
 ## Custom
 {: #custom}
 
-{{site.data.keyword.IBM_notm}} Power Systems are available with fully adjustable CPU Cores and Memory (RAM GiB). When you create a virtual server instance, you can define a custom size of the {{site.data.keyword.IBM_notm}} Power Systems virtual servers profile to use for nonproduction SAP HANA instances, in accordance with existing SAP HANA for {{site.data.keyword.IBM_notm}} Power Systems Power Systems best practices and guidance from SAP. 
+{{site.data.keyword.IBM_notm}} Power Virtual Servers are available with fully adjustable CPU Cores and Memory (RAM GiB). When you create a virtual server instance, you can define a custom size of the {{site.data.keyword.IBM_notm}} Power Virtual Server profile to use for nonproduction SAP HANA instances, in accordance with existing SAP HANA for {{site.data.keyword.IBM_notm}} Power Systems best practices and guidance from SAP. 
 
-Custom profiles are for nonproduct development for testing or development use only. These profiles aren't intended for production deployments and aren't supported or certified by SAP production. You cannot use this profile to go from a nonproduction environment to a production environment.
+Custom profiles are for nonproduct development for testing or development use only. These profiles aren't intended for production deployments and aren't supported or certified for SAP production. You cannot use this profile to go from a nonproduction environment to a production environment.
 
 Each profile must have at least two dedicated cores. You can choose between Tier 1 (NVMe-based flash storage) and Tier 3 (SSD flash storage) storage. The Tier 1 storage type is best for customers who require higher throughput. Customers who don't require exceptionally high throughput and are looking to minimize costs want to select Tier 3. For more information, see the [What is a Power Systems Virtual Server?](/power-iaas?topic=power-iaas-about-virtual-server#storage-tiers) storage tiers section.
 
@@ -66,7 +66,7 @@ Each profile must have at least two dedicated cores. You can choose between Tier
 | ush1-4x384 | 4 | 32 | 384 | 1,240 | 24,000 | OLAP/OLTP |
 | ush1-4x512 | 4 | 32 | 512 | 1,650 | 24,000 | OLAP/OLTP |
 | ush1-4x768 | 4 | 32 | 768 | 2,140 | 24,000 | OLAP/OLTP |
-{: caption="Table 5. SAP HANA servers Small profile family" caption-side="top"}
+{: caption="Table 1. SAP HANA servers Small profile family" caption-side="top"}
 
 ## Balanced
 {: #balanced}
@@ -87,7 +87,7 @@ Each profile must have at least two dedicated cores. You can choose between Tier
 | bh1-100x10000 | 100 | 800 | 10,000 | 11,970 | 600,000 | OLAP * |
 | bh1-120x12000 | 120 | 900 | 12,000 | 13,570 | 720,000 | OLAP * |
 | bh1-140x14000 | 140 | 1,120 | 14,000 | 15,970 | 840,000 | OLAP |
-{: caption="Table 1. SAP HANA servers Balance profile family" caption-side="top"}
+{: caption="Table 2. SAP HANA servers Balanced profile family" caption-side="top"}
 
 
 ## Compute Intensive
@@ -101,7 +101,7 @@ Each profile must have at least two dedicated cores. You can choose between Tier
 | ch1-100x5000 | 100 | 800 | 5,000 | 6,610 | 600,000 | OLAP * |
 | ch1-120x6000 | 120 | 900 | 6,000 | 7,570 | 720,000 | OLAP * |
 | ch1-140x7000 | 140 | 1,120 | 7,000 | 8,610 | 840,000 | OLAP |
-{: caption="Table 2. SAP HANA servers Compute Intensive profile family" caption-side="top"}
+{: caption="Table 3. SAP HANA servers Compute Intensive profile family" caption-side="top"}
 
 ## High Memory
 {: #hmemory}
@@ -125,7 +125,7 @@ Each profile must have at least two dedicated cores. You can choose between Tier
 <!--| mh1-90x16200 | 90 | 720| 16,200 | 19,170 | 540,000| OLAP |-->
 <!--| mh1-100x18000 | 100 | 800 | 18,000 | 20,770 | 600,000 | OLAP |-->
 <!--| mh1-125x22500 | 125 | 1,000  | 22,500  | 25,570 | 750,000 | OLAP |-->
-{: caption="Table 3. SAP HANA servers High Memory profile family" caption-side="top"}
+{: caption="Table 4. SAP HANA servers High Memory profile family" caption-side="top"}
 
 ## Ultra Memory
 {: #umemory}
@@ -146,9 +146,9 @@ Each profile must have at least two dedicated cores. You can choose between Tier
 | umh-40x9600 | 40 | 320 | 9,600 | 11,170 | 240,000 | OLTP * |
 | umh-50x12000 | 50 | 400 | 12,000 | 13,570 | 300,000 | OLTP * |
 | umh-60x14400 | 60 | 480 | 14,400 | 15,970 | 360,000 | OLTP |
-{: caption="Table 4. SAP HANA servers Ultra Memory profile family" caption-side="top"}
+{: caption="Table 5. SAP HANA servers Ultra Memory profile family" caption-side="top"}
 
-Profile types that are marked with an `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median, and largest within each profile family. This action was taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. For more information, see [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}.
+Profile types that are marked with an `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median, and largest within each profile family. This action was taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. For more information, see [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}.
 {: note}
 
 ## Understanding IBM Power Virtual Server profile names
@@ -156,7 +156,7 @@ Profile types that are marked with an `*` asterisk, are _not_ listed on the SAP 
 
 The IBM Power Virtual Server for SAP HANA have profile names that are contextual and sequential. SAP HANA has multiple families of profiles, each associated with the required Service Level Agreements (SLAs):
 
-* `cnp1` = Nonproduct development for testing or development use only. Not intended for production deployments; not supported or certified by SAP production.
+* `cnp1` = Nonproduct development for testing or development use only. Not intended for production deployments; not supported or certified for SAP production.
 * `ush1` = Small for OLAP/OLTP workloads that don't require as much CPU and storage consumption
 * `umh` = Ultra Memory HANA for OLTP that use 1:240 as the cpu:memory ratio
 * `mh1` = High Memory for OLAP that use 1:180 as the cpu:memory ratio
@@ -172,7 +172,7 @@ The Virtual Server profile names are contextual and sequential. The following ta
 | | 16 | 16 CPU Cores |
 | | x | _spacer_ |
 | | 3840 | 3840 GiB RAM |
-{: caption="Table 2. Profile naming scheme for SAP HANA" caption-side="top"}
+{: caption="Table 6. Profile naming scheme for SAP HANA" caption-side="top"}
 
 
 | Directory | Purpose | 
@@ -184,9 +184,9 @@ The Virtual Server profile names are contextual and sequential. The following ta
 | /hana/shared | Matches the GiB RAM value up to a maximum of 1 TB |
 | /export | Local storage for exported images |
 | /backup | A preliminary backup on disk |
-{: caption="Table 3. Directory information for profiles" caption-side="top"}
+{: caption="Table 7. Directory information for profiles" caption-side="top"}
 
 ## Profiles available on Hourly Consumption Billing
 {: #hana-iaas-power-vs-hourly}
 
-All {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} are available with Hourly pro-rata on Monthly Billing.
+All {{site.data.keyword.IBM_notm}} Power Virtual Server are available with Hourly pro-rata on Monthly Billing.

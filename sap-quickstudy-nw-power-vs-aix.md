@@ -2,11 +2,14 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-17"
+lastupdated: "2020-09-21"
 
-keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads,  network connectivity, routes, AIX, Linux, NTP, time server,
+keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial, network connectivity, jump server, routes, AIX, Linux, NTP, time server, SSH tunnelling
 
 subcollection: sap
+
+content-type: tutorial
+completion-time: 90m
 
 ---
 
@@ -19,19 +22,117 @@ subcollection: sap
 {:note: .note}
 {:tip: .tip}
 {:important: .important}
+{:step: data-tutorial-type='step'}
 
-# Preparing AIX OS on IBM Power VS for SAP NetWeaver
-{: #power-vs-aix-nw}
+# SAP NetWeaver deployment to IBM Power Virtual Server using AIX
+{: #quickstudy-nw-power-vs-aix}
+{: toc-content-type="tutorial"}
+{: toc-completion-time="90m"}
+
+**_INCOMPLETE: This page only appears in Test/Staging, it is not complete or ready to be published_**
+{: important}
+
+*A Quick Study, someone who is able to learn new things quickly.*
+{: note}
+
+These Quick Study Tutorials provide a single sample configuration, with less detailed instructions, as an introduction for customers who prefer hands-on tasks to increase their pace of learning.
+{: shortdesc}
 
 The following information provides an introduction for customers who are new to IBM Power Infrastructure environment.
 
-## SSH tunneling
-{: #power-vs-aix-nw-ssh_tunneling}
+
+## Getting started with the jump server
+{: #jump_server-aix}
+
+If you are using {{site.data.keyword.dl_full}}, you access your {{site.data.keyword.powerSys_notm}} instances from Linux&reg; or Windows servers that are located in {{site.data.keyword.cloud}} or on-premises networks. These systems are known as access system jump servers.
+
+You can also use these jump servers as a software installation repository. The jump server has private and public IP addresses for accessing [SAP Software Center](https://launchpad.support.sap.com/#/softwarecenter){: external} or third-party vendor websites to download fixes or updates that can be stored on the jump server.
+
+If you are using the Windows platform, you can install useful tools like WinSCP to transfer the software from the jump server to your AIX or Linux {{site.data.keyword.powerSys_notm}}. The following table lists tools for jump servers on Windows:
+
+| Tool          | Purpose                               | Link                           |
+|---------------|---------------------------------------|--------------------------------|
+| WinSCP        | Upload and download third-party files | [WinSCP Download and Install](https://winscp.net/eng/docs/guide_install){: external}    |
+| PuTTY         | SSH client                            | [Download PuTTY: latest release](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html){: external} |
+| VNC Viewer    | Virtual session connections           | [Download VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/windows/){: external}           |
+| WinRAR        | File decompression and compression    | [WinRAR Demo Edition](https://www.rarlab.com/download.htm){: external}            |
+| Java 8        | Prerequisite for SAP GUI for Windows  | [Java SE Runtime Environment 8 Downloads](https://www.oracle.com/java/technologies/javase-jre8-downloads.html){: external}                |
+| SAP GUI       | SAP GUI for Windows                   | [SAP GUI 7.6 Core Download](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=N&FUNCTIONBAR=Y&EVENT=TREE&TMPL=INTRO_SWDC_IU_FC&V=INST&REFERER=CATALOG-INSTALLATIONS&ROUTENAME=products/By%20Category%20-%20SAP%20Frontend%20Components){: external}      |
+| Google Chrome | Internet browser                      | [Download Chrome](https://www.google.com/chrome/?brand=CHBD&gclid=EAIaIQobChMImqvg5Zb36gIVKoBQBh0QTwsyEAAYASABEgIR_vD_BwE&gclsrc=aw.ds){: external}         |
+{: caption="Table 1. Tools for jump servers on Windows" caption-side="top"}
+
+If you are using Windows as a jump server, you can use Windows PowerShell which includes a built-in SSH server.
+
+For jump servers on Linux, the list of tools is nearly identical. For file uploads and downloads, you can use FileZilla, native SFTP, or SCP functionality.
+
+Download SAP's SAPCAR utility, so when you download SAP Installation Media that is often bundled into `.SAR` files, you can extract the files immediately on the target AIX or Linux {{site.data.keyword.powerSys_notm}}:
+
+1. Go to the [SAP Software Center](https://launchpad.support.sap.com/#/softwarecenter){: external}.
+2. In **Downloads**, search for SAPCAR.
+3. Select **SAPCAR 7.21**.
+4. For the operating system, select **AIX 64BIT** or **LINUX ON POWER LE 64BIT**.
+5. Click the latest entry in the list and download to your jump server.
+6. Transfer SAPCAR to your AIX or Linux {{site.data.keyword.powerSys_notm}}.
+
+### Adding routes on your instance for the jump server
+{: #adding_routes-aix}
+
+After you configure {{site.data.keyword.dl_full}} and your jump server is provisioned with a private and public IP address, update the network route on your virtual server instance so it can connect to your jump server. The following example shows how to connect a jump server on Windows to the AIX virtual server instance.
+
+#### AIX instance
+{: #aix_instance-aix}
+
+1. Go to the [Resource list](https://cloud.ibm.com/resources){: external} to find your jump server.
+2. In the devices list, click your jump server to display the Devices Overview.
+3. In the Network Details, note the private interface information. Click the information icon ("**i**") next to the private IP address to display the Gateway and Subnet Mask information. This information is required when you add the route to your AIX virtual server instance.
+4. Log on to your AIX virtual server instance and add the route.
+
+    For example, given the following information:
+
+    **Private IP address:** 10.123.111.78
+
+    **Subnet:** 255.255.255.192
+
+    **Default Gateway:** 10.123.111.1
+
+    You can run the following command:
+
+    `route add -net 10.123.111.0 255.255.255.192 10.123.111.1`
+
+    Note that the route is added temporarily; it disappears when you reboot.
+
+    To add the route permanently across reboots, run the following command:
+
+    ```
+    chdev -l inet0  -a route=net,-hopcount,0,-netmask,255.255.255.192,-if,en0,,,,-static,10.123.111.0,10.123.111.1
+    ```
+
+1. Run `netstat -rn` and check that the entry appears in the list. Ping the jump server network, log on to the jump server, and use Windows Powershell to connect to the AIX instance from the jump server.
+
+#### Linux
+{: #linux_instance-aix}
+
+To update the persistent route in Linux, add details to the `/etc/sysconfig/network/ifroute-XX` file, where `XX` is the network adapter. In the file, add details in the following format:
+
+```
+[Destination Address]  [Default Gateway]  [Subnet Mask]  [Network Adapter]
+```
+
+For example:
+
+```
+cat  /etc/sysconfig/network/ifroute-eth0
+
+10.123.456.0  10.123.456.1 255.255.255.192 eth0
+```
+
+### SSH tunneling
+{: #ssh_tunneling-aix}
 
 This section describes SSH tunneling for specific SAP methods such as SAP GUI and Software Provisioning Manager (formerly known as SAPINST).
 
-### SSH connection
-{: #power-vs-aix-nw-ssh_connection}
+#### SSH connection
+{: #ssh_connection-aix}
 
 For a stable SSH connection, use the `ServerAliveInterval` and `ServerAliveCountMax` SSH options when you connect to {{site.data.keyword.powerSys_notm}} by using a public network interface.
 
@@ -39,8 +140,8 @@ For a stable SSH connection, use the `ServerAliveInterval` and `ServerAliveCount
 ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=600 <user>@<Public IP Address>
 ```
 
-### SSH tunneling for SAP GUI
-{: #power-vs-aix-nw-sap_gui}
+#### SSH tunneling for SAP GUI
+{: #sap_gui-aix}
 
 Establish an SSH tunnel from your client machine to the cloud server. For example, if your client machine is running on a Windows operating system, run the following command:
 
@@ -50,8 +151,8 @@ ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -4 -L 3200:localhost:32
 
 In this command, 3200 is the port number that is used to connect to an application server with instance number 00. You might have to change it to connect to a different application server, for example, 3202 for instance number 02.
 
-### SSH tunneling for SAP Software Provisioning Manager
-{: #power-vs-aix-nw-swpm}
+#### SSH tunneling for SAP Software Provisioning Manager
+{: #swpm-aix}
 
 Establish an SSH tunnel from your client machine to the cloud server. For example, if your client machine is running on a Windows operating system, run the following command:
 
@@ -61,8 +162,8 @@ ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -4 -L 4237:localhost:42
 
 4237 is the default port that is used by Software Provisioning Manager. You might have to change it if the Software Provisioning Manager execution suggests a different port.
 
-#### Generic Command
-{: #power-vs-aix-nw-swpm-ssh}
+##### Generic Command
+{: #swpm-ssh}
 
 ```
 ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -4 -L $localport:localhost:$remoteport -N -f -l root $host -p 22
@@ -70,14 +171,15 @@ ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -4 -L $localport:localh
 
 For more information about SSH port forwarding and SAP ports, see [SSH Port Forwarding with PuTTY](https://documentation.help/PuTTY/using-port-forwarding.html){: external}.
 
-### SSH configuration issues such as missing host keys
-{: #power-vs-aix-nw-ssh-config-issues}
+#### SSH configuration issues such as missing host keys
+{: #ssh-config-issues_hana-aix}
 
 For SSH tunnelling, missing SSH host keys must be generated. For more information, see [Setting up an SSH client](https://www.ibm.com/support/knowledgecenter/STSLR9_8.3.1/com.ibm.fs9200_831.doc/svc_ssh_215ubh_copy.html){: external}.
 
 
+
 ## Configuring the NTP client
-{: #power-vs-aix-nw-ntp_time_server_netweaver}
+{: #ntp_time_server_netweaver}
 
 A newly provisioned {{site.data.keyword.powerSys_notm}} might not show the correct time when you run the `date` command. The initial time setting on the server often differs by 10 - 15 minutes from the correct time. This time difference can cause problems when you install and run your SAP system on the server, or when you connect the SAP system to your on-premises landscape.
 
@@ -99,7 +201,7 @@ root@ibmdemnw01:/home/root> ps -ef | grep -i xntpd
 ```
 
 ## Using the NIM service handler
-{: #power-vs-aix-nw-nim_service_handler}
+{: #nim_service_handler}
 
 If you plan to run a NIM Service Handler (NIMSH) on your AIX virtual server to connect to a NIM server, make sure that you avoid the following port conflict.
 
@@ -126,7 +228,7 @@ You can check the status of the NIM components on the AIX server as follows:
 ```
 
 ## Adding storage for the rootvg during AIX server provisioning
-{: #power-vs-aix-nw-adding_storage}
+{: #adding_storage}
 
 Configure additional space in the `rootvg` for third-party vendor prerequisite checks. After provisioning the AIX server, the `rootvg` has approximately 8 GB of free space. To prevent issues with prerequisite checks when you install database software, add another disk with a partition size of 30 GB.
 
@@ -144,7 +246,7 @@ Configure additional space in the `rootvg` for third-party vendor prerequisite c
     ```
 
 ## Extending `/tmp`
-{: #power-vs-aix-nw-extending_tmp}
+{: #extending_tmp}
 
 SAP installations as well as Db2 and Oracle Database software installations use PREINSTALLER checks to make sure that your system is database-ready. One of the checks is the amount of free space in `/tmp`. For example, at least 5 GB of available space is expected for Oracle installations. For Db2, the free space check expects 512 MB.
 
@@ -167,7 +269,7 @@ You can run the same command with `+5G /tmp` to append the size of the file syst
 You can enter a higher value to extend the file system further, for example, if you need more capacity, or if there are issues with free space in either “`/`” or `/tmp` during the PREINSTALLER check.
 
 ## Extending or adding paging space
-{: #power-vs-aix-nw-extending_paging_space}
+{: #extending_paging_space}
 
 Prechecks can include a paging space check, which analyzes your system and determines whether your server has sufficient paging space for the database or application installation.
 
@@ -197,7 +299,7 @@ This example shows that a paging space was defined in the volume group `fr02swre
 If your new AIX server instance doesn't have sufficient paging space when you begin the implementation phase of your database or application, it can lead to multiple errors, for example, PGSPACE_KILL where the VMM starts to prune system processes. Be sure to follow third-party software recommendations for their products.
 
 ## AIX Toolbox for Linux Applications
-{: #power-vs-aix-nw-aix_toolbox}
+{: #aix_toolbox}
 
 When you download SAP packages from the [SAP Marketplace](https://support.sap.com/en/my-support/software-downloads.html){: external}, sometimes the files are packed into multispanning archives. Tools are required to decompress the files and rebuild the packages.
 
@@ -207,13 +309,13 @@ The required tools, unrar and unzip, can be downloaded from the [AIX Toolbox For
 
 Additional installation files can be found on the `/usr/sys/inst.images` mountpoint.
 
-The `vnc` package is another useful tool in the AIX Toolbox for Linux Applications. After you install the `vnc` package into your AIX server, you will be able to start a VNC server on your AIX server. Then you can use a VNC viewer such as TightVNC on the jump server or another desktop to connect to your AIX server to start an SAP installation by using Software Provisioning Manager (formerly known as SAPINST) with the web front end. For more information, see [Software Provisioning Manager](https://support.sap.com/en/tools/software-logistics-tools/software-provisioning-manager.html){: external} and [Installing by using a jump server](#power-vs-aix-nw-installing_jump_server).
+The `vnc` package is another useful tool in the AIX Toolbox for Linux Applications. After you install the `vnc` package into your AIX server, you will be able to start a VNC server on your AIX server. Then you can use a VNC viewer such as TightVNC on the jump server or another desktop to connect to your AIX server to start an SAP installation by using Software Provisioning Manager (formerly known as SAPINST) with the web front end. For more information, see [Software Provisioning Manager](https://support.sap.com/en/tools/software-logistics-tools/software-provisioning-manager.html){: external} and [Installing by using a jump server](#installing_jump_server).
 
 ## Required filesets for Oracle, IBM Db2, and SAP MaxDB
-{: #power-vs-aix-nw-filesets_for_db}
+{: #filesets_for_db}
 
 ### Oracle 12 on AIX {{site.data.keyword.IBM_notm}} Power Systems
-{: #power-vs-aix-nw-oracle_12_filesets}
+{: #oracle_12_filesets}
 
 Oracle 12 is supported on AIX 7.1 and 7.2. For a list of required operating system filesets and APARs, see the [system requirements](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/axdbi/operating-system-requirements-for-ibm-aix-on-power-systems-64-bit.html#GUID-265A2566-3693-4285-A514-5AB81DF91A85){: external}.
 
@@ -224,14 +326,14 @@ lslpp -l |egrep -w 'bos.adt.base|bos.perf.libperfstat|bos.adt.lib| bos.adt.libm|
 ```
 
 ### Oracle 19 on AIX {{site.data.keyword.IBM_notm}} Power Systems
-{: #power-vs-aix-nw-oracle_19_filesets}
+{: #oracle_19_filesets}
 
 Oracle 19 is supported on AIX 7.1 and 7.2.
 
 For a list of operating system filesets and APARs, see the [system requirements](https://docs.oracle.com/en/database/oracle/oracle-database/19/axdbi/operating-system-requirements-for-ibm-aix-on-power-systems-64-bit.html#GUID-265A2566-3693-4285-A514-5AB81DF91A85){: external}.
 
 ### IBM Db2
-{: #power-vs-aix-nw-requirements_for_db2}
+{: #requirements_for_db2}
 
 Before you install IBM Db2, make sure that the system requirements are met.
 
@@ -251,7 +353,7 @@ You can run the following command to check whether the filesets are available:
 lslpp -l |egrep -w 'bos.adt.base|bos.perf.libperfstat|bos.adt.lib| bos.adt.libm|bos.perf.perfstat|bos.perf.proctools'
 ```
 ### SAP MaxDB
-{: #power-vs-aix-nw-requirements_for_sap_maxdb}
+{: #requirements_for_sap_maxdb}
 
 Before you install SAP MaxDB, make sure that the required AIX filesets are installed. Run the following command:
 
@@ -271,12 +373,12 @@ I/O usage is intensive during the Software Provisioning Manager installation pha
 {: important}
 
 ## Storage and the AIX Logical Volume Manager
-{: #power-vs-aix-nw-storage_aix_lvm}
+{: #storage_aix_lvm}
 
 Follow these recommendations on creating storage and the AIX Logical Volume Manager (LVM) for the database and application layer.
 
 ### Storage and volume affinity
-{: #power-vs-aix-nw-storage_volume_affinity}
+{: #storage_volume_affinity}
 
 When you create storage by using the {{site.data.keyword.cloud}} console, specify volume affinity to prevent issues with new volume discovery on existing virtual server instances. Keep the following points in mind:
 
@@ -287,7 +389,7 @@ When you create storage by using the {{site.data.keyword.cloud}} console, specif
 For more information about volume affinity, see [Adding network block storage](/docs/sap?topic=sap-power-vs-set-up-infrastructure#power-vs-adding-block-storage).
 
 ### Logical volumes and mount points
-{: #power-vs-aix-nw-storage_aix_lvm_mount_points}
+{: #storage_aix_lvm_mount_points}
 
 Be sure to follow the recommendations of third-party software vendors about the configuration of logical volumes and mount points for the file systems. For more information, see the following links:
 
@@ -298,13 +400,13 @@ Be sure to follow the recommendations of third-party software vendors about the 
 [Directory and Filesystem Structure for MaxDB](https://maxdb.sap.com/doc/7_6/44/118d969c471a75e10000000a1553f6/content.htm){: external}
 
 #### More recommendations
-{: #power-vs-aix-nw-storage_aix_lvm_mount_points-more-recommend}
+{: #storage_aix_lvm_mount_points-more-recommend}
 
 * Create separate volume groups for database and applications. For example, for an Oracle installation, create the `oraclevg`. For SAP products, create the `appsvg` or `sapvg`, depending on the products that you choose to install.
 * Allocate sufficient storage to each of the volume groups and follow a standard naming convention when you create logical volumes. Add your preferred SID to the logical volume name.
 
 ### Creating separate storage for an installation repository
-{: #power-vs-aix-nw-storage_aix_swpm}
+{: #storage_aix_swpm}
 
 SAP Software Provisioning Manager requires additional files that will be used for the installation of SAP products such as exported images, SAP kernel files, and database clients.
 The disk space requirements depend on the SAP product and database that you plan to install.
@@ -313,13 +415,13 @@ Calculate the sum of SAP packages on the [SAP Marketplace](https://support.sap.c
 Create a dedicated volume group and logical volume and mount it on `/swrepo/SAP`.
 
 ## Installing the system
-{: #power-vs-aix-nw-installation_overview}
+{: #installation_overview}
 
 Before you install the system by using Software Provisioning Manager (SWPM), follow these preliminary steps:
 
 1. Create a user in the `smitty user` menu called `swpmuser` so you can avoid running the installation as the `root` user. If you didn't create a separate `rootgrp`, keep the primary group as `system`. Also include this user in the system and root groups so it is basically an administrative user. You will use this user when you start the Software Provisioning Manager tool as a Remote Access Tool user.
 
-1. Create the following directory structure under your software repository mount point `/swrepo/SAP` for Software Provisioning Manager and other required software as recommended here: [Creating separate storage for an installation repository](#power-vs-aix-nw-storage_aix_swpm).
+1. Create the following directory structure under your software repository mount point `/swrepo/SAP` for Software Provisioning Manager and other required software as recommended here: [Creating separate storage for an installation repository](#storage_aix_swpm).
 
 | Directory             | Purpose                                                      |
 |-------------------------|--------------------------------------------------------------|
@@ -333,11 +435,11 @@ Before you install the system by using Software Provisioning Manager (SWPM), fol
 {: caption="Table 2. Software repository directory structure" caption-side="top"}
 
 ## Installing by using a client machine
-{: #power-vs-aix-nw-installing_client_machine}
+{: #installing_client_machine}
 
 Follow these steps to install the system by using a client machine.
 
-1. Set up SSH tunneling on the client machine. For more information, see [SSH tunneling](#power-vs-aix-nw-ssh_tunneling).
+1. Set up SSH tunneling on the client machine. For more information, see [SSH tunneling](#ssh_tunneling-aix).
 1. Set a variable on the server for `TMPDIR` on the AIX server:
     ```
     export TMPDIR=/swrepo/SAP/SWPM/tmp
@@ -367,12 +469,12 @@ If you see a swap size MEDIUM result, check that you have sufficient swap space 
 After you complete the prerequisites check, you can proceed with the SAP NetWeaver installation for the application server, central services, and database installation.
 
 ## Installing by using a jump server
-{: #power-vs-aix-nw-installing_jump_server}
+{: #installing_jump_server}
 
 Follow these steps to install the system by using the jump server and tools that are installed on your AIX virtual server.
 
 ### On the AIX server
-{: #power-vs-aix-nw-on_aix_server}
+{: #on_aix_server}
 
 1. Set a password. The VNC executable can be started multiple times and open multiple channels. Set a password to prevent other people from working on your channel.
     1. Go to the `/home/root/.vnc` directory.
@@ -381,10 +483,10 @@ Follow these steps to install the system by using the jump server and tools that
 1. In the `root` directory, run the `vncserver` command to start a vncserver session.
 
 ### On your laptop or jump server
-{: #power-vs-aix-nw-on_laptop_or_jump_server}
+{: #on_laptop_or_jump_server}
 
 #### Opening a terminal
-{: #power-vs-aix-nw-open_terminal}
+{: #open_terminal}
 
 1. Connect the VNC Viewer software to the AIX server. In the VNC Viewer window, enter the address that was displayed when you started the vncserver on AIX. To use a hostname, make sure to update the `/etc/hosts` file so that the hostname resolves to IP.
 
@@ -394,7 +496,7 @@ Follow these steps to install the system by using the jump server and tools that
 1. Open a terminal. Enter `xterm` or `aixterm` on the command line.
 
 #### Setting variables
-{: #power-vs-aix-nw-set_variables}
+{: #set_variables}
 
 When you run SAPINST, set variables to ensure that there are enough resources to start the executable and that it exports the correct details about you and your system.
 
@@ -431,7 +533,7 @@ When you run SAPINST, set variables to ensure that there are enough resources to
     * The `umask` and `ulimit` settings are recommended.
 
 #### Testing SAPINST and installing
-{: #power-vs-aix-nw-test_sapinst}
+{: #test_sapinst}
 
 1. In the SAPINST directory, run the following command:
     ```
@@ -450,12 +552,12 @@ When you run SAPINST, set variables to ensure that there are enough resources to
 2. Select your preferred product and proceed to install.
 
 #### Port forwarding
-{: #power-vs-aix-nw-port_forwarding}
+{: #port_forwarding}
 
-If you're using a Windows operating system and the VNC port isn't working or it's closed, you need to tunnel to make the port for VNC 5901 usable. If you're using a recent version of Windows PowerShell, an SSH server is included so you can use SSH commands on the command line. For more information, see [SSH tunneling](#power-vs-aix-nw-ssh_tunneling).
+If you're using a Windows operating system and the VNC port isn't working or it's closed, you need to tunnel to make the port for VNC 5901 usable. If you're using a recent version of Windows PowerShell, an SSH server is included so you can use SSH commands on the command line. For more information, see [SSH tunneling](#ssh_tunneling-aix).
 
 #### Common problems and solutions
-{: #power-vs-aix-nw-common_issues}  
+{: #common_issues}  
 Here are some common issues that occur with Software Provisioning Manager:
 * Capacity of the `/tmp` directory during the pre-flight checks. The recommendation is at least 5 GB.
 * Make sure that there's at least 32 GB of paging space. This can be adjusted after the AIX server is installed with the required database and applications. The recommendation is to run the required workload and tune the I/O resources.
@@ -469,25 +571,25 @@ Here are some common issues that occur with Software Provisioning Manager:
     [SAP Note 2805859 - A1EEGEN 000 (DBS) DbSlErrorMsg rc = 28 'no connection info in DBCON found'](https://launchpad.support.sap.com/#/notes/2805859)
 
 ## Information resources for SAP NetWeaver
-{: #power-vs-aix-nw-information_resources_netweaver}
+{: #information_resources_netweaver}
 
-The following links will assist you in the installation and configuration of your IBM Power Virtual Server instances and databases with SAP products. Links with numbers in the title point to the SAP Support Portal.
+The following links will assist you in the installation and configuration of your {{site.data.keyword.powerSys_notm}} instances and databases with SAP products. Links with numbers in the title point to the SAP Support Portal.
 
 ### Cloud-related resources - {{site.data.keyword.IBM_notm}} Power Virtual Servers
-{: #power-vs-aix-nw-cloud_resources}
+{: #cloud_resources}
 
 | Link                                                                          | Description                               |
 |-------------------------------------------------------------------------------|-------------------------------------------|
-| [2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)               | Supported SAP applications on {{site.data.keyword.IBM_notm}} IBM Power Virtual Servers        |
+| [2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)               | Supported SAP applications on {{site.data.keyword.IBM_notm}} Power Virtual Servers        |
 | [1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)                                    | IaaS environments                         |
 | [2923984 - SAP on IBM Power Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984)     | Support prerequisites                    |
-| [2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power SVirtual Servers](https://launchpad.support.sap.com/#/notes/2947579)                       | SAP HANA and virtual server instances                         |
+| [2947579 - SAP HANA on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579)                       | SAP HANA and virtual server instances                         |
 | [2923962 - Check SAP HANA NUMA Layout on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2923962)     | Checking the NUMA layout                  |
 | [2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://launchpad.support.sap.com/#/notes/2932766) | Key Monitoring Metrics                    |
 {: caption="Table 3. Cloud-related resources - {{site.data.keyword.IBM_notm}} Power Virtual Servers" caption-side="top"}
 
 ### Operating systems - AIX
-{: #power-vs-aix-nw-os_aix}
+{: #os_aix}
 
 | Link                                                                                  | Description                                                |
 |---------------------------------------------------------------------------------------|------------------------------------------------------------|
@@ -497,17 +599,17 @@ The following links will assist you in the installation and configuration of you
 | [1972803 - SAP on AIX: Recommendations](https://launchpad.support.sap.com/#/notes/1972803)                                                 | Guidance on how to optimally configure AIX for SAP     |
 | [2630086 - Avoid signal 33, out of memory on AIX](https://launchpad.support.sap.com/#/notes/2630086)                                       | Signals paging and memory situations - recommended      |
 | [AIX Service Strategy and Best Practices](https://www.ibm.com/support/pages/node/3464613)                                               | The AIX journey and strategy                               |
-| [IBM Knowledge Center AIX](https://www.ibm.com/docs/en/aix)                                                             | A central link for AIX information                                |
+| [IBM Knowledge Center AIX](https://www.ibm.com/support/knowledgecenter/ssw_aix)                                                             | A central link for AIX information                                |
 | [Troubleshooting AIX 7.2](https://www.ibm.com/support/knowledgecenter/ssw_aix_72/navigation/troubleshooting.html)                                                               | Useful problem solving                               |
 | [IBM Fix Central](https://www.ibm.com/support/fixcentral/)                                                                       | Fix Central for your AIX filesets and operating system upgrade source    |
-| [Services and Support Best Practices POWER9](https://www14.software.ibm.com/webapp/set2/sas/f/best/home.html)                                            | Download the PDF and see the command reference        |
+| [Services and Support Best Practices POWER9](https://www.ibm.com/support/pages/service-and-support-best-practices-power-systems)                                            | Download the PDF and see the command reference        |
 | [Fix Level Recommendation Tool - FLRT](https://www14.software.ibm.com/support/customercare/flrt/)                                                  | Cross-compatibility and fix recommendations tool           |
 | [IBM AIX Developer](https://developer.ibm.com/components/aix/)                                                                     | AIX developer website                                      |
 | [IBM AIX Enhancements and Modernization](http://www.redbooks.ibm.com/abstracts/sg248453.html?Open)                                                | The latest updated IBM Redbook for AIX                     |
 {: caption="Table 4. Operating systems - AIX" caption-side="top"}
 
 ### Operating systems - Linux
-{: #power-vs-aix-nw-os_linux-aix}
+{: #os_linux-aix}
 
 | Link                                                                                                                                                                      | Description                                      |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
@@ -517,23 +619,28 @@ The following links will assist you in the installation and configuration of you
 | [1002461 - Support of IBM Dynamic LPAR and Micropartitioning](https://launchpad.support.sap.com/#/notes/1002461)                                                          | LPAR and micro partitioning                      |
 | [1122387 - Linux: SAP Support in virtualized environments](https://launchpad.support.sap.com/#/notes/1122387)                                                             | SAP Support in virtualized environments          |
 | [1400911 - Linux: SAP NetWeaver on Red Hat KVM - Kernel-based Virtual Machine](https://launchpad.support.sap.com/#/notes/1400911)                                         | Red Hat KVM - Kernel-based virtual machine        |
-| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux)                                            | Useful information about running Linux on Power  |
 | [2526952 - Red Hat Enterprise Linux for SAP Solutions](https://launchpad.support.sap.com/#/notes/2526952)                                                                 | RHEL for SAP Solutions *** Central Note for RHEL |
 | [1631106 - Red Hat Enterprise Linux for SAP Applications](https://launchpad.support.sap.com/#/notes/0001631106)                                                           | RHEL for SAP applications                        |
 | [2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167)                                                     | RHEL 7x installation and upgrading               |
-| [Technical Resource for SAP Business Applications on Red Hat](https://wiki.scn.sap.com/wiki/display/ATopics/Technical+Resources+for+SAP+Business+Applications+on+Red+Hat) | A useful collection of links for SAP and Redhat  |
 | [936887 - End of maintenance for Linux distributions](https://launchpad.support.sap.com/#/notes/936887)                                                                   | Maintenance calendar and product maturity        |
 | [2679703 - Linux on {{site.data.keyword.IBM_notm}} Power Systems -- SAP monitoring recommendations](https://launchpad.support.sap.com/#/notes/2679703)                                               | SAP monitoring recommendations                   |
 | [2578899 - SUSE Linux Enterprise Server 15: Installation Note](https://launchpad.support.sap.com/#/notes/2578899)                                                         | SLES 15 installation note                        |
 | [1275776 - Linux: Preparing SLES for SAP environments](https://launchpad.support.sap.com/#/notes/1275776)                                                                 | Preparing SLES for SAP environments              |
 | [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap)                                                                                   | A useful collection of SUSE documentation        |
 | [187864 - Linux: Locale Support on Linux](https://launchpad.support.sap.com/#/notes/187864)                                                                               | Locale support for Linux                         |
-| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux)                                            | SAP on {{site.data.keyword.IBM_notm}} Power Systems library                 |
 | [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/)                                                                                              | IBM and SUSE                                     |
 {: caption="Table 5. Operating systems - Linux" caption-side="top"}
 
+<!---
+| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux)                                            | Useful information about running Linux on Power  |
+| [Technical Resource for SAP Business Applications on Red Hat](https://wiki.scn.sap.com/wiki/display/ATopics/Technical+Resources+for+SAP+Business+Applications+on+Red+Hat) | A useful collection of links for SAP and Redhat  |
+| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux)                                            | SAP on {{site.data.keyword.IBM_notm}} Power Systems library                 |
+No longer on SAP's Wiki
+--->
+
+
 ### Databases - Db2
-{: #power-vs-aix-nw-db_db2}
+{: #db_db2}
 
 | Link                                                                                                                                                                                       | Description                         |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
@@ -546,7 +653,7 @@ The following links will assist you in the installation and configuration of you
 {: caption="Table 6. Databases - Db2" caption-side="top"}
 
 ### Databases - Oracle
-{: #power-vs-aix-nw-db_oracle}
+{: #db_oracle}
 
 | Link                                                                                                                                                                                                                                                                                          | Description                                                     |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
@@ -557,7 +664,7 @@ The following links will assist you in the installation and configuration of you
 | [527843 - Oracle RAC support in the SAP environment](https://launchpad.support.sap.com/#/notes/527843)                                                                                                                                                                                        | Oracle RAC support                                              |
 | [2470660 - Central Technical Note for Oracle Database 12c Release 2 (12.2)](https://launchpad.support.sap.com/#/notes/2470660)                                                                                                                                                                | Oracle 12.2c                                                    |
 | [Oracle Community on SAP](https://community.sap.com/topics/oracle)                                                                                                                                                                                                                            | Oracle Community link                                           |
-| [Managing the Stability and Performance of current Oracle Database versions running AIX on Power Systems including POWER9](http://w3-03.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/WP102608)                                                                                              | Oracle stability and performance                                |
+| [Managing the Stability and Performance of current Oracle Database versions running AIX on Power Systems including POWER9](https://www.ibm.com/support/pages/managing-stability-and-performance-current-oracle-database-versions-running-aix-power-systems-including-power9)                                                                                              | Oracle stability and performance                                |
 | [Operating System Checklist for Oracle Database on IBM AIX on POWER Systems (64-Bit)](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/axdbi/operating-system-checklist-for-oracle-database-on-ibm-aix-on-power-systems-64-bit.html#GUID-0A0691E3-7BC8-48F0-A189-7D978DDB7E45) | Oracle, AIX and POWER systems                                   |
 | [2540847 - SAP Guides for Oracle Database Upgrade](https://launchpad.support.sap.com/#/notes/2540847)                                                                                                                                                                                         | Oracle guide collection                                         |
 | [2086029 - Corrections for SAP Database Upgrade Guides for Oracle](https://launchpad.support.sap.com/#/notes/2086029)                                                                                                                                                                         | Corrections to the above SAP Note as reference                  |
@@ -572,7 +679,7 @@ The following links will assist you in the installation and configuration of you
 {: caption="Table 7. Databases - Oracle" caption-side="top"}
 
 ### Databases - MaxDB
-{: #power-vs-aix-nw-db_maxdb}
+{: #db_maxdb}
 
 | Link                                                                                                                                                                                                                                          | Description                           |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
@@ -592,11 +699,11 @@ The following links will assist you in the installation and configuration of you
 {: caption="Table 8. Databases - MaxDB" caption-side="top"}
 
 ### Applications - SAP
-{: #power-vs-aix-nw-applications_sap}
+{: #applications_sap}
 
 | Link                                                                                                                                                                                                             | Description                                       |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| [SAP Guide Finder](https://help.sap.com/viewer/nwguidefinder/576f5c1808de4d1abecbd6e503c9ba42.html)                                                                                                              | Recommended for all installations                 |
+| [SAP Guide Finder](https://help.sap.com/viewer/nwguidefinder)                                                                                                              | Recommended for all installations                 |
 | [1704753 - Inst.Systems Based on NetWeaver on UNIX - Using Software Provisioning Manager 1.0](https://launchpad.support.sap.com/#/notes/1704753)                                                                 | Software Provisioning Manager information for version 1.0                  |
 | [Installation Guides - Application Server Systems - Software Provisioning Manager 1.0](https://help.sap.com/viewer/30839dda13b2485889466316ce5b39e9/CURRENT_VERSION/en-US/c8ed609927fa4e45988200b153ac63d1.html) | Additional content                                |
 | [{{site.data.keyword.IBM_notm}} Power Systems Planning and Monitoring Best Practices for SAP Applications](http://www.redbooks.ibm.com/redpieces/abstracts/redp5580.html?Open)                                                              | IBM Redbook for planning and monitoring SAP       |
