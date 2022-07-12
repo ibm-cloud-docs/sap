@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-27"
+  years: 2020
+lastupdated: "2020-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -30,10 +30,10 @@ Deploying SAP AnyDB on {{site.data.keyword.cloud_notm}} is similar to deployment
 To assist your project's planning phase, more design considerations are provided for **SAP AnyDB - IBM Db2** with {{site.data.keyword.ibm_cloud_sap}}.
 
 
-## Overview of IBM Db2 for SAP with {{site.data.keyword.cloud}}
+## Overview of IBM Db2 for SAP with IBM Cloud
 {: #anydb-ibm-db2-overview}
 
-Several unique capabilities and features are available with IBM Db2. All supported database features that are mentioned in [SAP Note 1555903 - DB6: Supported IBM Db2 Database Features](https://launchpad.support.sap.com/#/notes/1555903){: external} are available with {{site.data.keyword.cloud_notm}}, except for:
+Several unique capabilities and features are available with IBM Db2. All supported database features that are mentioned in [SAP Note 1555903 - DB6: Supported IBM Db2 Database Features](https://launchpad.support.sap.com/#/notes/1555903){: external} are available with IBM Cloud, except for:
 - The IBM Db2 pureScale Feature
 - Support for integrated cluster managers for HADR or shared disk high-availability clusters.
 
@@ -74,20 +74,20 @@ In the IBM Knowledge Center for Db2, the documentation links provided refer to s
 ### SAP on IBM Db2 using Intel Bare Metal
 {: #anydb-ibm-db2-bare-metal}
 
-See [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external} for supported IBM Db2 database versions.
+See [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097){: external} for supported IBM Db2 database versions.
 
 A sample configuration is shown in:
 - [Quick Study Tutorial - SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using RHEL](/docs/sap?topic=sap-quickstudy-bm-netweaver-rhel){: external}
 - [Quick Study Tutorial - SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using Windows Server](/docs/sap?topic=sap-quickstudy-bm-netweaver-wins){: external}
 
 
-### SAP on IBM Db2 using Intel Virtual Servers
+### SAP on IBM Db2 using Intel Virtual Servers (Gen2)
 {: #anydb-ibm-db2-intel-vs-vpc}
 
-See [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported IBM Db2 database versions.
+See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported IBM Db2 database versions.
 
 A sample configuration is shown in:
-- [Quick Study Tutorial - SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure, using RHEL](/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-rhel)
+- [Quick Study Tutorial - SAP NetWeaver deployment to Intel Virtual Server (Gen2) on VPC Infrastructure, using RHEL](/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-rhel)
 
 
 ### SAP on IBM Db2 using IBM Power Virtual Servers
@@ -96,7 +96,7 @@ A sample configuration is shown in:
 This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
-See [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported IBM Db2 database versions on AIX running on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
+See [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported IBM Db2 database versions on AIX running on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
 
 
 ## Infrastructure size considerations
@@ -121,7 +121,7 @@ The following information describes the File Systems that are required for IBM D
 
 The default port is `5912` for the TCP/IP communication between the Db2 server and the Db2 client when you are using SWPM to install SAP software.
 
-However, this port is already defined and reserved by the [IANA Service Name and Transport Protocol Port Number Registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?&page=96){: external}.
+However, this port is already defined and reserved by the [IANA Service Name and Transport Protocol Port Number Registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?&page=96){:external}.
 
 Choose a different port during the installation with SWPM.
 

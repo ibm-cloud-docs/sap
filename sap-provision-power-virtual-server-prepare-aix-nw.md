@@ -362,7 +362,7 @@ Follow these steps to install the system by using a client machine.
 2. Click **Next** to proceed through the wizard until the Prerequisites Checker Results are displayed.
 
 If you see a swap size MEDIUM result, check that you have sufficient swap space on your system.
-{: note}
+{:note}
 
 After you complete the prerequisites check, you can proceed with the SAP NetWeaver installation for the application server, central services, and database installation.
 
@@ -389,7 +389,7 @@ Follow these steps to install the system by using the jump server and tools that
 1. Connect the VNC Viewer software to the AIX server. In the VNC Viewer window, enter the address that was displayed when you started the vncserver on AIX. To use a hostname, make sure to update the `/etc/hosts` file so that the hostname resolves to IP.
 
     Your new server must be resolvable in the Windows or operating system of your laptop (for direct connections) and in your jump server. If an encryption warning is displayed, click **Continue**. When prompted, enter your password and click **OK**.
-    {: important}
+    {:important}
 
 1. Open a terminal. Enter `xterm` or `aixterm` on the command line.
 
@@ -403,7 +403,7 @@ When you run SAPINST, set variables to ensure that there are enough resources to
 3. Run the `xauth` command to list the currently assigned keys that are needed to connect.
 
     Make a copy of the entries. If you need to switch to an SAP ACCOUNT for any reason, you can add the keys, access the session, and export the $DISPLAY again.
-    {: tip}
+    {:tip}
 
 1. Set the following variables for the installation session that are needed for SAPINST:
 
@@ -471,20 +471,20 @@ Here are some common issues that occur with Software Provisioning Manager:
 ## Information resources for SAP NetWeaver
 {: #power-vs-aix-nw-information_resources_netweaver}
 
-The following links will assist you in the installation and configuration of your IBM Power Virtual Server instances and databases with SAP products. Links with numbers in the title point to the SAP Support Portal.
+The following links will assist you in the installation and configuration of your {{site.data.keyword.powerSys_notm}} instances and databases with SAP products. Links with numbers in the title point to the SAP Support Portal.
 
-### Cloud-related resources - {{site.data.keyword.IBM_notm}} Power Virtual Servers
+### Cloud-related resources - {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers
 {: #power-vs-aix-nw-cloud_resources}
 
 | Link                                                                          | Description                               |
 |-------------------------------------------------------------------------------|-------------------------------------------|
-| [2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)               | Supported SAP applications on {{site.data.keyword.IBM_notm}} IBM Power Virtual Servers        |
+| [2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)               | Supported SAP applications on {{site.data.keyword.powerSys_notm}}s        |
 | [1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)                                    | IaaS environments                         |
-| [2923984 - SAP on IBM Power Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984)     | Support prerequisites                    |
-| [2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power SVirtual Servers](https://launchpad.support.sap.com/#/notes/2947579)                       | SAP HANA and virtual server instances                         |
+| [2923984 - SAP on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984)     | Support prerequisites                    |
+| [2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579)                       | SAP HANA and virtual server instances                         |
 | [2923962 - Check SAP HANA NUMA Layout on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2923962)     | Checking the NUMA layout                  |
-| [2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://launchpad.support.sap.com/#/notes/2932766) | Key Monitoring Metrics                    |
-{: caption="Table 3. Cloud-related resources - {{site.data.keyword.IBM_notm}} Power Virtual Servers" caption-side="top"}
+| [2932766 - Key Monitoring Metrics for SAP on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2932766) | Key Monitoring Metrics                    |
+{: caption="Table 3. Cloud-related resources - {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers" caption-side="top"}
 
 ### Operating systems - AIX
 {: #power-vs-aix-nw-os_aix}

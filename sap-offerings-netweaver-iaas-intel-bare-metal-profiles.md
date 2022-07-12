@@ -19,7 +19,7 @@ subcollection: sap
 {:note: .note}
 {:tip: .tip}
 
-# Intel Bare Metal server certified profiles on Classic infrastructure for SAP NetWeaver
+# Intel Bare Metal server certified profiles for SAP NetWeaver
 {: #nw-iaas-offerings-profiles-intel-bm}
 
 ## Profiles list
@@ -42,7 +42,7 @@ The following is an overview of the SAP-certified profiles with Intel Bare Metal
 | [BI.S4.NW768](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2644&itemId=13289) | 40 | 80 | 768 GB | 112,830 |
 {: caption="Table 1. SAP NetWeaver servers" caption-side="top"}
 
-See also [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external}.
+See also [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}}: Supported DB/OS and {{site.data.keyword.cloud_notm}} Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097){: external}.
 
 
 ## Understanding Bare Metal profile names

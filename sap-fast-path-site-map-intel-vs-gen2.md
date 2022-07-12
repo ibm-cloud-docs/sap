@@ -67,7 +67,7 @@ Depending on your scenarios, the following information may be also relevant:
 ## How To
 {: #fast-path-intel-vs-gen2-how-to}
 
-Provisioning IBM Cloud Virtual Servers for SAP HANA and SAP NetWeaver:
+Provisioning IBM Cloud Bare Metal server for SAP HANA and SAP NetWeaver:
 - [Planning your deployment](/docs/sap?topic=sap-vs-planning-items)
 - [Deploying your infrastructure](/docs/sap?topic=sap-vs-set-up-infrastructure)
 - [Using IBM Metrics Collector for SAP (IMCS) on Linux](/docs/sap?topic=sap-ibm-metrics-collector-for-sap-linux)

@@ -92,7 +92,7 @@ For example, some of the services that are available in partnership between {{si
 
 Multiple SAP anyDB options and SAP HANA are available for use with SAP NetWeaver certified infrastructure on {{site.data.keyword.cloud_notm}}. You are not required to use IBM Db2.
 
-Check [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external} regularly and also reference the [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external} for details.
+Check [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}}: Supported DB/OS and {{site.data.keyword.cloud_notm}} Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097){: external} regularly and also reference the [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external} for details.
 
 For more information about IBM Db2, see [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external} and **SAP on IBM Db2 for Linux&reg;, UNIX, and Windows (LUW)** on the [SAP Community page](https://community.sap.com/topics/db2-for-linux-unix-windows){: external}.
 
@@ -110,12 +110,6 @@ IBM Db2 is an {{site.data.keyword.IBM_notm}} product that is seamlessly integrat
 {: #faq-split-distributed-sap-env-between-dcs}
 
 For a distributed SAP installation, it is best to have all nodes in the same location (for example, Availability Zone or Datacenter) and networking constructs (for example, Subnet and VPC/Subnet and VLAN). Deviation from this setup can cause latency and timeouts, which render your SAP system unresponsive.
-
-
-### Can I split my distributed SAP environment between {{site.data.keyword.cloud}} Bare Metal and {{site.data.keyword.cloud}} Virtual Servers?
-{: #faq-split-distributed-sap-env-between-cloud-offerings}
-
-RDBMs on Intel Bare Metal Servers in the older {{site.data.keyword.cloud_notm}} Classic Infrastructure environment that comply to [SAP Note 2414097](https://launchpad.support.sap.com/#/notes/2414097){: external}, are supported when connected to the SAP AS on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment - when placed in the same location (i.e. Datacenter / Availability Zone) and using an {{site.data.keyword.cloud_notm}} Transit Gateway local routing.
 
 
 ### Can I achieve SAP high availability as defined by SAP architecture?
@@ -145,7 +139,7 @@ See the respective topics in the **_Get Started_** section for:
 ### How do I connect my SAP Systems running on {{site.data.keyword.cloud_notm}} to my on-premises systems?
 {: #faq-connect-sap-to-on-premises}
 
-You have several connectivity options to create secure connections between your on-premises systems and the {{site.data.keyword.cloud_notm}}. These options are your responsibility to configure, and {{site.data.keyword.cloud_notm}} operates the underlying services according to the configuration. For more information see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access).
+You have several connectivity options to create secure connections between your on-premises systems and the {{site.data.keyword.cloud_notm}}. These options are your responsibility to configure, and {{site.data.keyword.cloud_notm}} operates the underlying services according to the configuration. For more information see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-power-vs-set-up-infrastructure).
 
 
 ## Licensing and pricing
@@ -184,7 +178,7 @@ As an industry practice across Cloud Service Providers, virtual servers from {{s
 ## SAP-certified IBM Power Virtual Servers
 {: #faq-sap-certified-power-vsi}
 
-### Which version of Db2 can I use to run SAP NetWeaver on {{site.data.keyword.IBM_notm}} Power Virtual Servers?
+### Which version of Db2 can I use to run SAP NetWeaver on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s?
 {: #faq-which-db2-version-on-power}
 
 For information check [SAP Note 2855850](https://launchpad.support.sap.com/#/notes/2855850){: external} regularly. You can also reference [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}.
@@ -242,7 +236,7 @@ When you finish making adjustments and defined at least the minimum required amo
 ### What hardware database virtualization/sharing/isolation options are supported in the {{site.data.keyword.cloud_notm}} infrastructure?
 {: #faq-supported-db-options}
 
-{{site.data.keyword.cloud_notm}} SAP-certified infrastructure offerings are certified for SAP and do not include database virtualization/sharing/isolation options such as Multitenant Database Containers (MDC) testing. The customer is responsible for following SAP guidance to:
+{{site.data.keyword.cloud_notm}} SAP-certified infrastructure offerings are certified by SAP and do not include database virtualization/sharing/isolation options such as Multitenant Database Containers (MDC) testing. The customer is responsible for following SAP guidance to:
 * Correctly set up the SAP HANA features and functions
 * Ensure that the infrastructure remains compliant with the SAP certification
 
@@ -312,9 +306,9 @@ See [SAP Note 2779331 - HANA services use large SWAP memory](https://launchpad.s
 Most versions of SAP NetWeaver Application Server (ABAP or JAVA) from 7.0 or higher are supported across the {{site.data.keyword.ibm_cloud_sap}} portfolio.
 
 For a full updated list of SAP NetWeaver versions and SAP Kernel Patch Levels supported for the various IaaS options, see the following SAP Notes:
-- [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
-- [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
-- [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)
+- [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}}: Supported DB/OS and {{site.data.keyword.cloud_notm}} Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
+- [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances](https://launchpad.support.sap.com/#/notes/2927211)
+- [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)
 
 ## Full list of SAP Notes for the {{site.data.keyword.ibm_cloud_sap}} portfolio
 {: #faq-ibm-cloud-for-sap-portfolio-snotes}
@@ -322,25 +316,25 @@ For a full updated list of SAP NetWeaver versions and SAP Kernel Patch Levels su
 ### SAP Notes that are related to {{site.data.keyword.cloud_notm}} Classic Infrastructure
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-classic}
 
-- [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://launchpad.support.sap.com/#/notes/2414820)
-- [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
-- [SAP Note 2279688 - SAP on IBM Cloud: Support for SAP BusinessObjects](https://launchpad.support.sap.com/#/notes/2279688)
+- [SAP Note 2414820 - SAP on {{site.data.keyword.cloud_notm}}: Support prerequisites](https://launchpad.support.sap.com/#/notes/2414820)
+- [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}}: Supported DB/OS and {{site.data.keyword.cloud_notm}} Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097)
+- [SAP Note 2279688 - Support of SAP BusinessObjects BI platform on {{site.data.keyword.cloud_notm}}](https://launchpad.support.sap.com/#/notes/2279688)
 - [SAP Note 2686169 - Prerequisites for installing SAP Data Hub 2](https://launchpad.support.sap.com/#/notes/2686169)
 
 ### SAP Notes that are related to {{site.data.keyword.cloud_notm}} VPC Infrastructure
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-vpc}
 
-- [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://launchpad.support.sap.com/#/notes/2414820)
-- [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
+- [SAP Note 2414820 - SAP on {{site.data.keyword.cloud_notm}}: Support prerequisites](https://launchpad.support.sap.com/#/notes/2414820)
+- [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances](https://launchpad.support.sap.com/#/notes/2927211)
 
 
 ### SAP Notes that are related to IBM Power Infrastructure connected to {{site.data.keyword.cloud_notm}}
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-power}
 
-- [SAP Note 2923984 - SAP on IBM Power Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984)
-- [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579)
-- [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)
-- [SAP Note 2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://launchpad.support.sap.com/#/notes/2932766)
+- [SAP Note 2923984 - SAP on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984)
+- [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579)
+- [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)
+- [SAP Note 2932766 - Key Monitoring Metrics for SAP on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2932766)
 
 
 ### SAP Notes that are related to any Public Cloud or Virtualized Environments
@@ -351,10 +345,10 @@ For a full updated list of SAP NetWeaver versions and SAP Kernel Patch Levels su
 - [SAP Note 1409608 - Virtualization on Windows](http://launchpad.support.sap.com/#/notes/1409608)
 - [SAP Note 1409604 - Virtualization on Windows: Enhanced Monitoring](http://launchpad.support.sap.com/#/notes/1409604)
 - [SAP Note 2134316 - Can SAP ASE run in a cloud environment?](https://launchpad.support.sap.com/#/notes/2134316)
-- [SAP Note 2923773 - Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
+- [SAP Note 2923773 - Linux on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
 
 
 ### SAP Notes generic for {{site.data.keyword.cloud_notm}}
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-generic}
 
-- [SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
+- [SAP Note 2588225 - How to protect against speculative execution vulnerabilities on {{site.data.keyword.cloud_notm}}?](https://launchpad.support.sap.com/#/notes/2588225)

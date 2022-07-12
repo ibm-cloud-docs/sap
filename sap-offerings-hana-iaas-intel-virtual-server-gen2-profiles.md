@@ -20,7 +20,7 @@ subcollection: sap
 {:tip: .tip}
 {:important: .important}
 
-# Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA
+# Intel Virtual Server certified profiles for SAP HANA
 {: #hana-iaas-offerings-profiles-intel-vs-vpc}
 
 ## Profiles list
@@ -54,7 +54,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA" caption-side="bottom"}
 
 
-For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}.
+For more information, see [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}.
 
 
 For SAP HANA deployments using {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}}, only single-node deployments are supported. This means multi-node / scale-out is not currently supported.

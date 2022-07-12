@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-28"
+lastupdated: "2021-05-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -20,7 +20,7 @@ subcollection: sap
 {:tip: .tip}
 {:important: .important}
 
-# {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) Infrastructure environment introduction
+# VPC Infrastructure environment introduction
 {: #vpc-env-introduction}
 
 An Infrastructure-as-a-Service (IaaS) environment consists of many components - primarily compute, storage, and network from a specified region (such as the US) and a designated site location (also referred to as zone, which is a data center site).
@@ -28,7 +28,7 @@ An Infrastructure-as-a-Service (IaaS) environment consists of many components - 
 ## Deployment and management
 {: #vpc-env-deployment-and-management}
 
-{{site.data.keyword.cloud_notm}} VPC Infrastructure offerings, such as Virtual Servers, are deployed through the [{{site.data.keyword.cloud_notm}} VPC Infrastructure console](https://cloud.ibm.com/vpc/overview).
+IBM VPC Infrastructure offerings, such as Virtual Servers (Gen2), are deployed through the [{{site.data.keyword.cloud_notm}} VPC Infrastructure console](https://cloud.ibm.com/vpc/overview).
 
 Alternatively, deployments can be made and managed by using:
 - {{site.data.keyword.cloud_notm}} CLI
@@ -99,7 +99,7 @@ For more information, see [About Networking for VPC](/docs/vpc?topic=vpc-about-n
 
 
 Extra requirements exist in Classic Infrastructure networking to enable the _Transit Gateway_, be sure to review documentation before you change your Classic Infrastructure or VPC Infrastructure networking topology and configuration.
-{: important}
+{:important}
 
 It is advised that your networking department contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) after determining the layout of your landscape and the connectivity that is required on the SAP application layer.
 {: note}
@@ -109,8 +109,8 @@ It is advised that your networking department contact [{{site.data.keyword.cloud
 {: #vpc-env-networking-protection}
 
 {{site.data.keyword.cloud}} offers further protection mechanisms that can provide your {{site.data.keyword.vsi_is_short}} with a layer of security that you can configure and adapt anytime. Two key principles are:
-    * **Network Access Control Lists (ACL)**: Available for use by all subnets in all zones. ACLs attach to a subnet and provide subnet-level protection by limiting a subnet's inbound and outbound traffic.
-    * **Security Groups**: Available for use by all subnets on all zones that are attached to a vNIC of any virtual server that provides instance-level protection by acting as a firewall to restrict a vNIC inbound and outbound traffic.
+  * **Network Access Control Lists (ACL)**: Available for use by all subnets in all zones. ACLs attach to a subnet and provide subnet-level protection by limiting a subnet's inbound and outbound traffic.
+  * **Security Groups**: Available for use by all subnets on all zones that are attached to a vNIC of any virtual server that provides instance-level protection by acting as a firewall to restrict a vNIC inbound and outbound traffic.
 
 For more information, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc).
 
@@ -128,6 +128,8 @@ Network Access Control Lists (ACLs) are used to manage `allow` and `deny` rules 
 {: #vpc-env-networking-security-groups}
 
 A Security Group is a set of _allow_-only firewall rules. You can apply these rules to one or more virtual servers. You can also create a default Security Group with Secure Shell (SSH) and ICMP (ping) during VPC creation, which allows ICMP and SSH from any IP address. These rules need to restrict the IP ranges from which you are planning to access the VPC. If you plan to access these ports through the public internet, set rules to allow for SAP application ports.
+
+
 
 ## Storage
 {: #vpc-env-storage}
@@ -154,7 +156,7 @@ No shared storage for virtual servers is available in VPC at time of writing.
 ## Compute
 {: #vpc-env-compute}
 
-There is only one type of IaaS available within the {{site.data.keyword.cloud_notm}} VPC Infrastructure environment:
-- Intel Virtual Servers
+There is only one type of IaaS available within the VPC Infrastructure environment:
+- Intel Virtual Servers 
 
 For more information, see [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).

@@ -27,13 +27,13 @@ subcollection: sap
 {: #introduction}
 
 {{site.data.keyword.ibm_cloud_sap}} is for enterprises who believe that empowering their SAP workloads also empowers their business. {{site.data.keyword.ibm_cloud_sap}} provides your enterprise with full cloud capabilities. So you can run your mission-critical SAP workloads with secure, reliable, and compliant infrastructure, and take advantage of options to append more cloud services to transform the business.
-{: shortdesc}
+{:shortdesc}
 
 Our {{site.data.keyword.ibm_cloud_sap}} offerings are designed based on over 45+ years of IBM-SAP expertise (since 1972). The on-demand flexible compute options for various SAP Business Application scenarios range from cloud-native SAP and burst compute all the way to high performance with enterprise-grade availability.
 
 Our IBM and SAP multi-decade alliance is why IBM was selected as one of SAP’s strategic infrastructure providers for hybrid cloud. Support for SAP's suite of products is available through the highly scalable, open, and security-rich {{site.data.keyword.cloud_notm}}. With this partnership, SAP applications can expand to major markets; this expansion is made possible by more than 60 {{site.data.keyword.cloud_notm}} data centers worldwide.
 
-{{site.data.keyword.ibm_cloud_sap}} was [launched in late 2014](https://www.ibm.com/news/ca/en/2014/10/14/p001317b07533x58.html){: external}, with our SAP HANA certified Bare Metals as a strategic partner with SAP HANA Enterprise Cloud (HEC). Our SAP HANA certified Bare Metals were first released as Infrastructure-as-a-Service in early 2017, the first Cloud Service Provider to provide high-performance Bare Metal IaaS for SAP HANA and SAP NetWeaver.
+{{site.data.keyword.ibm_cloud_sap}} was [launched in late 2014](https://www-03.ibm.com/press/us/en/pressrelease/45049.wss){: external}, with our SAP HANA certified Bare Metals as a strategic partner with SAP HANA Enterprise Cloud (HEC). Our SAP HANA certified Bare Metals were first released as Infrastructure-as-a-Service in early 2017, the first Cloud Service Provider to provide high-performance Bare Metal IaaS for SAP HANA and SAP NetWeaver.
 
 Using various configurations of the SAP Technical Applications, you can confidently run SAP Business Applications such as:
 - SAP S/4HANA
@@ -87,7 +87,6 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 - SAP Secure Logon Server (SLS)
 - AnyDB - IBM Db2
 - AnyDB - Microsoft SQL Server
-   <!--- AnyDB - Oracle DB  -->
 - AnyDB - SAP MaxDB
 - AnyDB - SAP ASE
 - ...more
@@ -107,9 +106,8 @@ The {{site.data.keyword.cloud_notm}} SAP-Certified IaaS gives you the flexibilit
 * Supplementing existing on-premises virtualized infrastructure architectures.
 
 
-The {{site.data.keyword.ibm_cloud_sap}} portfolio primarily consists of four<!---five--> offerings:
+The {{site.data.keyword.ibm_cloud_sap}} portfolio primarily consists of four offerings:
 1. {{site.data.keyword.cloud_notm}} Bare Metal
-<!---1. {{site.data.keyword.cloud_notm}} Bare Metal with Intel Optane DC Persistent Memory-->
 1. {{site.data.keyword.cloud_notm}} Virtual Servers
 1. IBM Power Virtual Servers (complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with connection through {{site.data.keyword.cloud_notm}})
 1. {{site.data.keyword.cloud_notm}} for VMware
@@ -121,7 +119,7 @@ More information on the these Infrastructure offerings within the {{site.data.ke
 - [{{site.data.keyword.cloud_notm}} VPC Infrastructure environment](/docs/sap?topic=sap-vpc-env-introduction). The latest environment and network, with the newest technologies and networking capabilities.
 - [{{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment](/docs/sap?topic=sap-power-env-introduction). The environment maintained by {{site.data.keyword.IBM_notm}} Power Systems built of IBM Power enterprise components, which has links to either Classic Infrastructure and VPC Infrastructure.
 
-Our documents provide detailed considerations and information for building your SAP environments at each layer for all offerings. However, if you are interested in quickly finding the information related specifically to one of the IaaS offerings, then you may consider using the Fast Path Site Maps for [Intel Bare Metal](/docs/sap?topic=sap-fast-path-site-map-intel-bm), [Intel Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2), [IBM Power Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-power-vs) and [VMware SDDC](/docs/sap?topic=sap-fast-path-site-map-vmware-sddc).
+Our documents provide detailed considerations and information for building your SAP environments at each layer for all offerings. However, if you are interested in quickly finding the information related specifically to one of the IaaS offerings, then you may consider using the Fast Path Site Map's for [Intel Bare Metal](/docs/sap?topic=sap-fast-path-site-map-intel-bm), [Intel Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2), [IBM Power Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-power-vs) and [VMware SDDC](/docs/sap?topic=sap-fast-path-site-map-vmware-sddc).
 {: tip}
 
 
@@ -182,10 +180,10 @@ These solutions from SAP Patners may not apply to all SAP software or all Infras
 **This table summarises the available SAP Partner solutions:**
 
 | SAP Partner | Solution name | Solution description |
-| --- | --- | --- |
-| Actifio | [Actifio Go for SAP HANA](https://www.actifio.com/solutions/application/sap){: external} | Block-based backups for SAP HANA |
-| Veeam | [Veeam Backup & Replication for SAP HANA](https://www.veeam.com/backup-sap-hana-plugin.html){: external} | Backint backups from SAP HANA |
-| F5 | [F5 BigIP for SAP NetWeaver](https://www.f5.com/partners/technology-alliances/sap){: external} | Load balancing and traffic management for SAP |
+| --- | --- | --- | --- |
+| Actifio | [Actifio Go for SAP HANA](https://www.actifio.com/solutions/application/sap){:external} | Block-based backups for SAP HANA |
+| Veeam | [Veeam Backup & Replication for SAP HANA](https://www.veeam.com/backup-sap-hana-plugin.html){:external} | Backint backups from SAP HANA |
+| F5 | [F5 BigIP for SAP NetWeaver](https://www.f5.com/partners/technology-alliances/sap){:external} | Load balancing and traffic management for SAP |
 {: caption="Table 1. Overview of SAP Partner solutions" caption-side="top"}
 
 

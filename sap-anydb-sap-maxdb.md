@@ -30,7 +30,7 @@ Deploying SAP AnyDB on {{site.data.keyword.cloud_notm}} is similar to deploying 
 To assist your project's planning phase, extra design considerations are listed for **SAP AnyDB - SAP Max DB** with {{site.data.keyword.ibm_cloud_sap}}.
 
 
-## Overview of SAP MaxDB with {{site.data.keyword.cloud}}
+## Overview of SAP MaxDB with IBM Cloud
 {: #anydb-sap-maxdb-overview}
 
 Before you start deploying SAP MaxDB software, be sure to:
@@ -53,16 +53,16 @@ For a current overview of the combinations of SAP MaxDB, SAP NetWeaver (or other
 ### SAP MaxDB using Intel Bare Metal
 {: #anydb-sap-maxdb-bare-metal}
 
-See [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external} for supported SAP MaxDB versions.
+See [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097){: external} for supported SAP MaxDB versions.
 
 
 ### SAP MaxDB using Intel Virtual Servers
 {: #anydb-sap-maxdb-intel-vs-gen2}
 
-See [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported SAP MaxDB versions.
+See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported SAP MaxDB versions.
 
 ### SAP MaxDB using IBM Power Virtual Servers)
 {: #anydb-sap-maxdb-power-vs}
 
-See [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported SAP MaxDB versions.
+See [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported SAP MaxDB versions.
 

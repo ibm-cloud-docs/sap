@@ -94,7 +94,7 @@ Enabling the EU Support setting for your account applies to all future cases tha
 ## SAP ONE Support
 {: #sap-one-support}
 
-You can also continue to create tickets through SAP Support that are related to your {{site.data.keyword.cloud_notm}} IaaS and SAP products. For more information, see [SAP Support](https://support.sap.com/en/index.html){: external} and [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://launchpad.support.sap.com/#/notes/2414820){: external}.
+You can also continue to create tickets through SAP Support that are related to your {{site.data.keyword.cloud_notm}} IaaS and SAP products. For more information, see [SAP Support)](https://support.sap.com/en/index.html){: external} and [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites)](https://launchpad.support.sap.com/#/notes/2414820){: external}.
 
 The [SAP ONE Support Launchpad](https://launchpad.support.sap.com){: external} provides access to task-driven support resources from SAP, available with live web chat or incidnt tickets, and the following features:
 - Knowledge Base for SAP Notes
@@ -114,12 +114,8 @@ All performance-related issues must be checked by [{{site.data.keyword.cloud_not
 
 Provide details and run the following commands to attach the output to the case:
 
-* For AIX:
-  * `perfsap` on [SAP Note 1170252](https://launchpad.support.sap.com/#/notes/1170252){: external}
-* For Linux:
-  * `sapsysinfo` on [SAP Note 618104](https://launchpad.support.sap.com/#/notes/618104){: external}
-  * `supportconfig` on [SAP Note 1642802](https://launchpad.support.sap.com/#/notes/1642802){: external}
-  * and for SAP HANA also use `full-system-info-dump` on [SAP Note 1732157](https://launchpad.support.sap.com/#/notes/1732157){: external}
+  * For AIX: `perfsap` on [SAP Note 1170252](https://launchpad.support.sap.com/#/notes/1170252){: external}
+  * For Linux: `sapsysinfo` on [SAP Note 618104](https://launchpad.support.sap.com/#/notes/618104){: external}, `supportconfig` on [SAP Note 1642802](https://launchpad.support.sap.com/#/notes/1642802){: external}, and for SAP HANA also use `full-system-info-dump` on [SAP Note 1732157](https://launchpad.support.sap.com/#/notes/1732157){: external}
 
 
 ## Stack Overflow

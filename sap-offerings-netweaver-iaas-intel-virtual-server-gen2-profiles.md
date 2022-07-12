@@ -19,7 +19,7 @@ subcollection: sap
 {:note: .note}
 {:tip: .tip}
 
-# Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver
+# Intel Virtual Server certified profiles for SAP NetWeaver
 {: #nw-iaas-offerings-profiles-intel-vs-vpc}
 
 ## Profiles list
@@ -78,7 +78,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | ux2d-4x112 | 4 | 112 | 4,312 |
 --->
 
-For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}.
+For more information, see [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}.
 
 
 ## Understanding Virtual Server profile names

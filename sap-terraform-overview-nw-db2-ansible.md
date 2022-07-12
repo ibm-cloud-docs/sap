@@ -16,13 +16,13 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Automating SAP workload deployment on {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) with Terraform and Ansible
+# Automation for {{site.data.keyword.cloud_notm}} VPC deployment for SAP
 {: #components-terraform-nw-db2-terraform}
 
-You can use Terraform to automate {{site.data.keyword.cloud_notm}} VPC provisioning. The VPC provisioned includes virtual server instances with high network performance. The VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers. After the VPC is provisioned, the scripts use the Ansible Playbook to install the SAP system
+You can use Terraform to automate {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) provisioning. The VPC provisioned includes virtual server instances with high network performance. The VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers. After the VPC is provisioned, the scripts use the Ansible Playbook to install the SAP system
 {: shortdesc}
 
-## {{site.data.keyword.cloud}} VPC introduction
+## IBM VPC introduction
 {: #vpc-intro-sap-terraform-ansible}
 
 A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public) infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
@@ -31,14 +31,14 @@ Imagine that a cloud provider’s infrastructure is a residential apartment buil
 
 A VPC’s logical isolation is implemented by using virtual network functions and security features that give an enterprise customer granular control over which IP addresses or applications can access particular resources. It is analogous to the “friends-only” or “public/private” controls on social media accounts used to restrict who can or can’t see your otherwise public posts.
 
-With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to manually provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about more VPC overviews and VPC tutorials. For more information about VPC, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started).
+With {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC), you can use the UI, CLI, and API to manually provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about more VPC overviews and VPC tutorials. For more information about VPC, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc/getting-started.html).
 
-## SAP on {{site.data.keyword.cloud}}
+## SAP in IBM Cloud
 {: #sap-ibm-cloud-overview}
 
-SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for ABAP and Java applications. SAP system can be installed and configured in {{site.data.keyword.cloud_notm}} for various system and database types.
+SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for ABAP and Java applications. SAP system can be installed and configured in IBM Cloud for various system and database types.
 
-For more information about SAP system architectures on {{site.data.keyword.cloud_notm}} VPC, see the infrastructure reference architectures for SAP for each supported database type. For example, [SAP NetWeaver 7.x on UNIX with Db2 on {{site.data.keyword.cloud}} VPC](/docs/sap?topic=sap-sap-refarch-nw-db2) is the dedicated reference architecture for this SAP solution.
+For more information about SAP system architectures in IBM Cloud VPC, see the infrastructure reference architectures for SAP for each supported database type. For example, [SAP NetWeaver 7.x on UNIX with Db2 on VPC IBM Cloud](/docs/sap?topic=sap-sap-refarch-nw-db2) is the dedicated reference architecture for this SAP solution.
 
 Manually deploying a VPC and installing an SAP system can be time-consuming. The Terraform automation assures not only a much quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
 
@@ -65,9 +65,9 @@ For both the Deployment Server and local workstation, you must download the SAP 
 ## Prerequisite, where to run the scripts
 {: #sap-terraform-nw-db2-prereqs}
 
-Before you deploy any of the SAP automated solutions on {{site.data.keyword.cloud_notm}} VPC, you create a bastion server VPC in your chosen region. The bastion server is used for downloading and storing specific SAP solution media that are needed for later automation deployment. The Bastion server is used for both CLI deployment scenarios, as well for Schematics UI deployments. For more information about how to create the Bastion server and its corresponding VPC, see [Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
+Before you deploy any of the SAP automated solutions in IBM Cloud VPC, you create a bastion server VPC in your chosen region. The bastion server is used for downloading and storing specific SAP solution media that are needed for later automation deployment. The Bastion server is used for both CLI deployment scenarios, as well for Schematics UI deployments. For more information about how to create the Bastion server and its corresponding VPC, see [Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 
 After bastion VPC deployment is complete, you must download the SAP Kits to the temporary storage assigned to you on the Bastion Server. Ansible installs the kits for you. You specify the location of the Kits in the configuration files.
 
-To save costs the bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on {{site.data.keyword.cloud_notm}} VPC cloud. Or, you can keep the bastion server and use it as a jump host for that specific region. 
+To save costs the bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on IBM VPC cloud. Or, you can keep the bastion server and use it as a jump host for that specific region. 
 {: note}

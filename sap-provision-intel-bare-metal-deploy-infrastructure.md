@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2021-03-01"
+lastupdated: "2020-09-21"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -23,7 +23,7 @@ subcollection: sap
 {: #bm-set-up-infrastructure}
 
 This **Deploying your infrastructure** guidance provides how to deploy and set up SAP HANA and SAP NetWeaver on {{site.data.keyword.baremetal_long}}. This guidance refers to previous sections and includes setting up your network, security, storage, and operating system (OS).
-{: shortdesc}
+{:shortdesc}
 
 
 ## Provisioning your Bare Metal server
@@ -40,7 +40,7 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 1. The data centers displayed under **Location** depend on product availability within a particular data center. Select your data center.
 1. Click **All servers** > **SAP certified**. SAP HANA-certified servers are identified with an **.H** under CPU Model and SAP NetWeaver-certified are identified with an **.NW**.
 
-1. Select the appropriate SAP HANA-certified and SAP NetWeaver-certified server for your workload from the URLs in [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm), [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm), or [Intel Bare Metal server with Intel Optane DC Persistent Memory certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-optane).
+1. Select the appropriate SAP HANA-certified and SAP NetWeaver-certified server for your workload from the URLs in [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm) and [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm).
 
 1. **Server**, **RAM**, and your private storage option default based on your server selection and cannot be changed. {{site.data.keyword.IBM_notm}} {{site.data.keyword.blockstorageshort}} for {{site.data.keyword.cloud_notm}} or {{site.data.keyword.filestorage_full_notm}} are ordered after you have ordered your server.
 
@@ -48,8 +48,8 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 
 1. Select your **Image** from either Red Hat or SUSE to run SAP HANA, or Red Hat, SUSE or Microsoft Windows to run SAP NetWeaver; and select the specific operating system, or VMware hypervisor for your server, if you have selected a server with the (VMware) option.
 
-    If you are using SAP Business One, you need to select one of the [servers](/docs/sap?topic=sap-b1#b1-iaas) that supports it and SUSE 12 SP4 or SUSE 15 SP1 as your image.
-    {: note}
+  If you are using SAP Business One, you need to select one of the [servers](/docs/sap?topic=sap-b1#b1-iaas) that supports it and SUSE 12 SP4 or SUSE 15 SP1 as your image.
+  {: note}
 
 If you are bringing your own license (BYOL) for your operating system, select **Other** > **No OS**. For more information, see [Bring your own license](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os).
 {: note}
@@ -72,7 +72,7 @@ You cannot change the local storage when you have selected an SAP HANA appliance
 {: #bm-adding-network-storage}
 
 {{site.data.keyword.blockstoragefull}} and {{site.data.keyword.filestorage_full_notm}} are ordered after you deploy your {{site.data.keyword.cloud_notm}} {{site.data.keyword.baremetal_short}}.
-{: shortdesc}
+{:shortdesc}
 
 {{site.data.keyword.cloud_notm}} storage LUNS ({{site.data.keyword.blockstorageshort}}) and volumes ({{site.data.keyword.filestorage_full_notm}}) can be provisioned with two options - Endurance and Performance:
 - Endurance tiers feature pre-defined performance levels and other features, such as [snapshot](/docs/BlockStorage?topic=BlockStorage-snapshots) and replication.
@@ -96,8 +96,8 @@ Provisioning steps can be found under
 2. Enter values the **VLAN** and **Subnet** fields
 
 If you have decided on a public/private setup for your environment and plan to
-    * Install multiple SAP systems that need to communicate with each other *or*
-    * Choose a three-tier SAP setup (database and application instances on different hardware)
+  * Install multiple SAP systems that need to communicate with each other *or*
+  * Choose a three-tier SAP setup (database and application instances on different hardware)
 Make sure that your name resolution reflects the internal and external addresses. The external address matches the hostname of the server resolved by its fully-qualified domain name (FQDN). The internal addresses will not appear in the domain name system (DNS). Since internal IPs should be used for communication between the servers, make sure you extend your `/etc/hosts` or Microsoft Windows "host" file accordingly. This information might also apply to the guest operating system of you VMware ESXi-based deployments.
 {: note}
 
@@ -105,8 +105,8 @@ Make sure that your name resolution reflects the internal and external addresses
 4. Review your Order Summary.
 5. Select **I read and agree to the following Third-Party Service Agreements**.
 
-    You can create your server, save the order as a quote to provision at a later time, or add the order an estimate, which may include multiple services.
-    {: note}
+  You can create your server, save the order as a quote to provision at a later time, or add the order an estimate, which may include multiple services.
+  {: note}
 
 6. Click **Create** to be redirected to the Checkout page after your order has been verified.
 
@@ -124,4 +124,4 @@ When you have your own operating system license, you can install it on your Bare
 
 Please consider, the OS chosen must be certified for SAP and have access to the necessary OS Packages for SAP.
 
-Please check in [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external} if the selected operating system and its version is supported.
+Please check in [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097){: external} if the selected operating system and its version is supported.

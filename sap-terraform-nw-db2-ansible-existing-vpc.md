@@ -214,7 +214,7 @@ Use these steps to configure the  SAP NW7.X with Db2 on your existing VPC by usi
      * Profile
      * Image
      * Minimal recommended disk sizes
-     * SAP master password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point. 
+     * SAP mastert password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point. 
      * Click **Save changes**.
 
      For a more detailed description of each of the parameters, check the GitHub repo readme file, chapter “Input parameter file”. Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API, and ssh private keys (they are marked as “sensitive” in the readme file, under “Input parameter file”)

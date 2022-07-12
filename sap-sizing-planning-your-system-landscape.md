@@ -53,7 +53,7 @@ You want to be as detailed as possible when you determine the size of your serve
 * How will the database be used? Transactional (OLTP) or Analytical (OLAP)? Serving only the SAP Business Applications, or as part of your wider IT strategy extracting value from the advanced SAP HANA Components which are available (such as predictive analytics or Cloud Foundry via XSA)
 * How do you intend to deploy the applications and databases? And to what level of resiliency (i.e. HA/DR strategy)?
 
-If you plan to migrate an on-premises SAP installation into the {{site.data.keyword.IBM_notm}} Power Virtual Servers environment, make sure that you don't carry over existing performance issues. Run an up-to-date sizing report, and review a recent SAP Early Watch report of your SAP system. For more information, see [SAP EarlyWatch Alert](https://support.sap.com/en/offerings-programs/support-services/earlywatch-alert.html){: external} and [SAP Note 207223 - SAP EarlyWatch Alert Processed at SAP](https://launchpad.support.sap.com/#/notes/207223){: external}.
+If you plan to migrate an on-premises SAP installation into the {{site.data.keyword.powerSys_notm}}s environment, make sure that you don't carry over existing performance issues. Run an up-to-date sizing report, and review a recent SAP Early Watch report of your SAP system. For more information, see [SAP EarlyWatch Alert](https://support.sap.com/en/offerings-programs/support-services/earlywatch-alert.html){: external} and [SAP Note 207223 - SAP EarlyWatch Alert Processed at SAP](https://launchpad.support.sap.com/#/notes/207223){: external}.
 
 
 Each deployment of SAP HANA Database Server or SAP NetWeaver Application Server will have items to consider. These are included under each relevant section of this documentation.
@@ -70,20 +70,19 @@ For further information regarding SAP Landscapes, guidance has been released by 
 Review the following documentation to help you determine any prerequisites for the SAP products that you plan to install.
 
 If your organization is new to {{site.data.keyword.cloud_notm}}, read the following SAP documentation to help with your planning phase and implementation:
-
-* [SAP workloads on {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/sap/certified-infrastructure){: external}
-* [Get started with {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/get-started){: external}
-* [Creating an {{site.data.keyword.cloud}} account](/docs/account?topic=account-account-getting-started)
-* [How to create an SAP S-user ID](https://www.youtube.com/watch?v=4wICiRTP8u0){: external} Note that only super administrators or S-users with the required authorization are allowed to create S-user IDs for your company's SAP Customer Number (SCN)
-* The [Guide Finder for SAP NetWeaver and ABAP Platform](https://help.sap.com/viewer/nwguidefinder){: external} to search for SAP NetWeaver-related documentation, including installation guides.
-* Applicable [installation guides](https://support.sap.com/en/my-support/software-downloads.html){: external}; requires an SAP S-user ID.
-* SAP release notes, which can be found in the application help of the relevant SAP product documentation on the [SAP Help Portal](https://help.sap.com/viewer/index){: external}; requires an SAP S-user ID.
-* [SAP HANA Help](https://help.sap.com/viewer/product/SAP_HANA_PLATFORM){: external}
-* [SAP NetWeaver Help](https://help.sap.com/viewer/product/SAP_NETWEAVER/ALL/en-US){: external}
-* [SAP HANA Installation Guide](https://www.sap.com/products/hana/technical.html){: external}
-* [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}; requires an SAP S-user ID.
-* [SAP Notes](https://support.sap.com/en/my-support/knowledge-base.html){: external}; requires an SAP S-user ID.
-* Third-party documentation
+    * [SAP workloads on {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/sap/certified-infrastructure){: external}
+    * [Get started with {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/get-started){: external}
+    * [Creating an {{site.data.keyword.cloud}} account](/docs/account?topic=account-account-getting-started)
+    * [How to create an SAP S-user ID](https://www.youtube.com/watch?v=4wICiRTP8u0){: external} Note that only super administrators or S-users with the required authorization are allowed to create S-user IDs for your company's SAP Customer Number (SCN)
+    * The [Guide Finder for SAP NetWeaver and ABAP Platform](https://help.sap.com/viewer/nwguidefinder){: external} to search for SAP NetWeaver-related documentation, including installation guides.
+    * Applicable [installation guides](https://support.sap.com/en/my-support/software-downloads.html){: external}; requires an SAP S-user ID.
+    * SAP release notes, which can be found in the application help of the relevant SAP product documentation on the [SAP Help Portal](https://help.sap.com/viewer/index){: external}; requires an SAP S-user ID.
+    * [SAP HANA Help](https://help.sap.com/viewer/product/SAP_HANA_PLATFORM){: external}
+    * [SAP NetWeaver Help](https://help.sap.com/viewer/product/SAP_NETWEAVER/ALL/en-US){: external}
+    * [SAP HANA Installation Guide](https://www.sap.com/products/hana/technical.html){: external}
+    * [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}; requires an SAP S-user ID.
+    * [SAP Notes](https://support.sap.com/en/my-support/knowledge-base.html){: external}; requires an SAP S-user ID.
+    * Third-party documentation
 
 
 
@@ -138,7 +137,7 @@ When you create a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_no
 
 While your data must fit into the instance memory with space for data growth defined by the business and SAP Sizing process, choosing an instance profile with more CPUs improves performance.
 
-To find SAP certified profiles for Cloud IaaS, see [SAP Certified and Supported SAP HANA Hardware Directory - Certified IaaS Platforms - {{site.data.keyword.cloud_notm}}](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}; this includes {{site.data.keyword.IBM_notm}} Power Virtual Servers which can be found by using filter "CPU Architeceture" and selecting IBM POWER9.
+To find SAP certified profiles for Cloud IaaS, see [SAP Certified and Supported SAP HANA Hardware Directory - Certified IaaS Platforms - {{site.data.keyword.cloud_notm}}](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}; this includes {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s which can be found by using filter "CPU Architeceture" and selecting IBM POWER9.
 
 To find SAP certified {{site.data.keyword.IBM_notm}} Power Systems hardware, see [SAP Certified and Supported SAP HANA Hardware Directory - {{site.data.keyword.IBM_notm}} Power Systems](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=power){: external}.
 
@@ -155,10 +154,10 @@ SAP system monitoring is available through the [SAP Host Agent](https://help.sap
 
 The operating system metrics that the SAP Host Agent provides require the use of [{{site.data.keyword.cloud_notm}} Metrics Collector for SAP](/docs/sap?topic=sap-ibm-metrics-collector-for-sap-linux) and the correct SAP Host Agent patch level.
 
-### Monitoring for {{site.data.keyword.IBM_notm}} Power Virtual Servers
+### Monitoring for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s
 {: #monitoring-power}
 
-For Infrastructure as a Service (IaaS) environments such as {{site.data.keyword.IBM_notm}} Power Virtual Servers, the operating system metrics that the SAP Host Agent provides were enhanced. Make sure you have the prerequisite SAP Host Agent patch level installed. For a description of the new metrics and required SAP Host Agent patch level, see [SAP Note 2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://launchpad.support.sap.com/#/notes/2932766){: external}.
+For Infrastructure as a Service (IaaS) environments such as {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, the operating system metrics that the SAP Host Agent provides were enhanced. Make sure you have the prerequisite SAP Host Agent patch level installed. For a description of the new metrics and required SAP Host Agent patch level, see [SAP Note 2932766 - Key Monitoring Metrics for SAP on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2932766){: external}.
 
 
 ## Support from IBM Cloud or SAP

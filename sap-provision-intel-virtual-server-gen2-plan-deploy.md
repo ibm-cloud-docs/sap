@@ -22,7 +22,7 @@ subcollection: sap
 # Planning your deployment
 {: #vs-planning-items}
 
-Having arrived at this section you are already familiar with the fundamental components and options that are provided by {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure for SAP. Before starting with the deployment of servers, please make sure, that you have read the important information in the **_Get Started_** section.
+Having arrived at this section you are already familiar with the fundamental components and options that are provided by IBM VPC Infrastructure for SAP. Before starting with the deployment of servers, please make sure, that you have read the important information in the **_Get Started_** section.
 {: shortdesc}
 
 
@@ -30,7 +30,7 @@ Having arrived at this section you are already familiar with the fundamental com
 {: #vs-must-reads}
 
 To ensure your first deployment is a success, we recommend to read:
-* [{{site.data.keyword.cloud}} VPC Infrastructure environment introduction](/docs/sap?topic=sap-vpc-env-introduction)
+* [VPC Infrastructure environment introduction](/docs/sap?topic=sap-vpc-env-introduction)
 * The _Plan your SAP workloads_ topic group
 * The _Infrastructure for SAP design considerations_ topic group - especially the chapter [Sample storage configurations on VPC Infrastructure](/docs/sap?topic=sap-vpc-env-introduction#vpc-env-storage)
 
