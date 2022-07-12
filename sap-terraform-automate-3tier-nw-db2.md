@@ -17,7 +17,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip} 
 
-# Automating NW7.X and Db2 3-tier distributed architecture on {{site.data.keyword.cloud_notm}} with Terraform and Ansible
+# Automating NetWeaver 7.x and Db2 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC with Terraform and Ansible
 {: #create-terraform-3tier-nw-db2-vpc-ansible}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
@@ -77,7 +77,7 @@ The scripts are designed to create a new VPC and install SAP (NW 7.x release) so
 
 The configuration and script files are provided on the GitHub repository [`https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed`](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed). This solution  performs an automated deployment of a distributed system (two nodes) with SAP Netweaver with DB2 on top of Red Hat Enterprise Linux 7.6 for SAP Applications :
 
-To run the scripts to create a VPC and install NW7.X and Db2, you modify:
+To run the scripts to create a VPC and install NW 7.x and Db2, you modify:
 
 *	The `terraform.tfvars` file to add your {{site.data.keyword.cloud_notm}} API-key.
 *	The `input.auto.tfvars` file to customize the resources for your solution. By default, the VSI is configured with:

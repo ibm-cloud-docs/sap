@@ -481,7 +481,7 @@ The following links will assist you in the installation and configuration of you
 | [2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850)               | Supported SAP applications on {{site.data.keyword.IBM_notm}} IBM Power Virtual Servers        |
 | [1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)                                    | IaaS environments                         |
 | [2923984 - SAP on IBM Power Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984)     | Support prerequisites                    |
-| [2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power SVirtual Servers](https://launchpad.support.sap.com/#/notes/2947579)                       | SAP HANA and virtual server instances                         |
+| [2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579)                       | SAP HANA and virtual server instances                         |
 | [2923962 - Check SAP HANA NUMA Layout on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2923962)     | Checking the NUMA layout                  |
 | [2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://launchpad.support.sap.com/#/notes/2932766) | Key Monitoring Metrics                    |
 {: caption="Table 3. Cloud-related resources - {{site.data.keyword.IBM_notm}} Power Virtual Servers" caption-side="top"}
@@ -517,18 +517,17 @@ The following links will assist you in the installation and configuration of you
 | [1002461 - Support of IBM Dynamic LPAR and Micropartitioning](https://launchpad.support.sap.com/#/notes/1002461)                                                          | LPAR and micro partitioning                      |
 | [1122387 - Linux: SAP Support in virtualized environments](https://launchpad.support.sap.com/#/notes/1122387)                                                             | SAP Support in virtualized environments          |
 | [1400911 - Linux: SAP NetWeaver on Red Hat KVM - Kernel-based Virtual Machine](https://launchpad.support.sap.com/#/notes/1400911)                                         | Red Hat KVM - Kernel-based virtual machine        |
-| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux)                                            | Useful information about running Linux on Power  |
 | [2526952 - Red Hat Enterprise Linux for SAP Solutions](https://launchpad.support.sap.com/#/notes/2526952)                                                                 | RHEL for SAP Solutions *** Central Note for RHEL |
 | [1631106 - Red Hat Enterprise Linux for SAP Applications](https://launchpad.support.sap.com/#/notes/0001631106)                                                           | RHEL for SAP applications                        |
 | [2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167)                                                     | RHEL 7x installation and upgrading               |
-| [Technical Resource for SAP Business Applications on Red Hat](https://wiki.scn.sap.com/wiki/display/ATopics/Technical+Resources+for+SAP+Business+Applications+on+Red+Hat) | A useful collection of links for SAP and Redhat  |
+| [Technical Resource for SAP Business Applications on Red Hat](https://blogs.sap.com/2013/02/28/technical-resources-for-sap-business-applications-on-red-hat/) | A useful collection of links for SAP and Redhat  |
 | [936887 - End of maintenance for Linux distributions](https://launchpad.support.sap.com/#/notes/936887)                                                                   | Maintenance calendar and product maturity        |
 | [2679703 - Linux on {{site.data.keyword.IBM_notm}} Power Systems -- SAP monitoring recommendations](https://launchpad.support.sap.com/#/notes/2679703)                                               | SAP monitoring recommendations                   |
 | [2578899 - SUSE Linux Enterprise Server 15: Installation Note](https://launchpad.support.sap.com/#/notes/2578899)                                                         | SLES 15 installation note                        |
 | [1275776 - Linux: Preparing SLES for SAP environments](https://launchpad.support.sap.com/#/notes/1275776)                                                                 | Preparing SLES for SAP environments              |
 | [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap)                                                                                   | A useful collection of SUSE documentation        |
 | [187864 - Linux: Locale Support on Linux](https://launchpad.support.sap.com/#/notes/187864)                                                                               | Locale support for Linux                         |
-| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux)                                            | SAP on {{site.data.keyword.IBM_notm}} Power Systems library                 |
+| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://community.sap.com/topics/linux/sap-on-ibm-power-systems-on-linux)                                            | News about SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux |
 | [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/)                                                                                              | IBM and SUSE                                     |
 {: caption="Table 5. Operating systems - Linux" caption-side="top"}
 

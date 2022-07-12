@@ -26,7 +26,7 @@ Before you decide which SAP automated solution you want to deploy in {{site.data
 
 Each customer is given an SAP S-user that reflects their contractual details with SAP, including: 
 * SAP support
-* SNotes 
+* SAP Notes 
 * System maintenance 
 * Generate and maintain SAP and DB licenses  
 * Migrations keys 

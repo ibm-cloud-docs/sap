@@ -90,7 +90,7 @@ For example, some of the services that are available in partnership between {{si
 ### Do I need IBM Db2 to run SAP NetWeaver on {{site.data.keyword.cloud_notm}}?
 {: #faq-need-db2}
 
-Multiple SAP anyDB options and SAP HANA are available for use with SAP NetWeaver certified infrastructure on {{site.data.keyword.cloud_notm}}. You are not required to use IBM Db2.
+Multiple SAP AnyDB options and SAP HANA are available for use with SAP NetWeaver certified infrastructure on {{site.data.keyword.cloud_notm}}. You are not required to use IBM Db2.
 
 Check [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external} regularly and also reference the [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external} for details.
 
@@ -124,7 +124,7 @@ RDBMs on Intel Bare Metal Servers in the older {{site.data.keyword.cloud_notm}} 
 High availability for SAP can be achieved for:
 - SAP NetWeaver High Availability
 - SAP HANA High Availability
-- SAP anyDB High Availability (for example, IBM Db2, MS SQL etc.)
+- SAP AnyDB High Availability (for example, IBM Db2, MS SQL etc.)
 
 You can set up high availability at either the:
 - SAP Technical Application layer (for example, system replication, system clustering)
@@ -162,7 +162,7 @@ No {{site.data.keyword.ibm_cloud_sap}} portfolio offering contains any SAP licen
 This arrangement applies to:
 - SAP Business Application licenses (for example, SAP S/4HANA, SAP ECC)
 - SAP Technical Application licenses (for example, SAP HANA, SAP NetWeaver)
-- Any OEM license from SAP (for example, SAP anyDB OEM such as MS SQL)
+- Any OEM license from SAP (for example, SAP AnyDB OEM such as MS SQL)
 
 
 ### How does Operating System (OS) licensing work with the {{site.data.keyword.ibm_cloud_sap}} Infrastructure-as-a-Service?

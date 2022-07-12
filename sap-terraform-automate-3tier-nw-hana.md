@@ -83,7 +83,7 @@ For each {{site.data.keyword.cloud_notm}} region, IBM allocates temporary storag
 ## Script files
 {: #terraform-3tier-nw-db2-ansible-files}
 
-The configuration and script files are provided on the [GitHub repository github.com/IBM-Cloud/sap-netweaver-java-hana](https://github.com/IBM-Cloud/sap-netweaver-java-hana). 
+The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-netweaver-java-hana](https://github.com/IBM-Cloud/sap-netweaver-java-hana). 
 
 For SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud_notm}} Virtual Private Cloud, you modify the:
 

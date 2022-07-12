@@ -16,7 +16,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Creating 2nd and 3rd tier virtual private cloud for SAP anydb (non-HANA) by using Terraform
+# Automating SAP AnyDB (non-HANA) 2-tier and 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC with Terraform
 {: #create-terraform-multi-tier-vpc-anydb-sap}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
@@ -31,7 +31,7 @@ To create resources with Terraform, you use Terraform configuration files that d
 
 The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-infra-anydb-distributed](https://github.com/IBM-Cloud/sap-infra-anydb-distributed). 
 
-For 2nd and 3rd tier virtual private cloud on SAP, you modify the:
+For 2-tier and 3-tier VPC for SAP, you modify the:
 
 *  ``terraform.tfvars`` file to add your {{site.data.keyword.cloud_notm}} API-key
 
@@ -44,7 +44,7 @@ The IBM Cloud Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}}
 ## What is created
 {: #terraform-multi-tier-vpc-sap-components}
 
-A VPC is a private space in {{site.data.keyword.cloud_notm}} where you can run an isolated environment with custom network policies. The variables that you define are used by the scripts to provision the following virtual private cloud infrastructure resources for you: 
+A VPC is a private space in {{site.data.keyword.cloud_notm}} where you can run an isolated environment with custom network policies. The variables that you define are used by the scripts to provision the following VPC infrastructure resources for you: 
 
 *	1 VPC where you provision your virtual server instance
 *	1 security group and rules for this security group to allow DNS and SSH connections to your virtual server instance and all outbound traffic
@@ -165,7 +165,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
    terraform init
    ```
 
-6. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
+6. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the VPC instance in your account.
 
    ```
    terraform init
@@ -173,12 +173,12 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
 7. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
 
-8. Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
+8. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
    ```
    terraform apply
    ```
-   The virtual private cloud and components are created and you see output similar to the terraform plan output.  
+   The VPC and components are created and you see output similar to the terraform plan output.  
 
 
 ## Next steps

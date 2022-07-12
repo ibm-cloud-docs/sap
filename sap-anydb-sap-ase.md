@@ -29,7 +29,7 @@ Deployment of SAP AnyDB on {{site.data.keyword.cloud_notm}} is similar to deploy
 
 To assist your project's planning phase, more design considerations are provided for **SAP AnyDB - SAP ASE** with {{site.data.keyword.ibm_cloud_sap}}.
 
-## Overview of SAP ASE with IBM Cloud
+## Overview of SAP ASE with {{site.data.keyword.cloud}}
 {: #anydb-sap-ase-overview}
 
 Before you start the software deployment of SAP ASE, ensure that:
@@ -43,9 +43,9 @@ A good entry point into the documentation is the [SAP Community page for SAP Ada
 
 SAP ASE documentation:
 - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE)](https://help.sap.com/viewer/product/SAP_ASE/latest/en-US){: external}
-  - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE) Installation and Upgrade Guide for Linux&reg;](https://help.sap.com/viewer/23c3bb4a29be443ea887fa10871a30f8/latest/en-US){: external}
-  - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE) Installation and Upgrade Guide for IBM AIX](https://help.sap.com/viewer/07e2d10774874e3bb4d991ef08d678e8/latest/en-US){: external}
-  - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE) Installation and Upgrade Guide for Windows](https://help.sap.com/viewer/36031975851a4f82b1022a9df877280b/latest/en-US){: external}
+    - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE) Installation and Upgrade Guide for Linux&reg;](https://help.sap.com/viewer/23c3bb4a29be443ea887fa10871a30f8/latest/en-US){: external}
+    - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE) Installation and Upgrade Guide for IBM AIX](https://help.sap.com/viewer/07e2d10774874e3bb4d991ef08d678e8/latest/en-US){: external}
+    - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE) Installation and Upgrade Guide for Windows](https://help.sap.com/viewer/36031975851a4f82b1022a9df877280b/latest/en-US){: external}
 - [SAP Note 1748888 - Installing Systems Based on NW 7.3 and Higher: SAP ASE](https://launchpad.support.sap.com/#/notes/1748888){: external}
 - [SAP Note 2489781 - SAP ASE 16.0 SP03 Supported Operating Systems and Versions](https://launchpad.support.sap.com/#/notes/2489781){: external}
 
@@ -64,7 +64,7 @@ SAP ASE and SAP NetWeaver **on Windows**:
 ### SAP ASE using Intel Virtual Servers
 {: #anydb-sap-ase-intel-vs-vpc}
 
-See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI)](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported SAP ASE database versions.
+See [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported SAP ASE database versions.
 
 
 ### SAP ASE using IBM Power Virtual Servers
@@ -73,4 +73,4 @@ See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported
 This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
-See [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported SAP ASE database versions on AIX running on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
+See [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported SAP ASE database versions on AIX running on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.

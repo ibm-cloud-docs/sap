@@ -611,8 +611,8 @@ The following links will assist you in the installation and configuration of you
 ### Operating systems - Linux
 {: #os_linux-aix}
 
-| Link                                                                                                                                                                      | Description                                      |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| Link | Description |
+|---|---|
 | [2378874 - Install SAP Solutions on Linux on {{site.data.keyword.IBM_notm}} Power Systems (little endian)](https://launchpad.support.sap.com/#/notes/2378874)                                        | Installing SAP Solutions on {{site.data.keyword.IBM_notm}} Power Systems    |
 | [2369910 - SAP Software on Linux: General information](https://launchpad.support.sap.com/#/notes/2369910)                                                                 | General information for SAP software on Linux    |
 | [765424 - Linux: Released IBM Hardware - POWER based servers](https://launchpad.support.sap.com/#/notes/765424)                                                           | Power-based servers                              |
@@ -628,15 +628,10 @@ The following links will assist you in the installation and configuration of you
 | [1275776 - Linux: Preparing SLES for SAP environments](https://launchpad.support.sap.com/#/notes/1275776)                                                                 | Preparing SLES for SAP environments              |
 | [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap)                                                                                   | A useful collection of SUSE documentation        |
 | [187864 - Linux: Locale Support on Linux](https://launchpad.support.sap.com/#/notes/187864)                                                                               | Locale support for Linux                         |
+| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://community.sap.com/topics/linux/sap-on-ibm-power-systems-on-linux)                                       | News about SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux                 |
+| [Technical Resource for SAP Business Applications on Red Hat](https://blogs.sap.com/2013/02/28/technical-resources-for-sap-business-applications-on-red-hat/)  | A useful collection of links for SAP and Redhat  |
 | [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/)                                                                                              | IBM and SUSE                                     |
 {: caption="Table 5. Operating systems - Linux" caption-side="top"}
-
-<!---
-| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux)                                            | Useful information about running Linux on Power  |
-| [Technical Resource for SAP Business Applications on Red Hat](https://wiki.scn.sap.com/wiki/display/ATopics/Technical+Resources+for+SAP+Business+Applications+on+Red+Hat) | A useful collection of links for SAP and Redhat  |
-| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux)                                            | SAP on {{site.data.keyword.IBM_notm}} Power Systems library                 |
-No longer on SAP's Wiki
---->
 
 
 ### Databases - Db2

@@ -16,7 +16,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Creating single-tier virtual private cloud for SAP by using Terraform
+# Creating single-tier VPC for SAP on {{site.data.keyword.cloud}} VPC with Terraform
 {: #create-terraform-single-tier-vpc-sap}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
@@ -113,7 +113,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
    terraform init
    ```
 
-7. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
+7. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the VPC instance in your account.
 
    ```
    terraform plan
@@ -121,12 +121,12 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
 8. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
 
-9. Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
+9. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
    ```
    terraform apply
    ```
-   The virtual private cloud and components are created and you see output similar to the terraform plan output.  
+   The VPC and components are created and you see output similar to the terraform plan output.  
 
 
 ## Next steps
