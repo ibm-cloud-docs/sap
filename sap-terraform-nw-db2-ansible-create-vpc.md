@@ -42,7 +42,7 @@ During the first phase, the VPC is provisioned with these components:
 *	1 virtual server instance with SAP certified storage and network configurations
 *	1 floating IP address that you use to access your VPC virtual server instance over the public network
 
-During the second phase, the Ansible Playbook is called and the SAP architecture is installed. The SAP architecture that is deployed is NetWeaver 7.X with Db2. For more information about this architecture, see [SAP NetWeaver 7.x on UNIX with Db2 on VPC IBM Cloud](/docs/sap?topic=sap-sap-refarch-nw-db2)
+During the second phase, the Ansible Playbook is called and the SAP architecture is installed. The SAP architecture that is deployed is SAP NetWeaver 7.X with Db2. For more information about this architecture, see [SAP NetWeaver 7.x on UNIX with Db2 on VPC IBM Cloud](/docs/sap?topic=sap-sap-refarch-nw-db2)
 
 The scripts are designed to create a new VPC and install SAP in one task flow. If you want to install SAP NW7.X and Db2 on an existing VPC, see [Deploy NW7.X and Db2 on an existing {{site.data.keyword.cloud_notm}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-sap-terraform-nw-db2-existing-vpc).  
 

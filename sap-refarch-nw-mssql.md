@@ -24,7 +24,7 @@ subcollection: sap
 # SAP NetWeaver 7.x on Windows Servers with MS SQL on {{site.data.keyword.cloud}} VPC
 {: #sap-refarch-nw-mssql}
 
-MS SQL Server is one of several databases that can be deployed on NetWeaver in the {{site.data.keyword.cloud}}. The most common architecture deployments are standard and distributed systems. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, Java, and SAP products based on these application server stacks.
+MS SQL Server is one of several databases that can be deployed on SAP NetWeaver in the {{site.data.keyword.cloud}}. The most common architecture deployments are standard and distributed systems. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, Java, and SAP products based on these application server stacks.
 
 The MS SQL Server database for SAP is supported only on Windows servers and using only the Enterprise Edition of the software. Other SQL Server editions are currently not supported.
 
@@ -81,7 +81,7 @@ SAP tools create a PAS Instance and an ASCS Instance. This method is the standar
 
 1. The Primary Application Server (PAS) - An instance is an administrative unit that contains various components of an SAP system. The components of an instance are parameterized in a shared instance profile. Each instance is identified by a system ID and an instance number and includes:
 
-   * [SAP Web Dispatcher](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) & Work Process (DIA,BTC,UPD,SPOOL) - The SAP Web Dispatcher lies between the internet and your SAP system. The SAP Web Dispatcher is the entry point for HTTP and HTTPs requests into your system, which consists of one or more NetWeaver application servers. As a “software web switch”, the SAP Web dispatcher can reject or accept connections. When it accepts a connection, it balances the load to ensure an even distribution across the servers. The SAP Web Dispatcher contributes to security and also balances the load in your SAP system.
+   * [SAP Web Dispatcher](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) & Work Process (DIA,BTC,UPD,SPOOL) - The SAP Web Dispatcher lies between the internet and your SAP system. The SAP Web Dispatcher is the entry point for HTTP and HTTPs requests into your system, which consists of one or more SAP NetWeaver application servers. As a “software web switch”, the SAP Web dispatcher can reject or accept connections. When it accepts a connection, it balances the load to ensure an even distribution across the servers. The SAP Web Dispatcher contributes to security and also balances the load in your SAP system.
 
      You can use the SAP Web Dispatcher in ABAP and Java systems, in pure Java systems, and in pure ABAP systems.
 

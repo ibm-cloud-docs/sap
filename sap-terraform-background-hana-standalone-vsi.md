@@ -50,12 +50,12 @@ An SAP HANA system can be configured as either:
 *	A single-host system - One SAP HANA instance on one host. 
 *	A distributed system (multiple-host system) - Multiple SAP HANA instances distributed over multiple hosts, 
 
-## Single-host HANA system
+## Single-host SAP HANA system
 {: #sap-hana-single-host}
 
 A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components: 
 
- ![Figure 1. SAP NetWeaver 7.x HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x HANA standard installation with AAS"){: caption="Figure 2. SAP NetWeaver 7.x HANA single-host installation with AAS" caption-side="bottom"}
+ ![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 2. SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
 
 For more information about SAP systems architectures in {{site.data.keyword.cloud_notm}} VPC, see [reference architectures](/docs/sap?topic=sap-sap-refarch-nw-hana) for each supported database type.
 
@@ -63,8 +63,8 @@ Manually deploying a VPC and installing an SAP system can be time-consuming. The
 
 The solution that is presented in this how-to guide is the automated deployment of a single host with SAP HANA stand-alone VSI on Red Hat Enterprise Linux 7.6 for SAP Applications.
 
-Database instance (DB) - To assist your project's planning phase, more design considerations are provided at SAP AnyDB – HANA database with {{site.data.keyword.cloud_notm}} for SAP. For more information, see [AnyDB - SAP HANA](/docs/sap?topic=sap-anydb-hana-db) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
-A dedicated reference architecture about this AnyDB SAP HANA on {{site.data.keyword.cloud_notm}} VPC cloud can be found on [AnyDB - HANA Database](/docs/sap?topic=sap-anydb-hana-db).
+Database instance (DB) - To assist your project's planning phase, more design considerations are provided at SAP AnyDB – SAP HANA database with {{site.data.keyword.cloud_notm}} for SAP. For more information, see [AnyDB - SAP HANA](/docs/sap?topic=sap-anydb-hana-db) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
+A dedicated reference architecture about this AnyDB SAP HANA on {{site.data.keyword.cloud_notm}} VPC cloud can be found on [AnyDB - SAP HANA Database](/docs/sap?topic=sap-anydb-hana-db).
 
 SAP HANA installation media that are used for this deployment is the default one for SAP HANA, platform edition 2.0 SPS05. The media is available at SAP Support Portal in the INSTALLATION AND UPGRADE area and it must be provided manually in the input parameter file.
 
@@ -85,7 +85,7 @@ Access creating single-tier VPC for SAP by using Terraform to get the detailed s
 ## Ansible for SAP installation
 {: #sap-hana-ansible-for-install}
 
-Ansible is an automation tool for the deployment several IT tasks. This solution performs the automated deployment of SAP HANA 2.0 DB on Red Hat Enterprise Linux 7.6 for SAP HANA on stand-alone HANA box VSI. For more information about Ansible, check out the documentation available on the Ansible page.
+Ansible is an automation tool for the deployment several IT tasks. This solution performs the automated deployment of SAP HANA 2.0 DB on Red Hat Enterprise Linux 7.6 for SAP HANA on stand-alone SAP HANA box VSI. For more information about Ansible, check out the documentation available on the Ansible page.
 
 The deployment is done by the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on [the Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html).
 

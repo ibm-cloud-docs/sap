@@ -17,7 +17,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip} 
 
-# Automating NetWeaver 7.x and Db2 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC with Terraform and Ansible
+# Automating SAP NetWeaver 7.x and Db2 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC with Terraform and Ansible
 {: #create-terraform-3tier-nw-db2-vpc-ansible}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
@@ -56,7 +56,7 @@ During the first phase, the VPC is provisioned with these components:
 *	2 virtual server instances with SAP certified storage and network configurations
 *	2 floating IP address that you use to access your VPC virtual server instance over the public network
 
-During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both the dedicated SAP App virtual server instance machine and dedicated database virtual server instance Db2 box. The SAP architecture that is deployed is NetWeaver 7.X with Db2. For more information about this architecture, see [SAP NetWeaver 7.x on UNIX with Db2 on {{site.data.keyword.cloud}} VPC on distributed environment](/docs/sap?topic=sap-sap-refarch-nw-db2#installation-types)
+During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both the dedicated SAP App virtual server instance machine and dedicated database virtual server instance Db2 box. The SAP architecture that is deployed is SAP NetWeaver 7.X with Db2. For more information about this architecture, see [SAP NetWeaver 7.x on UNIX with Db2 on {{site.data.keyword.cloud}} VPC on distributed environment](/docs/sap?topic=sap-sap-refarch-nw-db2#installation-types)
 
 ## Single-host DB2 database VSI 
 {: #terraform-3tier-nw-db2-single-host}
@@ -93,9 +93,9 @@ All of the other configuration files are provided and do not need to be modified
 
 The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account. 
 
-During configuration you can specify an existing VPC to use, instead of creating a new VPC. The procedures for Creating 2 or 3-tier VPC for SAP anydb (non-HANA) by using terraform with proper infrastructure environment for SAP with anydb (non-HANA) is optimized for Db2. 
+During configuration you can specify an existing VPC to use, instead of creating a new VPC. The procedures for Creating 2 or 3-tier VPC for SAP anydb (non-SAP HANA) by using terraform with proper infrastructure environment for SAP with anydb (non-SAP HANA) is optimized for Db2. 
 
-For the detailed steps about using Terraform to create only a VPC for SAP, see [Creating 2nd and 3rd tier virtual private cloud for SAP anydb (non-HANA) by using Terraform](/docs/sap?topic=sap-create-terraform-multi-tier-vpc-anydb-sap).
+For the detailed steps about using Terraform to create only a VPC for SAP, see [Creating 2nd and 3rd tier virtual private cloud for SAP anydb (non-SAP HANA) by using Terraform](/docs/sap?topic=sap-create-terraform-multi-tier-vpc-anydb-sap).
 
 ## SAP Kits
 {: #terraform-3tier-nw-db2-sap-kits}

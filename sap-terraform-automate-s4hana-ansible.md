@@ -19,13 +19,13 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating S/4HANA on 3-tier {{site.data.keyword.cloud}} VPC with Terraform and Ansible
+# Automating SAP S/4HANA on 3-tier {{site.data.keyword.cloud}} VPC with Terraform and Ansible
 {: #automate-s4hana-terraform-ansible}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and other Intel technologies. 
 {: shortdesc}
 
-You can use Terraform scripts to create a single-tier VPC and create the SAP and HANA in a distributed architecture on the bastion server that you create. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.  
+You can use Terraform scripts to create a single-tier VPC and create the SAP and SAP HANA in a distributed architecture on the bastion server that you create. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.  
 
 
 ## SAP Solution implemented 
@@ -40,7 +40,7 @@ While previous SAP ERP solutions support the most common databases, SAP S/4HANA 
 ## What is created
 {: #automate-s4hana-terraform-ansible}
 
-The scripts work in two phases. The first phase automates the VPC provisioning process. The second phase creates the SAP architecture in a distributed environment SAP S/4HANA App server on a distinct VSI VPC machine and HANA DB on a dedicated server type VSI VPC box machine. For more information about this architecture, see [SAP NetWeaver 7.x with HANA {{site.data.keyword.cloud}} VPC](/docs/sap?topic=sap-sap-refarch-nw-hana&interface=ui).
+The scripts work in two phases. The first phase automates the VPC provisioning process. The second phase creates the SAP architecture in a distributed environment SAP S/4HANA App server on a distinct VSI VPC machine and SAP HANA DB on a dedicated server type VSI VPC box machine. For more information about this architecture, see [SAP NetWeaver 7.x with SAP HANA {{site.data.keyword.cloud}} VPC](/docs/sap?topic=sap-sap-refarch-nw-hana&interface=ui).
 
 During the first phase, the VPC is provisioned with these components: 
 
@@ -53,22 +53,22 @@ During the first phase, the VPC is provisioned with these components:
 *	2 X virtual server instance with SAP certified storage and network configurations
 *	2 floating IP’s address that you use to access your VPC virtual server instance over the public network
 
-During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSIs SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on stand-alone dedicated HANA 2.0 box release as a distributed deployment model. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
+During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSIs SAP App VSI machine and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on stand-alone dedicated SAP HANA 2.0 box release as a distributed deployment model. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
 
 
-## Single-host HANA system
+## Single-host SAP HANA system
 {: #automate-s4hana-terraform-ansible}
 
 A single-host system is the simplest system installation type that runs an SAP HANA db system entirely on one host. You can scale the system up as needed. The single-host system has these components: 
  
- ![Figure 1. SAP NetWeaver 7.x HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x HANA standard installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x HANA single-host installation with AAS" caption-side="bottom"}
+ ![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
 
-The scripts are designed to create a new VPC and install SAP (S/4HANA release) solution together with its dedicated DB HANA box in one task flow.
+The scripts are designed to create a new VPC and install SAP (SAP S/4HANA release) solution together with its dedicated DB SAP HANA box in one task flow.
 
 <!--- 
 The mentioned reference link is not available. I did not find an approriate page/section to hyperlink to.
 
-If you want to install SAP S/4HANA on an existing VPC with already installed and configured HANA box VSI, see [How to automate SAP HANA stand-alone VSI on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+If you want to install SAP S/4HANA on an existing VPC with already installed and configured SAP HANA box VSI, see [How to automate SAP HANA stand-alone VSI on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
 --->
 
 ## Script files
@@ -84,7 +84,7 @@ Each supported interface for the SAP solution installation has its own folder in
 {: #automate-s4hana-terraform-ansible-terraform}
 {: terraform}
 
-To run the scripts to create a VPC and install the SAP S/4HANA release on dedicated HANA 2.0 BOX VSI, you need to modify:
+To run the scripts to create a VPC and install the SAP S/4HANA release on dedicated SAP HANA 2.0 BOX VSI, you need to modify:
 
 *	The terraform.tfvars file to add your {{site.data.keyword.cloud_notm}} API-key.
 *	The input.auto.tfvars file to customize the resources for your solution. By default, the VSI is configured with:
@@ -189,7 +189,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 5.	Customize your SAP system configuration.edit the SAP system configuration variables that are passed to the Ansible automated deployment.
 
     ```
-	#HANA DB configuration
+	#SAP HANA DB configuration
 	hana_sid = "HDB"
 	hana_sysno = "00"
 	hana_system_usage = "custom"
@@ -202,7 +202,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 	sap_ascs_instance_number = "01"
 	sap_ci_instance_number = "00"
 
-	# Number of concurrent jobs used to load and/or extract archives to HANA Host
+	# Number of concurrent jobs used to load and/or extract archives to SAP HANA Host
 	hdb_concurrent_jobs = "23"
 
 	#SAP S4HANA APP Installation kit path
@@ -229,9 +229,9 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 	terraform plan
     ```
 
-	You must enter a HANA main password and the SAP main password. 
+	You must enter an SAP HANA main password and the SAP main password. 
 
-    The HANA main password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can contain only the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
+    The SAP HANA main password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can contain only the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
     
     The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!` and must not start with a digit or an underscore ( _ ).
 
@@ -291,7 +291,7 @@ Use these steps to configure the  SAP S/4HANA on your existing VPC by using the 
      * Profile
      * Image
      * Minimal recommended disk sizes
-     * HANA main password - This password must be 8 - 14 characters, upper and lowercase letters, a number, and a special character. 
+     * SAP HANA main password - This password must be 8 - 14 characters, upper and lowercase letters, a number, and a special character. 
      * SAP main password - This password must be 10 - 14 characters, upper and lowercase letters, a number, and a special character that is not an exclamation point. 
      * Click **Save changes**.
 

@@ -19,13 +19,13 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating BW/4HANA on 3-tier {{site.data.keyword.cloud}} VPC with Terraform and Ansible
+# Automating SAP BW/4HANA on 3-tier {{site.data.keyword.cloud}} VPC with Terraform and Ansible
 {: #bw4hana-automation-on-vpc}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and other Intel technologies.
 {: shortdesc}
 
-You can use Terraform scripts to create a single-tier VPC and create the SAP and HANA in a distributed architecture on the bastion server that you create. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.  
+You can use Terraform scripts to create a single-tier VPC and create the SAP and SAP HANA in a distributed architecture on the bastion server that you create. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.  
 
 ## SAP Solution implemented 
 {: #bw4hana-automation-solution}
@@ -43,7 +43,7 @@ With a logical data warehouse approach that uses intelligent data integration, S
 ## What is created
 {: #bw4hana-automation-created}
 
-The scripts work in two phases. The first phase automates the resources for the VPC provisioning process in an existing VPC created when you deployed the bastion VSI. The second phase creates the SAP architecture in a distributed environment SAP BW/4HANA App server on a distinct VSI VPC machine and HANA DB on a dedicated server type VSI VPC box machine.
+The scripts work in two phases. The first phase automates the resources for the VPC provisioning process in an existing VPC created when you deployed the bastion VSI. The second phase creates the SAP architecture in a distributed environment SAP BW/4HANA App server on a distinct VSI VPC machine and SAP HANA DB on a dedicated server type VSI VPC box machine.
 
 During the first phase, the VPC is provisioned in an existing VSI created when you deployed the bastion VSI:
 
@@ -56,22 +56,22 @@ During the first phase, the VPC is provisioned in an existing VSI created when y
 *	2 X virtual server instance with SAP certified storage and network configurations
 *	2 floating IP’s address that you use to access your VPC virtual server instance over the public network
 
-During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP BW/4HANA release on stand-alone dedicated HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
+During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP BW/4HANA release on stand-alone dedicated SAP HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
 
 
-## Single-host HANA system
+## Single-host SAP HANA system
 {: #bw4hana-automation-single-hana-system}
 
 A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components:
 
-![Figure 1. SAP NetWeaver 7.x HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x HANA standard installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x HANA single-host installation with AAS" caption-side="bottom"}
+![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
 
-The scripts are designed to create a new VPC and install SAP (BW/4HANA release) solution together with its dedicated DB Hana box in one task flow. 
+The scripts are designed to create a new VPC and install SAP (SAP BW/4HANA release) solution together with its dedicated DB Hana box in one task flow. 
 
 <!--- 
 The mentioned reference link is not available. I did not find an approriate page/section to hyperlink to.
 
-If you want to install SAP BW/4HANA on an existing VPC with already installed and configured HANA box VSI, see [HAutomating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+If you want to install SAP BW/4HANA on an existing VPC with already installed and configured SAP HANA box VSI, see [HAutomating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
 
 --->
 
@@ -197,7 +197,7 @@ For the detailed steps about using Terraform to create only a VPC for SAP, see [
 5.	In the same file (`input.auto.tfvars`), edit the SAP system configuration variables that are passed to the Ansible automated deployment. 
 
     ```
-    #HANA DB configuration
+    #SAP HANA DB configuration
     hana_sid = "BWH"
     hana_sysno = "00"
     hana_system_usage = "custom"
@@ -234,9 +234,9 @@ For the detailed steps about using Terraform to create only a VPC for SAP, see [
 
     ``terraform plan``
 
-    You must enter a HANA main password and an SAP main password. 
+    You must enter an SAP HANA main password and an SAP main password. 
 
-    The HANA main password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can contain only the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
+    The SAP HANA main password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can contain only the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
     
     The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
 
@@ -293,7 +293,7 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
      * Profile
      * Image
      * Minimal recommended disk sizes
-     * HANA main password - This password must be 8 - 14 characters, upper and lowercase letters, a number, and a special character.
+     * SAP HANA main password - This password must be 8 - 14 characters, upper and lowercase letters, a number, and a special character.
      * SAP main password - This password must be 10 - 14 characters, upper and lowercase letters, a number, and a special character that is not an exclamation point. 
      * Click **Save changes**.
 

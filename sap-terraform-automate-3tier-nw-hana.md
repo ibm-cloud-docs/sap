@@ -17,10 +17,10 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip} 
 
-# Automating NetWeaver 7.x and HANA 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC with Terraform and Ansible
+# Automating SAP NetWeaver 7.x and SAP HANA 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC with Terraform and Ansible
 {: #create-terraform-3tier-nw-hana-vpc-ansible}
 
-You can use Terraform scripts to deploy the SAP NW app server and HANA db infrastructure on the VPC created with the SAP Bastion Deployment Server. The Terraform scripts create the virtual infrastructure and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on the SAP Bastion Deployment Server which has Terraform and Ansible installed on it, along with the necessary storage space for SAP Kits. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
+You can use Terraform scripts to deploy the SAP NW app server and SAP HANA db infrastructure on the VPC created with the SAP Bastion Deployment Server. The Terraform scripts create the virtual infrastructure and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on the SAP Bastion Deployment Server which has Terraform and Ansible installed on it, along with the necessary storage space for SAP Kits. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
 {: shortdesc}
 
 ## SAP Solution implemented
@@ -42,7 +42,7 @@ There is one restriction in the SAP HANA as primary persistence for SAP NetWeave
 ## What is created
 {: #terraform-3tier-nw-db2-components}
 
-The scripts automate the virtual infrastructure resources, provisioning processes for the  SAP architecture in an Existing VPC with a distributed environment SAP NW 7.x (ABAP or Java) App server on a distinct virtual server instance VPC machine and HANA DB on a dedicated server type virtual server instance VPC box machine. The scripts work in two phases. 
+The scripts automate the virtual infrastructure resources, provisioning processes for the  SAP architecture in an Existing VPC with a distributed environment SAP NW 7.x (ABAP or Java) App server on a distinct virtual server instance VPC machine and SAP HANA DB on a dedicated server type virtual server instance VPC box machine. The scripts work in two phases. 
 
 During the first phase ([Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server)), the virtual infrastructure resources based on the components from the existing VPC created by the Bastion Server are:
 
@@ -56,22 +56,22 @@ During the first phase ([Automate SAP bastion server – SAP media storage repos
 *	2 virtual server instances with SAP certified storage and network configurations
 *	2 floating IP address that you use to access your VPC virtual server instance over the public network
 
-During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated HANA VSI box. The SAP architecture that is deployed is the SAP NW 7.x release on stand-alone dedicated HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
+During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP NW 7.x release on stand-alone dedicated SAP HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
 
 
-## Single-host HANA system
+## Single-host SAP HANA system
 {: terraform-3tier-nw-hana-single}
 
 A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components:
 
-![Figure 1. Sample reference architecture](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x with HANA standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}"){: caption="Figure 1. SAP NetWeaver 7.x with HANA standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+![Figure 1. Sample reference architecture](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x with SAP HANA standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}"){: caption="Figure 1. SAP NetWeaver 7.x with SAP HANA standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
-The scripts are designed to create a new VPC and install SAP (SAP NW 7.x release) solution together with its dedicated DB HANA box in one task flow.
+The scripts are designed to create a new VPC and install SAP (SAP NW 7.x release) solution together with its dedicated DB SAP HANA box in one task flow.
 
 <!--- 
 The mentioned reference link is not available. I did not find an approriate page/section to hyperlink to.
 
-If you want to install SAP NW 7.x on an existing VPC with already installed and configured HANA box VSI, see [How to automate SAP HANA stand-alone VSI on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+If you want to install SAP NW 7.x on an existing VPC with already installed and configured SAP HANA box VSI, see [How to automate SAP HANA stand-alone VSI on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
 --->
 
 
@@ -172,7 +172,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 4. Customize your SAP system configuration. Modify the ``input.auto.tfvars`` file to specify SAP system configuration and enter the location of the downloaded SAP Kits. For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-netweaver-java-hana). 
   
     ```
-    #HANA DB configuration
+    #SAP HANA DB configuration
     hana_sid = "HDB"
     hana_sysno = "00"
     hana_system_usage = "custom"

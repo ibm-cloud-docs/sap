@@ -16,7 +16,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Automating SAP AnyDB (non-HANA) 2-tier and 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC with Terraform
+# Automating SAP AnyDB (non-SAP HANA) 2-tier and 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC with Terraform
 {: #create-terraform-multi-tier-vpc-anydb-sap}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.

@@ -130,7 +130,7 @@ The virtual server instance is configured with:
     See the README file for variable descriptions.
 
     ```
-    #HANA DB configuration
+    #SAP HANA DB configuration
     hana_sid = "HDB"
     hana_sysno = "00"
     hana_system_usage = "custom"  # default	value is: "custom"
@@ -168,9 +168,9 @@ The virtual server instance is configured with:
 
     ``terraform plan``
 
-    You must enter a HANA main password.
+    You must enter an SAP HANA main password.
 
-    The HANA main password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ).
+    The SAP HANA main password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can only contain the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ).
 
 9. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
 

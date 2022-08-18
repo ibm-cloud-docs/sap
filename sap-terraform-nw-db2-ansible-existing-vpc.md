@@ -19,7 +19,7 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating NetWeaver 7.x and Db2 on an existing {{site.data.keyword.cloud}} VPC with Terraform and Ansible
+# Automating SAP NetWeaver 7.x and Db2 on an existing {{site.data.keyword.cloud}} VPC with Terraform and Ansible
 {: #sap-terraform-nw-db2-existing-vpc}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC)  infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.

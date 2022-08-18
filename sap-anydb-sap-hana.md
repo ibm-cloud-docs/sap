@@ -20,7 +20,7 @@ subcollection: sap
 {:tip: .tip}
 {:important: .important}
 
-# AnyDB - HANA Database
+# AnyDB - SAP HANA Database
 {: #anydb-hana-db}
 
 The SAP systems in a landscape have specific requirements for servers, operating systems, network setup, and supported storage.
@@ -28,12 +28,12 @@ The SAP systems in a landscape have specific requirements for servers, operating
 
 Deployment of SAP AnyDB on IBM Cloud is similar to deployments with infrastructure with on-premises data centers. Therefore, use the information that is provided from SAP and the RDBMS providers.
 
-To assist your project's planning phase, more design considerations are provided for **SAP AnyDB - HANA Database** with {{site.data.keyword.ibm_cloud_sap}}.
+To assist your project's planning phase, more design considerations are provided for **SAP AnyDB - SAP HANA Database** with {{site.data.keyword.ibm_cloud_sap}}.
 
 ## SAP HANA Database Overview 
 {: #anydb-hana-overview-SAP}
 
-HANA offers a robust set of capabilities, including database management, database administration, data security, multi-model processing, application development, and data virtualization.
+SAP HANA offers a robust set of capabilities, including database management, database administration, data security, multi-model processing, application development, and data virtualization.
 
 The SAP HANA database  is  a hybrid  in-memory  database that  combines row-based, column-based, and object-based  database  technology.Itallows  online  transaction  processing  (OLTP)  and  online  analytical processing (OLAP) on one system, without the need for redundant data storage or aggregates.
 
@@ -46,21 +46,21 @@ The [SAP  HANA  database](http://tekslate.com/tutorials/sap-hana-tutorials-inter
 
 Before you start deploying the SAP HANA database, ensure that:
 
- * Check all relevant SAP and HANA database information and prerequisites (for example, SAP Notes); including versions and fix pack levels of MS SQL Server that are supported
+ * Check all relevant SAP and SAP HANA database information and prerequisites (for example, SAP Notes); including versions and fix pack levels of MS SQL Server that are supported
  * All required packages are installed for the relevant OS that you are using for MSSQL
 
-## Documentation of HANA database
+## Documentation of SAP HANA database
 {: #anydb-hana-documentation}
 
-HANA hardware and software requirements are described in the HANA Master Guide at: 
+SAP HANA hardware and software requirements are described in the SAP HANA Master Guide at: 
 
 * [SAP HANA Hardware and Software Requirements](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.01/en-US/d3d1cf20bb5710149b57fd794c827a4e.html) 
 
-HANA support on SAP-certified Cloud IaaS: 
+SAP HANA support on SAP-certified Cloud IaaS: 
 
 * [Certified and Supported SAP HANA Hardware – Ceritified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28) 
 
-HANA and SAP NetWeaver on UNIX/Linux: 
+SAP HANA and SAP NetWeaver on UNIX/Linux: 
 
 * [Installation of SAP Systems Based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 on UNIX: SAP HANA Database](https://help.sap.com/viewer/910828cec5d14d6685da380aec1dc4ae/CURRENT_VERSION/en-US/9420dabb130e4ae1996b3f39e202cc6e.html) 
 
@@ -76,10 +76,10 @@ HANA and SAP NetWeaver on Windows:
 
 * [Installation of SAP ABAP S/4HANA and BW/4HANA Systems on Windows: SAP HANA 2.0 Database](https://help.sap.com/viewer/3741bfe0345f4892ae190ee7cfc53d4c/CURRENT_VERSION_SWPM20/en-US/1937febc57ad4d81a213fca9b3e031a5.html) 
 
-## SAP on HANA using Intel Bare Metal 
+## SAP on SAP HANA using Intel Bare Metal 
 {: #anydb-hana-documentation-bm}
 
-See [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097) for supported HANA database versions. 
+See [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097) for supported SAP HANA database versions. 
 
 A sample configuration is shown in: 
 
@@ -87,7 +87,7 @@ A sample configuration is shown in:
 
 * [Quick Study Tutorial - SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using Windows Server](https://cloud.ibm.com/docs/sap?topic=sap-quickstudy-bm-netweaver-wins) 
 
-## SAP on HANA using Intel Virtual Servers (Gen2) 
+## SAP on SAP HANA using Intel Virtual Servers (Gen2) 
 {: #anydb-hana-documentation-bm}
 
 See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances](https://launchpad.support.sap.com/#/notes/2927211) for supported MSSQL database versions. 
