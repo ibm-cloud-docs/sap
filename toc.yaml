@@ -226,6 +226,11 @@ toc:
                     topics:
                       - sap-terraform-background-hana-standalone-vsi.md
                       - sap-terraform-automate-hana-standalone-vsi.md
+              - topicgroup:
+                  label: SAP NetWeaver and ASE SYB on IBM Cloud VPC
+                  topics:
+                    - sap-terraform-automate-intro-nw-asesyb.md
+                    - sap-terraform-automate-nw-asesyb.md
               - sap-terraform-automate-s4hana-ansible.md
               - sap-terraform-automate-bw-4hana.md
               - sap-terraform-automate-3tier-nw-db2.md
