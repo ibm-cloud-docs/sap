@@ -62,7 +62,7 @@ The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.da
 ## Support
 {: #automate-nw-asesyb-support}
 
-There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.ibm}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
+There are no warranties of any kind, and there is no service or technical support available for these materials from IBM. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
 Though the materials provided herein are not supported by the {{site.data.keyword.ibm}} Service organization, your comments are welcomed by the developers, who reserve the right to revise, re-adapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
