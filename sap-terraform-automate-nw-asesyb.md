@@ -73,7 +73,7 @@ Before you use the scripts in the Bastion cli or {{site.data.keyword.bpshort}}:
 
 *	Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 *	If you have not already, create a Bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the readme file. UPDATE THE RIGHT LINK
+*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the readme file. 
 *	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *	[Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 *	Terraform should already be installed on the bastion server that you deployed. For more information, see Bastion server for SAP deployment. {: terraform}
@@ -92,7 +92,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 	
     $ cd sap-automated-deployment-scripts/sapnwase/cli
     ```
-3.	Specify your VPC. Modify the input.auto.tfvars file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the readme file. UPDATE THE RIGHT LINK
+3.	Specify your VPC. Modify the input.auto.tfvars file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the readme file. 
 
     ```
 	#Infra VPC variables
@@ -106,7 +106,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 	SSH_KEYS		= [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a" , "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
     ```
 
-4.	Customize your SAP system configuration. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the readme file. UPDATE THE RIGHT LINK
+4.	Customize your SAP system configuration. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the readme file. 
 
     ```
     ##SAP system configuration – UPDATE RIGHT LINES
@@ -126,7 +126,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     kit_db2_dir = "/storage/NW75DB2/51051007/DB2_FOR_LUW_10.5_FP7SAP2_LINUX_"
     kit_db2client_dir = "/storage/NW75DB2/51051049"
     ```
-5.	Remember, you must manually decompress the kit_export_dir, kit_db2_dir, and kit_db2client_dir files. Ansible decompresses the rest of the SAP kit files. For more information, see the readme file. UPDATE THE RIGHT LINK
+5.	Remember, you must manually decompress the kit_export_dir, kit_db2_dir, and kit_db2client_dir files. Ansible decompresses the rest of the SAP kit files. For more information, see the readme file. 
 
 6.	Initialize the Terraform CLI.
     `terraform init`
