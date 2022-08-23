@@ -57,7 +57,7 @@ To run the Terraform scripts, you modify:
     *	Up to two SSH keys
 
 You can change the default SAP system configuration settings to match your solution. You also specify the location where you downloaded the SAP kits.
-The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to install SAP NetWeaver 7.X with SYB ASE on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
+The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to install SAP NetWeaver 7.X with ASE SYB on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
 
 ## Support
 {: #automate-nw-asesyb-support}
