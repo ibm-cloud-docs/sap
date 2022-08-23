@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-19"
+lastupdated: "2022-08-23"
 
 subcollection: sap
 
@@ -57,7 +57,7 @@ To run the Terraform scripts, you modify:
     *	Up to two SSH keys
 
 You can change the default SAP system configuration settings to match your solution. You also specify the location where you downloaded the SAP kits.
-The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to install SAP NetWeaver 7.X with Db2 on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
+The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to install SAP NetWeaver 7.X with SYB ASE on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
 
 ## Support
 {: #automate-nw-asesyb-support}
@@ -109,29 +109,27 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 4.	Customize your SAP system configuration. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the readme file. 
 
     ```
-    ##SAP system configuration – UPDATE RIGHT LINES
-    sap_sid	= "NWS"
+    #SAP system configuration
+    sap_sid  = "NWD"
     sap_ci_instance_number = "00"
     sap_ascs_instance_number = "01"
 
     #Kits paths
-    kit_sapcar_file = "/storage/NW75DB2/SAPCAR_1010-70006178.EXE"
-    kit_swpm_file =  "/storage/NW75DB2/SWPM10SP31_7-20009701.SAR"
-    kit_saphostagent_file = "/storage/NW75DB2/SAPHOSTAGENT51_51-20009394.SAR"
-    kit_sapexe_file = "/storage/NW75DB2/SAPEXE_800-80002573.SAR"
-    kit_sapexedb_file = "/storage/NW75DB2/SAPEXEDB_800-80002603.SAR"
-    kit_igsexe_file = "/storage/NW75DB2/igsexe_13-80003187.sar"
-    kit_igshelper_file = "/storage/NW75DB2/igshelper_17-10010245.sar"
-    kit_export_dir = "/storage/NW75DB2/51050829"
-    kit_db2_dir = "/storage/NW75DB2/51051007/DB2_FOR_LUW_10.5_FP7SAP2_LINUX_"
-    kit_db2client_dir = "/storage/NW75DB2/51051049"
+    kit_sapcar_file = "/storage/NW75SYB/SAPCAR_1010-70006178.EXE"
+    kit_swpm_file =  "/storage/NW75SYB/SWPM10SP31_7-20009701.SAR"
+    kit_saphotagent_file = "/storage/NW75SYB/SAPHOSTAGENT51_51-20009394.SAR"
+    kit_sapexe_file = "/storage/NW75SYB/SAPEXE_900-80002573.SAR"
+    kit_sapexedb_file = "/storage/NW75SYB/SAPEXEDB_900-80002616.SAR"
+    kit_igsexe_file = "/storage/NW75SYB/igsexe_13-80003187.sar"
+    kit_igshelper_file = "/storage/NW75SYB/igshelper_17-10010245.sar"
+    kit_ase_file = "/storage/NW75SYB/51055443_1.ZIP"
+    kit_export_dir = "/storage/NW75SYB/EXP"
     ```
-5.	Remember, you must manually decompress the kit_export_dir, kit_db2_dir, and kit_db2client_dir files. Ansible decompresses the rest of the SAP kit files. For more information, see the readme file. 
 
-6.	Initialize the Terraform CLI.
+5.	Initialize the Terraform CLI.
     `terraform init`
 
-7.	Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
+6.	Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
 
     `terraform plan --out plan1`
 
@@ -139,9 +137,9 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
     The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain exclamation points '!'. The password must not start with a digit or an underscore ( _ ).
 
-8.	Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the input.auto.tfvars file to correct resources and run terraform plan again.
+7.	Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the input.auto.tfvars file to correct resources and run terraform plan again.
 
-9.	Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
+8.	Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
 	```teraform
 	 terraform apply "plan1"
@@ -149,9 +147,9 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 	
 	The virtual private cloud and components are created and you see output similar to the `terraform plan` output.  
 
-10.	Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
+9.	Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
-11.	Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm).
+10.	Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm).
 
 ## Next steps
 {: #automate-nw-asesyb-next}
