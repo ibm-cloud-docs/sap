@@ -231,6 +231,11 @@ toc:
                   topics:
                     - sap-terraform-automate-intro-nw-asesyb.md
                     - sap-terraform-automate-nw-asesyb.md
+              - topicgroup:
+                  label: SAP AAS for SAP HANA on AnyDB on IBM Cloud VPC
+                  topics:
+                    - sap-terraform-automate-intro-hana-aas-anydb.md
+                    - sap-terraform-automate-hana-aas-anydb.md
               - sap-terraform-automate-s4hana-ansible.md
               - sap-terraform-automate-bw-4hana.md
               - sap-terraform-automate-3tier-nw-db2.md
