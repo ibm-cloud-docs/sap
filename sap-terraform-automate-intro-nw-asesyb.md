@@ -22,7 +22,7 @@ subcollection: sap
 # Introduction to {{site.data.keyword.cloud_notm}} VPC and SAP on {{site.data.keyword.cloud_notm}} for SAP NetWeaver 7.x and ASE SYB
 {: #intro-automate-nw-asesyb-terraform-ansible}
 
-You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. The VPC provisioned includes virtual server instances with high network performance. The VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers. After the VPC is provisioned, the scripts use the Ansible Playbook to install the SAP system
+You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. The VPC provisioned includes virtual server instances with high network performance. The VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers. After the VPC is provisioned, the scripts use the Ansible Playbook to install the SAP system.  IBM Cloud VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.
 
 ## {{site.data.keyword.cloud_notm}} VPC introduction
 {: #intro-nw-asesyb-cloud-vpc}
