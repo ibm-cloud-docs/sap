@@ -54,7 +54,6 @@ The {{site.data.keyword.vpc_short}} infrastructure network, is robust, secure, a
 | {{site.data.keyword.cloud_notm}} VPC Infrastructure network |
 | -- |
 | Global |
-| Resource Group |
 | Region |
 | VPC |
 | Availability zone (with address prefix) |
