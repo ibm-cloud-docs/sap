@@ -34,24 +34,32 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- |
 | **Memory optimized** | | | | |
-| mx2-16x128 | 16 | 128 | 20,565 | OLTP |
-| mx2-32x256 | 32 | 256 | 41,130 | OLTP |
-| mx2-48x384 | 48 | 384 | 56,970 | OLTP |
+| mx2-8x64 | 8 | 64 | 10,280 | SAP Business One (\*\*) |
+| mx2-16x128 | 16 | 128 | 20,565 | OLTP (\*)<br/>SAP Business One (\*\*) |
+| mx2-32x256 | 32 | 256 | 41,130 | OLTP (\*)<br/>SAP Business One (\*\*)  |
+| mx2-48x384 | 48 | 384 | 56,970 | OLTP (\*)<br/>SAP Business One (\*\*)  |
 | **Very High Memory** | | | | |
-| vx2d-16x224 | 16 | 224 | 17,046 | OLTP |
-| vx2d-44x616 | 44 | 616 | 46,875 | OLAP/OLTP |
-| vx2d-88x1232 | 88 | 1,232 | 93,750 | OLAP/OLTP |
-| vx2d-144x2016 | 144 | 2,016 | 153,410 | OLAP/OLTP |
-| vx2d-176x2464 | 176 | 2,464 | 187,500 | OLAP/OLTP |
+| vx2d-16x224 | 16 | 224 | 17,046 | OLTP (\*) |
+| vx2d-44x616 | 44 | 616 | 46,875 | OLAP/OLTP (\*) |
+| vx2d-88x1232 | 88 | 1,232 | 93,750 | OLAP/OLTP (\*) |
+| vx2d-144x2016 | 144 | 2,016 | 153,410 | OLAP/OLTP (\*) |
+| vx2d-176x2464 | 176 | 2,464 | 187,500 | OLAP/OLTP (\*) |
 | **Ultra High Memory** | | | | |
-| ux2d-8x224 | 8 | 224 | 8,623 | OLTP |
-| ux2d-16x448 | 16 | 448 | 17,246 | OLTP |
-| ux2d-36x1008 | 36 | 1,008 | 38,803 | OLTP |
-| ux2d-48x1344 | 48 | 1,344 | 51,737 | OLTP |
-| ux2d-72x2016 | 72 | 2,016 | 77,606 | OLTP |
-| ux2d-100x2800 | 100 | 2,800 | 107,785 | OLTP |
-| ux2d-200x5600 | 200 | 5,600 | 215,570 | OLTP |
+| ux2d-8x224 | 8 | 224 | 8,623 | OLTP (\*) |
+| ux2d-16x448 | 16 | 448 | 17,246 | OLTP (\*) |
+| ux2d-36x1008 | 36 | 1,008 | 38,803 | OLTP (\*) |
+| ux2d-48x1344 | 48 | 1,344 | 51,737 | OLTP (\*) |
+| ux2d-72x2016 | 72 | 2,016 | 77,606 | OLTP (\*) |
+| ux2d-100x2800 | 100 | 2,800 | 107,785 | OLTP (\*) |
+| ux2d-200x5600 | 200 | 5,600 | 215,570 | OLTP (\*) |
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA" caption-side="bottom"}
+
+(\*): RHEL 7.6 for SAP Solutions, RHEL 8.1 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.4 for SAP Solutions -- SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
+
+(\*\*): SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3
+
+Please regard the supported operated systems mentioned in the footnotes.
+{: note}
 
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-05-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -29,26 +29,32 @@ subcollection: sap
 
 The following table is an overview of the SAP-certified profiles for Intel Optane PMem on Bare Metal servers:
 
-|Profile|Cores|Speed|RAM|Storage|Features|  
+| **Profile** | **Cores** | **Speed** | **RAM** | **Storage** | **SAP HANA Processing Type** |  
 |-----------|-------------|---------------|----|----|-----| 
 |1:1 DRAM:PMem |
-|[BI.S4.H2.1.5TB RAM + 1.5TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2636&presetId=1174){: external}|56|2.70 GHx|1536 GB|12 Drives|SAP|
-|[BI.S4.H4.3TB RAM + 3TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2676&presetId=1250){: external}|112|2.70 GHz|3072 GB|12 Drives|SAP|
-|[BI.S4.H8.6TB RAM + 6TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=1041&itemId=10831){: external}|224 |2.70 GHz|6144 GB|12 Drives|SAP|
+|[BI.S4.H2.1.5TB RAM + 1.5TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2636&presetId=1174){: external}|56|2.70 GHx|1536 GB|12 Drives|OLAP/OLTP (\*)|
+|[BI.S4.H4.3TB RAM + 3TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2676&presetId=1250){: external}|112|2.70 GHz|3072 GB|12 Drives|OLAP/OLTP (\*)|
+|[BI.S4.H8.6TB RAM + 6TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=1041&itemId=10831){: external}|224 |2.70 GHz|6144 GB|12 Drives|OLAP/OLTP (\*)|
 |1:2 DRAM:PMem|
-|[BI.S4.H2.768GB RAM + 1.5TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2636&presetId=1170){: external}|56|2.70 GHx|768 GB|10|SAP|
-|[BI.S4.H2.1.5TB RAM + 3TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2636&presetId=1176){: external}|56|2.70 GHx|1536 GB|10|SAP|
-|[BI.S4.H4.1.5TB RAM + 3TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2676&presetId=1220){: external}|112|2.70 GHx|1536 GB|10|SAP|
-|[BI.S4.H4.3TB RAM + 6TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2676&presetId=1252){: external}|112|2.70 GHx|3072 GB|14|SAP|
-|[BI.S4.H8.3TB RAM + 6TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2700&presetId=1256){: external}|224|2.70 GHx|3072 GB|14|SAP|
-|[BI.S4.H8.6TB RAM + 12TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2700&presetId=1262){: external}|224|2.70 GHx|6144 GB|14|SAP|
+|[BI.S4.H2.768GB RAM + 1.5TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2636&presetId=1170){: external}|56|2.70 GHx|768 GB|10|OLTP (\*)|
+|[BI.S4.H2.1.5TB RAM + 3TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2636&presetId=1176){: external}|56|2.70 GHx|1536 GB|10|OLAP/OLTP (\*)|
+|[BI.S4.H4.1.5TB RAM + 3TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2676&presetId=1220){: external}|112|2.70 GHx|1536 GB|10|OLAP/OLTP (\*)|
+|[BI.S4.H4.3TB RAM + 6TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2676&presetId=1252){: external}|112|2.70 GHx|3072 GB|14|OLAP/OLTP (\*)|
+|[BI.S4.H8.3TB RAM + 6TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2700&presetId=1256){: external}|224|2.70 GHx|3072 GB|14|OLAP/OLTP (\*)|
+|[BI.S4.H8.6TB RAM + 12TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2700&presetId=1262){: external}|224|2.70 GHx|6144 GB|14|OLAP/OLTP (\*)|
 |1:4 DRAM:PMem|
-|[BI.S4.H2.384GB RAM + 1.5TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2636&presetId=1166){: external}|56|2.70 GHx|384 GB|10|SAP|
-|[BI.S4.H2.768GB RAM + 3TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2636&presetId=1172){: external}|56|2.70 GHx|768 GB|12|SAP|
-|[BI.S4.H4.768GB RAM + 3TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2676&presetId=1246){: external}|112|2.70 GHx|768 GB|14|SAP|
-|[BI.S4.H4.1.5TB RAM + 6TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2676&presetId=1248){: external}|112|2.70 GHx|1536 GB|14|SAP|
-|[BI.S4.H8.1.5TB RAM + 6TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2700&presetId=1254){: external}|224|2.70 GHx|1536|14|SAP|
-|[BI.S4.H8.3TB RAM + 12TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2700&presetId=1258){: external}|224|2.70 GHx|3072 GB|12|SAP|
+|[BI.S4.H2.384GB RAM + 1.5TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2636&presetId=1166){: external}|56|2.70 GHx|384 GB|10|OLTP (\*)|
+|[BI.S4.H2.768GB RAM + 3TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2636&presetId=1172){: external}|56|2.70 GHx|768 GB|12|OLTP (\*)|
+|[BI.S4.H4.768GB RAM + 3TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2676&presetId=1246){: external}|112|2.70 GHx|768 GB|14|OLTP (\*)|
+|[BI.S4.H4.1.5TB RAM + 6TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2676&presetId=1248){: external}|112|2.70 GHx|1536 GB|14|OLTP (\*)|
+|[BI.S4.H8.1.5TB RAM + 6TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2700&presetId=1254){: external}|224|2.70 GHx|1536|14|OLTP (\*)|
+|[BI.S4.H8.3TB RAM + 12TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2700&presetId=1258){: external}|224|2.70 GHx|3072 GB|12|OLTP (\*)|
+
+(\*): RHEL 7.6 for SAP Solutions, RHEL 8.2 for SAP Solutions -- SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3
+
+Please regard the supported operated systems mentioned in the footnotes.
+{: note}
+
 
 ## Bare Metal profile names
 {: #hana-iaas-intel-bm-names-pmem}
