@@ -14,7 +14,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Deploying {{site.data.keyword.vpc_short}} infrastructure for {{site.data.keyword.powerSys_notm}} SAP workloads
+# Deploying IBM Cloud VPC infrastructure for {{site.data.keyword.powerSys_notm}} SAP workloads
 {: #power-vs-set-up-vpc-infrastructure}
 
 As a best practice for SAP that runs on {{site.data.keyword.powerSysFull}}, three {{site.data.keyword.vpc_short}}s are created and three virtual server instances are deployed and configured. 
@@ -194,7 +194,7 @@ The following example setup uses open ports for standard SQUID proxy server that
 4. Attach the security group to the virtual server instance that you created in the previous step. Detach the default security group.
 5. After some time, instance becomes status 'running'.
 
-## Deploying {{site.data.keyword.vpc-short}} for workload services (workload VPC)
+## Deploying IBM Cloud VPC for workload services (workload VPC)
 {: #power-vs-set-up-workload-vpc}
 
 {{site.data.keyword.vpc-short}} for workload services (workload VPC) is a **mandatory** component in the SAP on IBM Power Virtual Services best practices. This service hosts the instances with management components that are used by operating systems and workloads that are running in {{site.data.keyword.powerSysShort}}s.
@@ -266,7 +266,7 @@ By the using the following setup, we open ports for standard widely used managem
 4. Attach the security group to the virtual server instance that you created previously. Detach the default security group.
 5. After some time, instance becomes status 'running'.
 
-## Connecting {{site.data.keyword.vpc_short}} services over transit gateway
+## Connecting IBM Cloud VPC services over transit gateway
 {: #power-vs-set-up-transit-gateway}
 
 To establish communication between virtual server instances that run in different {{site.data.keyword.vpc_short}} services, you must connect the private networks in the {{site.data.keyword.vpc_short}} services with each other.
@@ -292,7 +292,7 @@ ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand=\"ss
 ```
 {: pre}
 
-## Configure the management services on the virtual server instances in {{site.data.keyword.vpc_short}}
+## Configure the management services on the virtual server instances in IBM Cloud VPC
 {: #power-vs-set-up-management-services}
 
 The following setup example demonstrates usage of SQUID proxy server, NFS server, NTP forwarder, IBM Cloud DNS service, or DNS forwarder for your private DNS server. Setup of central user management (LDAP) is not covered here.
@@ -525,4 +525,3 @@ ansible-playbook \--connection=local -i \"localhost,\" powervs-services.yml -e \
 {: pre}
 
 This ansible execution ensures that the DNS forwarder services are configured on {{site.data.keyword.powerSys_notm}}.
-
