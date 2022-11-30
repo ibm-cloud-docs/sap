@@ -189,9 +189,9 @@ toc:
           label: Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver
           topics:
               - sap-provision-power-virtual-server-plan-deploy.md
-              - sap-provision-power-virtual-server-deploy-infrastructure.md
-              - sap-provision-power-virtual-server-prepare-aix-nw.md
-              - sap-provision-power-virtual-server-prepare-sles-hana.md
+              - sap-provision-power-virtual-server-deploy-vpc-infrastructure.md
+              - sap-provision-power-virtual-server-deploy-power-infrastructure.md
+              - sap-provision-power-virtual-server-deploy-power-instances.md
       - topicgroup:
           label: Provisioning VMware SDDC for SAP HANA and SAP NetWeaver for SAP HANA and SAP NetWeaver
           topics:
@@ -278,4 +278,3 @@ toc:
         - link: 
             label: Documentation Changelog
             href: https://github.ibm.com/cloud-docs/sap/commits/
-
