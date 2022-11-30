@@ -521,16 +521,16 @@ If you don't use multipath aliases, replace the line (starting with `devices=$(`
 
 1. To create file systems by using ansible automation, download the `ibm.power_linux_sap` ansible-galaxy collection.
 
-```yaml
-ansible-galaxy collection install ibm.power_linux_sap
-```
-{: pre}
+   ```yaml
+   ansible-galaxy collection install ibm.power_linux_sap
+   ```
+   {: pre}
 
-Ansible role, `powervs_fs_creation` is used to create filesystem for SAP HANA, SAP NetWeaver or for SAP shared file systems instance. This role performs the following tasks:
+   Ansible role, `powervs_fs_creation` is used to create filesystem for SAP HANA, SAP NetWeaver or for SAP shared file systems instance. This role performs the following tasks:
 
-* Creates file systems with user-defined stripe size by using ansible built-in LVM logical volumes modules.
-* Mounts the file systems on provided mount points
-* Adds an entry to `/etc/fstab` for automount on reboot.
+   * Creates file systems with user-defined stripe size by using ansible built-in LVM logical volumes modules.
+   * Mounts the file systems on provided mount points
+   * Adds an entry to `/etc/fstab` for automount on reboot.
 
 2. To run this role, you can pass two types of variables. The first as a dictionary and other as a list. See the following example.
 
@@ -569,7 +569,7 @@ Ansible role, `powervs_fs_creation` is used to create filesystem for SAP HANA, S
         ```
         {: pre}
 
-WWNs associated with disks that are passed as input parameters for running the ansible role.
+    WWNs associated with disks that are passed as input parameters for running the ansible role.
 
 3. To run this ansible playbook, run the following command after you update one of variable examples and store them in the`filesystem_creation_variables` file.
 
@@ -711,7 +711,7 @@ ansible-playbook /root/sap-hana.yml
 ```
 {: pre}
 
-2. Use the following command to tune the operating systemfor the SAP NetWeaver workload.
+Use the following command to tune the operating systemfor the SAP NetWeaver workload.
 
 ```yaml
 [root@rhel-84\]# ansible-playbook /root/sap-netweaver.yml
@@ -817,4 +817,3 @@ After the previous steps are completed, your infrastructure is ready to install 
 6. Create more instances on edge VPC and install internet-facing SAP applications such as SAP routed or SAP Web Dispatcher.
 7. Install IBM Spectrum Protect as backup solution in workload VPC and configure IBM Spectrum Protect client on {{site.data.keyword.powerSys_notm}} instances.
 8. Configure VPN in management VPC and deactivate floating IP address on the access host.
-
