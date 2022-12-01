@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2022
+lastupdated: "2022-11-30"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -10,13 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # Fast Path of IBM Power Virtual Servers
@@ -65,13 +59,14 @@ Depending on your scenarios, the following information may be also relevant:
 - [SAP ASE using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-ase#anydb-sap-ase-power-vs)
 - [SAP to IBM Power Virtual Server Migration Acceleration Program](/docs/sap?topic=sap-cloud-migration-acceleration-program)
 
-
 ## How To
 {: #fast-path-power-vs-how-to}
 
-Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver:
+Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver manually:
 - [Planning your deployment](/docs/sap?topic=sap-power-vs-planning-items)
-- [Deploying your infrastructure](/docs/sap?topic=sap-power-vs-set-up-infrastructure)
+- [Deploying IBM Cloud VPC infrastructure used by SAP workloads running on IBM Power Virtual Servers](/docs/sap?topic=sap-power-vs-set-up-vpc-infrastructure)
+- [Deploying IBM Cloud Power Virtual Services infrastructure used by SAP workloads](/docs/sap?topic=sap-power-vs-set-up-power-infrastructure)
+- [Deploying IBM PowerVS instances for SAP system](/docs/sap?topic=sap-power-vs-set-up-power-instances)
 
 
 ## Help
@@ -82,3 +77,67 @@ Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver:
 - [FAQ - SAP-certified IBM Power Virtual Servers](/docs/sap?topic=sap-faq-ibm-cloud-for-sap#faq-sap-certified-power-vsi)
 - [FAQ - Profile List with Benchmarks and Specifications](/docs/sap?topic=sap-faq-profile-specs)
 
+## Additional information resources for SAP HANA
+{: #power-vs-sles-hana-information_resources_hana}
+
+The following links can assist you with the installation and configuration of your {{site.data.keyword.powerSys_notm}} instances with SAP HANA on Linux&reg;. Links with numbers in the title point to the SAP Support Portal.
+
+### Operating systems – General Linux&reg;
+{: #power-vs-sles-hana-snote-os_linux}
+
+| Link                                                                                                                               | Description                                                         |
+|------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| [2378874 - Install SAP Solutions on Linux on {{site.data.keyword.IBM_notm}} Power Systems (little endian)](https://launchpad.support.sap.com/#/notes/2378874){: external} | Installing SAP solutions on {{site.data.keyword.IBM_notm}} Power Systems                       |
+| [2235581 - SAP HANA: Supported Operating Systems](https://launchpad.support.sap.com/#/notes/2235581){: external}                               | Supported operating systems for SAP HANA                            |
+| [2369910 - SAP Software on Linux: General information](https://launchpad.support.sap.com/#/notes/2369910){: external}                          | General information for SAP software on Linux                       |
+| [765424 - Linux: Released IBM Hardware - POWER based servers](https://launchpad.support.sap.com/#/notes/765424){: external}                    | IBM Power-based servers                                             |
+| [1122387 - Linux: SAP Support in virtualized environments](https://launchpad.support.sap.com/#/notes/1122387){: external}                      | SAP support in virtualized environments                             |
+| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux){: external}     | Useful information about running Linux on Power                     |
+| [936887 - End of maintenance for Linux distributions](https://launchpad.support.sap.com/#/notes/936887){: external}                            | Maintenance calendar and product maturity                           |
+| [2679703 - Linux on {{site.data.keyword.IBM_notm}} Power Systems -- SAP monitoring recommendations](https://launchpad.support.sap.com/#/notes/2679703){: external}        | SAP monitoring recommendations                                      |
+| [187864 - Linux: Locale Support on Linux](https://launchpad.support.sap.com/#/notes/187864){: external}                                        | Locale support for Linux                                            |
+| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux){: external}     | SAP on {{site.data.keyword.IBM_notm}} Power Systems library                                    |
+| [2382421 - Optimizing the Network Configuration on HANA- and OS-Level](https://launchpad.support.sap.com/#/notes/2382421){: external}          | Increasing efficiency on network for operating systems and SAP HANA |
+| [401162 - Linux: Avoiding TCP/IP port conflicts and start problems](https://launchpad.support.sap.com/#/notes/401162){: external}              | Preventive guidance to avoid network-related start issues         |
+{: caption="Table 3. Operating systems – general Linux" caption-side="top"}
+
+### Operating systems – SUSE Linux
+{: #power-vs-sles-hana-snote-suse_linux}
+
+| Link                                                                                                                                                      | Description                                   |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| [2205917 - SAP HANA DB: Recommended OS settings for SLES 12 / SLES for SAP Applications 12](https://launchpad.support.sap.com/#/notes/2205917)            | SLES 12 recommended operating system settings |
+| [1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787)                                        | SLES 12 installation note                     |
+| [2578899 - SUSE Linux Enterprise Server 15: Installation Note](https://launchpad.support.sap.com/#/notes/2578899)                                         | SLES 15 installation note                     |
+| [2684254 - SAP HANA DB: Recommended OS settings for SLES 15 / SLES for SAP Applications 15](https://launchpad.support.sap.com/#/notes/2684254)            | SLES 15 recommended operating system settings |
+| [2790462 - HANA Server connection is not available or timed out after upgrade to SUSE 15 from SUSE 12](https://launchpad.support.sap.com/#/notes/2790462) | Known issue when upgrading from 12 to 15      |
+| [1275776 - Linux: Preparing SLES for SAP environments](https://launchpad.support.sap.com/#/notes/1275776)                                                 | Preparing SLES for SAP environments           |
+| [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap)                                                                   | A useful collection of SUSE documentation     |
+| [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/)                                                                              | IBM and SUSE                                  |
+{: caption="Table 4. Operating systems – SUSE Linux&reg;" caption-side="top"}
+
+
+### Operating systems – Red Hat Linux&reg;
+{: #power-vs-rehl-hana-snote-redhat_linux}
+
+| Link                                                                                                                                                      | Description                                   |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| [SAP Note 2772999 “Red Hat Enterprise Linux 8.x: Installation and Configuration](https://launchpad.support.sap.com/#/notes/2772999)            | -- |
+| [SAP Note 2777782 “SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)                                        | -- |
+| [SAP Note 2382421 “Optimizing the Network Configuration on HANA- and OS-Level”](https://launchpad.support.sap.com/#/notes/2578899)                                         | SLES 15 installation note                     |
+| [2684254 - SAP HANA DB: Recommended OS settings for SLES 15 / SLES for SAP Applications 15](https://launchpad.support.sap.com/#/notes/2382421)            | -- |
+| [Red Hat Enterprise Linux System Roles for SAP](https://access.redhat.com/sites/default/files/attachments/rhel_system_roles_for_sap_1.pdf) | -- |
+{: caption="Table 4. Operating systems – Red Hat Linux&reg;" caption-side="top"}
+
+### SAP HANA-related information
+{: #power-vs-sles-hana-snote-hana_info}
+
+| Link                                                                                                                    | Description                                        |
+|-------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| [2000003 - FAQ: SAP HANA](https://launchpad.support.sap.com/#/notes/2000003)                                            | Extensive overview of SAP HANA                     |
+| [1999880 - FAQ: SAP HANA System Replication](https://launchpad.support.sap.com/#/notes/1999880)                         | HSR central note                                   |
+| [2000002 - FAQ: SAP HANA SQL Optimization](https://launchpad.support.sap.com/#/notes/2000002)                           | Useful tips to improve SQL processing times        |
+| [SAP HANA Platform Landing page](https://help.sap.com/viewer/product/SAP_HANA_PLATFORM/2.0.05/en-US?task=discover_task) | Useful for installation guides and upgrade guides |
+| [SAP Guide Finder](https://help.sap.com/viewer/nwguidefinder/576f5c1808de4d1abecbd6e503c9ba42.html)                     | Useful to locate user guides and information on updates     |
+| [2380291 - SAP HANA 2.0 Cockpit Central Release Note](https://launchpad.support.sap.com/#/notes/2380291)                | SAP HANA Cockpit central note                      |
+{: caption="Table 5. SAP HANA-related information" caption-side="top"}
