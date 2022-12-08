@@ -217,10 +217,15 @@ toc:
               - sap-terraform-create-single-tier.md
               - sap-terraform-multi-tier-anydb-nonhana.md
               - topicgroup:
-                  label: NetWeaver and DB2 single-tier on IBM Cloud VPC
+                  label: SAP NetWeaver and Db2 single-tier on IBM Cloud VPC
                   topics:
                     - sap-terraform-overview-nw-db2-ansible.md
                     - sap-terraform-nw-db2-ansible-existing-vpc.md
+              - topicgroup:
+                   label: SAP NetWeaver and Db2 3-tier on IBM Cloud VPC
+                   topics: 
+                    - sap-terraform-overview-3tier-nw-db2-ansible.md
+                    - sap-terraform-3tier-nw-db2.md
               - topicgroup:
                     label: SAP HANA stand-alone VSI on IBM Cloud VPC
                     topics:
@@ -238,7 +243,6 @@ toc:
                     - sap-terraform-automate-hana-aas-anydb.md
               - sap-terraform-automate-s4hana-ansible.md
               - sap-terraform-automate-bw-4hana.md
-              - sap-terraform-automate-3tier-nw-db2.md
               - sap-terraform-automate-3tier-nw-hana.md
 
   - navgroup:
