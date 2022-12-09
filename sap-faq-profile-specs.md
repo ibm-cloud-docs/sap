@@ -47,8 +47,9 @@ Each list of Infrastructure profiles for SAP HANA database server:
 - [VMware SDDC certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vmware)
 
 Each list of Infrastructure profiles for SAP NetWeaver Application Server:
-- [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm)
-- [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
+- [Intel Bare Metal server (Classic) certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm)
+- [Intel Virtual Server (VPC) certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
+- [Intel Bare Metal server (VPC) certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm-vpc)
 - [IBM Power Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs) _This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems_
 - [VMware SDDC certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vmware)
 
@@ -198,6 +199,10 @@ The following table can be copied into spreadsheet software. All profiles - with
 | mx2-96x768 | IBM Cloud Virtual Server | -- | 96 | 768 | 121,523 | Intel Cascade Lake SP | 8.00 | -- | -- | VPC |
 | mx2-128x1024 | IBM Cloud Virtual Server | -- | 128 | 1,024 | 162,030 | Intel Cascade Lake SP | 8.00 | -- | -- | VPC |
 | vx2d-8x112 | IBM Cloud Virtual Server | -- | 8 | 112 | 8,523 | Intel Cascade Lake SP | 14.00 | -- | -- | VPC |
+| bx2d-metal-96x384 | IBM Cloud Bare Metal (Local SSD) | -- | 96 | 384 | 124,130 | Intel Cascade Lake SP | 4.00 | -- | -- | VPC |
+| bx2d-metal-192x768 | IBM Cloud Bare Metal (Local SSD) | -- | 192 | 768 | 255,800 | Intel Cascade Lake SP | 4.00 | -- | -- | VPC |
+| cx2d-metal-96x192 | IBM Cloud Bare Metal (Local SSD) | -- | 96 | 192 | 101,070 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
+| mx2d-metal-96x768 | IBM Cloud Bare Metal (Local SSD) | -- | 96 | 768 | 127,620 | Intel Cascade Lake SP | 8.00 | -- | -- | VPC |
 | BI.S3.NW192 (VMware) | IBM Cloud for VMware | 36 | 72 | 192 | 70,965 | Intel Skylake SP | 2.67 | -- | -- | Classic |
 | BI.S3.NW384 (VMware) | IBM Cloud for VMware | 36 | 72 | 384 | 71,487 | Intel Skylake SP | 5.33 | -- | -- | Classic |
 | BI.S3.NW768 (VMware) | IBM Cloud for VMware | 36 | 72 | 768 | 71,667 | Intel Skylake SP | 10.67 | -- | -- | Classic |
