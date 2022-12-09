@@ -249,7 +249,11 @@ toc:
                     - sap-terraform-automate-intro-hana-aas-anydb.md
                     - sap-terraform-automate-hana-aas-anydb.md
               - sap-terraform-automate-s4hana-ansible.md
-              - sap-terraform-automate-bw-4hana.md
+              - topicgroup:
+                  label: SAP BW/4HANA 3-tier on IBM Cloud VPC
+                  topics:
+                    - sap-terraform-automate-bw-4hana-overview.md
+                    - sap-terraform-automate-bw-4hana.md
               - sap-terraform-automate-3tier-nw-hana.md
 
   - navgroup:

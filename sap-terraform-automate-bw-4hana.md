@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-12-08"
 
-subcollection: sap
+subcollection: sap 
 
 ---
 
@@ -19,26 +19,8 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating SAP BW/4HANA on 3-tier {{site.data.keyword.cloud}} VPC with Terraform and Ansible
+# Automating SAP BW/4HANA on 3-tier {{site.data.keyword.cloud}} VPC with Terraform and Ansible  
 {: #bw4hana-automation-on-vpc}
-
-Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and other Intel technologies.
-{: shortdesc}
-
-You can use Terraform scripts to create a single-tier VPC and create the SAP and SAP HANA in a distributed architecture on the bastion server that you create. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.  
-
-## SAP Solution implemented 
-{: #bw4hana-automation-solution}
-
-SAP BW/4HANA is a packaged data warehouse based on SAP HANA. As the on-premises data warehouse layer of SAP’s Business Technology Platform, SAP BW/4HANA can be used to consolidate data across the enterprise to get a consistent, agreed-upon view of your data.
-
-SAP BW/4HANA is a next-generation data warehouse SAP product that, like SAP S/4HANA&reg;, is optimized for the SAP HANA platform, including inheriting the high performance, simplicity, and agility of SAP HANA. SAP BW/4HANA delivers real-time, enterprise-wide analytics that minimize the movement of data and can connect all the data in an organization into a single, logical view, including new data types and sources. Organizations now have a data warehousing solution that can meet their current and future business needs. A solution that handles more data, from more sources to deliver the solutions that increase an organization’s success in the next generation of business.
-
-SAP BW/4HANA, combined with SAP S/4HANA and the SAP HANA platform, combines traditional data warehousing, such as operational reporting and historical analysis, with the future  - logical data warehouse, Internet of Things, and data lakes.
-
-SAP BW/4HANA combines with SAP S/4HANA to meet your operational and historical analytics needs by using the same data as your applications, so you are always using fresh data.
-
-With a logical data warehouse approach that uses intelligent data integration, SAP BW/4HANA eliminates duplication and expensive data movement to connect the data silos in your organization. All data sources can be connected, including SAP and non-SAP data sources.
 
 ## What is created
 {: #bw4hana-automation-created}
@@ -47,85 +29,113 @@ The scripts work in two phases. The first phase automates the resources for the 
 
 During the first phase, the VPC is provisioned in an existing VSI created when you deployed the bastion VSI:
 
-*	1 VPC where the virtual server instances are provisioned
-*	1 security group. The rules for this security group allow: 
-        *	Inbound DNS (port 53) and
-        *	Inbound SSH (TCP port 22) connections to your virtual server instance
-        *	All outbound traffic from the virtual server instance
+* 1 VPC where the virtual server instances are provisioned
+* 1 security group. The rules for this security group allow: 
+    * Inbound DNS (port 53) and
+    * Inbound SSH (TCP port 22) connections to your virtual server instance
+    * All outbound traffic from the virtual server instance
 *	1 subnet to enable networking in your VPC
 *	2 X virtual server instance with SAP certified storage and network configurations
 *	2 floating IP’s address that you use to access your VPC virtual server instance over the public network
 
 During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP BW/4HANA release on stand-alone dedicated SAP HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
 
+## Script files
+{: #bw4hana-automation-script-files}
+
+The configuration and script files are provided in GitHub. There are two repositories for each SAP solution:
+
+* Using the bastion server CLI to run the Terraform scripts - [GitHub repository](https://github.com/IBM-Cloud/sap-bw4hana/tree/main/cli){: external}
+* Using Schematics user interface on {{site.data.keyword.cloud_notm}} - [GitHub repository](https://github.com/ibm-cloud/sap-bw4hana/tree/main/schematics){: external}
+
+## Terraform scripts
+{: #bw4hana-automation-terraform-scripts}
+
+For SAP BW/4HANA virtual server instance on {{site.data.keyword.vpc_short}}, you modify the:
+* `terraform.tfvars` file to add your {{site.data.keyword.cloud_notm}} API key
+* `input.auto.tfvars` file to customize the resources for your solution. You specify zones, resource names, SSH keys, and SAP variables.
+
+All of the other configuration files are provided and do not need to be modified.
+
+The {{site.data.keyword.terraform-provider_full_notm}} on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account.
 
 ## Single-host SAP HANA system
 {: #bw4hana-automation-single-hana-system}
 
 A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components:
 
-![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
+![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/sap-hana-vpc-std-pas-aas.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
 
-The scripts are designed to create a new VPC and install SAP (SAP BW/4HANA release) solution together with its dedicated DB Hana box in one task flow. 
+The scripts are designed to create a new VPC and install SAP (SAP BW/4HANA release) solution together with its dedicated DB Hana box in one task flow.
 
-<!--- 
-The mentioned reference link is not available. I did not find an approriate page/section to hyperlink to.
+## Schematics deployment
+{: #bw4hana-automation-schematics}
+{: ui}
 
-If you want to install SAP BW/4HANA on an existing VPC with already installed and configured SAP HANA box VSI, see [HAutomating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
+You use the Schematics interface to deploy your infrastructure with the scripts in the [GitHub repository](https://github.com/ibm-cloud/sap-bw4hana/tree/main/schematics). When you run the scripts with the Schematics interface, you:
 
---->
+* Enter the URL for the GitHub repository for the Terraform files
+* Modify the parameters in the Schematics interface. They are the same parameters as the `input.auto.tfvars` file that you use when you are running the Terraform scripts in the CLI.
+
+## Catalog Tile deployment
+{: #bw4hana-automation-single-catalog-tile}
+{: ui}
+
+When you use the Catalog Tile for deployment, you:
+*   Select the **SAP BW/4HANA** tile from the catalog
+*   Enter information for your workspace. The Catalog Tile creates a Schematics workspace for you.
+*   Modify the parameters for your bastion server, personal credential information, and other parameters specific to your solution.
+
+## Terraform deployment
+{: #automate-bw4hana-terraform-ansible-terraform}
+{: terraform}
+
+You use the Bastion server CLI to run the Terraform scripts that are located in the [GitHub repository](https://github.com/IBM-Cloud/sap-bw4hana/tree/main/cli).
+
+To run the scripts to deploy the SAP BW/4HANA release on dedicated SAP HANA 2.0 BOX VSI, you need to:
+
+*	The input.auto.tfvars file to customize the resources for your solution. 
+    *  Enter the floating IP and subnet information from the Bastion server.
+    *  By default, the VSI is configured with:
+        * Red Hat Enterprise Linux® 7.x for SAP Applications (amd64), 
+        * Two SSH keys that are configured to access as root user on SSH, 
+        * Five storage volumes. 
+
+        You can change the default settings to match your solution. 
+
+    *  You can change the default SAP system configuration settings to match your solution. 
+    *  You also specify the location where you downloaded the SAP kits.
+
+The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account.
 
 ## SAP Kits
 {: #bw4hana-automation-sap-kits}
 
 For each {{site.data.keyword.cloud_notm}} region, IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment (Bastion) Server. All file archives are decompressed by Ansible during the automatic deploying process. For more information, see the readme file.
 
-## Support
-{: #bw4hana-automation-support}
+## Support - Schematics and Terraform
+{: #bw4hana-automation-support-schematics-terraform}
 
-There are no warranties of any kind, and there is no service or technical support available for these materials from IBM®. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
+There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
 Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, re-adapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
-## Script files
-{: #bw4hana-automation-script-files}
-{: terraform}
-
-The configuration and script files are provided on GitHub. There are 2 repositories for each SAP solution:
-
-*   Using the Bastion server CLI to run the Terraform scripts - [GitHub repository](https://github.com/IBM-Cloud/sap-bw4hana/tree/main/cli)
-*	Using Schematics user interface on IBM Cloud® - [GitHub repository](https://github.com/ibm-cloud/sap-bw4hana/tree/main/schematics).
-
-### Terraform scripts
-{: #bw4hana-terraform-ansible-terraform}
-{: terraform}
-
-For SAP BW/4HANA virtual server instance on {{site.data.keyword.IBM}} virtual private cloud, you modify the:
-
-*  ``terraform.tfvars`` file to add your {{site.data.keyword.cloud_notm}} API-key
-
-*  ``input.auto.tfvars`` file to customize the resources for your solution. You specify zones, resource names, SSH keys, and SAP variables.  
-
-All of the other configuration files are provided and do not need to be modified. 
-
-The IBM Cloud Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account. 
-
-### Schematics 
-{: #bw4hana-automation-schematics}
+## Support - Catalog Tile
+{: #bw4hana-automation-support-catalog-tile}
 {: ui}
 
-When you run the scripts with the Schematics interface, you:
+The catalog tile offering is {{site.data.keyword.cloud_notm}} supported. For more information, see [Getting help and support from IBM Cloud or SAP](/docs/sap?topic=sap-help-support&interface=ui).
 
-*	Enter the URL for the GitHub repository for the Terraform files
-*	Modify the parameters in the Schematics interface. They are the same parameters as the `input.auto.tfvars` file that you use when you are running the Terraform scripts in the cli.
+If client issues are identified with SAP software, then SAP Support will assist the client. Follow the recommendations of SAP Note 90835, which describes the SAP Incident Escalation Procedure. This SAP Note (and others) is found at https://support.sap.com/en/index.html.
 
 ## Virtual server instance configuration
 {: #bw4hana-automation-vsi-config}
+{: terraform}
 
 The virtual server instance is configured with:
 
 * Red Hat Enterprise Linux 7.6 for SAP HANA (x86_64)
-* Minimum one or more SSH keys that are configured to access as root user on SSH  
+* Minimum one or more SSH keys that are configured to access as root user on SSH
 
 ## Before you begin
 {: #bw4hana-automation-before-begin}
@@ -139,6 +149,113 @@ The virtual server instance is configured with:
 During configuration you can specify an existing VPC to use, instead of creating a new VPC.
 
 For the detailed steps about using Terraform to create only a VPC for SAP, see [Creating single-tier virtual private cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
+
+## Deploying SAP BW/4HANA with the Catalog Tile interface
+{: #bwhana-automation-procedure-schematics-ui}
+{: ui}
+
+Use these steps to configure the SAP BW/4HANA on your existing VPC by using the Catalog Tile interface. The scripts can take 1 - 2 hours to complete. 
+
+1.	From the {{site.data.keyword.cloud_notm}} Catalog, select the **SAP BW/4HANA** tile. The tile opens the Create tab for SAP BW/4HANA. For more information about this deployment, see the About tab or the Readme file link.
+2.	On the SAP BW/4HANA page, configure your workspace:
+    * Enter a name for the workspace or use the default.
+    * The Resource Group to use to create resources. Use the  Default or create a Resource Group.
+    * Select a **Location** to create your Schematics workspace. The workspace location does not have to match the resource location.
+3.  Enter the required deployment values, review the default input variables, and provide values that match your solution. These parameters are specific to your deployment.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-bw4hana-e608642e-1d96-4a77-a401-1fb30307d2b9-global/readme/terraform/terraform/da22b12c-a034-4c00-aaeb-0dcaf9f3e8af-global){: external}.
+
+    |Parameter	|Description|
+    |-----|-----|
+    |APP-HOSTNAME	|APP VSI hostname|
+    |BASTION_FLOATING_IP	|Input the floating IP of the Bastion Server you created before you started this deployment. For more information, see [Automate SAP bastion server - SAP media storage](/docs/sap?topic=sap-sap-bastion-server).|
+    |DB-HOSTNAME	|DB VSI hostname|
+    |REGION	|Cloud Region where resources are deployed |
+    |RESOURCE_GROUP	|EXISTING Resource Group for VSIs and Volumes |
+    |SECURITY_GROUP	|EXISTING Security group name |
+    |SSH_KEYS	|SSH Keys ID list to access the VSI|
+    |SUBNET	|EXISTING Subnet name |
+    |VPC	|EXISTING VPC name |
+    |ZONE	|Cloud Zone where resources are deployed
+    |hana_main_password	|HANA main password or use a secret stored in Secrets Manager |
+    |ibmcloud_api_key	|IBM Cloud API key or use a secret stored in Secrets Manager|
+    |private_ssh_key	|Input id_rsa private key content or use a secret stored in Secrets Manager|
+    |sap_main_password	|SAP main password or use a secret stored in Secrets Manager |
+
+4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-bw4hana-e608642e-1d96-4a77-a401-1fb30307d2b9-global/readme/terraform/terraform/da22b12c-a034-4c00-aaeb-0dcaf9f3e8af-global){: external}.
+
+    |Parameter	|Description|
+    |-----|-----|
+    |APP-IMAGE	|APP VSI OS image|
+    |APP-PROFILE	|APP VSI profile|
+    |DB-IMAGE	|DB VSI OS image|
+    |DB-PROFILE	|DB VSI profile|
+    |hana_components	|hana_components|
+    |hana_sid	|hana_sid|
+    |hana_sysno	|hana_sysno|
+    |hana_system_usage	|hana_system_usage|
+    |hdb_concurent_jobs	|hdb_concurent_jobs|
+    |kit_hdbclient_file	|kit_hdbclient_file|
+    |kit_igsexe_file	|kit_igsexe_file|
+    |kit_igshelper_file	|kit_igshelper_file|
+    |kit_s4hana_export	|kit_s4hana_export|
+    |kit_sapcar_file	|kit_sapcar_file|
+    |kit_sapexe_file	|kit_sapexe_file|
+    |kit_sapexedb_file	|kit_sapexedb_file|
+    |kit_saphana_file	|kit_saphana_file|
+    |kit_saphotagent_file	|kit_saphotagent_file|
+    |kit_swpm_file	|kit_swpm_file|
+    |sap_ascs_instance_number	|sap_ascs_instance_number|
+    |sap_ci_instance_number	|sap_ci_instance_number|
+    |sap_sid	|sap_sid|
+
+5.	Accept the license agreement. 
+6.  Select **Install**. The deployment starts and you are directed to the Schematics page that displays the script log files for you to monitor the deployment progress.
+
+## Procedure for Schematics interface
+{: #bw4hana-automation-schematics}
+{: ui}
+
+Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete. 
+
+1.	From the IBM Cloud menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
+2.	Click **Create workspace**.
+3.  On the **Specify template** page:
+    * Enter the URL for the Schematics interface. 
+    * Select the **Terraform version**.
+    * Click **Next**.  
+4.  On the **Workspace details** page:
+    * Enter a name for the workspace.
+    * Select a **Resource group**.
+    * Select a **Location** for your workspace. The workspace location does not have to match the resource location.
+    * Select **Next**.
+5.  Select **Create** to create your workspace.
+6.  On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
+     * Your API key
+     * Your private SSH key from your local machine
+     * The ID for the SSH key that you created and uploaded to IBM Cloud. Enter the SSH key ID in square brackets and quotation marks, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
+     * The floating IP address for your bastion server.
+     * The Region for your resources
+     * The Zone for your resources
+     * Whether to use an existing VPC or create one
+     * Whether to use an existing subnet
+     * Whether to create new port only when a new subnet is created
+     * TCP port range, nimimun and maximum
+     * VPC name
+     * Subnet name
+     * Security group name
+     * Hostname
+     * Profile
+     * Image
+     * Minimal recommended disk sizes
+     * SAP HANA main password - This password must be 8 - 14 characters, upper and lowercase letters, a number, and a special character.
+     * SAP main password - This password must be 10 - 14 characters, upper and lowercase letters, a number, and a special character that is not an exclamation point. 
+     * Click **Save changes**.
+
+     For a more detailed description of each of the parameters, check the GitHub repo readme file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". these paramters are marked as “sensitive” in the readme file, under “Input parameter file”.
+
+7.	On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
+8.	Click **View log** to review the log files of your Terraform execution plan.
+9.	Apply your Terraform template by clicking **Apply plan**.
+10.	Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
 
 ## Procedure for Terraform scripts
 {: #bw4hana-automation-terraform}
@@ -173,11 +290,11 @@ For the detailed steps about using Terraform to create only a VPC for SAP, see [
     ```terraform
     #General VPC variables
     REGION          = "ed-de"
-    ZONE			= "eu-de-2"
-    VPC				= "ic4sap"
-    SECURITYGROUP	= "ic4sap-securitygroup"
-    SUBNET			= "ic4sap-subnet"
-    SSH_KEYS		= [ "ssh key1" , "ssh key2" ]
+    ZONE            = "eu-de-2"
+    VPC             = "ic4sap"
+    SECURITYGROUP   = "ic4sap-securitygroup"
+    SUBNET          = "ic4sap-subnet"
+    SSH_KEYS        = [ "ssh key1" , "ssh key2" ]
 
     # SAP Database VSI variables:
     DB-HOSTNAME     = "sapbw4db"
@@ -256,54 +373,6 @@ For the detailed steps about using Terraform to create only a VPC for SAP, see [
 If you need to rename your resources after they are created, modify the ``input.auto.tfvars`` file to change the names and run ``terraform plan`` and ``terraform apply`` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results. 
 
 If you need to remove your VPC, go to your project folder and run ``terraform destroy``.
-
-## Procedure for Schematics interface
-{: #bw4hana-automation-schematics}
-{: ui}
-
-Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete. 
-
-1.	From the IBM Cloud menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
-2.	Click **Create workspace**.
-3.  On the **Specify template** page:
-    * Enter the URL for the Schematics interface. 
-    * Select the **Terraform version**.
-    * Click **Next**.  
-4.  On the **Workspace details** page:
-    * Enter a name for the workspace.
-    * Select a **Resource group**.
-    * Select a **Location** for your workspace. The workspace location does not have to match the resource location.
-    * Select **Next**.
-5.  Select **Create** to create your workspace.
-6.  On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
-     * Your API key
-     * Your private SSH key from your local machine
-     * The ID for the SSH key that you created and uploaded to IBM Cloud. Enter the SSH key ID in square brackets and quotation marks, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
-     * The floating IP address for your bastion server.
-     * The Region for your resources
-     * The Zone for your resources
-     * Whether to use an existing VPC or create one
-     * Whether to use an existing subnet
-     * Whether to create new port only when a new subnet is created
-     * TCP port range, nimimun and maximum
-     * VPC name
-     * Subnet name
-     * Security group name
-     * Hostname
-     * Profile
-     * Image
-     * Minimal recommended disk sizes
-     * SAP HANA main password - This password must be 8 - 14 characters, upper and lowercase letters, a number, and a special character.
-     * SAP main password - This password must be 10 - 14 characters, upper and lowercase letters, a number, and a special character that is not an exclamation point. 
-     * Click **Save changes**.
-
-     For a more detailed description of each of the parameters, check the GitHub repo readme file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". these paramters are marked as “sensitive” in the readme file, under “Input parameter file”.
-
-7.	On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
-8.	Click **View log** to review the log files of your Terraform execution plan.
-9.	Apply your Terraform template by clicking **Apply plan**.
-10.	Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
-
 
 ## Related information
 {: #bw4-automation-related-info}
