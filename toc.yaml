@@ -21,9 +21,10 @@ toc:
             label: Fast Path Site Maps
             topics:
               - sap-fast-path-site-map-intel-bm.md
+              - sap-fast-path-site-map-vmware-sddc.md
+              - sap-fast-path-site-map-intel-bm-vpc.md
               - sap-fast-path-site-map-intel-vs-gen2.md
               - sap-fast-path-site-map-ibm-power-vs.md
-              - sap-fast-path-site-map-vmware-sddc.md
         - link:
             label: Executive solution brief of IBM Cloud for SAP
             href: https://www.ibm.com/cloud/smartpapers/accelerate-SAP/
