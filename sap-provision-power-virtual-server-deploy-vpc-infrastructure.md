@@ -3,7 +3,7 @@
 copyright:
   years: 2020, 2022
 
-lastupdated: "2022-11-30"
+lastupdated: "2022-12-12"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
@@ -25,10 +25,10 @@ As a best practice for SAP that runs on {{site.data.keyword.powerSysFull}}, thre
 
 ![VPC landing zone for SAP on PowerVS](images/step1_manual_VPC-for-PowerVS.svg){: caption="Figure 1. VPC landing zone for SAP on PowerVS" caption-side="bottom"}
 
-## Deploying {{site.data.keyword.vpc-short}} for management services (management VPC)
+## Deploying {{site.data.keyword.vpc_short}} for management services (management VPC)
 {: #power-vs-set-up-management-vpc}
 
-{{site.data.keyword.vpc-short}} for management services (management VPC) is a **mandatory** component in the SAP on {{site.data.keyword.powerSys_notm}} best practices. This service hosts the access hosts to the environment.
+{{site.data.keyword.vpc_short}} for management services (management VPC) is a **mandatory** component in the SAP on {{site.data.keyword.powerSys_notm}} best practices. This service hosts the access hosts to the environment.
 
 * Set up Virtual Private Cloud for management services. For more information, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet).
 * Take care about the default network prefix. We recommend reducing the default network prefix, so it does not overlap between all your {{site.data.keyword.vpc_short}} services.
@@ -43,7 +43,7 @@ Access host is a **mandatory** component in the SAP on {{site.data.keyword.power
 
     |**Protocol**       |**Source type**|**Source**   |**Value** |**Rule's purpose**                                     |
     |-------------------|---------------|-------------|----------|-------------------------------------------------------|
-    |ALL                |CIDR Block     |10.0.0.0/8   |n/a       |Address block of {{site.data.keyword.vpc-short}} and {{site.data.keyword.powerSys_notm}} management subnets    |
+    |ALL                |CIDR Block     |10.0.0.0/8   |n/a       |Address block of {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets    |
     |ALL                |CIDR Block     |161.26.0.0/16|n/a       |Address block of OS registration servers               |
     |TCP                |CIDR Block     |0.0.0.0/0    |Port 22-22|Address block allowed for host administration over SSH |
     {: class="simple-tab-table"}
@@ -67,7 +67,7 @@ Access host is a **mandatory** component in the SAP on {{site.data.keyword.power
     |-----------------|--------------|------------|-------------------------|-------------------------|---------|------------------------------------------------------------|
     |1                |Allow         |ALL         |161.0.0.0/8              |10.0.0.0/8               |n/a      |address block of OS registration servers                    |
     |2                |Allow         |TCP         |Any IP, any port         |10.10.10./24, ports 22-22|n/a      |address block for host administration over SSH              |
-    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc-short}} and {{site.data.keyword.powerSys_notm}} management subnets|
+    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets|
     |4                |Deny          |ALL         |Any IP                   |Any IP                   |n/a      |Deny all other inbound traffic                              |
     {: class="simple-tab-table"}
     {: caption="Table 3. Overview of the inbound ACL rules for the access host" caption-side="bottom"}
@@ -79,7 +79,7 @@ Access host is a **mandatory** component in the SAP on {{site.data.keyword.power
     |-----------------|--------------|------------|-------------------------|-------------------------|---------|------------------------------------------------------------|
     |1                |Allow         |ALL         |10.0.0.0/8               |161.0.0.0/8              |n/a      |address block of OS registration servers                    |
     |2                |Allow         |TCP         |10.10.10./24, ports 22-22|Any IP, any port         |n/a      |address block for host administration over SSH              |
-    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc-short}} and {{site.data.keyword.powerSys_notm}} management subnets|
+    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets|
     |4                |Deny          |ALL         |Any IP                   |Any IP                   |n/a      |Deny all other outbound traffic                             |
     {: class="simple-tab-table"}
     {: caption="Table 4. Overview of the outbound ACL rules for the access host" caption-side="bottom"}
@@ -107,15 +107,15 @@ ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 root@\<access_host_f
 ```
 {: pre}
 
-### Optional steps on {{site.data.keyword.vpc-short}} for management services
+### Optional steps on {{site.data.keyword.vpc_short}} for management services
 {: #vpc-management-services}
 
 To create other VPC resources, such as ACL, load balancer, and other resources, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 
-## Deploying {{site.data.keyword.vpc-short}} for edge services (edge VPC)
+## Deploying {{site.data.keyword.vpc_short}} for edge services (edge VPC)
 {: #power-vs-set-up-edge-vpc}
 
-{{site.data.keyword.vpc-short}} for edge services (edge VPC) is a **mandatory** component in the SAP on IBM Power Virtual Services best practices. This service hosts the internet-facing SAP workloads.
+{{site.data.keyword.vpc_short}} for edge services (edge VPC) is a **mandatory** component in the SAP on IBM Power Virtual Services best practices. This service hosts the internet-facing SAP workloads.
 
 * Set up {{site.data.keyword.vpc_short}} for management services. For more information, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet).
 * Take care about the default network prefix. We recommend reducing the default network prefix, so it does not overlap between all your {{site.data.keyword.vpc_short}} services.
@@ -134,7 +134,7 @@ The following example setup uses open ports for standard SQUID proxy server that
 
     |**Protocol**       |**Source type**|**Source**   |**Value**     |**Rule's purpose**                                     |
     |-------------------|---------------|-------------|--------------|-------------------------------------------------------|
-    |ALL                |CIDR Block     |10.0.0.0/8   |n/a           |address block of {{site.data.keyword.vpc-short}} and {{site.data.keyword.powerSys_notm}} management subnets    |
+    |ALL                |CIDR Block     |10.0.0.0/8   |n/a           |address block of {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets    |
     |TCP                |CIDR Block     |0.0.0.0/8    |Port 80-80    |HTTP                                                   |
     |TCP                |CIDR Block     |0.0.0.0/8    |Port 443-443  |HTTPS                                                  |
     |TCP                |CIDR Block     |0.0.0.0/8    |Port 8443-8443|HTTPS (used by OS registration)                        |
@@ -161,7 +161,7 @@ The following example setup uses open ports for standard SQUID proxy server that
     |-----------------|--------------|------------|-------------------------|-------------------------|---------|------------------------------------------------------------|
     |1                |Allow         |ALL         |161.0.0.0/8              |10.0.0.0/8               |n/a      |address block of OS registration servers                    |
     |2                |Allow         |UDP         |Any IP, ports 53-53      |10.0.0.0/8, any port     |n/a      |DNS                                                         |
-    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc-short}} and {{site.data.keyword.powerSys_notm}} management subnets|
+    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets|
     |4                |Allow         |TCP         |Any IP, ports 8443-8443  |10.0.0.0/8, any port     |n/a      |HTTPS for OS registration                                   |
     |5                |Allow         |TCP         |Any IP, ports 443-443    |10.0.0.0/8, any port     |n/a      |HTTPS                                                       |
     |6                |Allow         |TCP         |Any IP, ports 80-80      |10.0.0.0/8, any port     |n/a      |HTTP                                                        |
@@ -176,7 +176,7 @@ The following example setup uses open ports for standard SQUID proxy server that
     |-----------------|--------------|------------|-------------------------|-------------------------|---------|------------------------------------------------------------|
     |1                |Allow         |ALL         |10.0.0.0/8               |161.0.0.0/8, any port    |n/a      |address block of OS registration servers                    |
     |2                |Allow         |UDP         |10.0.0.0/8, any port     |Any IP, ports 53-53      |n/a      |DNS                                                         |
-    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc-short}} and {{site.data.keyword.powerSys_notm}} management subnets|
+    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets|
     |4                |Allow         |TCP         |10.0.0.0/8, any port     |Any IP, ports 8443-8443  |n/a      |HTTPS for OS registration                                   |
     |5                |Allow         |TCP         |10.0.0.0/8, any port     |Any IP, ports 443-443    |n/a      |HTTPS                                                       |
     |6                |Allow         |TCP         |10.0.0.0/8, any port     |Any IP, ports 80-80      |n/a      |HTTP                                                        |
@@ -197,7 +197,7 @@ The following example setup uses open ports for standard SQUID proxy server that
 ## Deploying IBM Cloud VPC for workload services (workload VPC)
 {: #power-vs-set-up-workload-vpc}
 
-{{site.data.keyword.vpc-short}} for workload services (workload VPC) is a **mandatory** component in the SAP on IBM Power Virtual Services best practices. This service hosts the instances with management components that are used by operating systems and workloads that are running in {{site.data.keyword.powerSysShort}}s.
+{{site.data.keyword.vpc_short}} for workload services (workload VPC) is a **mandatory** component in the SAP on IBM Power Virtual Services best practices. This service hosts the instances with management components that are used by operating systems and workloads that are running in {{site.data.keyword.powerSysShort}}s.
 
 * Set up Virtual Private Cloud for management services. For more information, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet).
 * Take care about the default network prefix. We recommend reducing the default network prefix, so it does not overlap between all your {{site.data.keyword.vpc_short}} services.
@@ -215,7 +215,7 @@ By the using the following setup, we open ports for standard widely used managem
 
     |**Protocol**       |**Source type**|**Source**   |**Value**     |**Rule's purpose**                                     |
     |-------------------|---------------|-------------|--------------|-------------------------------------------------------|
-    |ALL                |CIDR Block     |10.0.0.0/8   |n/a           |address block of {{site.data.keyword.vpc-short}} and {{site.data.keyword.powerSys_notm}} management subnets    |
+    |ALL                |CIDR Block     |10.0.0.0/8   |n/a           |address block of {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets    |
     |ALL                |CIDR Block     |161.26.0.0/16|n/a           |address block of OS registration servers               |
     |UDP                |CIDR Block     |0.0.0.0/0    |Port 53-53    |DNS                                                    |
     {: class="simple-tab-table"}
@@ -239,7 +239,7 @@ By the using the following setup, we open ports for standard widely used managem
     |-----------------|--------------|------------|-------------------------|-------------------------|---------|------------------------------------------------------------|
     |1                |Allow         |ALL         |161.0.0.0/8              |10.0.0.0/8               |n/a      |address block of OS registration servers                    |
     |2                |Allow         |UDP         |Any IP, ports 53-53      |10.0.0.0/8, any port     |n/a      |DNS                                                         |
-    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc-short}} and {{site.data.keyword.powerSys_notm}} management subnets|
+    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets|
     |4                |Deny          |ALL         |Any IP                   |Any IP                   |n/a      |Deny all other inbound traffic                              |
     {: class="simple-tab-table"}
     {: caption="Table 11. Overview of the inbound ACL rules for the workload services host" caption-side="bottom"}
@@ -251,7 +251,7 @@ By the using the following setup, we open ports for standard widely used managem
     |-----------------|--------------|------------|-------------------------|-------------------------|---------|------------------------------------------------------------|
     |1                |Allow         |ALL         |10.0.0.0/8               |161.0.0.0/8, any port    |n/a      |address block of OS registration servers                    |
     |2                |Allow         |UDP         |10.0.0.0/8, any port     |Any IP, ports 53-53      |n/a      |DNS                                                         |
-    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc-short}} and {{site.data.keyword.powerSys_notm}} management subnets|
+    |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets|
     |4                |Deny          |ALL         |Any IP                   |Any IP                   |n/a      |Deny all other outbound traffic                             |
     {: class="simple-tab-table"}
     {: caption="Table 12. Overview of the outbound ACL rules for the workload services host" caption-side="bottom"}
