@@ -248,6 +248,11 @@ toc:
                   topics:
                     - sap-terraform-automate-intro-hana-aas-anydb.md
                     - sap-terraform-automate-hana-aas-anydb.md
+              - topicgroup:
+                  label: SAP S/4HANA HA deployment on IBM Cloud VPC
+                  topics:
+                    - sap-terraform-ha-overview.md
+                    - sap-terraform-s4hana-ha.md
               - sap-terraform-automate-s4hana-ansible.md
               - topicgroup:
                   label: SAP BW/4HANA 3-tier on IBM Cloud VPC
