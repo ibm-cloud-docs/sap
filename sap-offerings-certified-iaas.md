@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-12-09"
+lastupdated: "2022-12-16"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -25,7 +25,7 @@ subcollection: sap
 Certified Infrastructure-as-a-Service for SAP HANA database servers and for SAP NetWeaver based applications is available in many variations, each with different capabilities and sizing available to fit many different SAP workload scenarios.
 {: shortdesc}
 
-For the official and full platform list of Infrastructure-as-a-Service from IBM that is SAP certified and supported for SAP HANA, see the [SAP Certified and Supported SAP HANA Hardware Directory - Certified IaaS Platforms - {{site.data.keyword.cloud_notm}}](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}. For an official list of SAP NetWeaver supported bare metal and virtual servers, see [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external}.
+For the official and full platform list of Infrastructure-as-a-Service from IBM that is SAP certified and supported for SAP HANA, see the [SAP Certified and Supported SAP HANA Hardware Directory - Certified IaaS Platforms - {{site.data.keyword.cloud_notm}}](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}. For an official list of SAP NetWeaver and SAP HANA supported bare metal and virtual servers, see [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external}.
 
 The documents provide detailed considerations and information for building your SAP environments at each layer for all offerings. However, if you are interested in quickly finding the information that is related specifically to one of the IaaS offerings, then you might consider using the Fast Path Site Maps for [Intel Bare Metal (Classic)](/docs/sap?topic=sap-fast-path-site-map-intel-bm), [Intel Bare Metal (VPC)](/docs/sap?topic=sap-fast-path-site-map-intel-bm-vpc), [Intel Virtual Servers (VPC)](/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2), [IBM Power Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-power-vs), and [VMware SDDC](/docs/sap?topic=sap-fast-path-site-map-vmware-sddc).
 {: tip}
