@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021, 2022
-lastupdated: "2022-01-20"
+lastupdated: "2022-12-16"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -41,8 +41,9 @@ Below is a summary table of the certifications, highest benchmark scores, and ma
 {: #faq-profile-specs-table}
 
 Each list of Infrastructure profiles for SAP HANA database server:
-- [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm)
+- [Intel Bare Metal server (Classic) certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm)
 - [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc)
+- [Intel Bare Metal server (VPC) certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc)
 - [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs) _This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems_
 - [VMware SDDC certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vmware)
 
@@ -76,6 +77,9 @@ The following table can be copied into spreadsheet software. All profiles - with
 | BI.S4.H4.6000 | IBM Cloud Bare Metal (Local SSD) | 112 | 224 | 6,144 | 285,970 | Intel Cascade Lake SP | 27.43 | Appliance | OLAP/OLTP, Scale-Out | Classic |
 | BI.S4.H8.6000 | IBM Cloud Bare Metal (Local SSD) | 224 | 448 | 6,144 | 550,670 | Intel Cascade Lake SP | 13.71 | Appliance | OLAP/OLTP, Scale-Out | Classic |
 | BI.S4.H8.12000 | IBM Cloud Bare Metal (Local SSD) | 224 | 448 | 12,288 | 550,670 | Intel Cascade Lake SP | 27.43 | Appliance/TDI | OLAP/OLTP, Scale-Out | Classic |
+| bx2d-metal-96x384 | IBM Cloud Bare Metal (Local SSD) | 48 | 96 | 384 | 124,130 | Intel Cascade Lake SP | 4.00 | Appliance | OLAP/OLTP | VPC |
+| bx2d-metal-192x768 | IBM Cloud Bare Metal (Local SSD) | 96 | 192 | 768 | 255,800 | Intel Cascade Lake SP | 4.00 | Appliance | OLAP/OLTP | VPC |
+| mx2d-metal-96x768 | IBM Cloud Bare Metal (Local SSD) | 48 | 96 | 768 | 127,620 | Intel Cascade Lake SP | 8.00 | Appliance | OLAP/OLTP | VPC |
 | mx2-8x64 | IBM Cloud Virtual Server | -- | 8 | 64 | 10,283 | Intel Cascade Lake SP | 8.00 | TDI | SAP Business One for HANA | VPC |
 | mx2-16x128 | IBM Cloud Virtual Server | -- | 16 | 128 | 20,565 | Intel Cascade Lake SP | 8.00 | TDI | OLTP and SAP Business One for HANA | VPC |
 | mx2-32x256 | IBM Cloud Virtual Server | -- | 32 | 256 | 41,130 | Intel Cascade Lake SP | 8.00 | TDI | OLTP and SAP Business One for HANA | VPC |
@@ -184,6 +188,7 @@ The following table can be copied into spreadsheet software. All profiles - with
 | BI.S4.NW192 | IBM Cloud Bare Metal (Local SSD) | 32 | 64 | 192 | 82,470 | Intel Cascade Lake SP | 3.00 | -- | -- | Classic |
 | BI.S4.NW384 | IBM Cloud Bare Metal (Local SSD) | 32 | 64 | 384 | 85,130 | Intel Cascade Lake SP | 6.00 | -- | -- | Classic |
 | BI.S4.NW768 | IBM Cloud Bare Metal (Local SSD) | 40 | 80 | 768 | 112,830 | Intel Cascade Lake SP | 9.60 | -- | -- | Classic |
+| cx2d-metal-96x192 | IBM Cloud Bare Metal (Local SSD) | 48 | 96 | 192 | 101,070 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
 | bx2-2x8 | IBM Cloud Virtual Server | -- | 2 | 8 | 2,306 | Intel Cascade Lake SP | 4.00 | -- | -- | VPC |
 | bx2-4x16 | IBM Cloud Virtual Server | -- | 4 | 16 | 4,613 | Intel Cascade Lake SP | 4.00 | -- | -- | VPC |
 | bx2-8x32 | IBM Cloud Virtual Server | -- | 8 | 32 | 9,225 | Intel Cascade Lake SP | 4.00 | -- | -- | VPC |
@@ -199,10 +204,6 @@ The following table can be copied into spreadsheet software. All profiles - with
 | mx2-96x768 | IBM Cloud Virtual Server | -- | 96 | 768 | 121,523 | Intel Cascade Lake SP | 8.00 | -- | -- | VPC |
 | mx2-128x1024 | IBM Cloud Virtual Server | -- | 128 | 1,024 | 162,030 | Intel Cascade Lake SP | 8.00 | -- | -- | VPC |
 | vx2d-8x112 | IBM Cloud Virtual Server | -- | 8 | 112 | 8,523 | Intel Cascade Lake SP | 14.00 | -- | -- | VPC |
-| bx2d-metal-96x384 | IBM Cloud Bare Metal (Local SSD) | -- | 96 | 384 | 124,130 | Intel Cascade Lake SP | 4.00 | -- | -- | VPC |
-| bx2d-metal-192x768 | IBM Cloud Bare Metal (Local SSD) | -- | 192 | 768 | 255,800 | Intel Cascade Lake SP | 4.00 | -- | -- | VPC |
-| cx2d-metal-96x192 | IBM Cloud Bare Metal (Local SSD) | -- | 96 | 192 | 101,070 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
-| mx2d-metal-96x768 | IBM Cloud Bare Metal (Local SSD) | -- | 96 | 768 | 127,620 | Intel Cascade Lake SP | 8.00 | -- | -- | VPC |
 | BI.S3.NW192 (VMware) | IBM Cloud for VMware | 36 | 72 | 192 | 70,965 | Intel Skylake SP | 2.67 | -- | -- | Classic |
 | BI.S3.NW384 (VMware) | IBM Cloud for VMware | 36 | 72 | 384 | 71,487 | Intel Skylake SP | 5.33 | -- | -- | Classic |
 | BI.S3.NW768 (VMware) | IBM Cloud for VMware | 36 | 72 | 768 | 71,667 | Intel Skylake SP | 10.67 | -- | -- | Classic |
