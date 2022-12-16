@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-12-09"
+lastupdated: "2022-12-16"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -37,13 +37,12 @@ An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute,
 Certified Infrastructure-as-a-Service for SAP is available in many variations, each with different capabilities and sizes to fit many different SAP workload scenarios. For more information:
 - [Infrastructure certified for SAP - Intel Bare Metal servers on VPC Infrastructure](/docs/sap?topic=sap-iaas-offerings#iaas-intel-bm-vpc)
 
-
-The following is an overview of the SAP-certified profiles with IBM Intel Virtual Servers SAP NetWeaver. For more information:
+The following is an overview of the SAP-certified profiles with IBM Intel Virtual Servers for SAP HANA and SAP NetWeaver. For more information:
+- [IBM Cloud Intel Bare Metal Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc)
 - [IBM Cloud Intel Bare Metal Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm-vpc)
 - [Compute Profiles of SAP-certified IBM Cloud Bare Metal Server](/docs/sap?topic=sap-compute-os-design-considerations#compute-baremetal)
 
-
-Therefore, your business and functional requirements determine the SAP solutions powered by the SSAP NetWeaver Application Server and how your applications are run in the available infrastructure. For more information:
+Therefore, your business and functional requirements determine the SAP solutions powered by the SAP HANA Database Server or SAP NetWeaver Application Server, and how your applications are run in the available infrastructure. For more information:
 - [Connectivity options within the IBM Cloud VPC Infrastructure network](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-vpc)
 - [Bring-your-own network (Subnet/CIDR/IP address range) - VPC Infrastructure](/docs/sap?topic=sap-networking-design-considerations#network-connectivity-byo-vpc)
 - [Networking Traffic Segregation security considerations - VPC Infrastructure separation of subnets](/docs/sap?topic=sap-networking-design-considerations#network-security-vpc-separate-subnets)
@@ -60,7 +59,7 @@ Depending on your scenarios, the following information might be also relevant:
 ## How To
 {: #fast-path-intel-bm-vpc-how-to}
 
-Provisioning IBM Bare Metal Servers for SAP NetWeaver:
+Provisioning IBM Cloud Virtual Servers for SAP HANA and SAP NetWeaver:
 - [Planning your deployment](/docs/sap?topic=sap-bm-vpc-planning-items)
 - [Deploying your infrastructure](/docs/sap?topic=sap-bm-vpc-set-up-infrastructure)
 
