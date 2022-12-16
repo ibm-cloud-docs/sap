@@ -46,14 +46,14 @@ CPU thread consumption effects from:
 * Spool Work Process
 
 
-### Compute Profiles of SAP-certified Bare Metal on Classic Infrastructure
+### Compute Profiles of SAP-certified Bare Metal on Classic and on VPC Infrastructure
 {: #compute-baremetal}
 
 You are offered an array of RAM and CPU combinations as the SAP-certified servers, which have a pre-configured amount of RAM and number of CPUs.
 
 These combinations are "Appliance" delivery model of hardware certification. Therefore, the combination that you select cannot be changed during the ordering process or through a support ticket after servers are deployed.
 
-Some {{site.data.keyword.ibm_cloud_sap}} Bare Metal profiles do allow alterations, and therefore would use the "TDI" delivery model for which you would need to run validation checks to gain SAP Support.
+Some {{site.data.keyword.ibm_cloud_sap}} Bare Metal profiles do allow alterations, and therefore - as far as HANA deployments are concerned - would use the "TDI" delivery model for which you would need to run validation checks to gain SAP Support.
 
 
 ### Compute Profiles of SAP-certified Virtual Servers on VPC Infrastructure
@@ -219,3 +219,4 @@ When you have your own operating system image and license, this can be used with
 | {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} in the IBM Power Infrastructure environment | Linux OS BYOL and Custom Image (aka. BYOS) using [Linux within the Power Virtual Server - Capturing and importing a SLES image](/docs/power-iaas?topic=power-iaas-using-linux#preparing-linux-image) | Not supported for SAP HANA or SAP NetWeaver workloads, available for non-SAP workloads |
 | {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} in the IBM Power Infrastructure environment | Unix OS BYOL and Custom Image (aka. BYOS) using [Importing a boot image for IBM AIX or IBM i](/docs/power-iaas?topic=power-iaas-importing-boot-image#console-import-image) | <ul><li>SAP NetWeaver AS</li></ul> |
 | VMware SDDC on IBM Cloud |  OS BYOL and Custom Image (aka. BYOS) using standard Virtual Machine Guest OS guidance from VMware documentation | Supported as per SAP-VMware guidance |
+
