@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-12-09"
+lastupdated: "2022-12-16"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -147,13 +147,4 @@ All Block storage is selected based on capacity (GB) and performance (IOPS) meas
 
 IOPS values are measured based on 16 KB block size with a 50-50 read/write mix. To achieve a maximum I/O throughput, it's advisable to look at the tier and custom profiles available for storage and find the optimal combination of size and IOPS.
 
-Storage volumes differ in performance, depending on their IOPS tier. You can select among 3, 5, and 10 IOPS/GB (see [Tiered IOPS profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers)). You can also select a [custom size](/docs/vpc?topic=vpc-block-storage-profiles#custom) (in GB and IOPS) that is based on the size of the storage.
-
-If you need more than the initially provisioned storage in your virtual server, you can attach extra volumes to a virtual server later. Contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
-
-### Shared Storage
-{: #vpc-env-shared-storage}
-
-Block storage can be detached and attached to other virtual servers at any time, but, only to one virtual server at the same time.
-
-No shared storage for virtual servers is available in VPC at time of writing.
+Storage volumes differ in performance, depending on their IOPS tier. You can select among 3, 5, and 10 IOPS/GB (see [Tiered IOPS profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers)). You can also select a [custom s
