@@ -181,7 +181,7 @@ toc:
               - sap-provision-intel-bare-metal-optane-plan-deploy.md
               - sap-provision-intel-bare-metal-optane-deploy-infrastructure.md
       - topicgroup:
-          label: Provisioning Intel Bare Metal with Virtual Server (Gen2) for SAP NetWeaver
+          label: Provisioning Intel Bare Metal with Virtual Server (Gen2) for SAP HANA and SAP NetWeaver
           topics:
               - sap-provision-intel-bare-metal-vpc-gen2-plan-deploy.md
               - sap-provision-intel-bare-metal-vpc-gen2-deploy-infrastructure.md
