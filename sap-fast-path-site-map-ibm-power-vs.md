@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-30"
+  years: 2020, 2023
+lastupdated: "2023-01-31"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -12,33 +12,24 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-
 # Fast Path of IBM Power Virtual Servers
 {: #fast-path-site-map-power-vs}
 
-This page is a collection of shortcuts to the documentation sections for each offering, excluding general information that applies to all offerings, such as SAP Sizing.
-
-Use the links in this section to quickly access relevant documents that you are already familiar with.
-
+Use this collection of shortcuts to quickly access relevant documentation for each offering, excluding general information that applies to all offerings, such as SAP Sizing.
 
 ## Learn
 {: #fast-path-power-vs-learn}
 
-An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated site location (also referred to as zone, which is a data center site). For more information:
-- [{{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment introduction](/docs/sap?topic=sap-power-env-introduction)
+An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated zone and or data center. For more information, see [{{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment introduction](/docs/sap?topic=sap-power-env-introduction).
 
+Certified IaaS for SAP HANA database server is available in many variations. Each variation has different capabilities and sizes to fit different SAP workload scenarios. For more information, see [Infrastructure that is certified for SAP - IBM Power Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs).
 
-Certified Infrastructure-as-a-Service for SAP HANA database server is available in many variations, each with different capabilities and sizes to fit many different SAP workload scenarios. For more information:
-- [Infrastructure certified for SAP - IBM Power Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs)
-
-
-The following is an overview of the SAP-certified profiles with IBM Power Virtual Servers for SAP HANA and SAP NetWeaver. For more information:
+The following links give an overview of the SAP-certified profiles with IBM Power Virtual Servers for SAP HANA and SAP NetWeaver.
 - [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
 - [IBM Power Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)
 - [Compute Profiles of SAP-certified IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#compute-power)
 
-
-Your business and functional requirements determine the SAP solutions powered by the SAP HANA Database Server or SAP NetWeaver Application Server, and therefore determine how your applications are run in the available infrastructure. For more information:
+Your specific requirements determine the SAP solutions that are powered by the SAP HANA Database Server or SAP NetWeaver Application Server and determine how your applications run in the available infrastructure. For more information, see the following links.
 - [Mapping CPUs derived from SAPS to an IBM Power Virtual Server](/docs/sap?topic=sap-planning-your-system-landscape#selecting-iaas-power)
 - [Monitoring for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-planning-your-system-landscape#monitoring-power)
 - [Connectivity options within the IBM Power Virtual Server network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-power)
@@ -46,28 +37,33 @@ Your business and functional requirements determine the SAP solutions powered by
 - [Network Block Storage for IBM Power Virtual Servers](/docs/sap?topic=sap-storage-design-considerations#storage-performance-network-block-power)
 - [Sample storage configurations on IBM Power Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-power)
 
-
-Your enterprise IT organization can select from a variety of operating systems from the IBM Cloud for SAP portfolio. For more information:
+Your enterprise IT organization can select from various operating systems from the IBM Cloud for SAP portfolio. For more information about available operating systems, see the following links.
 - [OS for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-power)
 - [OS Bring your Own Image/License for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-byol)
 
-
-Depending on your scenarios, the following information may be also relevant:
+Depending on your scenarios, the following links provide helpful information.
 - [SAP NetWeaver - Configure high availability for IBM Power Infrastructure](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha-power)
-- [SAP on IBM Db2 using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-power-vs)
-- [SAP MaxDB using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-maxdb#anydb-sap-maxdb-power-vs)
-- [SAP ASE using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-ase#anydb-sap-ase-power-vs)
+- [SAP on IBM Db2 by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-power-vs)
+- [SAP MaxDB by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-maxdb#anydb-sap-maxdb-power-vs)
+- [SAP ASE by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-ase#anydb-sap-ase-power-vs)
 - [SAP to IBM Power Virtual Server Migration Acceleration Program](/docs/sap?topic=sap-cloud-migration-acceleration-program)
 
-## How To
+<!--## Tutorials
+- [SAP NetWeaver deployment to IBM Power Virtual Server by using AIX](/docs/sap?topic=sap-quickstudy-nw-power-vs-aix)
+- [SAP HANA deployment to IBM Power Virtual Server by using SLES](/docs/sap?topic=sap-quickstudy-hana-power-vs-sles)-->
+
+## How to
 {: #fast-path-power-vs-how-to}
 
 Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver manually:
 - [Planning your deployment](/docs/sap?topic=sap-power-vs-planning-items)
-- [Deploying IBM Cloud VPC infrastructure used by SAP workloads running on IBM Power Virtual Servers](/docs/sap?topic=sap-power-vs-set-up-vpc-infrastructure)
-- [Deploying IBM Cloud Power Virtual Services infrastructure used by SAP workloads](/docs/sap?topic=sap-power-vs-set-up-power-infrastructure)
+- [Deploying IBM Cloud VPC infrastructure that is used by SAP workloads that run on IBM Power Virtual Servers](/docs/sap?topic=sap-power-vs-set-up-vpc-infrastructure)
+- [Deploying IBM Cloud Power Virtual Services infrastructure that is used by SAP workloads](/docs/sap?topic=sap-power-vs-set-up-power-infrastructure)
 - [Deploying IBM PowerVS instances for SAP system](/docs/sap?topic=sap-power-vs-set-up-power-instances)
 
+Implement high availability scenarios for SAP on IBM Power Virtual Server:
+- [Implement RHEL HA Add-On cluster on Power Systems Virtual Server](/docs/sap?topic=implement-rhel-ha-cluster)
+- [Configure SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=configure-hana-sr-cluster)
 
 ## Help
 {: #fast-path-power-vs-help}
@@ -77,20 +73,20 @@ Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver manually:
 - [FAQ - SAP-certified IBM Power Virtual Servers](/docs/sap?topic=sap-faq-ibm-cloud-for-sap#faq-sap-certified-power-vsi)
 - [FAQ - Profile List with Benchmarks and Specifications](/docs/sap?topic=sap-faq-profile-specs)
 
-## Additional information resources for SAP HANA
+## More resources for SAP HANA
 {: #power-vs-sles-hana-information_resources_hana}
 
-The following links can assist you with the installation and configuration of your {{site.data.keyword.powerSys_notm}} instances with SAP HANA on Linux&reg;. Links with numbers in the title point to the SAP Support Portal.
+The following links can help you install and configure your {{site.data.keyword.powerSys_notm}} instances with SAP HANA on Linux&reg;. Links with numerals in the title lead to the SAP Support Portal.
 
 ### Operating systems – General Linux&reg;
 {: #power-vs-sles-hana-snote-os_linux}
 
 | Link                                                                                                                               | Description                                                         |
 |------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
-| [2378874 - Install SAP Solutions on Linux on {{site.data.keyword.IBM_notm}} Power Systems (little endian)](https://launchpad.support.sap.com/#/notes/2378874){: external} | Installing SAP solutions on {{site.data.keyword.IBM_notm}} Power Systems                       |
+| [2378874 - Installation SAP Solutions on Linux on {{site.data.keyword.IBM_notm}} Power Systems (little endian)](https://launchpad.support.sap.com/#/notes/2378874){: external} | Installing SAP solutions on {{site.data.keyword.IBM_notm}} Power Systems                       |
 | [2235581 - SAP HANA: Supported Operating Systems](https://launchpad.support.sap.com/#/notes/2235581){: external}                               | Supported operating systems for SAP HANA                            |
 | [2369910 - SAP Software on Linux: General information](https://launchpad.support.sap.com/#/notes/2369910){: external}                          | General information for SAP software on Linux                       |
-| [765424 - Linux: Released IBM Hardware - POWER based servers](https://launchpad.support.sap.com/#/notes/765424){: external}                    | IBM Power-based servers                                             |
+| [765424 - Linux: Released IBM Hardware - POWER-based servers](https://launchpad.support.sap.com/#/notes/765424){: external}                    | IBM Power-based servers                                             |
 | [1122387 - Linux: SAP Support in virtualized environments](https://launchpad.support.sap.com/#/notes/1122387){: external}                      | SAP support in virtualized environments                             |
 | [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux){: external}     | Useful information about running Linux on Power                     |
 | [936887 - End of maintenance for Linux distributions](https://launchpad.support.sap.com/#/notes/936887){: external}                            | Maintenance calendar and product maturity                           |
@@ -110,7 +106,7 @@ The following links can assist you with the installation and configuration of yo
 | [1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787)                                        | SLES 12 installation note                     |
 | [2578899 - SUSE Linux Enterprise Server 15: Installation Note](https://launchpad.support.sap.com/#/notes/2578899)                                         | SLES 15 installation note                     |
 | [2684254 - SAP HANA DB: Recommended OS settings for SLES 15 / SLES for SAP Applications 15](https://launchpad.support.sap.com/#/notes/2684254)            | SLES 15 recommended operating system settings |
-| [2790462 - HANA Server connection is not available or timed out after upgrade to SUSE 15 from SUSE 12](https://launchpad.support.sap.com/#/notes/2790462) | Known issue when upgrading from 12 to 15      |
+| [2790462 - HANA Server connection is not available or timed out after you upgrade to SUSE 15 from SUSE 12](https://launchpad.support.sap.com/#/notes/2790462) | Known issue when you upgrade from 12 to 15      |
 | [1275776 - Linux: Preparing SLES for SAP environments](https://launchpad.support.sap.com/#/notes/1275776)                                                 | Preparing SLES for SAP environments           |
 | [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap)                                                                   | A useful collection of SUSE documentation     |
 | [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/)                                                                              | IBM and SUSE                                  |
