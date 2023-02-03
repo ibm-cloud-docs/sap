@@ -48,10 +48,6 @@ Depending on your scenarios, the following links provide helpful information.
 - [SAP ASE by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-ase#anydb-sap-ase-power-vs)
 - [SAP to IBM Power Virtual Server Migration Acceleration Program](/docs/sap?topic=sap-cloud-migration-acceleration-program)
 
-<!--## Tutorials
-- [SAP NetWeaver deployment to IBM Power Virtual Server by using AIX](/docs/sap?topic=sap-quickstudy-nw-power-vs-aix)
-- [SAP HANA deployment to IBM Power Virtual Server by using SLES](/docs/sap?topic=sap-quickstudy-hana-power-vs-sles)-->
-
 ## How to
 {: #fast-path-power-vs-how-to}
 
