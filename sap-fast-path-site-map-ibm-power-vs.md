@@ -58,8 +58,8 @@ Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver manually:
 - [Deploying IBM PowerVS instances for SAP system](/docs/sap?topic=sap-power-vs-set-up-power-instances)
 
 Implement high availability scenarios for SAP on IBM Power Virtual Server:
-- [Implement RHEL HA Add-On cluster on Power Systems Virtual Server](/sap?topic=sap-implement-rhel-ha-cluster)
-- [Configure SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/sap?topic=sap-configure-hana-sr-cluster)
+- [Implement RHEL HA Add-On cluster on Power Systems Virtual Server](/docs/sap?topic=sap-implement-rhel-ha-cluster)
+- [Configure SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-configure-hana-sr-cluster)
 
 ## Help
 {: #fast-path-power-vs-help}
