@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021, 2022
-lastupdated: "2022-12-16"
+lastupdated: "2022-01-20"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -203,7 +203,11 @@ The following table can be copied into spreadsheet software. All profiles - with
 | mx2-64x512 | IBM Cloud Virtual Server | -- | 64 | 512 | 81,015 | Intel Cascade Lake SP | 8.00 | -- | -- | VPC |
 | mx2-96x768 | IBM Cloud Virtual Server | -- | 96 | 768 | 121,523 | Intel Cascade Lake SP | 8.00 | -- | -- | VPC |
 | mx2-128x1024 | IBM Cloud Virtual Server | -- | 128 | 1,024 | 162,030 | Intel Cascade Lake SP | 8.00 | -- | -- | VPC |
+| vx2d-2x28 | IBM Cloud Virtual Server | -- | 2 | 28 | 2,131 | Intel Cascade Lake SP | 14.00 | -- | -- | VPC |
+| vx2d-4x56 | IBM Cloud Virtual Server | -- | 4 | 56 | 4,262 | Intel Cascade Lake SP | 14.00 | -- | -- | VPC |
 | vx2d-8x112 | IBM Cloud Virtual Server | -- | 8 | 112 | 8,523 | Intel Cascade Lake SP | 14.00 | -- | -- | VPC |
+| ux2d-2x56 | IBM Cloud Virtual Server | -- | 2 | 56 | 2,156 | Intel Cascade Lake SP | 28.00 | -- | -- | VPC |
+| ux2d-4x112 | IBM Cloud Virtual Server | -- | 4 | 112 | 4,312 | Intel Cascade Lake SP | 28.00 | -- | -- | VPC |
 | BI.S3.NW192 (VMware) | IBM Cloud for VMware | 36 | 72 | 192 | 70,965 | Intel Skylake SP | 2.67 | -- | -- | Classic |
 | BI.S3.NW384 (VMware) | IBM Cloud for VMware | 36 | 72 | 384 | 71,487 | Intel Skylake SP | 5.33 | -- | -- | Classic |
 | BI.S3.NW768 (VMware) | IBM Cloud for VMware | 36 | 72 | 768 | 71,667 | Intel Skylake SP | 10.67 | -- | -- | Classic |
@@ -214,14 +218,6 @@ The following table can be copied into spreadsheet software. All profiles - with
 | BI.S4.NW3000 (VMware) | IBM Cloud for VMware | 56 | 112 | 3,072 | 121,614 | Intel Cascade Lake SP | 27.43 | -- | -- | Classic |
 {: caption="Table 2. Full list of SAP-certified IaaS" caption-side="top"}
 
-<!--- The following two vx2d-profiles have not been entered in the SAP Note yet
-| vx2d-2x28 | IBM Cloud Virtual Server | -- | 2 | 28 | 2,131 | Intel Cascade Lake SP | 14.00 |   |   |
-| vx2d-4x56 | IBM Cloud Virtual Server | -- | 4 | 56 | 4,262 | Intel Cascade Lake SP | 14.00 |   |   |
---->
-<!--- The following two ux2d profiles have not been entered in the SAP Note yet
-| ux2d-2x56 | IBM Cloud Virtual Server | -- | 2 | 56 | 2,156 | Intel Cascade Lake SP | 28.00 |   |   |
-| ux2d-4x112 | IBM Cloud Virtual Server | -- | 4 | 112 | 4,312 | Intel Cascade Lake SP | 28.00 |   |   |
---->
 
 Those marked with `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median and largest within each profile family. This action has been taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. See [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} for additional detail.
 {: note}
