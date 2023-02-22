@@ -32,6 +32,16 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
 | --- | --- | --- | --- |
+| **Compute** | | | |
+| cx2-2x4 | 2 | 4 | 1,885 |
+| cx2-4x8 | 4 | 8 |  3,770 |
+| cx2-8x16 | 8 | 316 |  7,539 |
+| cx2-16x32 | 16 | 32 | 15,079 |
+| cx2-32x64 | 32 | 64 | 30,158 |
+| cx2-48x96 | 48 | 96 | 45,236 |
+| cx2-64x128 | 64 | 128 | 60,315 |
+| cx2-96x192 | 96 | 192 | 90,473 |
+| cx2-128x256 | 128 | 256 | 120,630 |
 | **Balanced** | | | |
 | bx2-2x8 | 2 | 8 | 2,306 |
 | bx2-4x16 | 4 | 16 |  4,613 |
@@ -91,6 +101,7 @@ The first letter of the profile name indicates the profile family mentioned abov
 
 | First letter | Characteristics of the related profile family |
 | --- | --- |
+| c | *Compute* family, CPU to Memory ratio 1:2 |
 | b | *Balanced* family, CPU to Memory ratio 1:4 |
 | m | *Memory Optimized* family, higher CPU to Memory ratio 1:8 |
 | v | *Very High Memory Optimized*  family, very high CPU to Memory ratio 1:14 |

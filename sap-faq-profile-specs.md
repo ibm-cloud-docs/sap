@@ -189,6 +189,15 @@ The following table can be copied into spreadsheet software. All profiles - with
 | BI.S4.NW384 | IBM Cloud Bare Metal (Local SSD) | 32 | 64 | 384 | 85,130 | Intel Cascade Lake SP | 6.00 | -- | -- | Classic |
 | BI.S4.NW768 | IBM Cloud Bare Metal (Local SSD) | 40 | 80 | 768 | 112,830 | Intel Cascade Lake SP | 9.60 | -- | -- | Classic |
 | cx2d-metal-96x192 | IBM Cloud Bare Metal (Local SSD) | 48 | 96 | 192 | 101,070 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
+| cx2-2x4 | IBM Cloud Virtual Server | -- | 2 | 4 | 1,885 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
+| cx2-4x8 | IBM Cloud Virtual Server | -- | 4 | 8 |  3,770 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
+| cx2-8x16 | IBM Cloud Virtual Server | -- | 8 | 316 |  7,539 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
+| cx2-16x32 | IBM Cloud Virtual Server | -- | 16 | 32 | 15,079 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
+| cx2-32x64 | IBM Cloud Virtual Server | -- | 32 | 64 | 30,158 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
+| cx2-48x96 | IBM Cloud Virtual Server | -- | 48 | 96 | 45,236 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
+| cx2-64x128 | IBM Cloud Virtual Server | -- | 64 | 128 | 60,315 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
+| cx2-96x192 | IBM Cloud Virtual Server | -- | 96 | 192 | 90,473 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
+| cx2-128x256 | IBM Cloud Virtual Server | -- | 128 | 256 | 120,630 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
 | bx2-2x8 | IBM Cloud Virtual Server | -- | 2 | 8 | 2,306 | Intel Cascade Lake SP | 4.00 | -- | -- | VPC |
 | bx2-4x16 | IBM Cloud Virtual Server | -- | 4 | 16 | 4,613 | Intel Cascade Lake SP | 4.00 | -- | -- | VPC |
 | bx2-8x32 | IBM Cloud Virtual Server | -- | 8 | 32 | 9,225 | Intel Cascade Lake SP | 4.00 | -- | -- | VPC |
