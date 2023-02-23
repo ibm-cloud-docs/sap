@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021, 2022
-lastupdated: "2022-12-16"
+lastupdated: "2022-01-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -31,13 +31,14 @@ The following table gives you an overview of the SAP-certified profiles with bar
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- |
 | **Balanced** | | | | |
-| bx2d-metal-96x384 | 96 | 384 | 124,130 | OLTP/OLAP |
-| bx2d-metal-192x768 | 192 | 768 | 255,800 | OLTP/OLAP |
-| **Compute optimized** | | | | |
-| cx2d-metal-96x192 | 96 | 192 | 101,070| OLTP/OLAP |
+| bx2d-metal-96x384 | 96 | 384 | 124,130 | OLTP/OLAP (\*) |
+| bx2d-metal-192x768 | 192 | 768 | 255,800 | OLTP/OLAP (\*) |
 | **Memory optimized** | | | | |
-| mx2d-metal-96x768 | 96 | 768 | 127,620 | OLTP/OLAP |
+| mx2d-metal-96x768 | 96 | 768 | 127,620 | OLTP/OLAP (\*) |
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA" caption-side="bottom"}
+
+(\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions<br/>
+SLES 15 SP3, SLES 15 SP4
 
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}. 
@@ -49,9 +50,8 @@ For SAP HANA deployments that use {{site.data.keyword.cloud_notm}} Bare Metal Se
 ## Understanding Bare Metal Server profile names
 {: #hana-iaas-intel-bm-vpc-names}
 
-With {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC, the profile families that are certified for SAP are: *Balanced*, *Memory optimized*, and *Compute optimized*.
+With {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC, the profile families that are certified for SAP are: *Balanced* and *Memory optimized*.
 - *Balanced* family profiles - provide a good mix of performance and scalability for more common workloads.
-- *Compute optimized* family profiles - provide more compute power, and they have more cores with less memory.
 - *Memory optimized* family profiles - provide advantages for memory intensive workloads, such as intensive database applications and in-memory analytics, and are especially designed for SAP HANA workloads.
 
 For more information, see [Bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile).
@@ -60,8 +60,7 @@ The first letter of the profile name indicates the profile family:
 
 | First letter | Characteristics of the related profile family |
 | --- | --- |
-| b | *Balanced* family, CPU to Memory 1:2 |
-| c | *Compute optimized* family, CPU to Memory ratio 1:4 |
+| b | *Balanced* family, CPU to Memory 1:4 |
 | m | *Memory optimized* family, higher CPU to Memory ratio 1:8 |
 {: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
@@ -72,12 +71,14 @@ The bare metal server profile names are contextual and sequential. See the follo
 | --- | --- | --- |
 | mx2d-metal-96x768 | m | *Memory Optimized* family |
 | | x | Intel x86_64 CPU Architecture |
-| | 2 | The generation for the underlying hardware |
+| | 2 | The generation for the underlying hardware | 
+| | d | the optional 'd' in the name indicates that the server is equipped with one or more SSD storage devices |
 | | — | _spacer_ |
 | | 96 | 96 vCPU |
 | | x | _spacer_ |
-| | 768 | 788 GiB RAM |
+| | 768 | 768 GiB RAM |
 {: caption="Table 3. Profile naming for SAP HANA" caption-side="top"}
+'-metal-' in the name indicates that this is a Bare Metal Server.
 
 
 ## Profiles available on Hourly Consumption Billing

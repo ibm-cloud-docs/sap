@@ -57,8 +57,8 @@ The first letter of the profile name indicates the profile family:
 
 | First letter | Characteristics of the related profile family |
 | --- | --- |
-| b | *Balanced* family, CPU to Memory 1:2 |
-| c | *Compute Optimized* family, CPU to Memory ratio 1:4 |
+| c | *Compute Optimized* family, CPU to Memory ratio 1:2 |
+| b | *Balanced* family, CPU to Memory ratio 1:4 |
 | m | *Memory Optimized* family, higher CPU to Memory ratio 1:8 |
 {: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
@@ -68,13 +68,15 @@ The Bare Metal Server profile names are contextual and sequential. See the follo
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
 | mx2d-metal-96x768 | m | *Memory Optimized* family |
-| | X | Intel x86_64 CPU Architecture |
-| | 2 | The generation for the underlying hardware |
+| | x | Intel x86_64 CPU Architecture |
+| | 2 | The generation for the underlying hardware | 
+| | d | the optional 'd' in the name indicates that the server is equipped with one or more SSD storage devices |
 | | — | _spacer_ |
 | | 96 | 96 vCPU |
 | | x | _spacer_ |
-| | 768 | 788 GiB RAM |
+| | 768 | 768 GiB RAM |
 {: caption="Table 3. Profile naming for SAP NetWeaver" caption-side="top"}
+'-metal-' in the name indicates that this is a Bare Metal Server.
 
 
 ## Profiles available on Hourly Consumption Billing
