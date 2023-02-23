@@ -118,10 +118,6 @@ The following table shows the required physical volumes, related volume groups, 
 
 | Profile | File\nsystem | Logical\nVolume | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(TB) |
 | --- | --- | --- | --- | --- | --- | --- |
-| `cx2d-metal-96x192`  | `/hana/shared` | `hana_shared_lv` | 192 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
-| | `/hana/data` | `hana_data_lv` | min. 576 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
-| | `/hana/log` |  | 192 | `vg0` | | | 
-| --- | --- | --- | --- | --- | --- | --- |
 | `bx2d-metal-96x384`  | `/hana/shared` | `hana_shared_lv` | 384 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
 | | `/hana/data` | `hana_data_lv` | min. 1152 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
 | | `/hana/log` |  | 384 | `vg0` | | | 
