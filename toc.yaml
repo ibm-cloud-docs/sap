@@ -43,6 +43,8 @@ toc:
               - sap-offerings-hana-iaas-intel-virtual-server-gen2-profiles.md
               - sap-offerings-hana-iaas-power-virtual-server-profiles.md
               - sap-offerings-hana-iaas-vmware-sddc-profiles.md
+              - sap-offerings-hana-iaas-intel-bm-vpc.md
+
         - topicgroup:
             label: Infrastructure profiles for SAP NetWeaver Application Server
             topics:
