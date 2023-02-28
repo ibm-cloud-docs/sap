@@ -92,7 +92,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 
 ## Before you begin
 {: #automate-s4hana-ha-begin}
-
+ 
 Before you use the scripts in the bastion CLI or {{site.data.keyword.bpshort}}:
 
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
