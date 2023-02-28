@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-28"
+  years: 2021, 2023
+lastupdated: "2023-02-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -29,11 +29,11 @@ subcollection: sap
 {{site.data.keyword.ibm_cloud_sap}} is for enterprises who believe that empowering their SAP workloads also empowers their business. {{site.data.keyword.ibm_cloud_sap}} provides your enterprise with full cloud capabilities. So you can run your mission-critical SAP workloads with secure, reliable, and compliant infrastructure, and take advantage of options to append more cloud services to transform the business.
 {: shortdesc}
 
-Our {{site.data.keyword.ibm_cloud_sap}} offerings are designed based on over 45+ years of IBM-SAP expertise (since 1972). The on-demand flexible compute options for various SAP Business Application scenarios range from cloud-native SAP and burst compute all the way to high performance with enterprise-grade availability.
+Our {{site.data.keyword.ibm_cloud_sap}} offerings are designed based on over 50+ years of IBM-SAP expertise (since 1972). The on-demand flexible compute options for various SAP Business Application scenarios range from cloud-native SAP and burst compute all the way to high performance with enterprise-grade availability.
 
 Our IBM and SAP multi-decade alliance is why IBM was selected as one of SAP’s strategic infrastructure providers for hybrid cloud. Support for SAP's suite of products is available through the highly scalable, open, and security-rich {{site.data.keyword.cloud_notm}}. With this partnership, SAP applications can expand to major markets; this expansion is made possible by more than 60 {{site.data.keyword.cloud_notm}} data centers worldwide.
 
-{{site.data.keyword.ibm_cloud_sap}} was [launched in late 2014](https://www.ibm.com/news/ca/en/2014/10/14/p001317b07533x58.html){: external}, with our SAP HANA certified Bare Metals as a strategic partner with SAP HANA Enterprise Cloud (HEC). Our SAP HANA certified Bare Metals were first released as Infrastructure-as-a-Service in early 2017, the first Cloud Service Provider to provide high-performance Bare Metal IaaS for SAP HANA and SAP NetWeaver.
+{{site.data.keyword.ibm_cloud_sap}} was [launched in late 2014](https://news.sap.com/2014/10/ibm-and-sap-partner-enterprise-cloud-adoption/){: external}, with our SAP HANA certified Bare Metals as a strategic partner with SAP HANA Enterprise Cloud (HEC). Our SAP HANA certified Bare Metals were first released as Infrastructure-as-a-Service in early 2017, the first Cloud Service Provider to provide high-performance Bare Metal IaaS for SAP HANA and SAP NetWeaver.
 
 Using various configurations of the SAP Technical Applications, you can confidently run SAP Business Applications such as:
 - SAP S/4HANA
@@ -107,9 +107,9 @@ The {{site.data.keyword.cloud_notm}} SAP-Certified IaaS gives you the flexibilit
 * Supplementing existing on-premises virtualized infrastructure architectures.
 
 
-The {{site.data.keyword.ibm_cloud_sap}} portfolio primarily consists of four<!---five--> offerings:
+The {{site.data.keyword.ibm_cloud_sap}} portfolio primarily consists of five offerings:
 1. {{site.data.keyword.cloud_notm}} Bare Metal
-<!---1. {{site.data.keyword.cloud_notm}} Bare Metal with Intel Optane DC Persistent Memory-->
+1. {{site.data.keyword.cloud_notm}} Bare Metal with Intel Optane DC Persistent Memory
 1. {{site.data.keyword.cloud_notm}} Virtual Servers
 1. IBM Power Virtual Servers (complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with connection through {{site.data.keyword.cloud_notm}})
 1. {{site.data.keyword.cloud_notm}} for VMware
