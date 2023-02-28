@@ -1,51 +1,54 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-02-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
 subcollection: sap
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configure SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster
-{: #configure-hana-sr-cluster}
+# Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster
+{: #ha-rhel-hana-sr}
 
-Running SAP HANA on IBM Power Systems offers customers a consistent platform for their HANA-based and traditional applications, best-in-class performance, resilience for critical workloads, and most flexible infrastructure.
+With SAP HANA on IBM Power Systems, you have a consistent platform for HANA-based and traditional applications, best-in-class performance, resilience for critical workloads, and most flexible infrastructure.
 
 ## Overview
-{: #overview}
+{: #ha-rhel-hana-sr-overview}
 
-The following information describes the configuration of a HA cluster for managing *SAP HANA Scale-Up System Replication* in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 (RHEL) by using virtual server instances in [IBM Power Systems Virtual Server](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
+The following information describes the configuration of a Red Hat Enterprise Linux 8 (RHEL) HA Add-On cluster for managing *SAP HANA Scale-Up System Replication*.
+The cluster uses virtual server instances in IBM {{site.data.keyword.powerSys_notm}}{: external} as cluster nodes.
 
-The instructions describe how to automate SAP HANA Scale-Up System Replication for a single database deployment in a performance-optimized scenario on a RHEL HA Add-on cluster. 
+The instructions describe how to automate SAP HANA Scale-Up System Replication for a single database deployment in a performance-optimized scenario on a RHEL HA Add-on cluster.
 
 For more information, see the following links:
+- [Red Hat HA Solutions for SAP HANA, S/4HANA, and NetWeaver based SAP Applications](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index#doc-wrapper){: external}
 - [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471){: external}
-- [Automating SAP HANA Scale-Up System Replication using the RHEL HA Add-On](https://access.redhat.com/articles/3004101){: external}
+- [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://access.redhat.com/articles/3004101){: external}
 - [SAP HANA System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html){: external}.
 
-This information is intended for architects and specialists that are planning a high-availability deployment of SAP HANA on Power Systems Virtual Server.
+This information is intended for architects and specialists that are planning a high-availability deployment of SAP HANA on {{site.data.keyword.powerSys_notm}}.
 {: note}
 
 ## Prerequisites
-{: #prerequisites}
+{: #ha-rhel-hana-sr-prerequisites}
 
-- A Red Hat High Availability cluster deployed on two virtual server instances in Power Systems Virtual Server.
-   - Install and setup the RHEL HA Add-On cluster according to [Implement RHEL HA Add-On cluster on Power Systems Virtual Server](/docs/sap?topic=sap-power-virtual-server-ha-rhel#create-fencing-device){: external}.
+- A Red Hat High Availability cluster deployed on two virtual server instances in {{site.data.keyword.powerSys_notm}}.
+   - Install and set up the RHEL HA Add-On cluster according to [Implement RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-power-virtual-server-ha-rhel#create-fencing-device){: external}.
    - Configure and verify fencing as described in the preceding document.
 - The virtual server instances need to fulfill hardware and resource requirements for the SAP HANA systems in scope.
    Follow the guidelines that are in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items){: external}.
 - The hostnames of the virtual server instances must meet the SAP HANA requirement.
 - SAP HANA installed on both virtual server instances and SAP HANA System Replication is configured.
-   The installation of SAP HANA and setup of HANA System Replication is not specific to the Power Systems Virtual Server environment, and you need to follow the standard procedures. For more information, see the following documentation.
-   - Install SAP HANA on RHEL: 
+   The installation of SAP HANA and setup of HANA System Replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures. For more information, see the following documentation.
+   - Install SAP HANA on RHEL:
       - [SAP Note 2772999 - Red Hat Enterprise Linux 8.x: Installation and Configuration](https://launchpad.support.sap.com/#/notes/2772999){: external}
       - [SAP Note 2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782){: external}
    - SAP HANA Server Installation:
-      -  [iSAP HANA Server Installation and Update Guide](https://launchpad.support.sap.com/#/notes/2777782){: external}
+      -  [SAP HANA Server Installation and Update Guide](https://launchpad.support.sap.com/#/notes/2777782){: external}
    - SAP HANA System Replication:
       - [SAP HANA System Replication Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html?locale=en-US){: external}
    - Configure SAP HANA System Replication:
@@ -53,18 +56,18 @@ This information is intended for architects and specialists that are planning a 
 - A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is required to enable the repositories that you need to install SAP HANA and the resource agents for HA configurations.
    The [RHEL for SAP Repositories and How to Enable Them](https://access.redhat.com/articles/6072011){: external} knowledge base article describes how to enable the required repositories.
 
-## Configure SAP HANA System Replication in a RHEL HA Add-On cluster on IBM Power Systems Virtual Server
-{: #configure-hana-sr-rhel-ha}
+## Configuring SAP HANA System Replication in a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}}
+{: #ha-rhel-hana-sr-configure-sr}
 
 For the following steps, also check the documentation in the Red Hat article [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://access.redhat.com/articles/3004101){: external}.
 
 ### Preparing environment variables
-{: #prepare-environment-variables}
+{: #ha-rhel-hana-sr-prepare-environment-variables}
 
 To simplify the setup, prepare the following environment variables for root on both nodes.
 These environment variables are used in subsequent commands in the remainder of the examples.
 
-On *both nodes*, run the following command.
+On both nodes, run the following commands.
 
 ```sh
 export SID=<SID>            # SAP HANA System ID (uppercase)
@@ -80,9 +83,9 @@ export NODE2=<Hostname 2>   # Hostname of virtual server instance 2
 {: codeblock}
 
 ### Installing SAP HANA resource agents
-{: #install-sap-hana-resource-agents}
+{: #ha-rhel-hana-sr-install-sap-hana-resource-agents}
 
-Run the following command to install the RHEL HA Add-On resource agents for SAP HANA System Replication:
+Run the following command to install the RHEL HA Add-On resource agents for SAP HANA System Replication.
 
 ```sh
 yum install -y resource-agents-sap-hana
@@ -90,26 +93,34 @@ yum install -y resource-agents-sap-hana
 {: pre}
 
 ### Starting the SAP HANA system
-{: #start-hana-systems}
+{: #ha-rhel-hana-sr-start-hana-systems}
 
 Start SAP HANA and verify that HANA System Replication is active. For more information, see [2.4. Checking SAP HANA System Replication state](https://access.redhat.com/articles/3004101#checking-sap-hana-system-replication-state){: external}).
 
-On *both nodes*, run the following commands. 
+On both nodes, run the following commands.
 
 ```sh
 su - ${sid}adm
+```
+{: pre}
+
+```sh
 HDB start
 ```
 {: pre}
 
 ```sh
 hdbnsutil -sr_state
+```
+{: pre}
+
+```sh
 HDBSettings.sh systemReplicationStatus.py
 ```
 {: pre}
 
-### Enable the SAP HANA srConnectionChanged() hook
-{: #enable-hana-sr-hook}
+### Enabling the SAP HANA srConnectionChanged() hook
+{: #ha-rhel-hana-sr-enable-hana-sr-hook}
 
 Recent versions of SAP HANA provide *hooks* so SAP HANA can send out notifications for certain events.
 For more information, see [Implementing a HA/DR Provider](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/1367c8fdefaa4808a7485b09815ae0f3.html){: external}.
@@ -117,11 +128,11 @@ For more information, see [Implementing a HA/DR Provider](https://help.sap.com/d
 The *srConnectionChanged()* hook improves the ability of the cluster to detect a status change of HANA System Replication that requires an action from the cluster. The goal is to prevent data loss and corruption by preventing accidental takeovers.
 
 #### Activating the srConnectionChanged() hook on all SAP HANA instances
-{: #activate-hana-sr-hook}
+{: #ha-rhel-hana-sr-activate-hana-sr-hook}
 
 1. Stop the cluster.
 
-   On *NODE1*, run the following command.
+   On NODE1, run the following command.
 
    ```sh
    pcs cluster stop --all
@@ -130,7 +141,7 @@ The *srConnectionChanged()* hook improves the ability of the cluster to detect a
 
 1. Install the hook script that is provided by the *resource-agents-sap-hana* package in the `/hana/shared/myHooks` directory for each HANA instance, and set the required ownership.
 
-   On *both nodes*, run the following commands.
+   On both nodes, run the following commands.
 
    ```sh
    mkdir -p /hana/shared/myHooks
@@ -149,7 +160,7 @@ The *srConnectionChanged()* hook improves the ability of the cluster to detect a
 
 1. Update the `global.ini` file on each HANA node to enable the hook script.
 
-   On *both nodes*, run the following command.
+   On both nodes, run the following command.
 
    ```sh
    cat >> /hana/shared/${SID}/global/hdb/custom/config/global.ini << EOT
@@ -167,7 +178,7 @@ The *srConnectionChanged()* hook improves the ability of the cluster to detect a
 
 1. Verify the changed file.
 
-   On *both nodes*, run the following command.
+   On both nodes, run the following command.
 
    ```sh
    cat /hana/shared/${SID}/global/hdb/custom/config/global.ini
@@ -178,9 +189,9 @@ The *srConnectionChanged()* hook improves the ability of the cluster to detect a
 
    You need the following sudo settings to allow the `${sid}adm` user script can update the node attributes when the *srConnectionChanged()* hook runs.
 
-   On *both nodes*, run the following commands.
+   On both nodes, run the following commands.
 
-   Create a file with the required *sudo* aliases and user specifications.
+   Create a file with the required sudo aliases and user specifications.
 
    ```sh
    cat >> /etc/sudoers.d/20-saphana << EOT
@@ -212,36 +223,52 @@ The *srConnectionChanged()* hook improves the ability of the cluster to detect a
    ```
    {: pre}
 
-Any problems reported by the `visudo -c` command must be corrected.
+Any problems that are reported by the `visudo -c` command must be corrected.
 {: note}
 
 1. Verify that the hook functions.
 
-   - Restart both HANA instances and verify that the hook script is working as expected.
+   - Restart both HANA instances and verify that the hook script works as expected.
    - Perform an action to trigger the hook, such as stopping a HANA instance.
-   - Then check whether the hook logged anything in the trace files.
+   - Check whether the hook logged anything in the trace files.
 
-   On *both nodes*, run the following commands.
+   On both nodes, run the following commands.
 
-   Restart and then stop the HANA instance:
+   Restart and then stop the HANA instance.
 
    ```sh
    su - ${sid}adm
+   ```
+   {: pre}
+
+   ```sh
    HDB restart
+   ```
+   {: pre}
+
+   ```sh
    HDB stop
    ```
    {: pre}
 
-   Check messages in trace files:
+   Check messages in trace files.
 
    ```sh
    cdtrace
+   ```
+   {: pre}
+
+   ```sh
    awk '/ha_dr_SAPHanaSR.*crm_attribute/ { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+   ```
+   {: pre}
+
+   ```sh
    grep ha_dr_ *
    ```
    {: pre}
 
-   Start the HANA instance:
+   Start the HANA instance.
 
    ```sh
    HDB start
@@ -252,16 +279,16 @@ Any problems reported by the `visudo -c` command must be corrected.
 
 1. Start cluster.
 
-   On *NODE1*, run the following commands.
+   On NODE1, run the following commands.
 
-   Start the cluster:
+   Start the cluster.
 
    ```sh
    pcs cluster start --all
    ```
    {: pre}
 
-   Check the status of the cluster:
+   Check the status of the cluster.
 
    ```sh
    pcs status --full
@@ -269,13 +296,13 @@ Any problems reported by the `visudo -c` command must be corrected.
    {: pre}
 
 ### Configuring general cluster properties
-{: #configure-cluster-properties}
+{: #ha-rhel-hana-sr-configure-cluster-properties}
 
 To avoid failovers of the resources during initial testing and post production, set the following default values for the resource-stickiness and migration-threshold parameters.
 
 Keep in mind that defaults don't apply to resources that override them with their own defined values.
 
-On *NODE1*, run the following commands.
+On NODE1, run the following commands.
 
 ```sh
 pcs resource defaults update resource-stickiness=1000
@@ -288,54 +315,62 @@ pcs resource defaults update migration-threshold=5000
 {: pre}
 
 ### Creating a cloned SAPHanaTopology resource
-{: #create-saphanatopology-resource}
+{: #ha-rhel-hana-sr-create-saphanatopology-resource}
 
 The *SAPHanaTopology* resource gathers status and configuration of SAP HANA System Replication on each node.
 It also starts and monitors the local *SAP HostAgent*, which is required for starting, stopping, and monitoring SAP HANA instances.
 
-On *NODE1*, run the following commands.
+On NODE1, run the following commands.
 
-Create the *SAPHanaTopology* resource:
+Create the *SAPHanaTopology* resource.
 
 ```sh
 pcs resource create SAPHanaTopology_${SID}_${INSTNO} SAPHanaTopology \
-  SID=${SID} InstanceNumber=${INSTNO} \
-  op start timeout=600 \
-  op stop timeout=300 \
-  op monitor interval=10 timeout=600 \
-  clone clone-max=2 clone-node-max=1 interleave=true
+    SID=${SID} InstanceNumber=${INSTNO} \
+    op start timeout=600 \
+    op stop timeout=300 \
+    op monitor interval=10 timeout=600 \
+    clone clone-max=2 clone-node-max=1 interleave=true
 ```
 {: pre}
 
-Check the configuration and the cluster status by running the following command.
+Check the configuration and the cluster status by running the following commands.
 
 ```sh
 pcs resource config SAPHanaTopology_${SID}_${INSTNO}
+```
+{: pre}
+
+```sh
 pcs resource config SAPHanaTopology_${SID}_${INSTNO}-clone
+```
+{: pre}
+
+```sh
 pcs status --full
 ```
 {: pre}
 
 ### Creating master and slave SAPHana resources
-{: #create-saphana-resource}
+{: #ha-rhel-hana-sr-create-saphana-resource}
 
 The *SAPHana* resource manages two SAP HANA instances that are configured as HANA System Replication nodes.
 
-On *NODE1*, create the *SAPHana* resource, by running the following command.
+On NODE1, create the *SAPHana* resource, by running the following command.
 
 ```sh
 pcs resource create SAPHana_${SID}_${INSTNO} SAPHana \
-  SID=${SID} InstanceNumber=${INSTNO} \
-  PREFER_SITE_TAKEOVER=true \
-  DUPLICATE_PRIMARY_TIMEOUT=7200 \
-  AUTOMATED_REGISTER=false \
-  op start timeout=3600 \
-  op stop timeout=3600 \
-  op monitor interval=61 role="Slave" timeout=700 \
-  op monitor interval=59 role="Master" timeout=700 \
-  op promote timeout=3600 \
-  op demote timeout=3600 \
-  promotable notify=true clone-max=2 clone-node-max=1 interleave=true
+    SID=${SID} InstanceNumber=${INSTNO} \
+    PREFER_SITE_TAKEOVER=true \
+    DUPLICATE_PRIMARY_TIMEOUT=7200 \
+    AUTOMATED_REGISTER=false \
+    op start timeout=3600 \
+    op stop timeout=3600 \
+    op monitor interval=61 role="Slave" timeout=700 \
+    op monitor interval=59 role="Master" timeout=700 \
+    op promote timeout=3600 \
+    op demote timeout=3600 \
+    promotable notify=true clone-max=2 clone-node-max=1 interleave=true
 ```
 {: pre}
 
@@ -343,16 +378,28 @@ Check the configuration and the cluster status.
 
 ```sh
 pcs resource config SAPHana_${SID}_${INSTNO}
+```
+{: pre}
+
+```sh
 pcs status --full
 ```
 {: pre}
 
 ### Creating Virtual IP address resource
-{: #create-virtual-ip-resource}
+{: #ha-rhel-hana-sr-create-virtual-ip-resource}
 
-Use the reserved IP address to create a virtual IP address resource. This virtual IP address is used to reach the System Replication primary instance.
+Review the information in [Reserving virtual IP addresses](#ha-rhel-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA System Replication cluster.
 
-On *NODE1*, verify the *VIP* environment variable and create the virtual IP address resource by running the following commands.
+Use the reserved IP address to create a virtual IP address resource.
+This virtual IP address is used to reach the System Replication primary instance.
+
+On NODE1, assign the reserved IP address to a *VIP* environment variable and create the virtual IP address cluster resource by running the following commands.
+
+```shell
+export VIP=<reserved IP address>
+```
+{: sceen}
 
 ```sh
 echo $VIP
@@ -368,31 +415,38 @@ Check the configured virtual IP address and the cluster status.
 
 ```sh
 pcs resource config vip_${SID}_${INSTNO}
+```
+{: pre}
+
+```sh
 ip addr show
+```
+{: pre}
+
+```sh
 pcs status --full
 ```
 {: pre}
 
 ### Creating constraints
-{: #create-constraints}
+{: #ha-rhel-hana-sr-create-constraints}
 
 Make sure that *SAPHanaTopology* resources are started before you start the *SAPHana* resources.
 
 The virtual IP address must be present on the node where the primary resource of "SAPHana" is running.
 
 1. Create constraint to start "SAPHanaTopology" before "SAPHana".
-
    This constraint mandates the start order of these resources.
 
-   *On *NODE1*, use the following command to create the *SAPHanaTopology* order constraint:
+   On NODE1, use the following command to create the *SAPHanaTopology* order constraint:
 
    ```sh
-    pcs constraint order SAPHanaTopology_${SID}_${INSTNO}-clone \
-     then SAPHana_${SID}_${INSTNO}-clone symmetrical=false
+   pcs constraint order SAPHanaTopology_${SID}_${INSTNO}-clone \
+       then SAPHana_${SID}_${INSTNO}-clone symmetrical=false
    ```
    {: pre}
 
-   Check the configuration:
+   Check the configuration.
 
    ```sh
    pcs constraint
@@ -400,34 +454,38 @@ The virtual IP address must be present on the node where the primary resource of
    {: pre}
 
 1. Create constraint to colocate the virtual IP address with primary.
+   This constraint colocates the virtual IP address resource with the SAPHana resource that was promoted as primary.
 
-   This constraint colocates the virtual IP address resource with the "SAPHana" resource that was promoted as primary.
-
-   *On *NODE1*, run the following command to create the virtual IP address colocation constraint:
+   On NODE1, run the following command to create the virtual IP address colocation constraint.
 
    ```sh
    pcs constraint colocation add vip_${SID}_${INSTNO} \
-     with primary SAPHana_${SID}_${INSTNO}-clone 2000
+       with master SAPHana_${SID}_${INSTNO}-clone 2000
    ```
    {: pre}
 
-   Check the configuration and the cluster status:
+   Check the configuration and the cluster status.
 
    ```sh
    pcs constraint
+   ```
+   {: pre}
+
+   ```sh
    pcs status --full
    ```
    {: pre}
 
-### Enable automated registration of secondary instance
-{: #enable-automated-registration}
+### Enabling automated registration of secondary instance
+{: #ha-rhel-hana-sr-enable-automated-registration}
 
-The parameter `AUTOMATED_REGISTER` need to be set according to your operational requirements. If you want to keep the ability to revert to the state of the previous primary SAP HANA instance, then
-`AUTOMATED_REGISTER=false` avoids an automatic registration of the previous primary as a new secondary.
+You need to set the parameter `AUTOMATED_REGISTER` according to your operational requirements.
+If you want to keep the ability to revert to the state of the previous primary SAP HANA instance, then `AUTOMATED_REGISTER=false` avoids an automatic registration of the previous primary as a new secondary.
 
-If you experience an issue with the data after a takeover that was triggered by the cluster, you can manually revert back by setting `AUTOMATED_REGISTER=false`.
+If you experience an issue with the data after a takeover that was triggered by the cluster, you can manually revert if `AUTOMATED_REGISTER` is set to `false`.
 
-If `AUTOMATED_REGISTER=true` the previous primary SAP HANA instance automatically registers as secondary, and cannot be activated on its previous history. The advantage of `AUTOMATED_REGISTER=true` is that high-availability capability is automatically reestablished after the failed node reappears in the cluster.
+If `AUTOMATED_REGISTER` is set to `true`, the previous primary SAP HANA instance automatically registers as secondary, and cannot be activated on its previous history.
+The advantage of `AUTOMATED_REGISTER=true` is that high-availability capability is automatically reestablished after the failed node reappears in the cluster.
 
 For now, it is recommended to keep `AUTOMATED_REGISTER` on default value `false` until the cluster is fully tested and that you verify that the failover scenarios work as expected.
 
@@ -435,75 +493,83 @@ The `pcs resource update` command is used to modify resource attributes and `pcs
 {: tip}
 
 ## Testing SAP HANA System Replication cluster
-{: #test-sap-hana-sr-cluster}
+{: #ha-rhel-hana-sr-test-sap-hana-sr-cluster}
 
-It is vital to thoroughly test the cluster configuration to make sure that the cluster is working correctly. The following information provides a few sample failover test scenarios, but is not a complete list of test scenarios.
+It is vital to thoroughly test the cluster configuration to make sure that the cluster is working correctly.
+The following information provides a few sample failover test scenarios, but is not a complete list of test scenarios.
 
 For example, the description of each test case includes the following information.
 
-- Which component is being tested
+- Component that is being tested
 - Description of the test
-- Prerequisites and the initial state before you start the failover test
+- Prerequisites and the cluster state before you start the failover test
 - Test procedure
 - Expected behavior and results
 - Recovery procedure
 
-### Test1 - Test failure of the primary database instance
-{: #test-primary-instance-database-failure}
+### Test1 - Testing failure of the primary database instance
+{: #ha-rhel-hana-sr-test-primary-instance-database-failure}
 
 #### Test1 - Description
-{: #test1-description}
+{: #ha-rhel-hana-sr-test1-description}
 
-Simulate a crash of the primary HANA database instance that is running on *NODE1*.
+Simulate a crash of the primary HANA database instance that is running on NODE1.
 
 #### Test1 - Prerequisites
-{: #test1-prerequisites}
+{: #ha-rhel-hana-sr-test1-prerequisites}
 
 - A functional two-node RHEL HA Add-On cluster for HANA system replication.
 - Both cluster nodes are active.
-- Cluster is started on NODE1 and NODE2.
-- Cluster Resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=false`.
+- Cluster that is started on NODE1 and NODE2.
+- Cluster Resource `SAPHana_${SID}_${INSTNO}` that is configured with `AUTOMATED_REGISTER=false`.
 - Check SAP HANA System Replication status:
    - primary SAP HANA database is running on NODE1
    - secondary SAP HANA database is running on NODE2
    - HANA System Replication is activated and in sync
 
 #### Test1 - Test procedure
-{: #test1-procedure}
+{: #ha-rhel-hana-sr-test1-procedure}
 
 Crash SAP HANA primary by sending a SIGKILL signal as user `${sid}adm`.
 
-On *NODE1*, run the following command.
+On NODE1, run the following command.
 
 ```sh
 su - ${sid}adm
+```
+{: pre}
+
+```sh
 HDB kill -9
 ```
 {: pre}
 
 #### Test1 - Expected behavior
-{: #test1-expected-behavior}
+{: #ha-rhel-hana-sr-test1-expected-behavior}
 
-- SAP HANA primary instance on `NODE1` crashes.
+- SAP HANA primary instance on NODE1 crashes.
 - The cluster detects the stopped primary HANA database and marks the resource as `failed`.
-- The cluster promotes the secondary HANA database on `NODE2` to take over as new primary.
-- The cluster releases the virtual IP address on `NODE1`, and acquires it on the new primary on `NODE2`.
+- The cluster promotes the secondary HANA database on NODE2 to take over as new primary.
+- The cluster releases the virtual IP address on NODE1, and acquires it on the new primary on NODE2.
 - If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
 
 #### Test1 - Recovery procedure
-{: #test1-recovery-procedure}
+{: #ha-rhel-hana-sr-test1-recovery-procedure}
 
-As cluster resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=false`, the cluster doesn't restart the failed HANA database, and doesn't register it against the new primary. Which means that the status on the new primary (`NODE2`) also shows the secondary in status 'CONNECTION TIMEOUT'.
+As cluster resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=false`, the cluster doesn't restart the failed HANA database, and doesn't register it against the new primary. Which means that the status on the new primary (NODE2) also shows the secondary in status 'CONNECTION TIMEOUT'.
 
 To reregister the previous primary as new secondary use the following commands.
 
-On *NODE1*, run the following command.
+On NODE1, run the following command.
 
 ```sh
 su - ${sid}adm
+```
+{: pre}
 
+```sh
 hdbnsutil -sr_register --name=${DC1} --remoteHost=${NODE2} --remoteInstance=00 \
-  --replicationMode=sync --operationMode=logreplay
+    --replicationMode=sync --operationMode=logreplay
 ```
 {: pre}
 
@@ -511,62 +577,72 @@ Verify the system replication status:
 
 ```sh
 hdbnsutil -sr_state
+```
+{: pre}
+
+```sh
 HDBSettings.sh systemReplicationStatus.py
 ```
 {: pre}
 
 After the manual register and resource refreshes, the new secondary instance restarts and shows up in status synced (`SOK`).
 
-On *NODE1*, run the following command.
+On NODE1, run the following command.
 
 ```sh
 pcs resource refresh SAPHana_${SID}_${INSTNO}
+```
+{: pre}
+
+```sh
 pcs status --full
 ```
 {: pre}
 
-### Test2 - Test failure of node that is running the primary database
-{: #test-primary-instance-server-failure}
+### Test2 - Testing failure of the node that is running the primary database
+{: #ha-rhel-hana-sr-test-primary-instance-server-failure}
+
+Use the following information to test the failure of the node that is running the primary database.
 
 #### Test2 - Description
-{: #test2-description}
+{: #ha-rhel-hana-sr-test2-description}
 
 Simulate a crash of the node that is running the primary HANA database.
 
 #### Test2 - Preparation
-{: #test2-preparation}
+{: #ha-rhel-hana-sr-test2-preparation}
 
 Make sure that Cluster Resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`.
 
-On *NODE1*, run the following command.
+On NODE1, run the following command.
 
 ```sh
 pcs resource update SAPHana_${SID}_${INSTNO} AUTOMATED_REGISTER=true
 ```
-{: #pre}
+{: pre}
 
 ```sh
 pcs resource config SAPHana_${SID}_${INSTNO}
 ```
-{: #pre}
+{: pre}
 
 #### Test2 - Prerequisites
-{: #test2-prerequisites}
+{: #ha-rhel-hana-sr-test2-prerequisites}
 
 - A functional two-node RHEL HA Add-On cluster for HANA system replication.
 - Both nodes active.
-- Cluster is started on `NODE1` and `NODE2`.
-- Check SAP HANA System Replication status:
-   - Primary SAP HANA database is running on `NODE2`.
-   - Secondary SAP HANA database is running on `NODE1`.
-   - HANA System Replication is activated and in sync.
+- Cluster is started on NODE1 and NODE2.
+- Check SAP HANA System Replication status.
+   - primary SAP HANA database is running on NODE2
+   - secondary SAP HANA database is running on NODE1
+   - HANA System Replication is activated and in sync
 
 #### Test2 - Test procedure
-{: #test2-procedure}
+{: #ha-rhel-hana-sr-test2-procedure}
 
-Crash primary on `NODE2` by sending a *shutoff* system request.
+Crash primary on NODE2 by sending a *shutoff* system request.
 
-On *NODE2*, run the following command.
+On NODE2, run the following command.
 
 ```sh
 sync; echo o > /proc/sysrq-trigger
@@ -574,21 +650,21 @@ sync; echo o > /proc/sysrq-trigger
 {: pre}
 
 #### Test2 - Expected behavior
-{: #test2-expected-behavior}
+{: #ha-rhel-hana-sr-test2-expected-behavior}
 
-- `NODE2` shuts down.
+- NODE2 shuts down.
 - The cluster detects the failed node and sets its state to `OFFLINE`.
-- The cluster promotes the secondary HANA database on `NODE1` to take over as new primary.
-- The cluster acquires the virtual IP address on `NODE1` on the new primary.
+- The cluster promotes the secondary HANA database on NODE1 to take over as new primary.
+- The cluster acquires the virtual IP address on NODE1 on the new primary.
 - If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
 
 #### Test2 - Recovery procedure
-{: #test2-recovery-procedure}
+{: #ha-rhel-hana-sr-test2-recovery-procedure}
 
-Log in to the {{site.data.keyword.cloud}} Console and start the `NODE2` instance.
-Wait until `NODE2` is available again, then restart the cluster framework.
+Log in to the {{site.data.keyword.cloud}} Console and start the NODE2 instance.
+Wait until NODE2 is available again, then restart the cluster framework.
 
-On *NODE2*, run the following command.
+On NODE2, run the following command.
 
 ```sh
 pcs cluster start
@@ -600,55 +676,62 @@ pcs status --full
 ```
 {: pre}
 
-As cluster resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`, SAP HANA restarts when *NODE2* rejoins the cluster and the former primary reregisters as a secondary.
+As cluster resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`, SAP HANA restarts when NODE2 rejoins the cluster and the former primary reregisters as a secondary.
 
-### Test3 - Test failure of the secondary database instance
-{: #test-secondary-instance-database-failure}
+### Test3 - Testing the failure of the secondary database instance
+{: #ha-rhel-hana-sr-test-secondary-instance-database-failure}
+
+
+Use the following information to test the failure of the secondary database instance.
 
 #### Test3 - Description
-{: #test3-description}
+{: #ha-rhel-hana-sr-test3-description}
 
 Simulate a crash of the secondary HANA database.
 
 #### Test3 - Prerequisites
-{: #test3-prerequisites}
+{: #ha-rhel-hana-sr-test3-prerequisites}
 
 - A functional two-node RHEL HA Add-On cluster for HANA system replication.
-- Both nodes active.
-- Cluster is started on `NODE1` and `NODE2`.
+- Both nodes are active.
+- Cluster is started on NODE1 and NODE2.
 - Cluster Resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`.
 - Check SAP HANA System Replication status:
-   - Primary SAP HANA database is running on `NODE1`.
-   - Secondary SAP HANA database is running on `NODE2`.
-   - HANA System Replication is activated and in sync.
+   - primary SAP HANA database is running on NODE1
+   - secondary SAP HANA database is running on NODE2
+   - HANA System Replication is activated and in sync
 
 #### Test3 - Test Procedure
-{: #test3-procedure}
+{: #ha-rhel-hana-sr-test3-procedure}
 
 Crash SAP HANA secondary by sending a SIGKILL signal as user `${sid}adm`.
 
-On *NODE2*, run the following command.
+On NODE2, run the following command.
 
 ```sh
 su - ${sid}adm
+```
+{: pre}
+
+```sh
 HDB kill -9
 ```
 {: pre}
 
 #### Test3 - Expected behavior
-{: #test3-expected-behavior}
+{: #ha-rhel-hana-sr-test3-expected-behavior}
 
-- SAP HANA secondary on `NODE2` crashes.
+- SAP HANA secondary on NODE2 crashes.
 - The cluster detects the stopped secondary HANA database and marks the resource as `failed`.
 - The cluster restarts the secondary HANA database.
 - The cluster detects that the system replication is in sync again.
 
-#### Test3 - Recovery Procedure
-{: #test3-recovery-procedure}
+#### Test3 - Recovery procedure
+{: #ha-rhel-hana-sr-test3-recovery-procedure}
 
-Wait until the secondary HANA instance starts and synced again (`SOK`), then cleanup the failed resource actions as shown in `pcs status` or `crm_mon`.
+Wait until the secondary HANA instance starts and syncs again (`SOK`), then cleanup the failed resource actions as shown in `pcs status`.
 
-On *NODE2*, run the following command.
+On NODE2, run the following command.
 
 ```sh
 pcs resource refresh SAPHana_${SID}_${INSTNO}
@@ -660,32 +743,34 @@ pcs status --full
 ```
 {: pre}
 
-### Test4 - Test the manual move of SAPHana resource to another node
-{: #test-manual-move}
+### Test4 - Testing the manual move of SAPHana resource to another node
+{: #ha-rhel-hana-sr-test-manual-move}
+
+Use the following information to test the manual move of SAPHana resource to another node.
 
 #### Test4 - Description
-{: #test4-description}
+{: #ha-rhel-hana-sr-test4-description}
 
 Use cluster commands to move the primary instance to the other node for maintenance purposes.
 
 #### Test4 - Prerequisites
-{: #test4-prerequisites}
+{: #ha-rhel-hana-sr-test4-prerequisites}
 
 - A functional two-node RHEL HA Add-On cluster for HANA system replication.
-- Both nodes active.
-- Cluster is started on `NODE1` and `NODE2`.
+- Both nodes are active.
+- Cluster is started on NODE1 and NODE2.
 - Cluster Resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`.
 - Check SAP HANA System Replication status:
-   - Primary SAP HANA database is running on `NODE1`.
-   - Secondary SAP HANA database is running on `NODE2`.
-   - HANA System Replication is activated and in sync.
+   - primary SAP HANA database is running on NODE1
+   - secondary SAP HANA database is running on NODE2
+   - HANA System Replication is activated and in sync
 
-#### Test4 - Test Procedure
-{: #test4-procedure}
+#### Test4 - Test procedure
+{: #ha-rhel-hana-sr-test4-procedure}
 
 Move SAP HANA primary to other node by using the `pcs resource move` command.
 
-On *NODE1*, run the following command.
+On NODE1, run the following command.
 
 ```sh
 pcs resource move SAPHana_${SID}_${INSTNO}-clone
@@ -693,14 +778,14 @@ pcs resource move SAPHana_${SID}_${INSTNO}-clone
 {: pre}
 
 #### Test4 - Expected behavior
-{: #test4-expected-behavior}
+{: #ha-rhel-hana-sr-test4-expected-behavior}
 
 - The cluster creates location constraints to move the resource.
 - The cluster triggers a takeover to the secondary HANA database.
 - If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
 
 #### Test4 - Recovery procedure
-{: #test4-recovery-procedure}
+{: #ha-rhel-hana-sr-test4-recovery-procedure}
 
 The automatically created location constraints must be removed to allow automatic failover in the future.
 
@@ -708,7 +793,7 @@ Wait until the primary HANA instance is active and remove the constraints.
 
 The cluster registers and starts the HANA database as new secondary instance.
 
-On *NODE1*, run the following command.
+On NODE1, run the following command.
 
 ```sh
 pcs constraint
@@ -722,6 +807,10 @@ pcs resource clear SAPHana_${SID}_${INSTNO}-clone
 
 ```sh
 pcs constraint
+```
+{: pre}
+
+```sh
 pcs status --full
 ```
 {: pre}
