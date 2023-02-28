@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-02-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -39,7 +39,7 @@ Your specific requirements determine the SAP solutions that are powered by the S
 
 Your enterprise IT organization can select from various operating systems from the IBM Cloud for SAP portfolio. For more information about available operating systems, see the following links.
 - [OS for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-power)
-- [OS Bring your Own Image/License for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-byol)
+- [OS Bring your Own Image and or License for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-byol)
 
 Depending on your scenarios, the following links provide helpful information.
 - [SAP NetWeaver - Configure high availability for IBM Power Infrastructure](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha-power)
@@ -57,9 +57,10 @@ Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver manually:
 - [Deploying IBM Cloud Power Virtual Services infrastructure that is used by SAP workloads](/docs/sap?topic=sap-power-vs-set-up-power-infrastructure)
 - [Deploying IBM PowerVS instances for SAP system](/docs/sap?topic=sap-power-vs-set-up-power-instances)
 
-Implement high availability scenarios for SAP on IBM Power Virtual Server:
-- [Implement RHEL HA Add-On cluster on Power Systems Virtual Server](/docs/sap?topic=sap-implement-rhel-ha-cluster)
-- [Configure SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-configure-hana-sr-cluster)
+Implement high availability scenarios for SAP on IBM {{site.data.keyword.powerSysFull}}:
+- [Implement RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-rhel)
+- [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr)
+- [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-ensa)
 
 ## Help
 {: #fast-path-power-vs-help}
