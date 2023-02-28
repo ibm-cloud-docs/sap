@@ -20,7 +20,7 @@ subcollection: sap
 {:tip: .tip}
 
 # Overview of {{site.data.keyword.ibm_cloud_sap}}
-{: #overview}
+{: #overview-sap-offerings}
 
 
 ## Introduction
@@ -59,6 +59,7 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 
 ## Supported SAP Business Applications
 {: #supported-sap-business-applications-summary}
+
 - SAP S/4HANA AnyPremise edition
 - SAP S/4HANA Cloud SaaS Extended edition (by request to SAP)
 - SAP BW/4HANA
@@ -95,6 +96,7 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 
 ## Supported SAP Development Applications
 {: #supported-sap-development-applications-summary}
+
 - SAP Cloud Platform (including SAP Cloud Connector)
 
 
