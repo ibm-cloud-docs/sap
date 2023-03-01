@@ -60,7 +60,7 @@ Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver manually:
 Implement high availability scenarios for SAP on IBM {{site.data.keyword.powerSysFull}}:
 - [Implement RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-rhel)
 - [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr)
-- [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-ensa)
+- [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-ensa)
 
 ## Help
 {: #fast-path-power-vs-help}
