@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021, 2022
-lastupdated: "2022-01-28"
+  years: 2020,2023
+lastupdated: "2023-03-08"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -59,14 +59,14 @@ SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 1
 
 (\*\*): SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3
 
-Please regard the supported operated systems mentioned in the footnotes.
+Regard the supported operated systems that are mentioned in the footnotes.
 {: note}
 
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}.
 
 
-For SAP HANA deployments using {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}}, only single-node deployments are supported. This means multi-node / scale-out is not currently supported.
+For SAP HANA deployments that use {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}}, only single-node deployments are supported. Multi-node / scale-out is not currently supported.
 {: important}
 
 
@@ -80,13 +80,13 @@ With {{site.data.keyword.vsi_is_full}}, the profile families that are certified 
 For more information, see [Intel Virtual Server for VPC Infrastructure documentation](/docs/vpc?topic=vpc-profiles).
 
 
-The first letter of the profile name indicates the profile family mentioned above:
+The first letter of the profile name indicates the profile family that is mentioned the profile list:
 
 | First letter | Characteristics of the related profile family |
 | --- | --- |
 | b | *Balanced* family, CPU to Memory ratio 1:4 |
 | m | *Memory Optimized* family, higher CPU to Memory ratio 1:8 |
-| v | *Very High Memory Optimized*  family, very high CPU to Memory ratio 1:14 |
+| v | *Very High Memory Optimized family, very high CPU to Memory ratio 1:14 |
 | u | *Ultra High Memory Optimized* family, ultra high CPU to Memory ratio 1:28 |
 {: caption="Table 2. {{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
 
@@ -116,7 +116,7 @@ All {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are avai
 
 When the virtual server profiles for SAP HANA are initially provisioned, the servers all have one pre-configured volume (vda) attached with the following basic layout:
 
-| File system | Partition | Storage type | size (GB) | Nr. of\nIOPS |
+| File system | Partition | Storage type | Size (GB) | Nr. of\nIOPS |
 | --- | --- | --- | --- | --- |
 | `/` | `vda1` | Pre-configured boot volume | 100 | 3,000 |
 | `/boot` | `vda2` | Pre-configured boot volume | 0.25 | 3,000 |
@@ -131,15 +131,15 @@ You must consider the total IOPS required for your installation and the performa
 
 For an overview of all available storage profiles, see [VPC Block Storage Profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 
-### Storage for SAP HANA
+### Storage for SAP HANA - single-node
 {: #hana-iaas-intel-vs-vpc-storage-specs-sap-hana}
 
-To fulfill the KPIs defined by SAP HANA, each profile needs different storage volumes which are listed in details in the following sections. **These are mandatory storage configurations, not sample storage configurations**, because they are the tested and certified storage layouts that comply to **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. It's highly recommended to stick to these given specifications.
+To fulfill the KPIs defined by SAP HANA, each profile needs different storage volumes that are listed in details in the following sections. **These configurations are mandatory storage configurations, not sample storage configurations**, because they are the tested and certified storage layouts that comply with **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. It is highly recommended to stick to these specific specifications.
 
-Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when ordering different storage sizes and types. Then they must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://launchpad.support.sap.com/#/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/viewer/product/HANA_HW_CLOUD_TOOLS/latest/en-US){: external}. 
+Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when they order different storage sizes and types. Then, they must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://launchpad.support.sap.com/#/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/viewer/product/HANA_HW_CLOUD_TOOLS/latest/en-US){: external}. 
 {: important}
 
-For all following layouts please consider that the volume names may differ - we assume that the naming follows the sequence of ordering the storage, i.e. 1st order -> `vdd`, 2nd order -> `vde`, etc. **All block storage volumes** must be ordered with the predefined profile of **10 IOPS/GB** (high performance). One exception may be /hana/shared partition where 5 IOPS/GB (medium performance) are sufficient - but ONLY IF you have assigned a dedicated volume for this partition. For all profiles optional: one appropriately sized  block storage volume or several equally sized volumes gathered to a volume group, with the predefined profile of 5 IOPS/GB (medium performance) attached to the Virtual Server for backups.
+For all of the following layouts consider that the volume names might differ - we assume that the naming follows the sequence of ordering the storage, that is, 1st order -> `vdd`, 2nd order -> `vde`, and so on. **All block storage volumes** must be ordered with the predefined profile of **10 IOPS/GB** (high performance). One exception might be /hana/shared partition where 5 IOPS/GB (medium performance) are sufficient - but ONLY IF you assigned a dedicated volume for this partition. For all profiles optional: one appropriately sized block storage volume or several equally sized volumes that are gathered to a volume group, with the predefined profile of 5 IOPS/GB (medium performance) attached to the Virtual Server for backups.
 {: note}
 
 [SAP's recommended file system layout](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.latest/en-US/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. 
@@ -218,9 +218,9 @@ The following table shows the required volumes and related volume groups, if nec
 ### vx2d-* profiles - Setup Instructions
 {: #hana-iaas-intel-vs-vpc-vx2-setup}
 
-See the step by step instructions for setting up the filesystems here. The according volume sizes are captured in the table 6 above. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks will be governed by the Linux Logical Volume Manager LVM or lvm2.
+See the step by step instructions for setting up the file systems here. The according volume sizes are captured in the table 6. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks are governed by the Linux Logical Volume Manager LVM or lvm2.
 
-For each profile consider the given volume sizes in table 6 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` will show which disk has been mapped to the volume, e.g. `/dev/vde`.
+For each profile, consider the specified volume sizes in table 6 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` shows which disk is to the volume, for example `/dev/vde`.
 {: note}
 
 
@@ -233,7 +233,7 @@ For each profile consider the given volume sizes in table 6 and always make sure
     [root@vx2d-16x224 ~]# vgcreate hana_vg /dev/vde
     ```
 
-2. After creating the volume group, three logical volumes are defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
+2. After the volume group is created, three logical volumes are defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
 
     ```
     [root@vx2d-16x224 ~]# lvcreate -L 224G -n hana_shared_lv hana_vg
@@ -266,25 +266,25 @@ For each profile consider the given volume sizes in table 6 and always make sure
 
 #### vx2d-44x616 and vx2d-88x1232
 
-1. Create the volume group for LVM. Note that only /hana/log is assigned to the LVM.
+1. Create the volume group for LVM. Only /hana/log is assigned to the LVM.
 
     ```
     [root@vx2d-44x616 ~]# pvcreate /dev/vdf /dev/vdg /dev/vdh
     [root@vx2d-44x616 ~]# vgcreate hana_log_vg /dev/vdf /dev/vdg /dev/vdh
     ```
 
-2. After creating the volume group, the logical volume for /hana/log needs to be defined on top. This logical volume reflects the file system size requirement for SAP HANA.
+2. After the volume group is created, the logical volume for /hana/log needs to be defined on top. This logical volume reflects the file system size requirement for SAP HANA.
 
     ```
     [root@vx2d-44x616 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 above [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
 
 #### vx2d-144x2016 and vx2d-176x2464
 
-1. Create the volume group for LVM. Note that /hana/log and /hana/data are assigned to the LVM.
+1. Create the volume group for LVM. /hana/log and /hana/data are assigned to the LVM.
 
     ```
     [root@vx2d-144x2016 ~]# pvcreate /dev/vde /dev/vdf /dev/vdg /dev/vdh
@@ -293,14 +293,14 @@ For each profile consider the given volume sizes in table 6 and always make sure
     [root@vx2d-144x2016 ~]# vgcreate hana_log_vg /dev/vdi /dev/vdj /dev/vdk
     ```
 
-2. After creating the volume group, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
+2. After the volume group is created, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
 
     ```
     [root@vx2d-144x2016 ~]# lvcreate -i 4 -I 64 -l 100%VG -n hana_data_lv hana_data_vg
     [root@vx2d-144x2016 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 above [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
 
 ### ux2d-* profiles - Storage Layouts
@@ -364,9 +364,9 @@ The following table shows the required volumes and related volume groups, if nec
 ### ux2d-* profiles - Setup Instructions
 {: #hana-iaas-intel-vs-vpc-ux2-setup}
 
-See the step by step instructions for setting up the filesystems here. The according volume sizes are captured in the table 7 above. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks will be governed by the Linux Logical Volume Manager LVM or lvm2.
+See the step by step instructions for setting up the file systems here. The according volume sizes are captured in the table 7. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks are governed by the Linux Logical Volume Manager LVM or lvm2.
 
-For each profile consider the given volume sizes in table 7 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` will show which disk has been mapped to the volume, e.g. `/dev/vde`.
+For each profile, consider the specific volume sizes in table 7 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` shows which disk has been mapped to the volume, for example `/dev/vde`.
 {: note}
 
 
@@ -379,7 +379,7 @@ For each profile consider the given volume sizes in table 7 and always make sure
     [root@ux2d-8x224 ~]# vgcreate hana_vg /dev/vde
     ```
 
-2. After creating the volume group, three logical volumes are defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
+2. After the volume group is created, three logical volumes are defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
 
     ```
     [root@ux2d-8x224 ~]# lvcreate -L 224G -n hana_shared_lv hana_vg
@@ -391,12 +391,12 @@ For each profile consider the given volume sizes in table 7 and always make sure
     [root@ux2d-8x224 ~]# lvcreate -l 100%VG -n hana_data_lv hana_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 above [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
 
 #### ux2d-36x1008 and ux2d-48x1344
 
-1. Create the volume groups for LVM. Note that /hana/log and /hana/data are assigned to the LVM.
+1. Create the volume groups for LVM. /hana/log and /hana/data are assigned to the LVM.
 
     ```
     [root@ux2d-36x1008 ~]# pvcreate /dev/vde /dev/vdf
@@ -405,19 +405,19 @@ For each profile consider the given volume sizes in table 7 and always make sure
     [root@ux2d-36x1008 ~]# vgcreate hana_log_vg /dev/vdg /dev/vdh /dev/vdi
     ```
 
-2. After creating the volume groups, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
+2. After the volume groups are created, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
 
     ```
     [root@ux2d-36x1008 ~]# lvcreate -i 2 -I 64 -l 100%VG -n hana_data_lv hana_data_vg
     [root@ux2d-36x1008 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 above [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
 
-#### ux2d-72x2016, ux2d-100x2800 and ux2d-200x5600
+#### ux2d-72x2016, ux2d-100x2800, and ux2d-200x5600
 
-1. Create the volume groups for LVM. Note that /hana/log and /hana/data are assigned to the LVM.
+1. Create the volume groups for LVM. /hana/log and /hana/data are assigned to the LVM.
 
     ```
     [root@ux2d-72x2016 ~]# pvcreate /dev/vde /dev/vdf /dev/vdg /dev/vdh
@@ -426,12 +426,43 @@ For each profile consider the given volume sizes in table 7 and always make sure
     [root@ux2d-72x2016 ~]# vgcreate hana_log_vg /dev/vdi /dev/vdj /dev/vdk
     ```
 
-2. After creating the volume groups, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
+2. After the volume groups are created, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
 
     ```
     [root@ux2d-72x2016 ~]# lvcreate -i 4 -I 64 -l 100%VG -n hana_data_lv hana_data_vg
     [root@ux2d-72x2016 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 above [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
+### Storage for SAP HANA - multi-node
+
+In an SAP HANA scale-out (multi-node) configuration, storage needs to be accessible from different nodes at the same time, and needs to be able to failover from one node to the other. 
+
+Thus, for SAP HANA scale-out configurations, file shares need to be deployed, and local block storage is out of scope for the SAP HANA installation. Those file shares require so-called `mount targets` to be created to allow access to the file shares from dedicated subnets. {{site.data.keyword.cloud_notm}} recommends using the primary subnet for storage access because routes will not require any changes to access the storage servers for the file shares, if the mount target is defined on this subnet. Two additional subnets are required for SAP HANA inter-node (internal) communication, and for client access.
+
+SAP HANA in scale-out configuration requires a shared volume for its `/hana/shared` file system, and a `/hana/log` and `/hana/data` volume for each node. Follow the [mount option recommendation by NetApp](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html){: external} for setting up your target OS' fstab. See the following sample for an SAP HANA system of system ID 'BHB':
+
+1. `/hana/shared`
+
+    ```
+    fsf-tok0551b-fz.adn.networklayer.com:/903586db_f968_4bf7_bbd5_0926fb7a26ce /hana/shared/BHB nfs      sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
+    ```
+    
+1. `/hana/data`
+   
+    ```
+    fsf-tok0551a-fz.adn.networklayer.com:/2b33d3df_9081_47c2_910a_a29356716d51/BHB/mnt00001 /hana/data/BHB/mnt00001 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
+    fsf-tok0551b-fz.adn.networklayer.com:/ec39996c_346a_4815_a74f_4048382e6ecc/BHB/mnt00002   /hana/data/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0 
+    ```
+
+1. `/hana/log`
+   
+    ```
+    fsf-tok0551b-fz.adn.networklayer.com:/7bdee46e_b95f_4ff7_89b8_5273e8f9199d/BHB/mnt00001  /hana/log/BHB/mnt00001 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0 
+    fsf-tok0551b-fz.adn.networklayer.com:/2bca0419_3aef_40ca_b38f_8b9717c93905/BHB/mnt00002  /hana/log/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0 
+    ```
+
+You cannot follow NetApp's recommendation regarding `rsize` and `wsize` option, these parameters are limited to 65536 by the file share implementation.
+
+To fulfill SAP's requirements about storage layout and through-put and latency KPIs, see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they must comply with the TDI performance KPIs (see [SAP Note 2613646](https://launchpad.support.sap.com/#/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external} and also ensure SAP's support for it. {{site.data.keyword.cloud_notm}} recommends 10 IOPS per GB or Custom profile file shares for meeting SAP's KPIs. 
