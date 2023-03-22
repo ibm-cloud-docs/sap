@@ -263,8 +263,8 @@ toc:
                     - sap-terraform-automate-bw-4hana.md
               - sap-terraform-automate-3tier-nw-hana.md
       - topicgroup:
-        label: High Availability Scenarios on Power Virtual Server
-        topics:
+            label: High Availability Scenarios on Power Virtual Server
+            topics:
             - sap-power-virtual-server-ha-rhel.md
             - sap-power-virtual-server-ha-rhel-hana-sr.md
             - sap-power-virtual-server-ha-rhel-ensa.md
