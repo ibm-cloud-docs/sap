@@ -96,7 +96,7 @@ During the second phase, the Ansible Playbook is called and the SAP High availab
 ![Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) {{site.data.keyword.bpshort}} deploymentS](images/refarch-sap-hana-cluster-pas-aas.svg "SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) {{site.data.keyword.bpshort}} deployment"){: caption="Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) {{site.data.keyword.bpshort}} deployment" caption-side="bottom"}
 
 ![Figure 2. SAP HA for HANA DB instances cluster nodes primary (Active) and Secondary (Passive)](images/refarch-sap-ha-hana-cluster-prim-sec.svg "SAP HA for HANA DB instances cluster nodes primary (Active) and Secondary (Passive)"){: caption="Figure 2. SAP HA for HANA DB instances cluster nodes primary (Active) and Secondary (Passive)" caption-side="bottom"}
-
+ 
  Figure 2. SAP HA for HANA DB instances cluster nodes primary (Active) and Secondary (Passive) 
 
 At the most basic level, a standard HA HANA cluster in an active-passive configuration has two nodes: one is the primary node and the other is the standby node. The primary node is actively serving the active SAP instances (PAS and AAS), while the standby node is waiting to jump in if necessary.

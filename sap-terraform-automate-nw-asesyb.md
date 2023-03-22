@@ -29,7 +29,7 @@ You can use Terraform scripts to create either:
 *   A 3-tier (distributed) system and create the SAP and ASE SYB infrastructure on the separate hosts (VSIs).
 
 The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
-
+ 
 ## What is created
 {: #automate-nw-asesyb-what-created}
 

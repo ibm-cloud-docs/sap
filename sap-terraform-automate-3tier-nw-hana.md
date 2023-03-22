@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-05-23"
+  years: 2021, 2023
+lastupdated: "2023-03-17"
 
 subcollection: sap
 
@@ -16,15 +16,27 @@ subcollection: sap
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip} 
+{:ui: .ph data-hd-interface="ui"}
+{:terraform: .ph data-hd-interface="terraform"}
 
 # Automating SAP NetWeaver 7.x and SAP HANA 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC with Terraform and Ansible
 {: #create-terraform-3tier-nw-hana-vpc-ansible}
 
-You can use Terraform scripts to deploy the SAP NW app server and SAP HANA db infrastructure on the VPC created with the SAP Bastion Deployment Server. The Terraform scripts create the virtual infrastructure and then call the Ansible playbook to create the SAP architecture on the VPC. The recommended place to run the scripts is on the SAP Bastion Deployment Server which has Terraform and Ansible installed on it, along with the necessary storage space for SAP Kits. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
-{: shortdesc}
+Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of IBM Cloud Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.
+
+You can use Terraform scripts to create a single-tier VPC and create the SAP and SAP HANA infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
+
+You have two deployment methods to choose from:
+*   Terraform scripts run from the CLI on your bastion server
+*   {{site.data.keyword.bpshort}} user interface accessed from the menu on your cloud dashboard.
+
+You can create either:
+
+*   SAP NetWeaver 7.x on SAP HANA based ABAP stack
+*   SAP NetWeaver 7.x on SAP HANA based JAVA stack
 
 ## SAP Solution implemented
-{: terraform-3tier-nw-hana-solution}
+{: #terraform-3tier-nw-hana-solution}
 
 Numerous SAP enterprise solutions are built on SAP’s pervasive platform, SAP NetWeaver, including:
 *  SAP HANA as Primary Persistence for SAP NetWeaver-Based Applications
@@ -36,20 +48,20 @@ SAP NetWeaver has two distinct aspects, ABAP and Java. Many applications that ar
 
 Technical interfaces are available for applications that are built on SAP NetWeaver AS ABAP and AS Java to run on SAP HANA. However, specific development enablement is normally required for each application to ensure it runs optimally on SAP HANA. SAP Business Suite applications (ERP, CRM, SCM, and other applications), SAP Business Warehouse (BW), and other SAP NetWeaver-based applications were modified to run on SAP HANA and use its many advantages. Additionally, various components and complimentary applications that are built on SAP NetWeaver can also run on SAP HANA by using the provided SAP NetWeaver DB interfaces. 
 
-There is one restriction in the SAP HANA as primary persistence for SAP NetWeaver-based applications scenario: SAP NetWeaver ABAP and Java application servers must run on separate hardware servers from the SAP HANA hardware. 
+The SAP HANA as primary persistence for SAP NetWeaver-based applications scenario has one restriction: SAP NetWeaver ABAP and Java application servers must run on separate hardware servers from the SAP HANA hardware. 
 
 
 ## What is created
-{: #terraform-3tier-nw-db2-components}
+{: #terraform-3tier-nw-hana-components}
 
-The scripts automate the virtual infrastructure resources, provisioning processes for the  SAP architecture in an Existing VPC with a distributed environment SAP NW 7.x (ABAP or Java) App server on a distinct virtual server instance VPC machine and SAP HANA DB on a dedicated server type virtual server instance VPC box machine. The scripts work in two phases. 
+The scripts automate the virtual infrastructure resources, provisioning processes for the SAP architecture in an existing VPC with a distributed environment. SAP NW 7.x (ABAP or Java) App server on a distinct virtual server instance VPC machine and SAP HANA DB on a dedicated server type virtual server instance VPC box machine are provisioned. The scripts work in two phases. 
 
 During the first phase ([Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server)), the virtual infrastructure resources based on the components from the existing VPC created by the Bastion Server are:
 
 *	1 VPC where the virtual server instance is provisioned
 *	1 security group. The rules for this security group are:
     - Allow inbound DNS traffic (port 53)  
-    - Allow nbound SSH traffic (TCP port 22)
+    - Allow inbound SSH traffic (TCP port 22)
     - Allow all outbound traffic from the virtual server instance
     - Allow all traffic in the security group
 *	1 subnet to enable networking in your VPC
@@ -58,9 +70,8 @@ During the first phase ([Automate SAP bastion server – SAP media storage repos
 
 During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP NW 7.x release on stand-alone dedicated SAP HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
 
-
 ## Single-host SAP HANA system
-{: terraform-3tier-nw-hana-single}
+{: #terraform-3tier-nw-hana-single}
 
 A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components:
 
@@ -68,22 +79,20 @@ A single-host system is the simplest system installation type that runs an SAP H
 
 The scripts are designed to create a new VPC and install SAP (SAP NW 7.x release) solution together with its dedicated DB SAP HANA box in one task flow.
 
-<!--- 
-The mentioned reference link is not available. I did not find an approriate page/section to hyperlink to.
-
-If you want to install SAP NW 7.x on an existing VPC with already installed and configured SAP HANA box VSI, see [How to automate SAP HANA stand-alone VSI on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-background-for-automating-sap-hana-stand-alone-vsi).
---->
-
-
 ## SAP Kits
-{: #terraform-3tier-nw-db2-sap-kits}
+{: #terraform-3tier-nw-hana-sap-kits}
+{: terraform}
 
 For each {{site.data.keyword.cloud_notm}} region, IBM allocates temporary storage on a dedicated temporary Deployment server (Bastion Server) that is used for terraform environment. It is your responsibility to download the necessary SAP and DB kits to your Deployment (Bastion) Server. All file archives are decompressed by Ansible during the automatic deploying process. For more information, see the readme file in the dedicated GitHub repository.
 
-## Script files
-{: #terraform-3tier-nw-db2-ansible-files}
+## Terraform deployment
+{: #terraform-3tier-nw-hana-ansible-files}
+{: terraform}
 
-The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-netweaver-java-hana](https://github.com/IBM-Cloud/sap-netweaver-java-hana). 
+The configuration and script files are provided on the GitHub repository:
+
+*   For JAVA stack : https://github.com/IBM-Cloud/sap-netweaver-java-hana.
+*   For ABAP stack : https://github.com/IBM-Cloud/sap-netweaver-abap-hana 
 
 For SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud_notm}} Virtual Private Cloud, you modify the:
 
@@ -91,19 +100,44 @@ For SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud_no
     
 All of the other configuration files are provided and do not need to be modified. 
 
-## Support
-{: #terraform-nw-db2-support}
+## {{site.data.keyword.bpshort}} deployment
+{: #automate-3tier-nw-hana-schematics}
+{: ui}
+
+The configuration and script files are provided on the GitHub repository:
+
+*   ABAP: https://github.com/IBM-Cloud/sap-netweaver-abap-hana/tree/main/schematics
+*   JAVA: https://github.com/IBM-Cloud/sap-netweaver-java-hana/tree/main/schematics
+
+When you run the scripts with the {{site.data.keyword.bpshort}} interface, you:
+*   Enter workspace information.
+*   Enter the GitHub path for the chosen solution either on ABAP or JAVA stack.
+*   Modify the parameters in the {{site.data.keyword.bpshort}} interface. They are the same parameters as the input.auto.tfvars file that you use with the cli.
+
+## Support - Terraform and {{site.data.keyword.bpshort}}
+{: #terraform-nw-hana-support}
  
 There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
-Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, re-adapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
+Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
 ## Virtual server instance configuration
+{: #terraform-3tier-nw-hana-vsi-config}
 
-The virtual server instance is configured with:
-•	Red Hat Enterprise Linux 7.6 for SAP HANA (x86_64) 
-•	Two SSH keys configured to access as root user on SSH
-•	Three storage volumes as described in the `input.auto.tfvars` file.
+For Netweaver primary application server:
+*   ibm-redhat-7-6-amd64-sap-applications-3
+*   ibm-redhat-8-4-amd64-sap-applications-2
+*   ibm-sles-15-3-amd64-sap-applications-2
+
+For HANA DB:
+*   ibm-redhat-7-6-amd64-sap-hana-3
+*   ibm-redhat-8-4-amd64-sap-hana-2
+*   ibm-sles-15-3-amd64-sap-hana-2
+
+For both server instances there are:
+
+*   Two SSH keys configured to access as root user on SSH
+*   Three storage volumes as described in the `input.auto.tfvars` file.
 
 ## Before you begin
 {: #terraform-3tier-nw-db2-ansible-before}
@@ -111,32 +145,93 @@ The virtual server instance is configured with:
 Before you use the scripts:
 
 *  Log in to your previously created Deployment Server and verify that Terraform and Ansible are installed.  
-*  If you have not already, create a Bastion Server to store the SAP kits.  For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-*  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. You must decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the files. For more information, see the `README` [file](https://github.com/IBM-Cloud/sap-netweaver-java-hana). 
+*  If you have not already, create a Bastion Server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
+*  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. 
+    Ansible decompresses all of the files. For more information, see the [JAVA README file](https://github.com/IBM-Cloud/sap-netweaver-java-hana) or the [ABAP README file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/cli/README.md).
+ {: terraform}
 *  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
 During configuration you can specify an existing VPC to use, instead of creating a new VPC.
 For the detailed steps about using Terraform to create only a VPC for SAP, see [Creating single-tier Virtual Private Cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
 
+## Deploying SAP NetWeaver 7.x and SAP HANA by using the {{site.data.keyword.bpshort}} user interface
+{: #automate-nw-hana-deploy-schematics-procedure}
+{: ui}
 
-## Procedure
+Use these steps to configure the NetWeaver ABAP or JAVA stack on your existing VPC by using the {{site.data.keyword.bpshort}} interface. The scripts can take 2 - 3 hours to complete.
+
+1.	From the {{site.data.keyword.cloud_notm}} menu, select **{{site.data.keyword.bpshort}}**.
+2.	Click **Create workspace**.
+3.	On the **Specify template** page:
+    *   Enter the URL for the {{site.data.keyword.bpshort}} interface.
+    *   Select the **Terraform version** that is listed in the readme file.
+    *   Click **Next**.
+4.	On the **Workspace details** page:
+    *   Enter a name for the workspace.
+    *   Select a **Resource group**.
+    *   Select a **Location** for your workspace. The workspace location does not have to match the resource location.
+    *   Select **Next**.
+5.	Select **Create** to create your workspace.
+6.	On the workspace Settings page, in the Input variables section, review the default input variables and provide values that match your solution:
+    *   Your API key
+    *   Your private SSH key from your local machine
+    *   The ID for the SSH key that you created and uploaded to IBM Cloud. Enter the SSH key ID in square brackets and quotation marks, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
+    *   The floating IP address for your bastion server.
+    *   The Region for your resources
+    *   The Zone for your resources
+    *   Whether to use an existing VPC or create one
+    *   Whether to use an existing subnet
+    *   Whether to create new port only when a new subnet is created
+    *   TCP port range, nimimun and maximum
+    *   VPC name
+    *   Subnet name
+    *   Security group name
+    *   Hostname
+    *   Profile
+    *   Image
+    *   Minimal recommended disk sizes
+    *   SAP HANA main password - This password must be 8 - 14 characters, upper and lowercase letters, a number, and a special character.
+    *   SAP main password - This password must be 10 - 14 characters, upper and lowercase letters, a number, and a special character that is not an exclamation point.
+    *   Click **Save changes**.
+
+    For a more detailed description of each of the parameters, check the GitHub repo [JAVA readme](https://github.com/IBM-Cloud/sap-netweaver-java-hana/blob/main/schematics/README.md) or [ABAP readme](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/schematics/README.md) file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the readme file, under “Input parameter file”.
+
+7.	On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
+8.	Click **View log** to review the log files of your Terraform execution plan.
+9.	Apply your Terraform template by clicking **Apply plan**.
+10.	Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
+
+
+## Deploying SAP NetWeaver 7.x and SAP HANA by using Terraform
+{: #automate-nw-hana-terraform-procedure}
+{: terraform}
 
 Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-in and use Terraform to create VPC resources for SAP. The scripts can take 2 hours to complete. 
 
 1.  Log in to the Bastion Deployment Server by using `ssh`.
 
-2.  Clone the `terraform` and `ansible` folders and `README` file from `https://github.com/IBM-Cloud/sap-netweaver-java-hana` and change to the `sap-netweaver-java-hana/cli/terraform` folder.
+2.  Clone the `terraform` and `ansible` folders and `README` files.
 
-    ```
+     ForJava:
+     Clone the files from `https://github.com/IBM-Cloud/sap-netweaver-java-hana` and change to the `sap-netweaver-java-hana/cli/terraform` folder.
+
+    ``` git
     $ git clone https://github.com/IBM-Cloud/sap-netweaver-java-hana.git
-    
     $ cd sap-netweaver-java-hana/cli/terraform
     ```
 
-3.	Define your existing VPC variables. Modify the `input.auto.tfvars` file to specify your zone, VPC component names, profile, and image. The file is preset with the minimal recommended disk sizes. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-netweaver-java-hana).
+    For ABAP:
+    Clone the files from https://github.com/IBM-Cloud/sap-netweaver-abap-hana and change to the sap-netweaver-abap-hana/cli/terraform folder. 
 
-    Whether you are creating a VPC or using an existing VPC, you must modify:
+    ``` git
+    $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-hana.git
+    $ cd sap-netweaver-abap-hana/cli/terraform
+    ```
+
+3.	Define your existing VPC variables. Modify the `input.auto.tfvars` file to specify your zone, VPC component names, profile, and image. The file is preset with the minimal recommended disk sizes. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [JAVA README file](https://github.com/IBM-Cloud/sap-netweaver-java-hana) or the [ABAP README file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/cli/README.md).
+
+    You must modify:
     *	VPC - Existing VPC name.
     *	SECURITYGROUP - Change ic4sap-securitygroup to the existing securitygroup name.
     *	SUBNET - Change ic4sap-subnet to the existing subnet name.
@@ -145,9 +240,10 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
     Replace the SSH key with your 40-digit SSH key.
 
+    For JAVA:
 
-    ```
-    #General VPC variables
+    ``` terraform
+    #General VPC variables for JAVA stack
     REGION          = "ed-de"
     ZONE			= "eu-de-2"
     VPC				= "ic4sap"
@@ -167,12 +263,38 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
     ```
 
+    For ABAP:
+
+    ``` terraform
+    #General VPC variables for ABAP stack
+    REGION			= "eu-de"
+    ZONE			= "eu-de-2"
+    VPC				= "ic4sap"                        # EXISTING Security group name
+    SECURITY_GROUP	= "ic4sap-securitygroup"      # EXISTING Security group name
+    RESOURCE_GROUP  = "wes-automation"
+    SUBNET			= "ic4sap-subnet"               # EXISTING Subnet name
+    SSH_KEYS                = [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a" , "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
+
+    # SAP Database VSI variables:
+    DB-HOSTNAME		= "sapnwhdb"
+    DB-PROFILE		= "mx2-16x128"
+    DB-IMAGE		= "ibm-redhat-8-4-amd64-sap-hana-2"
+
+    # SAP APPs VSI variables:
+    APP-HOSTNAME	= "sapnwci"
+    APP-PROFILE		= "bx2-4x16"
+    APP-IMAGE		= "ibm-redhat-8-4-amd64-sap-applications-2"
+    ```
+
+
     The hostname must have up to 13 characters as required by SAP. For more information about the rules that apply to hostnames for SAP systems, see SAP Note 611361 - Hostnames of SAP ABAP Platform servers
 
-4. Customize your SAP system configuration. Modify the ``input.auto.tfvars`` file to specify SAP system configuration and enter the location of the downloaded SAP Kits. For descriptions of the variables, see the `README` [file](https://github.com/IBM-Cloud/sap-netweaver-java-hana). 
+4. Customize your SAP system configuration. Modify the ``input.auto.tfvars`` file to specify SAP system configuration and enter the location of the downloaded SAP Kits. For descriptions of the variables, see the [JAVA README file](https://github.com/IBM-Cloud/sap-netweaver-java-hana) or the [ABAP README file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/cli/README.md). 
   
-    ```
-    #SAP HANA DB configuration
+    For JAVA:
+
+    ``` terraform
+    #SAP HANA DB configuration for JAVA stack
     hana_sid = "HDB"
     hana_sysno = "00"
     hana_system_usage = "custom"
@@ -199,15 +321,47 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     kit_java_export = "/storage/NW75HDB/export"
     ```
 
+    For ABAP:
+    ``` terraform
+    #HANA DB configuration for ABAP stack
+    hana_sid = "HDB"
+    hana_sysno = "00"
+    hana_system_usage = "custom"
+    hana_components = "server"
+
+    #SAP HANA Installation kit path
+    kit_saphana_file = "/storage/HANADB/51054623.ZIP"
+
+    #SAP system configuration
+    sap_sid = "NWD"
+    sap_ascs_instance_number = "01"
+    sap_ci_instance_number = "00"
+
+    # Number of concurrent jobs used to load and/or extract archives to HANA Host
+    hdb_concurrent_jobs = "12"
+
+    #SAP NW APP Installation kit path
+    kit_sapcar_file = "/storage/NW75HDB/SAPCAR_1010-70006178.EXE"
+    kit_swpm_file = "/storage/NW75HDB/SWPM10SP31_7-20009701.SAR"
+    kit_sapexe_file = "/storage/NW75HDB/SAPEXE_801-80002573.SAR"
+    kit_sapexedb_file = "/storage/NW75HDB/SAPEXEDB_801-80002572.SAR"
+    kit_igsexe_file = "/storage/NW75HDB/igsexe_13-80003187.sar"
+    kit_igshelper_file = "/storage/NW75HDB/igshelper_17-10010245.sar"
+    kit_saphotagent_file = "/storage/NW75HDB/SAPHOSTAGENT51_51-20009394.SAR"
+    kit_hdbclient_file = "/storage/NW75HDB/IMDB_CLIENT20_009_28-80002082.SAR"
+    kit_nwhana_export = "/storage/NW75HDB/ABAPEXP"
+    ```
+
+
 5. Initialize the Terraform CLI. 
 
-   ```
+   ``` terraform
    terraform init
    ```
 
 6. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account. During the Terraform plan, you are prompted to enter your API key, and initial SAP and DB passwords.  
 
-   ```
+   ``` terraform
    terraform plan --out plan1
    ```
     You must enter an SAP main password.
@@ -218,13 +372,14 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
 8. Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
-    ```
+    ``` terraform
      terraform apply "plan1"
      ```
      The virtual private cloud and components are created and you see output similar to the `terraform plan` output.  
 
 
 ## Next steps
+{: #next-steps-3tier-nw-hana}
 
 If you need to rename your resources after they are created, modify the ``input.auto.tfvars`` file to change the names and run ``terraform plan`` and ``terraform apply`` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results. 
 
