@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-02-28"
+lastupdated: "2023-03-29"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -48,6 +48,10 @@ Depending on your scenarios, the following links provide helpful information.
 - [SAP ASE by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-ase#anydb-sap-ase-power-vs)
 - [SAP to IBM Power Virtual Server Migration Acceleration Program](/docs/sap?topic=sap-cloud-migration-acceleration-program)
 
+<!--## Tutorials
+- [SAP NetWeaver deployment to IBM Power Virtual Server by using AIX](/docs/sap?topic=sap-quickstudy-nw-power-vs-aix)
+- [SAP HANA deployment to IBM Power Virtual Server by using SLES](/docs/sap?topic=sap-quickstudy-hana-power-vs-sles)-->
+
 ## How to
 {: #fast-path-power-vs-how-to}
 
@@ -61,6 +65,7 @@ Implement high availability scenarios for SAP on IBM {{site.data.keyword.powerSy
 - [Implement RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-rhel)
 - [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr)
 - [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-ensa)
+- [Configuring an active-passive NFS server in a Red Hat High Availability cluster](/docs/sap?topic=sap-ha-rhel-nfs)
 
 ## Help
 {: #fast-path-power-vs-help}
