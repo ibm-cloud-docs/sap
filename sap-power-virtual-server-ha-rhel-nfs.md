@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-02-28"
+lastupdated: "2023-03-29"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -10,42 +10,42 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring an active or passive NFS server in a Red Hat High Availability cluster
+# Configuring an active-passive NFS server in a Red Hat High Availability cluster
 {: #ha-rhel-nfs}
-
-Red Hat documentation [Configuring an active-passive NFS server in a Red Hat High Availability cluster](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_configuring-active-passive-nfs-server-in-a-cluster-configuring-and-managing-high-availability-clusters#doc-wrapper){: external} describes the configuration of an active-passive NFS server on a two-node Red Hat Enterprise Linux High Availability Add-On cluster by using shared storage.
-Check [How to configure HA-LVM Cluster by using system_id in RHEL 8](https://access.redhat.com/solutions/3796221){: external} about the steps to configure active-passive shared storage in RHEL 8.
 
 ## Overview
 {: #ha-rhel-nfs-overview}
 
-The following instructions describe the configuration of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in [{{site.data.keyword.powerSys_notm}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
+The following information describes the configuration of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in [{{site.data.keyword.powerSys_notm}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
+
+The instructions are based on the following Red Hat documentation:
+- [Configuring an active/passive NFS server in a Red Hat High Availability cluster](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_configuring-active-passive-nfs-server-in-a-cluster-configuring-and-managing-high-availability-clusters#doc-wrapper){: external}
+- [How to configure HA-LVM Cluster by using system_id in RHEL 8](https://access.redhat.com/solutions/3796221){: external}
+
+The described setup uses shareable storage volumes that are accessible on both cluster nodes.
+The file systems for the NFS exports are created on those shareable storage volumes.
+HA-LVM makes sure that the volume group is active on one node at a time.
+
+In the example setup, one shared volume group `nfssharevg` contains three logical volumes `nfssharelv`, `sap${SID}lv`, and `saptranslv`.
+XFS file systems are created on those logical volumes and are mounted on `/nfsshare`, `/nfshare/export/sap${SID}`, `/nfsshare/export/saptrans`.
 
 ## Prerequisites
 {: #ha-rhel-nfs-prerequisites}
 
 - A [Red Hat Customer Portal](https://access.redhat.com/){: external} account.
-- An [IBM Cloud](/docs/account?topic=account-account-getting-started){: external}.
-- The virtual server instances need to fulfill hardware and resource requirements for the NFS server in scope.
-- This document demonstrates a setup by using shareable storage volumes accessible on both cluster nodes.
-   All file systems that are used for NFS exports are created on shareable storage volumes.
+- An [IBM Cloud account](/docs/account?topic=account-account-getting-started){: external}.
 
-   Storage volumes that are intended for the volume group of the exported file systems are attached to both virtual server instances.
-   HA-LVM makes sure that the volume group is active on one node at a time.
+A virtual hostname and IP address is required for the NFS server.
+Make sure that the virtual IP address is defined on the network interface, and reachable in the network.
 
-   In the example setup, one shared volume group `nfs_vg` contains three logical volumes `lv1`, `lv2`, and `lv3`.
-   XFS file systems are created on `lv1`, `lv2`, and `lv3` and are mounted on `/nfsexp`, `/nfsexp/export/sapmnt1`, `/nfsexp/export/trans1`.
-
-- A virtual hostname and IP address is required for the NFS server.
-   Make sure that the virtual IP addresses that are used by the instances are defined on the network adapter, and reachable in the network.
-- Name resolution and reverse lookup for physical and virtual IP names and addresses are unique and consistent on all NFS server and client nodes.
-- Details of the NFS clients (subnet, required NFS export options) are available.
-   They need to be specified during the cluster setup.
+Name resolution and reverse lookup for physical and virtual IP names and addresses must be unique and consistent on all NFS server and client nodes.
+Details of the NFS clients (subnet, required NFS export options) must be available.
+You need to enter them during the cluster setup.
 
 ## Preparing for a highly available NFS server
 {: #ha-rhel-nfs-prepare-nodes}
 
-Use the following information to prepare for a highly available NFS server.
+Use the following information to prepare the environment for a highly available NFS server.
 
 ### Installing NFS software packages
 {: #ha-rhel-nfs-prepare-packages}
@@ -57,65 +57,9 @@ dnf install nfs-utils -y
 ```
 {: pre}
 
-Stop and disable the local `nfs-lock` service on both nodes.
-This service is controlled by the RHEL HA Add-On.
-
-```sh
-systemctl disable --now nfs-lock
-```
-{: pre}
-
-### Preparing environment variables
-{: #ha-rhel-nfs-prepare-environment-variables}
-
-To simplify the set up, prepare the following environment variables for user ID `root` on both nodes.
-These environment variables are used in subsequent commands in the remainder of this document.
-
-On both nodes, create a file with the following environment variables.
-Then, you need to adapt them to your configuration.
-
-```sh
-# virtual hostnames
-export NFS_vh=<virtual hostname>     # virtual hostname for NFS Server
-export NFS_ip=<IP address>           # virtual IP address for NFS Server
-
-# LVM storage for NFS file systems
-export NFS_pvid=<>
-export NFS_vg=<vg name>              # volume group name for NFS exported directory
-
-export NFS_lv1="lv1"                 # logical volume name export #1
-export NFS_sz1="5%VG"                # sample size
-export NFS_fs1="/nfsexp"             # shared file system
-export NFS_root="${NFS_fs1}/export"  # base export directory
-export NFS_lv2="lv2"                 # logical volume name export #2
-export NFS_sz2="40%VG"               # sample size
-export NFS_fs2="${NFS_root}/${SID}"  # shared file system
-export NFS_lv3="lv3"                 # logical volume name export #3
-export NFS_sz2="40%VG"               # sample size
-export NFS_fs3="${NFS_root}/trans"   # shared file system
-export NFS_spec=<clientspec>         # subnet and netmask for allowed NFS clients
-export NFS_opts=<export options>     # options for NFS export
-```
-{: codeblock}
-
-You must source this file before you use the sample commands in the remainder of this document.
-
-For example, if you created a file that is named `nfs_envs.sh`, run the following command on both nodes to set the environment variables.
-
-```shell
-source nfs_envs.sh
-```
-{: pre}
-
-Every time that you start a new terminal session, you must run the `source` command.
-Alternatively, you can add the environment variables file to the `/etc/profile.d` directory during the cluster configuration.
-In this example, the file is sourced automatically each time you log in to the server.
-{: note}
-
 ### Preparing LVM objects
 {: #ha-rhel-nfs-prepare-lvm-objects}
 
-Shared storage is an important resource in a RHEL HA Add-On NFS cluster.
 All cluster nodes need access to the shared storage volumes, but only one node has exclusive read and write access to a volume.
 
 #### Preparing active-passive HA LVM
@@ -137,7 +81,7 @@ system_id_source = "uname"
 ```
 {: screen}
 
-Verify that the `LVM system ID` for the node matches the `uname`.
+Verify that the `LVM system ID` for the node matches the `uname -n` output.
 
 ```sh
 lvm systemid
@@ -164,15 +108,18 @@ Sample output:
 
 Identify the World Wide Names (WWN) for all volumes that are used in the shared volume group.
 
-1. Log in to IBM Cloud to the [Storage volumes](/power/storage){: external} view of {{site.data.keyword.powerSys_notm}}.
+1. Log in to IBM Cloud to the [Storage volumes](https://cloud.ibm.com/power/storage){: external} view of {{site.data.keyword.powerSys_notm}}.
 1. Select your **workspace**.
 1. Filter for the *volume prefix* in the *Storage volumes* list, and identify all the **World Wide Names** of the volumes in scope (the *World Wide Name* is a 32-digit hexadecimal number).
     Make sure that the attribute **Shareable** is *On* for those volumes.
 
-In the [Virtual server instances](/power/servers){: external} view, go to both virtual server instances of the cluster.
-Verify that all volumes in scope are attached to both virtual server instances.
+In the [Virtual server instances](https://cloud.ibm.com/power/servers){: external} view, go to both virtual server instances of the cluster.
+Verify that in scope volumes are attached to both virtual server instances.
 
-When you attach a new storage volume to a virtual server instance, make sure that you *rescan the SCSI bus* to detect the new volume.
+### Discovering new SAN volumes on cluster nodes
+{: #ha-rhel-nfs-discover-san-volumes}
+
+When you attach a new storage volume to a virtual server instance, you need to rescan the SCSI bus to detect the new volume.
 Then, update the *multipath configuration* of the virtual server instance.
 
 On the nodes with new storage volume attachments, run the following command.
@@ -182,30 +129,87 @@ rescan-scsi-bus.sh && sleep 10 && multipathd reconfigure
 ```
 {: pre}
 
-Log in to both cluster nodes, and add the **WWN** to the environment variables of user ID `root`.
-
-The matching **WWN** values can also be found with the `pvs --all`command.
+The *WWN* value of a volume can also be found with the `pvs --all` command.
 {: tip}
 
-On both nodes, run the following command.
+### Preparing environment variables
+{: #ha-rhel-nfs-prepare-environment-variables}
+
+To simplify the setup, prepare the following environment variables for user ID `root` on both nodes.
+These environment variables are used in subsequent commands in the remainder of this document.
+
+On both nodes, create a file with the environment variables.
+Then, adapt them to your configuration.
+
+Adapt `NFS_vh`, `NFS_ip`, `NFS_clientspec`, and `NFS_options` to your environment.
+For `NFS_pvid`, use the *WWN* that you identified previously.
+In addition to the file system that is used for the NFS share, the example shows two more file systems that are used for an SAP system landscape with system ID `${SID}` and the SAP transport directory.
+The sample sizes `${NFS_sz1}`, `${NFS_sz2}`, and `${NFS_sz3}` are percentages of the `${NFS_vg}` volume group size and need to be modified according to your requirements.
+The volume group names and mount point names are suggestions and need to be changed to match your own naming conventions.
+
+Make sure that you set the `NFS_pvid` environment variable by using lowercase letters in the hexadecimal number.
+{: tip}
 
 ```sh
-export NFS_pvid=3<World Wide Name>   # WWN of shared storage volume for NFS volume
-```
-{: screen}
+# virtual hostnames
+export NFS_vh=<virtual hostname>        # virtual hostname for NFS server
+export NFS_ip=<IP address>              # virtual IP address for NFS server
 
-Make sure that you set the environment variable by using the hexadecimal number in lowercase.
-{: tip}
+# LVM storage for NFS file systems
+export NFS_pvid=3<WWN>                  # WWN of shareable storage volume used for NFS
+export NFS_vg="nfssharevg"              # volume group name for NFS exported file systems
+
+# NFS share file system
+export NFS_lv1="nfssharelv"             # logical volume name export #1
+export NFS_sz1="5%VG"                   # logical volume size
+export NFS_fs1="/nfsshare"              # file system mount point
+export NFS_root="${NFS_fs1}/export"     # base export directory
+
+# NFS share file system for SAP system ID <SID>
+export SID=<SID>                        # SAP system ID
+export NFS_lv2="sap${SID}lv"            # logical volume name export #2
+export NFS_sz2="40%VG"                  # logical volume size
+export NFS_fs2="${NFS_root}/sap${SID}"  # file system mount point
+
+# NFS share file system for SAP transport directory
+export NFS_lv3="saptranslv"             # logical volume name export #3
+export NFS_sz3="40%VG"                  # logical volume size
+export NFS_fs3="${NFS_root}/saptrans"   # file system mount point
+
+# NFS client options
+export NFS_clientspec="10.111.1.0/24"   # client specs (subnet and netmask) for allowed NFS clients
+export NFS_options="rw,sync,no_root_squash,no_subtree_check,crossmnt"   # options for NFS export
+```
+{: codeblock}
+
+You must source this file before you use the sample commands in the remainder of this document.
+
+For example, if you created a file that is named `nfs_envs.sh`, run the following command on both nodes to set the environment variables.
+
+```shell
+source nfs_envs.sh
+```
+{: pre}
+
+Every time that you start a new terminal session, you must run the `source` command.
+Alternatively, you can add the environment variables file to the `/etc/profile.d` directory during the cluster configuration.
+In this example, the file is sourced automatically each time you log in to the server.
+{: note}
+
+### Creating LVM objects
+{: #ha-rhel-nfs-create-lvm-objects}
 
 #### Creating physical volumes
 {: #ha-rhel-nfs-create-nfs-pv}
 
-On NODE1, run the following commands.
+On NODE1, run the following command.
 
 ```sh
 pvcreate /dev/mapper/${NFS_pvid}
 ```
 {: pre}
+
+Sample output:
 
 ```sh
 pvcreate /dev/mapper/${NFS_pvid}
@@ -235,7 +239,7 @@ Sample output:
 ```sh
 # vgs -o+systemid
   VG          #PV #LV #SN Attr   VSize   VFree   System ID
-  nfsvg     1   0   0 wz--n- <50.00g <50.00g eh-cl-sap-1
+  nfssharevg    1   0   0 wz--n- <50.00g <50.00g cl-sap-1
 ```
 {: screen}
 
@@ -265,7 +269,8 @@ lvcreate -l ${NFS_sz3} -n ${NFS_lv3} ${NFS_vg}
 On NODE1, create the file systems for NFS exports.
 
 The example uses file system type `xfs`.
-Other file system types are possible. Then, the resource definitions need to be slightly changed.
+Other file system types are possible.
+Then, the resource definitions need to be changed.
 
 ```sh
 mkfs.xfs /dev/${NFS_vg}/${NFS_lv1}
@@ -282,7 +287,7 @@ mkfs.xfs /dev/${NFS_vg}/${NFS_lv3}
 ```
 {: pre}
 
-#### Creating mount point for the NFS export
+#### Creating the mount point for the NFS export
 {: #ha-rhel-nfs-create-nfs-mtpt}
 
 On both nodes, run the following command.
@@ -292,22 +297,89 @@ mkdir -p ${NFS_fs1}
 ```
 {: pre}
 
+#### Making sure that a volume group is not activated on multiple cluster nodes
+{: #ha-rhel-nfs-upd-vg-auto-activate}
+
+Volume groups that are managed by Pacemaker must not activate automatically on startup.
+
+For RHEL 8.5 and later, you can disable autoactivation for a volume group when you create the volume group by specifying the `--setautoactivation n` flag for the vgcreate command.
+{: tip}
+
+On both nodes, edit file `/etc/lvm/lvm.conf` and modify the `auto_activation_volume_list` entry to limit autoactivation to specific volume groups.
+
+```sh
+vi /etc/lvm/lvm.conf
+```
+{: pre}
+
+Search for parameter `auto_activation_volume_list` and add the volume groups, other than the volume group that you defined for the NFS cluster, as entries in that list.
+
+Sample setting of the `auto_activation_volume_list` entry in `/etc/lvm/lvm.conf`:
+
+```sh
+auto_activation_volume_list = [ "rhel_root" ]
+```
+{: screen}
+
+Rebuild the *initramfs* boot image to make sure that the boot image does not activate a volume group that is controlled by the cluster.
+
+On both nodes, run the following command.
+
+```shell
+dracut -H -f /boot/initramfs-$(uname -r).img $(uname -r)
+```
+{: pre}
+
+Reboot both nodes.
+
 ## Installing and setting up the RHEL HA Add-On cluster
-{: #ha-rhel-nfs-install-setup}
+{: #ha-rhel-nfs-cluster-install}
 
-Install and set up the RHEL HA Add-On cluster according to [Implement RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](#ha-rhel){: external}.
-Configure and test fencing as described in [Create the fencing device](#ha-rhel-create-fencing-device){: external}.
+Use the following instructions to perform the initial cluster configuration.
 
-## Configuring NFS server resources in the cluster
-{: #ha-rhel-nfs-cfg-resources}
+- Install and set up the RHEL HA Add-On cluster according to [Implement RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](#ha-rhel).
+- Configure and test fencing as described in [Create the fencing device](#ha-rhel-create-fencing-device).
 
-Up to this point, the following items are assumed:
+Sample output of the cluster status at this stage.
 
-- A RHEL HA Add-On cluster is running on both virtual server instances.
-- Fencing of the nodes is tested and works properly.
+```sh
+# pcs status
+Cluster name: SAP_NFS
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: cl-nfs-1 (version 2.0.5-9.el8_4.5-ba59be7122) - partition with quorum
+  * Last updated: Fri Mar 10 10:35:42 2023
+  * Last change:  Fri Mar 10 09:52:08 2023 by root via cibadmin on cl-nfs-1
+  * 2 nodes configured
+  * 1 resource instance configured
+
+Node List:
+  * Online: [ cl-nfs-1 cl-nfs-2 ]
+
+Full List of Resources:
+  * fence_device	(stonith:fence_ibm_powervs):	 Started cl-nfs-1
+
+Daemon Status:
+  corosync: active/disabled
+  pacemaker: active/disabled
+  pcsd: active/enabled
+```
+{: screen}
+
+### Configuring general cluster properties
+{: #ha-rhel-hana-nfs-configure-cluster-properties}
+
+To prevent the cluster from moving healthy resources to another node (for example when you restart the cluster on a previously failed node), you can set the default value for the `resource-stickiness` meta attribute to 1.
+
+On NODE1, run the following command.
+
+```sh
+pcs resource defaults resource-stickiness=1
+```
+{: pre}
 
 ### Configuring NFS resource group and resources
-{: #ha-rhel-nfs-cfg-nfs-rg}
+{: #ha-rhel-nfs-cfg-nfs-resources}
 
 Use the following steps to configure the NFS resources in the cluster.
 
@@ -316,9 +388,9 @@ Use the following steps to configure the NFS resources in the cluster.
 
 To make sure that all NFS resources run on the same node, configure them as part of the resource group `nfsgroup`.
 
-This resource group is created together with the first resource.
+This resource group is created with the first resource.
 Resources start in the order in which they are added to the group.
-They stop in the reverse order.
+The resources stop in reverse order.
 
 On NODE1, run the following command.
 
@@ -330,8 +402,7 @@ pcs resource create nfs_vg ocf:heartbeat:LVM-activate \
 ```
 {: pre}
 
-Do not configure more than one *LVM-activate* resource that uses the same LVM volume group in an active-passive HA configuration.
-Otherwise, you risk data corruption.
+To avoid data corruption, don't configure more than one *LVM-activate* resource that uses the same LVM volume group in an active-passive HA configuration.
 Don't configure an LVM-activate resource as a clone resource in an active-passive HA configuration.
 
 Check the status of the cluster and verify that resource `nfs_vg` is active.
@@ -385,14 +456,14 @@ Sample output:
 {: screen}
 
 On the node with the active resource group `nfsgroup`, create two subdirectories in `${NFS_fs1}`.
-`${NFS_fs1}/stat` is used as `nfs_shared_infodir` for NFS lock info and `${NFS_fs1}/export` is used as NFS root.
+`${NFS_fs1}/stat` is used as `nfs_shared_infodir` for NFS lock information and `${NFS_fs1}/export` is used as NFS root.
 
 ```sh
 mkdir ${NFS_fs1}/stat ${NFS_fs1}/export
 ```
 {: pre}
 
-Then, create the mount points for the exported file systems.
+Create the mount points for the other exported file systems.
 
 On both nodes, run the following command.
 
@@ -448,7 +519,7 @@ On NODE1, create a resource for managing the NFS server.
 
 ```sh
 pcs resource create nfs_daemon nfsserver \
-    nfs_shared_infodir=${NFS_base}/stat \
+    nfs_shared_infodir=${NFS_root}/stat \
     nfs_no_notify=true \
     --group nfsgroup
 ```
@@ -479,33 +550,25 @@ Sample output:
 #### Creating the exportfs resource
 {: #ha-rhel-nfs-cfg-exportfs-rg}
 
-To export the `${NFS_root}` directory, add the exportfs resources to the `nfsgroup` group which builds a virtual directory for NFSv4 clients.
+To export the `${NFS_root}` directory, add the *exportfs* resources to the `nfsgroup` group, which builds a virtual directory for NFSv4 clients.
 NFSv3 clients can access these exports too.
-
-The following is an example for the `{NFS_spec}` and `{NFS_options}` variables.
-
-```sh
-NFS_spec="10.111.1.0/24"
-NFS_options="rw,sync,no_root_squash,no_subtree_check,crossmnt"
-```
-{: codeblock}
 
 On NODE1, run the following command.
 
 ```sh
 pcs resource create nfs_export exportfs \
-    clientspec={NFS_spec} \
-    options=${NFS_opts} \
+    clientspec=${NFS_clientspec} \
+    options=${NFS_options} \
     directory=${NFS_root} \
     fsid=0 \
-    --group nfsgrp
+    --group nfsgroup
 ```
 {: pre}
 
 #### Configuring a floating IP address resource
 {: #ha-rhel-nfs-cfg-vip-rg}
 
-Review the information in [Reserving virtual IP addresses](#ha-rhel-reserve-virtual-ip-addresses) and reserve the virtual IP address for the NFS cluster.
+Review the information in [Reserving virtual IP addresses](#ha-rhel-reserve-virtual-ip-addresses) and reserve a virtual IP address for the NFS cluster.
 
 Create a resource for the virtual IP address of the NFS Server.
 NFS clients access the NFS share by using the floating IP address.
@@ -522,7 +585,7 @@ pcs resource create nfs_ip IPaddr2 \
 #### Configuring a notify resource
 {: #ha-rhel-nfs-cfg-notify-rg}
 
-An *nfsnotify* resource sends FSv3 reboot notifications after the entire NFS deployment initializes.
+An *nfsnotify* resource sends *FSv3* reboot notifications after the entire NFS deployment initializes.
 
 On NODE1, run the following command.
 
@@ -568,7 +631,7 @@ Run the following tests to verify the NFS cluster functionality.
 ### Test1 - Testing the NFS export
 {: #ha-rhel-nfs-test-export}
 
-Run all the commands the teting commands on a *NFS client node* outside the HA NFS cluster.
+Run all the commands on an *NFS client node* outside the HA NFS cluster.
 
 Verify the NFS exports.
 
@@ -577,225 +640,239 @@ showmount -e ${NFS_ip}
 ```
 {: pre}
 
-The `showmount` command displays information about file systems that are exported by a NFS Server (NFS v3).
+The `showmount` command displays information about file systems that are exported by an NFS Server (NFS v3).
 Verify that the output lists all the exported directories.
 
 Create a temporary directory on the *NFS client node*.
 Then, mount the NFS file system and create the directory structure that is required for the SAP installation.
 
-In the first example, only `/usr/sap/trans` and `/sapmnt/${SID}` are NFS mounted on the SAP application server instances.
+In the first example, only `/usr/sap/trans` and `/sapmnt/${SID}` are NFS mounted on the SAP application server instance.
 
-Use a temporary mount point to create the required subdirectories, change the ownership, and change the permissions.
-
-```shell
-mkdir -p /tmp/saptmp
-```
-{: pre}
-
-```shell
-mount -t nfs ${NFS_vh}:/ /tmp/saptmp -o vers=4,minorversion=1,sec=sys
-```
-{: pre}
-
-```shell
-mkdir -p /tmp/saptmp/${SID}
-```
-{: pre}
-
-```shell
-chown -R ${sid}adm:sapsys /tmp/saptmp/${SID}
-```
-{: pre}
-
-```shell
-chown ${sid}adm:sapsys /tmp/saptmp/trans
-```
-{: pre}
-
-```shell
-chmod g+w /tmp/saptmp/trans
-```
-{: pre}
-
-```shell
-umount /tmp/saptmp​
-```
-{: pre}
-
-Prepare the final mount points that are used for the SAP installation.
+Prepare the mount points that are used for the SAP installation.
 
 ```sh
-mkdir -p /sapmnt/${SID}
+mkdir -p /sapmnt/${SID} \
+         /usr/sap/trans
 ```
 {: pre}
 
+Change the attributes of the mount points.
+
 ```sh
-mkdir -p /usr/sap/trans
+chattr +i /sapmnt/${SID} \
+          /usr/sap/trans
 ```
 {: pre}
 
-Change the attributes.
+Mount the NFS shares.
 
-```sh
-chattr +i /usr/sap/trans
+```shell
+mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_vh}:/saptrans /usr/sap/trans
 ```
 {: pre}
 
-```sh
-chattr +i /sapmnt/${SID}
+```shell
+mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_vh}:/sap${SID} /sapmnt/${SID}
+```
+{: pre}
+
+Change the ownership and the permissions.
+
+```shell
+chown ${sid}adm:sapsys /usr/sap/trans
+```
+{: pre}
+
+```shell
+chmod g+w /usr/sap/trans
+```
+{: pre}
+
+```shell
+chown -R ${sid}adm:sapsys /sapmnt/${SID}
+```
+{: pre}
+
+Unmount the file systems.
+
+```shell
+umount /usr/sap/trans
+```
+{: pre}
+
+```shell
+umount /sapmnt/${SID}
 ```
 {: pre}
 
 Add the new file systems to `/etc/fstab`.
 
 ```sh
-​${NFS_vh}:/trans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_vh}:/${SID} /sapmnt/${SID}  nfs vers=4,minorversion=1,sec=sys  0  0
+cat >> /etc/fstab << EOT
+​${NFS_vh}:/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_vh}:/sap${SID} /sapmnt/${SID}  nfs vers=4,minorversion=1,sec=sys  0  0
+EOT
 ```
-{: screen}
+{: pre}
+
+Check the updated file.
+
+```shell
+cat /etc/fstab
+```
+{: pre}
+
 
 In the second example,  `/usr/sap/trans`, `/sapmnt/${SID}`, and all instance directories are NFS mounted on the SAP application server instances.
 
-Use a temporary mount point to create the required subdirectories, change the ownership, and change the permissions.
+Export environment variables for the *ASCS* and *ERS* system numbers.
+Change the following numbers to the system numbers that you used during *ASCS* and *ERS* installation.
 
 ```shell
-mkdir -p /tmp/saptmp
+export ASCS_nr=01
 ```
 {: pre}
 
 ```shell
-mount -t nfs ${NFS_vh}:/ /tmp/saptmp -o vers=4,minorversion=1,sec=sys
+export ERS_nr=02
 ```
 {: pre}
 
-```shell
-mkdir -p /tmp/saptmp/${SID}/sapmnt
-```
-{: pre}
-
-```shell
-mkdir -p /tmp/saptmp/${SID}/ASCS
-```
-{: pre}
-
-```shell
-mkdir -p /tmp/saptmp/${SID}/ERS
-```
-{: pre}
-
-```shell
-mkdir -p /tmp/saptmp/${SID}/SYS
-```
-{: pre}
-
-```shell
-mkdir -p /tmp/saptmp/${SID}/PAS
-```
-{: pre}
-
-```shell
-mkdir -p /tmp/saptmp/${SID}/AAS
-```
-{: pre}
-
-```shell
-chown -R ${sid}adm:sapsys /tmp/saptmp/${SID}
-```
-{: pre}
-
-```shell
-umount /tmp/saptmp​
-```
-{: pre}
 
 Prepare the final mount points that are used for the SAP installation.
 
 ```shell
-mkdir -p /sapmnt/${SID}
+mkdir -p /sapmnt/${SID} \
+         /usr/sap/trans \
+         /usr/sap/${SID}/SYS \
+         /usr/sap/${SID}/ASCS${ASCS_nr} \
+         /usr/sap/${SID}/ERS${ERS_nr}
+```
+{: pre}
+
+Change the attributes of the mount points.
+
+```sh
+chattr +i /sapmnt/${SID} \
+          /usr/sap/trans \
+          /usr/sap/${SID}/SYS \
+          /usr/sap/${SID}/ASCS${ASCS_nr} \
+          /usr/sap/${SID}/ERS${ERS_nr}
+```
+{: pre}
+
+Mount the NFS shares to create the required subdirectories, change the ownership, and change the permissions.
+
+```shell
+mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_vh}:/saptrans /mnt
 ```
 {: pre}
 
 ```shell
-mkdir -p /usr/sap/trans
+chown ${sid}adm:sapsys /mnt
 ```
 {: pre}
 
 ```shell
-mkdir -p /usr/sap/${SID}/SYS
+chmod g+w /mnt
 ```
 {: pre}
 
 ```shell
-mkdir -p /usr/sap/${SID}/ASCS${ASCS_nr}
+umount /mnt
 ```
 {: pre}
 
 ```shell
-mkdir -p /usr/sap/${SID}/ERS${ERS_nr}
+mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_vh}:/sap${SID} /mnt
 ```
 {: pre}
 
-Change the attributes.
-
-```sh
-chattr +i /usr/sap/trans
+```shell
+mkdir -p /mnt/sapmnt \
+         /mnt/ASCS \
+         /mnt/ERS \
+         /mnt/SYS \
+         /mnt/PAS \
+         /mnt/AS1
 ```
 {: pre}
 
-```sh
-chattr +i /usr/sap/${SID}/SYS
+```shell
+chown -R ${sid}adm:sapsys /mnt
 ```
 {: pre}
 
-```sh
-chattr +i /usr/sap/${SID}/ASCS${ASCS_nr}
-```
-{: pre}
-
-```sh
-chattr +i /usr/sap/${SID}/ERS${ERS_nr}
-```
-{: pre}
-
-```sh
-chattr +i /sapmnt/${SID}
+```shell
+umount /mnt
 ```
 {: pre}
 
 Add the new file systems to `/etc/fstab`.
 
 ```sh
-​${NFS_vh}:/trans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_vh}:/${SID}/sapmnt /sapmnt/${SID}  nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_vh}:/${SID}/ASCS /usr/sap/${SID}/ASCS${ASCS_nr} nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_vh}:/${SID}/ERS  /usr/sap/${SID}/ERS${ERS_nr} nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_vh}:/${SID}/SYS  /usr/sap/${SID}/SYS  nfs vers=4,minorversion=1,sec=sys  0  0
+cat >> /etc/fstab < EOT
+​${NFS_vh}:/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_vh}:/sap${SID}/sapmnt /sapmnt/${SID}  nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_vh}:/sap${SID}/ASCS /usr/sap/${SID}/ASCS${ASCS_nr} nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_vh}:/sap${SID}/ERS  /usr/sap/${SID}/ERS${ERS_nr} nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_vh}:/sap${SID}/SYS  /usr/sap/${SID}/SYS  nfs vers=4,minorversion=1,sec=sys  0  0
+EOT
 ```
-{: codeblock}
+{: pre}
 
-Verify that you can mount the NFS share with NFSv3.
-Unlike NFSv4, NFSv3 does not use the virtual file system and you must mount a specific export.
+Check the updated file.
+
+```shell
+cat /etc/fstab
+```
+{: pre}
 
 ### Test2 - Testing the failover of the NFS server
-{: #ha-rhel-nfs-test-failover}
+{: #ha-rhel-nfs-test-server-failover}
 
-- Verify that the file system is mounted on a *NFS client node* outside the cluster, and that the applications can access the content.
-- NFS server is active on NODE1.
-- Crash NODE1 by sending a `fast-restart` system request.
+#### Test2 - Description
+{: #ha-rhel-nfs-test2-description}
+
+Simulate a crash of the cluster node that has the NFS resources.
+
+#### Test2 - Prerequisites
+{: #ha-rhel-nfs-test2-prerequisites}
+
+- A functional two-node RHEL HA Add-On cluster for an NFS HA server.
+- Cluster is started on both nodes.
+- The file systems are mounted on an *NFS client node* outside the cluster and the applications can access the content.
+
+#### Test2 - Test procedure
+{: #ha-rhel-nfs-test2-procedure}
+
+Crash the cluster node by sending a *shutoff* system request.
+
+First, check the cluster status and identify the node where the *nfsgroup* resource group is running.
 
 On NODE1, run the following command.
 
+```shell
+pcs status
+```
+{: pre}
+
+Then, log in to the identified cluster node and send a *shutoff* system request.
+
 ```sh
-sync; echo b > /proc/sysrq-trigger
+sync; echo o > /proc/sysrq-trigger
 ```
 {: pre}
 
 #### Test2 - Expected behavior
-{: #ha-rhel-nfs-test-failover-expected-behavior}
+{: #ha-rhel-nfs-test2-expected-behavior}
 
-- NODE1 restarts.
-- The cluster detects the failed node and sets its state to offline (UNCLEAN).
-- The cluster acquires the **NFS Server** resources on NODE2. Check that all the resources are started on NODE2.
+- The node with the active *nfsgroup* resource group shuts down.
+- The cluster detects the failed node and starts a fencing action.
+- The fencing operation sets the state of the fenced node to offline.
+- The cluster acquires the *NFS Server* resources on the failover node.
+
+Check that all the resources started on the failover node.
 
 ```sh
 pcs resource status
@@ -821,13 +898,56 @@ Sample output:
 Verify that the file system is still mounted on the *NFS client node*, and that the applications can still access the content.
 
 #### Test2 - Recovery procedure
-{: #ha-rhel-nfs-test-recovery-procedure}
+{: #ha-rhel-nfs-test2-recovery-procedure}
 
-Wait until NODE1 is up, then restart the cluster framework.
+Log in to the {{site.data.keyword.cloud}} Console and start the stopped instance.
+Wait until the cluster node is available again, then restart the cluster framework.
 
-On NODE1, run the following command.
+On the cluster node, run the following command.
 
 ```sh
 pcs cluster start
 ```
 {: pre}
+
+Check the cluster status.
+
+```sh
+pcs status
+```
+{: pre}
+
+Sample output:
+
+```sh
+# pcs status
+Cluster name: SAP_NFS
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: cl-nfs-1 (version 2.0.5-9.el8_4.5-ba59be7122) - partition with quorum
+  * Last updated: Mon Mar 20 08:11:28 2023
+  * Last change:  Mon Mar 20 07:56:25 2023 by hacluster via crmd on cl-nfs-1
+  * 2 nodes configured
+  * 9 resource instances configured
+
+Node List:
+  * Online: [ cl-nfs-1 cl-nfs-2 ]
+
+Full List of Resources:
+  * fence_device	(stonith:fence_ibm_powervs):	 Started cl-nfs-1
+  * Resource Group: nfsgroup:
+    * nfs_vg	(ocf::heartbeat:LVM-activate):	 Started cl-nfs-2
+    * nfs_fs1	(ocf::heartbeat:Filesystem):	 Started cl-nfs-2
+    * nfs_fs2	(ocf::heartbeat:Filesystem):	 Started cl-nfs-2
+    * nfs_fs3	(ocf::heartbeat:Filesystem):	 Started cl-nfs-2
+    * nfs_daemon	(ocf::heartbeat:nfsserver):	 Started cl-nfs-2
+    * nfs_export	(ocf::heartbeat:exportfs):	 Started cl-nfs-2
+    * nfs_ip	(ocf::heartbeat:IPaddr2):	 Started cl-nfs-2
+    * nfs_notify	(ocf::heartbeat:nfsnotify):	 Started cl-nfs-2
+
+Daemon Status:
+  corosync: active/disabled
+  pacemaker: active/disabled
+  pcsd: active/enabled
+```
+{: screen}
