@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-02-28"
+lastupdated: "2023-03-29"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -66,9 +66,12 @@ For more information, see the following Red Hat knowledge base articles:
 - Make sure that you subscribed to either *RHEL for SAP Applications* or *RHEL for SAP Solutions* and that you enabled the *Red Hat Enterprise Linux for SAP Solutions for Power LE - Update Services for SAP Solutions 8.4 ppc64le* (`rhel-8-for-ppc64le-sap-solutions-e4s-rpms`) repository.
    You need to set the release to *8.4* through the subscription manager.
 
-- SAP application server instances require a common shared file system *SAPMNT* `/sapmnt/<SID>` with *read and write* access, and extra shared file systems such as *SAPTRANS* `/usr/sap/trans`.
+- SAP application server instances require a common shared file system *SAPMNT* `/sapmnt/<SID>` with *read and write* access, and other shared file systems such as *SAPTRANS* `/usr/sap/trans`.
    These file systems are typically provided by an external NFS server.
    The NFS server must be installed on virtual servers that are not part of the *ENSA2* cluster.
+
+   [Configuring an active-passive NFS server in a Red Hat High Availability cluster](#ha-rhel-nfs){: external} describes the implementation of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in {{site.data.keyword.powerSys_notm}}.
+
 - Make sure that all SAP installation media is available.
 
 ## Preparing nodes for SAP installation
@@ -226,7 +229,7 @@ system_id_source = "uname"
 ```
 {: screen}
 
-#### Identify World Wide Names of shared storage volumes
+#### Identifying World Wide Names of shared storage volumes
 {: #ha-rhel-ensa-identify-wwn}
 
 Identify the World Wide Name (WWN) for each storage volume that is in the shared volume groups.
@@ -380,7 +383,42 @@ mkfs.xfs /dev/${ERS_vg}/${ERS_lv}
 ```
 {: pre}
 
-#### Mount file systems for SAP installation
+#### Making sure that a volume group is not activated on multiple cluster nodes
+{: #ha-rhel-ensa-upd-vg-auto-activate}
+
+Volume groups that are managed by the cluster must not activate automatically on startup.
+
+For RHEL 8.5 and later, you can disable autoactivation for a volume group when you create the volume group by specifying the `--setautoactivation n` flag for the vgcreate command.
+{: tip}
+
+On both nodes, edit file `/etc/lvm/lvm.conf` and modify the `auto_activation_volume_list` entry to limit autoactivation to specific volume groups.
+
+```sh
+vi /etc/lvm/lvm.conf
+```
+{: pre}
+
+Search for parameter `auto_activation_volume_list` and add the volume groups, other than the volume group you haved defined for the NFS cluster, as entries in that list.
+
+Sample setting of the `auto_activation_volume_list` entry in `/etc/lvm/lvm.conf`:
+
+```sh
+auto_activation_volume_list = [ "rhel_root" ]
+```
+{: screen}
+
+Rebuild the *initramfs* boot image to make sure that the boot image does not activate a volume group that is controlled by the cluster.
+
+On both nodes, run the following command.
+
+```shell
+dracut -H -f /boot/initramfs-$(uname -r).img $(uname -r)
+```
+{: pre}
+
+Reboot both nodes.
+
+#### Mounting the file systems for SAP installation
 {: #ha-rhel-ensa-mount-fs}
 
 Activate the volume groups and mount the SAP instance file systems.
@@ -559,7 +597,7 @@ For more information, see [How to enable the SAP HA Interface for SAP ABAP appli
 
 On both nodes, run the following commands.
 
-If needed, use `subscription-manager` to enable the SAP Netweaver repository.
+If needed, use `subscription-manager` to enable the SAP NetWeaver repository.
 For more information, see [RHEL for SAP Repositories and How to Enable Them](https://access.redhat.com/articles/6072011){: external}).
 
 ```shell
@@ -734,7 +772,7 @@ pcs resource meta ${sid}_ascs${ASCS_nr}_group \
 ```
 {: pre}
 
-### Configure ERS resource group
+### Configuring the ERS resource group
 {: #ha-rhel-ensa-cfg-ers-rg}
 
 Create a resource for the virtual IP address of the *ERS*.
@@ -819,7 +857,7 @@ pcs constraint order start \
 ```
 {: pre}
 
-The following two order constraints make sure that the file system *SAPMNT* doesn't mount before resource groups `${sid}_ascs${ASCS_nr}_group` and `${sid}_ers${ERS_nr}_group` start.
+The following two order constraints make sure that the file system *SAPMNT* mounts before resource groups `${sid}_ascs${ASCS_nr}_group` and `${sid}_ers${ERS_nr}_group` start.
 
 ```sh
 pcs constraint order fs_sapmnt-clone then ${sid}_ascs${ASCS_nr}_group
@@ -940,14 +978,14 @@ Sample output:
 {: #ha-rhel-ensa-test1-expected-behavior}
 
 - SAP *ASCS* instance on NODE1 crashes.
-- The cluster detects the crashed **ASCS** instance.
+- The cluster detects the crashed *ASCS* instance.
 - The cluster stops the dependent resources on NODE1 (virtual IP address, file system `/usr/sap/${SID}/ASCS${ASCS_nr}`, and the LVM resources), and acquires them on NODE2.
 - The cluster starts the *ASCS* on NODE2.
-- The cluster stops the **ERS** instance on NODE2.
+- The cluster stops the *ERS* instance on NODE2.
 - The cluster stops the dependent resources on NODE1 (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_nr}`, and the LVM resources), and acquires them on NODE1.
 - The cluster starts the *ERS* on NODE1.
 
-After a few minutes, check the status with the following command.
+After a few seconds, check the status with the following command.
 
 ```sh
 pcs status
@@ -957,7 +995,6 @@ pcs status
 Sample output:
 
 ```sh
-
 # pcs status
 Cluster name: SAP_ASCS
 Cluster Summary:
@@ -1032,9 +1069,9 @@ sync; echo b > /proc/sysrq-trigger
 
 - NODE2 restarts.
 - The cluster detects the failed node and sets its state to offline (UNCLEAN).
-- The cluster acquires the **ASCS** resources (virtual IP address, file system `/usr/sap/${SID}/ASCS${ASCS_nr}`, and the LVM items) on NODE1.
-- The cluster starts the **ASCS** on NODE1.
-- The cluster stops the **ERS** instance on NODE1.
+- The cluster acquires the *ASCS* resources (virtual IP address, file system `/usr/sap/${SID}/ASCS${ASCS_nr}`, and the LVM items) on NODE1.
+- The cluster starts the *ASCS* on NODE1.
+- The cluster stops the *ERS* instance on NODE1.
 - The cluster stops the dependent resources on NODE1 (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_nr}`, and the LVM resources), and releases them.
 
 After a while, check the status with the following command.
@@ -1099,10 +1136,11 @@ pcs cluster start
 ```
 {: pre}
 
-- The cluster starts on NODE2, and acquires the **ERS** resources (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_nr}` and the LVM resources) on NODE2.
-- The cluster starts the **ERS** instance on NODE2.
+- The cluster starts on NODE2, and acquires the *ERS* resources (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_nr}` and the LVM resources) on NODE2.
+- The cluster starts the *ERS* instance on NODE2.
 
-Wait a moment and check the status with the following command. The *ERS* resource group moved to the second node.
+Wait a moment and check the status with the following command.
+The *ERS* resource group moved to the second node.
 
 ```sh
 pcs status
@@ -1205,8 +1243,8 @@ pcs status
 ```
 {: pre}
 
-The *s01_ers02* resource restarted on the second node.
-If you run the `pcs status` command too soon, you might see the *s01_ers02* resource in status `FAILED` briefly.
+The `${sid}_ers${ERS_nr}` *ERS* resource restarted on the second node.
+If you run the `pcs status` command too soon, you might see the *ERS* resource briefly in status `FAILED`.
 
 Sample output:
 
