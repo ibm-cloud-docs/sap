@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-02-28"
+lastupdated: "2023-03-29"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -21,6 +21,7 @@ With SAP HANA on IBM Power Systems, you have a consistent platform for HANA-base
 
 The following information describes the configuration of a Red Hat Enterprise Linux 8 (RHEL) HA Add-On cluster for managing *SAP HANA Scale-Up System Replication*.
 The cluster uses virtual server instances in IBM {{site.data.keyword.powerSys_notm}}{: external} as cluster nodes.
+
 
 The instructions describe how to automate SAP HANA Scale-Up System Replication for a single database deployment in a performance-optimized scenario on a RHEL HA Add-on cluster.
 
@@ -95,7 +96,8 @@ yum install -y resource-agents-sap-hana
 ### Starting the SAP HANA system
 {: #ha-rhel-hana-sr-start-hana-systems}
 
-Start SAP HANA and verify that HANA System Replication is active. For more information, see [2.4. Checking SAP HANA System Replication state](https://access.redhat.com/articles/3004101#checking-sap-hana-system-replication-state){: external}).
+Start SAP HANA and verify that HANA System Replication is active.
+ For more information, see [2.4. Checking SAP HANA System Replication state](https://access.redhat.com/articles/3004101#checking-sap-hana-system-replication-state){: external}.
 
 On both nodes, run the following commands.
 
