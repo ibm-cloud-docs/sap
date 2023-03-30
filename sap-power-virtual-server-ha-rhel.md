@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-29"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -610,6 +610,7 @@ pcs config
 ```sh
 pcs status
 ```
+{: pre}
 
 ```sh
 pcs stonith config
