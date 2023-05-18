@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-17"
+lastupdated: "2023-05-15"
 
 subcollection: sap
 
@@ -172,6 +172,7 @@ If client issues are identified with SAP software, then SAP Support assists the 
 
 Before you deploy SAP S/4HANA High Availability on Single Zone:
 
+* The automation for this deployment requires IBM Cloud File Storage for VPC to complete successfully. IBM Cloud File Storage for VPC is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative to get access. For more information, see [IBM Cloud File Storage for VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-file-storage-vpc-about).
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 * If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server). You need the floating IP from your bastion server for deployment.
 * Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the `README` file, in the respective GitHub repository for [{{site.data.keyword.bpshort}}](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/tree/main/schematics) and [Terraform](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) and on the About page for the catalog tile.
