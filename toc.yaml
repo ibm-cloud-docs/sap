@@ -265,10 +265,12 @@ toc:
       - topicgroup:
             label: High Availability Scenarios on Power Virtual Server
             topics:
+            - sap-power-virtual-server-ha-vsi.md
             - sap-power-virtual-server-ha-rhel.md
             - sap-power-virtual-server-ha-rhel-hana-sr.md
             - sap-power-virtual-server-ha-rhel-ensa.md
             - sap-power-virtual-server-ha-rhel-nfs.md
+            - sap-power-virtual-server-ha-rhel-hana-sr-co.md
              
   - navgroup:
       id: reference
