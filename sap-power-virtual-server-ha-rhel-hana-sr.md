@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-03-29"
+lastupdated: "2023-05-31"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -15,6 +15,7 @@ subcollection: sap
 {: #ha-rhel-hana-sr}
 
 With SAP HANA on IBM Power Systems, you have a consistent platform for HANA-based and traditional applications, best-in-class performance, resilience for critical workloads, and most flexible infrastructure.
+{: shortdesc}
 
 ## Overview
 {: #ha-rhel-hana-sr-overview}
@@ -22,10 +23,10 @@ With SAP HANA on IBM Power Systems, you have a consistent platform for HANA-base
 The following information describes the configuration of a Red Hat Enterprise Linux 8 (RHEL) HA Add-On cluster for managing *SAP HANA Scale-Up System Replication*.
 The cluster uses virtual server instances in IBM {{site.data.keyword.powerSys_notm}}{: external} as cluster nodes.
 
-
 The instructions describe how to automate SAP HANA Scale-Up System Replication for a single database deployment in a performance-optimized scenario on a RHEL HA Add-on cluster.
 
 For more information, see the following links:
+
 - [Red Hat HA Solutions for SAP HANA, S/4HANA, and NetWeaver based SAP Applications](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index#doc-wrapper){: external}
 - [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471){: external}
 - [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://access.redhat.com/articles/3004101){: external}
@@ -46,10 +47,10 @@ This information is intended for architects and specialists that are planning a 
 - SAP HANA installed on both virtual server instances and SAP HANA System Replication is configured.
    The installation of SAP HANA and setup of HANA System Replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures. For more information, see the following documentation.
    - Install SAP HANA on RHEL:
-      - [SAP Note 2772999 - Red Hat Enterprise Linux 8.x: Installation and Configuration](https://launchpad.support.sap.com/#/notes/2772999){: external}
-      - [SAP Note 2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782){: external}
+      - [SAP Note 2772999 - Red Hat Enterprise Linux 8.x: Installation and Configuration](https://me.sap.com/notes/2772999){: external}
+      - [SAP Note 2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782){: external}
    - SAP HANA Server Installation:
-      -  [SAP HANA Server Installation and Update Guide](https://launchpad.support.sap.com/#/notes/2777782){: external}
+      -  [SAP HANA Server Installation and Update Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/7eb0167eb35e4e2885415205b8383584.html?locale=en-US){: external}
    - SAP HANA System Replication:
       - [SAP HANA System Replication Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html?locale=en-US){: external}
    - Configure SAP HANA System Replication:
@@ -89,7 +90,7 @@ export NODE2=<Hostname 2>   # Hostname of virtual server instance 2
 Run the following command to install the RHEL HA Add-On resource agents for SAP HANA System Replication.
 
 ```sh
-yum install -y resource-agents-sap-hana
+dnf install -y resource-agents-sap-hana
 ```
 {: pre}
 
@@ -97,27 +98,19 @@ yum install -y resource-agents-sap-hana
 {: #ha-rhel-hana-sr-start-hana-systems}
 
 Start SAP HANA and verify that HANA System Replication is active.
- For more information, see [2.4. Checking SAP HANA System Replication state](https://access.redhat.com/articles/3004101#checking-sap-hana-system-replication-state){: external}.
+For more information, see [2.4. Checking SAP HANA System Replication state](https://access.redhat.com/articles/3004101#checking-sap-hana-system-replication-state){: external}.
 
 On both nodes, run the following commands.
 
 ```sh
-su - ${sid}adm
+sudo -i -u ${sid}adm -- HDB start
 ```
 {: pre}
 
 ```sh
-HDB start
-```
-{: pre}
-
-```sh
-hdbnsutil -sr_state
-```
-{: pre}
-
-```sh
-HDBSettings.sh systemReplicationStatus.py
+sudo -i -u ${sid}adm -- <<EOT
+    hdbnsutil -sr_state
+    HDBSettings.sh systemReplicationStatus.py
 ```
 {: pre}
 
@@ -165,15 +158,12 @@ The *srConnectionChanged()* hook improves the ability of the cluster to detect a
    On both nodes, run the following command.
 
    ```sh
-   cat >> /hana/shared/${SID}/global/hdb/custom/config/global.ini << EOT
-
-   [ha_dr_provider_SAPHanaSR]
-   provider = SAPHanaSR
-   path = /hana/shared/myHooks
-   execution_order = 1
-
-   [trace]
-   ha_dr_saphanasr = info
+   sudo -i -u ${sid}adm -- <<EOT
+       python \$DIR_INSTANCE/exe/python_support/setParameter.py \
+         -set SYSTEM/global.ini/ha_dr_provider_SAPHanaSR/provider=SAPHanaSR \
+         -set SYSTEM/global.ini/ha_dr_provider_SAPHanaSR/path=/hana/shared/myHooks \
+         -set SYSTEM/global.ini/ha_dr_provider_SAPHanaSR/execution_order=1 \
+         -set SYSTEM/global.ini/trace/ha_dr_saphanasr=info
    EOT
    ```
    {: pre}
@@ -221,6 +211,10 @@ The *srConnectionChanged()* hook improves the ability of the cluster to detect a
 
    ```sh
    cat /etc/sudoers.d/20-saphana
+   ```
+   {: pre}
+
+   ```sh
    visudo -c
    ```
    {: pre}
@@ -239,45 +233,30 @@ Any problems that are reported by the `visudo -c` command must be corrected.
    Restart and then stop the HANA instance.
 
    ```sh
-   su - ${sid}adm
+   sudo -i -u ${sid}adm -- HDB restart
    ```
    {: pre}
 
    ```sh
-   HDB restart
-   ```
-   {: pre}
-
-   ```sh
-   HDB stop
+   sudo -i -u ${sid}adm -- HDB stop
    ```
    {: pre}
 
    Check messages in trace files.
 
    ```sh
-   cdtrace
-   ```
-   {: pre}
-
-   ```sh
-   awk '/ha_dr_SAPHanaSR.*crm_attribute/ { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
-   ```
-   {: pre}
-
-   ```sh
-   grep ha_dr_ *
+   sudo -i -u ${sid}adm -- sh -c 'grep "ha_dr_SAPHanaSR.*crm_attribute" $DIR_INSTANCE/$VTHOSTNAME/trace/nameserver_* | cut -d" " -f2,3,5,17'
    ```
    {: pre}
 
    Start the HANA instance.
 
    ```sh
-   HDB start
+   sudo -i -u ${sid}adm -- HDB start
    ```
    {: pre}
 
-   After you verify that the hooks functions, you can restart the HA cluster.
+   After you verify that the hooks function, you can restart the HA cluster.
 
 1. Start cluster.
 
@@ -388,17 +367,17 @@ pcs status --full
 ```
 {: pre}
 
-### Creating Virtual IP address resource
+### Creating a virtual IP address resource
 {: #ha-rhel-hana-sr-create-virtual-ip-resource}
 
-Review the information in [Reserving virtual IP addresses](#ha-rhel-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA System Replication cluster.
+Review the information in [Reserving virtual IP addresses](#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA System Replication cluster.
 
 Use the reserved IP address to create a virtual IP address resource.
 This virtual IP address is used to reach the System Replication primary instance.
 
 On NODE1, assign the reserved IP address to a *VIP* environment variable and create the virtual IP address cluster resource by running the following commands.
 
-```shell
+```sh
 export VIP=<reserved IP address>
 ```
 {: sceen}
@@ -512,6 +491,8 @@ For example, the description of each test case includes the following informatio
 ### Test1 - Testing failure of the primary database instance
 {: #ha-rhel-hana-sr-test-primary-instance-database-failure}
 
+Use the following information to test the failure of the primary database instance.
+
 #### Test1 - Description
 {: #ha-rhel-hana-sr-test1-description}
 
@@ -525,8 +506,8 @@ Simulate a crash of the primary HANA database instance that is running on NODE1.
 - Cluster that is started on NODE1 and NODE2.
 - Cluster Resource `SAPHana_${SID}_${INSTNO}` that is configured with `AUTOMATED_REGISTER=false`.
 - Check SAP HANA System Replication status:
-   - primary SAP HANA database is running on NODE1
-   - secondary SAP HANA database is running on NODE2
+   - Primary SAP HANA database is running on NODE1
+   - Secondary SAP HANA database is running on NODE2
    - HANA System Replication is activated and in sync
 
 #### Test1 - Test procedure
@@ -537,12 +518,7 @@ Crash SAP HANA primary by sending a SIGKILL signal as user `${sid}adm`.
 On NODE1, run the following command.
 
 ```sh
-su - ${sid}adm
-```
-{: pre}
-
-```sh
-HDB kill -9
+sudo -i -u ${sid}adm -- HDB kill-9
 ```
 {: pre}
 
@@ -565,25 +541,24 @@ To reregister the previous primary as new secondary use the following commands.
 On NODE1, run the following command.
 
 ```sh
-su - ${sid}adm
-```
-{: pre}
-
-```sh
-hdbnsutil -sr_register --name=${DC1} --remoteHost=${NODE2} --remoteInstance=00 \
-    --replicationMode=sync --operationMode=logreplay
+sudo -i -u ${sid}adm -- <<EOT
+    hdbnsutil -sr_register \
+      --name=${DC1} \
+      --remoteHost=${NODE2} \
+      --remoteInstance=00 \
+      --replicationMode=sync \
+      --operationMode=logreplay
+EOT
 ```
 {: pre}
 
 Verify the system replication status:
 
 ```sh
-hdbnsutil -sr_state
-```
-{: pre}
-
-```sh
-HDBSettings.sh systemReplicationStatus.py
+sudo -i -u ${sid}adm -- <<EOT
+    hdbnsutil -sr_state
+    HDBSettings.sh systemReplicationStatus.py
+EOT
 ```
 {: pre}
 
@@ -635,8 +610,8 @@ pcs resource config SAPHana_${SID}_${INSTNO}
 - Both nodes active.
 - Cluster is started on NODE1 and NODE2.
 - Check SAP HANA System Replication status.
-   - primary SAP HANA database is running on NODE2
-   - secondary SAP HANA database is running on NODE1
+   - Primary SAP HANA database is running on NODE2
+   - Secondary SAP HANA database is running on NODE1
    - HANA System Replication is activated and in sync
 
 #### Test2 - Test procedure
@@ -683,7 +658,6 @@ As cluster resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REG
 ### Test3 - Testing the failure of the secondary database instance
 {: #ha-rhel-hana-sr-test-secondary-instance-database-failure}
 
-
 Use the following information to test the failure of the secondary database instance.
 
 #### Test3 - Description
@@ -699,8 +673,8 @@ Simulate a crash of the secondary HANA database.
 - Cluster is started on NODE1 and NODE2.
 - Cluster Resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`.
 - Check SAP HANA System Replication status:
-   - primary SAP HANA database is running on NODE1
-   - secondary SAP HANA database is running on NODE2
+   - Primary SAP HANA database is running on NODE1
+   - Secondary SAP HANA database is running on NODE2
    - HANA System Replication is activated and in sync
 
 #### Test3 - Test Procedure
@@ -711,12 +685,7 @@ Crash SAP HANA secondary by sending a SIGKILL signal as user `${sid}adm`.
 On NODE2, run the following command.
 
 ```sh
-su - ${sid}adm
-```
-{: pre}
-
-```sh
-HDB kill -9
+sudo -i -u ${sid}adm -- HDB kill-9
 ```
 {: pre}
 
@@ -745,10 +714,10 @@ pcs status --full
 ```
 {: pre}
 
-### Test4 - Testing the manual move of SAPHana resource to another node
+### Test4 - Testing the manual move of a SAPHana resource to another node
 {: #ha-rhel-hana-sr-test-manual-move}
 
-Use the following information to test the manual move of SAPHana resource to another node.
+Use the following information to test the manual move of a SAPHana resource to another node.
 
 #### Test4 - Description
 {: #ha-rhel-hana-sr-test4-description}
@@ -763,8 +732,8 @@ Use cluster commands to move the primary instance to the other node for maintena
 - Cluster is started on NODE1 and NODE2.
 - Cluster Resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`.
 - Check SAP HANA System Replication status:
-   - primary SAP HANA database is running on NODE1
-   - secondary SAP HANA database is running on NODE2
+   - Primary SAP HANA database is running on NODE1
+   - Secondary SAP HANA database is running on NODE2
    - HANA System Replication is activated and in sync
 
 #### Test4 - Test procedure
