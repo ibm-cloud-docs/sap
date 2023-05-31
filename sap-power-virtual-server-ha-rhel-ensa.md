@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-03-29"
+lastupdated: "2023-05-31"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -16,6 +16,7 @@ subcollection: sap
 
 The Red Hat documentation [Red Hat HA Solutions for SAP HANA, S/4HANA, and NetWeaver based SAP Applications](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index#doc-wrapper){: external} discusses the various configuration aspects for SAP solutions in a RHEL HA Add-On cluster.
 The following information describes the configuration of *ABAP SAP Central Services (ASCS)* and *Enqueue Replication Service (ERS)* instances in an RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}}.
+{: shortdesc}
 
 The focus of this example configuration is on the second generation of the [Standalone Enqueue Server](https://help.sap.com/docs/ABAP_PLATFORM/cff8531bc1d9416d91bb6781e628d4e0/902412f09e134f5bb875adb6db585c92.html?locale=en-US){: external}, or *ENSA2*.
 
@@ -42,7 +43,7 @@ For more information, see the following Red Hat knowledge base articles:
 {: #ha-rhel-ensa-prerequisites}
 
 - A [Red Hat Customer Portal](https://access.redhat.com/){: external} account.
-- An [IBM Cloud](/docs/account?topic=account-account-getting-started){: external}.
+- An [{{site.data.keyword.cloud}}](/docs/account?topic=account-account-getting-started) account{: external}.
 - A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is required to enable the repositories that you need to install SAP HANA and the resource agents for HA configurations.
    The [RHEL for SAP Repositories and How to Enable Them](https://access.redhat.com/articles/6072011){: external} knowledge base article describes how to enable the required repositories.
 - Virtual server instances need to fulfill the hardware and resource requirements for the SAP instances in scope.
@@ -50,8 +51,9 @@ For more information, see the following Red Hat knowledge base articles:
 - This information describes a setup that uses shareable storage volumes accessible on both cluster nodes.
    Certain file systems are created on shareable storage volumes so that they can be mounted on both cluster nodes.
    This setup applies to both instance directories.
-   - `/usr/sap/<SID</ASCS<Inst#>` of the *ASCS* instance.
-   - `/usr/sap/<SID</ERS<Inst#>` of the *ERS* instance.
+
+      - `/usr/sap/<SID</ASCS<Inst#>` of the *ASCS* instance.
+      - `/usr/sap/<SID</ERS<Inst#>` of the *ERS* instance.
 
    Make sure that the storage volumes that were created for those file systems are attached to both virtual server instances.
    During SAP instance installation and RHEL HA Add-On cluster configuration, each instance directory must be mounted on its appropriate node.
@@ -61,7 +63,7 @@ For more information, see the following Red Hat knowledge base articles:
    Which means that the general storage setup steps and creation of cluster file system resources must be adjusted.
    {: important}
 
-- The virtual hostname for *ASCS* instance and *ERS* instance must meet the requirements as documented in [Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/611361){: external}.
+- The virtual hostname for *ASCS* instance and *ERS* instance must meet the requirements as documented in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
    Make sure that the virtual IP addresses for the SAP instances are assigned to a network adapter and that they can communicate in the network.
 - Make sure that you subscribed to either *RHEL for SAP Applications* or *RHEL for SAP Solutions* and that you enabled the *Red Hat Enterprise Linux for SAP Solutions for Power LE - Update Services for SAP Solutions 8.4 ppc64le* (`rhel-8-for-ppc64le-sap-solutions-e4s-rpms`) repository.
    You need to set the release to *8.4* through the subscription manager.
@@ -82,9 +84,8 @@ The following information describes how to prepare the nodes for an SAP installa
 ### Preparing environment variables
 {: #ha-rhel-ensa-prepare-environment-variables}
 
-To simplify the set up, prepare the following environment variables for user `root` on both cluster nodes.
+To simplify the setup, prepare the following environment variables for user `root` on both cluster nodes.
 These environment variables are used in subsequent commands in the remainder of the instructions.
-
 
 On both nodes, create a file with the following environment variables.
 Then, you need to adapt them to your configuration.
@@ -122,7 +123,7 @@ You must source this file before you use the sample commands in the remainder of
 
 For example, if you created a file that is named `sap_envs.sh`, run the following command on both nodes to set the environment variables.
 
-```shell
+```sh
 source sap_envs.sh
 ```
 {: pre}
@@ -135,7 +136,7 @@ In this example, the file is sourced automatically each time you log in to the s
 ### Assigning virtual IP addresses
 {: #ha-rhel-ensa-assign-virtual-ip}
 
-Review the information in [Reserving virtual IP addresses](#ha-rhel-reserve-virtual-ip-addresses).
+Review the information in [Reserving virtual IP addresses](#ha-vsi-reserve-virtual-ip-addresses).
 
 Check whether the virtual IP address for the SAP instance is present.
 Otherwise, you need to identify the correct network adapter to assign the IP address.
@@ -147,7 +148,8 @@ ip -o -f inet address show | '/scope global/ {print $2, $4}'
 ```
 {: pre}
 
-Sample output of the previous command:
+Sample output of the previous command.
+
 ```sh
 # ip -o -f inet address show | awk '/scope global/ {print $2, $4}'
 env2 10.51.0.66/24
@@ -169,6 +171,7 @@ ping -c 3 ${ASCS_vh}
 {: pre}
 
 Sample output:
+
 ```sh
 # ping -c 2 cl-sap-scs
 PING cl-sap-scs (10.111.1.248) 56(84) bytes of data.
@@ -185,12 +188,14 @@ If the `ping` output shows `Destination Host Unreachable`, the IP address is ava
 Use the correct device name *env* of the network adapter that matches the subnet of the IP address.
 
 Example command on NODE1:
+
 ```sh
 ip addr add ${ASCS_ip} dev env4
 ```
 {: pre}
 
 Example command on NODE2:
+
 ```sh
 ip addr add ${ERS_ip} dev env4
 ```
@@ -223,7 +228,8 @@ vi /etc/lvm/lvm.conf
 
 Search for parameter `system_id_source` and change its value to "uname".
 
-Sample setting of the `system_id_source` parameter in `etc/lvm/lvm.conf`:
+Sample setting for the `system_id_source` parameter in `etc/lvm/lvm.conf`.
+
 ```sh
 system_id_source = "uname"
 ```
@@ -234,9 +240,10 @@ system_id_source = "uname"
 
 Identify the World Wide Name (WWN) for each storage volume that is in the shared volume groups.
 
-1. Log in to IBM Cloud to the [Storage volumes](/power/storage){: external} view of {{site.data.keyword.powerSys_notm}}.
+1. Log in to {{site.data.keyword.cloud}} to the [Storage volumes](/power/storage){: external} view of {{site.data.keyword.powerSys_notm}}.
 1. Select your **workspace**.
 1. Filter for the *volume prefix* in the *Storage volumes* list, and identify all the **World Wide Names** of the volumes that are in scope for *ASCS* and *ERS* (the *World Wide Name* is a 32-digit hexadecimal number).
+
    Make sure that the attribute **Shareable** is *On* for those volumes.
    {: tip}
 
@@ -272,7 +279,7 @@ export ERS_pvid=3<WWN>   # WWN of shared storage volume for ERS
 ```
 {: screen}
 
-Make sure that you set the environment variable by using the hexadecimal number in lowercase.
+Make sure that you set the environment variable by using the hexadecimal number with lowercase letters.
 {: tip}
 
 #### Creating physical volumes
@@ -286,6 +293,7 @@ pvcreate /dev/mapper/${ASCS_pvid}
 {: pre}
 
 Sample output:
+
 ```sh
 # pvcreate /dev/mapper/${ASCS_pvid}
   Physical volume "/dev/mapper/360050768108103357000000000002ddc" successfully created.
@@ -293,12 +301,14 @@ Sample output:
 {: screen}
 
 On NODE2, run the following command.
+
 ```sh
 pvcreate /dev/mapper/${ERS_pvid}
 ```
 {: pre}
 
 Sample output:
+
 ```sh
 # pvcreate /dev/mapper/${ERS_pvid}
   Physical volume "/dev/mapper/360050768108103357000000000002e31" successfully created.
@@ -398,7 +408,7 @@ vi /etc/lvm/lvm.conf
 ```
 {: pre}
 
-Search for parameter `auto_activation_volume_list` and add the volume groups, other than the volume group you haved defined for the NFS cluster, as entries in that list.
+Search for parameter `auto_activation_volume_list` and add the volume groups, other than the volume group that you defined for the NFS cluster, as entries in that list.
 
 Sample setting of the `auto_activation_volume_list` entry in `/etc/lvm/lvm.conf`:
 
@@ -411,7 +421,7 @@ Rebuild the *initramfs* boot image to make sure that the boot image does not act
 
 On both nodes, run the following command.
 
-```shell
+```sh
 dracut -H -f /boot/initramfs-$(uname -r).img $(uname -r)
 ```
 {: pre}
@@ -556,19 +566,19 @@ chown ${sid}adm:sapsys /usr/sap/${SID}/ASCS${ASCS_nr}
 {: #ha-rhel-ensa-install-lic-key}
 
 When the SAP *ASCS* instance is installed on a {{site.data.keyword.powerSys_notm}} instance, the SAP license mechanism relies on the partition UUID.
-For more information, see [SAP note 2879336 - Hardware key based on unique ID](https://launchpad.support.sap.com/#/notes/2879336){: external}.
+For more information, see [SAP note 2879336 - Hardware key based on unique ID](https://me.sap.com/notes/2879336){: external}.
 
 On both nodes, run the following command as user `<sid>adm` to identify the `HARDWARE KEY` of the node.
 
 ```sh
-su - ${sid}adm -c "saplikey -get"
+sudo -i -u ${sid}adm -- sh -c 'saplikey -get'
 ```
 {: pre}
 
 Sample output:
 
 ```sh
-$ su - s01adm -c "saplikey -get"
+$ sudo -i -u ${sid}adm -- sh -c 'saplikey -get'
 
 saplikey: HARDWARE KEY = H1428224519
 ```
@@ -578,8 +588,8 @@ Note the `HARDWARE KEY` of each node.
 
 You need both hardware keys to request two different SAP license keys.
 Check the following SAP notes for more information about requesting SAP license keys:
-- [2879336 - Hardware key based on unique ID](https://launchpad.support.sap.com/#/notes/2879336){: external}
-- [2662880 - How to request SAP license keys for failover systems](https://launchpad.support.sap.com/#/notes/2662880){: external}
+- [2879336 - Hardware key based on unique ID](https://me.sap.com/notes/2879336){: external}
+- [2662880 - How to request SAP license keys for failover systems](https://me.sap.com/notes/2662880){: external}
 
 ### Installing SAP resource agents
 {: #ha-rhel-ensa-install-sap-resource-agents}
@@ -600,7 +610,7 @@ On both nodes, run the following commands.
 If needed, use `subscription-manager` to enable the SAP NetWeaver repository.
 For more information, see [RHEL for SAP Repositories and How to Enable Them](https://access.redhat.com/articles/6072011){: external}).
 
-```shell
+```sh
 subscription-manager repos --enable="rhel-8-for-ppc64le-sap-netweaver-e4s-rpms"
 ```
 {: pre}
@@ -677,6 +687,7 @@ Create a cloned *Filesystem* cluster resource to mount the *SAPMNT* share from a
 Make sure that the environment variable `${NFS_vh}` is set to the virtual hostname of your NFS server `${NFS_vh}`, and `${NFS_options}` according to your mount options.
 
 Example mount options:
+
 ```sh
 export NFS_options="rw,sec=sys"
 ```
@@ -711,7 +722,7 @@ pcs resource create ${sid}_vip_ascs${ASCS_nr} IPaddr2 \
 ```
 {: pre}
 
-In this example of creating resources for a HA-LVM file system on a shared storage volume, you create resources for LVM-activate and for the instance file system of the ASCS.
+In this example of creating resources for an HA-LVM file system on a shared storage volume, you create resources for LVM-activate and for the instance file system of the ASCS.
 
 ```sh
 pcs resource create ${sid}_fs_ascs${ASCS_nr}_lvm LVM-activate \
@@ -786,7 +797,7 @@ pcs resource create ${sid}_vip_ers${ERS_nr} IPaddr2 \
 ```
 {: pre}
 
-In the example of creating resources for a HA-LVM file system on a shared storage volume, you create resources for LVM-activate and for the instance file system of the *ERS*.
+In the example of creating resources for an HA-LVM file system on a shared storage volume, you create resources for LVM-activate and for the instance file system of the *ERS*.
 
 ```sh
 pcs resource create ${sid}_fs_ers${ERS_nr}_lvm LVM-activate \
@@ -930,7 +941,7 @@ Node List:
   * Online: [ cl-sap-1 cl-sap-2 ]
 
 Full List of Resources:
-  * fence_device	(stonith:fence_ibm_powervs):	 Started cl-sap-2
+  * res_fence_ibm_powervs	(stonith:fence_ibm_powervs):	 Started cl-sap-2
   * Resource Group: s01_ascs01_group:
     * s01_vip_ascs01	(ocf::heartbeat:IPaddr2):	 Started cl-sap-1
     * s01_fs_ascs01_lvm	(ocf::heartbeat:LVM-activate):	 Started cl-sap-1
@@ -1009,7 +1020,7 @@ Node List:
   * Online: [ cl-sap-1 cl-sap-2 ]
 
 Full List of Resources:
-  * fence_device	(stonith:fence_ibm_powervs):	 Started cl-sap-2
+  * res_fence_ibm_powervs	(stonith:fence_ibm_powervs):	 Started cl-sap-2
   * Resource Group: s01_ascs01_group:
     * s01_vip_ascs01	(ocf::heartbeat:IPaddr2):	 Started cl-sap-2
     * s01_fs_ascs01_lvm	(ocf::heartbeat:LVM-activate):	 Started cl-sap-2
@@ -1032,6 +1043,8 @@ Daemon Status:
 
 ### Test2 - Testing failure of the node that is running the ASCS instance
 {: #ha-rhel-ensa-test-ascs-instance-server-failure}
+
+Use the folling information to test a failure of the node that is running the ASCS instance.
 
 #### Test2 - Description
 {: #ha-rhel-ensa-test2-description}
@@ -1102,7 +1115,7 @@ Node List:
   * OFFLINE: [ cl-sap-2 ]
 
 Full List of Resources:
-  * fence_device	(stonith:fence_ibm_powervs):	 Started cl-sap-1
+  * res_fence_ibm_powervs	(stonith:fence_ibm_powervs):	 Started cl-sap-1
   * Resource Group: s01_ascs01_group:
     * s01_vip_ascs01	(ocf::heartbeat:IPaddr2):	 Started cl-sap-1
     * s01_fs_ascs01_lvm	(ocf::heartbeat:LVM-activate):	 Started cl-sap-1
@@ -1136,7 +1149,7 @@ pcs cluster start
 ```
 {: pre}
 
-- The cluster starts on NODE2, and acquires the *ERS* resources (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_nr}` and the LVM resources) on NODE2.
+- The cluster starts on NODE2 and acquires the *ERS* resources (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_nr}`, and the LVM resources) on NODE2.
 - The cluster starts the *ERS* instance on NODE2.
 
 Wait a moment and check the status with the following command.
@@ -1163,7 +1176,7 @@ Node List:
   * Online: [ cl-sap-1 cl-sap-2 ]
 
 Full List of Resources:
-  * fence_device	(stonith:fence_ibm_powervs):	 Started cl-sap-1
+  * res_fence_ibm_powervs	(stonith:fence_ibm_powervs):	 Started cl-sap-1
   * Resource Group: s01_ascs01_group:
     * s01_vip_ascs01	(ocf::heartbeat:IPaddr2):	 Started cl-sap-1
     * s01_fs_ascs01_lvm	(ocf::heartbeat:LVM-activate):	 Started cl-sap-1
@@ -1186,6 +1199,8 @@ Daemon Status:
 
 ### Test3 - Testing failure of the *ERS* instance
 {: #test-ers-instance-failure}
+
+Use the following information to test the failure of an ERS instance.
 
 #### Test3 - Description
 {: #ha-rhel-ensa-test3-description}
@@ -1263,7 +1278,7 @@ Node List:
   * Online: [ cl-sap-1 cl-sap-2 ]
 
 Full List of Resources:
-  * fence_device	(stonith:fence_ibm_powervs):	 Started cl-sap-1
+  * res_fence_ibm_powervs	(stonith:fence_ibm_powervs):	 Started cl-sap-1
   * Resource Group: s01_ascs01_group:
     * s01_vip_ascs01	(ocf::heartbeat:IPaddr2):	 Started cl-sap-1
     * s01_fs_ascs01_lvm	(ocf::heartbeat:LVM-activate):	 Started cl-sap-1
@@ -1302,6 +1317,8 @@ pcs status --full
 ### Test4 - Testing the manual move of the ASCS instance
 {: #ha-rhel-ensa-test-manual-move}
 
+Use the folling information to test a manual move of an ASCS instance.
+
 #### Test4 - Description
 {: #ha-rhel-ensa-test4-description}
 
@@ -1328,7 +1345,7 @@ Use *SAP Control* commands to move the *ASCS* instance to the other node for mai
 Log in to NODE1 and run `sapcontrol` to move the *ASCS* instance to the other node.
 
 ```sh
-su - ${sid}adm -c "sapcontrol -nr ${ASCS_nr} -function HAFailoverToNode ''"
+sudo -i -u ${sid}adm -- sh -c "sapcontrol -nr ${ASCS_nr} -function HAFailoverToNode"
 ```
 {: pre}
 
@@ -1364,7 +1381,7 @@ Node List:
   * Online: [ cl-sap-1 cl-sap-2 ]
 
 Full List of Resources:
-  * fence_device	(stonith:fence_ibm_powervs):	 Started cl-sap-1
+  * res_fence_ibm_powervs	(stonith:fence_ibm_powervs):	 Started cl-sap-1
   * Resource Group: s01_ascs01_group:
     * s01_vip_ascs01	(ocf::heartbeat:IPaddr2):	 Started cl-sap-2
     * s01_fs_ascs01_lvm	(ocf::heartbeat:LVM-activate):	 Started cl-sap-2
