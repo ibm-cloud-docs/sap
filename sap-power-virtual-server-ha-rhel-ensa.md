@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-05-31"
+lastupdated: "2023-06-01"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -27,7 +27,7 @@ The lock entries for the SAP application are protected when they rebuild from th
 When the failed cluster node reactivates, the *ERS* instance moves to the other node (anti-collocation) to protect the lock table copy.
 
 It is recommended that you install the SAP database instance and other SAP application server instances on virtual server instances outside the two-node cluster for *ASCS* and *ERS*.
-For more information, see [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](#ha-rhel-hana-sr).
+For more information, see [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
 
 ## Overview
 {: #ha-rhel-ensa-overview}
@@ -47,13 +47,12 @@ For more information, see the following Red Hat knowledge base articles:
 - A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is required to enable the repositories that you need to install SAP HANA and the resource agents for HA configurations.
    The [RHEL for SAP Repositories and How to Enable Them](https://access.redhat.com/articles/6072011){: external} knowledge base article describes how to enable the required repositories.
 - Virtual server instances need to fulfill the hardware and resource requirements for the SAP instances in scope.
-   Follow the guidelines on instance types, storage, and memory sizing in the [Planning the Deployment](#sap-power-vs-planning-items){: external} document.
+   Follow the guidelines on instance types, storage, and memory sizing in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
 - This information describes a setup that uses shareable storage volumes accessible on both cluster nodes.
    Certain file systems are created on shareable storage volumes so that they can be mounted on both cluster nodes.
    This setup applies to both instance directories.
-
-      - `/usr/sap/<SID</ASCS<Inst#>` of the *ASCS* instance.
-      - `/usr/sap/<SID</ERS<Inst#>` of the *ERS* instance.
+   - `/usr/sap/<SID>/ASCS<Inst#>` of the *ASCS* instance.
+   - `/usr/sap/<SID>/ERS<Inst#>` of the *ERS* instance.
 
    Make sure that the storage volumes that were created for those file systems are attached to both virtual server instances.
    During SAP instance installation and RHEL HA Add-On cluster configuration, each instance directory must be mounted on its appropriate node.
@@ -72,7 +71,7 @@ For more information, see the following Red Hat knowledge base articles:
    These file systems are typically provided by an external NFS server.
    The NFS server must be installed on virtual servers that are not part of the *ENSA2* cluster.
 
-   [Configuring an active-passive NFS server in a Red Hat High Availability cluster](#ha-rhel-nfs){: external} describes the implementation of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in {{site.data.keyword.powerSys_notm}}.
+   [Configuring an active-passive NFS server in a Red Hat High Availability cluster](/docs/sap?topic=sap-ha-rhel-nfs) describes the implementation of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in {{site.data.keyword.powerSys_notm}}.
 
 - Make sure that all SAP installation media is available.
 
@@ -136,7 +135,7 @@ In this example, the file is sourced automatically each time you log in to the s
 ### Assigning virtual IP addresses
 {: #ha-rhel-ensa-assign-virtual-ip}
 
-Review the information in [Reserving virtual IP addresses](#ha-vsi-reserve-virtual-ip-addresses).
+Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses).
 
 Check whether the virtual IP address for the SAP instance is present.
 Otherwise, you need to identify the correct network adapter to assign the IP address.
@@ -505,9 +504,9 @@ Use the SAP Software Provisioning Manager (SWPM) to install all instances.
 ## Installing and setting up the RHEL HA Add-On cluster
 {: #ha-rhel-ensa-set-up}
 
-Install and set up the RHEL HA Add-On cluster according to [Implement RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](#ha-rhel).
+Install and set up the RHEL HA Add-On cluster according to [Implement RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
 
-Configure and test fencing as described in [Creating the fencing device](#ha-rhel-create-fencing-device).
+Configure and test fencing as described in [Creating the fencing device](/docs/sap?topic=sap-ha-rhel#ha-rhel-create-fencing-device).
 
 ## Preparing ASCS and ERS instances for the cluster integration
 {: #ha-rhel-ensa-prepare-ascs-ers}
@@ -677,7 +676,7 @@ Up to this point, the following are assumed:
 - The SAP System is running.
    - SAP *ASCS* is installed and active on node 1 of the cluster.
    - SAP *ERS* is installed and active on node 2 of the cluster.
-- All steps in [Prepare ASCS and ERS instances for the cluster integration](#prepare-ascs-and-ers-instances-for-the-cluster-integration) are complete.
+- All steps in [Prepare ASCS and ERS instances for the cluster integration](#ha-rhel-ensa-prepare-ascs-ers) are complete.
 
 ### Configuring resource for sapmnt share
 {: #ha-rhel-ensa-cfg-shared}
