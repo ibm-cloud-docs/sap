@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-05-31"
+lastupdated: "2023-06-01"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -14,7 +14,7 @@ subcollection: sap
 {: #ha-rhel-hana-sr-cost-optimized}
 
 The following information describes the configuration of a Red Hat Enterprise Linux 8 (RHEL) HA Add-On cluster for managing *SAP HANA Cost-Optimized Scale-Up System Replication*.
-The cluster uses virtual server instances in IBM {{site.data.keyword.powerSys_notm}}{: external} as cluster nodes.
+The cluster uses virtual server instances in IBM {{site.data.keyword.powerSys_notm}} as cluster nodes.
 {: shortdesc}
 
 ## Overview
@@ -42,10 +42,10 @@ This information is intended for architects and specialists that are planning a 
 {: #ha-rhel-hana-sr-co-prerequisites}
 
 - A Red Hat High Availability cluster is deployed on two virtual server instances in {{site.data.keyword.powerSys_notm}}.
-   - Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](#ha-rhel){: external}.
+   - Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
    - Configure and verify fencing as described in the preceding document.
 - The virtual server instances need to fulfill hardware and resource requirements for the SAP HANA systems in scope.
-   Follow the guidelines that are in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items){: external}.
+   Follow the guidelines that are in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items).
 - The hostnames of the virtual server instances must meet the SAP HANA requirement.
 - SAP HANA is installed on both virtual server instances and SAP HANA System Replication is configured.
    The installation of SAP HANA and setup of HANA System Replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures. For more information, see the following documentation.
@@ -62,13 +62,14 @@ This information is intended for architects and specialists that are planning a 
    The [RHEL for SAP Subscriptions and Repositories](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/rhel_for_sap_subscriptions_and_repositories/asmb_enable_repo_rhel-for-sap-subscriptions-and-repositories-8#con_hana_rhel-for-sap-subscriptions-and-repositories-8){: external} documenation describes how to enable the required repositories.
 - A nonproduction SAP HANA System is installed on NODE2 with a different `SID` and `Instance Number` than the production system.
    The nonproduction system needs its own dedicated storage volumes and file systems.
-   Restrict the `global_allocation_limit` in the `[memorymanager]` section of the `global.ini` configuration for the nonproduction system to ensure sufficient memory for the HANA system replication workload on the secondary.
-- Optional, a virtual IP address is reserved for the nonproduction system as described in [Reserving virtual IP addresses](#ha-vsi-reserve-virtual-ip-addresses).
+   Restrict the *Global Memory Allocation Limit* for the nonproduction system to ensure sufficient memory for the HANA system replication workload on the secondary.
+   The limit is set with the `global_allocation_limit` parameter in the `[memorymanager]` section of the `global.ini` configuration file.
+- Optional, a virtual IP address is reserved for the nonproduction system as described in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses).
 
 ## Setting up the cost optimized scenario
 {: #ha-rhel-hana-sr-co-setup}
 
-The cost optimized scenario is an extension of the setup that is described in [Configure SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](#ha-rhel-hana-sr).
+The cost optimized scenario is an extension of the setup that is described in [Configure SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
 Complete the setup for the production system System Replication cluster before you continue with the following steps.
 
 ### Configuring the nonproduction SAP HANA Instance on NODE2
@@ -315,7 +316,7 @@ Use the following steps to activate the cost optimized hook.
    ```
    {: pre}
 
-   After you verify that the hooks functions, you can restart the HA cluster.
+   After you verify that the hook functions, you can restart the HA cluster.
 
 1. Start the HA cluster.
 
