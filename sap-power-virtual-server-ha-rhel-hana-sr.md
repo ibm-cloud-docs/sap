@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-05-31"
+lastupdated: "2023-06-01"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -39,10 +39,10 @@ This information is intended for architects and specialists that are planning a 
 {: #ha-rhel-hana-sr-prerequisites}
 
 - A Red Hat High Availability cluster deployed on two virtual server instances in {{site.data.keyword.powerSys_notm}}.
-   - Install and set up the RHEL HA Add-On cluster according to [Implement RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-power-virtual-server-ha-rhel#create-fencing-device){: external}.
+   - Install and set up the RHEL HA Add-On cluster according to [[Implement RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
    - Configure and verify fencing as described in the preceding document.
 - The virtual server instances need to fulfill hardware and resource requirements for the SAP HANA systems in scope.
-   Follow the guidelines that are in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items){: external}.
+   Follow the guidelines that are in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items).
 - The hostnames of the virtual server instances must meet the SAP HANA requirement.
 - SAP HANA installed on both virtual server instances and SAP HANA System Replication is configured.
    The installation of SAP HANA and setup of HANA System Replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures. For more information, see the following documentation.
@@ -370,7 +370,7 @@ pcs status --full
 ### Creating a virtual IP address resource
 {: #ha-rhel-hana-sr-create-virtual-ip-resource}
 
-Review the information in [Reserving virtual IP addresses](#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA System Replication cluster.
+Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA System Replication cluster.
 
 Use the reserved IP address to create a virtual IP address resource.
 This virtual IP address is used to reach the System Replication primary instance.
