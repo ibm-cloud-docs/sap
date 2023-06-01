@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-05-31"
+lastupdated: "2023-06-01"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -24,9 +24,7 @@ This information doesn't replace existing SAP or Red Hat documentation.
 ## Overview
 {: #ha-rhel-overview}
 
-You can find the following information in the proceeding sections.
-
-- [Setting up and configuring HA clusters](#install-and-configure-rhel-ha-cluster) transforms the individual virtual server instances in {{site.data.keyword.powerSys_notm}} into a cluster.
+The information in the proceeding sections describes how to transform the individual virtual server instances in {{site.data.keyword.powerSys_notm}} into a cluster.
 
 These procedures include installing the high availability packages and agents on each cluster node and configuring the fencing devices.
 
@@ -53,7 +51,7 @@ Check the following Red Hat documentation and Knowledge Base articles (a Red Hat
 ## Creating virtual server instances for the cluster
 {: #ha-rhel-create-virtual-server-instances}
 
-Use the instructions in [Creating instances for a high availability cluster on {{site.data.keyword.powerSysFull}}](#ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
+Use the instructions in [Creating instances for a high availability cluster on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
 
 ## Gathering parameters for the cluster configuration
 {: #ha-rhel-gather-parameters-for-cluster-config}
