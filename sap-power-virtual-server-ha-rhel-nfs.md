@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-05-31"
+lastupdated: "2023-06-01"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -344,8 +344,8 @@ Reboot both nodes.
 
 Use the following instructions to perform the initial cluster configuration.
 
-- Install and set up the RHEL HA Add-On cluster according to [Implement RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](#ha-rhel).
-- Configure and test fencing as described in [Create the fencing device](#ha-rhel-create-fencing-device).
+- Install and set up the RHEL HA Add-On cluster according to [Implementing RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
+- Configure and test fencing as described in [Create the fencing device](/docs/sap?topic=sap-ha-rhel#ha-rhel-create-fencing-device).
 
 Sample output of the cluster status at this stage.
 
@@ -575,7 +575,7 @@ pcs resource create nfs_export exportfs \
 #### Configuring a floating IP address resource
 {: #ha-rhel-nfs-cfg-vip-rg}
 
-Review the information in [Reserving virtual IP addresses](#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the NFS cluster.
+Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the NFS cluster.
 
 Create a resource for the virtual IP address of the NFS Server.
 NFS clients access the NFS share by using the floating IP address.
