@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-05-31"
+lastupdated: "2023-06-01"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -21,9 +21,9 @@ Use the following information and procedures to help you create {{site.data.keyw
 
 You can find the following information in the proceeding sections.
 
-- [Creating the {{site.data.keyword.powerSys_notm}} workspace in {{site.data.keyword.cloud}}](#create-workspace)
+- [Creating the {{site.data.keyword.powerSys_notm}} workspace in {{site.data.keyword.cloud}}](#ha-vsi-create-workspace)
     After the workspace is created, you can create and configure virtual server instances, network resources, and storage volumes.
-- [Creating a Service ID API Key in {{site.data.keyword.cloud}}](#create-service-id)
+- [Creating a Service ID API Key in {{site.data.keyword.cloud}}](#ha-vsi-create-service-id)
     For monitoring and management, the fencing agent authenticates to the {{site.data.keyword.powerSys_notm}} API by using the Service API key.
 
 ## Prerequisites
@@ -175,8 +175,6 @@ After the 300 seconds, you won't be able to display or retrieve the key.
 {: #ha-vsi-create-virtual-server-instances}
 
 Complete the following steps to create the virtual server instances that you want to use as high availability cluster nodes.
-
-Before you begin, make sure that you complete all the steps in the [Setting up {{site.data.keyword.powerSys_notm}}](#powervs-setup) section.
 
 1. Log in to [Workspaces - {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces){: external}.
 1. Select the **Workspace** that you created.
