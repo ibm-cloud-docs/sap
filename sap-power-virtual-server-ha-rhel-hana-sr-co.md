@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-06-01"
+lastupdated: "2023-06-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -45,7 +45,7 @@ This information is intended for architects and specialists that are planning a 
    - Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
    - Configure and verify fencing as described in the preceding document.
 - The virtual server instances need to fulfill hardware and resource requirements for the SAP HANA systems in scope.
-   Follow the guidelines that are in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items).
+   Follow the guidelines in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
 - The hostnames of the virtual server instances must meet the SAP HANA requirement.
 - SAP HANA is installed on both virtual server instances and SAP HANA System Replication is configured.
    The installation of SAP HANA and setup of HANA System Replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures. For more information, see the following documentation.
@@ -85,9 +85,9 @@ Then, adapt them according to the configuration of the nonproduction system.
 export SID_np=<SID>            # SAP HANA System ID of non-production system (uppercase)
 export sid_np=<sid>            # SAP HANA System ID of non-production system (lowercase)
 export INSTNO_np=<INSTNO>      # SAP HANA Instance Number of non-production system
-export NODE1=<Hostname 1>      # Hostname of virtual server instance 1 (production system, primary)
-export NODE2=<Hostname 2>      # Hostname of virtual server instance 2 (non-production system, takeover for production)
-export vIP_np=<vIP>            # Optional: dedicated virtual IP address assigned to the non-production system
+export NODE1=<Hostname 1>      # Hostname of virtual server instance 1 (production primary)
+export NODE2=<Hostname 2>      # Hostname of virtual server instance 2 (non-production, production secondary)
+export vIP_np=<vIP>            # Optional: virtual IP address assigned to the non-production system
 ```
 {: codeblock}
 
@@ -151,7 +151,7 @@ Use the following steps to create a database user in the SAP HANA production dat
     ```
    {: codeblock}
 
-   Verify the new *HA_HOOK* user.
+   Verify the *HA_HOOK* user.
 
    ```sh
     sudo -i -u ${sid}adm -- hdbsql -d SYSTEMDB -u SYSTEM select \* from users where user_name = \'HA_HOOK\';
