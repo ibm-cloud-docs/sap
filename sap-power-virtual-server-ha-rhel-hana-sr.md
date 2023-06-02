@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-06-01"
+lastupdated: "2023-06-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -39,10 +39,10 @@ This information is intended for architects and specialists that are planning a 
 {: #ha-rhel-hana-sr-prerequisites}
 
 - A Red Hat High Availability cluster deployed on two virtual server instances in {{site.data.keyword.powerSys_notm}}.
-   - Install and set up the RHEL HA Add-On cluster according to [[Implement RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
+   - Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
    - Configure and verify fencing as described in the preceding document.
 - The virtual server instances need to fulfill hardware and resource requirements for the SAP HANA systems in scope.
-   Follow the guidelines that are in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items).
+   Follow the guidelines in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
 - The hostnames of the virtual server instances must meet the SAP HANA requirement.
 - SAP HANA installed on both virtual server instances and SAP HANA System Replication is configured.
    The installation of SAP HANA and setup of HANA System Replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures. For more information, see the following documentation.
@@ -56,7 +56,7 @@ This information is intended for architects and specialists that are planning a 
    - Configure SAP HANA System Replication:
       - [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On - 2. SAP HANA System Replication](https://access.redhat.com/articles/3004101#sap-hana-system-replication){: external}
 - A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is required to enable the repositories that you need to install SAP HANA and the resource agents for HA configurations.
-   The [RHEL for SAP Repositories and How to Enable Them](https://access.redhat.com/articles/6072011){: external} knowledge base article describes how to enable the required repositories.
+   The [RHEL for SAP Subscriptions and Repositories](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/rhel_for_sap_subscriptions_and_repositories/asmb_enable_repo_rhel-for-sap-subscriptions-and-repositories-8#con_hana_rhel-for-sap-subscriptions-and-repositories-8){: external} documentation describes how to enable the required repositories.
 
 ## Configuring SAP HANA System Replication in a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-rhel-hana-sr-configure-sr}
