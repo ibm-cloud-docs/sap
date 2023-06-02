@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-06-01"
+lastupdated: "2023-06-02"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -45,7 +45,6 @@ For more information, see the following Red Hat knowledge base articles:
 - A [Red Hat Customer Portal](https://access.redhat.com/){: external} account.
 - An [{{site.data.keyword.cloud}}](/docs/account?topic=account-account-getting-started) account{: external}.
 - A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is required to enable the repositories that you need to install SAP HANA and the resource agents for HA configurations.
-   The [RHEL for SAP Repositories and How to Enable Them](https://access.redhat.com/articles/6072011){: external} knowledge base article describes how to enable the required repositories.
 - Virtual server instances need to fulfill the hardware and resource requirements for the SAP instances in scope.
    Follow the guidelines on instance types, storage, and memory sizing in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
 - This information describes a setup that uses shareable storage volumes accessible on both cluster nodes.
@@ -602,12 +601,12 @@ If the SAP instances are managed by only cluster tools, the implementation of `s
 is not necessary.
 
 Install the packages for the resource agent and the *SAP Cluster Connector* library.
-For more information, see [How to enable the SAP HA Interface for SAP ABAP application server instances managed by the RHEL HA Add-On](https://access.redhat.com/solutions/3606101){: external})
+For more information, see [How to enable the SAP HA Interface for SAP ABAP application server instances managed by the RHEL HA Add-On](https://access.redhat.com/solutions/3606101){: external}
 
 On both nodes, run the following commands.
 
 If needed, use `subscription-manager` to enable the SAP NetWeaver repository.
-For more information, see [RHEL for SAP Repositories and How to Enable Them](https://access.redhat.com/articles/6072011){: external}).
+The [RHEL for SAP Subscriptions and Repositories](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/rhel_for_sap_subscriptions_and_repositories/asmb_enable_repo_rhel-for-sap-subscriptions-and-repositories-8#con_hana_rhel-for-sap-subscriptions-and-repositories-8){: external} documentation describes how to enable the required repositories.
 
 ```sh
 subscription-manager repos --enable="rhel-8-for-ppc64le-sap-netweaver-e4s-rpms"
