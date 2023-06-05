@@ -277,7 +277,6 @@ toc:
         - topicgroup:
             label: Infrastructure Reference Architectures for SAP
             topics:
-                - sap-refarch-hana-scaleup.md
                 - sap-refarch-hana-scaleout.md
                 - sap-refarch-nw-scaleup.md
                 - sap-refarch-nw-scaleout.md
