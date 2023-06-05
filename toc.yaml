@@ -99,8 +99,7 @@ toc:
             topics:
                 - sap-anydb-ibm-db2.md
                 - sap-anydb-ms-sql.md
-                - sap-anydb-oracle-db.md
-                -  sap-anydb-sap-maxdb.md
+                - sap-anydb-sap-maxdb.md
                 - sap-anydb-sap-ase.md
                 - sap-anydb-sap-iq.md
                 - sap-anydb-sap-hana.md
@@ -152,7 +151,6 @@ toc:
               - sap-quickstudy-nw-bm-wins.md
               - sap-quickstudy-nw-vs-gen2-rhel.md
               - sap-quickstudy-nw-vs-gen2-wins.md
-              - sap-quickstudy-nw-power-vs-aix.md
               - sap-quickstudy-hana-power-vs-sles.md
       - topicgroup:
           label: SAP Partner solution tutorials
