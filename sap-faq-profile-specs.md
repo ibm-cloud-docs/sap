@@ -192,7 +192,7 @@ The following table can be copied into spreadsheet software. All profiles - with
 | cx2d-metal-96x192 | IBM Cloud Bare Metal (Local SSD) | 48 | 96 | 192 | 101,070 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
 | cx2-2x4 | IBM Cloud Virtual Server | -- | 2 | 4 | 2,238 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
 | cx2-4x8 | IBM Cloud Virtual Server | -- | 4 | 8 |  4,475 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
-| cx2-8x16 | IBM Cloud Virtual Server | -- | 8 | 316 |  8,950 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
+| cx2-8x16 | IBM Cloud Virtual Server | -- | 8 | 16 |  8,950 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
 | cx2-16x32 | IBM Cloud Virtual Server | -- | 16 | 32 | 17,900 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
 | cx2-32x64 | IBM Cloud Virtual Server | -- | 32 | 64 | 35,800 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
 | cx2-48x96 | IBM Cloud Virtual Server | -- | 48 | 96 | 53,700 | Intel Cascade Lake SP | 2.00 | -- | -- | VPC |
