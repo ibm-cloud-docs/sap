@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-06-02"
+lastupdated: "2023-06-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -464,7 +464,7 @@ Create a cluster constraint to prevent that the nonproduction system starts on N
 
 ```sh
 pcs constraint location add loc-${sid_np}-avoid-${NODE1} \
-    ${sid_np}_non_prod ${NODE1} -INFINITY resource-discovery=never
+    group_${sid_np}_non_prod ${NODE1} -INFINITY resource-discovery=never
 ```
 {: pre}
 
@@ -472,12 +472,12 @@ When the production system assumes the *PRIMARY* role on NODE2 if a takeover occ
 The following cluster constraints make sure that the primary production instance and the nonproduction instance never run together on one node, and that the nonproduction instance stops before the production instance is promoted.
 
 ```sh
-pcs constraint colocation add ${sid_np}_non_prod with master SAPHana_${SID}_${INSTNO}-clone score=-INFINITY
+pcs constraint colocation add group_${sid_np}_non_prod with master SAPHana_${SID}_${INSTNO}-clone score=-INFINITY
 ```
 {: pre}
 
 ```sh
-pcs constraint order stop ${sid_np}_non_prod then promote SAPHana_${SID}_${INSTNO}-clone
+pcs constraint order stop group_${sid_np}_non_prod then promote SAPHana_${SID}_${INSTNO}-clone
 ```
 {: pre}
 
@@ -686,7 +686,7 @@ sudo -i -u ${sid}adm -- <<EOT
     hdbnsutil -sr_register \
         --name=${DC1} \
         --remoteHost=${NODE2} \
-        --remoteInstance=00 \
+        --remoteInstance=${INSTNO} \
         --replicationMode=sync \
         --operationMode=logreplay
 EOT
