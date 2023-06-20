@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-3-23"
+  years: 2021, 2023
+lastupdated: "2023-05-25"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -20,15 +20,13 @@ subcollection: sap
 {:tip: .tip}
 {:important: .important}
 
-# AnyDB - SAP HANA Database
+# SAP HANA Database
 {: #anydb-hana-db}
 
 The SAP systems in a landscape have specific requirements for servers, operating systems, network setup, and supported storage.
 {: shortdesc}
 
-Deployment of SAP AnyDB on IBM Cloud is similar to deployments with infrastructure with on-premises data centers. Therefore, use the information that is provided from SAP and the RDBMS providers.
-
-To assist your project's planning phase, more design considerations are provided for **SAP AnyDB - SAP HANA Database** with {{site.data.keyword.ibm_cloud_sap}}.
+To assist your project's planning phase, more design considerations are provided for **SAP HANA Database** with {{site.data.keyword.ibm_cloud_sap}}.
 
 ## SAP HANA Database Overview 
 {: #anydb-hana-overview-SAP}
@@ -41,13 +39,20 @@ It  is  optimized  to  exploit  the  processing  capabilities  of  multi-core  /
 
 The [SAP  HANA  database](http://tekslate.com/tutorials/sap-hana-tutorials-interview-questions/) is the heart of SAP’s in-memory  technology  offering,  helping  customers  to improve their operational efficiency, agility, and flexibility.
 
-## Overview of SAP HANA databasefor SAP NW with IBM Cloud
+## Overview of SAP HANA database for SAP NW with IBM Cloud
 {: #anydb-hana-overview}
 
 Before you start deploying the SAP HANA database, ensure that:
 
- * Check all relevant SAP and SAP HANA database information and prerequisites (for example, SAP Notes); including versions and fix pack levels of MS SQL Server that are supported
- * All required packages are installed for the relevant OS that you are using for MSSQL
+* Only software installed by certified hardware partners, or any person holding certification, is recommended for use on the SAP HANA system. Do not install any other software on the SAP HANA system. The components of SAP HANA can only be installed by certified hardware partners, or any person holding certification. Furthermore, it must be installed on validated hardware running an approved operating system.
+* An SAP HANA system comprises multiple isolated databases and may consist of one host or a cluster of several hosts.
+* An SAP HANA system is identified by a single system ID (SID) and contains one or more tenant databases and one system database. Databases are identified by a SID and a database name. From the administration perspective, there is a distinction between tasks performed at system level and those performed at database level. Database clients, such as the SAP HANA cockpit, connect to specific databases.
+* The SAP HANA XS advanced application server is a layer on top of SAP HANA that provides the platform for running SAP HANA-based Web applications. It is an integral part of the SAP HANA system.
+* A system may consist of one host or a cluster of several hosts. This is referred to as a muliple-host, distributed system, or scale-out system and supports scalability and availability.
+* The following sections provide overview information about these aspects of system architecture.
+
+You can find a complete list of all SAP HANA components and the corresponding SAP HANA hardware and software requirements in the Product Availability Matrix (PAM), in the SAP HANA Hardware Directory, and in the SAP Community Network.
+{: note}
 
 ## Documentation of SAP HANA database
 {: #anydb-hana-documentation}
@@ -72,7 +77,7 @@ HANA and SAP NetWeaver on Windows:
 
 * [Installation of SAP Systems Based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 on Windows: SAP HANA Database](https://help.sap.com/viewer/2703bed525eb478c935bc312b3c3b0a6/CURRENT_VERSION/en-US/9420dabb130e4ae1996b3f39e202cc6e.html)
 
-* [Installation of SAP Systems Based on the Application Server Java of SAP NetWeaver 7.5 and SAP Solution Manager 7.2 SR2 Java on Windows: SAP HANA Database] (https://help.sap.com/viewer/14ccd8beec6f4651905783bc469bce5d/CURRENT_VERSION/en-US/9420dabb130e4ae1996b3f39e202cc6e.html)
+* [Installation of SAP Systems Based on the Application Server Java of SAP NetWeaver 7.5 and SAP Solution Manager 7.2 SR2 Java on Windows: SAP HANA Database](https://help.sap.com/viewer/14ccd8beec6f4651905783bc469bce5d/CURRENT_VERSION/en-US/9420dabb130e4ae1996b3f39e202cc6e.html)
 
 * [Installation of SAP ABAP S/4HANA and BW/4HANA Systems on Windows: SAP HANA 2.0 Database](https://help.sap.com/viewer/3741bfe0345f4892ae190ee7cfc53d4c/CURRENT_VERSION_SWPM20/en-US/1937febc57ad4d81a213fca9b3e031a5.html) 
 

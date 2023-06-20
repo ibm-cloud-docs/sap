@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-09-08"
+  years: 2023
+lastupdated: "2023-06-14"
 
 subcollection: sap
 
@@ -22,14 +22,13 @@ subcollection: sap
 # Deploying Additional Application Server (AAS) to SAP HANA and AnyDB on an existing {{site.data.keyword.cloud_notm}} VPC with automation
 {: #automate-hana-aas-anydb-terraform-ansible}
 
-Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.
-
-You can use Terraform scripts to create a single-tier VPC and create the AAS to HANA and AnyDB infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
+You can use Terraform scripts to create a single-tier VPC and create the AAS to HANA and AnyDB infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC. Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.
+{: #shortdesc}
 
 ## What is created
 {: #automate-hana-aas-anydb-what-created}
 
-The scripts use the information that you provide for an existing VPC and deploy AAS to SAP HANA and AnyDB on different host than CI (SAP Central Instance) VSI host. For more information about this architecture, see [SAP NetWeaver 7.x on UNIX with ASE SYB on {{site.data.keyword.cloud_notm}} VPC](/docs/sap?topic=sap-sap-refarch-nw-sybase). You specify the information for the VPC to use in the `input.auto.tfvars` file.
+The scripts use the information that you provide for an existing VPC and deploy AAS to SAP HANA or AnyDB on different host than CI (SAP Central Instance) VSI host. For more information about this architecture, see [SAP NetWeaver 7.x on UNIX with HANA or AnyDB on IBM Cloud VPC on {{site.data.keyword.cloud_notm}} VPC](/docs/sap?topic=sap-sap-refarch-nw-sybase). You specify the information for the VPC to use in the `input.auto.tfvars` file.
 
 The scripts call the Ansible Playbook to install the SAP architecture.
 
@@ -38,7 +37,8 @@ The scripts call the Ansible Playbook to install the SAP architecture.
 
 The configuration and script files are provided on GitHub. Each supported interface for the SAP solution installation has its own folder in the GitHub repository:
 
-* Using Terraform on the Bastion server - [Github repository for Terraform](https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/tree/main/cli).
+*   [Github repository for Terraform - AAS SYB](https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/tree/main/cli).
+*   [Github repository for Terraform – AAS HANA](https://github.com/IBM-Cloud/sap-abap-hana-aas)
 
 ## Terraform interface
 {: #automate-hana-aas-anydb-terraform-interface}
@@ -74,7 +74,7 @@ Before you use the scripts in the Bastion cli:
 
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 * If you have not already, create a Bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/blob/main/cli/README.md) file. 
+* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file. 
 * [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 * [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 * Terraform should already be installed on the bastion server that you deployed. For more information, see [Bastion server for SAP deployment](/docs/sap?topic=sap-sap-bastion-server). 
@@ -83,20 +83,31 @@ Before you use the scripts in the Bastion cli:
 {: #automate-hana-aas-anydb-create-terraform}
 {: terraform}
 
-Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to install SAP AAS to SAP HANA and AnyDB on your existing VPC on an already deployed SAP NetWeaver 7.X with ASE SYB as a Central Instance. 
+Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to install SAP AAS to SAP HANA and AnyDB on your existing VPC on an already deployed SAP NetWeaver 7.X with SAP HANA 2.0 or ASE SYB as a Central Instance.
 
 The scripts can take 1 - 2 hours to complete.
 
 1. Access the Bastion server cli.
-2. Clone the solution repository from https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/tree/main/cli and cd to the https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/tree/main/cli folder.
+2. Clone the solution repository and change to the folder.
 
-    ```git
-    git clone https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/tree/main/cli.git
- 
-    cd sap-aas-abap-ase-syb/tree/main/cli
+    ASE SYB 16 
+    Clone the solution repository from https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/cli and cd to the https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/tree/main/cli folder.
+    
+    ```shell
+    git clone https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/cli.git
+    cd sap-aas-abap-ase-syb/cli/
+
     ```
 
-3. Specify your VPC. Modify the input.auto.tfvars file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/blob/main/cli/README.md) file. 
+    SAP HANA 2.0: 
+    Clone the solution repository from https://github.com/IBM-Cloud/sap-abap-hana-aas and cd to the https://github.com/IBM-Cloud/sap-abap-hana-aas folder.
+
+    ```shell
+    git clone https://github.com/IBM-Cloud/sap-abap-hana-aas.git
+    cd sap-abap-hana-aas/
+    ```
+
+3. Modify the input.auto.tfvars file to specify the information for the existing VPC, your region, zone, networking component names, hostname for the AAS VSI,profile and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file. 
 
     The VSI OS images that are supported for this solution for Netweaver Additional Application Server are:
 
@@ -106,7 +117,7 @@ The scripts can take 1 - 2 hours to complete.
 
 
     ```terraform
-    #Infra VPC variables
+    #Infra VPC variables for ASE SYB
     REGION			= "eu-de"
     ZONE			= "eu-de-2"
     VPC				= "ic4sap"                        # EXISTING Security group name
@@ -119,51 +130,67 @@ The scripts can take 1 - 2 hours to complete.
     HOSTNAME = "sapnwase-as01"
     PROFILE = "bx2-4x16"
     IMAGE = "ibm-redhat-8-4-amd64-sap-applications-2
+    
+    #Infra VPC variables for HANA 2.0 
+    REGION			= "eu-de"
+    ZONE			= "eu-de-2"
+    VPC				= "ic4sap"                         EXISTING Security group name
+    SECURITY_GROUP	= "ic4sap-securitygroup"      
+    RESOURCE_GROUP  = "wes-automation"
+    SUBNET			= "ic4sap-subnet"               
+    SSH_KEYS                = [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a" , "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
+
+    #SAP AAS VSI variables for HANA 2.0:
+    HOSTNAME = "sapnwapp"
+    PROFILE = "bx2-4x16"
+    IMAGE = "ibm-redhat-8-4-amd64-sap-applications-2
     ```
 
-4. Customize your SAP system configuration. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/blob/main/cli/README.md) file. 
 
-    ```
-    ##SAP system configuration – updated
+4. Customize your SAP system configuration. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file. 
+
+    ```terraform
+
+    ##SAP system configuration – for HANA 2.0 
     sap_sid	= "NWD"
-    sap_ci_host = "10.243.132.10"
-    sap_ci_hostname = "sapnwase" 
+    sap_ci_host = IP I.E. "10.243.132.10"
+    sap_ci_hostname = "sapnwci" 
     sap_ci_instance_number = "00"
     sap_ascs_instance_number = "01"
     sap_aas_instance_number = "00"
 
-    #Kits paths - for SYB AAS
-    kit_sapcar_file = "/storage/NW75SYB/SAPCAR_1010-70006178.EXE"
-    kit_swpm_file =  "/storage/NW75SYB/SWPM10SP31_7-20009701.SAR"
-    kit_saphotagent_file = "/storage/NW75SYB/SAPHOSTAGENT51_51-20009394.SAR"
+    #Kits paths - for HANA 2.0
+    kit_sapcar_file = "/storage/NW75HDB/SAPCAR_1010-70006178.EXE"
+    kit_swpm_file =  "/storage/NW75HDB/SWPM10SP31_7-20009701.SAR"
+    kit_saphotagent_file = "/storage/NW75HDB/SAPHOSTAGENT51_51-20009394.SAR"
+    kit_hdbclient_file = "/storage/NW75HDB/IMDB_CLIENT20_009_28-80002082.SAR"
     ```
 
-5. Remember, you must manually decompress the kit_export_dir, kit_db2_dir, and kit_db2client_dir files. Ansible decompresses the rest of the SAP kit files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-aas-abap-ase-syb/blob/main/cli/README.md) file. 
+    Ansible decompresses the rest of the SAP kit files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file. 
 
-6. Initialize the Terraform CLI.
+5. Initialize the Terraform CLI.
+
     `terraform init`
 
-7. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
+6. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
 
-    `terraform plan --out plan1`
+    `terraform plan plan1`
 
     You must enter an SAP main password and your API key.
 
     The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain exclamation points '!'. The password must not start with a digit or an underscore (_).
 
-8. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the input.auto.tfvars file to correct resources and run terraform plan again.
+7. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the input.auto.tfvars file to correct resources and run terraform plan again.
 
-9. Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
+8. Apply the saved plan.
 
-    ```teraform
+    ```terraform
     terraform apply "plan1"
     ```
  
  The virtual private cloud and components are created and you see output similar to the `terraform plan` output.  
 
-10. Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
-
-11. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm).
+9. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm).
 
 ## Next steps
 {: #automate-hana-aas-anydb-next}
@@ -171,11 +198,10 @@ The scripts can take 1 - 2 hours to complete.
 
 If you need to rename your resources after they are created, modify the input.auto.tfvars file to change the names and run `terraform plan` and `terraform apply` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
 
-If you need to remove the SAP Netweaver 7.X and ASE SYB installation, go to your project folder and run `terraform destroy`. The `terraform destroy` command does not remove the VPC in this scenario because the VPC was created before these Terraform scripts were run.
+If you need to remove the SAP Netweaver 7.X on HANA or ANYdb installation, go to your project folder and run `terraform destroy`. The `terraform destroy` command does not remove the VPC in this scenario because the VPC was created before these Terraform scripts were run.
 
 ## Related information
-
-{: #automate-nw-asesyb-releted}
+{: #automate-nw-asesyb-related}
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Getting started with Terraform on {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 
