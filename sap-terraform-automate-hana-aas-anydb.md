@@ -130,7 +130,13 @@ The scripts can take 1 - 2 hours to complete.
     HOSTNAME = "sapnwase-as01"
     PROFILE = "bx2-4x16"
     IMAGE = "ibm-redhat-8-4-amd64-sap-applications-2
-    
+    ```
+
+
+4. Customize your SAP system configuration. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file. 
+
+    ```terraform
+
     #Infra VPC variables for HANA 2.0 
     REGION			= "eu-de"
     ZONE			= "eu-de-2"
@@ -140,17 +146,6 @@ The scripts can take 1 - 2 hours to complete.
     SUBNET			= "ic4sap-subnet"               
     SSH_KEYS                = [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a" , "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
 
-    #SAP AAS VSI variables for HANA 2.0:
-    HOSTNAME = "sapnwapp"
-    PROFILE = "bx2-4x16"
-    IMAGE = "ibm-redhat-8-4-amd64-sap-applications-2
-    ```
-
-
-4. Customize your SAP system configuration. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file. 
-
-    ```terraform
-
     ##SAP system configuration – for HANA 2.0 
     sap_sid	= "NWD"
     sap_ci_host = IP I.E. "10.243.132.10"
@@ -158,6 +153,11 @@ The scripts can take 1 - 2 hours to complete.
     sap_ci_instance_number = "00"
     sap_ascs_instance_number = "01"
     sap_aas_instance_number = "00"
+
+    #SAP AAS VSI variables for HANA 2.0:
+    HOSTNAME = "sapnwapp"
+    PROFILE = "bx2-4x16"
+    IMAGE = "ibm-redhat-8-4-amd64-sap-applications-2
 
     #Kits paths - for HANA 2.0
     kit_sapcar_file = "/storage/NW75HDB/SAPCAR_1010-70006178.EXE"
