@@ -220,6 +220,7 @@ toc:
       - topicgroup:
           label: Automating and deploying IBM Cloud architectures for SAP by using Terraform
           topics:
+              - sap-terraform-landing.md
               - sap-terraform-bastion-server.md
               - sap-terraform-create-single-tier.md
               - sap-terraform-multi-tier-anydb-nonhana.md
