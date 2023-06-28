@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2023-03-17"
+lastupdated: "2023-06-27"
 
 subcollection: sap
 
@@ -19,7 +19,7 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Deploying SAP NetWeaver 7.x and ASE SYB on an existing {{site.data.keyword.cloud_notm}} VPC with Terraform and Ansible
+# Deploying SAP NetWeaver 7.x and ASE SYB on an existing {{site.data.keyword.cloud_notm}} VPC (Terraform and Ansible)
 {: #automate-nw-asesyb-terraform-ansible}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.
@@ -29,7 +29,7 @@ You can use Terraform scripts to create either:
 *   A 3-tier (distributed) system and create the SAP and ASE SYB infrastructure on the separate hosts (VSIs).
 
 The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
- 
+
 ## What is created
 {: #automate-nw-asesyb-what-created}
 
@@ -37,13 +37,21 @@ The scripts use the information that you provide for an existing VPC and deploy 
 
 The scripts call the Ansible Playbook to install the SAP architecture.
 
+## {{site.data.keyword.bpshort}} deployment
+{: #automate-nw-asesyb-schematics-interface}
+{: ui}
+
+When you run the scripts with the {{site.data.keyword.bpshort}} interface, you:
+*	Enter the URL for the GitHub repository for the {{site.data.keyword.bpshort}} Terraform files
+*	Modify the parameters in the {{site.data.keyword.bpshort}} interface. They are the same parameters as the input.auto.tfvars file that you use with the cli.
+
 ## Terraform deployment
 {: #automate-nw-asesyb-terraform-interface}
 {: terraform}
 
 The configuration and script files are provided on GitHub. Each supported interface for the SAP solution installation has its own folder in the GitHub repository:
 
-*   Using Terraform on the Bastion server for standard - https://github.com/IBM-Cloud/sap-netweaver-abap-ase-syb-standard/tree/main/cli/tree/main/cli 
+*   Using Terraform on the Bastion server for standard - https://github.com/IBM-Cloud/sap-netweaver-abap-ase-syb-standard/tree/main/cli 
 *   Using Terraform on the Bastion server for distributed deployment  - https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed/tree/main/cli 
 
 Beore you run the Terraform scripts, you modify:
@@ -81,34 +89,79 @@ Before you use the scripts in the Bastion cli or {{site.data.keyword.bpshort}}:
 *	[Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 *	Terraform should already be installed on the bastion server that you deployed. For more information, see Bastion server for SAP deployment. {: terraform}
 
+
+## Creating the infrastructure with the {{site.data.keyword.bpshort}} user interface
+{: #automate-nw-asesyb-create-schematics}
+{: ui}
+
+Use these steps to configure the SAP NetWeaver 7.X with ASE SYB on your existing VPC by using the {{site.data.keyword.bpshort}} user interface. The scripts can take 1 - 2 hours to complete.
+
+1.	From the {{site.data.keyword.cloud_notm}} menu, select [**{{site.data.keyword.bpshort}}**](https://cloud.ibm.com/schematics/overview){: external}.
+2.	Click **Create workspace**.
+3.	On the **Specify template** page:
+    *	Enter the URL of {{site.data.keyword.bpshort}} folder.
+    *	Select the **Terraform version** that is listed in the readme file.
+    *	Click **Next**.
+4.	On the Workspace details page:
+    *	Enter a name for the workspace.
+    *	Select a **Resource group**.
+    *	Select a **Location** for your workspace. The workspace location does not have to match the resource location.
+    *	Select **Next**.
+5.	Select **Create** to create your workspace.
+6.	On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
+    *	Your API key
+    *	Your private SSH key from your local machine
+    *	The ID for the SSH key that you created and uploaded to {{site.data.keyword.cloud_notm}}. Enter the SSH key ID in square brackets and quotation marks, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
+    *	The Region for your resources
+    *	The Zone for your resources
+    *	Whether to use an existing VPC or create one
+    *	Whether to use an existing subnet
+    *	Whether to create new port only when a new subnet is created
+    *	TCP port range: mimimun and maximum
+    *	VPC name
+    *	Subnet name
+    *	Security group name
+    *	Hostname
+    *	Profile
+    *	Image
+    *	Minimal recommended disk sizes
+    *	SAP main password - must be at least 10 characters, uppercase and lowercase letters, a number, and a special character, not an exclamation point.
+    *	Click **Save changes**.
+
+    For a more detailed description of each of the parameters, check the GitHub repo readme file, chapter “Input parameter file”. Also, make sure to parameters that contain sensitive information, like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the readme file, under “Input parameter file”.
+7.	On the workspace **Settings** page, click **Generate plan**. Wait for the plan to complete.
+8.	Click **View log** to review the log files of your Terraform execution plan.
+9.	Apply your Terraform template by clicking **Apply plan**.
+10.	Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
+
 ## Creating the infrastructure by using Terraform with the Bastion server CLI
 {: #automate-nw-asesyb-create-terraform}
 {: terraform}
 
-Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-in and use Terraform to install SAP NetWeaver 7.X with ASE SYB on your existing VPC. The scripts can take 1 - 2 hours to complete.
+Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-in and use Terraform to install SAP NetWeaver 7.X with ASE SYB (standard or distributed architecture) on your existing VPC. The scripts can take 1 - 2 hours to complete.
 
 1.	Access the Bastion server cli.
 2.	For Standard deployment:
-    Clone the solution repository from https://github.com/IBM-Cloud/sap-netweaver-abap-ase-syb-standard/tree/main/cli and cd to the sap-automated-deployment-scripts/sapnwase/cli folder.
+    Clone the solution repository from https://github.com/IBM-Cloud/sap-netweaver-abap-ase-syb-standard and cd to the `sap-netweaver-abap-ase-syb-standard` folder.
 
     ``` git
-    $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-ase-syb-standard-scripts.git
-    $ cd sap-netweaver-abap-ase-syb-standard/tree/main/cli
-    ```
+    $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-ase-syb-standard.git
+    $ cd sap-netweaver-abap-ase-syb-standard
 
 3.  For Distributed deployment:
 
-    Clone the solution repository from https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed/tree/main/cli and cd to the https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed/tree/main/cli folder.
+    Clone the solution repository from https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed and cd to the `sap-netweaver-abap-syb-distributed` folder.
 
     ``` git
-    $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed -scripts.git
-    $ cd sap-netweaver-abap-syb-distributed/tree/main/cli
+    $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed.git
+    $ cd sap-netweaver-abap-syb-distributed
 
     ```
 
 4.	Specify your VPC variables, for standard or distributed deployment. Modify the input.auto.tfvars file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [standard readme](https://github.com/IBM-Cloud/sap-netweaver-abap-ase-syb-standard/blob/main/README.md) or [distributed readme](https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed/blob/main/README.md) file. 
 
-    ```
+    For standard deployment:
+    ```terraform
     #Infra VPC variables for standard deployment 
 	ZONE			= "eu-de-2"
 	VPC			= "sap"
@@ -116,11 +169,12 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 	SUBNET			= "sap-subnet"
 	HOSTNAME		= "db2saps1"
 	PROFILE			= "bx2-4x16"
-	IMAGE			= "ibm-redhat-7-6-amd64-sap-applications-1"
+	IMAGE			= "ibm-redhat-8-6-amd64-sap-applications-2"
 	SSH_KEYS		= [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a" , "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
     ```
 
-    ```
+    For distributed deployment:
+    ```terraform
     #Infra VPC variables for distributed deployment 
 	ZONE			= "eu-de-2"
 	VPC			= "sap"
@@ -128,36 +182,37 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 	SUBNET			= "sap-subnet"
 	DB-HOSTNAME = "sapnwasedb"
     DB-PROFILE = ""bx2-4x16"
-    DB-IMAGE = "ibm-redhat-8-4-amd64-sap-applications-4"
+    DB-IMAGE = "ibm-redhat-8-6-amd64-sap-applications-2"
     APP-HOSTNAME = "sapnwapp"
     APP-PROFILE = "bx2-4x16"
-    APP-IMAGE = "ibm-redhat-8-4-amd64-sap-applications-4"
+    APP-IMAGE = "ibm-redhat-8-6-amd64-sap-applications-2"
 
 	SSH_KEYS		= [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a" , "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
     ```
 
 5.	Customize your SAP system configuration, standard or distributed. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the readme file. 
 
-    ```
+    For standard deplyoment:
+    ```terraform
     #SAP system configuration for standard deployment 
     sap_sid	= "NWD"
     sap_ci_instance_number = "00"
     sap_ascs_instance_number = "01"
 
     #Kits paths
-    kit_sapcar_file = "/storage/NW75DB2/SAPCAR_1010-70006178.EXE"
-    kit_swpm_file =  "/storage/NW75DB2/SWPM10SP31_7-20009701.SAR"
-    kit_saphostagent_file = "/storage/NW75DB2/SAPHOSTAGENT51_51-20009394.SAR"
-    kit_sapexe_file = "/storage/NW75DB2/SAPEXE_800-80002573.SAR"
-    kit_sapexedb_file = "/storage/NW75DB2/SAPEXEDB_800-80002603.SAR"
-    kit_igsexe_file = "/storage/NW75DB2/igsexe_13-80003187.sar"
-    kit_igshelper_file = "/storage/NW75DB2/igshelper_17-10010245.sar"
-    kit_export_dir = "/storage/NW75DB2/51050829"
-    kit_db2_dir = "/storage/NW75DB2/51051007/DB2_FOR_LUW_10.5_FP7SAP2_LINUX_"
-    kit_db2client_dir = "/storage/NW75DB2/51051049"
+    kit_sapcar_file = "/storage/NW75SYB/SAPCAR_1010-70006178.EXE"
+    kit_swpm_file = "/storage/NW75SYB/SWPM10SP31_7-20009701.SAR"
+    kit_saphotagent_file = "/storage/NW75SYB/SAPHOSTAGENT51_51-20009394.SAR"
+    kit_sapexe_file = "/storage/NW75SYB/SAPEXE_900-80002573.SAR"
+    kit_sapexedb_file = "/storage/NW75SYB/SAPEXEDB_900-80002616.SAR"
+    kit_igsexe_file = "/storage/NW75SYB/igsexe_13-80003187.sar"
+    kit_igshelper_file = "/storage/NW75SYB/igshelper_17-10010245.sar"
+    kit_ase_file = "/storage/NW75SYB/51055443_1.ZIP"
+    kit_export_dir = "/storage/NW75SYB/EXP"
     ```
 
-    ```
+    For distributed deployment
+    ```terraform
     #SAP system configuration for distributed deployment 
     sap_sid  = "NWD"
     sap_ci_instance_number = "00"
@@ -171,7 +226,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     kit_sapexedb_file = "/storage/NW75SYB/SAPEXEDB_900-80002616.SAR"
     kit_igsexe_file = "/storage/NW75SYB/igsexe_13-80003187.sar"
     kit_igshelper_file = "/storage/NW75SYB/igshelper_17-10010245.sar"
-    kit_ase_file = "/storage/NW75SYB/51055443_1.ZIP"
+    kit_ase_file = "/storage/NW75SYB/51055622_1.ZIP"
     kit_export_dir = "/storage/NW75SYB/EXP"
     ```
 
@@ -193,14 +248,60 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 10.	Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.  
 
 	```teraform
-	 terraform apply "plan1"
-	 ```
+	terraform apply "plan1"
+	```
 	
 	The virtual private cloud and components are created and you see output similar to the `terraform plan` output.  
 
 11.	Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
 12.	Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm).
+
+## Deploying SAP NetWeaver 7.x and Db2 on 3-tier by using the Schematics user interface
+{: #sap-terraform-3tier-nw-db2-deploying-schematics}
+{: ui}
+
+Use these steps to configure the SAP NetWeaver 7.x with Db2 3-tier on your existing VPC by using the {{site.data.keyword.bpshort}} user interface. The scripts can take 1 - 2 hours to complete.
+
+1. From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview){: external}.
+2. Click **Create workspace**.
+3. On the **Specify template** page:
+    * Enter the GitHub URL for the code you plan to deploy.
+    * Select the **Terraform version** that is listed in the README file. 
+    * Click **Next**.
+4. On the **Workspace details** page: 
+    * Enter a name for the workspace.
+    * Select a **Resource group**.
+    * Select a **Location** for your workspace. The workspace location does not have to match the resource location.
+    * Click **Next**.
+5. Select **Create** to create your workspace.
+6. On the workspace **Settings** page, in the _Input variables_ section, review the default input variables and provide values that match your solution:
+    * Your API key
+    * Your private SSH key from your local machine
+    * (Optionl) You can change the ID_RSA_FILE_PATH for your SSH key that will be autogenerated on Schematics and Bastion Server
+    * The ID for the SSH key that you created and uploaded to {{site.data.keyword.cloud_notm}}. Enter the SSH key ID in square brackets and quotation marks, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
+    * The region for your resources
+    * The zone for your resources
+    * Whether to use an existing VPC or create one
+    * Whether to use an existing subnet
+    * Whether to create new port only when a new subnet is created
+    * TCP port range, nimimun and maximum
+    * VPC name
+    * Subnet name
+    * Security group name
+    * Hostname
+    * Profile
+    * Image
+    * Minimal recommended disk sizes
+    * SAP main password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point.
+    * Click **Save changes**.   
+    
+    For a more detailed description of each of the parameters, check the GitHub repo README file, chapter “Input parameter file”. Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API, and SSH private keys (they are marked as “sensitive” in the README file in the “Input parameter file”).
+7. On the workspace **Settings** page, click **Generate plan**. Wait for the plan to complate. 
+8. Click **View log** to review the log files of your Terraform execution plan.
+9. Apply your Terraform template by clicking **Apply plan**.
+10. Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
+
 
 ## Next steps
 {: #automate-nw-asesyb-next}

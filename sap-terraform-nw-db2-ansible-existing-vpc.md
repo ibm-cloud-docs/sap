@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-10-17"
+  years: 2021, 2023
+lastupdated: "2023-06-23"
 
 subcollection: sap
 
@@ -19,7 +19,7 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating SAP NetWeaver 7.x and Db2 on an existing {{site.data.keyword.cloud}} VPC with Terraform and Ansible
+# Deploying SAP NetWeaver 7.x and Db2 on an existing {{site.data.keyword.cloud}} VPC (Terraform and Ansible)
 {: #sap-terraform-nw-db2-existing-vpc}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.
@@ -32,7 +32,6 @@ You have three deployment methods to choose from:
 *   Terraform scripts run from the CLI on your bastion server
 *   Catalog Tile user interface accessed from the {{site.data.keyword.cloud_notm}} Catalog
 *   Schematics user interface accessed from the menu on your cloud dashboard.
-
 
 ## What is created
 {: #sap-terraform-nw-db2-existing-vpc-components}
@@ -52,7 +51,7 @@ The configuration and script files are provided on GitHub. Each supported interf
 {: #sap-terraform-nw-db2-terraform}
 {: terraform}
 
-You use Terraform on the Bastion server CLI to download and run the scripts that are located in [SAP NetWeaver ABAP Db2 GitHub repository for Terraform](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/cli).
+You use Terraform on the Bastion server CLI to download and run the scripts that are located in [SAP NetWeaver ABAP Db2 GitHub repository for Terraform](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard).
 
 To run the Terraform scripts, you modify:
 
@@ -126,36 +125,36 @@ Before you use the scripts in the Bastion cli or Schematics:
 * Terraform should be already installed on the bastion server that you deployed. For more information, see [Bastion server for SAP deployment](/docs/sap?topic=sap-sap-bastion-server). {: terraform}
 
 * (Optional - Catalog Tile) create secrets for your credentials and passwords by using the [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui).
-{: ui}
+
 
 ## Deploying SAP NetWeaver 7.x and Db2 by using Terraform with the Bastion server CLI
 {: #create-vpc-terraform}
 {: terraform}
 
-Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-in and use Terraform to install SAP NW7.X with Db2 on your existing VPC. The scripts can take 1 - 2 hours to complete. 
+Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to install SAP NW7.X with Db2 on your existing VPC. The scripts can take 1 - 2 hours to complete.
 
-1.  Access the Bastion server cli.
+1.	Access the Bastion server cli.
+2.	Clone the solution repository from `https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard` and cd to the sap-netweaver-abap-db2-standard folder:
 
-2.  Clone the solution repository from `https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard` and `cd` to the `sap-netweaver-abap-db2-standard/cli/terraform` folder.
-
-    ```terraform
+    ```sh
     $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard.git
-    
-    $ cd sap-netweaver-abap-db2-standard/cli/terraform
+    $ cd sap-netweaver-abap-db2-standard 
     ```
 
 3.	Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme).
 
     ```terraform
     #Infra VPC variables
-    ZONE			= "eu-de-2"
-    VPC			= "sap"
-    SECURITYGROUP		= "sap-securitygroup"
-    SUBNET			= "sap-subnet"
-    HOSTNAME		= "db2saps1"
-    PROFILE			= "bx2-4x16"
-    IMAGE			= "ibm-redhat-7-6-amd64-sap-applications-1"
-    SSH_KEYS		= [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a" , "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
+    REGION = "eu-de"
+    ZONE = "eu-de-2"
+    VPC = "ex-vpc"
+    SECURITY_GROUP = "bastion-sg-ex-bastion"
+    RESOURCE_GROUP = "exres-group"
+    SUBNET = "ex-subnet"
+    SSH_KEYS = [ "r018-6c00506b-6be1-4395-b02e-ab8b052e2a6a" , "r018-6c00506b-6be1-4395-b02e-bb8b052e2a6b" ]
+    HOSTNAME = "exdb2nwss1"
+    PROFILE = "bx2-4x16"
+    IMAGE = "ibm-redhat-8-4-amd64-sap-applications-4"
     ```
 
 4.  Customize your SAP system configuration. In the same file, `input.auto.tfvars`, edit the SAP system configuration variables that are passed to the Ansible automated deployment.
@@ -164,21 +163,21 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
     ```terraform
     ##SAP system configuration
-    sap_sid	= "NWS"
+    sap_sid	= "DB2"
     sap_ci_instance_number = "00"
     sap_ascs_instance_number = "01"
 
     #Kits paths
     kit_sapcar_file = "/storage/NW75DB2/SAPCAR_1010-70006178.EXE"
-    kit_swpm_file =  "/storage/NW75DB2/SWPM10SP31_7-20009701.SAR"
-    kit_saphostagent_file = "/storage/NW75DB2/SAPHOSTAGENT51_51-20009394.SAR"
+    kit_swpm_file =  "/storage/NW75DB2/SWPM10SP37_2-20009701.SAR"
+    kit_saphotagent_file = "/storage/NW75DB2/SAPHOSTAGENT51_51-20009394.SAR"
     kit_sapexe_file = "/storage/NW75DB2/SAPEXE_800-80002573.SAR"
     kit_sapexedb_file = "/storage/NW75DB2/SAPEXEDB_800-80002603.SAR"
     kit_igsexe_file = "/storage/NW75DB2/igsexe_13-80003187.sar"
     kit_igshelper_file = "/storage/NW75DB2/igshelper_17-10010245.sar"
     kit_export_dir = "/storage/NW75DB2/51050829"
-    kit_db2_dir = "/storage/NW75DB2/51051007/DB2_FOR_LUW_10.5_FP7SAP2_LINUX_"
-    kit_db2client_dir = "/storage/NW75DB2/51051049"
+    kit_db2_dir = "/storage/NW75DB2/51055138/DB2_FOR_LUW_11.5_MP6_FP0SAP2_LINUX_"
+    kit_db2client_dir = "/storage/NW75DB2/51055140"
     ```
 
     Remember, you must manually decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the SAP kit files. For more information, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme). 
@@ -242,6 +241,7 @@ Use these steps to configure the SAP NetWeaver 7.X with Db2 on your existing VPC
     |ibmcloud_api_key	|IBM Cloud API key or use a secret that is stored in Secrets Manager|
     |private_ssh_key	|Input id_rsa private key content or use a secret that is stored in Secrets Manager|
     |sap_main_password	|SAP main password or use a secret that is stored in Secrets Manager |
+    {: caption}
 
 4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed. For more detailed information, see the [Readme file](https://cloud.ibm.com/catalog/content/sapsingletierdb2-20099bf4-f33a-4ce6-a48b-6d8cb1ac7a27-global/readme/terraform/terraform/e4ec2c13-cf6d-435a-8513-55d6232d5283-global).
 
@@ -258,6 +258,7 @@ Use these steps to configure the SAP NetWeaver 7.X with Db2 on your existing VPC
     |kit_sapexe_file	|kit_sapexe_file|
     |kit_saphotagent_file	|kit_saphotagent_file|
     |kit_swpm_file	|kit_swpm_file|
+    {: caption}
 
 5.	Accept the license agreement.
 6.  Select **Install**. The deployment starts and you are directed to the Schematics page that displays the script log files for you to monitor the deployment progress.
@@ -272,7 +273,7 @@ Use these steps to configure the SAP NetWeaver 7.X with Db2 on your existing VPC
 1.	From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
 2.	Click **Create workspace**.
 3.  On the **Specify template** page:
-    * Enter the URL of Schematics folder. 
+    * Enter the GitHub URL with the code you plan to deploy. 
     * Select the **Terraform version** that is listed in the readme file.
     * Click **Next**.  
 4.  On the **Workspace details** page:
@@ -284,6 +285,7 @@ Use these steps to configure the SAP NetWeaver 7.X with Db2 on your existing VPC
 6.  On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
      * Your API key
      * Your private SSH key from your local machine
+     * (Optional) you can change the ID_RSA_FILE_PATH for your SSH key that will be autogenerated on Schematics and Bastion Server
      * The ID for the SSH key that you created and uploaded to {{site.data.keyword.cloud_notm}}. Enter the SSH key ID in square brackets and quotation marks, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
      * The Region for your resources
      * The Zone for your resources
