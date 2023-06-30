@@ -150,11 +150,11 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
 3.  For Distributed deployment:
 
-    Clone the solution repository from https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed and cd to the `sap-netweaver-abap-syb-distributed` folder.
+    Clone the solution repository from https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed and cd to the `sap-netweaver-abap-syb-distributed/cli` folder.
 
     ``` git
     $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed.git
-    $ cd sap-netweaver-abap-syb-distributed
+    $ cd sap-netweaver-abap-syb-distributed/cli
 
     ```
 
