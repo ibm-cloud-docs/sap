@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-05-05"
+  years: 2021, 2023
+lastupdated: "2023-06-30"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -50,7 +50,7 @@ The following table is an overview of the SAP-certified profiles for Intel Optan
 |[BI.S4.H8.1.5TB RAM + 6TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2700&presetId=1254){: external}|224|2.70 GHx|1536|14|OLTP (\*)|
 |[BI.S4.H8.3TB RAM + 12TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2700&presetId=1258){: external}|224|2.70 GHx|3072 GB|12|OLTP (\*)|
 
-(\*): RHEL 7.6 for SAP Solutions, RHEL 8.2 for SAP Solutions -- SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3
+(\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions -- SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3
 
 Please regard the supported operated systems mentioned in the footnotes.
 {: note}
