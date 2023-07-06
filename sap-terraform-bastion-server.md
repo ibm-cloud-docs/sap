@@ -99,31 +99,31 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
 ## Before you begin
 {: #sap-bastion-before-begin}
 
-1.  To complete this procedure, you need a general understanding of {{site.data.keyword.cloud_notm}} VPC and VSIs. To run the example in {{site.data.keyword.cloud_notm}} Schematics, you need an {{site.data.keyword.cloud_notm}} account. The deployed resources are chargeable.
+1. To complete this procedure, you need a general understanding of {{site.data.keyword.cloud_notm}} VPC and VSIs. To run the example in {{site.data.keyword.cloud_notm}} Schematics, you need an {{site.data.keyword.cloud_notm}} account. The deployed resources are chargeable.
 
-2.  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
+2. [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 
-3.	Be sure that you have the [required {{site.data.keyword.cloud_notm}} IAM permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources) to create and work with VPC infrastructure and you are [assigned the correct permissions](/docs/schematics?topic=schematics-access) to create the workspace and deploy resources.
+3. Be sure that you have the [required {{site.data.keyword.cloud_notm}} IAM permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources) to create and work with VPC infrastructure and you are [assigned the correct permissions](/docs/schematics?topic=schematics-access) to create the workspace and deploy resources.
 
-4.	[Generate an SSH key](/docs/vpc?topic=vpc-ssh-keys). The SSH key is required to access the provisioned VPC virtual server instances through the bastion host. After you create your SSH key, make sure to [upload this SSH key to your {{site.data.keyword.cloud_notm}} account](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-managing-ssh-keys#managing-ssh-keys-with-ibm-cloud-console) in the VPC region and resource group where you want to deploy the bastion server.
+4. [Generate an SSH key](/docs/vpc?topic=vpc-ssh-keys). The SSH key is required to access the provisioned VPC virtual server instances through the bastion host. After you create your SSH key, make sure to [upload this SSH key to your {{site.data.keyword.cloud_notm}} account](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-managing-ssh-keys#managing-ssh-keys-with-ibm-cloud-console) in the VPC region and resource group where you want to deploy the bastion server.
 
-5.  Verify that you can access the URL used for this solution [Automation script for SAP solutions using a BASTION & STORAGE setup deployment through Terraform and IBM Schematics](https://github.com/IBM-Cloud/sap-bastion-setup). 
+5. Verify that you can access the URL used for this solution [Automation script for SAP solutions using a BASTION & STORAGE setup deployment through Terraform and IBM Schematics](https://github.com/IBM-Cloud/sap-bastion-setup). 
 
 ## Procedure
 
-1.	From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
-2.	Click **Create workspace**.
-3.  On the **Specify template** page:
+1. From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
+2. Click **Create workspace**.
+3. On the **Specify template** page:
     * Enter the URL of bastion setup folder. 
     * Select the **Terraform version**.
     * Click **Next**.  
-4.  On the Workspace details page:
+4. On the Workspace details page:
     * Enter a name for the workspace.
     * Select a **Resource group**.
     * Select a **Location** for your workspace. The workspace location does not have to match the resource location.
     * Select **Next**.
-5.  Select **Create** to create your workspace.
-6.  On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
+5. Select **Create** to create your workspace.
+6. On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
      * Your API key
      * Your private SSH key from your local machine
      * The ID for the SSH key that you created and uploaded to {{site.data.keyword.cloud_notm}}
@@ -141,11 +141,11 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
      * Image
      * Minimal recommended disk sizes. 
      * Click **Save changes**.
-7.	On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
-8.	Click **View log** to review the log files of your Terraform execution plan.
-9.	Apply your Terraform template by clicking **Apply plan**.
-10.	Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
-11. At the end of the log is information that you need to deploy different SAP products and databases.  Copy and save this information for your deployments.For example: 
+7. On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
+8. Click **View log** to review the log files of your Terraform execution plan.
+9. Apply your Terraform template by clicking **Apply plan**.
+10. Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
+11. At the end of the log is information that you need to deploy different SAP products and databases. Copy and save this information for your deployments.For example: 
 
   ```
   2022/08/17 10:30:11 Terraform apply | FLOATING-IP = "xxx.xxx.xxx.xx"
