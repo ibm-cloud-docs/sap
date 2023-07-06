@@ -145,17 +145,18 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
 8. Click **View log** to review the log files of your Terraform execution plan.
 9. Apply your Terraform template by clicking **Apply plan**.
 10. Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
-11. At the end of the log is information that you need to deploy different SAP products and databases. Copy and save this information for your deployments. For example: 
+11. At the end of the log is information that you need to deploy different SAP products and databases. Copy and save this information for your deployments. For example:
 
-   ```
-   2022/08/17 10:30:11 Terraform apply | FLOATING-IP = "xxx.xxx.xxx.xx"
-   2022/08/17 10:30:11 Terraform apply | HOSTNAME = "myhost"
-   2022/08/17 10:30:11 Terraform apply | PRIVATE-IP = "xx.xxx.xx.x"
-   2022/08/17 10:30:11 Terraform apply | REGION = "eu-gb"
-   2022/08/17 10:30:11 Terraform apply | SECURITY_GROUP = "secgrp-myhost"
-   2022/08/17 10:30:11 Terraform apply | SUBNET = "myvpc-subnet"
-   2022/08/17 10:30:11 Terraform apply | VPC = "myvpc"
-   2022/08/17 10:30:11 Terraform apply | ZONE = "eu-gb-1"
-   ```
-   
-This automation is offered free of charge however, the provisioned infrastructure comes at cost.{: note}
+    ```
+    2022/08/17 10:30:11 Terraform apply | FLOATING-IP = "xxx.xxx.xxx.xx"
+    2022/08/17 10:30:11 Terraform apply | HOSTNAME = "myhost"
+    2022/08/17 10:30:11 Terraform apply | PRIVATE-IP = "xx.xxx.xx.x"
+    2022/08/17 10:30:11 Terraform apply | REGION = "eu-gb"
+    2022/08/17 10:30:11 Terraform apply | SECURITY_GROUP = "secgrp-myhost"
+    2022/08/17 10:30:11 Terraform apply | SUBNET = "myvpc-subnet"
+    2022/08/17 10:30:11 Terraform apply | VPC = "myvpc"
+    2022/08/17 10:30:11 Terraform apply | ZONE = "eu-gb-1"
+    ```
+
+This automation is offered free of charge however, the provisioned infrastructure comes at cost.
+{: note
