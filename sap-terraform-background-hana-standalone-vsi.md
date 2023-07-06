@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-10-04"
+  years: 2021, 2023
+lastupdated: "2021-07-06"
 
 subcollection: sap
 
@@ -12,6 +12,7 @@ subcollection: sap
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
+{:note: .note}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
@@ -91,4 +92,4 @@ The deployment is done by the Ansible core, which provides CLI tools for automat
 
 The Ansible playbook is called directly by the Terraform script. The Terraform script is run in one run. During the run, the first steps are Terraform specific for creating the VPC, and it continues automatically with the second, Ansible, steps for the installation of the SAP system.
 
-
+This automation is offered free of charge however, the provisioned infrastructure comes at cost.{: note}

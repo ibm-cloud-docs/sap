@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-05-23"
+  years: 2022, 2023
+lastupdated: "2023-07-06"
 
 subcollection: sap
 
@@ -158,3 +158,4 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
   2022/08/17 10:30:11 Terraform apply | ZONE = "eu-gb-1"
   ```
 
+This automation is offered free of charge however, the provisioned infrastructure comes at cost.{: note}

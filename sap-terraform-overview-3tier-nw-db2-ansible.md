@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-28"
+  years: 2022, 2023
+lastupdated: "2023-07-06"
 
 subcollection: sap
 
@@ -12,6 +12,7 @@ subcollection: sap
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
+{:note: .note}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
@@ -69,6 +70,7 @@ Before you deploy any of the SAP automated solutions on {{site.data.keyword.clou
 
 After bastion VPC deployment is complete, you must download the SAP kits to the temporary storage assigned to you on the bastion server. Ansible installs the kits for you. You specify the location of the kits in the configuration files.
 
+This automation is offered free of charge however, the provisioned infrastructure comes at cost.{: note}
+
 To save costs, the bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on {{site.data.keyword.cloud_notm}} VPC. Or, you can keep the bastion server and use it as a jump host for that specific region. 
 {: note}
-

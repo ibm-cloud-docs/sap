@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-05-23"
+  years: 2021, 2023
+lastupdated: "2023-07-06"
 
 subcollection: sap
 
@@ -12,6 +12,7 @@ subcollection: sap
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
+{:note: .note}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
@@ -128,6 +129,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
    ```
    The VPC and components are created and you see output similar to the terraform plan output.  
 
+This automation is offered free of charge however, the provisioned infrastructure comes at cost.{: note}
 
 ## Next steps
 

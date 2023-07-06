@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-19"
+lastupdated: "2023-07-06"
 
 subcollection: sap
 
@@ -80,3 +80,4 @@ Ansible installs the kits for you. You specify the location of the Kits in the c
 
 To save costs the Bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on {{site.data.keyword.cloud_notm}} VPC cloud. Or, you can keep the Bastion server and use it as a jump host for that specific region.
 
+This automation is offered free of charge however, the provisioned infrastructure comes at cost. {: note}

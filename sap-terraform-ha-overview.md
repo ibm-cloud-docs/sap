@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-15"
+  years: 2022, 2023
+lastupdated: "2023-07-06"
 
 subcollection: sap
 
@@ -184,3 +184,4 @@ Additionally, this replication mode can run with a full sync option. This means 
 If SAP HANA system replication runs in the sync replication mode with the full sync option enabled, and if the connection to the secondary site is interrupted, no write operations on the primary site are possible. The operation of creating a tenant database, for example, waits until the connection to the secondary is reestablished or the SQL statement times out.
 {: note}
 
+This automation is offered free of charge however, the provisioned infrastructure comes at cost.{: note}

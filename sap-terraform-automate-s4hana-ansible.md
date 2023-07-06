@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-10-17"
+  years: 2021, 2022, 2023
+lastupdated: "2023-07-06"
 
 subcollection: sap
 
@@ -404,3 +404,4 @@ This document is referenced by:
 *	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 *	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
 
+This automation is offered free of charge however, the provisioned infrastructure comes at cost. {: note}
