@@ -159,4 +159,4 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
     ```
 
 This automation is offered free of charge however, the provisioned infrastructure comes at cost.
-{: note
+{: note}
