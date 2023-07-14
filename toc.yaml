@@ -164,7 +164,7 @@ toc:
   - navgroup:
       id: howto
       topics:
-      -  /overview/overview-ui
+      - include: ../overview/ui.md
       - topicgroup:
           label: Pre-Requisites for SAP Workloads
           topics:
