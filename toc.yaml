@@ -53,6 +53,8 @@ toc:
               - sap-offerings-netweaver-iaas-power-virtual-server-profiles.md
               - sap-offerings-netweaver-iaas-vmware-sddc-profiles.md
               - sap-offerings-netweaver-iaas-intel-bm-vpc.md
+              - sap-offerings-netweaver-iaas-amd-bare-metal-profiles.md
+
         - topicgroup:
             label: Plan your SAP workloads
             topics:
