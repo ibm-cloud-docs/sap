@@ -39,7 +39,12 @@ The following is an overview of the SAP-certified profiles with Intel Bare Metal
 | [BI.S3.NW768](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=985&itemId=10437) | 36 | 72 | 768 GB | 79,630 |
 | [BI.S4.NW192](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2640&itemId=13285) | 32 | 64 | 192 GB | 82,470 |
 | [BI.S4.NW384](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2642&itemId=13285) | 32 | 64 | 384 GB | 85,130 |
+| BI.S4.NW384_v3 | 16 | 32 | 384 GB | 60,420 |
 | [BI.S4.NW768](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2644&itemId=13289) | 40 | 80 | 768 GB | 112,830 |
+| BI.S4.NW768_v2 | 48 | 96 | 768 GB | 124,620 |
+| BI.S4.NW768_v3 | 16 | 32 | 768 GB |  60,420 |
+| BI.S4.NW1500 | 56 | 112 | 1.5 TB | 147,220 |
+| BI.S4.NW3000 | 56 | 112 | 3 TB | 135,127 |
 {: caption="Table 1. SAP NetWeaver servers" caption-side="top"}
 
 See also [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external}.
@@ -48,7 +53,7 @@ See also [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructur
 ## Understanding Bare Metal profile names
 {: #nw-iaas-intel-bm-names}
 
-The Bare Metal profile names are contextual and sequential, below uses an SAP HANA certified server as an example:
+The Bare Metal profile names are contextual and sequential, below uses an SAP NetWeaver certified server as an example:
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
