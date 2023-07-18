@@ -45,13 +45,17 @@ You have the choice of working with an SAP partner or installing the software yo
 - [SAP Business One on SAP HANA Administrator Guide](https://help.sap.com/doc/4e7c047f2c9e4cbe97800ffaf7b68f8e/10.0/en-US/B1_for_SAP_HANA_Admin_Guide.pdf){: external}
 - [SAP Business One on Microsoft SQL Administrator Guide](https://help.sap.com/doc/601fbd9113be4240b81d74626439cfa9/10.0/en-US/AdministratorGuide_SQL.pdf){: external}
 
-**Lastly, review the hardware requirements guidance for SAP Business One (requires SAP ID login):**
+**Lastly, review the hardware requirements guidance for SAP Business One:**
 - [Latest SAP Business One Hardware Requirements Guide](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/latest/en-US/B1_Hardware_Requirements_Guide.pdf){: external}
-- [SAP Business One Platform Support Matrix](https://support.sap.com/en/offerings-programs/support-small-medium-enterprises/business-one.html){: external}
+- [SAP Business One Platform Support Matrix](https://help.sap.com/doc/011000358700000239412011e/latest/en-US/B1_HANA_Platform_Support_Matrix.pdf){: external}
 
 For a list of Microsoft Windows Server versions supported for the following SAP Business One server platforms, see the [SAP Business One Platform Support Matrix](https://help.sap.com/doc/011000358700000032462013e/9.3/en-US/B1_Platform_Support_Matrix.pdf){: external}.
 
-More information on SAP HANA versions can be found in [SAP Note 2058870 - SAP Business One, version for SAP HANA on public Infrastructure-as-a-Service (IaaS) platforms](https://launchpad.support.sap.com/#/notes/2058870){: external} and [SAP Note 2586742 - Overview Note for SAP Business One 9.3 PL03, version for SAP HANA](https://launchpad.support.sap.com/#/notes/2586742){: external}.
+More information on SAP HANA versions can be found in
+- [SAP Note 2058870 - SAP Business One, version for SAP HANA on public Infrastructure-as-a-Service (IaaS) platforms](https://launchpad.support.sap.com/#/notes/2058870){: external}.
+- [SAP Note 2801340 - Overview Note for SAP Business One 9.3 PL11, version for SAP HANA](https://launchpad.support.sap.com/#/notes/2801340){: external}.
+- [SAP Note 3328136 - Overview Note for SAP Business One 10.0 FP 2208 Hotfix 02, version for SAP HANA](https://launchpad.support.sap.com/#/notes/3328136){: external}.
+- [SAP Note 3284687 - Overview Note for SAP Business One 10.0 FP 2305, version for SAP HANA](https://launchpad.support.sap.com/#/notes/3284687){: external}.
 
 The [SAP Business One community page](https://community.sap.com/topics/business-one){: external} has links to blogs where community members share their experiences with implementing and running SAP Business One.
 
@@ -59,9 +63,10 @@ The [SAP Business One community page](https://community.sap.com/topics/business-
 ### SAP Business One upgrade guides
 {: #b1-upgrade-guides}
 
-SAP Business One offers you several upgrade options when a new release is available
+SAP Business One offers you several upgrade options when a new release is available.
 
-For more information, see the [SAP Business One Upgrade Strategy](https://help.sap.com/doc/011000358700001396142012e/9.3/en-US/B1_Upgrade_Strategy.pdf){: external} guide.
+
+<!--- For more information, see the [SAP Business One Upgrade Strategy](https://help.sap.com/doc/011000358700001396142012e/9.3/en-US/B1_Upgrade_Strategy.pdf){: external} guide. Note: the hyperlink is momentarily not available... discussing with SAP (RV) --->
 
 These options are available if you're using SAP HANA or Microsoft SQL. See the [SAP Business One upgrade patches and programs information](https://support.sap.com/en/offerings-programs/support-small-medium-enterprises/business-one/upgrades-patches.html){: external} for more detail on upgrades, patches, and hot fixes.
 
@@ -77,17 +82,26 @@ Training is also available on the different SAP Business One modules. For more i
 ## Infrastructure options for SAP Business One
 {: #b1-iaas}
 
-[All the listed servers for SAP Business One on SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:120){: external} are currently certified for the SLES 12 SP4 and SLES 15 SP1 operating systems only.
+Please check [SAP Business One, version for SAP HANA Platform Support Matrix](https://help.sap.com/doc/011000358700000239412011e/latest/en-US/B1_HANA_Platform_Support_Matrix.pdf){: external} for supported OS versions of your SAP Business One release.
+[All the listed IBM Cloud servers for SAP Business One on SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:120){: external} show the certified SLES operating systems versions.
 
 SAP Business One is supported on the following Bare Metal servers:
-- BI.S3.H2.192
-- BI.S3.H2.384
-- BI.S3.H2.768
-- BI.S4.H2.192
-- BI.S4.H2.384
-- BI.S4.H2.768
+- on Classic
+    - BI.S3.H2.192
+    - BI.S3.H2.384
+    - BI.S3.H2.768
+    - BI.S4.H2.192
+    - BI.S4.H2.384
+    - BI.S4.H2.768
+
+- on VPC
+    - cx2d-metal-96x192
+    - bx2d-metal-96x384
+    - mx2d-metal-96x768
+    - bx2d-metal-192x768
 
 SAP Business One is also supported for the following Intel virtual server profiles:
+- mx2-8x64
 - mx2-16x128
 - mx2-32x256
 - mx2-48x384
