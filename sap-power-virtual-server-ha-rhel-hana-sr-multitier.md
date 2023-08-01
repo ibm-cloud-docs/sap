@@ -73,35 +73,25 @@ pcs resource update SAPHana_${SID}_${INSTNO} AUTOMATED_REGISTER=false
 {: #ha-rhel-hana-sr-mt-conn}
 
 1. Use the information in [Creating the workspace](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-workspace) to create another workspace in a different geographic location or region.
-1. Create subnets and ensure that the IP ranges don't overlap with any subnet of the workspace that hosts the virtual server instances for the cluster.
-   - [Creating subnets](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-subnets)
-1. Set up *IBM Cloud connections* up in both workspaces and activate *Enable IBM Transit Gateway*.
-   - [Creating IBM Cloud connections](/docs/power-iaas?topic=power-iaas-cloud-connections#create-cloud-connections)
-1. Deploy an *IBM Cloud Transit Gateway* to interconnect the two IBM {{site.data.keyword.powerSys_notm}} workspaces.
+1. Create subnets and make sure that the IP ranges don't overlap with any subnet of the workspace that hosts the virtual server instances for the cluster. For more information, see [Creating subnets](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-subnets).
+1. Set up {{site.data.keyword.cloud}} connections up in both workspaces and activate *Enable IBM Transit Gateway*. For more information, see [Creating {{site.data.keyword.cloud}} connections](/docs/power-iaas?topic=power-iaas-cloud-connections#create-cloud-connections).
+1. Deploy an {{site.data.keyword.cloud}} Transit Gateway to interconnect the two IBM {{site.data.keyword.powerSys_notm}} workspaces.
 
-   *IBM Cloud Transit Gateway* enables the interconnection of IBM {{site.data.keyword.powerSys_notm}}, {{site.data.keyword.cloud}} classic, and Virtual Private Cloud (VPC) infrastructures and keeps data within the {{site.data.keyword.cloud}} networks.
+   {{site.data.keyword.cloud}} Transit Gateway enables the interconnection of IBM {{site.data.keyword.powerSys_notm}}, {{site.data.keyword.cloud}} classic, and Virtual Private Cloud (VPC) infrastructures and keeps data within the {{site.data.keyword.cloud}} networks. For more information about planning and deploying {{site.data.keyword.cloud}} Transit Gateway, see [Planning for {{site.data.keyword.cloud}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-helpful-tips) and [Ordering {{site.data.keyword.cloud}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway).
+   {: note}
 
-   See these documents about planning and deploying {{site.data.keyword.cloud}} Transit Gateway.
-   - [Planning for {{site.data.keyword.cloud}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-helpful-tips)
-   - [Ordering {{site.data.keyword.cloud}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway)
+1. To add the connections to your transit gateway to establish network connectivity between your IBM {{site.data.keyword.powerSys_notm}}, open [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left and click **Interconnectivity**.
+1. Click **Transit Gateway** on the left navigation pane.
+1. Select the name of your transit gateway.
 
-   Add the connections to your transit gateway to establish network connectivity between your IBM {{site.data.keyword.powerSys_notm}}.
+   In the expanded view, click **View details**.
+   {: tip}
 
-    1. Open [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-    2. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left and click **Interconnectivity**.
-    3. Click **Transit Gateway** on the left navigation pane.
-    4. Select the name of your transit gateway.
-
-       In the expanded view, click **View details**.
-       {: tip}
-
-    5. Click **Add connection**.
-
-       Choose and configure the specific network connections that you want to add to the transit gateway.
-
-       Choose **Direct Link**, and select the names of your IBM Cloud connections.
-
-       Click **Add** to create a connection.
+1. Click **Add connection**.
+1. Choose and configure the specific network connections that you want to add to the transit gateway.
+1. Choose **Direct Link**, and select the names of your {{site.data.keyword.cloud}} connections.
+1.. Click **Add** to create a connection.
 
 ### Preparing environment variables on NODE3
 {: #ha-rhel-hana-sr-mt-env}
