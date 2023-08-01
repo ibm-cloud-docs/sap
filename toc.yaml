@@ -11,7 +11,7 @@ toc:
     path: sap
     label: IBM Cloud for SAP | IBM Power Virtual Servers for SAP
 #  List your getting started tutorial (getting-started.md) as the first item in the Get started nav group. See https://test.cloud.ibm.com/docs/writing?topic=writing-navigation for more details on the toc design.
-  entries: 
+  entries:
   - navgroup:
       id: learn
       topics:
@@ -233,7 +233,7 @@ toc:
                     - sap-terraform-nw-db2-ansible-existing-vpc.md
               - topicgroup:
                    label: SAP NetWeaver and Db2 3-tier on IBM Cloud VPC
-                   topics: 
+                   topics:
                     - sap-terraform-overview-3tier-nw-db2-ansible.md
                     - sap-terraform-3tier-nw-db2.md
               - topicgroup:
@@ -274,10 +274,11 @@ toc:
             - sap-power-virtual-server-ha-vsi.md
             - sap-power-virtual-server-ha-rhel.md
             - sap-power-virtual-server-ha-rhel-hana-sr.md
+            - sap-power-virtual-server-ha-rhel-hana-sr-co.md
+            - sap-power-virtual-server-ha-rhel-hana-sr-multitier.md
             - sap-power-virtual-server-ha-rhel-ensa.md
             - sap-power-virtual-server-ha-rhel-nfs.md
-            - sap-power-virtual-server-ha-rhel-hana-sr-co.md
-             
+
   - navgroup:
       id: reference
       topics:
@@ -311,6 +312,6 @@ toc:
               - sap-faq.md
               - sap-faq-moving-sap-workloads.md
               - sap-faq-profile-specs.md
-        - link: 
+        - link:
             label: Documentation Changelog
             href: https://github.ibm.com/cloud-docs/sap/commits/
