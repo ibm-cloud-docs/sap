@@ -46,15 +46,15 @@ For more information about SAP system architectures on {{site.data.keyword.cloud
 
 {{site.data.keyword.cloud_notm}} Object Storage stores encrypted and dispersed data across multiple geographic locations. This getting started tutorial walks through the steps that are needed to use {{site.data.keyword.cloud_notm}} Object Storage to create buckets, upload objects, and set up access policies to allow other users to work with your data.
 
-Manually deploying a VPC and configure a backup/restore on iCOS with a backint hana agent on a cloud platform can be time-consuming. The Terraform automation assures not only a much quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
+Manually deploying a VPC and configure a backup/restore on Cloud Object Storage with a backint hana agent on a cloud platform can be time-consuming. The Terraform automation assures not only a much quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
 
 ## Ansible for SAP installation
 {: #sap-hana-db-backup-ansible-install}
 
-Ansible is an automation tool for the deployment of several IT tasks. Ansible is used for automating the installation of an Hana db backup to iCOS automation module. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html).
+Ansible is an automation tool for the deployment of several IT tasks. Ansible is used for automating the installation of an Hana db backup to Cloud Object Storage automation module. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html).
 
 The deployment is done by using the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on the [Ansible core page]( https://docs.ansible.com/ansible-core/devel/index.html).
-The Ansible playbook is called directly by the Terraform script. The script starts with Terraform specific steps for creating the VPC, and continues automatically with the Ansible specific steps to install the Hana db backup to iCOS automation module system.
+The Ansible playbook is called directly by the Terraform script. The script starts with Terraform specific steps for creating the VPC, and continues automatically with the Ansible specific steps to install the Hana db backup to Cloud Object Storage automation module system.
 
 ## Where to run the scripts
 {: #sap-hana-db-backup-where-scripts}

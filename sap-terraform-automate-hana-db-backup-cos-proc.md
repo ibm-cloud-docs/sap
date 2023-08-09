@@ -19,17 +19,17 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Deploying SAP HANA db backup to iCOS on existing {{site.data.keyword.cloud_notm}} VPC with automation
+# Deploying SAP HANA db backup to Cloud Object Storage on existing {{site.data.keyword.cloud_notm}} VPC with automation
 {: #sap-automate-hana-db-backup-cos-deploy}
 
-You can use Terraform scripts to Hana db backup to iCOS automation module on existing HANA database already deployed instance on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
+You can use Terraform scripts to Hana db backup to Cloud Object Storage automation module on existing HANA database already deployed instance on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
 Terraform on {{site.data.keyword.cloud_notm}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.
 {: shortdesc}
 
 ## Solution implemented
  {: #sap-hana-db-backup-cos-proc}
 
-![Figure 1. SAP HANA db backup to iCOS from a standard SAP NW on HANA db architecture](images/sap-hana-backup-on-vpc.svg "SAP HANA db backup to iCOS from a standard SAP NW on HANA db architecture"){: caption="Figure 1. SAP HANA db backup to iCOS from a standard SAP NW on HANA db architecture" caption-side="bottom"}
+![Figure 1. SAP HANA db backup to Cloud Object Storage from a standard SAP NW on HANA db architecture](images/sap-hana-backup-on-vpc.svg "SAP HANA db backup to Cloud Object Storage from a standard SAP NW on HANA db architecture"){: caption="Figure 1. SAP HANA db backup to Cloud Object Storage from a standard SAP NW on HANA db architecture" caption-side="bottom"}
 
 
 ## What is created
@@ -62,7 +62,7 @@ To run the Terraform scripts, you modify:
 
 You can change the default SAP system configuration settings to match your solution. You also specify the location where you downloaded the SAP kits.
 
-The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to deploy HANA db backup to iCOS automation module on already installed HANA database instance on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
+The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to deploy HANA db backup to Cloud Object Storage automation module on already installed HANA database instance on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
 
 ## Support
 {: #sap-hana-db-backup-support-terraform}
@@ -83,13 +83,13 @@ You need the following to get started with {{site.data.keyword.cloud_notm}} Obje
 *	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key]( https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the Create or retrieve your SSH key ID. 
 *	Log in to the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *	Terraform should already be installed on the bastion server that you deployed. For more information, see [Bastion server for SAP deployment]( https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server).
-*	To deploy HANA db backup to iCOS automation module, the HANA database instance must be installed on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
-*	Ensure you have an identical password for all your HANA db SYSTEM users before you run this backup to iCOS HANA backup module.
+*	To deploy HANA db backup to Cloud Object Storage automation module, the HANA database instance must be installed on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
+*	Ensure you have an identical password for all your HANA db SYSTEM users before you run this backup to Cloud Object Storage HANA backup module.
 
 ## Creating the infrastructure by using Terraform with the Bastion server CLI
 {: #create-hana-db-backup-cli}
 
-Use these steps to configure the SAP HANA db backup to iCOS and use Terraform to install HANA db backup to iCOS automation module on your existing VPC on an already deployed SAP HANA db 2.0.
+Use these steps to configure the SAP HANA db backup to Cloud Object Storage and use Terraform to install HANA db backup to Cloud Object Storage automation module on your existing VPC on an already deployed SAP HANA db 2.0.
 
 The scripts can take 1 - 2 hours to complete. A full backup of System DB and Tennant DB instances at the end.
 
@@ -103,7 +103,7 @@ The scripts can take 1 - 2 hours to complete. A full backup of System DB and Ten
     ```
 
 3.	Specify your VPC. Modify the input.auto.tfvars file to specify the information for the existing VPC and component names. For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md) file.
-    The VSI OS images that are validated for this solution for HANA db backup to iCOS are:
+    The VSI OS images that are validated for this solution for HANA db backup to Cloud Object Storage are:
     *	SUSE Linux Enterprise Server 15 SP 4 for SAP
     *	SUSE Linux Enterprise Server 15 SP 3 for SAP, 
     *	Red Hat Enterprise Linux 8.6 for SAP or 
@@ -139,7 +139,7 @@ The scripts can take 1 - 2 hours to complete. A full backup of System DB and Ten
     HANA_SYSNO = "00"
     HANA_TENANTS = ["Ten_HDB1", "Ten_HDB2"]
 
-    #Kits paths - for HANA db backup to iCOS
+    #Kits paths - for HANA db backup to Cloud Object Storage
 
     BACKINT_COS_KIT = "/storage/hdb_backup_kit_files/aws-s3-backint/aws-s3-backint-1.2.18-linuxx86_64.tar.gz"
     HANA_KIT_FOR_BACKINT_COS = ""
