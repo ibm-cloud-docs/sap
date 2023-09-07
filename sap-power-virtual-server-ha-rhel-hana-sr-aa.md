@@ -120,7 +120,7 @@ On a cluster node, assign the reserved IP address to a *VIP_SECONDARY* environme
 ```sh
 export VIP_SECONDARY=<reserved IP address for SAP HANA secondary>
 ```
-{: sceen}
+{: screen}
 
 ```sh
 echo $VIP_SECONDARY
