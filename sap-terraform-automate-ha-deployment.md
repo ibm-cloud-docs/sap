@@ -47,7 +47,7 @@ A [Virtual Private Cloud (VPC)](https://www.ibm.com/cloud/learn/vpc?mhsrc=ibmsea
 
 In a Highly Available (HA) system, every instance run on a separate {{site.data.keyword.cloud_notm}} virtual server instance. The cluster HA configuration for the SAP application server consists of two virtual server instances, each of them located in the same zone within the region by using placement groups. Placement groups assure that both cluster resources and cloud resources are also located in different compute nodes as specified in the placement groups section:
 
-![Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)](images/sap-ha-vpc-single-zone.png "SAP HA applications cluster nodes PAS (Active) and AAS (Active)"){: caption="Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)" caption-side="bottom"}
+![Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)](images/sap-ha-new-cluster-pas-aas.png "SAP HA applications cluster nodes PAS (Active) and AAS (Active)"){: caption="Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)" caption-side="bottom"}
 
 ### Placement groups on {{site.data.keyword.cloud_notm}} VPC for SAP HA architecture
 {: #automate-ha-deployment-on-vpc-placement-groups}
@@ -168,8 +168,6 @@ The DNS service maps the FQDN of each ALB to the virtual hostnames of the ASCS, 
 
 ## Highly available system for SAP ASE SYBASE database with HADR system
 {: #automate-ha-deployment-on-vpc-ase-sybase-database}
-
-![Figure 7. SAP HA for ASE SYBASE DB instances cluster nodes Primary (Active) and Secondary (Companion)](images/sap-ha-hana-vpc-single-zone.svg "SAP HA for ASE SYBASE DB instances cluster nodes Primary (Active) and Secondary (Companion)"){: caption="Figure 2. SAP HA for ASE SYBASE DB instances cluster nodes Primary (Active) and Secondary (Companion)" caption-side="bottom"}
 
 At the most basic level, a standard HA ASE SYBASE cluster in an active(primary)-passive(companion) configuration has two nodes: one is the primary node and the other is the standby node. This means that the primary node is actively serving the active SAP DB instances (Primary and Companion), while the standby node is waiting to jump in if there is any failure.
 
