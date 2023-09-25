@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020,2023
-lastupdated: "2023-03-08"
+lastupdated: "2023-09-25"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -54,7 +54,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | ux2d-200x5600 | 200 | 5,600 | 215,570 | OLTP (\*) |
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA" caption-side="bottom"}
 
-(\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.1 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions<br/>
+(\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.1 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.0 for SAP Solutions<br/>
 SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
 (\*\*): SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3
@@ -64,10 +64,6 @@ Regard the supported operated systems that are mentioned in the footnotes.
 
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}.
-
-
-For SAP HANA deployments that use {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}}, only single-node deployments are supported. Multi-node / scale-out is not currently supported.
-{: important}
 
 
 ## Understanding Virtual Server profile names
