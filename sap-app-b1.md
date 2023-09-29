@@ -87,24 +87,24 @@ Please check [SAP Business One, version for SAP HANA Platform Support Matrix](ht
 
 SAP Business One is supported on the following Bare Metal servers:
 - on Classic
-    - BI.S3.H2.192
-    - BI.S3.H2.384
-    - BI.S3.H2.768
-    - BI.S4.H2.192
-    - BI.S4.H2.384
-    - BI.S4.H2.768
+    - [BI.S3.H2.192](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s3-h2-192gb)
+    - [BI.S3.H2.384](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s3-h2-382gb)
+    - [BI.S3.H2.768](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s3-h2-768gb)
+    - [BI.S4.H2.192](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s4-h2-192gb)
+    - [BI.S4.H2.384](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s4-h2-384gb)
+    - [BI.S4.H2.768](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s4-h2-768gb)
 
 - on VPC
-    - cx2d-metal-96x192
-    - bx2d-metal-96x384
-    - mx2d-metal-96x768
-    - bx2d-metal-192x768
+    - [cx2d-metal-96x192](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc#hana-iaas-intel-bm-vpc-mx2-profiles)
+    - [bx2d-metal-96x384](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc#hana-iaas-intel-bm-vpc-mx2-profiles)
+    - [mx2d-metal-96x768](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc#hana-iaas-intel-bm-vpc-mx2-profiles)
 
 SAP Business One is also supported for the following Intel virtual server profiles:
-- mx2-8x64
-- mx2-16x128
-- mx2-32x256
-- mx2-48x384
+- on VPC
+    - [mx2-8x64](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-16x128-32x256-configure)
+    - [mx2-16x128](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-16x128-32x256-configure)
+    - [mx2-32x256](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-16x128-32x256-configure)
+    - [mx2-48x384](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-48x384-configure)
 
 {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are not available for SAP Business One
 {: note}

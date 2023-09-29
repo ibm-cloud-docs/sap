@@ -30,15 +30,19 @@ The following table gives you an overview of the SAP-certified profiles with bar
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- |
+| **Compute** | | | | |
+| cx2-metal-96x192 | 96 | 192 | 107,400 | SAP Business One (\*\*) |
 | **Balanced** | | | | |
-| bx2d-metal-96x384 | 96 | 384 | 124,130 | OLTP/OLAP (\*) |
+| bx2d-metal-96x384 | 96 | 384 | 124,130 | OLTP/OLAP (\*)<br/>SAP Business One (\*\*) |
 | bx2d-metal-192x768 | 192 | 768 | 255,800 | OLTP/OLAP (\*) |
 | **Memory optimized** | | | | |
-| mx2d-metal-96x768 | 96 | 768 | 127,620 | OLTP/OLAP (\*) |
+| mx2d-metal-96x768 | 96 | 768 | 127,620 | OLTP/OLAP (\*)<br/>SAP Business One (\*\*) |
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA" caption-side="bottom"}
 
 (\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions<br/>
 SLES 15 SP3, SLES 15 SP4
+
+(\*\*): SLES 15 SP3, SLES 15 SP4
 
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}. 
@@ -60,6 +64,7 @@ The first letter of the profile name indicates the profile family:
 
 | First letter | Characteristics of the related profile family |
 | --- | --- |
+| c | *Compute* family, CPU to Memory 1:2 |
 | b | *Balanced* family, CPU to Memory 1:4 |
 | m | *Memory optimized* family, higher CPU to Memory ratio 1:8 |
 {: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
@@ -96,7 +101,7 @@ When the bare metal server profiles for SAP HANA are initially provisioned, the 
 | | `sda1` | Pre-configured BIOS volume | 1 MB |
 | `/boot/efi` | `sda2` | Pre-configured boot volume | 100 MB |
 | `/` | `sda3` | Pre-configured root volume | 9.9 GB |
-{: caption="Table 4. Storage configuration of the default bare metal server deployment (boot volume)" caption-side="top"}
+{: caption="Table 3. Storage configuration of the default bare metal server deployment (boot volume)" caption-side="top"}
 
 
 In addition to these partitions, bare metal servers for VPC have 8 - 16 NVMEs – depending on their size – which need to be configured after the server deployment.
@@ -118,17 +123,21 @@ The following table shows the required physical volumes, related volume groups, 
 
 | Profile | File\nsystem | Logical\nVolume | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(TB) |
 | --- | --- | --- | --- | --- | --- | --- |
+| `cx2d-metal-96x192`  | `/hana/shared` | `hana_shared_lv` | 192 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
+| | `/hana/data` | `hana_data_lv` | min. 576 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
+| | `/hana/log` |  | 192 | `vg0` | | | 
+| --- | --- | --- | --- | --- | --- | --- |
 | `bx2d-metal-96x384`  | `/hana/shared` | `hana_shared_lv` | 384 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
-| | `/hana/data` | `hana_data_lv` | min. 1152 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
+| | `/hana/data` | `hana_data_lv` | min. 1,152 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
 | | `/hana/log` |  | 384 | `vg0` | | | 
 | `bx2d-metal-192x768`  | `/hana/shared` | `hana_shared_lv` | 768 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
-| | `/hana/data` | `hana_data_lv` | min. 2304 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
+| | `/hana/data` | `hana_data_lv` | min. 2,304 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
 | | `/hana/log` |  | 512 | `vg0` | | | 
 | --- | --- | --- | --- | --- | --- | --- |
 | `mx2d-metal-96x768`  | `/hana/shared` | `hana_shared_lv` | 768 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
-| | `/hana/data` | `hana_data_lv` | min. 2304 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
+| | `/hana/data` | `hana_data_lv` | min. 2,304 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
 | | `/hana/log` |  | 512 | `vg0` | | | 
-{: caption="Table 5. Storage layout for Bare metal servers for VPC" caption-side="top"}
+{: caption="Table 4. Storage layout for Bare metal servers for VPC" caption-side="top"}
 
 <br/>
 <br/>
@@ -136,14 +145,14 @@ Note, that both volume groups vg0 and vg1 are not fully used. Remaining space ca
 
 To ensure a higher level of availability and failure resilience, RAID10 logical volumes are built on-top the under-laying NVMEs, based on Linux’s logical volume manager.
 
-These steps show a step-by-step guide for setting up the volume groups, logical volumes, and file systems. Size information differs and can be retrieved from the storage table.
+These steps show a step-by-step guide for setting up the volume groups, logical volumes, and file systems. Size information differs and can be retrieved from the storage layout table.
 
 1. Log in to the OS and install the lvm2 package, if not installed already.
 
     ```
     [root@mx2d-metal-96x768 ~]# yum install lvm2
     ```
-    This command applies to RHEL, on SLES use ‘zypper in’ instead. 
+    This command applies to RHEL, on SLES use ‘zypper install’ instead. 
 
 2. Create the volume groups.
 

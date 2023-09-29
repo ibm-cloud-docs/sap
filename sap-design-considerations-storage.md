@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-19"
+lastupdated: "2022-05-18"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -89,7 +89,7 @@ Using VMware for SAP workloads on {{site.data.keyword.cloud_notm}} is certified.
 
 For VMware clusters, where SAP workloads are run across multiple VMware vSphere hypervisor nodes, storage must be shared across these hypervisor nodes.
 
-VMware is available to work with Block storage or File storage from {{site.data.keyword.cloud_notm}}. To help you select Block storage or File storage for running SAP on VMware, see[VMware Technical Paper on Storage Protocol Comparison](https://vmware.com/techpapers/2012/storage-protocol-comparison-10276.html).
+VMware is available to work with Block storage or File storage from {{site.data.keyword.cloud_notm}}. To help you select Block storage or File storage for running SAP on VMware, see [VMware Technical Paper on Storage Protocol Comparison](https://vmware.com/techpapers/2012/storage-protocol-comparison-10276.html).
 
 When you are using Network Block or File storage, do not expect that certification performance benchmarks to remain the same. Particularly after factoring in the hypervisor overheads as described in [Compute Profiles of SAP-certified VMware on Classic Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#compute-power).
 
@@ -105,7 +105,7 @@ The storage to use with either the VMware manual setup (Bare Metal with VMware O
 * [Storage to use with {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated](/docs/vmwaresolutions?topic=vmwaresolutions-design_physicalinfrastructure#design_physicalinfrastructure-storage-design)
 
 
-#### Network Block Storage for Virtual Servers on VPC Infrastructure
+#### Block Storage for Virtual Servers on VPC Infrastructure
 {: #storage-performance-network-block-vs-vpc}
 
 For network storage, IOPS per GB is limited and performance depends on the workload. For relational database management systems (RDBMS), it might be advisable to use the same volume for both the database's log and data storage. This setup depends on the behavior of your application.
@@ -138,7 +138,7 @@ Table 1 is a sample storage configuration for a 256 GB server with 50,000 [SAPS]
 
 * 6,000 IOPS/1,500 GB = 4 IOPS/GB needed for external storage. It is assumed that 3,000 GB is for backup at 2 IOPS/GB (medium performance.
 
-| File system | # of volumes | Storage type | IOPS/GB | GB | \# IOPS |
+| File system | number of volumes | Storage type | IOPS/GB | GB | IOPS |
 | --- | --- | --- | --- | --- | --- |
 | `/` | 1 | Internal | N/A | 150 GB | N/A |
 | `/boot` | 1 | Internal | N/A | 0.25 GB | N/A |
@@ -167,7 +167,7 @@ For SAP AnyDB that uses IBM Db2 on `mx2-32x256` profile the volumes that are nee
 
 After you attach the two data volumes, two new virtual disks will appear in the Virtual Server, see the following table. In this example, those disks are `vdd`, `vde`, and `vdf`.
 
-| File system | Volume | Storage type | IOPS/GB | GB | \# IOPS |
+| File system | Volume | Storage type | IOPS/GB | GB | IOPS |
 | --- | --- | --- | --- | --- | --- |
 | `/` | `vdal` | Pre-configured boot volume | N/A | 100 GB | 3,000 |
 | `/boot` | `vda2` | Pre-configured boot volume | N/A | 0.25 GB | 3,000 |
@@ -185,10 +185,14 @@ For example, `"/db2/<DBSID>"`, `"/db2/<DBSID>/log_dir"`, and several `"sapdata<n
 
 Further information about [storage specifications for Virtual Server](/docs/sap?topic=sap-hana-iaas-intel-vs-vpc-storage-specs) are available, the below shows only the configuration steps required.
 
-#### mx2-16x128 and mx2-32x256 profiles
+#### mx2-8x64, mx2-16x128 and mx2-32x256 profiles
 {: #hana-iaas-mx2-16x128-32x256-configure}
 
-For Virtual Server created based on the **mx2-16x128** and **mx2-32x256** profiles there are:
+The mx2-8x64 profile is certified for SAP Business One on HANA only.
+{: note}
+
+
+For Virtual Server created based on the **mx2-8x64**, **mx2-16x128** and **mx2-32x256** profiles, there are:
 - 3x 500 GB volumes; three block storage volumes of 500 GB size, with a custom volume profile that supports up to 10,000 **Max IOPS** attached to the Virtual Server
 - 1x 2,000 GB volume; one block storage volume of 2,000 GB size, with a lower 4,000 IOPS (medium performance) attached to the Virtual Server for backups
 
@@ -237,7 +241,7 @@ After creating the volume group, three logical volumes need to be defined on top
 [root@hana256-vsi ~]# lvcreate -i 3 -I 64K -l 100%FREE -n hana_data_lv hana_vg
 ```
 
-In a 128 GB virtual server, in the example above `-L 256GB` must be replaced by `-L 128GB`. These commands will not result in the smallest possible file system size, but they create the smallest configuration, which will fulfill the SAP HANA KPIs.
+For a 128 GB virtual server, in the example above `-L 256GB` must be replaced by `-L 128GB` and for 64 GB by `-L 64GB` accordingly. These commands will not result in the smallest possible file system size, but they create the smallest configuration, which will fulfill the SAP HANA KPIs.
 Finally, a file system needs to be created on top of each volume group:
 
 ```
@@ -314,8 +318,8 @@ The following sections demonstrate storage configurations in various different S
 When you create new storage volumes, keep the following points in mind:
 
 * Different storage tiers differ
-  * For SAP HANA, only Tier 1 storage is supported.
-  * For SAP NetWeaver, the Tier 1 and Tier 3 storage cannot be mixed.
+    * For SAP HANA, only Tier 1 storage is supported.
+    * For SAP NetWeaver, the Tier 1 and Tier 3 storage cannot be mixed.
 * After you provision the storage with Affinity, you cannot change it. Carefully plan your storage layer and make sure that your configuration is correct. Affinity prevents issues with new volume discovery on existing virtual servers.
 * When you finish provisioning new volumes, you can toggle bootable and sharing switches.
 * Make volumes that belong to different OS file systems unique sizes. Otherwise, it is difficult to identify the storage volumes within the operating system.
@@ -340,7 +344,6 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | | | `lvusrsaptrans` | `/usr/sap/trans` |
 | | | `lvsapDAH` | `/usr/sap/DAH` |
 {: caption="Table 3. Sample storage layout for Linux" caption-side="top"}
-
 
 
 ### Sample storage configuration for Oracle DB on IBM AIX that use the IBM Power Virtual Server

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020,2023
-lastupdated: "2023-09-25"
+lastupdated: "2023-03-08"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -80,7 +80,6 @@ The first letter of the profile name indicates the profile family that is mentio
 
 | First letter | Characteristics of the related profile family |
 | --- | --- |
-| b | *Balanced* family, CPU to Memory ratio 1:4 |
 | m | *Memory Optimized* family, higher CPU to Memory ratio 1:8 |
 | v | *Very High Memory Optimized family, very high CPU to Memory ratio 1:14 |
 | u | *Ultra High Memory Optimized* family, ultra high CPU to Memory ratio 1:28 |
@@ -147,7 +146,7 @@ The following table shows the required physical volumes, related volume groups, 
 
 | Profile | File\nsystem | Logical\nVolume | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(GB) |
 | --- | --- | --- | --- | --- | --- | --- |
-| `mx2-16x128`\nand\n`mx2-32x256`  | `/hana/shared` | `hana_shared_lv` | 256 | `hana_vg` | `vdd` | 500 |
+| `mx2-8x64`\nand\n`mx2-16x128`\nand\n`mx2-32x256`  | `/hana/shared` | `hana_shared_lv` | 256 | `hana_vg` | `vdd` | 500 |
 | | `/hana/data` | `hana_data_lv` | 256 | | `vde` | 500 |
 | | `/hana/log` | `hana_log_lv` | 988 | | `vdf` | 500 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -164,7 +163,7 @@ The following table shows the required physical volumes, related volume groups, 
 {: #hana-iaas-intel-vs-vpc-mx2-setup}
 
 See the step by step instructions for setting up the assets here. Mind the different volume names.
-- [for the mx2-16x128 and mx2-32x256 profiles](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-16x128-32x256-configure)
+- [for the mx2-8x64, mx2-16x128 and mx2-32x256 profiles](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-16x128-32x256-configure)
 - [for the mx2-48x384 profile](/docs/sap?topic=sap-storage-design-considerations#hana-iaas-mx2-48x384-configure)
 
 
