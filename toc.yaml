@@ -300,6 +300,10 @@ toc:
                 - sap-refarch-nw-mssql.md
                 - sap-refarch-nw-hana.md
         - topicgroup:
+            label: SAP automated workload responsibilities on IBM Cloud VPC
+            topics:
+                - sap-responsibilities-auto-workloads.md
+        - topicgroup:
             label: Infrastructure Deployment Patterns for SAP
             topics:
                 - sap-deploypattern-bm-vs-gen2.md
