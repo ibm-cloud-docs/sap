@@ -46,7 +46,7 @@ A deployment server (bastion server) deployed using the automation solution [Aut
 
 The scripts automate the deployment of the virtual infrastructure resources and the provisioning processes for the SAP architecture, in an existing VPC. An SAP HANA DB, on a virtual server instance VPC box, is provisioned. The scripts work in two phases.
 
-During the first phase, two virtual server instance, with SAP certified storage and network configuration (the same subnet and security group as for the deployment server (bastion server)) are configured.
+During the first phase, a virtual server instance, with SAP certified storage and network configuration (the same subnet and security group as for the deployment server (bastion server)) are configured.
 
 During the second phase, the Ansible playbooks are called and the SAP HANA 2.0 architecture is installed on the SAP HANA VSI box.
 
