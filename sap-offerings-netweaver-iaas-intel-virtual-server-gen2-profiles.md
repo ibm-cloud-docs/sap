@@ -32,7 +32,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
 | --- | --- | --- | --- |
-| **Compute** | | | |
+| **Compute Optimized** | | | |
 | cx2-2x4 | 2 | 4 | 2,238 |
 | cx2-4x8 | 4 | 8 |  4,475 |
 | cx2-8x16 | 8 | 16 |  8,950 |
@@ -52,7 +52,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | bx2-64x256 | 64 | 256 | 81,685 |
 | bx2-96x384 | 96 | 384 | 122,528 |
 | bx2-128x512 | 128 | 512 | 163,370 |
-| **Memory optimized** | | | |
+| **Memory Optimized** | | | |
 | mx2-2x16 | 2 | 16 | 2,571 |
 | mx2-4x32 | 4 | 32 | 5,141 |
 | mx2-8x64 | 8 | 64 | 10,283 |
@@ -62,7 +62,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | mx2-64x512 | 64 | 512 | 81,015 |
 | mx2-96x768 | 96 | 768 | 121,523 |
 | mx2-128x1024 | 128 | 1,024 | 162,030 |
-| **Very High Memory** | |		
+| **Very High Memory Optimized** | |		
 | vx2d-2x28 | 2 | 28 | 2,131 |
 | vx2d-4x56 | 4 | 56 | 4,262 |
 | vx2d-8x112 | 8 | 112 | 8,523 |
@@ -71,7 +71,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | vx2d-88x1232 | 88 | 1,232 | 93,750 |
 | vx2d-144x2016 | 144 | 2,016 | 153,410 |
 | vx2d-176x2464 | 176 | 2,464 | 187,500 |
-| **Ultra High Memory** | | | |
+| **Ultra High Memory Optimized** | | | |
 | ux2d-2x56 | 2 | 56 | 2,156 |
 | ux2d-4x112 | 4 | 112 | 4,312 |
 | ux2d-8x224 | 8 | 224 |  8,623 |
@@ -90,26 +90,27 @@ For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virt
 ## Understanding Virtual Server profile names
 {: #nw-iaas-intel-vs-vpc-names}
 
-With {{site.data.keyword.vsi_is_full}}, the profile families that are certified for SAP are: Balanced, Memory Optimized, Very High and Ultra High Memory.
-- Balanced family profiles, provide a good mix of performance and scalability for more common workloads.
-- All the Memory family profiles provide for memory intensive workloads, such as intensive database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads.
+With {{site.data.keyword.vsi_is_full}}, the profile families that are certified for SAP are: *Compute Optimized*, *Balanced*, *Memory Optimized*, *Very High Memory Optimized*, and *Ultra High Memory Optimized*.
+- *Compute Optimized* family profiles provide more compute power, and they have more cores with less memory.
+- *Balanced* family profiles provide a good mix of performance and scalability for more common workloads.
+- All the memory family profiles cater to memory intensive workloads, such as demanding database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads.
 
-For more information, see [Intel Virtual Server for VPC Infrastructure documentation](/docs/vpc?topic=vpc-profiles).
+For more information, see chapter [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 
 The first letter of the profile name indicates the profile family mentioned above:
 
 | First letter | Characteristics of the related profile family |
 | --- | --- |
-| c | *Compute* family, CPU to Memory ratio 1:2 |
-| b | *Balanced* family, CPU to Memory ratio 1:4 |
-| m | *Memory Optimized* family, higher CPU to Memory ratio 1:8 |
-| v | *Very High Memory Optimized*  family, very high CPU to Memory ratio 1:14 |
-| u | *Ultra High Memory Optimized* family, ultra high CPU to Memory ratio 1:28 |
+| c | *Compute Optimized* family, vCPU to memory ratio 1:2 |
+| b | *Balanced* family, vCPU to memory ratio 1:4 |
+| m | *Memory Optimized* family, higher vCPU to memory ratio 1:8 |
+| v | *Very High Memory Optimized*  family, very high vCPU to memory ratio 1:14 |
+| u | *Ultra High Memory Optimized* family, ultra high vCPU to memory ratio 1:28 |
 {: caption="Table 2. {{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
 
 
-For SAP HANA, only the memory profile families are used, for NetWeaver also the balanced family may be considered. The Virtual Server profile names are contextual and sequential. See here one example:
+For SAP HANA, only the memory profile families are used, for NetWeaver also the *Compute Optimized* and the *Balanced* families may be considered. The Virtual Server profile names are contextual and sequential. See here one example:
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |

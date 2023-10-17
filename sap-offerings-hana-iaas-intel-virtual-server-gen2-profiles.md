@@ -33,18 +33,18 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- |
-| **Memory optimized** | | | | |
+| **Memory Optimized** | | | | |
 | mx2-8x64 | 8 | 64 | 10,280 | SAP Business One (\*\*) |
 | mx2-16x128 | 16 | 128 | 20,565 | OLTP (\*)<br/>SAP Business One (\*\*) |
 | mx2-32x256 | 32 | 256 | 41,130 | OLTP (\*)<br/>SAP Business One (\*\*)  |
 | mx2-48x384 | 48 | 384 | 56,970 | OLTP (\*)<br/>SAP Business One (\*\*)  |
-| **Very High Memory** | | | | |
+| **Very High Memory Optimized** | | | | |
 | vx2d-16x224 | 16 | 224 | 17,046 | OLTP (\*) |
 | vx2d-44x616 | 44 | 616 | 46,875 | OLAP/OLTP (\*) |
 | vx2d-88x1232 | 88 | 1,232 | 93,750 | OLAP/OLTP (\*) |
 | vx2d-144x2016 | 144 | 2,016 | 153,410 | OLAP/OLTP (\*) |
 | vx2d-176x2464 | 176 | 2,464 | 187,500 | OLAP/OLTP (\*) |
-| **Ultra High Memory** | | | | |
+| **Ultra High Memory Optimized** | | | | |
 | ux2d-8x224 | 8 | 224 | 8,623 | OLTP (\*) |
 | ux2d-16x448 | 16 | 448 | 17,246 | OLTP (\*) |
 | ux2d-36x1008 | 36 | 1,008 | 38,803 | OLTP (\*) |
@@ -69,20 +69,19 @@ For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virt
 ## Understanding Virtual Server profile names
 {: #hana-iaas-intel-vs-vpc-names}
 
-With {{site.data.keyword.vsi_is_full}}, the profile families that are certified for SAP are: Balanced, Memory Optimized, Very High and Ultra High Memory.
-- Balanced family profiles, provide a good mix of performance and scalability for more common workloads.
-- All the Memory family profiles provide for memory intensive workloads, such as intensive database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads.
+With {{site.data.keyword.vsi_is_full}}, the profile families that are certified for SAP are: *Memory Optimized*, *Very High* and *Ultra High Memory Optimized*.
+- All the Memory family profiles cater to memory intensive workloads, such as demanding database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads.
 
-For more information, see [Intel Virtual Server for VPC Infrastructure documentation](/docs/vpc?topic=vpc-profiles).
+For more information, see chapter [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 
 The first letter of the profile name indicates the profile family that is mentioned the profile list:
 
 | First letter | Characteristics of the related profile family |
 | --- | --- |
-| m | *Memory Optimized* family, higher CPU to Memory ratio 1:8 |
-| v | *Very High Memory Optimized family, very high CPU to Memory ratio 1:14 |
-| u | *Ultra High Memory Optimized* family, ultra high CPU to Memory ratio 1:28 |
+| m | *Memory Optimized* family, higher vCPU to memory ratio 1:8 |
+| v | *Very High Memory Optimized* family, very high vCPU to memory ratio 1:14 |
+| u | *Ultra High Memory Optimized* family, ultra high vCPU to memory ratio 1:28 |
 {: caption="Table 2. {{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
 
 
