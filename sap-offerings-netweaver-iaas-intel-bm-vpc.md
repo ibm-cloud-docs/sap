@@ -32,13 +32,16 @@ This table gives you an overview of the SAP-certified profiles with bare metal s
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
 | --- | --- | --- | --- |
+| **Compute Optimized** | | | |
+| cx2d-metal-96x192 | 96 | 192 | 101,070|
 | **Balanced** | | | |
 | bx2d-metal-96x384 | 96 | 384 | 124,130 |
 | bx2d-metal-192x768 | 192 | 768 | 255,800 |
-| **Compute optimized** | | | |
-| cx2d-metal-96x192 | 96 | 192 | 101,070|
-| **Memory optimized** | | | |
+| **Memory Optimized** | | | |
 | mx2d-metal-96x768 | 96 | 768 | 127,620 |
+| **Ultra High Memory Optimized** | | | |
+| ux2d-metal-112x3072 | 112 | 3,072 | 140,730 |
+| ux2d-metal-224x6144 | 224 | 6,144 | 294,730 |
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver" caption-side="bottom"}
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}. 
@@ -46,20 +49,21 @@ For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virt
 ## Understanding Bare Metal Server profile names
 {: #nw-iaas-intel-bm-vpc-names}
 
-With {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC, the profile families that are certified for SAP are: *Balanced*, *Memory optimized*, and *Compute optimized*.
-- *Balanced* family profiles - provide a good mix of performance and scalability for more common workloads.
-- *Compute optimized* family profiles - provide more compute power, and they have more cores with less memory.
-- *Memory optimized* family profiles - provide advantages for memory intensive workloads, such as intensive database applications and in-memory analytics.
+With {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC, the profile families that are certified for SAP are: *Compute Optimized*, *Balanced*, *Memory Optimized*, and *Ultra High Memory Optimized*.
+- *Compute Optimized* family profiles provide more compute power, and they have more cores with less memory.
+- *Balanced* family profiles provide a good mix of performance and scalability for more common workloads.
+- *Memory Optimized* and *Ultra High Memory Optimized* family profiles cater to memory intensive workloads, such as demanding database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads.
 
-For more information, see [Bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile).
+For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile).
 
 The first letter of the profile name indicates the profile family:
 
 | First letter | Characteristics of the related profile family |
 | --- | --- |
-| c | *Compute Optimized* family, CPU to Memory ratio 1:2 |
-| b | *Balanced* family, CPU to Memory ratio 1:4 |
-| m | *Memory Optimized* family, higher CPU to Memory ratio 1:8 |
+| c | *Compute Optimized* family, vCPU to memory ratio 1:2 |
+| b | *Balanced* family, vCPU to memory ratio 1:4 |
+| m | *Memory Optimized* family, higher vCPU to memory ratio 1:8 |
+| u | *Ultra High Memory Optimized* family, even higher CPU to memory ratio 1:27.43 |
 {: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
 <br/>
@@ -72,11 +76,12 @@ The Bare Metal Server profile names are contextual and sequential. See the follo
 | | 2 | The generation for the underlying hardware | 
 | | d | the optional 'd' in the name indicates that the server is equipped with one or more SSD storage devices |
 | | — | _spacer_ |
+| | metal | *metal* in the name indicates that this is a bare metal server |
+| | — | _spacer_ |
 | | 96 | 96 vCPU |
 | | x | _spacer_ |
 | | 768 | 768 GiB RAM |
 {: caption="Table 3. Profile naming for SAP NetWeaver" caption-side="top"}
-'-metal-' in the name indicates that this is a Bare Metal Server.
 
 
 ## Profiles available on Hourly Consumption Billing
@@ -105,5 +110,5 @@ Your bare metal server on VPC comes with a number of internal NVMEs, depending o
 ### External Storage
 {: #nw-iaas-intel-bm-vpc-ext-storage}
 
-If more storage needs are to be added to your Bare metal server on VPC, for example, for backup purposes, NFS-based `file shares` can be created and mounted. Learn more details in the corresponding chapter [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
+If more storage needs are to be added to your bare metal server on VPC, for example, for backup purposes, NFS-based `file shares` can be created and mounted. Learn more details in the corresponding chapter [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 

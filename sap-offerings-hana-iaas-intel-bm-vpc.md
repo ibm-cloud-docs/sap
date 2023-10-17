@@ -30,17 +30,20 @@ The following table gives you an overview of the SAP-certified profiles with bar
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- |
-| **Compute** | | | | |
+| **Compute Optimized** | | | | |
 | cx2-metal-96x192 | 96 | 192 | 107,400 | SAP Business One (\*\*) |
 | **Balanced** | | | | |
 | bx2d-metal-96x384 | 96 | 384 | 124,130 | OLTP/OLAP (\*)<br/>SAP Business One (\*\*) |
 | bx2d-metal-192x768 | 192 | 768 | 255,800 | OLTP/OLAP (\*) |
-| **Memory optimized** | | | | |
+| **Memory Optimized** | | | | |
 | mx2d-metal-96x768 | 96 | 768 | 127,620 | OLTP/OLAP (\*)<br/>SAP Business One (\*\*) |
+| **Ultra High Memory Optimized** | | | |
+| ux2d-metal-112x3072 | 112 | 3,072 | 140,730 | OLTP/OLAP (\*) |
+| ux2d-metal-224x6144 | 224 | 6,144 | 294,730 | OLTP/OLAP (\*) |
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA" caption-side="bottom"}
 
-(\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions<br/>
-SLES 15 SP3, SLES 15 SP4
+(\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.0 for SAP Solutions<br/>
+SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
 
 (\*\*): SLES 15 SP3, SLES 15 SP4
 
@@ -54,19 +57,21 @@ For SAP HANA deployments that use {{site.data.keyword.cloud_notm}} Bare Metal Se
 ## Understanding Bare Metal Server profile names
 {: #hana-iaas-intel-bm-vpc-names}
 
-With {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC, the profile families that are certified for SAP are: *Balanced* and *Memory optimized*.
-- *Balanced* family profiles - provide a good mix of performance and scalability for more common workloads.
-- *Memory optimized* family profiles - provide advantages for memory intensive workloads, such as intensive database applications and in-memory analytics, and are especially designed for SAP HANA workloads.
+With {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC, the profile families that are certified for SAP are: *Compute Optimized*, *Balanced*, *Memory Optimized*, and *Ultra High Memory Optimized*.
+- *Compute Optimized* family profiles provide more compute power, and they have more cores with less memory.
+- *Balanced* family profiles provide a good mix of performance and scalability for more common workloads.
+- *Memory Optimized* and *Ultra High Memory Optimized* family profiles cater to memory intensive workloads, such as demanding database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads.
 
-For more information, see [Bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile).
+For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile).
 
 The first letter of the profile name indicates the profile family:
 
 | First letter | Characteristics of the related profile family |
 | --- | --- |
-| c | *Compute* family, CPU to Memory 1:2 |
-| b | *Balanced* family, CPU to Memory 1:4 |
-| m | *Memory optimized* family, higher CPU to Memory ratio 1:8 |
+| c | *Compute Optimized* family, vCPU to memory ratio 1:2 |
+| b | *Balanced* family, vCPU to memory ratio 1:4 |
+| m | *Memory Optimized* family, higher vCPU to memory ratio 1:8 |
+| u | *Ultra High Memory Optimized* family, even higher vCPU to memory ratio 1:27.43 |
 {: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
 <br/>
@@ -79,12 +84,12 @@ The bare metal server profile names are contextual and sequential. See the follo
 | | 2 | The generation for the underlying hardware | 
 | | d | the optional 'd' in the name indicates that the server is equipped with one or more SSD storage devices |
 | | — | _spacer_ |
+| | metal | *metal* in the name indicates that this is a bare metal server |
+| | — | _spacer_ |
 | | 96 | 96 vCPU |
 | | x | _spacer_ |
 | | 768 | 768 GiB RAM |
 {: caption="Table 3. Profile naming for SAP HANA" caption-side="top"}
-'-metal-' in the name indicates that this is a Bare Metal Server.
-
 
 ## Profiles available on Hourly Consumption Billing
 {: #hana-iaas-intel-bm-vpc-hourly}
@@ -137,10 +142,25 @@ The following table shows the required physical volumes, related volume groups, 
 | `mx2d-metal-96x768`  | `/hana/shared` | `hana_shared_lv` | 768 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
 | | `/hana/data` | `hana_data_lv` | min. 2,304 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
 | | `/hana/log` |  | 512 | `vg0` | | | 
+| --- | --- | --- | --- | --- | --- | --- |
+| `ux2d-metal-112x3072`  | `/hana/shared` | `hana_shared_lv` | 3,072 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
+| | `/hana/data` | `hana_data_lv` | min. 9,216 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
+| | `/hana/log` |  | 512 | `vg0` | | | 
+| --- | --- | --- | --- | --- | --- | --- |
+| `ux2d-metal-224x6144`  | `/hana/shared` | `hana_shared_lv` | 6,144 | `vg0` | `nvme0n1-`\n`nvme1n1-` | 25.6 |
+| | `/hana/data` | `hana_data_lv` | min. 18,432 | `vg0` | | |
+| | `/hana/log` |  | 512 | `vg0` | | | 
 {: caption="Table 4. Storage layout for Bare metal servers for VPC" caption-side="top"}
 
 <br/>
 <br/>
+
+Profile `ux2d-metal-224x6144` is equipped with different set od disks, so jump directly to ["Steps for setting up storage for the `ux2d-metal-224x6144` profile"](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc#hana-iaas-intel-bm-vpc-storage-specs-6TB).
+{: note}
+
+### Steps for setting up storage for the profiles up to 3,072 GiB
+{: #hana-iaas-intel-bm-vpc-storage-specs-upto-3TB}
+
 Note, that both volume groups vg0 and vg1 are not fully used. Remaining space can be used to extend the listed sizes, which are only minimum sizes, or can be used for other purposes. However, do not point I/O load at the remaining space since that impacts SAP HANA’s performance.
 
 To ensure a higher level of availability and failure resilience, RAID10 logical volumes are built on-top the under-laying NVMEs, based on Linux’s logical volume manager.
@@ -196,6 +216,58 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
     LABEL=HANA_DATA /hana/data xfs defaults,largeio,swalloc,inode64 0 0
     ```
 7.  You can now mount the file systems.
+
+### Steps for setting up storage for the `ux2d-metal-224x6144` profile
+{: #hana-iaas-intel-bm-vpc-storage-specs-6TB}
+
+To ensure a higher level of availability and failure resilience, RAID1 logical volumes are built on-top the under-laying NVMEs, based on Linux’s logical volume manager.
+
+These steps show a step-by-step guide for setting up the volume groups, logical volumes, and file systems.
+
+1. Log in to the OS and install the lvm2 package, if not installed already.
+
+    ```
+    [root@ux2d-metal-224x6144 ~]# yum install lvm2
+    ```
+    This command applies to RHEL, on SLES use ‘zypper install’ instead. 
+
+2. Create the volume group.
+
+    ```
+    [root@ux2d-metal-224x6144 ~]# vgcreate vg0 /dev/nvme0n1 /dev/nvme1n1
+    ```
+
+3. Create logical volumes hana_shared_lv and hana_log_lv on top of the volume group.
+
+    ```
+    [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -i 2 -m 1 -L 6144G -I 64 -n hana_shared_lv vg0
+    [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -i 2 -m 1 -L 512G -I 64 -n hana_log_lv vg0
+    ```
+
+4. Create logical volume hana_data_lv.
+
+    ```
+    [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -i 2 -m 1 -l 100%FREE -I 64 -n hana_data_lv vg0
+    ```
+
+5. Create file systems on the logical volumes. In this example, XFS is used and is mounted by label. Mount by label is not a requirement and can be adapted according to your needs:
+
+    ```
+    [root@ux2d-metal-224x6144 ~]# mkfs.xfs -L HANA_SHARED -K /dev/mapper/vg0-hana_shared_lv
+    [root@ux2d-metal-224x6144 ~]# mkfs.xfs -L HANA_LOG -K /dev/mapper/vg0-hana_log_lv
+    [root@ux2d-metal-224x6144 ~]# mkfs.xfs -L HANA_DATA -K /dev/mapper/vg0-hana_data_lv
+    ```
+
+6. Add the following lines to `/etc/fstab` and create the required directory paths with mkdir. 
+
+    ```
+    LABEL=HANA_SHARED /hana/shared xfs defaults 0 0
+    LABEL=HANA_LOG /hana/log xfs defaults,swalloc,inode64 0 0
+    LABEL=HANA_DATA /hana/data xfs defaults,largeio,swalloc,inode64 0 0
+    ```
+7.  You can now mount the file systems.
+
+
 
 Check [SAP Note 2777782](https://launchpad.support.sap.com/#/notes/2777782) for RHEL and [SAP Note 2684254](https://launchpad.support.sap.com/#/notes/2684254) for SLES to adapt your OS configuration settings according to the requirements for SAP HANA.
 
