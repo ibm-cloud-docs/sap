@@ -20,11 +20,11 @@ subcollection: sap
 {:tip: .tip}
 
 # Overview of {{site.data.keyword.ibm_cloud_sap}}
-{: #overview-sap-offerings}
+{: #overview-sap-offerings-overview}
 
 
 ## Introduction
-{: #introduction}
+{: #introductionsap-offereings}
 
 {{site.data.keyword.ibm_cloud_sap}} is for enterprises who believe that empowering their SAP workloads also empowers their business. {{site.data.keyword.ibm_cloud_sap}} provides your enterprise with full cloud capabilities. So you can run your mission-critical SAP workloads with secure, reliable, and compliant infrastructure, and take advantage of options to append more cloud services to transform the business.
 {: shortdesc}
@@ -59,7 +59,6 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 
 ## Supported SAP Business Applications
 {: #supported-sap-business-applications-summary}
-
 - SAP S/4HANA AnyPremise edition
 - SAP S/4HANA Cloud SaaS Extended edition (by request to SAP)
 - SAP BW/4HANA
@@ -96,7 +95,6 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 
 ## Supported SAP Development Applications
 {: #supported-sap-development-applications-summary}
-
 - SAP Cloud Platform (including SAP Cloud Connector)
 
 
