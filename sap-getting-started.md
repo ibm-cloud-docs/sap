@@ -6,7 +6,7 @@ lastupdated: "2021-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
-subcollection: sap
+subcollection: sap  
 
 ---
 
@@ -56,7 +56,7 @@ This table summarizes the SAP landscape installation steps for you and your team
 
 | **Task** |**Details** |
 | ----- | ----- |
-| Read the [Overview of {{site.data.keyword.ibm_cloud_sap}}](/docs/sap?topic=sap-overview) | Identify the various offerings that are available for your SAP landscape. Provides a high-level comparison of your options. |
+| Read the [Overview of {{site.data.keyword.ibm_cloud_sap}}](/docs/sap?topic=sap-overview-sap-offerings-overview) | Identify the various offerings that are available for your SAP landscape. Provides a high-level comparison of your options. |
 | Read the relevant documents in the following topic groups: | * Infrastructure environments section for your specific environment, such as [IBM Power Systems Infrastructure environment introduction](/docs/sap?topic=sap-power-env-introduction) \n * [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings) \n * [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing) \n Read these documents to identify the detailed infrastructure options and design considerations that apply to your SAP landscape. |
 | Read the relevant SAP software documentation. | Short lists of planning considerations are available to assist under topic groups: \n * SAP Business Applications \n * SAP Technical Applications \n * SAP AnyDB databases \n Lists of usage, network, storage, database, and OS considerations are available for SAP Business Applications, SAP Technical Applications, SAP AnyDB databases, SAP Development Applications. References to SAP installation documents are also included. |
 | _Optional:_ Read the relevant SAP Business Partner certified solutions documents | Various SAP Open Ecosystem Partners are available from {{site.data.keyword.cloud_notm}}, with documents on how to best use these solutions for your SAP deployment. |
