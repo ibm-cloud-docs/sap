@@ -19,7 +19,7 @@ subcollection: sap
 {:table: .aria-labeledby="caption"}
 
 
-# Fast Path of IBM Cloud Intel Bare Metal
+# Fast Path of IBM Cloud Intel Bare Metal on Classic Infrastructure
 {: #fast-path-site-map-intel-bm}
 
 This page is a collection of shortcuts to the documentation sections for each offering, excluding general information that applies to all offerings, such as SAP Sizing.

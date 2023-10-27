@@ -37,7 +37,10 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 | [BI.S3.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=827){: external} | 36 | 72 | 768 GB | 79,630 | OLAP/OLTP (\*)<br/>SAP Business One (\*\*\*) |
 | [BI.S4.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1087){: external} | 32 | 64 | 192 GB | 82,470 | OLAP/OLTP (\*\*)<br/>SAP Business One (\*\*\*) |
 | [BI.S4.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1091){: external} | 32 | 64 | 384 GB | 85,130 | OLAP/OLTP (\*\*)<br/>SAP Business One (\*\*\*) |
+| BI.S4.H2.384_v3 Appliance | 16 | 32 | 384 GB | 60,420 | OLAP/OLTP (\*\*) |
 | [BI.S4.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1095){: external} | 40 | 80 | 768 GB | 112,830 | OLAP/OLTP (\*\*)<br/>SAP Business One (\*\*\*) |
+| BI.S4.H2.768_v2 Appliance | 48 | 96 | 768 GB | 124,620 | OLAP/OLTP (\*\*) |
+| BI.S4.H2.768_v3 Appliance | 16 | 32 | 768 GB | 60,420 | OLAP/OLTP (\*\*) |
 | [BI.S4.H2.1500 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1099){: external} | 56 | 112 | 1536 GB | 147,220 | OLAP/OLTP (\*\*) |
 | [BI.S4.H2.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1103){: external} | 56 | 112 | 3072 GB | 135,127 | OLAP/OLTP (\*\*) |
 | [BI.S4.H4.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1117){: external} | 112 | 224 | 3072 GB | 285,970 | OLAP/OLTP (\*\*) |
@@ -218,7 +221,7 @@ Link to Profile: [BI.S4.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastruct
 |   | `/dev/sdb2` | `/hana/data` | _remaining capacity_ |
 
 
-### BI.S4.H2.384 Appliance
+### BI.S4.H2.384 and BI.S4.H2.384_v2 Appliance
 {: #hana-iaas-intel-bm-s4-h2-384gb}
 
 Link to Profile: [BI.S4.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1091){: external}
@@ -247,7 +250,7 @@ Link to Profile: [BI.S4.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastruct
 |   | `/dev/sdb2` | `/hana/data` | _remaining capacity_ |
 
 
-### BI.S4.H2.768 Appliance
+### BI.S4.H2.768, BI.S4.H2.768_v2, and BI.S4.H2.768_v3 Appliance
 {: #hana-iaas-intel-bm-s4-h2-768gb}
 
 Link to Profile: [BI.S4.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1095){: external}
