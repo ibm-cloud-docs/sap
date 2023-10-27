@@ -19,7 +19,7 @@ subcollection: sap
 {:table: .aria-labeledby="caption"}
 
 
-# Fast Path of IBM Cloud Intel Virtual Servers
+# Fast Path of IBM Cloud Intel Virtual Servers on VPC Infrastructure
 {: #fast-path-site-map-intel-vs-gen2}
 
 This page is a collection of shortcuts to the documentation sections for each offering, excluding general information that applies to all offerings, such as SAP Sizing.
@@ -31,7 +31,7 @@ Use the links in this section to quickly access relevant documents that you are 
 {: #fast-path-intel-vs-gen2-learn}
 
 An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated site location (also referred to as zone, which is a data center site). For more information:
-- [IBM Cloud VPC Infrastructure environment introduction](/ddocs/sap?topic=sap-vpc-env-introduction)
+- [IBM Cloud VPC Infrastructure environment introduction](/docs/sap?topic=sap-vpc-env-introduction)
 
 
 Certified Infrastructure-as-a-Service for SAP HANA database server is available in many variations, each with different capabilities and sizes to fit many different SAP workload scenarios. For more information:
