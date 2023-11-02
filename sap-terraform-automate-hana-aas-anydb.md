@@ -204,7 +204,7 @@ Use these steps to configure the SAP Additional Application Server (AAS) NetWeav
 
 Use these steps to configure the SAP AAS NetWeaver (ABAP) on HANA on your existing VPC by using the catalog tile interface. The script takes 2 - 3 hours to complete.
 
-1. From the {{site.data.keyword.cloud_notm}} catalog, select **VPC with Additional Application Server ABAP on Linux for SAP HANA** on HANA tile. The **Create** tab opens for VPC with Additional Application Server ABAP on Linux for SAP HANA. For more information about this deployment, see the About tab or the readme file link.
+1. From the {{site.data.keyword.cloud_notm}} catalog, select **VPC with Additional Application Server ABAP on Linux for SAP HANA** on Deployable Architecture tile. The **Create** tab opens for VPC with Additional Application Server ABAP on Linux for SAP HANA. For more information about this deployment, see the About tab or the readme file link.
 2. Select the latest version.
 3. Select **VPC with Additional Application Server ABAP on Linux for SAP HANA** on Deployable Architecture tile variation.
 4. Click **Review deployment** options:
