@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-04"
+lastupdated: "2023-11-02"
 
 subcollection: sap
 
@@ -189,7 +189,7 @@ Use these steps to configure the SAP HANA Backup for COS by using the {{site.dat
 
 Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existing VPC by using the catalog tile interface. The script takes 2 - 3 hours to complete.
 
-1. From the {{site.data.keyword.cloud_notm}} Catalog menu, select **SAP HANA Backup to {{site.data.keyword.cloud_notm}} Object Storage on VPC** on Deployable Architecture tile. For more information about this deployment, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md) file.
+1. From the {{site.data.keyword.cloud_notm}} Catalog menu, select **Cloud Object Storage on VPC for SAP HANA Backup** on Deployable Architecture tile. For more information about this deployment, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md) file.
 2. Select the latest version.
 3. Select the **Standard** variation.
 4. Click **Review deployment options**:

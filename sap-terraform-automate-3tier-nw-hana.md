@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-27"
+lastupdated: "2023-11-02"
 
 subcollection: sap
 
@@ -203,7 +203,7 @@ Use these steps to configure the NetWeaver ABAP or Java stack on your existing V
 
 Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existing VPC by using the catalog tile interface. The scripts can take 2 - 3 hours to complete.
 
-1. From the {{site.data.keyword.cloud_notm}} Catalog menu, select the **SAP NetWeaver (ABAP) Linux/HANA on VPC** on Deployable Architecture tile. For more information about this deployment, see the [Readme](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md) file.
+1. From the {{site.data.keyword.cloud_notm}} Catalog menu, select the **VPC for SAP HANA NetWeaver ABAP** on Deployable Architecture tile. For more information about this deployment, see the [Readme](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md) file.
 2. Select the latest version.
 3. Select **Standard** variation.
 4. Click **Review deployment options**:
