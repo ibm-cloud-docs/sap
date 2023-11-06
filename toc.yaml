@@ -282,6 +282,7 @@ toc:
             - sap-power-virtual-server-ha-rhel-hana-sr-co.md
             - sap-power-virtual-server-ha-rhel-hana-sr-aa.md
             - sap-power-virtual-server-ha-rhel-hana-sr-multitier.md
+            - sap-power-virtual-server-ha-rhel-hana-sr-multitarget.md
             - sap-power-virtual-server-ha-rhel-ensa.md
             - sap-power-virtual-server-ha-rhel-nfs.md
 
