@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-07-06"
+lastupdated: "2023-11-06"
 
 subcollection: sap
 
@@ -33,7 +33,7 @@ Each customer is given an SAP S-user that reflects their contractual details wit
 
 It is the customer's responsibility to download and prepare the necessary SAP kits from [SAP launchpad support](https://launchpad.support.sap.com/) and store them on the dedicated and customizable storage. The SAP kits are used during automated deployment when Ansible is called.
 
-![Figure 1. Standard Bastion server with SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/sap-terraform-bastion-server.png "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 1. Standard Bastion server SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
+![Figure 1. Standard Bastion server with SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/sap-terraform-bastion-server.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 1. Standard Bastion server SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
 
 ## Solution implemented
 {: #bastion-solution-implemented}
