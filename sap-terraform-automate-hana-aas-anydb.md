@@ -19,7 +19,7 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Deploying Additional Application Server (AAS) to SAP HANA and AnyDB on an existing {{site.data.keyword.cloud_notm}} VPC with automation
+# VPC with Additional Application Server (AAS) ABAP on Linux for SAP HANA
 {: #automate-hana-aas-anydb-terraform-ansible}
 
 You can use Terraform scripts to create a single-tier VPC and create the AAS to HANA and AnyDB infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC. Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and more Intel&reg; technologies.
