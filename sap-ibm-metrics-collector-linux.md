@@ -65,6 +65,7 @@ You need to first create a Service ID and then the related API key. Use the foll
 1. Click **Access Policies** > **Assign Access**.
 1. Click **IAM Services** for **Assign Service ID additional access**.
 1. Select **VPC Infrastructure service** for **What type of access do you want to assign?**
+<!-- 1. Select **All resource groups** for **in** .... this would be the right option; but it's not available in the UI! -->
 1. Leave the default **Account** for **in**
 1. Leave **All resource types** for **Resource type** and click **Viewer** for **Platform Access**.
 1. Click **Add** > **Assign**. The VPC Infrastructure Service policy is assigned to your Service ID.
@@ -92,7 +93,7 @@ The IMCS uses port 18181 to display the metrics. Make sure that `port 18181` is 
 {: important}
 
 The commands that are listed in this section were run on a Red Hat virtual server instance. If you have a SUSE virtual server, you can follow the same steps but you will see a slightly different user interface.
-{:note}
+{: note}
 
 Use the following steps to download the IMCS.
 
@@ -114,6 +115,7 @@ Use the following steps to download the IMCS.
    ./install-linux.sh
    ```
    {: pre}
+
 7. Paste your [API key](#api-key) when prompted. If you don't have an API key, see [Getting an {{site.data.keyword.cloud_notm}} API key](#get-api-key).
 8. Check to make sure that the IMCS is running after the installation is complete. The service status displays `active` when it is ready.
 
@@ -218,8 +220,8 @@ No reported metrics message is often due to the port not assigned to SAP Metrics
 
 You can install `nmap` on your system by using the appropriate package manager like `yum` or `apt-get`.
 
-  * Command for Red Hat: `yum install nmap`
-  * Command for SUSE: `zypper install nmap`
+    * Command for Red Hat: `yum install nmap`
+    * Command for SUSE: `zypper install nmap`
 
 
 ## Additional information
@@ -227,10 +229,10 @@ You can install `nmap` on your system by using the appropriate package manager l
 
 If you don't have an {{site.data.keyword.cloud_notm}} API key, the IMCS can't collect all of the metrics that are required by SAP, which include
 
-  * Network Adapter Mapping - replaced with local MAC ID.
-  * Network Adapter Bandwidth - Port Speed - defaults to 0.
-  * Disk Volume Mapping - replaced with Volume Attachment ID.
-  * Disk Guaranteed IOPS - defaults to 0.
+    * Network Adapter Mapping - replaced with local MAC ID.
+    * Network Adapter Bandwidth - Port Speed - defaults to 0.
+    * Disk Volume Mapping - replaced with Volume Attachment ID.
+    * Disk Guaranteed IOPS - defaults to 0.
 
 You must provide an API key so that all metrics can be collected. Otherwise, this virtual server is not fully supported by SAP.
 {: important}

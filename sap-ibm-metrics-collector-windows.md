@@ -49,7 +49,7 @@ You need to first create a Service ID and then the related API key. Use the foll
 1. Click **Access Policies** > **Assign Access**.
 1. Click **IAM Services** for **Assign Service ID additional access**.
 1. Select **VPC Infrastructure service** for **What type of access do you want to assign?**
-<!--1. Select **All resource groups** for **in**. This is not in ui -->
+1. Select **All resource groups** for **in**.
 1. Leave the default **Account** for **in**
 1. Leave **All resource types** for **Resource type** and click **Viewer** for **Platform Access**.
 1. Click **Add** > **Assign**. The VPC Infrastructure Service policy is assigned to your Service ID.
@@ -74,10 +74,10 @@ Now is the only opportunity to access the API Key data. You cannot view this API
 The IMCS is a service that automatically starts after the installation is and requires an API key. It collects metrics from the metadata of the virtual server, {{site.data.keyword.cloud_notm}} infrastructure services, runtime data about resources, such as CPU, memory, network, and disk. The metrics are aggregated and displayed through the web server for SAP customers. SAPOSCOL uses the XML output of this web server.
 
 The IMCS uses port 18181 to show the metrics. Make sure that port `18181` is not used by any other application. For more information on how to check port availability, see [Troubleshooting](#troubleshooting-win).
-{:important}
+{: important}
 
 The commands that are listed in this section were run in Windows PowerShell 5.1.
-{:note}
+{: note}
 
 Use the following steps to download the IMCS.
 
@@ -92,6 +92,7 @@ Use the following steps to download the IMCS.
    .\install-metric-collector.ps1
    ```
    {: pre}
+
 7. Paste your [API key](#api-key) when prompted. If you don't have an API key, see [Getting an {{site.data.keyword.cloud_notm}} API key](#get-api-key-win).
 8. Check to make sure that the IMCS is running after the installation is complete. The service status displays `Running` when it is ready.
 
@@ -109,7 +110,7 @@ Use the following steps to download the IMCS.
 After the installation completes and the service is started, it can take time for the IMCS begins collecting metrics. Wait at least 2 minutes after the installation before you expect full and accurate metrics.
 
 1. Open the browser of your choice.
-1. Open the following link: `http://localhost:18181/sap/metrics`
+1. Open the following link: http://localhost:18181/sap/metrics
 
    ```
     <metrics>
