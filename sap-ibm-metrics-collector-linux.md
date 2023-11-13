@@ -97,7 +97,7 @@ The commands that are listed in this section were run on a Red Hat virtual serve
 
 Use the following steps to download the IMCS.
 
-1. [Download the IMCS](ftp://public.dhe.ibm.com/cloud/bluemix/sap/linux/){: external}.
+1. [Download the IMCS](https://public.dhe.ibm.com/cloud/bluemix/sap/linux/){: external}.
 2. Select the appropriate `tar.gz` file. In most cases, use the current version. Connect as **guest**.
 3. Save the file to your internal Downloads folder and click **OK**.
 4. Move or copy the IMCS `tar.gz` file to your VPC virtual server instance.
@@ -220,8 +220,8 @@ No reported metrics message is often due to the port not assigned to SAP Metrics
 
 You can install `nmap` on your system by using the appropriate package manager like `yum` or `apt-get`.
 
-    * Command for Red Hat: `yum install nmap`
-    * Command for SUSE: `zypper install nmap`
+* Command for Red Hat: `yum install nmap`
+* Command for SUSE: `zypper install nmap`
 
 
 ## Additional information
@@ -229,10 +229,10 @@ You can install `nmap` on your system by using the appropriate package manager l
 
 If you don't have an {{site.data.keyword.cloud_notm}} API key, the IMCS can't collect all of the metrics that are required by SAP, which include
 
-    * Network Adapter Mapping - replaced with local MAC ID.
-    * Network Adapter Bandwidth - Port Speed - defaults to 0.
-    * Disk Volume Mapping - replaced with Volume Attachment ID.
-    * Disk Guaranteed IOPS - defaults to 0.
+* Network Adapter Mapping - replaced with local MAC ID.
+* Network Adapter Bandwidth - Port Speed - defaults to 0.
+* Disk Volume Mapping - replaced with Volume Attachment ID.
+* Disk Guaranteed IOPS - defaults to 0.
 
 You must provide an API key so that all metrics can be collected. Otherwise, this virtual server is not fully supported by SAP.
 {: important}
