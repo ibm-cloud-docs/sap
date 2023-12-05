@@ -41,8 +41,8 @@ The first configuration sample is simple, a single node 128 GB, 32 vCPU virtual 
 
 Although we want to start quickly, you first must be able to log in to {{site.data.keyword.cloud_notm}} and make sure that you have access to important SAP resources. Read the *Pre-Requisites for SAP Workloads* topic group, under [Necessary account credentials for SAP and {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-necessary-credentials).
 
-  This tutorial contains instructions to complete the deployment - a detailed explanation of the navigation through the {{site.data.keyword.cloud_notm}} console and all available options that you can use, you find in the topic [Deploying your infrastructure](/docs/sap?topic=sap-vs-set-up-infrastructure).
-  {: note}
+This tutorial contains instructions to complete the deployment - a detailed explanation of the navigation through the {{site.data.keyword.cloud_notm}} console and all available options that you can use, you find in the topic [Deploying your infrastructure](/docs/sap?topic=sap-vs-set-up-infrastructure).
+{: note}
 
 ## Securing Access
 {: #quickstudy-vs-gen2-netweaver-wins-secure-access}
@@ -155,13 +155,13 @@ Before you can use the CLI to retrieve the *Administrator* password, you must [i
 ### Connect to {{site.data.keyword.cloud_notm}} with the CLI
 
 Log in to {{site.data.keyword.cloud_notm}} with your IBMid. If you have multiple accounts, you are prompted to select which account to use.
-  ```
-  ibmcloud login
-  ```
-  {: codeblock}
 
-  If your credentials are rejected, you might be using a federated ID. To log in with a federated ID, use the `--sso` flag. See [Logging in with a federated ID](/docs/account?topic=account-federated_id) for more details.
-  {: tip}
+```shell
+ibmcloud login
+```
+
+If your credentials are rejected, you might be using a federated ID. To log in with a federated ID, use the `--sso` flag. See [Logging in with a federated ID](/docs/account?topic=account-federated_id) for more details.
+    {: tip}
 
 ### Set the target region (DC)
 
@@ -178,25 +178,22 @@ Look up your region code in the table that corresponds to the location of your V
 
 For example:
 
-```
+```shell
 ibmcloud target -r eu-de
-
 ```
 
-### Get the instance ID 
+### Get the instance ID
 
-```
+```shell
 ibmcloud is ins
-
 ```
 
 Find the instance ID that is assigned to your VSI *sap-wdb*.
 
 ### Retrieve the Administrator password
 
-```
+```shell
 ibmcloud is instance-initialization-values <instance ID> --private-key @sap-ssh-key
-
 ```
 
 Take note of the password.
@@ -275,10 +272,10 @@ A more complex scenario involves installing two virtual servers. One server is t
 Both VSIs have one extra attached volume and a _Floating IP_. A smaller volume is attached to *sap-wapp*, which is the SAP primary application server (PAS). *sap-wdb* has a larger volume to host the RDBMS and the SAP Central Services (ASCS) instance.
 
 
-<!-- either these diagrams should be replaced or removed>
-<!--![Figure 4. Virtual server instances](/images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Figure 4. Virtual server instances" caption-side="bottom"} -->
 
-<!--![Figure 5. Block storage volumes for VPC](/images/quickstudy-intel-vs-gen2-image15.png "Block storage volumes for VPC"){: caption="Figure 5. Block storage volumes for VPC" caption-side="bottom"}-->
+![Figure 4. Virtual server instances](/images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Figure 4. Virtual server instances" caption-side="bottom"} 
+
+![Figure 5. Block storage volumes for VPC](/images/quickstudy-intel-vs-gen2-image15.png "Block storage volumes for VPC"){: caption="Figure 5. Block storage volumes for VPC" caption-side="bottom"}
 
 
 ## Preparing your network
@@ -304,7 +301,7 @@ In this tutorial that installs a prototypical SAP System, we do not specify a Wi
 
 The following example is for the server instance *sap-wdb*.
 
-```
+```plaintext
 10.243.128.9 sap-wdb
 10.243.129.6 sap-wdb-priv
 10.243.128.7 sap-wapp-win
