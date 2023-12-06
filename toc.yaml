@@ -272,7 +272,11 @@ toc:
                   topics:
                     - sap-terraform-automate-bw-4hana-overview.md
                     - sap-terraform-automate-bw-4hana.md
-              - sap-terraform-automate-3tier-nw-hana.md
+              - topicgroup:
+                  label: SAP NetWeaver 7.x on HANA db 3-tier on IBM Cloud VPC
+                  topics:
+                    - sap-terraform-automate-intro-3tier-nw-hana.md
+                    - sap-terraform-automate-3tier-nw-hana.md
       - topicgroup:
             label: High Availability Scenarios on Power Virtual Server
             topics:
