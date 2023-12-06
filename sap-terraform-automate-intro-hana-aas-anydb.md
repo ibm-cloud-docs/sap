@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-09"
+lastupdated: "2023-12-06"
 
 subcollection: sap
 
@@ -38,9 +38,20 @@ With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to m
 ## SAP on {{site.data.keyword.cloud_notm}}
 {: #intro-aas-hana-anydb-cloud-sap}
 
-SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for ABAP and Java applications. The SAP system can be installed and configured in {{site.data.keyword.cloud_notm}} for various system and database types.
+SAP NetWeaver is the core foundation of the SAP technology stack and is the platform that is used for ABAP and Java applications. The SAP system can be installed and configured in {{site.data.keyword.cloud_notm}} for various system and database types.
 
 For more information about SAP system architectures on {{site.data.keyword.cloud_notm}} VPC, see the infrastructure reference architectures for SAP for each supported database type. The reference architecture section for SAP solutions running on IBM Cloud can be found [here](https://cloud.ibm.com/docs/sap?topic=sap-refarch-hana-scaleup).
+
+## SAP Project Value Guide – Additional Application Server (AAS) to HANA
+{: #intro-aas-hana-anydb-cloud-value-guide}
+
+SAP projects vary widely in scope and budget, but none are considered trivial. Whether you are delivering a new SAP system or implementing changes to an existing one, the requirements for error-free execution and reducing the project time to realized benefits are always present.
+
+In many SAP project scenarios, the deployment of an SAP system is often a key and repeated task. This project value guide covers the automated deployment of {{site.data.keyword.cloud_notm}} VPC and Additional Application Server (AAS) to HANA. We will also discuss on [SAP NetWeaver of HANA database](/docs/sap?topic=sap-intro-automate-deploy-vpc-terraform-ansible&interface=ui) and [Backing up the HANA database IBM Cloud Object Storage](/docs/sap?topic=sap-sap-automate-intro-hana-db-backup-cos&interface=ui) in their respective sections.
+
+After your HANA DB and SAP NetWeaver application server are up and running, you may want additional SAP application servers deployed to increase workload capacity. With this automation, deploying infrastructure, performing SAP software installation, and joining the existing SAP system in less than twenty minutes is possible. For more information, go to [VPC with Additional Application Server ABAP on Linux for SAP HANA](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-sap-vpc-automation-hana-nw-abap-aas-51f5ccbc-23fe-42d0-a17c-7a90b73da835-global).
+
+ ![Figure 1. Additional Application Server (AAS) to SAP instance and HANA instance](images/sap_value_guide_aas.svg "Additional Application Server (AAS) to SAP instance and HANA instance"){: caption="Figure 1. Additional Application Server (AAS) to SAP instance and HANA instance" caption-side="bottom"}
 
 ## SAP Additional Application Server Instance
 {: #intro-aas-hana-anydb-sap-refarch}
@@ -54,7 +65,7 @@ An additional application server instance can run on:
 
 ![Figure 1. Standard installation](images/refarch-sap-hana-single-host-all-q2-23.svg "SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS" caption-side="bottom"}
 
-For example, SAP NetWaver (ABAP or Java stack) has a dedicated reference architecture that is running on SAP HANA or AnyDB databases that are published on IBM cloud [SAP NetWeaver on UNIX architecture diagram](/docs/sap?topic=sap-sap-refarch-nw-sybase#sap-netweaver-arch-diag-syb).
+For example, SAP NetWeaver (ABAP or Java stack) has a dedicated reference architecture that is running on SAP HANA or AnyDB databases that are published on IBM cloud [SAP NetWeaver on UNIX architecture diagram](/docs/sap?topic=sap-sap-refarch-nw-sybase#sap-netweaver-arch-diag-syb).
 
 Manually deploying a VPC and installing an SAP system can be time-consuming. The Terraform automation assures not only a much quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
 
@@ -78,7 +89,7 @@ The recommended way to run the scripts is from your Deployment Server because th
 
 For both the Deployment Server and local workstation, you must download the SAP Kits to the temporary storage assigned to you on the Deployment Server. Ansible installs the kits for you. You specify the location of the Kits in the configuration files.
 
-## Prerequisite, create a Bastion server to run the scripts
+## Prerequisites
 {: #intro-aas-hana-anydbb-create-bastion}
 
 Before you deploy any of the SAP automated solutions on {{site.data.keyword.cloud_notm}} VPC, you create a Bastion server VPC in your chosen region. The Bastion server is used for downloading and storing specific SAP solution media that are needed for later automation deployment. The Bastion server is used for both CLI deployment scenarios, as well for Schematics UI deployments. For more information about how to create the Bastion server and its corresponding VPC, see [Automate SAP Bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
