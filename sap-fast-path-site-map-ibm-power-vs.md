@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-12-12"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -69,11 +69,13 @@ For more information about provisioning IBM Power Virtual Server for SAP HANA an
 
 For more information about implementing high availability scenarios for SAP on IBM {{site.data.keyword.powerSysFull}}, see the following links.
 
+- [Implementing High Availability for SAP Applications on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-overview)
 - [Creating instances for a high availability cluster on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-vsi)
 - [Implementing RHEL HA Add-On cluster on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-rhel)
 - [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr)
 - [Configuring SAP HANA Cost-Optimized Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-cost-optimized)
 - [Configuring SAP HANA Active-Active (Read-Enabled) System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa)
+- [Configuring SAP HANA Multitier System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitier)
 - [Configuring SAP HANA Multitarget System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitarget)
 - [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-ensa)
 - [Configuring an active-passive NFS server in a Red Hat High Availability cluster](/docs/sap?topic=sap-ha-rhel-nfs)
