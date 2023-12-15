@@ -219,17 +219,18 @@ For each profile, consider the specified volume sizes in table 6 and always make
 
 
 #### vx2d-16x224
+{: #hana-iaas-intel-vs-vpc-ux2-setup-small}
 
 1. Create the volume group for LVM.
 
-    ```
+    ```shell
     [root@vx2d-16x224 ~]# pvcreate /dev/vde
     [root@vx2d-16x224 ~]# vgcreate hana_vg /dev/vde
     ```
 
 2. After the volume group is created, three logical volumes are defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
 
-    ```
+    ```shell
     [root@vx2d-16x224 ~]# lvcreate -L 224G -n hana_shared_lv hana_vg
     [root@vx2d-16x224 ~]# lvcreate -L 224G -n hana_log_lv hana_vg
     [root@vx2d-16x224 ~]# lvcreate -l 100%VG -n hana_data_lv hana_vg
@@ -237,7 +238,7 @@ For each profile, consider the specified volume sizes in table 6 and always make
 
 3. Next, add these entries to /etc/fstab
 
-    ```
+    ```shell
     LABEL=HANA_SHARED /hana/shared xfs defaults,inode64 0 0
     LABEL=HANA_LOG /hana/log xfs defaults,swalloc,inode64 0 0
     LABEL=HANA_DATA /hana/data xfs defaults,largeio,swalloc,inode64 0 0
@@ -245,7 +246,7 @@ For each profile, consider the specified volume sizes in table 6 and always make
 
 4. Finally, a file system needs to be created on top of each volume group and then mounted:
 
-    ```
+    ```shell
     [root@vx2d-16x224 ~]# mkfs.xfs -L HANA_SHARED /dev/mapper/hana_vg-hana_shared_lv
     [root@vx2d-16x224 ~]# mkfs.xfs -L HANA_LOG /dev/mapper/hana_vg-hana_log_lv 
     [root@vx2d-16x224 ~]# mkfs.xfs -L HANA_DATA /dev/mapper/hana_vg-hana_data_lv
@@ -259,17 +260,18 @@ For each profile, consider the specified volume sizes in table 6 and always make
 
 
 #### vx2d-44x616 and vx2d-88x1232
+{: #hana-iaas-intel-vs-vpc-vx2-setup-midsize}
 
 1. Create the volume group for LVM. Only /hana/log is assigned to the LVM.
 
-    ```
+    ```shell
     [root@vx2d-44x616 ~]# pvcreate /dev/vdf /dev/vdg /dev/vdh
     [root@vx2d-44x616 ~]# vgcreate hana_log_vg /dev/vdf /dev/vdg /dev/vdh
     ```
 
 2. After the volume group is created, the logical volume for /hana/log needs to be defined on top. This logical volume reflects the file system size requirement for SAP HANA.
 
-    ```
+    ```shell
     [root@vx2d-44x616 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
@@ -277,10 +279,11 @@ For each profile, consider the specified volume sizes in table 6 and always make
 
 
 #### vx2d-144x2016 and vx2d-176x2464
+{: #hana-iaas-intel-vs-vpc-vx2-setup-gt2T}
 
 1. Create the volume group for LVM. /hana/log and /hana/data are assigned to the LVM.
 
-    ```
+    ```shell
     [root@vx2d-144x2016 ~]# pvcreate /dev/vde /dev/vdf /dev/vdg /dev/vdh
     [root@vx2d-144x2016 ~]# pvcreate /dev/vdi /dev/vdj /dev/vdk
     [root@vx2d-144x2016 ~]# vgcreate hana_data_vg /dev/vde /dev/vdf /dev/vdg /dev/vdh
@@ -289,7 +292,7 @@ For each profile, consider the specified volume sizes in table 6 and always make
 
 2. After the volume group is created, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
 
-    ```
+    ```shell
     [root@vx2d-144x2016 ~]# lvcreate -i 4 -I 64 -l 100%VG -n hana_data_lv hana_data_vg
     [root@vx2d-144x2016 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
@@ -365,17 +368,18 @@ For each profile, consider the specific volume sizes in table 7 and always make 
 
 
 #### ux2d-8x224 and ux2d-16x448
+{: #hana-iaas-intel-vs-vpc-ux2-setup-lt1T}
 
 1. Create the volume group for LVM.
 
-    ```
+    ```shell
     [root@ux2d-8x224 ~]# pvcreate /dev/vde
     [root@ux2d-8x224 ~]# vgcreate hana_vg /dev/vde
     ```
 
 2. After the volume group is created, three logical volumes are defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
 
-    ```
+    ```shell
     [root@ux2d-8x224 ~]# lvcreate -L 224G -n hana_shared_lv hana_vg
     ## or lvcreate -L 448G -n hana_shared_lv hana_vg
     
@@ -389,10 +393,11 @@ For each profile, consider the specific volume sizes in table 7 and always make 
 
 
 #### ux2d-36x1008 and ux2d-48x1344
+{: #hana-iaas-intel-vs-vpc-ux2-setup-lt2T}
 
 1. Create the volume groups for LVM. /hana/log and /hana/data are assigned to the LVM.
 
-    ```
+    ```shell
     [root@ux2d-36x1008 ~]# pvcreate /dev/vde /dev/vdf
     [root@ux2d-36x1008 ~]# pvcreate /dev/vdg /dev/vdh /dev/vdi
     [root@ux2d-36x1008 ~]# vgcreate hana_data_vg /dev/vdg /dev/vdh /dev/vdi
@@ -401,7 +406,7 @@ For each profile, consider the specific volume sizes in table 7 and always make 
 
 2. After the volume groups are created, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
 
-    ```
+    ```shell
     [root@ux2d-36x1008 ~]# lvcreate -i 2 -I 64 -l 100%VG -n hana_data_lv hana_data_vg
     [root@ux2d-36x1008 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
@@ -410,10 +415,11 @@ For each profile, consider the specific volume sizes in table 7 and always make 
 
 
 #### ux2d-72x2016, ux2d-100x2800, and ux2d-200x5600
+{: #hana-iaas-intel-vs-vpc-ux2-setup-gt2T}
 
 1. Create the volume groups for LVM. /hana/log and /hana/data are assigned to the LVM.
 
-    ```
+    ```shell
     [root@ux2d-72x2016 ~]# pvcreate /dev/vde /dev/vdf /dev/vdg /dev/vdh
     [root@ux2d-72x2016 ~]# pvcreate /dev/vdi /dev/vdj /dev/vdk
     [root@ux2d-72x2016 ~]# vgcreate hana_data_vg /dev/vde /dev/vdf /dev/vdg /dev/vdh
@@ -422,7 +428,7 @@ For each profile, consider the specific volume sizes in table 7 and always make 
 
 2. After the volume groups are created, two logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
 
-    ```
+    ```shell
     [root@ux2d-72x2016 ~]# lvcreate -i 4 -I 64 -l 100%VG -n hana_data_lv hana_data_vg
     [root@ux2d-72x2016 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
@@ -430,6 +436,7 @@ For each profile, consider the specific volume sizes in table 7 and always make 
 3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
 
 ### Storage for SAP HANA - multi-node
+{: #hana-iaas-intel-vs-vpc-vx2-storage-multi}
 
 In an SAP HANA scale-out (multi-node) configuration, storage needs to be accessible from different nodes at the same time, and needs to be able to failover from one node to the other. 
 
@@ -439,20 +446,20 @@ SAP HANA in scale-out configuration requires a shared volume for its `/hana/shar
 
 1. `/hana/shared`
 
-    ```
+    ```plaintext
     fsf-tok0551b-fz.adn.networklayer.com:/903586db_f968_4bf7_bbd5_0926fb7a26ce /hana/shared/BHB nfs      sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
     ```
     
 1. `/hana/data`
    
-    ```
+    ```plaintext
     fsf-tok0551a-fz.adn.networklayer.com:/2b33d3df_9081_47c2_910a_a29356716d51/BHB/mnt00001 /hana/data/BHB/mnt00001 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
     fsf-tok0551b-fz.adn.networklayer.com:/ec39996c_346a_4815_a74f_4048382e6ecc/BHB/mnt00002   /hana/data/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0 
     ```
 
 1. `/hana/log`
    
-    ```
+    ```plaintext
     fsf-tok0551b-fz.adn.networklayer.com:/7bdee46e_b95f_4ff7_89b8_5273e8f9199d/BHB/mnt00001  /hana/log/BHB/mnt00001 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0 
     fsf-tok0551b-fz.adn.networklayer.com:/2bca0419_3aef_40ca_b38f_8b9717c93905/BHB/mnt00002  /hana/log/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0 
     ```
