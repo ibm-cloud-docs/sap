@@ -45,7 +45,7 @@ The following table gives you an overview of the SAP-certified profiles with bar
 (\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions<br/>
 SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
 
-(\*\*): SLES 15 SP3, SLES 15 SP4
+(\*\*): SLES 15 SP3, SLES 15 SP4     
 
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}. 

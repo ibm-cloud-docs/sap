@@ -7,9 +7,9 @@ lastupdated: "2023-03-08"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
 subcollection: sap
-
+     
 ---
-
+ 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
