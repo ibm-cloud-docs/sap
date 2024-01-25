@@ -54,7 +54,7 @@ The following section provides an overview of the SAP-certified profiles with {{
 
 Custom profiles are for nonproduct development for testing or development use only. These profiles aren't intended for production deployments and aren't supported or certified for SAP production. You cannot use this profile to go from a nonproduction environment to a production environment.
 
-Each profile must have at least two dedicated cores. You can choose between Tier 1 (NVMe-based flash storage) and Tier 3 (SSD flash storage) storage. The Tier 1 storage type is best for customers who require higher throughput. Customers who don't require exceptionally high throughput and are looking to minimize costs want to select Tier 3. For more information, see the [What is a Power Systems Virtual Server?](/power-iaas?topic=power-iaas-about-virtual-server#storage-tiers) storage tiers section.
+Each profile must have at least two dedicated cores. For required storage performance you should follow [Storage Guidelines for SAP HANA](/docs/sap?topic=sap-storage-design-considerations#sap-fiops-config). For more information about storage, see the **What is a Power Systems Virtual Server?** [storage tiers section](/docs/power-iaas?topic=power-iaas-about-virtual-server#storage-tiers).
 
 ## Small
 {: #small}

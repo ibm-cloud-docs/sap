@@ -13,6 +13,9 @@ subcollection: sap
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:note: .note}
+{:tip: .tip}
+{:important: .important}
 {:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 {:pre: .pre}
@@ -309,7 +312,7 @@ See [SAP Note 2779331 - HANA services use large SWAP memory](https://launchpad.s
 ### Which versions of SAP NetWeaver are supported?
 {: #faq-sap-nw-gversions}
 
-Most versions of SAP NetWeaver Application Server (ABAP or JAVA) from 7.0 or higher are supported across the {{site.data.keyword.ibm_cloud_sap}} portfolio.
+Most versions of SAP NetWeaver Application Server (ABAP or Java) from 7.0 or higher are supported across the {{site.data.keyword.ibm_cloud_sap}} portfolio.
 
 For a full updated list of SAP NetWeaver versions and SAP Kernel Patch Levels supported for the various IaaS options, see the following SAP Notes:
 - [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-05-18"
+  years: 2020, 2024
+lastupdated: "2024-01-25"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -313,17 +313,283 @@ The following entries to `/etc/fstab` mount the file systems after their mount p
 This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
-The following sections demonstrate storage configurations in various different SAP workload scenarios, when you are using **IBM Power Infrastructure**.
+The following sections demonstrate storage configurations in various different SAP workload scenarios.
 
 When you create new storage volumes, keep the following points in mind:
+- After you provision the storage with Affinity, you cannot change it. Carefully plan your storage layer and make sure that your configuration is correct. Affinity prevents issues with new volume discovery on existing virtual servers.
+- When you finish provisioning new volumes, you can toggle bootable and sharing switches.
+- Make volumes that belong to different OS file systems unique sizes. Otherwise, it is difficult to identify the storage volumes within the operating system.
 
-* Different storage tiers differ
-    * For SAP HANA, only Tier 1 storage is supported.
-    * For SAP NetWeaver, the Tier 1 and Tier 3 storage cannot be mixed.
-* After you provision the storage with Affinity, you cannot change it. Carefully plan your storage layer and make sure that your configuration is correct. Affinity prevents issues with new volume discovery on existing virtual servers.
-* When you finish provisioning new volumes, you can toggle bootable and sharing switches.
-* Make volumes that belong to different OS file systems unique sizes. Otherwise, it is difficult to identify the storage volumes within the operating system.
+<!--
+### Sample storage configuration for SAP HANA that use the IBM Power Virtual Server
+{: #sample-power-hana}
+
+The following table shows an example of a storage layout for an SAP HANA system.
+
+SAP HANA Data and SAP HANA Log directory file systems must be striped over 4 or 8 storage volumes.
+
+Striping for other file systems (SAP executable files, HANA Shared, HANA Backup, HANA Export) is not required. See the SAP TDI documents for general storage requirements.
+
+| HANA file system | Total Space Required | Size of Volumes | Number of Volumes |
+|-----------------|----------------------|-----------------|-------------------|
+| /hana/data      | 560                  | 70              | 8                 |
+| /hana/log       | 640                  | 80              | 8                 |
+| /hana/shared    | 200                  | 200             | 1                 |
+| /usr/sap        | 130                  | 130             | 1                 |
+| /backup         | 560                  | 560             | 1                 |
+| /export         | 560                  | 560             | 1                 |
+{: caption="Table 6. Example of a storage layout for an SAP HANA system" caption-side="top"}
+-->  
+
+### Storage Guidelines for SAP HANA based on Flexible IOPS
+{: #sap-fiops-config}
+
+See [Storage tiers](/docs/power-iaas?topic=power-iaas-about-virtual-server#storage-tiers) to learn more about flexible IOPS.
+{: note}
+
+The storage tier and capacity that is recommended for deployment of SAP S/4HANA on Power Virtual Server is described in this topic. These recommendations are based on the best practices and to meet the minimum performance criteria defined by HCMT.
+{: shortdesc}
+
+
+**Recommendation for SAP HANA DB size 128 GB - 768 GB**
+* Use 4 volumes of Fixed 5,000 IOPS storage for storing log files. Log files are usually up to 512 GB and need the high performance
+* Use 4 volumes of Tier 0 storage for data file system 
+* Use 1 volume of Tier 3 storage for shared file system.
+
+**Recommendations for SAP HANA DB size 960 GB - 22.5 TB**
+* Use 4 volumes of Tier 0 storage for storing log files. Log files are usually up to 512 GB and need the high performance
+* Use 4 volumes of Tier 3 storage for data file system 
+* Use 1 volume of Tier 3 storage for shared file system.
+
+An additional Capacity of 150 GB per compute instance for the Operating System + /usr/sap on Tier 3 Storage profile is recommended. For boot volume Tier 3 is sufficient.
 {: important}
+
+There are no defined IOPS requirements for shared file system
+{: note}
+
+#### Sample storage tier and IOPS mapping
+{: tier-fiops-map}
+
+The tables below shows the mapping of minimum IOPS and its storage tier mapping based on the different SAP profiles.
+
+
+| Certified profile | Volume (GB) | Minimum IOPS | Log-storage tier|
+|-------------------|-------------|--------------|-----------------|
+| ush1-4x128 |	 4 x 16 GB | 	20,000	| Fixed 5,000 IOPS |
+| ush1-4x256 |	 4 x 32 GB | 	20,000	| Fixed 5,000 IOPS |	
+| ush1-4x384 |	 4 x 48 GB | 	20,000	| Fixed 5,000 IOPS |		
+| ush1-4x512 |	 4 x 64 GB | 	20,000	| Fixed 5,000 IOPS |		
+| ush1-4x768 |	 4 x 96 GB | 	20,000	| Fixed 5,000 IOPS |
+|	umh-4x960	  |	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-6x1440	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-8x1920	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-10x2400	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-12x2880	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-16x3840	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-20x4800	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-22x5280	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-25x6000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-30x7200	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-35x8400	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-40x9600	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-50x12000|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	umh-60x14400	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	mh1-8x1440	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	mh1-10x1800	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	mh1-12x2160	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	mh1-16x2880	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	mh1-20x3600	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	mh1-22x3960	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	mh1-25x4500	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	mh1-30x5400	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	mh1-35x6300	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	mh1-40x7200	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	mh1-50x9000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	mh1-60x10800	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	mh1-70x12600	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	mh1-80x14400	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	mh1-90x16200	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	mh1-100x18000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	mh1-125x22500	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	ch1-60x3000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	ch1-70x3500	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	ch1-80x4000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	ch1-100x5000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	ch1-120x6000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	ch1-140x7000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	bh1-16x1600	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	bh1-20x2000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	bh1-22x2200	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	bh1-25x2500	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	bh1-30x3000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	bh1-35x3500	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	bh1-40x4000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	bh1-50x5000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	bh1-60x6000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	bh1-70x7000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	bh1-80x8000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
+|	bh1-100x10000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	bh1-120x12000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+|	bh1-140x14000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
+{: class="simple-tab-table"}
+{: tab-group="recommended storage-tier"}
+{: caption="Table 1. Recommended storage tier and capacity for log data" caption-side="top"}
+{: #log}
+{: tab-title="Log"}
+
+| Certified profile | Volume (GB) | Minimum IOPS | Data-storage tier|
+|-------------------|-------------|--------------|-----------------|
+| ush1-4x128 |	 4 x 77 GB | 	7,500	| Tier 0 |   
+| ush1-4x256 |	 4 x 77 GB | 	7,500	| Tier 0 |	
+| ush1-4x384 |	 4 x 115 GB | 	7,500	| Tier 0 |		
+| ush1-4x512 |	 4 x 154 GB | 	7,500	| Tier 0 |		
+| ush1-4x768 |	 4 x 230 GB | 	7,500	| Tier 0 |
+|	umh-4x960	|	4 x 722 GB	|    	7,500	|	 Tier 3     	   |
+|	umh-6x1440	|	4 x 720 GB	|    	7,500	|	 Tier 3     	 |
+|	umh-8x1920	|	4 x 720 GB	|    	7,500	|	 Tier 3     	 |
+|	umh-10x2400	|	4 x 720 GB	|    	7,500	|	 Tier 3     	 |
+|	umh-12x2880	|	4 x 864 GB	|    	7,500	|	 Tier 3     	 |
+|	umh-16x3840	|	4 x 1,152 GB	|    	7,500	|	 Tier 3     	 |
+|	umh-20x4800	|	4 x 1,440 GB	|    	7,500	|	 Tier 3     	 |
+|	umh-22x5280	|	4 x 1,584 GB	|    	7,500	|	 Tier 3     	 |
+|	umh-25x6000	|	4 x 1,800 GB	|    	7,500	|	 Tier 3     	 |
+|	umh-30x7200	|	4 x 2,160 GB	|    	7,500	|	 Tier 3     	 |
+|	umh-35x8400	|	4 x 2,520 GB	|    	7,500	|	 Tier 3     	 |
+|	umh-40x9600	|	4 x 2,880 GB	|    	7,500	|	 Tier 3     	 |
+|	umh-50x12000	|	4 x 3,600 GB	|    	7,500	|	 Tier 3      |
+|	umh-60x14400	|	4 x 4,320 GB	|    	7,500	|	 Tier 3      |
+|	mh1-8x1440	|	4 x 648 GB	|    	7,500	|	 Tier 3     	 |
+|	mh1-10x1800	|	4 x 648 GB	|    	7,500	|	 Tier 3     	 |
+|	mh1-12x2160	|	4 x 648 GB	|    	7,500	|	 Tier 3     	 |
+|	mh1-16x2880	|	4 x 864 GB	|    	7,500	|	 Tier 3     	 |
+|	mh1-20x3600	|	4 x 1,080 GB	|    	7,500	|	 Tier 3     	 |
+|	mh1-22x3960	|	4 x 1,188 GB	|    	7,500	|	 Tier 3     	 |
+|	mh1-25x4500	|	4 x 1,350 GB	|    	7,500	|	 Tier 3     	 |
+|	mh1-30x5400	|	4 x 1,620 GB	|    	7,500	|	 Tier 3     	 |
+|	mh1-35x6300	|	4 x 1,890 GB	|    	7,500	|	 Tier 3     	 |
+|	mh1-40x7200	|	4 x 2,160 GB	|    	7,500	|	 Tier 3     	 |
+|	mh1-50x9000	|	4 x 2,700 GB	|    	7,500	|	 Tier 3     	 |
+|	mh1-60x10800	|	4 x 3,240 GB	|    	7,500	|	 Tier 3      |
+|	mh1-70x12600	|	4 x 3,780 GB	|    	7,500	|	 Tier 3      |
+|	mh1-80x14400	|	4 x 4,320 GB	|    	7,500	|	 Tier 3      |
+|	mh1-90x16200	|	4 x 4,860 GB	|    	7,500	|	 Tier 3      |
+|	mh1-100x18000	|	4 x 5,400 GB	|    	7,500	|	 Tier 3      |
+|	mh1-125x22500	|	4 x 6,750 GB	|    	7,500	|	 Tier 3      |
+|	ch1-60x3000	|	4 x 900 GB	|    	7,500	|	 Tier 3     	 |
+|	ch1-70x3500	|	4 x 1,050 GB	|    	7,500	|	 Tier 3     	 |
+|	ch1-80x4000	|	4 x 1,200 GB	|    	7,500	|	 Tier 3     	 |
+|	ch1-100x5000	|	4 x 1,500 GB	|    	7,500	|	 Tier 3      |
+|	ch1-120x6000	|	4 x 1,800 GB	|    	7,500	|	 Tier 3      |
+|	ch1-140x7000	|	4 x 2,100 GB	|    	7,500	|	 Tier 3      |
+|	bh1-16x1600	|	4 x 660 GB	|    	7,500	|	 Tier 3     	 |
+|	bh1-20x2000	|	4 x 660 GB	|    	7,500	|	 Tier 3     	 |
+|	bh1-22x2200	|	4 x 660 GB	|    	7,500	|	 Tier 3     	 |
+|	bh1-25x2500	|	4 x 750 GB	|    	7,500	|	 Tier 3     	 |
+|	bh1-30x3000	|	4 x 900 GB	|    	7,500	|	 Tier 3     	 |
+|	bh1-35x3500	|	4 x 1,050 GB	|    	7,500	|	 Tier 3     	 |
+|	bh1-40x4000	|	4 x 1,200 GB	|    	7,500	|	 Tier 3     	 |
+|	bh1-50x5000	|	4 x 1,500 GB	|    	7,500	|	 Tier 3     	 |
+|	bh1-60x6000	|	4 x 1,800 GB	|    	7,500	|	 Tier 3     	 |
+|	bh1-70x7000	|	4 x 2,100 GB	|    	7,500	|	 Tier 3     	 |
+|	bh1-80x8000	|	4 x 2,400 GB	|    	7,500	|	 Tier 3     	 |
+|	bh1-100x10000	|	4 x 3,000 GB	|    	7,500	|	 Tier 3      |
+|	bh1-120x12000	|	4 x 3,600 GB	|    	7,500	|	 Tier 3      |
+|	bh1-140x14000	|	4 x 4,200 GB	|    	7,500	|	 Tier 3      |
+{: class="simple-tab-table"}
+{: tab-group="recommended storage-tier"}
+{: caption="Table 2. Recommended storage tier and capacity for data" caption-side="top"}
+{: #data}
+{: tab-title="Data"}
+
+| Certified profile | Volume (GB) | Shared-storage tier|
+|-------------------|-------------|-----------------|
+|ush1-4x128|	1 x 128 GB|	Tier 3|
+|ush1-4x256|	1 x 256 GB|	Tier 3|
+|ush1-4x384|	1 x 384 GB|	Tier 3|
+|ush1-4x512|	1 x 512 GB|	Tier 3|
+|ush1-4x768|	1 x 768 GB|	Tier 3|
+|umh-4x960|	  1 x 1,000 GB|	Tier 3|
+|umh-6x1440|	1 x 1,000 GB|  Tier 3|
+|mh1-8x1440|	1 x 1,000 GB|	Tier 3|
+|bh1-16x1600|	1 x 1,000 GB|	Tier 3|
+|umh-8x1920|	1 x 1,000 GB|	Tier 3|
+|mh1-10x1800|	1 x 1,000 GB|	Tier 3|
+|bh1-20x2000|	1 x 1,000 GB|	Tier 3|
+|umh-10x2400|	1 x 1,000 GB|	Tier 3|
+|mh1-12x2160|	1 x 1,000 GB|	Tier 3|
+|bh1-22x2200|	1 x 1,000 GB|	Tier 3|
+|bh1-25x2500|	1 x 1,000 GB|	Tier 3|
+|umh-12x2880|	1 x 1,000 GB|	Tier 3|
+|mh1-16x2880|	1 x 1,000 GB|	Tier 3|
+|bh1-30x3000|	1 x 1,000 GB|	Tier 3|
+|ch1-60x3000|	1 x 1,000 GB|	Tier 3|
+|umh-16x3840|	1 x 1,000 GB|	Tier 3|
+|mh1-20x3600|	1 x 1,000 GB|	Tier 3|
+|mh1-22x3960|	1 x 1,000 GB|	Tier 3|
+|bh1-35x3500|	1 x 1,000 GB|	Tier 3|
+|ch1-70x3500|	1 x 1,000 GB|	Tier 3|
+|umh-20x4800|	1 x 1,000 GB|	Tier 3|
+|mh1-25x4500|	1 x 1,000 GB|	Tier 3|
+|bh1-40x4000|	1 x 1,000 GB|	Tier 3|
+|ch1-80x4000|	1 x 1,000 GB|	Tier 3|
+|umh-22x5280|	1 x 1,000 GB|	Tier 3|
+|mh1-30x5400|	1 x 1,000 GB|	Tier 3|
+|bh1-50x5000|	1 x 1,000 GB|	Tier 3|
+|ch1-100x5000|	1 x 1,000 GB|	Tier 3|
+|umh-25x6000|	1 x 1,000 GB|	Tier 3|
+|mh1-35x6300|	1 x 1,000 GB|	Tier 3|
+|bh1-60x6000|	1 x 1,000 GB|	Tier 3|
+|ch1-120x6000|	1 x 1,000 GB|	Tier 3|
+|umh-30x7200|	1 x 1,000 GB|	Tier 3|
+|mh1-40x7200|	1 x 1,000 GB|	Tier 3|
+|bh1-70x7000|	1 x 1,000 GB|	Tier 3|
+|ch1-140x7000|	1 x 1,000 GB|	Tier 3|
+|umh-35x8400|	1 x 1,000 GB|	Tier 3|
+|bh1-80x8000|	1 x 1,000 GB|	Tier 3|
+|umh-40x9600|	1 x 1,000 GB|	Tier 3|
+|mh1-50x9000|	1 x 1,000 GB|	Tier 3|
+|bh1-100x10000|	1 x 1,000 GB|	Tier 3|
+|mh1-60x10800|	1 x 1,000 GB|	Tier 3|
+|umh-50x12000|	1 x 1,000 GB|	Tier 3|
+|mh1-70x12600|	1 x 1,000 GB|	Tier 3|
+|bh1-120x12000|	1 x 1,000 GB|	Tier 3|
+|umh-60x14400|	1 x 1,000 GB|	Tier 3|
+|mh1-80x14400|	1 x 1,000 GB|	Tier 3|
+|bh1-140x14000|	1 x 1,000 GB|	Tier 3|
+|mh1-90x16200|	1 x 1,000 GB|	Tier 3|
+|mh1-100x18000|	1 x 1,000 GB|	Tier 3|
+|mh1-125x22500|	1 x 1,000 GB|	Tier 3|
+{: class="simple-tab-table"}
+{: tab-group="recommended storage-tier"}
+{: caption="Table 3. Recommended storage tier and capacity for shared data" caption-side="top"}
+{: #shared}
+{: tab-title="Shared"}
+
+#### Pricing
+{: #pricing-sap-hana-fiops}
+
+See the table 4 and table 5 for sample pricing calculation based on the storage requirement defined. The prices indicated are for reference and subject to change. Use the [cost estimator](https://cloud.ibm.com/estimator){: external} to get an estimate based on your business need.
+
+Fixed 5000 IOPS is limited to 200 GB of storage.
+{: note}
+
+Sample pricing calculation when you need a storage of 1 GB
+| Storage Required = 1 GB | Calculation | $Price/Month | IOPS Performance |
+|-------------------------|-------------|--------------|------------------| 
+| Tier 0  	   | 	 1 GB x $.24  	 | 	 $0.240	 | 	 25 IOPS  | 
+| Fixed 5,000 IOPS  | 	 1 GB x $.288 	 | 	 $0.288	 | 	 5,000 IOPS|
+{: class="simple-table"}
+{: caption="Table 4. Sample pricing when the storage required is 1 GB" caption-side="top"}
+
+
+Sample pricing calculation when you need a storage of 100 GB
+| Storage Required = 100 GB | Calculation | $Price/Month | IOPS Performance |
+|-------------------------|-------------|--------------|------------------| 
+| Tier 0  	   | 	 100 GB x $.24  	 | 	 $24 	 | 	 2,500 IOPS  | 
+| Fixed 5,000 IOPS  | 	 100 GB x $.288 	 | 	 $29 	 | 	 5,000 IOPS|
+{: class="simple-table"}
+{: caption="Table 5. Sample pricing when the storage required is 100 GB" caption-side="top"} 
+
 
 
 ### Sample storage configuration for SAP NetWeaver that use the IBM Power Virtual Server
@@ -412,22 +678,3 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 
 For more information, see [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/viewer/4fbd902c7c76410bb82c6311dd4dc94b/CURRENT_VERSION/en-US/713eb64f45c6448c8dbe8a51b85680ee.html){: external} and [SAP Note 1707361](https://launchpad.support.sap.com/#/notes/1707361){: external}.
 
-
-### Sample storage configuration for SAP HANA that use the IBM Power Virtual Server
-{: #sample-power-hana}
-
-The following table shows an example of a storage layout for an SAP HANA system.
-
-SAP HANA Data and SAP HANA Log directory file systems must be striped over 4 or 8 storage volumes.
-
-Striping for other file systems (SAP executable files, HANA Shared, HANA Backup, HANA Export) is not required. See the SAP TDI documents for general storage requirements.
-
-| HANA file system | Total Space Required | Size of Volumes | Number of Volumes |
-|-----------------|----------------------|-----------------|-------------------|
-| /hana/data      | 560                  | 70              | 8                 |
-| /hana/log       | 640                  | 80              | 8                 |
-| /hana/shared    | 200                  | 200             | 1                 |
-| /usr/sap        | 130                  | 130             | 1                 |
-| /backup         | 560                  | 560             | 1                 |
-| /export         | 560                  | 560             | 1                 |
-{: caption="Table 6. Example of a storage layout for an SAP HANA system" caption-side="top"}
