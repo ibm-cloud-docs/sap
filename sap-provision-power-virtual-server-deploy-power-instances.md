@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-30"
+lastupdated: "2022-11-29"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -521,16 +521,16 @@ If you don't use multipath aliases, replace the line (starting with `devices=$(`
 
 1. To create file systems by using ansible automation, download the `ibm.power_linux_sap` ansible-galaxy collection.
 
-   ```yaml
-   ansible-galaxy collection install ibm.power_linux_sap
-   ```
-   {: pre}
+```yaml
+ansible-galaxy collection install ibm.power_linux_sap
+```
+{: pre}
 
-   Ansible role, `powervs_fs_creation` is used to create filesystem for SAP HANA, SAP NetWeaver or for SAP shared file systems instance. This role performs the following tasks:
+Ansible role, `powervs_fs_creation` is used to create filesystem for SAP HANA, SAP NetWeaver or for SAP shared file systems instance. This role performs the following tasks:
 
-   * Creates file systems with user-defined stripe size by using ansible built-in LVM logical volumes modules.
-   * Mounts the file systems on provided mount points
-   * Adds an entry to `/etc/fstab` for automount on reboot.
+* Creates file systems with user-defined stripe size by using ansible built-in LVM logical volumes modules.
+* Mounts the file systems on provided mount points
+* Adds an entry to `/etc/fstab` for automount on reboot.
 
 2. To run this role, you can pass two types of variables. The first as a dictionary and other as a list. See the following example.
 
@@ -569,7 +569,7 @@ If you don't use multipath aliases, replace the line (starting with `devices=$(`
         ```
         {: pre}
 
-    WWNs associated with disks that are passed as input parameters for running the ansible role.
+WWNs associated with disks that are passed as input parameters for running the ansible role.
 
 3. To run this ansible playbook, run the following command after you update one of variable examples and store them in the`filesystem_creation_variables` file.
 
@@ -593,6 +593,16 @@ After successful execution, file systems that are required for HANA installation
 {: #power-vs-prepare-sap-installation}
 
 Preparation for SAP installation is needed for SAP HANA and SAP NetWeaver and not required on {{site.data.keyword.powerSys_notm}} instance for SAP shared file systems.
+
+#### Required additional Software Packages for SLES 15
+{: #power-vs-addtl-sw-sles-sap}
+
+Please install the `insserv` package before the SAP HANA installation:
+
+```bash
+zypper install insserv
+```
+{: pre}
 
 #### Using saptune on SLES for SAP
 {: #power-vs-using-saptune-sles-sap}
@@ -711,7 +721,7 @@ ansible-playbook /root/sap-hana.yml
 ```
 {: pre}
 
-Use the following command to tune the operating systemfor the SAP NetWeaver workload.
+2. Use the following command to tune the operating systemfor the SAP NetWeaver workload.
 
 ```yaml
 [root@rhel-84\]# ansible-playbook /root/sap-netweaver.yml
