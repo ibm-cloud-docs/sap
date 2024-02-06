@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023
-lastupdated: "2023-06-01"
+  years: 2023, 2024
+lastupdated: "2024-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -123,7 +123,7 @@ The recommendation is to use key type *Ed25519* because this key type is fast an
 You have different options for obtaining operating system images for your cluster.
 Use the following steps to select a boot image.
 
-With the *Full Linux Subscription*, you have access to stock images that are already prepared for {{site.data.keyword.powerSys_notm}}.
+You have access to several types of stock images that are already prepared for {{site.data.keyword.powerSys_notm}}. Images are sorted into "IBM Provided Subscription" and "Client Provided Subscription" sections on the {{site.data.keyword.powerSys_notm}} provisioning page.
 For more information, see [Full Linux® subscription for {{site.data.keyword.powerSys_notm}} instances](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-set-full-Linux){: external}.
 
 If you want to import a custom Linux image, you need to first upload the image to {{site.data.keyword.cloud}} Object Storage in OVA format.
