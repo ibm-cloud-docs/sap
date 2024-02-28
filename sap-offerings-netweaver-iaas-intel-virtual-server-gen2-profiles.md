@@ -33,35 +33,35 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
 | --- | --- | --- | --- |
 | **Compute Optimized** | | | |
-| cx2-2x4 | 2 | 4 | 2,238 |
-| cx2-4x8 | 4 | 8 |  4,475 |
-| cx2-8x16 | 8 | 16 |  8,950 |
-| cx2-16x32 | 16 | 32 | 17,900 |
-| cx2-32x64 | 32 | 64 | 35,800 |
-| cx2-48x96 | 48 | 96 | 53,700 |
-| cx2-64x128 | 64 | 128 | 71,600 |
-| cx2-96x192 | 96 | 192 | 107,400 |
-| cx2-128x256 | 128 | 256 | 143,200 |
+| cx2-2x4 \n cx2d-2x4 | 2 | 4 | 2,238 |
+| cx2-4x8 \n cx4d-4x8 | 4 | 8 |  4,475 |
+| cx2-8x16 \n cx2d-8x16 | 8 | 16 |  8,950 |
+| cx2-16x32 \n cx2d-16x32 | 16 | 32 | 17,900 |
+| cx2-32x64 \n cx2d-32x64 | 32 | 64 | 35,800 |
+| cx2-48x96 \n cx2d-48x96 | 48 | 96 | 53,700 |
+| cx2-64x128 \n cx2d-64x128 | 64 | 128 | 71,600 |
+| cx2-96x192 \n cx2d-96x192 | 96 | 192 | 107,400 |
+| cx2-128x256 \n cx2d-128x256 | 128 | 256 | 143,200 |
 | **Balanced** | | | |
-| bx2-2x8 | 2 | 8 | 2,306 |
-| bx2-4x16 | 4 | 16 |  4,613 |
-| bx2-8x32 | 8 | 32 |  9,225 |
-| bx2-16x64 | 16 | 64 | 18,450 |
-| bx2-32x128 | 32 | 128 | 36,900 |
-| bx2-48x192 | 48 | 192 | 55,350 |
-| bx2-64x256 | 64 | 256 | 81,685 |
-| bx2-96x384 | 96 | 384 | 122,528 |
-| bx2-128x512 | 128 | 512 | 163,370 |
+| bx2-2x8 \n bx2d-2x8 | 2 | 8 | 2,306 |
+| bx2-4x16 \n bx2d-4x16 | 4 | 16 |  4,613 |
+| bx2-8x32 \n bx2d-8x32 | 8 | 32 |  9,225 |
+| bx2-16x64 \n bx2d-16x64 | 16 | 64 | 18,450 |
+| bx2-32x128 \n bx2d-32x128 | 32 | 128 | 36,900 |
+| bx2-48x192 \n bx2d-48x192 | 48 | 192 | 55,350 |
+| bx2-64x256 \n bx2d-64x256 | 64 | 256 | 81,685 |
+| bx2-96x384 \n bx2d-96x384 | 96 | 384 | 122,528 |
+| bx2-128x512 \n bx2d-128x512 | 128 | 512 | 163,370 |
 | **Memory Optimized** | | | |
-| mx2-2x16 | 2 | 16 | 2,571 |
-| mx2-4x32 | 4 | 32 | 5,141 |
-| mx2-8x64 | 8 | 64 | 10,283 |
-| mx2-16x128 | 16 | 128 | 20,565 |
-| mx2-32x256 | 32 | 256 | 41,130 |
-| mx2-48x384 | 48 | 384 | 56,970 |
-| mx2-64x512 | 64 | 512 | 81,015 |
-| mx2-96x768 | 96 | 768 | 121,523 |
-| mx2-128x1024 | 128 | 1,024 | 162,030 |
+| mx2-2x16 \n mx2d-2x16 | 2 | 16 | 2,571 |
+| mx2-4x32 \n mx2d-4x32 | 4 | 32 | 5,141 |
+| mx2-8x64 \n mx2d-8x64 | 8 | 64 | 10,283 |
+| mx2-16x128 \n mx2d-16x128 | 16 | 128 | 20,565 |
+| mx2-32x256 \n mx2d-32x256 | 32 | 256 | 41,130 |
+| mx2-48x384 \n mx2d-48x384 | 48 | 384 | 56,970 |
+| mx2-64x512 \n mx2d-64x512 | 64 | 512 | 81,015 |
+| mx2-96x768 \n mx2d-96x768 | 96 | 768 | 121,523 |
+| mx2-128x1024 \n mx2d-128x1024 | 128 | 1,024 | 162,030 |
 | **Very High Memory Optimized** | |		
 | vx2d-2x28 | 2 | 28 | 2,131 |
 | vx2d-4x56 | 4 | 56 | 4,262 |
@@ -117,11 +117,15 @@ For SAP HANA, only the memory profile families are used, for NetWeaver also the 
 | mx2-16x128 | m | *Memory Optimized* family |
 | | x | Intel x86_64 CPU Architecture |
 | | 2 | The generation for the underlying hardware |
+| | d | the optional 'd' in the name indicates that the server is equipped with one or more internal SSD storage devices (*) |
 | | — | _spacer_ |
 | | 16 | 16 vCPU |
 | | x | _spacer_ |
 | | 128 | 128 GiB RAM |
 {: caption="Table 3. Profile naming for SAP HANA" caption-side="top"}
+
+(\*) Note for Virtual Server Instances using instance storage on SSD: you must not place any SAP workload related data on such instance storage, because data loss may occur in certain situations - see more information here: [About instance storage](/docs/vpc?topic=vpc-instance-storage).
+{: note}
 
 
 ## Profiles available on Hourly Consumption Billing

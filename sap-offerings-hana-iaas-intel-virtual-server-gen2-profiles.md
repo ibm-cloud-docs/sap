@@ -34,10 +34,10 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- |
 | **Memory Optimized** | | | | |
-| mx2-8x64 | 8 | 64 | 10,280 | SAP Business One (\*\*) |
-| mx2-16x128 | 16 | 128 | 20,565 | OLTP (\*)<br/>SAP Business One (\*\*) |
-| mx2-32x256 | 32 | 256 | 41,130 | OLTP (\*)<br/>SAP Business One (\*\*)  |
-| mx2-48x384 | 48 | 384 | 56,970 | OLTP (\*)<br/>SAP Business One (\*\*)  |
+| mx2-8x64 \n mx2d-8x64 | 8 | 64 | 10,280 | SAP Business One (\*\*) |
+| mx2-16x128 \n mx2d-16x128 | 16 | 128 | 20,565 | OLTP (\*)<br/>SAP Business One (\*\*) |
+| mx2-32x256 \n mx2d-32x256 | 32 | 256 | 41,130 | OLTP (\*)<br/>SAP Business One (\*\*)  |
+| mx2-48x384 \n mx2d-48x384 | 48 | 384 | 56,970 | OLTP (\*)<br/>SAP Business One (\*\*)  |
 | **Very High Memory Optimized** | | | | |
 | vx2d-16x224 | 16 | 224 | 17,046 | OLTP (\*) |
 | vx2d-44x616 | 44 | 616 | 46,875 | OLAP/OLTP (\*) |
@@ -93,12 +93,15 @@ The Virtual Server profile names are contextual and sequential. See the followin
 | mx2-16x128 | m | *Memory Optimized* family |
 | | x | Intel x86_64 CPU Architecture |
 | | 2 | The generation for the underlying hardware |
+| | d | the optional 'd' in the name indicates that the server is equipped with one or more internal SSD storage devices (*) |
 | | — | _spacer_ |
 | | 16 | 16 vCPU |
 | | x | _spacer_ |
 | | 128 | 128 GiB RAM |
 {: caption="Table 3. Profile naming for SAP HANA" caption-side="top"}
 
+(\*) Note for Virtual Server Instances using instance storage on SSD: you must not place any SAP workload related data on such instance storage, because data loss may occur in certain situations - see more information here: [About instance storage](/docs/vpc?topic=vpc-instance-storage).
+{: note}
 
 ## Profiles available on Hourly Consumption Billing
 {: #hana-iaas-intel-vs-vpc-hourly}
