@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-03-08"
+  years: 2020, 2024
+lastupdated: "2024-03-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -226,6 +226,39 @@ The following table can be copied into spreadsheet software. All profiles - with
 | vx2d-8x112 | IBM Cloud Virtual Server | -- | 8 | 112 | 8,523 | Intel Cascade Lake SP | 14.00 | -- | -- | VPC |
 | ux2d-2x56 | IBM Cloud Virtual Server | -- | 2 | 56 | 2,156 | Intel Cascade Lake SP | 28.00 | -- | -- | VPC |
 | ux2d-4x112 | IBM Cloud Virtual Server | -- | 4 | 112 | 4,312 | Intel Cascade Lake SP | 28.00 | -- | -- | VPC |
+| cx3d-2x5 | IBM Cloud Virtual Server | -- | 2 | 5 | 2,661 | Intel Sapphire Rapids | 2.50 | -- | -- | VPC |
+| cx3d-4x10 | IBM Cloud Virtual Server | -- | 4 | 10 |  5,321 | Intel Sapphire Rapids | 2.50 | -- | -- | VPC |
+| cx3d-8x20 | IBM Cloud Virtual Server | -- | 8 | 20 | 10,642 | Intel Sapphire Rapids | 2.50 | -- | -- | VPC |
+| cx3d-16x40 | IBM Cloud Virtual Server | -- | 16 | 40 | 21,284 | Intel Sapphire Rapids | 2.50 | -- | -- | VPC |
+| cx3d-24x60 | IBM Cloud Virtual Server | -- | 24 | 60 | 31,926 | Intel Sapphire Rapids | 2.50 | -- | -- | VPC |
+| cx3d-32x80 | IBM Cloud Virtual Server | -- | 32 | 80 | 42,568 | Intel Sapphire Rapids | 2.50 | -- | -- | VPC |
+| cx3d-48x120 | IBM Cloud Virtual Server | -- | 48 | 120 | 63,852 | Intel Sapphire Rapids | 2.50 | -- | -- | VPC |
+| cx3d-64x160 | IBM Cloud Virtual Server | -- | 64 | 160 | 85,136 | Intel Sapphire Rapids | 2.50 | -- | -- | VPC |
+| cx3d-96x240 | IBM Cloud Virtual Server | -- | 96 | 240 | 127,703 | Intel Sapphire Rapids | 2.50 | -- | -- | VPC |
+| cx3d-128x320 | IBM Cloud Virtual Server | -- | 128 | 320 | 170,270 | Intel Sapphire Rapids | 2.50 | -- | -- | VPC |
+| cx3d-176x440 | IBM Cloud Virtual Server | -- | 176 | 440 | 234,120 | Intel Sapphire Rapids | 2.50 | -- | -- | VPC |
+| bx3d-2x10 | IBM Cloud Virtual Server | -- | 2 | 10 | 2,616 | Intel Sapphire Rapids | 5.00 | -- | -- | VPC |
+| bx3d-4x20 | IBM Cloud Virtual Server | -- | 4 | 20 |  5,232 | Intel Sapphire Rapids | 5.00 | -- | -- | VPC |
+| bx3d-8x40 | IBM Cloud Virtual Server | -- | 8 | 40 |  10,463 | Intel Sapphire Rapids | 5.00 | -- | -- | VPC |
+| bx3d-16x80 | IBM Cloud Virtual Server | -- | 16 | 80 | 20,926 | Intel Sapphire Rapids | 5.00 | -- | -- | VPC |
+| bx3d-24x120 | IBM Cloud Virtual Server | -- | 24 | 120 | 31,388 | Intel Sapphire Rapids | 5.00 | -- | -- | VPC |
+| bx3d-32x160 | IBM Cloud Virtual Server | -- | 32 | 160 | 41,850 | Intel Sapphire Rapids | 5.00 | -- | -- | VPC |
+| bx3d-48x240 | IBM Cloud Virtual Server | -- | 48 | 240 | 62,775 | Intel Sapphire Rapids | 5.00 | -- | -- | VPC |
+| bx3d-64x320 | IBM Cloud Virtual Server | -- | 64 | 320 | 83,699 | Intel Sapphire Rapids | 5.00 | -- | -- | VPC |
+| bx3d-96x480 | IBM Cloud Virtual Server | -- | 96 | 480 | 125,548 | Intel Sapphire Rapids | 5.00 | -- | -- | VPC |
+| bx3d-128x640 | IBM Cloud Virtual Server | -- | 128 | 640 | 167,397 | Intel Sapphire Rapids | 5.00 | -- | -- | VPC |
+| bx3d-176x880 | IBM Cloud Virtual Server | -- | 176 | 880 | 230,170 | Intel Sapphire Rapids | 5.00 | -- | -- | VPC |
+| mx3d-2x20 | IBM Cloud Virtual Server | -- | 2 | 20 | 2,590 | Intel Sapphire Rapids | 10.00 | -- | -- | VPC |
+| mx3d-4x40 | IBM Cloud Virtual Server | -- | 4 | 40 | 5,180 | Intel Sapphire Rapids | 10.00 | -- | -- | VPC |
+| mx3d-8x80 | IBM Cloud Virtual Server | -- | 8 | 80 | 10,359 | Intel Sapphire Rapids | 10.00 | -- | -- | VPC |
+| mx3d-16x160 | IBM Cloud Virtual Server | -- | 16 | 160 | 20,718 | Intel Sapphire Rapids | 10.00 | -- | -- | VPC |
+| mx3d-24x240 | IBM Cloud Virtual Server | -- | 24 | 240 | 31,076 | Intel Sapphire Rapids | 10.00 | -- | -- | VPC |
+| mx3d-32x320 | IBM Cloud Virtual Server | -- | 32 | 320 | 41,434 | Intel Sapphire Rapids | 10.00 | -- | -- | VPC |
+| mx3d-48x480 | IBM Cloud Virtual Server | -- | 48 | 480 | 62,150 | Intel Sapphire Rapids | 10.00 | -- | -- | VPC |
+| mx3d-64x640 | IBM Cloud Virtual Server | -- | 64 | 640 | 82,866 | Intel Sapphire Rapids | 10.00 | -- | -- | VPC |
+| mx3d-96x960 | IBM Cloud Virtual Server | -- | 96 | 960 | 124,299 | Intel Sapphire Rapids | 10.00 | -- | -- | VPC |
+| mx3d-128x1280 | IBM Cloud Virtual Server | -- | 128 | 1,280 | 165,731 | Intel Sapphire Rapids | 10.00 | -- | -- | VPC |
+| mx3d-176x1760 | IBM Cloud Virtual Server | -- | 176 | 1,760 | 227,880 | Intel Sapphire Rapids | 10.00 | -- | -- | VPC |
 | BI.S3.NW192 (VMware) | IBM Cloud for VMware | 36 | 72 | 192 | 70,965 | Intel Skylake SP | 2.67 | -- | -- | Classic |
 | BI.S3.NW384 (VMware) | IBM Cloud for VMware | 36 | 72 | 384 | 71,487 | Intel Skylake SP | 5.33 | -- | -- | Classic |
 | BI.S3.NW768 (VMware) | IBM Cloud for VMware | 36 | 72 | 768 | 71,667 | Intel Skylake SP | 10.67 | -- | -- | Classic |

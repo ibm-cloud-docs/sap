@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021, 2022
-lastupdated: "2022-01-28"
+  years: 2020, 2024
+lastupdated: "2024-03-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -28,7 +28,10 @@ subcollection: sap
 The published names are subject to change.
 {: note}
 
-The following list gives you an overview of the SAP-certified profiles with {{site.data.keyword.vsi_is_short}}:
+The following tables provide an overview of the SAP-certified profiles for {{site.data.keyword.vsi_is_short}}:
+{: #nw-iaas-offerings-profiles-intel-vs-vpc-full-list}
+
+### SAP-certified profiles hosted on Intel Cascade Lake CPUs
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
 | --- | --- | --- | --- |
@@ -62,7 +65,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | mx2-64x512 \n mx2d-64x512 | 64 | 512 | 81,015 |
 | mx2-96x768 \n mx2d-96x768 | 96 | 768 | 121,523 |
 | mx2-128x1024 \n mx2d-128x1024 | 128 | 1,024 | 162,030 |
-| **Very High Memory Optimized** | |		
+| **Very High Memory Optimized** | | |
 | vx2d-2x28 | 2 | 28 | 2,131 |
 | vx2d-4x56 | 4 | 56 | 4,262 |
 | vx2d-8x112 | 8 | 112 | 8,523 |
@@ -81,7 +84,49 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | ux2d-72x2016 | 72 | 2,016 |  77,606 |
 | ux2d-100x2800 | 100 | 2,800 | 107,785 |
 | ux2d-200x5600 | 200 | 5,600 | 215,570 |
-{: caption="Table 1. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP NetWeaver" caption-side="bottom"}
+{: caption="Table 1. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} hosted on Intel Cascade Lake CPUs" caption-side="bottom"}
+
+### SAP-certified profiles hosted on Intel Sapphire Rapids CPUs
+
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
+| --- | --- | --- | --- |
+| **Compute Optimized** | | | |
+| cx3d-2x5 | 2 | 5 | 2,661 |
+| cx3d-4x10 | 4 | 10 |  5,321 |
+| cx3d-8x20 | 8 | 20 | 10,642 |
+| cx3d-16x40 | 16 | 40 | 21,284 |
+| cx3d-24x60 | 24 | 60 | 31,926 |
+| cx3d-32x80 | 32 | 80 | 42,568 |
+| cx3d-48x120 | 48 | 120 | 63,852 |
+| cx3d-64x160 | 64 | 160 | 85,136 |
+| cx3d-96x240 | 96 | 240 | 127,703 |
+| cx3d-128x320 | 128 | 320 | 170,270 |
+| cx3d-176x440 | 176 | 440 | 234,120 |
+| **Balanced** | | | |
+| bx3d-2x10 | 2 | 10 | 2,616 |
+| bx3d-4x20 | 4 | 20 |  5,232 |
+| bx3d-8x40 | 8 | 40 |  10,463 |
+| bx3d-16x80 | 16 | 80 | 20,926 |
+| bx3d-24x120 | 24 | 120 | 31,388 |
+| bx3d-32x160 | 32 | 160 | 41,850 |
+| bx3d-48x240 | 48 | 240 | 62,775 |
+| bx3d-64x320 | 64 | 320 | 83,699 |
+| bx3d-96x480 | 96 | 480 | 125,548 |
+| bx3d-128x640 | 128 | 640 | 167,397 |
+| bx3d-176x880 | 176 | 880 | 230,170 |
+| **Memory Optimized** | | | |
+| mx3d-2x20 | 2 | 20 | 2,590 |
+| mx3d-4x40 | 4 | 40 | 5,180 |
+| mx3d-8x80 | 8 | 80 | 10,359 |
+| mx3d-16x160 | 16 | 160 | 20,718 |
+| mx3d-24x240 | 24 | 240 | 31,076 |
+| mx3d-32x320 | 32 | 320 | 41,434 |
+| mx3d-48x480 | 48 | 480 | 62,150 |
+| mx3d-64x640 | 64 | 640 | 82,866 |
+| mx3d-96x960 | 96 | 960 | 124,299 |
+| mx3d-128x1280 | 128 | 1,280 | 165,731 |
+| mx3d-176x1760 | 176 | 1,760 | 227,880 |
+{: caption="Table 2. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} hosted on Intel Sapphire Rapids CPUs" caption-side="bottom"}
 
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}.
@@ -102,29 +147,29 @@ The first letter of the profile name indicates the profile family mentioned abov
 
 | First letter | Characteristics of the related profile family |
 | --- | --- |
-| c | *Compute Optimized* family, vCPU to memory ratio 1:2 |
-| b | *Balanced* family, vCPU to memory ratio 1:4 |
-| m | *Memory Optimized* family, higher vCPU to memory ratio 1:8 |
+| c | *Compute Optimized* family, vCPU to memory ratio 1:2 or 1:2.5 |
+| b | *Balanced* family, vCPU to memory ratio 1:4 or 1:5 |
+| m | *Memory Optimized* family, higher vCPU to memory ratio 1:8 or 1:10 |
 | v | *Very High Memory Optimized*  family, very high vCPU to memory ratio 1:14 |
 | u | *Ultra High Memory Optimized* family, ultra high vCPU to memory ratio 1:28 |
-{: caption="Table 2. {{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
+{: caption="Table 3. {{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
 
 
 For SAP HANA, only the memory profile families are used, for NetWeaver also the *Compute Optimized* and the *Balanced* families may be considered. The Virtual Server profile names are contextual and sequential. See here one example:
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
-| mx2-16x128 | m | *Memory Optimized* family |
+| mx?-16x128 | m | *Memory Optimized* family |
 | | x | Intel x86_64 CPU Architecture |
-| | 2 | The generation for the underlying hardware |
-| | d | the optional 'd' in the name indicates that the server is equipped with one or more internal SSD storage devices (*) |
+| | ? \n   2 \n   3 | The Intel generation for the underlying hardware \n   Cascade Lake \n   Sapphire Rapids |
+| | d | the optional 'd' in the name indicates that the server is equipped with one or more internal SSD or NVMe storage devices (*) |
 | | — | _spacer_ |
 | | 16 | 16 vCPU |
 | | x | _spacer_ |
 | | 128 | 128 GiB RAM |
-{: caption="Table 3. Profile naming for SAP HANA" caption-side="top"}
+{: caption="Table 4. Profile naming for SAP HANA" caption-side="top"}
 
-(\*) Note for Virtual Server Instances using instance storage on SSD: you must not place any SAP workload related data on such instance storage, because data loss may occur in certain situations - see more information here: [About instance storage](/docs/vpc?topic=vpc-instance-storage).
+(\*) Note for Virtual Server Instances using temporary local SSD or NVMe storage: you must not place any SAP workload related data on such instance storage, because data loss may occur in certain situations - see more information here: [About instance storage](/docs/vpc?topic=vpc-instance-storage).
 {: note}
 
 
@@ -143,7 +188,7 @@ When the virtual server profiles for SAP HANA are initially provisioned, the ser
 | --- | --- | --- | --- | --- |
 | `/` | `vda1` | Pre-configured boot volume | 100 | 3,000 |
 | `/boot` | `vda2` | Pre-configured boot volume | 0.25 | 3,000 |
-{: caption="Table 4. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
+{: caption="Table 5. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
 
 To fulfill the size and I/O requirements for SAP NetWeaver or SAP AnyDB, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.
 
