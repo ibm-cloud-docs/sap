@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-11-23"
+  years: 2022, 2023, 2024
+lastupdated: "2024-03-29"
 
 subcollection: sap
 
@@ -189,6 +189,7 @@ Before you deploy SAP S/4HANA High Availability on Single Zone:
 {: terraform}
 
 Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-in and use Terraform to install **SAP HA SZ or MZ S/4HANA** on your existing VPC. The scripts can take upto 4 hours to complete.
+The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://github.com/IBM-Cloud/sap-s4hana-ha) for recommended kits versions.
 
 1. Access the bastion server CLI.
 2. Clone the solution repository from `https://github.com/IBM-Cloud/sap-s4hana-ha` and `cd` to the `sap-s4hana-ha` folder.
@@ -450,7 +451,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 ## Deploying SAP S/4HANA High Availability on Single zone or Multi zone with the catalog tile interface
 {: #automate-deploy-s4hana-ha-catalog-tile}
 
-Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by using the catalog tile interface. The scripts can take 2 - 3 hours to complete.
+Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by using the catalog tile interface. The available supported S/4HANA versions are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-sz-ha-0f327e46-f7de-4ce5-bb19-78a779022689-global/readme/terraform/terraform/b8780183-8a8e-4341-8978-33af09603f54-global) file for recommended kits versions. The scripts can take 2 - 3 hours to complete. 
 
 1.	From the {{site.data.keyword.cloud_notm}} catalog, select the SAP S/4HANA High Availability tile. The tile opens the Create tab for SAP HA S/4HANA. For more information about this deployment, see the About tab or the readme file link.
 2.	On the SAP HA S/4HANA page, configure your workspace:
@@ -528,7 +529,7 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
 {: #automate-s4hana-ha-deploy-schematics}
 {: ui}
 
-Use these steps to configure the SAP S/4HANA High Availability on Single Zone on your existing VPC by using the {{site.data.keyword.bpshort}} interface. The scripts can take 2 - 3 hours to complete.
+Use these steps to configure the SAP S/4HANA High Availability on Single Zone on your existing VPC by using the {{site.data.keyword.bpshort}} interface. The scripts can take 2 - 3 hours to complete. The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-sz-ha-0f327e46-f7de-4ce5-bb19-78a779022689-global/readme/terraform/terraform/b8780183-8a8e-4341-8978-33af09603f54-global) for recommended kits versions.
 
 1.	From the {{site.data.keyword.cloud_notm}} menu, select **{{site.data.keyword.bpshort}}**.
 2.	Click **Create workspace**.
