@@ -290,6 +290,14 @@ toc:
             - sap-power-virtual-server-ha-rhel-hana-sr-multitarget.md
             - sap-power-virtual-server-ha-rhel-ensa.md
             - sap-power-virtual-server-ha-rhel-nfs.md
+      - topicgroup:
+            label: SAP Migration from on-premises to PowerVS
+            topics:
+            - sap-power-virtual-server-mig-overview.md
+            - sap-power-virtual-server-mig-hybrid-cloud-networking.md
+            - sap-power-virtual-server-mig-db-hana-source-presteps.md
+            - sap-power-virtual-server-mig-db-hana-target-presteps.md
+            - sap-power-virtual-server-mig-db-hana-replication.md      
 
   - navgroup:
       id: reference
