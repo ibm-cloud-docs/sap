@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022, 2023, 2024
-lastupdated: "2024-04-16"
+lastupdated: "2024-04-25"
 
 subcollection: sap
 
@@ -54,7 +54,7 @@ During the second phase, the Ansible playbooks are called and the SAP architectu
 
 A single-host system is the simplest system installation type that runs an SAP HANA db system entirely on one host. You can scale the system up as needed. The single-host system has these components: 
  
- ![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
+ ![Figure 1. SAP NetWeaver 7.x SAP HANA 3-tier architecture](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA 3-tier architecture"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA 3-tier architecture" caption-side="bottom"}
 
 The scripts are designed to install SAP (SAP S/4HANA release) solution on an existing VPC together with its dedicated DB SAP HANA box in one task flow.
 
