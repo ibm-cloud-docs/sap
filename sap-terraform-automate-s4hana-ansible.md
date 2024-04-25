@@ -89,7 +89,7 @@ The {{site.data.keyword.cloud_notm}} Provider plug-ins for Terraform on {{site.d
 {: #s4hana-automation-schematics}
 {: ui}
 
-You use the Schematics user interface on {{site.data.keyword.cloud}} and enter the [GitHub repository for S/4HANA Schematics](https://github.com/ibm-cloud/sap-s4hana/tree/main/schematics).
+You use the Schematics user interface on {{site.data.keyword.cloud}} and enter the [GitHub repository for S/4HANA Schematics](https://github.com/ibm-cloud/sap-s4hana).
 
 When you run the scripts with the Schematics interface, you:
 

@@ -174,12 +174,12 @@ If client issues are identified with SAP software, then SAP support assists the 
 ## Before you begin
 {: #automate-s4hana-ha-begin}
 
-Before you deploy SAP S/4HANA High Availability on Single Zone:
+Before you deploy SAP S/4HANA High Availability on Single Zone or Multi Zone:
 
 * The automation for this deployment requires {{site.data.keyword.cloud_notm}} File Storage for VPC to complete successfully. {{site.data.keyword.cloud_notm}} File Storage for VPC is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative to get access. For more information, see [{{site.data.keyword.cloud_notm}} File Storage for VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-file-storage-vpc-about).
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 * If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the readme file in the respective GitHub repository for [{{site.data.keyword.bpshort}}](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/tree/main/schematics) and [Terraform](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) and on the About page for the catalog tile.
+* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the Readme file in the GitHub repository and on the About page for the catalog tile.
 * [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 * [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 * (Optional - catalog tile) create secrets for your credentials and passwords by using the [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui). {: ui}
@@ -458,7 +458,7 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
     *   Select the **Resource Group** to use to create resources. Use the Default or create a Resource Group.
     *   Select a **Location** to create your {{site.data.keyword.bpshort}} workspace. The workspace location does not have to match the resource location.
 
-3.	Enter the required deployment values, review the default input variables, and provide values that match your solution. These parameters are specific to your deployment. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/schematics/README.md).
+3.	Enter the required deployment values, review the default input variables, and provide values that match your solution. These parameters are specific to your deployment. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-s4hana-ha/blob/main/README.md#16-general-input-variables).
 
     |Parameter	|  Description  |
     |-----|-----|
@@ -484,7 +484,7 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
     |SAP_MAIN_PASSWORD	|SAP main password or use a secret that is stored in Secrets Manager.|
     |SAP_SID  |SAP sid|
 
-4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/schematics/README.md).
+4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-s4hana-ha/blob/main/README.md#16-general-input-variables).
 
     |Parameter	|Description|
     |-----|-------|
@@ -534,7 +534,7 @@ Use these steps to configure the SAP S/4HANA High Availability on Single Zone on
 1.	From the {{site.data.keyword.cloud_notm}} menu, select **{{site.data.keyword.bpshort}}**.
 2.	Click **Create workspace**.
 3.	On the **Specify template** page:
-    *   Enter the [GitHub repository URL](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/tree/main/schematics) that contains the {{site.data.keyword.bpshort}} code for this offering.
+    *   Enter the [GitHub repository URL](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) that contains the {{site.data.keyword.bpshort}} code for this offering.
     *   Select the **Terraform version**.
     *   Click **Next**.
 4.	On the **Workspace details** page:
