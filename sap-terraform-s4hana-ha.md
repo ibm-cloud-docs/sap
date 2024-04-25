@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023, 2024
-lastupdated: "2024-03-29"
+lastupdated: "2024-04-17"
 
 subcollection: sap
 
@@ -60,13 +60,12 @@ It is recommended to read the guidelines from the readme file when deploying thi
 
 For more information about this architecture, see [SAP NetWeaver 7.x with SAP HANA {{site.data.keyword.cloud_notm}} VPC](/docs/sap?topic=sap-sap-refarch-nw-hana&interface=ui).
 
-During the first phase, the VPC is provisioned with these components: 
-*   1 VPC where the virtual server instances are provisioned.
-*   1 security group and the rules for this security group allow: 
-    *   Inbound DNS (port 53) and
-    *   Inbound SSH (TCP port 22) connections to your virtual server instance.
-    *   All outbound traffic from the virtual server instance.
-*   1 subnet to enable networking in your VPC.
+During the first phase, the following resources are provisioned in the VPC: 
+*    1 Power Placement group for all 4 virtual machines created by this solution
+*    4 VSIs, with Subnet and Security Group configurations 
+*    3 Application Load Balancers for HANA DB and SAP ASCS/ERS
+*    1 VPC DNS service used to map the ALB FQDN to the SAP ASCS/ERS and HANA virtual hostnames
+*    7 file shares for VPC
 
 During the second phase, the Ansible Playbooks are called and the SAP High availability architecture is installed for both dedicated VSIs SAP App VSI box and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on the pacemaker cluster. HA dedicated SAP HANA 2.0 VSI’s release as a distributed deployment model. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud_notm}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
 
@@ -111,28 +110,29 @@ For CLI deployment, Ansible is started by Terraform and both must be available o
 ## SAP Kits
 {: #automate-s4hana-ha-sap-kits}
 
-For each {{site.data.keyword.cloud_notm}} region, IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment Server. All file archives are decompressed by Ansible during the automation deployment process. For more information, see the readme file.
+It is your responsibility to download the necessary SAP and DB kits to your Deployment Server (bastion server).All file archives are decompressed by Ansible during the automation deployment process. For more information, see the readme file.
 
 ## Terraform deployment overview
 {: #automate-s4hana-ha-terraform-deployment}
 {: terraform}
 
-Terraform is used on the bastion server CLI to download and run the scripts that are on the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha). 
+The automation scripts from the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-ha) can be executed by running the Terraform scripts in CLI, from the bastion server (deployment server). 
 
-To run the Terraform script, you modify:
-* The `input.auto.tfvars` file to specify the information for your solution: 
-    * Enter the existing VPC information:
-        - VPC name
-        - Security group
-        - Subnet
-        - Hostname
-        - Profile
-        - Image
-        - A valid ssh key ID for the respective region
-    * You can change the default SAP system configuration settings to match your solution.
-    * You also specify the location where you downloaded the SAP kits.
-
-The {{site.data.keyword.terraform-provider_full_notm}} on {{site.data.keyword.cloud_notm}} uses these configuration files to install SAP S/4HANA High Availability on a single zone on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
+Edit the input parameter file `input.auto.tfvars`, and modify the variables to match your solution:
+*    VPC - An existing VPC name
+*    REGION - Region for the VSIs
+*    DOMAIN_NAME - Private domain that is not reachable to and from the outside world
+*    ZONE_1 - Availability zone for DB_HOSTNAME_1 and APP_HOSTNAME_1 VSIs
+*    ZONE_2 - Availability zone for DB_HOSTNAME_2 and APP_HOSTNAME_2VSIs
+*    SECURITY_GROUP - Existing Security Group, previously created by the user in the same VPC.
+*    SUBNET_1 - The name of an existing subnet, in the same VPC, ZONE_1, where DB_HOSTNAME_1 and APP_HOSTNAME_1 VSIs will be created.
+*    SUBNET_2 - The name of an existing subnet, in the same VPC, ZONE_2, where DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs will be created.
+*    RESOURCE_GROUP - Existing resource group, previously created by the user.
+*    SSH_KEYS - List of SSH Key UUIDs that are allowed to SSH as `root` to the VSIs.
+*    ID_RSA_FILE_PATH - `id_rsa` private key file path in OpenSSH format with 0600 permissions
+*    APP_HOSTNAME_1/ APP_HOSTNAME_2/DB_HOSTNAME_1/ DB_HOSTNAME_2 - Enter a hostname up to 12 characters. For more information, see the readme file.
+*    DB_PROFILE/APP_PROFILE - The instance profile used for the HANA/APP VSI
+*    DB_IMAGE/APP_IMAGE - OS image for DB/APP VSI
 
 ## {{site.data.keyword.bpshort}} deployment overview
 {: #automate-s4hana-ha-schematics-deployment}
@@ -431,7 +431,7 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
 
 7. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the `input.auto.tfvars` file to correct resources and run `terraform plan` again.
-8. Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
+8. Create the {{site.data.keyword.cloud_notm}} resources for S/4HANA HA system and install the SAP system.
 
     ```terraform
     terraform apply "plan1"
@@ -446,10 +446,9 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     `'IBMCLOUD_API_KEY', 'SAP_MAIN_PASSWORD' HANA_MAIN_PASSWORD, and 'HA_PASSWORD'`.
     
 
-9. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm){: external}.
-
 ## Deploying SAP S/4HANA High Availability on Single zone or Multi zone with the catalog tile interface
 {: #automate-deploy-s4hana-ha-catalog-tile}
+{: ui}
 
 Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by using the catalog tile interface. The available supported S/4HANA versions are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-sz-ha-0f327e46-f7de-4ce5-bb19-78a779022689-global/readme/terraform/terraform/b8780183-8a8e-4341-8978-33af09603f54-global) file for recommended kits versions. The scripts can take 2 - 3 hours to complete. 
 
@@ -514,6 +513,7 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
     |SAP_CI_INSTANCE_NUMBER	|The SAP central instance number. Technical identifier for internal processes of PAS. Consists of a two-digit number from 00 to 97. Must be unique on a host. Must follow the SAP rules for instance number naming.|
     |SAP_ERS_INSTANCE_NUMBER	|The enqueue replication server instance number. Technical identifier for internal processes of ERS. Consists of a two-digit number from 00 to 97. Must be unique on a host. Must follow the SAP rules for instance number naming.|
     |SHARE_PROFILE	|Enter the IOPs (IOPS per GB) tier for File Share storage. Valid values are 3, 5, and 10.|
+    |S4HANA_VERSION	|The version of S/4HANA. Supported values: 2023, 2022, 2021, and 2020.|
     |USRSAP_AS1 |FS size in GB for usrsap-as1|
     |USRSAP_AS2 |FS size in GB for usrsap-as2|
     |USRSAP_SAPASCS |FS size in GB for usrsap-sapascs|
@@ -558,9 +558,7 @@ Use these steps to configure the SAP S/4HANA High Availability on Single Zone on
 {: #automate-s4hana-ha-next-steps}
 {: terraform}
 
-If you need to rename your resources after they are created, modify the `input.auto.tfvars` file to change the names and run `terraform plan` and `terraform apply` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
-
-If you need to remove the **SAP HA S/4HANA** installation, go to your project folder and run `terraform destroy`. The `terraform destroy` command does not remove the VPC in this scenario because the VPC was not created with the Terraform script.
+If you need to remove the SAP HA S/4HANA installation, go to your project folder and run `terraform destroy`. The `terraform destroy` command does not remove the VPC in this scenario because the VPC was not created with the same Terraform script.
 
 ## Related information
 {: #automate-s4hana-ha-related-information}
