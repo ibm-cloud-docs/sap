@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023, 2024
-lastupdated: "2024-04-17"
+lastupdated: "2024-04-25"
 
 subcollection: sap
 
@@ -116,7 +116,7 @@ It is your responsibility to download the necessary SAP and DB kits to your Depl
 {: #automate-s4hana-ha-terraform-deployment}
 {: terraform}
 
-The automation scripts from the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-ha) can be executed by running the Terraform scripts in CLI, from the bastion server (deployment server). 
+The automation scripts from the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) can be executed by running the Terraform scripts in CLI, from the bastion server (deployment server). 
 
 Edit the input parameter file `input.auto.tfvars`, and modify the variables to match your solution:
 *    VPC - An existing VPC name
@@ -138,7 +138,7 @@ Edit the input parameter file `input.auto.tfvars`, and modify the variables to m
 {: #automate-s4hana-ha-schematics-deployment}
 {: ui}
 
-{{site.data.keyword.bpshort}} user interface is used on the {{site.data.keyword.cloud_notm}}. Enter the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/tree/main/schematics) for SAP S/4HANA High Availability on single zone {{site.data.keyword.bpshort}}.
+{{site.data.keyword.bpshort}} user interface is used on the {{site.data.keyword.cloud_notm}}. Enter the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) for SAP S/4HANA High Availability on single zone {{site.data.keyword.bpshort}}.
 
 When you run the scripts with the {{site.data.keyword.bpshort}} interface, you:
 
@@ -179,7 +179,7 @@ Before you deploy SAP S/4HANA High Availability on Single Zone or Multi Zone:
 * The automation for this deployment requires {{site.data.keyword.cloud_notm}} File Storage for VPC to complete successfully. {{site.data.keyword.cloud_notm}} File Storage for VPC is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative to get access. For more information, see [{{site.data.keyword.cloud_notm}} File Storage for VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-file-storage-vpc-about).
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 * If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the Readme file in the GitHub repository and on the About page for the catalog tile.
+* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the Readme file in the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) and on the About page for the catalog tile.
 * [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 * [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 * (Optional - catalog tile) create secrets for your credentials and passwords by using the [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui). {: ui}
