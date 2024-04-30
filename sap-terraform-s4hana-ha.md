@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023, 2024
-lastupdated: "2024-04-25"
+lastupdated: "2024-04-29"
 
 subcollection: sap
 
@@ -204,12 +204,12 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
 3. Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options on images, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [readme file](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md){: external}.
 
     ```terraform
-    ######################################################
+    ##########################################################
     # General VPC variables:
-    ######################################################
+    ##########################################################
 
-    REGION = "eu-de"
-    # Region for the VSI. Supported regions: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
+    REGION = ""
+    # The cloud region where to deploy the solution. Supported regions: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
     # Example: REGION = "eu-de"
 
     DOMAIN_NAME = "ha.mzexample.com"
@@ -222,53 +222,56 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
 
     ASCS_VIRT_HOSTNAME = "sapascs"
     # ASCS Virtual Hostname
-    # Default =  "sap($your_sap_sid)ascs"
+    # Default value: sapascs
+    # When the default value is used, the virtual hostname will automatically be changed based on <SAP_SID> to "sap<sap_sid>ascs"
 
     ERS_VIRT_HOSTNAME = "sapers"
     # ERS Virtual Hostname
-    # Default =  "sap($your_sap_sid)ascs"
+    # Default value: sapers
+    # When the default value is used, the virtual hostname will automatically be changed based on <SAP_SID> to "sap<sap_sid>ers"
 
     HANA_VIRT_HOSTNAME = "dbhana"
     # Hana Virtual Hostname
-    # Default = "db($your_hana_sid)hana"
+    # Default value: dbhana
+    # When the default value is used, the virtual hostname will automatically be changed based on <SAP_SID> to "db<hana_sid>hana"
 
-    VPC = "ic4sap"
-    # EXISTING VPC, previously created by the user in the same region as the VSI. The list of available VPCs: https://cloud.ibm.com/vpc-ext/network/vpcs
+    VPC = ""
+    # The name of an EXISTING VPC. Must be in the same region as the solution to be deployed. The list of VPCs is available here: https://cloud.ibm.com/vpc-ext/network/vpcs.
     # Example: VPC = "ic4sap"
 
-    ZONE_1 = "eu-de-1"
-    # Availability zone for DB_HOSTNAME_1 and APP_HOSTNAME_1 VSIs. Supported zones: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
+    ZONE_1 = ""
+    # Availability zone for DB_HOSTNAME_1 and APP_HOSTNAME_1 VSIs, in the same VPC. Supported zones: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
     # Example: ZONE = "eu-de-1"
 
-    SUBNET_1 = "ic4sap-subnet_1"
-    # EXISTING Subnet, previously created by the user where DB_HOSTNAME_1 and APP_HOSTNAME_1 VSIs will be created. The list of available Subnets: https://cloud.ibm.com/vpc-ext/network/subnets
+    SUBNET_1 = ""
+    # The name of an EXISTING Subnet, in the same VPC, ZONE_1, where DB_HOSTNAME_1 and APP_HOSTNAME_1 VSIs will be created. The list of Subnets is available here: https://cloud.ibm.com/vpc-ext/network/subnets
     # Example: SUBNET = "ic4sap-subnet_1"
 
-    ZONE_2 = "eu-de-2"
-    # Availability zone for DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs. Supported zones: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
-    # OBS.: If the variables value from ZONE_1=ZONE_2 and SUBNET_1=SUBNET_2, then will be an SAP Single Zone deployment only in ZONE_1, SUBNET_1. If the variable values from ZONE_1, SUBNET_1 are different than ZONE_2, SUBNET_2  then it is an SAP Multizone deployment.
+    ZONE_2 = ""
+    # Availability zone for DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs, in the same VPC. Supported zones: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc. 
+    # If the same value as for ZONE_1 is used, and the value for SUBNET_1 is the same with the value for SUBNET_2, the deployment will be done in a single zone. If the values for ZONE_1, SUBNET_1 are different than the ones for ZONE_2, SUBNET_2 then an SAP Multizone deployment will be done.
     # Example: ZONE = "eu-de-2"
 
-    SUBNET_2 = "ic4sap-subnet_2"
-    # EXISTING Subnet, previously created by the user where DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs will be created. The list of available Subnets: https://cloud.ibm.com/vpc-ext/network/subnets
-    # OBS.: If the variables value from ZONE_1=ZONE_2 and SUBNET_1=SUBNET_2, then will be an SAP Single Zone deployment only in ZONE_1, SUBNET_1. If the variable values from ZONE_1, SUBNET_1 are different than ZONE_2, SUBNET_2  then it is an SAP Multizone deployment.
+    SUBNET_2 = ""
+    # The name of an EXISTING Subnet, in the same VPC, ZONE_2, where DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs will be created. The list of Subnets is available here: https://cloud.ibm.com/vpc-ext/network/subnets. 
+    # If the same value as for SUBNET_1 is used, and the value for ZONE_1 is the same with the value for ZONE_2, the deployment will be done in a single zone. If the values for ZONE_1, SUBNET_1 are different than the ones for ZONE_2, SUBNET_2 then it an SAP Multizone deployment will be done.
     # Example: SUBNET = "ic4sap-subnet_2"
 
-    SECURITY_GROUP = "ic4sap-securitygroup"
-    # EXISTING Security group, previously created by the user in the same VPC. It can be copied from the Bastion Server Deployment "OUTPUTS" at the end of "Apply plan successful" message. The list of available Security Groups: https://cloud.ibm.com/vpc-ext/network/securityGroups
+    SECURITY_GROUP = ""
+    # The name of an EXISTING Security group for the same VPC. It can be found at the end of the Bastion Server deployment log, in \"Outputs\", before \"Command finished successfully\" message. The list of Security Groups is available here: https://cloud.ibm.com/vpc-ext/network/securityGroups.
     # Example: SECURITY_GROUP = "ic4sap-securitygroup"
 
-    RESOURCE_GROUP = "wes-automation"
+    RESOURCE_GROUP = ""
     # EXISTING Resource group, previously created by the user. The list of available Resource Groups: https://cloud.ibm.com/account/resource-groups
     # Example: RESOURCE_GROUP = "wes-automation"
 
-    SSH_KEYS = [ "" ]
-    # List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. The SSH Keys should be created for the same region as the VSI. The list of available SSH Keys UUIDs: https://cloud.ibm.com/vpc-ext/compute/sshKeys
+    SSH_KEYS = [""]
+    # List of SSH Keys UUIDs that are allowed to connect via SSH, as root, to the VSI. Can contain one or more IDs. The list of SSH Keys is available here: https://cloud.ibm.com/vpc-ext/compute/sshKeys.
     # Example: SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
 
     ID_RSA_FILE_PATH = "ansible/id_rsa"
-    # Input your existing id_rsa private key file path in OpenSSH format with 0600 permissions.
-    # This private key it is used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.
+    # The path to an existing id_rsa private key file, with 0600 permissions. The private key must be in OpenSSH format.
+    # This private key is used only during the provisioning and it is recommended to be changed after the SAP deployment.
     # It must contain the relative or absoute path from your Bastion.
     # Examples: "ansible/id_rsa_s4hana_ha" , "~/.ssh/id_rsa_s4hana_ha" , "/root/.ssh/id_rsa".
 
@@ -277,10 +280,9 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     ##########################################################
 
     SHARE_PROFILE = "dp2"
-    # Enter the File Share Storage Profile.
+    # The Storage Profile for the File Share
     # More details on https://cloud.ibm.com/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile."
 
-    # Default File shares sizes:
     USRSAP_AS1      = "20"
     USRSAP_AS2      = "20"
     USRSAP_SAPASCS  = "20"
@@ -288,21 +290,21 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     USRSAP_SAPMNT   = "20"
     USRSAP_SAPSYS   = "20"
     USRSAP_TRANS    = "80"
-    # Enter Custom File Shares sizes for SAP mounts.
+    # Default File shares sizes:
 
     ##########################################################
     # DB VSI variables:
     ##########################################################
 
     DB_HOSTNAME_1 = "hanadb-1"
-    # Hana Cluster VSI1 Hostname.
-    # The Hostname for the DB VSI. The hostname should be up to 13 characters, as required by SAP
-    # Default: DB_HOSTNAME_1 = "hanadb-$your_hana_sid-1"
+    # HANA DB VSI HOSTNAME 1 in SAP HANA Cluster. The hostname should be up to 13 characters, as required by SAP
+    # Default value: "hanadb-1"
+    # When the default value is used, the virtual hostname will automatically be changed based on <HANA_SID> to "hanadb-<hana_sid>-1"
 
     DB_HOSTNAME_2 = "hanadb-2"
-    # Hana Cluster VSI2 Hostname.
-    # The Hostname for the DB VSI. The hostname should be up to 13 characters, as required by SAP
-    # Default: DB_HOSTNAME_2 = "hanadb-$your_hana_sid-2"
+    # HANA DB VSI HOSTNAME 2 in SAP HANA Cluster. The hostname should be up to 13 characters, as required by SAP
+    # Default value: "hanadb-2"
+    # When the default value is used, the virtual hostname will automatically be changed based on <HANA_SID> to "hanadb-<hana_sid>-2"
 
     DB_PROFILE = "mx2-16x128"
     # The instance profile used for the HANA VSI. The list of certified profiles for HANA VSIs: https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc
@@ -310,37 +312,53 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     # For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check [SAP Note 2927211: SAP Applications on IBM Virtual Private Cloud](https://launchpad.support.sap.com/#/notes/2927211) 
     # Default value: "mx2-16x128"
 
-    DB_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-3"
-    # OS image for DB VSI. Supported OS images for DB VSIs: ibm-redhat-8-4-amd64-sap-hana-4
+    DB_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-5"
+    # OS image for DB VSI. Supported OS images for DB VSIs: ibm-redhat-8-6-amd64-sap-hana-5, ibm-redhat-8-4-amd64-sap-hana-9
     # The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://launchpad.support.sap.com/#/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
-    # Example: DB_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-4" 
+    # Example: DB_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-9" 
 
     ##########################################################
     # SAP APP VSI variables:
     ##########################################################
 
     APP_HOSTNAME_1 = "sapapp-1"
-    # SAP Cluster VSI1 Hostname.
-    # The Hostname for the SAP APP VSI. The hostname should be up to 13 characters, as required by SAP
-    # Default: APP_HOSTNAME_1 = "sapapp-$your_sap_sid-1"
+    # APP VSI HOSTNAME 1 in SAP APP Cluster. The hostname should be up to 13 characters. 
+    # Default value: "sapapp-1"
+    # When the default value is used, the virtual hostname will automatically be changed based on <SAP_SID> to "sapapp-<sap_sid>-1"
 
     APP_HOSTNAME_2 = "sapapp-2"
-    # SAP Cluster VSI2 Hostname.
-    # The Hostname for the SAP APP VSI. The hostname should be up to 13 characters, as required by SAP
-    # Default: APP_HOSTNAME_2 = "sapapp-$your_sap_sid-2"
+    # APP VSI HOSTNAME 2 in SAP APP Cluster. The hostname should be up to 13 characters. 
+    # Default value: "sapapp-2"
+    # When the default value is used, the virtual hostname will automatically be changed based on <SAP_SID> to "sapapp-<sap_sid>-2"
 
     APP_PROFILE = "bx2-4x16"
     # The APP VSI profile. Supported profiles: bx2-4x16. The list of available profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui
 
-    APP_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-3"
-    # OS image for SAP APP VSI. Supported OS images for APP VSIs: ibm-redhat-8-4-amd64-sap-hana-4.
+    APP_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-5"
+    # OS image for SAP APP VSI. Supported OS images for APP VSIs: ibm-redhat-8-6-amd64-sap-hana-5, ibm-redhat-8-4-amd64-sap-hana-9.
     # The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://launchpad.support.sap.com/#/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
-    # Example: APP_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-4" 
+    # Example: APP_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-9" 
+
+    ##########################################################
+    # Activity Tracker variables:
+    ##########################################################
+
+    ATR_NAME = ""
+    # The name of the EXISTING Activity Tracker instance, in the same region chosen for SAP system deployment.
+    # Example: ATR_NAME="Activity-Tracker-SAP-eu-de"
     ```
 
 4. Customize your SAP system configuration. In the same `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme file](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md){: external}.
 
     ```terraform
+    ##########################################################
+    # S/4HANA version
+    ##########################################################
+
+    S4HANA_VERSION = "2023"
+    # The version of S/4HANA. Supported values: 2023, 2022, 2021, 2020.
+    # Example: S4HANA_VERSION = "2022"
+
     ##########################################################
     # SAP HANA configuration
     ##########################################################
@@ -362,16 +380,17 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     # SAP HANA Components. Default: server. Supported values: all, client, es, ets, lcapps, server, smartda, streaming, rdsync, xs, studio, afl, sca, sop, eml, rme, rtl, trp
     # Example: HANA_COMPONENTS = "server"
 
-    KIT_SAPHANA_FILE = "/storage/HANADB/51056441.ZIP"
+    KIT_SAPHANA_FILE = "/storage/HANADB/51057281.ZIP"
     # SAP HANA Installation kit path
-    # Supported SAP HANA versions on Red Hat 8.4, 8.6 and Suse 15.3, 15.4: HANA 2.0 SP 5 Rev 57, kit file: 51055299.ZIP
-    # Example for Red Hat 8 or Suse 15: KIT_SAPHANA_FILE = "/storage/HANADB/51056441.ZIP"
+    # Validated SAP HANA versions for S/4HANA 2023 on Red Hat 8: HANA 2.0 SP 7 Rev 73, kit file: 51057281.ZIP
+    # Validated SAP HANA versions for S/4HANA 2022, 2021, 2020 on Red Hat 8: HANA 2.0 SP 5 Rev 57, kit file: 51056441.ZIP
+    # Example for Red Hat 8: KIT_SAPHANA_FILE = "/storage/HANADB/51056441.ZIP"
 
     ##########################################################
     # SAP system configuration
     ##########################################################
 
-    SAP_SID = "DEV"
+    SAP_SID= "S4A"
     # SAP System ID
     # Obs. This will be used  also as identification number across different HA name resources. Duplicates are not allowed.
 
@@ -399,14 +418,14 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     ##########################################################
 
     KIT_SAPCAR_FILE = "/storage/S4HANA/SAPCAR_1010-70006178.EXE"
-    KIT_SWPM_FILE = "/storage/S4HANA/SWPM20SP15_5-80003424.SAR"
-    KIT_SAPEXE_FILE = "/storage/S4HANA/KERNEL/785/SAPEXE_300-80005374.SAR"
-    KIT_SAPEXEDB_FILE = "/storage/S4HANA/KERNEL/785/SAPEXEDB_300-80005373.SAR"
-    KIT_IGSEXE_FILE = "/storage/S4HANA/KERNEL/785/igsexe_3-70005417.sar"
+    KIT_SWPM_FILE = "/storage/S4HANA/SWPM20SP17_0-80003424.SAR"
+    KIT_SAPEXE_FILE = "/storage/S4HANA/KERNEL/793/SAPEXE_60-70007807.SAR"
+    KIT_SAPEXEDB_FILE = "/storage/S4HANA/KERNEL/793/SAPEXEDB_60-70007806.SAR"
+    KIT_IGSEXE_FILE = "/storage/S4HANA/KERNEL/793/igsexe_4-70005417.sar"
     KIT_IGSHELPER_FILE = "/storage/S4HANA/igshelper_17-10010245.sar"
     KIT_SAPHOSTAGENT_FILE = "/storage/S4HANA/SAPHOSTAGENT61_61-80004822.SAR"
-    KIT_HDBCLIENT_FILE = "/storage/S4HANA/IMDB_CLIENT20_017_22-80002082.SAR"
-    KIT_S4HANA_EXPORT = "/storage/S4HANA/export"
+    KIT_HDBCLIENT_FILE = "/storage/S4HANA/IMDB_CLIENT20_018_27-80002082.SAR"
+    KIT_S4HANA_EXPORT = "/storage/S4HANA/2023"
     ```
 
     Ansible decompresses the rest of the SAP kit files. For more information, see the [readme file](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md){: external}.

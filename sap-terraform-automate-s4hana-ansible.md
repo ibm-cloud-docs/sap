@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022, 2023, 2024
-lastupdated: "2024-04-25"
+lastupdated: "2024-04-29"
 
 subcollection: sap
 
@@ -190,6 +190,9 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 4.	Customize your SAP system configuration with the values to be passed to the Ansible playbooks for the automated deployment.
 
     ```
+    # S/4HANA version
+    S4HANA_VERSION = "2023"
+
 	# SAP HANA DB configuration
 	HANA_SID = "HDB"
 	HANA_SYSNO = "00"
