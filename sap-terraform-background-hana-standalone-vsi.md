@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2021-07-06"
+years: 2021, 2023
+lastupdated: "2023-05-02"
 
 subcollection: sap
 
@@ -56,7 +56,7 @@ An SAP HANA system can be configured as either:
 
 A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components: 
 
- ![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 2. SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
+ ![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation on BM and x86 VSIs](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA single-host installation on BM and x86 VSIs"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation on BM and x86 VSIs" caption-side="bottom"}
 
 For more information about SAP systems architectures in {{site.data.keyword.cloud_notm}} VPC, see [reference architectures](/docs/sap?topic=sap-sap-refarch-nw-hana) for each supported database type.
 
@@ -83,13 +83,14 @@ Terraform is used to provision of the infrastructure components in {{site.data.k
 After the successful deployment of the infrastructure, the Terraform script calls the Ansible Playbook, which automatically installs the SAP application.
 Access creating single-tier VPC for SAP by using Terraform to get the detailed steps about using Terraform only for the creation of a VPC for SAP.
 
-## Ansible for SAP installation
-{: #sap-hana-ansible-for-install}
+This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
+{: note}
 
-Ansible is an automation tool for the deployment several IT tasks. This solution performs the automated deployment of SAP HANA 2.0 DB on Red Hat Enterprise Linux 7.6 for SAP HANA on stand-alone SAP HANA box VSI. For more information about Ansible, check out the documentation available on the Ansible page.
+## Ansible for SAP installation
+{: #sap-hana-ansible-for-install} 
+
+Ansible is an automation tool for the deployment several IT tasks. This solution performs the automated deployment of SAP HANA 2.0 DB on Red Hat Enterprise Linux 7.6 for SAP HANA on stand-alone SAP HANA box VSI. For more information about Ansible, check out the documentation available on the Ansible page. 
 
 The deployment is done by the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on [the Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html).
 
 The Ansible playbook is called directly by the Terraform script. The Terraform script is run in one run. During the run, the first steps are Terraform specific for creating the VPC, and it continues automatically with the second, Ansible, steps for the installation of the SAP system.
-
-This automation is offered free of charge however, the provisioned infrastructure comes at cost.{: note}
