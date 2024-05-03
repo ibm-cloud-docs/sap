@@ -36,7 +36,6 @@ This table gives you an overview of the SAP-certified profiles with bare metal s
 | cx2d-metal-96x192 | 96 | 192 | 101,070|
 | **Balanced** | | | |
 | bx2d-metal-96x384 | 96 | 384 | 124,130 |
-| bx2d-metal-192x768 | 192 | 768 | 255,800 |
 | **Memory Optimized** | | | |
 | mx2d-metal-96x768 | 96 | 768 | 127,620 |
 | **Ultra High Memory Optimized** | | | |

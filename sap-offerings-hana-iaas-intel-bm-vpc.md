@@ -20,7 +20,7 @@ subcollection: sap
 {:tip: .tip}
 {:important: .important}
 
-# Bare metal servers certified profiles on VPC infrastructure for SAP HANA
+# Bare Metal Server certified profiles on VPC infrastructure for SAP HANA
 {: #hana-iaas-offerings-profiles-intel-bm-vpc}
 
 ## Profiles list
@@ -34,7 +34,6 @@ The following table gives you an overview of the SAP-certified profiles with bar
 | cx2-metal-96x192 | 96 | 192 | 107,400 | SAP Business One (\*\*) |
 | **Balanced** | | | | |
 | bx2d-metal-96x384 | 96 | 384 | 124,130 | OLTP/OLAP (\*)<br/>SAP Business One (\*\*) |
-| bx2d-metal-192x768 | 192 | 768 | 255,800 | OLTP/OLAP (\*) |
 | **Memory Optimized** | | | | |
 | mx2d-metal-96x768 | 96 | 768 | 127,620 | OLTP/OLAP (\*)<br/>SAP Business One (\*\*) |
 | **Ultra High Memory Optimized** | | | |
@@ -45,7 +44,7 @@ The following table gives you an overview of the SAP-certified profiles with bar
 (\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions<br/>
 SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
 
-(\*\*): SLES 15 SP3, SLES 15 SP4     
+(\*\*): SLES 15 SP3, SLES 15 SP4
 
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}. 
@@ -135,9 +134,6 @@ The following table shows the required physical volumes, related volume groups, 
 | `bx2d-metal-96x384`  | `/hana/shared` | `hana_shared_lv` | 384 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
 | | `/hana/data` | `hana_data_lv` | min. 1,152 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
 | | `/hana/log` |  | 384 | `vg0` | | | 
-| `bx2d-metal-192x768`  | `/hana/shared` | `hana_shared_lv` | 768 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
-| | `/hana/data` | `hana_data_lv` | min. 2,304 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
-| | `/hana/log` |  | 512 | `vg0` | | | 
 | --- | --- | --- | --- | --- | --- | --- |
 | `mx2d-metal-96x768`  | `/hana/shared` | `hana_shared_lv` | 768 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
 | | `/hana/data` | `hana_data_lv` | min. 2,304 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
