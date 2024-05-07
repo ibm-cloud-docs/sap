@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021, 2022
-lastupdated: "2022-01-28"
+  years: 2020, 2021, 2022, 2023, 2024
+lastupdated: "2024-05-07"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -31,7 +31,7 @@ The following table gives you an overview of the SAP-certified profiles with bar
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- |
 | **Compute Optimized** | | | | |
-| cx2-metal-96x192 | 96 | 192 | 107,400 | SAP Business One (\*\*) |
+| cx2d-metal-96x192 | 96 | 192 | 107,400 | SAP Business One (\*\*) |
 | **Balanced** | | | | |
 | bx2d-metal-96x384 | 96 | 384 | 124,130 | OLTP/OLAP (\*)<br/>SAP Business One (\*\*) |
 | **Memory Optimized** | | | | |
@@ -108,14 +108,14 @@ When the bare metal server profiles for SAP HANA are initially provisioned, the 
 {: caption="Table 3. Storage configuration of the default bare metal server deployment (boot volume)" caption-side="top"}
 
 
-In addition to these partitions, bare metal servers for VPC have 8 - 16 NVMEs – depending on their size – which need to be configured after the server deployment.
+In addition to these partitions, bare metal servers for VPC have up to 8 NVMEs – depending on their RAM size – which need to be configured after the server deployment.
 
 To fulfill the KPIs defined for SAP HANA, each profile needs different storage volumes that are listed in detail in the following sections. **These storage configurations are mandatory, not sample storage configurations**, because they are the tested and certified storage layouts that comply with **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. The recommendation is to use these specifications.
 
 Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when they configure different layouts. In that case, users must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://launchpad.support.sap.com/#/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/viewer/product/HANA_HW_CLOUD_TOOLS/latest/en-US){: external} to check compliance with SAP’s KPIs.
 {: important}
 
-This holds true especially, if file shares are used for SAP HANA installations. They can be deployed and mounted in arbitrary ways to provide additions storage, for example for backups, as needed. For SAP HANA data and log files, however, they have to be evaluated. 
+This holds true especially, if file shares are used for SAP HANA installations. They can be deployed and mounted in arbitrary ways to provide additional storage, for example for backups, as needed. For SAP HANA data and log files, however, they have to be evaluated. 
 {: note}
 
 In any case, [SAP's recommended file system layout](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.latest/en-US/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. 
@@ -127,23 +127,23 @@ The following table shows the required physical volumes, related volume groups, 
 
 | Profile | File\nsystem | Logical\nVolume | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(TB) |
 | --- | --- | --- | --- | --- | --- | --- |
-| `cx2d-metal-96x192`  | `/hana/shared` | `hana_shared_lv` | 192 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
-| | `/hana/data` | `hana_data_lv` | min. 576 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
+| `cx2d-metal-96x192`  | `/hana/shared` | `hana_shared_lv` | 192 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 12.8 |
+| | `/hana/data` | `hana_data_lv` | min. 576 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 12.8 |
 | | `/hana/log` |  | 192 | `vg0` | | | 
 | --- | --- | --- | --- | --- | --- | --- |
-| `bx2d-metal-96x384`  | `/hana/shared` | `hana_shared_lv` | 384 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
-| | `/hana/data` | `hana_data_lv` | min. 1,152 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
+| `bx2d-metal-96x384`  | `/hana/shared` | `hana_shared_lv` | 384 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 12.8 |
+| | `/hana/data` | `hana_data_lv` | min. 1,152 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 12.8 |
 | | `/hana/log` |  | 384 | `vg0` | | | 
 | --- | --- | --- | --- | --- | --- | --- |
-| `mx2d-metal-96x768`  | `/hana/shared` | `hana_shared_lv` | 768 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
-| | `/hana/data` | `hana_data_lv` | min. 2,304 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
+| `mx2d-metal-96x768`  | `/hana/shared` | `hana_shared_lv` | 768 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 12.8 |
+| | `/hana/data` | `hana_data_lv` | min. 2,304 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 12.8 |
 | | `/hana/log` |  | 512 | `vg0` | | | 
 | --- | --- | --- | --- | --- | --- | --- |
-| `ux2d-metal-112x3072`  | `/hana/shared` | `hana_shared_lv` | 3,072 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 11.6 |
-| | `/hana/data` | `hana_data_lv` | min. 9,216 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 11.6 |
+| `ux2d-metal-112x3072`  | `/hana/shared` | `hana_shared_lv` | 3,072 | `vg0` | `nvme0n1-`\n`nvme3n1-` | 12.8 |
+| | `/hana/data` | `hana_data_lv` | min. 9,216 | `vg1` | `nvme4n1-`\n`nvme7n1-` | 12.8 |
 | | `/hana/log` |  | 512 | `vg0` | | | 
 | --- | --- | --- | --- | --- | --- | --- |
-| `ux2d-metal-224x6144`  | `/hana/shared` | `hana_shared_lv` | 6,144 | `vg0` | `nvme0n1-`\n`nvme1n1-` | 25.6 |
+| `ux2d-metal-224x6144`  | `/hana/shared` | `hana_shared_lv` | 6,144 | `vg0` | `nvme0n1-`\n`nvme1n1-` | 51.2 |
 | | `/hana/data` | `hana_data_lv` | min. 18,432 | `vg0` | | |
 | | `/hana/log` |  | 512 | `vg0` | | | 
 {: caption="Table 4. Storage layout for Bare metal servers for VPC" caption-side="top"}
@@ -151,7 +151,7 @@ The following table shows the required physical volumes, related volume groups, 
 <br/>
 <br/>
 
-Profile `ux2d-metal-224x6144` is equipped with different set od disks, so jump directly to ["Steps for setting up storage for the `ux2d-metal-224x6144` profile"](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc#hana-iaas-intel-bm-vpc-storage-specs-6TB).
+Profile `ux2d-metal-224x6144` is equipped with different set of disks, so jump directly to ["Steps for setting up storage for the `ux2d-metal-224x6144` profile"](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc#hana-iaas-intel-bm-vpc-storage-specs-6TB).
 {: note}
 
 ### Steps for setting up storage for the profiles up to 3,072 GiB
@@ -236,14 +236,14 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
 3. Create logical volumes hana_shared_lv and hana_log_lv on top of the volume group.
 
     ```
-    [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -i 2 -m 1 -L 6144G -I 64 -n hana_shared_lv vg0
-    [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -i 2 -m 1 -L 512G -I 64 -n hana_log_lv vg0
+    [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -L 6144G -n hana_shared_lv vg0
+    [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -L 512G -n hana_log_lv vg0
     ```
 
 4. Create logical volume hana_data_lv.
 
     ```
-    [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -i 2 -m 1 -l 100%FREE -I 64 -n hana_data_lv vg0
+    [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -l 100%FREE -n hana_data_lv vg0
     ```
 
 5. Create file systems on the logical volumes. In this example, XFS is used and is mounted by label. Mount by label is not a requirement and can be adapted according to your needs:
