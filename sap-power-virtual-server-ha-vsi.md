@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-02-06"
+lastupdated: "2024-05-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -10,32 +10,30 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating instances for a high availability cluster on {{site.data.keyword.powerSysFull}}
+# Creating instances for a high availability cluster on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-vsi}
 
-Use the following information and procedures to help you create {{site.data.keyword.powerSys_notm}} instances that are needed for a high availability cluster implementation.
+Use the following information and procedures to create the {{site.data.keyword.powerSys_notm}} instances that are required for a high availability cluster implementation.
 {: shortdesc}
 
-## Overview
-{: #ha-vsi-overview}
-
-You can find the following information in the proceeding sections.
+The following information is provided in the following sections.
 
 - [Creating the {{site.data.keyword.powerSys_notm}} workspace in {{site.data.keyword.cloud}}](#ha-vsi-create-workspace)
+
     After the workspace is created, you can create and configure virtual server instances, network resources, and storage volumes.
 - [Creating a Service ID API Key in {{site.data.keyword.cloud}}](#ha-vsi-create-service-id)
+
     For monitoring and management, the fencing agent authenticates to the {{site.data.keyword.powerSys_notm}} API by using the Service API key.
 
-## Prerequisites
-{: #ha-vsi-prereqs}
+## Before you begin
+{: #ha-vsi-begin}
 
-- An [{{site.data.keyword.cloud}}account](https://cloud.ibm.com/docs/account?topic=account-account-getting-started){: external}.
-- [Setting up an enterprise account](https://cloud.ibm.com/docs/account?topic=account-enterprise-tutorial){: external} guides you creating an enterprise and managing your account.
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ## Creating the workspace
 {: #ha-vsi-create-workspace}
 
-A workspace is the environment that acts as folder for all the {{site.data.keyword.powerSys_notm}} resources in a specific geographic region.
+A workspace is the environment that acts as a folder for all the {{site.data.keyword.powerSys_notm}} resources in a specific geographic region.
 These resources include computing, network, and storage volumes.
 Resources cannot be moved or shared between different workspaces.
 Each workspace is tied to a single data center.
@@ -57,7 +55,7 @@ It is recommended that you connect the cluster nodes to a private network, not t
 
 An extra bastion node can access both public and private networks and can be used to tunnel SSH connections to the cluster nodes.
 
-Private subnets are created in context of the {{site.data.keyword.powerSys_notm}} workspace. When you connect different networks, you can use GRE Tunneling if a subnet range conflicts with existing classical infrastructure.
+Private subnets are created in the context of the {{site.data.keyword.powerSys_notm}} workspace. When you connect different networks, you can use GRE Tunneling if a subnet range conflicts with existing classical infrastructure.
 
 You need at least one private subnet in the workspace.
 {: tip}
@@ -90,12 +88,16 @@ Follow this procedure to avoid that virtual IP addresses are erroneously used du
 ## Exploring more network architecture options
 {: #ha-vsi-explore-additional-network-options}
 
-You use an {{site.data.keyword.cloud}} connection to connect your {{site.data.keyword.powerSys_notm}} instances to other {{site.data.keyword.cloud}} resources within your account.
-{{site.data.keyword.cloud}} connections are not required to configure a Red Hat High Availability cluster on {{site.data.keyword.powerSys_notm}}, but might be required for integration scenarios when you use {{site.data.keyword.cloud}} classic network and Virtual Private Cloud (VPC) infrastructures.
+If your {{site.data.keyword.powerSys_notm}} *workspace* is enabled for *Power Edge Router* (PER), you already have network communication with parts of the IBM network.
+The PER solution creates a direct connection to the IBM Cloud MPLS Multi Protocol Label Switching (MPLS) backbone, making it easy for different parts of the IBM network to communicate with each other.
+For more information, see [Getting started with the Power Edge Router](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-per).
+
+Otherwise, use an {{site.data.keyword.cloud}} connection to connect your {{site.data.keyword.powerSys_notm}} instances to other {{site.data.keyword.cloud}} resources within your account.
+{{site.data.keyword.cloud}} connections are not required to configure a Red Hat High Availability cluster on {{site.data.keyword.powerSys_notm}}, but might be required for integration scenarios when you use the {{site.data.keyword.cloud}} Classic network and Virtual Private Cloud (VPC) infrastructures.
 For more information, see [Managing {{site.data.keyword.cloud}} connections](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-cloud-connections){: external}.
 
-Use IBM Transit Gateway to interconnect your {{site.data.keyword.powerSys_notm}} to {{site.data.keyword.cloud}} classic and Virtual Private Cloud (VPC) infrastructures outside of your account or region.
-For more information about integrating on-premises network and {{site.data.keyword.powerSys_notm}}, see [Network architecture diagrams](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-network-architecture-diagrams){: external}.
+Use IBM Transit Gateway to connect your {{site.data.keyword.powerSys_notm}} to {{site.data.keyword.cloud}} classic and Virtual Private Cloud (VPC) infrastructures outside your account or region.
+For more information about integrating the on-premises network and {{site.data.keyword.powerSys_notm}}, see [Network architecture diagrams](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-network-architecture-diagrams){: external}.
 
 ## Creating an SSH key
 {: #ha-vsi-create-ssh-key}
@@ -137,7 +139,7 @@ Before you begin, make sure that the OVA image is loaded in the storage bucket.
 1. Log in to [Boot images in {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/boot-images){: external}.
 1. Select the **workspace** that you created.
 1. Click **Import image**.
-1. Enter **Custom image name** as image name in your catalog.
+1. Enter a **Custom image name** for the image name in your catalog.
 1. Select **Storage type** either as *Tier 1* or *Tier 3*. A virtual server instance can use volumes from one storage type only, and the custom image need to be prepared for this storage type.
 1. Select the **Region** for your deployment.
 1. Enter the file name of the image as **Image file name**.
@@ -165,7 +167,7 @@ The service ID is used by the cluster fencing agent to monitor the status of and
 1. Enter the **Name** and **Description** for the key.
 1. Click **Create**.
 
-Copy the API key or download to save it.
+Copy the API key or download it to save it.
 
 The key is available for 300 seconds.
 After the 300 seconds, you won't be able to display or retrieve the key.
@@ -192,7 +194,7 @@ Complete the following steps to create the virtual server instances that you wan
    Click **Continue**.
 1. In **Storage volumes**, click **Continue**.
 
-   When you deploy multiple instances, storage volumes that are created are shared by both instances.
+   When you deploy multiple instances, the storage volumes that are created are shared by both instances.
    Certain high availability cluster scenarios require shared volumes.
    In these cases, create the shared volumes later.
    For SAP HANA, see [Storage configuration for SAP HANA](https://cloud.ibm.com/docs/sap?topic=sap-storage-design-considerations#storage-config-hana){: external}.
@@ -211,3 +213,10 @@ The deployment of the virtual server instances starts.
 {: #ha-vsi-prepare-remote-login}
 
 Set up SSH forwarding on the bastion host, and prepare or test SSH remote login from your workstation by using your private SSH key.
+
+## Preparing operating system for SAP installation
+{: #ha-vsi-prepare-sap-install}
+
+If you deployed a virtual server instance from a stock image, you need to perform extra configuration tasks before you can install SAP software.
+For more information, see [Configuring a Power Virtual Server instance](https://cloud.ibm.com/docs/sap?topic=sap-power-vs-set-up-power-instances#power-vs-set-up-power-basic-os-config).
+{: important}
