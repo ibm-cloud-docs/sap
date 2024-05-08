@@ -281,6 +281,7 @@ toc:
             label: High Availability Scenarios on Power Virtual Server
             topics:
             - sap-power-virtual-server-ha-overview.md
+            - sap-power-virtual-server-ha-rhel-refs.md
             - sap-power-virtual-server-ha-vsi.md
             - sap-power-virtual-server-ha-rhel.md
             - sap-power-virtual-server-ha-rhel-hana-sr.md
