@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-01-09"
+lastupdated: "2024-05-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -10,13 +10,13 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Implementing High Availability for SAP Applications on {{site.data.keyword.powerSysFull}}
+# Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-overview}
 
-Running SAP on IBM {{site.data.keyword.powerSys_notm}} offers a consistent platform for SAP HANA-based and traditional applications, best-in-class performance, resilience for critical workloads, and a flexible infrastructure.
+Running SAP on {{site.data.keyword.powerSysFull}} offers a consistent platform for SAP HANA based and traditional applications, world-class performance, resiliency for critical workloads, and a flexible infrastructure.
 {: shortdesc}
 
-Use the following information to understand how to implement high availability solutions for SAP systems by using {{site.data.keyword.powerSys_notm}} virtual server instances.
+Use the following information to understand how to implement high availability solutions for SAP systems by using {{site.data.keyword.powerSys_notm}} instances.
 
 ## SAP system architecture
 {: #ha-overview-architecture}
