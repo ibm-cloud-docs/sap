@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023
-lastupdated: "2023-06-02"
+  years: 2023, 2024
+lastupdated: "2024-05-02"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -14,37 +14,29 @@ subcollection: sap
 # Configuring high availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On cluster
 {: #ha-rhel-ensa}
 
-The Red Hat documentation [Red Hat HA Solutions for SAP HANA, S/4HANA, and NetWeaver based SAP Applications](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index#doc-wrapper){: external} discusses the various configuration aspects for SAP solutions in a RHEL HA Add-On cluster.
-The following information describes the configuration of *ABAP SAP Central Services (ASCS)* and *Enqueue Replication Service (ERS)* instances in an RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}}.
+The following information describes the configuration of *ABAP SAP Central Services (ASCS)* and *Enqueue Replication Service (ERS)* with Red Hat Enterprise Linux (RHEL) in a RHEL HA Add-On cluster.
+The cluster uses virtual server instances in [{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 {: shortdesc}
 
-The focus of this example configuration is on the second generation of the [Standalone Enqueue Server](https://help.sap.com/docs/ABAP_PLATFORM/cff8531bc1d9416d91bb6781e628d4e0/902412f09e134f5bb875adb6db585c92.html?locale=en-US){: external}, or *ENSA2*.
+The focus of this example configuration is on the second generation of the [Standalone Enqueue Server](https://help.sap.com/docs/ABAP_PLATFORM/cff8531bc1d9416d91bb6781e628d4e0/902412f09e134f5bb875adb6db585c92.html){: external}, or *ENSA2*.
 
-Starting with the release of SAP S/4HANA 1809, ENSA2 is installed by default, and can be configured in two-node or multi-node cluster.
+Starting with the release of SAP S/4HANA 1809, ENSA2 is installed by default, and can be configured in a two-node or multi-node cluster.
 This example uses the *ENSA2* setup for a two-node RHEL HA Add-On cluster.
 If the *ASCS* service fails in a two-node cluster, it restarts on the node where *ERS* is running.
 The lock entries for the SAP application are protected when they rebuild from the copy of the lock table that's available in the *ERS*.
 When the failed cluster node reactivates, the *ERS* instance moves to the other node (anti-collocation) to protect the lock table copy.
 
 It is recommended that you install the SAP database instance and other SAP application server instances on virtual server instances outside the two-node cluster for *ASCS* and *ERS*.
-For more information, see [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
 
-## Overview
-{: #ha-rhel-ensa-overview}
 
-The following information outlines the configuration of *ASCS* and *ERS* in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8.4 (RHEL) by using [IBM {{site.data.keyword.powerSys_notm}}](https://www.ibm.com/products/power-virtual-server){: external} instances as cluster nodes.
+## Before you begin
+{: #ha-rhel-ensa-begin}
 
-For more information, see the following Red Hat knowledge base articles:
-
-- [Configuring SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker](https://access.redhat.com/articles/3974941){: external}
-- [Support Policies for RHEL High Availability Clusters - Management of SAP S/4HANA in a cluster](https://access.redhat.com/articles/4016901){: external}
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ## Prerequisites
 {: #ha-rhel-ensa-prerequisites}
 
-- A [Red Hat Customer Portal](https://access.redhat.com/){: external} account.
-- An [{{site.data.keyword.cloud}}](/docs/account?topic=account-account-getting-started) account{: external}.
-- A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is required to enable the repositories that you need to install SAP HANA and the resource agents for HA configurations.
 - Virtual server instances need to fulfill the hardware and resource requirements for the SAP instances in scope.
    Follow the guidelines on instance types, storage, and memory sizing in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
 - This information describes a setup that uses shareable storage volumes accessible on both cluster nodes.
@@ -53,25 +45,21 @@ For more information, see the following Red Hat knowledge base articles:
    - `/usr/sap/<SID>/ASCS<Inst#>` of the *ASCS* instance.
    - `/usr/sap/<SID>/ERS<Inst#>` of the *ERS* instance.
 
-   Make sure that the storage volumes that were created for those file systems are attached to both virtual server instances.
+   Make sure that the storage volumes that were created for these file systems are attached to both virtual server instances.
    During SAP instance installation and RHEL HA Add-On cluster configuration, each instance directory must be mounted on its appropriate node.
-   HA-LVM makes sure that each of the two instance directories is mounted on only one node at a time.
+   HA-LVM ensures that each of the two instance directories is mounted on only one node at a time.
 
-   Different storage setups for the instance directories, for example, NFS mounts, are possible.
-   Which means that the general storage setup steps and creation of cluster file system resources must be adjusted.
+   Different storage setups for the instance directories, such as NFS mounts, are possible.
+   This means that the general storage setup steps and creation of cluster file system resources must be adapted.
    {: important}
 
 - The virtual hostname for *ASCS* instance and *ERS* instance must meet the requirements as documented in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
    Make sure that the virtual IP addresses for the SAP instances are assigned to a network adapter and that they can communicate in the network.
-- Make sure that you subscribed to either *RHEL for SAP Applications* or *RHEL for SAP Solutions* and that you enabled the *Red Hat Enterprise Linux for SAP Solutions for Power LE - Update Services for SAP Solutions 8.4 ppc64le* (`rhel-8-for-ppc64le-sap-solutions-e4s-rpms`) repository.
-   You need to set the release to *8.4* through the subscription manager.
-
 - SAP application server instances require a common shared file system *SAPMNT* `/sapmnt/<SID>` with *read and write* access, and other shared file systems such as *SAPTRANS* `/usr/sap/trans`.
    These file systems are typically provided by an external NFS server.
    The NFS server must be installed on virtual servers that are not part of the *ENSA2* cluster.
 
    [Configuring an active-passive NFS server in a Red Hat High Availability cluster](/docs/sap?topic=sap-ha-rhel-nfs) describes the implementation of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in {{site.data.keyword.powerSys_notm}}.
-
 - Make sure that all SAP installation media is available.
 
 ## Preparing nodes for SAP installation
@@ -691,7 +679,7 @@ export NFS_options="rw,sec=sys"
 ```
 {: codeblock}
 
-Check SAP recommendations for NFS mount options at the [Recommended mount options for read-write directories](https://wiki.scn.sap.com/wiki/display/Basis/Recommended+mount+options+for+read-write+directories){: external} wiki page.
+Check SAP recommendations for NFS mount options at the [Recommended mount options for read-write directories](https://help.sap.com/docs/SUPPORT_CONTENT/basis/3354611703.html){: external} wiki page.
 {: note}
 
 On NODE1, run the following command.
