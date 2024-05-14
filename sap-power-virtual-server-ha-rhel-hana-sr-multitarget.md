@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023
-lastupdated: "2023-11-02"
+  years: 2023, 2024
+lastupdated: "2024-05-14"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -16,15 +16,13 @@ sap-power-virtual-server-ha-rhel-hana-sr-multitarget.md
 # Configuring SAP HANA Multitarget System Replication in a RHEL HA Add-On cluster
 {: #ha-rhel-hana-sr-multitarget}
 
-The following information describes the configuration of a Red Hat Enterprise Linux 8 (RHEL) HA add-on cluster for managing *SAP HANA system replication* in a multitarget replication scenario.
+The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) HA add-on cluster for managing *SAP HANA&reg system replication* in a multitarget replication scenario.
+The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
+
 You can connect multiple systems in an SAP HANA multitarget system replication topology to achieve a higher level of availability.
-The cluster uses two virtual server instances in IBM {{site.data.keyword.powerSys_notm}} as cluster nodes.
 A third SAP HANA instance runs on a virtual server instance in IBM {{site.data.keyword.powerSys_notm}} in another workspace.
 The resource agents for SAP HANA in the Red Hat Enterprise Linux 8 (RHEL) HA add-on require that the third SAP HANA instance is managed manually and is installed on a virtual server instance outside the cluster.
 {: shortdesc}
-
-## Overview
-{: #ha-rhel-hana-sr-mtgt-overview}
 
 In a *multitarget system replication* scenario, one secondary SAP HANA system runs on a virtual server instance in the cluster and another secondary HANA system runs on a virtual server instance that is deployed in a *Disaster Recovery (DR) site*.
 The *DR site* is implemented in a different IBM {{site.data.keyword.powerSys_notm}} workspace in another geographical location or zone.
@@ -32,14 +30,13 @@ The SAP HANA system replication operation mode must be identical for all multita
 
 A takeover of the secondary system in the *DR site* must be triggered manually.
 
-For more information, see the following links:
-
-- [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471){: external}
-- [SAP HANA System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html){: external}.
-- [SAP HANA multitarget System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/ca6f4c62c45b4c85a109c7faf62881fc.html){: external}.
-
 This information is intended for architects and specialists that are planning a high-availability deployment of SAP HANA on {{site.data.keyword.powerSys_notm}}.
 {: note}
+
+## Before you begin
+{: #ha-rhel-hana-sr-mtgt-begin}
+
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ## Prerequisites
 {: #ha-rhel-hana-sr-mtgt-prerequisites}
@@ -83,9 +80,9 @@ Sample output:
               start interval=0s timeout=3600 (SAPHana_HDB_00-start-interval-0s)
               stop interval=0s timeout=3600 (SAPHana_HDB_00-stop-interval-0s)
 ```
-{: codeblock}
+{: screen}
 
-If the `AUTOMATED_REGISTER` cluster attribute is set to `false`, use the following command to enable the automatic registration.
+If the `AUTOMATED_REGISTER` cluster attribute is currently set to `false`, use the following command to enable the automatic registration.
 
 ```sh
 pcs resource update SAPHana_${SID}_${INSTNO} AUTOMATED_REGISTER=true
@@ -148,7 +145,7 @@ source sap_dr_site.sh
 {: pre}
 
 Every time that you start a new terminal session, you must run the previous `source` command.
-Alternatively, you can move the environment variables file to the `/etc/profile.d` directory during the cluster configuration.
+Alternatively, you can move the environment variables file to the `/etc/profile.d` directory for the duration of the cluster configuration.
 In this example, the file is sourced automatically each time you log in to the server.
 {: important}
 
@@ -176,7 +173,7 @@ Verify the network connectivity between the two cluster nodes (NODE1 and NODE2) 
    3 packets transmitted, 3 received, 0% packet loss, time 2003ms
    rtt min/avg/max/mdev = 78.197/78.233/78.264/0.027 ms
    ```
-   {: codeblock}
+   {: screen}
 
 1. Log in to NODE3 and `ping` NODE1.
 
@@ -197,7 +194,7 @@ Verify the network connectivity between the two cluster nodes (NODE1 and NODE2) 
    3 packets transmitted, 3 received, 0% packet loss, time 2002ms
    rtt min/avg/max/mdev = 78.245/78.268/78.287/0.229 ms
    ```
-   {: codeblock}
+   {: screen}
 
 1. Log in to NODE3 and `ping` NODE2.
 
@@ -218,7 +215,7 @@ Verify the network connectivity between the two cluster nodes (NODE1 and NODE2) 
    3 packets transmitted, 3 received, 0% packet loss, time 2003ms
    rtt min/avg/max/mdev = 77.649/78.129/79.071/0.703 ms
    ```
-   {: codeblock}
+   {: screen}
 
 ### Copying PKI SSFS storage certificate files to NODE3
 {: #ha-rhel-hana-sr-mtgt-ssfs}
@@ -264,7 +261,8 @@ Register the SAP HANA system as a secondary DR system replication instance.
          --remoteHost=${NODE1} \
          --remoteInstance=${INSTNO} \
          --replicationMode=async \
-         --operationMode=logreplay
+         --operationMode=logreplay \
+         --online
    ```
    {: pre}
 
@@ -320,7 +318,7 @@ mode: PRIMARY
 site id: 1
 site name: SiteA
 ```
-{: codeblock}
+{: screen}
 
 An alternative view of the system replication status is available with the `hdbnsutil` command.
 
@@ -384,7 +382,7 @@ Mapping: SiteA -> SiteB
 Hint based routing site:
 done.
 ```
-{: codeblock}
+{: screen}
 
 Sample output on NODE2:
 
@@ -444,7 +442,7 @@ Mapping: SiteA -> SiteB
 Hint based routing site:
 done.
 ```
-{: codeblock}
+{: screen}
 
 Sample output on NODE3:
 
@@ -505,7 +503,27 @@ Hint based routing site:
 done.
 done.
 ```
-{: codeblock}
+{: screen}
+
+On all nodes, run the following command to check the replication mode and the operation mode.
+
+```sh
+sudo -i -u ${sid}adm -- \
+    hdbnsutil -sr_state \
+        --sapcontrol=1 2>/dev/null | grep -E "site(Operation|Replication)Mode"
+```
+{: pre}
+
+Sample output:
+
+```sh
+# sudo -i -u ${sid}adm -- hdbnsutil -sr_state --sapcontrol=1 2>/dev/null | grep -E "site(Operation|Replication)Mode"
+siteReplicationMode/SiteA=primary
+siteReplicationMode/SiteB=syncmem
+siteOperationMode/SiteA=primary
+siteOperationMode/SiteB=logreplay
+```
+{: screen}
 
 ## Enabling automatic registration of secondaries after a takeover
 {: #ha-rhel-hana-sr-mtgt-enable-auto-registration}
@@ -602,13 +620,13 @@ mode: PRIMARY
 site id: 1
 site name: SiteA
 ```
-{: codeblock}
+{: screen}
 
 
 #### Test1 - Test procedure
 {: #ha-rhel-hana-sr-mtgt-test1-procedure}
 
-Crash SAP HANA primary by sending a SIGKILL signal as the user `${sid}adm`.
+Crash SAP HANA primary by sending a SIGKILL signal as user `${sid}adm`.
 
 On NODE1, run the following command.
 
@@ -710,7 +728,7 @@ Daemon Status:
   pacemaker: active/disabled
   pcsd: active/enabled
 ```
-{: codeblock}
+{: screen}
 
 On NODE2, run the following command to check the system replication status.
 
@@ -745,7 +763,7 @@ mode: PRIMARY
 site id: 2
 site name: SiteB
 ```
-{: codeblock}
+{: screen}
 
 The SAP HANA primary runs on NODE2 at `SiteB`.
 The secondary on NODE3 is automatically reregistered to the new primary that runs on NODE2.
@@ -792,7 +810,7 @@ Use cluster commands to move the primary instance to the other cluster node.
         This will prevent SAPHana_HDB_00-clone from running on cl-hdb-2 until the constraint is removed
         This will be the case even if cl-hdb-2 is the last node in the cluster
    ```
-   {: codeblock}
+   {: screen}
 
    After the primary is active on NODE1, SAP HANA automatically reregisters the instance on NODE3 as a secondary to NODE1.
 
@@ -809,7 +827,7 @@ Use cluster commands to move the primary instance to the other cluster node.
    # pcs resource clear SAPHana_${SID}_${INSTNO}-clone
    Removing constraint: cli-ban-SAPHana_HDB_00-clone-on-cl-hdb-2
    ```
-   {: codeblock}
+   {: screen}
 
    This command clears the location constraint that was created by the move command.
    The cluster starts the SAP HANA system on NODE2.
@@ -906,7 +924,7 @@ mode: PRIMARY
 site id: 2
 site name: SiteB
 ```
-{: codeblock}
+{: screen}
 
 #### Test3 - Recovery procedure
 {: #ha-rhel-hana-sr-mtgt-test3-recovery-procedure}
@@ -960,7 +978,7 @@ site name: SiteB
    site id: 2
    site name: SiteB
    ```
-   {: codeblock}
+   {: screen}
 
 1. Run the steps in [Test2 - Test the manual move of SAP Hana resource to another node](#ha-rhel-hana-sr-mtgt-test2-manual-move) to revert to the initial topology.
 
@@ -1019,7 +1037,7 @@ Crash primary on NODE1 and secondary on NODE2 by sending a *crash* system reques
    # sudo -i -u hdbadm -- hdbnsutil -sr_takeover
    done.
    ```
-   {: codeblock}
+   {: screen}
 
 #### Test4 - Expected behavior
 {: #ha-rhel-hana-sr-mtgt-test5-expected-behavior}
@@ -1029,7 +1047,7 @@ Crash primary on NODE1 and secondary on NODE2 by sending a *crash* system reques
 - An application, such as SAP NetWeaver, can connect to the SAP HANA system on NODE3.
 
 NODE3 is not part of the cluster and does not takeover the virtual IP address after a HANA system replication takeover.
-The starting of application servers that connect to NODE3 at the *DR site* requires extra effort, which is not described in this document.
+The start up of application servers that connect to NODE3 at the *DR site* requires extra effort, which is not described in this document.
 {: important}
 
 On NODE3, run the following command to verify that the SAP HANA system runs as primary.
@@ -1082,12 +1100,12 @@ Hint based routing site:
 done.
 
 ```
-{: codeblock}
+{: screen}
 
 #### Test4 - Recovery procedure
 {: #ha-rhel-hana-sr-mtgt-test5-recovery-procedure}
 
-The recovery procedure after a takeover to the tertiary SAP HANA system is complex and is documented as a separate test in the *Test5* section.
+The recovery procedure after a takeover to the *DR site* is complex and is documented as a separate test in the *Test5* section.
 
 ### Test5 - Restoring the original SAP HANA multitarget system replication topology
 {: #ha-rhel-hana-sr-mtgt-test6-revert-back}
@@ -1143,7 +1161,8 @@ Restore the original system replication topology and reactivate the cluster in t
             --remoteHost=${NODE3} \
             --remoteInstance=${INSTNO} \
             --replicationMode=async \
-            --operationMode=logreplay
+            --operationMode=logreplay \
+            --online
       ```
       {: pre}
 
@@ -1180,7 +1199,7 @@ Restore the original system replication topology and reactivate the cluster in t
       primary masters: cl-hdb-3
       done.
       ```
-      {: codeblock}
+      {: screen}
 
    1. On NODE1, start the SAP HANA system to start the system replication.
 
@@ -1217,17 +1236,17 @@ Restore the original system replication topology and reactivate the cluster in t
       site id: 3
       site name: SiteC
       ```
-      {: codeblock}
+      {: screen}
 
 1. Initiate a fallback to the primary workspace.
 
    You need a downtime window to perform the move of the primary role back to NODE1.
    {: important}
 
-   To optimize the downtime window, the SAP HANA system on NODE2 can be registered as the secondary to NODE3 now before the downtime window.
+   To optimize the downtime window, the SAP HANA system on NODE2 can be registered as secondary to NODE3 now before the downtime window.
    The drawback is that a higher amount of data is transferred between the two {{site.data.keyword.powerSys_notm}} workspaces.
 
-   In the following, the SAP HANA system on NODE2 is registered as the secondary to NODE1 after NODE1 becomes primary again.
+   In the following, the SAP HANA system on NODE2 is registered as secondary to NODE1 after NODE1 becomes primary again.
 
    1. Stop all applications and SAP application servers that are connected to NODE3.
 
@@ -1303,7 +1322,7 @@ Restore the original system replication topology and reactivate the cluster in t
       Hint based routing site:
       done.
       ```
-      {: codeblock}
+      {: screen}
 
    The following summary shows the status after these steps.
 
@@ -1323,7 +1342,8 @@ Restore the original system replication topology and reactivate the cluster in t
             --remoteHost=${NODE1} \
             --remoteInstance=${INSTNO} \
             --replicationMode=syncmem \
-            --operationMode=logreplay
+            --operationMode=logreplay \
+            --online
       ```
       {: pre}
 
@@ -1362,12 +1382,12 @@ Restore the original system replication topology and reactivate the cluster in t
       site id: 1
       site name: SiteA
       ```
-      {: codeblock}
+      {: screen}
 
    The following summary shows the status after these steps.
 
-   - NODE1 runs as a primary, but no application is connected.
-   - NODE2 runs as a secondary.
+   - NODE1 runs as primary, but no application is connected.
+   - NODE2 runs as secondary.
    - NODE3 is up and SAP HANA is blocked in *suspendPrimary* mode.
    - Red Hat HA Add-On cluster services are stopped on NODE1 and NODE2.
 
@@ -1430,12 +1450,12 @@ Restore the original system replication topology and reactivate the cluster in t
       site id: 1
       site name: SiteA
       ```
-      {: codeblock}
+      {: screen}
 
    The following summary shows the status after these steps.
 
-   - NODE1 runs as a primary.
-   - NODE2 runs as a secondary.
+   - NODE1 runs as primary.
+   - NODE2 runs as secondary.
    - Red Hat HA Add-On cluster services are started and the cluster manages SAP HANA system replication on NODE1 and NODE2.
    - NODE3 is up and SAP HANA is blocked in *suspendPrimary* mode.
 
@@ -1490,11 +1510,11 @@ Restore the original system replication topology and reactivate the cluster in t
       site id: 1
       site name: SiteA
       ```
-      {: codeblock}
+      {: screen}
 
       In case the system does not automatically restart after the `hdbnsutil -sr_register` command, you need to stop and start it manually.
 
-      The following example is a sample output of such a situation.
+      The following is a sample output of such a situation.
       The replication status of NODE3 shows `IS PRIMARY (e.g. after takeover)` and it does not change when you check the status multiple times.
 
       ```sh
@@ -1520,7 +1540,7 @@ Restore the original system replication topology and reactivate the cluster in t
       site id: 1
       site name: SiteA
       ```
-      {: codeblock}
+      {: screen}
 
       On NODE3, run the following command to restart the secondary HANA system.
 
@@ -1531,8 +1551,8 @@ Restore the original system replication topology and reactivate the cluster in t
 
    The following summary shows the final status after these steps.
 
-   - NODE1 runs as a primary.
-   - NODE2 runs as a secondary.
+   - NODE1 runs as primary.
+   - NODE2 runs as secondary.
    - NODE3 runs as another secondary at the *DR site*.
    - NODE2 and NODE3 are both registered to NODE1.
    - Red Hat HA Add-On cluster services are started and the cluster manages SAP HANA system replication on NODE1 and NODE2.
