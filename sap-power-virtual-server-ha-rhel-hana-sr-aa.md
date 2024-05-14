@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023
-lastupdated: "2023-09-08"
+  years: 2023, 2024
+lastupdated: "2024-05-14"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -13,26 +13,19 @@ subcollection: sap
 # Configuring SAP HANA Active/Active (Read Enabled) System Replication in a RHEL HA Add-On cluster
 {: #ha-rhel-hana-sr-aa}
 
-The following information describes the configuration of a Red Hat Enterprise Linux 8 (RHEL) HA Add-On cluster for managing *SAP HANA Active-Active (Read Enabled) System Replication*.
-The cluster uses virtual server instances in IBM {{site.data.keyword.powerSys_notm}} as cluster nodes.
+The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) HA Add-On cluster for managing *SAP HANA&reg Active-Active (Read Enabled) System Replication*.
+The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 {: shortdesc}
-
-## Overview
-{: #ha-rhel-hana-sr-aa-overview}
-
-The following instructions describe how to automate SAP HANA Scale-Up System Replication for a single database deployment in an *Active/Active (read enabled)* scenario on a RHEL HA Add-on cluster.
 
 In an *Active/Active (read enabled)* configuration, SAP HANA system replication allows read access to the database content on the secondary system.
 
-For more information, see the following links:
-
-- [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471){: external}
-- [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://access.redhat.com/articles/3004101){: external}.
-- [SAP HANA System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html){: external}.
-- [SAP HANA System Replication - Active/Active (Read Enabled)](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/fe5fc53706a34048bf4a3a93a5d7c866.html){: external}.
-
 This information is intended for architects and specialists that are planning a high-availability deployment of SAP HANA on {{site.data.keyword.powerSys_notm}}.
 {: note}
+
+## Before you begin
+{: #ha-rhel-hana-sr-aa-begin}
+
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ## Prerequisites
 {: #ha-rhel-hana-sr-aa-prerequisites}
@@ -44,18 +37,7 @@ This information is intended for architects and specialists that are planning a 
    Follow the guidelines in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
 - The hostnames of the virtual server instances must meet the SAP HANA requirement.
 - SAP HANA is installed on both virtual server instances and SAP HANA System Replication is configured.
-   The installation of SAP HANA and setup of SAP HANA System Replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures. For more information, see the following documentation.
-   - Install SAP HANA on RHEL:
-      - [SAP Note 2772999 - Red Hat Enterprise Linux 8.x: Installation and Configuration](https://me.sap.com/notes/2772999){: external}
-      - [SAP Note 2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782){: external}
-   - SAP HANA Server Installation:
-      -  [SAP HANA Server Installation and Update Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/7eb0167eb35e4e2885415205b8383584.html){: external}
-   - SAP HANA System Replication:
-      - [SAP HANA System Replication Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html){: external}
-   - Configure SAP HANA System Replication:
-      - [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On - 2. SAP HANA System Replication](https://access.redhat.com/articles/3004101#sap-hana-system-replication){: external}
-- A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is required to enable the repositories that you need to install SAP HANA and the resource agents for HA configurations.
-   The [RHEL for SAP Subscriptions and Repositories](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/rhel_for_sap_subscriptions_and_repositories/asmb_enable_repo_rhel-for-sap-subscriptions-and-repositories-8#con_hana_rhel-for-sap-subscriptions-and-repositories-8){: external} documentation describes how to enable the required repositories.
+   The installation of SAP HANA and setup of SAP HANA System Replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures.
 
 ## Setting up the Active/Active (read enabled) scenario
 {: #ha-rhel-hana-sr-aa-setup}
@@ -120,7 +102,7 @@ On a cluster node, assign the reserved IP address to a *VIP_SECONDARY* environme
 ```sh
 export VIP_SECONDARY=<reserved IP address for SAP HANA secondary>
 ```
-{: screen}
+{: sceen}
 
 ```sh
 echo $VIP_SECONDARY
@@ -475,7 +457,8 @@ sudo -i -u ${sid}adm -- \
       --remoteHost=${NODE2} \
       --remoteInstance=00 \
       --replicationMode=sync \
-      --operationMode=logreplay_readaccess
+      --operationMode=logreplay_readaccess \
+      --online
 ```
 {: pre}
 
