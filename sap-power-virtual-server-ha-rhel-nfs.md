@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023
-lastupdated: "2023-06-01"
+  years: 2023, 2024
+lastupdated: "2024-05-14"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -13,18 +13,9 @@ subcollection: sap
 # Configuring an active-passive NFS server in a Red Hat High Availability cluster
 {: #ha-rhel-nfs}
 
-Use the following information to configure an active-passive NFS server in a Red Hat High Availability cluster.
+The following information describes the configuration of an active-passive NFS server in a Red Hat Enterprise Linux (RHEL) HA Add-On cluster.
+The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 {: shortdesc}
-
-## Overview
-{: #ha-rhel-nfs-overview}
-
-The following information describes the configuration of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in [{{site.data.keyword.powerSys_notm}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
-
-The instructions are based on the following Red Hat documentation:
-
-- [Configuring an active-passive NFS server in a Red Hat High Availability cluster](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_configuring-active-passive-nfs-server-in-a-cluster-configuring-and-managing-high-availability-clusters#doc-wrapper){: external}
-- [How to configure HA-LVM Cluster by using system_id in RHEL 8](https://access.redhat.com/solutions/3796221){: external}
 
 The described setup uses shareable storage volumes that are accessible on both cluster nodes.
 The file systems for the NFS exports are created on those shareable storage volumes.
@@ -33,11 +24,15 @@ HA-LVM makes sure that the volume group is active on one node at a time.
 In the example setup, one shared volume group `nfssharevg` contains three logical volumes `nfssharelv`, `sap${SID}lv`, and `saptranslv`.
 XFS file systems are created on those logical volumes and are mounted on `/nfsshare`, `/nfshare/export/sap${SID}`, `/nfsshare/export/saptrans`.
 
+The instructions are based on the Red Hat product documentation and articles that are listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+
+## Before you begin
+{: #ha-rhel-nfs-begin}
+
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+
 ## Prerequisites
 {: #ha-rhel-nfs-prerequisites}
-
-- A [Red Hat Customer Portal](https://access.redhat.com/){: external} account.
-- An [IBM Cloud account](/docs/account?topic=account-account-getting-started){: external}.
 
 A virtual hostname and IP address is required for the NFS server.
 Make sure that the virtual IP address is defined on the network interface, and reachable in the network.
@@ -70,17 +65,12 @@ All cluster nodes need access to the shared storage volumes, but only one node h
 {: #ha-rhel-nfs-prepare-lvm}
 
 On both nodes, edit file `/etc/lvm/lvm.conf` to include the system ID in the volume group.
+Search for the configuration setting `system_id_source` and change its value to "uname".
+
+Sample setting of `system_id_source` in `/etc/lvm/lvm.conf`:
 
 ```sh
-vi /etc/lvm/lvm.conf
-```
-{: pre}
-
-Search for parameter `system_id_source` and change its value to "uname".
-
-Sample setting of the `system_id_source` parameter in `/etc/lvm/lvm.conf`:
-
-```sh
+# grep "system_id_source ="  /etc/lvm/lvm.conf
 system_id_source = "uname"
 ```
 {: screen}
@@ -313,12 +303,6 @@ For RHEL 8.5 and later, you can disable autoactivation for a volume group when y
 {: tip}
 
 On both nodes, edit file `/etc/lvm/lvm.conf` and modify the `auto_activation_volume_list` entry to limit autoactivation to specific volume groups.
-
-```sh
-vi /etc/lvm/lvm.conf
-```
-{: pre}
-
 Search for parameter `auto_activation_volume_list` and add the volume groups, other than the volume group that you defined for the NFS cluster, as entries in that list.
 
 Sample setting of the `auto_activation_volume_list` entry in `/etc/lvm/lvm.conf`:
@@ -381,7 +365,7 @@ To prevent the cluster from moving healthy resources to another node (for exampl
 On NODE1, run the following command.
 
 ```sh
-pcs resource defaults resource-stickiness=1
+pcs resource defaults update resource-stickiness=1
 ```
 {: pre}
 
