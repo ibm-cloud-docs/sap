@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-28"
+lastupdated: "2024-05-14"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -37,7 +37,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 | --- | --- | --- | --- |
 | **Compute Optimized** | | | |
 | cx2-2x4 \n cx2d-2x4 | 2 | 4 | 2,238 |
-| cx2-4x8 \n cx4d-4x8 | 4 | 8 |  4,475 |
+| cx2-4x8 \n cx2d-4x8 | 4 | 8 |  4,475 |
 | cx2-8x16 \n cx2d-8x16 | 8 | 16 |  8,950 |
 | cx2-16x32 \n cx2d-16x32 | 16 | 32 | 17,900 |
 | cx2-32x64 \n cx2d-32x64 | 32 | 64 | 35,800 |
