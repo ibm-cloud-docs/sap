@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-07"
+lastupdated: "2024-05-14"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -39,7 +39,7 @@ Use the instructions in [Creating instances for a high availability cluster on {
 
 Parameters that are required for fencing agent configuration include the *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspace and the *instance IDs* of the virtual server instances.
 Some extra parameters need to be derived from the *CRN*.
-The fencing agent also uses the *API Key of the Service ID <APIKEY>* to authenticate with the {{site.data.keyword.powerSys_notm}} API.
+The fencing agent also uses the *API Key of the Service ID* to authenticate with the {{site.data.keyword.powerSys_notm}} API.
 
 The uppercase variables in the following section indicate that these parameters need to be set as environment variables on the virtual server instances to simplify the setup of the cluster.
 
