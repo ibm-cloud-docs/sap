@@ -1,8 +1,8 @@
 ---
 copyright:
-  years: 2023
+  years: 2023, 2024
 
-lastupdated: "2023-06-06"
+lastupdated: "2024-05-14"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -15,54 +15,37 @@ subcollection: sap
 # Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster
 {: #ha-rhel-hana-sr}
 
-With SAP HANA on IBM Power Systems, you have a consistent platform for HANA-based and traditional applications, best-in-class performance, resilience for critical workloads, and most flexible infrastructure.
+The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) HA Add-On cluster for managing *SAP HANA Scale-Up System Replication*.
+The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 {: shortdesc}
 
-## Overview
-{: #ha-rhel-hana-sr-overview}
-
-The following information describes the configuration of a Red Hat Enterprise Linux 8 (RHEL) HA Add-On cluster for managing *SAP HANA Scale-Up System Replication*.
-The cluster uses virtual server instances in IBM {{site.data.keyword.powerSys_notm}}{: external} as cluster nodes.
-
 The instructions describe how to automate SAP HANA Scale-Up System Replication for a single database deployment in a performance-optimized scenario on a RHEL HA Add-on cluster.
-
-For more information, see the following links:
-
-- [Red Hat HA Solutions for SAP HANA, S/4HANA, and NetWeaver based SAP Applications](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index#doc-wrapper){: external}
-- [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471){: external}
-- [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://access.redhat.com/articles/3004101){: external}
-- [SAP HANA System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html){: external}.
 
 This information is intended for architects and specialists that are planning a high-availability deployment of SAP HANA on {{site.data.keyword.powerSys_notm}}.
 {: note}
 
+## Before you begin
+{: #ha-rhel-hana-sr-begin}
+
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+
 ## Prerequisites
 {: #ha-rhel-hana-sr-prerequisites}
 
-- A Red Hat High Availability cluster deployed on two virtual server instances in {{site.data.keyword.powerSys_notm}}.
+- A Red Hat High Availability cluster is deployed on two virtual server instances in {{site.data.keyword.powerSys_notm}}.
    - Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
    - Configure and verify fencing as described in the preceding document.
 - The virtual server instances need to fulfill hardware and resource requirements for the SAP HANA systems in scope.
    Follow the guidelines in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
 - The hostnames of the virtual server instances must meet the SAP HANA requirement.
-- SAP HANA installed on both virtual server instances and SAP HANA System Replication is configured.
-   The installation of SAP HANA and setup of HANA System Replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures. For more information, see the following documentation.
-   - Install SAP HANA on RHEL:
-      - [SAP Note 2772999 - Red Hat Enterprise Linux 8.x: Installation and Configuration](https://me.sap.com/notes/2772999){: external}
-      - [SAP Note 2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782){: external}
-   - SAP HANA Server Installation:
-      -  [SAP HANA Server Installation and Update Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/7eb0167eb35e4e2885415205b8383584.html?locale=en-US){: external}
-   - SAP HANA System Replication:
-      - [SAP HANA System Replication Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html?locale=en-US){: external}
-   - Configure SAP HANA System Replication:
-      - [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On - 2. SAP HANA System Replication](https://access.redhat.com/articles/3004101#sap-hana-system-replication){: external}
+- SAP HANA is installed on both virtual server instances and SAP HANA System Replication is configured.
+   The installation of SAP HANA and setup of HANA System Replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures.
 - A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is required to enable the repositories that you need to install SAP HANA and the resource agents for HA configurations.
-   The [RHEL for SAP Subscriptions and Repositories](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/rhel_for_sap_subscriptions_and_repositories/asmb_enable_repo_rhel-for-sap-subscriptions-and-repositories-8#con_hana_rhel-for-sap-subscriptions-and-repositories-8){: external} documentation describes how to enable the required repositories.
 
 ## Configuring SAP HANA System Replication in a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-rhel-hana-sr-configure-sr}
 
-For the following steps, also check the documentation in the Red Hat article [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://access.redhat.com/articles/3004101){: external}.
+The instructions are based on the Red Hat product documentation and articles that are listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ### Preparing environment variables
 {: #ha-rhel-hana-sr-prepare-environment-variables}
@@ -232,22 +215,10 @@ Any problems that are reported by the `visudo -c` command must be corrected.
 
    On both nodes, run the following commands.
 
-   Restart and then stop the HANA instance.
-
-   ```sh
-   sudo -i -u ${sid}adm -- HDB restart
-   ```
-   {: pre}
+   Stop the HANA instance.
 
    ```sh
    sudo -i -u ${sid}adm -- HDB stop
-   ```
-   {: pre}
-
-   Check messages in trace files.
-
-   ```sh
-   sudo -i -u ${sid}adm -- sh -c 'grep "ha_dr_SAPHanaSR.*crm_attribute" $DIR_INSTANCE/$VTHOSTNAME/trace/nameserver_* | cut -d" " -f2,3,5,17'
    ```
    {: pre}
 
@@ -255,6 +226,13 @@ Any problems that are reported by the `visudo -c` command must be corrected.
 
    ```sh
    sudo -i -u ${sid}adm -- HDB start
+   ```
+   {: pre}
+
+   Check that the hook has logged some messages to the trace files.
+
+   ```sh
+   sudo -i -u ${sid}adm -- sh -c 'grep "ha_dr_SAPHanaSR.*crm_attribute" $DIR_INSTANCE/$VTHOSTNAME/trace/nameserver_* | cut -d" " -f2,3,5,17'
    ```
    {: pre}
 
@@ -281,7 +259,7 @@ Any problems that are reported by the `visudo -c` command must be corrected.
 ### Configuring general cluster properties
 {: #ha-rhel-hana-sr-configure-cluster-properties}
 
-To avoid failovers of the resources during initial testing and post production, set the following default values for the resource-stickiness and migration-threshold parameters.
+To avoid resource failover during initial testing and post-production, set the following default values for the resource-stickiness and migration-threshold parameters.
 
 Keep in mind that defaults don't apply to resources that override them with their own defined values.
 
@@ -334,7 +312,7 @@ pcs status --full
 ```
 {: pre}
 
-### Creating master and slave SAPHana resources
+### Creating a promotable SAPHana resource
 {: #ha-rhel-hana-sr-create-saphana-resource}
 
 The *SAPHana* resource manages two SAP HANA instances that are configured as HANA System Replication nodes.
@@ -349,8 +327,8 @@ pcs resource create SAPHana_${SID}_${INSTNO} SAPHana \
     AUTOMATED_REGISTER=false \
     op start timeout=3600 \
     op stop timeout=3600 \
-    op monitor interval=61 role="Slave" timeout=700 \
-    op monitor interval=59 role="Master" timeout=700 \
+    op monitor interval=61 role="Unpromoted" timeout=700 \
+    op monitor interval=59 role="Promoted" timeout=700 \
     op promote timeout=3600 \
     op demote timeout=3600 \
     promotable notify=true clone-max=2 clone-node-max=1 interleave=true
@@ -402,11 +380,6 @@ pcs resource config vip_${SID}_${INSTNO}
 {: pre}
 
 ```sh
-ip addr show
-```
-{: pre}
-
-```sh
 pcs status --full
 ```
 {: pre}
@@ -443,7 +416,7 @@ The virtual IP address must be present on the node where the primary resource of
 
    ```sh
    pcs constraint colocation add vip_${SID}_${INSTNO} \
-       with master SAPHana_${SID}_${INSTNO}-clone 2000
+       with Promoted SAPHana_${SID}_${INSTNO}-clone 2000
    ```
    {: pre}
 
@@ -454,8 +427,30 @@ The virtual IP address must be present on the node where the primary resource of
    ```
    {: pre}
 
+   Sample output:
+
+   ```sh
+   # pcs constraint
+   Location Constraints:
+   Ordering Constraints:
+     start SAPHanaTopology_HDB_00-clone then start SAPHana_HDB_00-clone (kind:Mandatory) (non-symmetrical)
+   Colocation Constraints:
+     vip_HDB_00 with SAPHana_HDB_00-clone (score:2000) (rsc-role:Started) (with-rsc-role:Promoted)
+   Ticket Constraints:
+   ```
+   {: screen}
+
+
+   Verify the cluster status.
    ```sh
    pcs status --full
+   ```
+   {: pre}
+
+   On the promoted cluster node, verify that the cluster service IP address is active.
+
+   ```sh
+   ip addr show
    ```
    {: pre}
 
@@ -549,7 +544,8 @@ sudo -i -u ${sid}adm -- <<EOT
       --remoteHost=${NODE2} \
       --remoteInstance=00 \
       --replicationMode=sync \
-      --operationMode=logreplay
+      --operationMode=logreplay \
+      --online
 EOT
 ```
 {: pre}
