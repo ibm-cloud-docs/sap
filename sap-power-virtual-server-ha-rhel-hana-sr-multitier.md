@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023
-lastupdated: "2023-07-31"
+  years: 2023, 2024
+lastupdated: "2024-05-14"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -13,17 +13,15 @@ subcollection: sap
 # Configuring SAP HANA multitier system replication in a RHEL HA Add-On cluster
 {: #ha-rhel-hana-sr-multitier}
 
-The following information describes the configuration of a Red Hat Enterprise Linux 8 (RHEL) HA add-on cluster for managing *SAP HANA system replication* in a multitier replication scenario.
+The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) HA add-on cluster for managing *SAP HANA&reg system replication* in a multitier replication scenario.
+The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
+
 You can connect multiple systems in an SAP HANA multitier system replication topology to achieve a higher level of availability.
-The cluster uses two virtual server instances in IBM {{site.data.keyword.powerSys_notm}} as cluster nodes.
 The tertiary SAP HANA instance runs on a third virtual server instance in IBM {{site.data.keyword.powerSys_notm}} in another workspace.
 The resource agents for SAP HANA in the Red Hat Enterprise Linux 8 (RHEL) HA add-on require that the tertiary SAP HANA instance is managed manually.
 The tertiary SAP HANA system is installed on a virtual server instance outside the cluster.
 After a takeover in the cluster, the tertiary SAP HANA instance must be reregistered manually.
 {: shortdesc}
-
-## Overview
-{: #ha-rhel-hana-sr-mt-overview}
 
 In a *multitier system replication* scenario, a tertiary SAP HANA system runs on a third virtual server instance.
 The third virtual server instance is deployed in a different IBM {{site.data.keyword.powerSys_notm}} workspace in another geographical location or zone.
@@ -32,14 +30,13 @@ The only exception is *logreplay_readaccess* between the primary and secondary c
 
 A takeover to the tertiary system on the *Disaster Recovery (DR)* site must be triggered manually.
 
-For more information, see the following links:
-
-- [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471){: external}
-- [SAP HANA System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html){: external}.
-- [SAP HANA Multitier System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/ca6f4c62c45b4c85a109c7faf62881fc.html){: external}.
-
 This information is intended for architects and specialists that are planning a high-availability deployment of SAP HANA on {{site.data.keyword.powerSys_notm}}.
 {: note}
+
+## Before you begin
+{: #ha-rhel-hana-sr-mt-begin}
+
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ## Prerequisites
 {: #ha-rhel-hana-sr-mt-prerequisites}
@@ -91,7 +88,7 @@ pcs resource update SAPHana_${SID}_${INSTNO} AUTOMATED_REGISTER=false
 1. Click **Add connection**.
 1. Choose and configure the specific network connections that you want to add to the transit gateway.
 1. Choose **Direct Link**, and select the names of your {{site.data.keyword.cloud}} connections.
-1.. Click **Add** to create a connection.
+1. Click **Add** to create a connection.
 
 ### Preparing environment variables on NODE3
 {: #ha-rhel-hana-sr-mt-env}
@@ -153,7 +150,7 @@ Verify the network connectivity between the two cluster nodes (NODE1 and NODE2) 
    3 packets transmitted, 3 received, 0% packet loss, time 2003ms
    rtt min/avg/max/mdev = 78.197/78.233/78.264/0.027 ms
    ```
-   {: codeblock}
+
 
 1. Log in to NODE3 and `ping` NODE1.
 
@@ -174,7 +171,7 @@ Verify the network connectivity between the two cluster nodes (NODE1 and NODE2) 
    3 packets transmitted, 3 received, 0% packet loss, time 2002ms
    rtt min/avg/max/mdev = 78.245/78.268/78.287/0.229 ms
    ```
-   {: codeblock}
+
 
 1. Log in to NODE3 and `ping` NODE2.
 
@@ -195,7 +192,7 @@ Verify the network connectivity between the two cluster nodes (NODE1 and NODE2) 
    3 packets transmitted, 3 received, 0% packet loss, time 2003ms
    rtt min/avg/max/mdev = 77.649/78.129/79.071/0.703 ms
    ```
-   {: codeblock}
+
 
 ### Copying PKI SSFS storage certificate files to NODE3
 {: #ha-rhel-hana-sr-mt-ssfs}
@@ -240,7 +237,7 @@ Register the SAP HANA system as a tertiary system replication instance.
    successfully enabled system as system replication source site
    done.
    ```
-   {: codeblock}
+
 
 1. On NODE3, stop the SAP HANA system.
 
@@ -258,7 +255,8 @@ Register the SAP HANA system as a tertiary system replication instance.
          --remoteHost=${NODE2} \
          --remoteInstance=${INSTNO} \
          --replicationMode=async \
-         --operationMode=logreplay
+         --operationMode=logreplay \
+         --online
    ```
    {: pre}
 
@@ -314,7 +312,7 @@ mode: PRIMARY
 site id: 1
 site name: SiteA
 ```
-{: codeblock}
+
 
 An alternative view of the system replication status is available with the `hdbnsutil` command.
 
@@ -378,7 +376,7 @@ Mapping: SiteB -> SiteC
 Hint based routing site:
 done.
 ```
-{: codeblock}
+
 
 Sample output on NODE2:
 
@@ -438,7 +436,7 @@ Mapping: SiteB -> SiteC
 Hint based routing site:
 done.
 ```
-{: codeblock}
+
 
 Sample output on NODE3:
 
@@ -498,7 +496,7 @@ Mapping: SiteB -> SiteC
 Hint based routing site:
 done.
 ```
-{: codeblock}
+
 
 ## Testing the SAP HANA system replication cluster
 {: #ha-rhel-hana-sr-mt-test-sap-hana-sr-cluster}
@@ -570,7 +568,7 @@ mode: PRIMARY
 site id: 1
 site name: SiteA
 ```
-{: codeblock}
+
 
 
 #### Test1 - Test procedure
@@ -675,7 +673,7 @@ Daemon Status:
   pacemaker: active/disabled
   pcsd: active/enabled
 ```
-{: codeblock}
+
 
 On NODE2, run the following command to check the system replication status.
 
@@ -705,7 +703,7 @@ mode: PRIMARY
 site id: 2
 site name: SiteB
 ```
-{: codeblock}
+
 
 #### Test1 - Recovery procedure
 {: #ha-rhel-hana-sr-mt-test1-recovery-procedure}
@@ -730,7 +728,8 @@ sudo -i -u ${sid}adm -- \
       --remoteHost=${NODE2} \
       --remoteInstance=${INSTNO} \
       --replicationMode=syncmem \
-      --operationMode=logreplay
+      --operationMode=logreplay \
+      --online
 ```
 {: pre}
 
@@ -754,7 +753,7 @@ Sample output:
     * Masters: [ cl-hdb-2 ]
     * Stopped: [ cl-hdb-1 ]
 ```
-{: codeblock}
+
 
 On a cluster node, run the following command to clear the failure status of the resource.
 
@@ -774,7 +773,7 @@ Cleaned up SAPHana_HDB_00:1 on cl-hdb-1
 Waiting for 1 reply from the controller
 ... got reply (done)
 ```
-{: codeblock}
+
 
 After a while, verify the system replication status on NODE2.
 
@@ -808,7 +807,7 @@ mode: PRIMARY
 site id: 2
 site name: SiteB
 ```
-{: codeblock}
+
 
 The SAP HANA system replication topology that is changed to a multitarget environment.
 The primary runs on NODE2 at `SiteB`.
@@ -833,7 +832,7 @@ To create a multitier landscape with NODE3 at `SiteC` as a tertiary system, repe
    successfully enabled system as system replication source site
    done.
    ```
-   {: codeblock}
+
 
 1. On NODE3, register the system with NODE1 at `SiteA`.
 
@@ -856,7 +855,7 @@ To create a multitier landscape with NODE3 at `SiteC` as a tertiary system, repe
    updating local ini files ...
    done.
    ```
-   {: codeblock}
+
 
 1. Verify the system replication status on all three nodes as described in [Checking the SAP HANA system replication status](#ha-rhel-hana-sr-mt-check-sr-status).
 
@@ -941,7 +940,8 @@ Use cluster commands to move the primary instance to the other cluster node.
          --remoteHost=${NODE2} \
          --remoteInstance=${INSTNO} \
          --replicationMode=async \
-         --operationMode=logreplay
+         --operationMode=logreplay \
+         --online
    ```
    {: pre}
 
@@ -1044,7 +1044,7 @@ mode: PRIMARY
 site id: 2
 site name: SiteB
 ```
-{: codeblock}
+
 
 #### Test3 - Recovery procedure
 {: #ha-rhel-hana-sr-mt-test3-recovery-procedure}
@@ -1060,7 +1060,8 @@ Log in to the {{site.data.keyword.cloud}} console and start NODE1.
          --remoteHost=${NODE2} \
          --remoteInstance=${INSTNO} \
          --replicationMode=syncmem \
-         --operationMode=logreplay
+         --operationMode=logreplay \
+         --online
    ```
    {: pre}
 
@@ -1111,7 +1112,7 @@ Log in to the {{site.data.keyword.cloud}} console and start NODE1.
    site id: 2
    site name: SiteB
    ```
-   {: codeblock}
+
 
 1. Run the steps in [Test1 - Recovery procedure](#ha-rhel-hana-sr-mt-test1-recovery-procedure) to rebuild the SAP HANA system replication multitier topology for NODE3 at `SiteC`.
 
@@ -1193,7 +1194,7 @@ mode: PRIMARY
 site id: 1
 site name: SiteA
 ```
-{: codeblock}
+
 
 #### Test4 - Recovery procedure
 {: #ha-rhel-hana-sr-mt-test4-recovery-procedure}
@@ -1269,7 +1270,7 @@ Crash primary on NODE1 and secondary on NODE2 by sending a *crash* system reques
    # sudo -i -u hdbadm -- hdbnsutil -sr_takeover
    done.
    ```
-   {: codeblock}
+
 
 #### Test5 - Expected behavior
 {: #ha-rhel-hana-sr-mt-test5-expected-behavior}
@@ -1326,7 +1327,7 @@ Operation mode of SiteC: primary
 Hint based routing site:
 done.
 ```
-{: codeblock}
+
 
 #### Test5 - Recovery procedure
 {: #ha-rhel-hana-sr-mt-test5-recovery-procedure}
@@ -1382,7 +1383,8 @@ Reactivate the cluster in the primary workspace and restore the original system 
          --remoteHost=${NODE3} \
          --remoteInstance=${INSTNO} \
          --replicationMode=async \
-         --operationMode=logreplay
+         --operationMode=logreplay \
+         --online
    ```
    {: pre}
 
@@ -1419,7 +1421,7 @@ Reactivate the cluster in the primary workspace and restore the original system 
    primary masters: cl-hdb-3
    done.
    ```
-   {: codeblock}
+
 
 4. On NODE1, start the SAP HANA system to start the system replication.
 
@@ -1456,7 +1458,7 @@ Reactivate the cluster in the primary workspace and restore the original system 
    site id: 3
    site name: SiteC
    ```
-   {: codeblock}
+
 
 You need a downtime window to perform the move of the primary role back to NODE1.
 All application servers that are connected to NODE3 must be stopped.
@@ -1504,7 +1506,7 @@ A *takeover with handshake* suspends all transactions on the primary system on N
    site id: 3
    site name: SiteC
    ```
-   {: codeblock}
+
 
 The following summary shows the status after these steps.
 
@@ -1522,7 +1524,8 @@ The following summary shows the status after these steps.
          --remoteHost=${NODE1} \
          --remoteInstance=${INSTNO} \
          --replicationMode=syncmem \
-         --operationMode=logreplay
+         --operationMode=logreplay \
+         --online
    ```
    {: pre}
 
@@ -1561,7 +1564,7 @@ The following summary shows the status after these steps.
    site id: 1
    site name: SiteA
    ```
-   {: codeblock}
+
 
 The following summary shows the status after these steps.
 
@@ -1606,7 +1609,7 @@ The following summary shows the status after these steps.
    successfully enabled system as system replication source site
    done.
    ```
-   {: codeblock}
+
 
 1. On NODE2, check the system replication configuration.
 
@@ -1667,7 +1670,7 @@ The following summary shows the status after these steps.
    Hint based routing site:
    done.
    ```
-   {: codeblock}
+
 
 1. On NODE3, run the following command to register the system with NODE2.
 
@@ -1718,7 +1721,7 @@ The following summary shows the status after these steps.
    site id: 1
    site name: SiteA
    ```
-   {: codeblock}
+
 
 1. On NODE3, run the following command to start the tertiary HANA system.
 
