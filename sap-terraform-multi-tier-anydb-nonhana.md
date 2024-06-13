@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-07-06"
+years: 2021, 2023
+lastupdated: "2023-07-05"
 
 subcollection: sap
 
@@ -17,7 +17,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Automating SAP AnyDB (non-SAP HANA) 2-tier and 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC with Terraform
+# Deploying SAP AnyDB (non-SAP HANA) 2-tier and 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC (Terraform)
 {: #create-terraform-multi-tier-vpc-anydb-sap}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
@@ -78,6 +78,7 @@ There are no warranties of any kind, and there is no service or technical suppor
 Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, re-adapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
 ## Before you begin
+{: #b4-multi-tier-anydb-nonhana}
 
 1.  If you do not have Terraform installed, [Install the Terraform CLI and the {{site.data.keyword.cloud_notm}} Provider plug-in](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-setup_cli).  
 
@@ -92,6 +93,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 3.  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
 ## Procedure
+{: #proc-multi-tier-anydb-nonhana}
 
 Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-in and use Terraform to create a VPC for SAP.
 
@@ -103,7 +105,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
 3.  Edit the ``terraform.tfvars`` variable file and enter the IBM Cloud API key that you retrieved. 
 
-    ```
+    ```terraform
     ibmcloud_api_key = "<ibmcloud_apikey>"
     ```
 
@@ -124,7 +126,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
     For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images).
 
-    ```
+    ```terraform
     # General VPC variables:
     REGION        = "eu-de" # default value
     ZONE          = "eu-de-2" # default value
@@ -158,17 +160,18 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
     |IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
     |SSH_KEYS	   |List of SSH Keys IDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/vpc-ext/compute/sshKeys).|
     |[DB/APP]-HOSTNAME	|The hostname for the VSI. The hostname must have up to 13 characters as required by SAP. For more information about rules regarding hostnames for SAP systems, see [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/%20611361).|
+    {: caption}
 
 
 5. Initialize the Terraform CLI. 
 
-   ```
+   ```terraform
    terraform init
    ```
 
 6. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the VPC instance in your account.
 
-   ```
+   ```terraform
    terraform init
    ```
 
@@ -176,14 +179,16 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
 8. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
-   ```
+   ```terraform
    terraform apply
    ```
-   The VPC and components are created and you see output similar to the terraform plan output.  
+   The VPC and components are created and you see output similar to the terraform plan output.
 
-This automation is offered free of charge however, the provisioned infrastructure comes at cost.{: note}
+This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
+{: note}
 
 ## Next steps
+{: #next-multi-tier-anydb-nonhana}
 
 If you need to rename your resources after they are created, modify the ``input.auto.tfvars`` file to change the names and run ``terraform plan`` and ``terraform apply`` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results. 
 

@@ -65,7 +65,7 @@ You need to first create a Service ID and then the related API key. Use the foll
 1. Click **Access Policies** > **Assign Access**.
 1. Click **IAM Services** for **Assign Service ID additional access**.
 1. Select **VPC Infrastructure service** for **What type of access do you want to assign?**
-<!-- 1. Select **All resource groups** for **in** .... this would be the right option; but it's not available in the UI! -->
+
 1. Leave the default **Account** for **in**
 1. Leave **All resource types** for **Resource type** and click **Viewer** for **Platform Access**.
 1. Click **Add** > **Assign**. The VPC Infrastructure Service policy is assigned to your Service ID.

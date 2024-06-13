@@ -28,13 +28,11 @@ The SAP Content Server is a stand-alone component for storing large quantities o
 The SAP Content Server uses the SAP MaxDB database and one of the following operating systems:
 * Windows Server
 * SUSE Linux&reg;
-* Red Hat Linux  
+* Red Hat Linux
 
 For more information about these supported operating systems releases, see the [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}.
 
 For more information about the SAP Content Server, see [SAP Help](https://help.sap.com/viewer/index){: external} and documentation on the [SAP NetWeaver Knowledge Server components](https://help.sap.com/viewer/3ad3ba0715c5422eae08578d4c40328d/latest/en-US/4cff90895b605dc6e10000000a42189c.html){: external}.
-
-
 
 ## Usage considerations
 {: #content-server-usage}

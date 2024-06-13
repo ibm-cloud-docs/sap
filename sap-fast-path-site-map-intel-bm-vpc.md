@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-12-16"
+lastupdated: "2022-12-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -18,21 +18,18 @@ subcollection: sap
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 
-
 # Fast Path of IBM Cloud Intel Bare Metal Servers on VPC Infrastructure
 {: #fast-path-site-map-intel-bm-vpc}
 
-This page is a collection of shortcuts to the documentation sections for each offering, excluding general information that applies to all offerings, such as SAP Sizing.
+This topic is a collection of shortcuts to the documentation sections for each offering, excluding general information that applies to all offerings, such as SAP Sizing.
 
 Use the links in this section to quickly access relevant documents that you are already familiar with.
-
 
 ## Learn
 {: #fast-path-intel-bm-vpc-learn}
 
 An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated site location (also referred to as zone, which is a data center site). For more information:
 - [IBM Cloud VPC Infrastructure environment introduction](/docs/sap?topic=sap-vpc-env-introduction)
-
 
 Certified Infrastructure-as-a-Service for SAP is available in many variations, each with different capabilities and sizes to fit many different SAP workload scenarios. For more information:
 - [Infrastructure certified for SAP - Intel Bare Metal servers on VPC Infrastructure](/docs/sap?topic=sap-iaas-offerings#iaas-intel-bm-vpc)

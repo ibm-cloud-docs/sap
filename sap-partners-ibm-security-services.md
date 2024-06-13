@@ -31,7 +31,7 @@ Through continuous monitoring, IBM Security Services are able to deliver near re
 **IBM Security Services for SAP offer the following features:**
 * Comprehensive understanding of vulnerabilities and potential attack vectors
 * Methods to implement and avoid defects in ABAP code or SAP Transports
-* Identifying configuration vulnerabilities for ABAP, JAVA, and HANA environments
+* Identifying configuration vulnerabilities for ABAP, Java, and HANA environments
 * Identifying missing or outdated SAP notes and patches 
 * Identifying, monitoring and review of highly privileged SAP accounts
 * Enabling continuous monitoring of vulnerabilities with integration to existing SIEM solution
@@ -61,5 +61,5 @@ Because of the close collaboration between IBM Cloud for VMware with SAP and IBM
 1. Open the {{site.data.keyword.vmwaresolutions_short}} console. Scroll down to the **Services** section and on the **Featured Workload Solutions** card click **IBM Security Services for SAP**.
 2. On the **IBM Security Services for SAP** page, in the **Engage IBM Security Services** box, provide the requested details, and click **Request a consultation**.
 
-  An {{site.data.keyword.vmwaresolutions_short}} representative will contact you by using your {{site.data.keyword.cloud_notm}} contact information to help you with the solution that you need.
+    An {{site.data.keyword.vmwaresolutions_short}} representative will contact you by using your {{site.data.keyword.cloud_notm}} contact information to help you with the solution that you need.
 

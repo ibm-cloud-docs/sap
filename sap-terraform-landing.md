@@ -46,7 +46,7 @@ IBM provides several templates with scripts to deploy different SAP NetWeaver an
     *   [Overview for deploying SAP workload HA deployment on IBM Cloud Virtual Private Cloud (VPC) (Terraform and Ansible)](/docs/sap?topic=sap-automate-sap-ha-deployment-overview&interface=terraform)
     *   [Deploying SAP workload S/4HANA HA deployment on IBM Cloud VPC (Terraform and Ansible)](/docs/sap?topic=sap-automate-s4hana-ha-terraform-ansible&interface=terraform)
 *   SAP HANA DB backup to Cloud Object Storage
-    *   [Introduction to IBM Cloud VPC and HANA db backup automation on COS](/docs/sap?topic=sap-sap-automate-intro-hana-db-backup-cos&interface=terraform)
+    *   [Introduction to IBM Cloud VPC and HANA db backup automation on Cloud Object Storage](/docs/sap?topic=sap-sap-automate-intro-hana-db-backup-cos&interface=terraform)
     *   [Deploying SAP HANA db backup to Cloud Object Storage on existing IBM Cloud VPC (Terraform)](/docs/sap?topic=sap-sap-automate-hana-db-backup-cos-deploy&interface=terraform)
 *   [Deploying SAP S/4HANA on 3-tier IBM Cloud VPC (Terraform and Ansible)](/docs/sap?topic=sap-automate-s4hana-terraform-ansible&interface=terraform)
 *   SAP BW/4HANA 3-tier on IBM Cloud VPC

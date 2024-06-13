@@ -29,7 +29,7 @@ MS SQL Server is one of several databases that can be deployed on SAP NetWeaver 
 The MS SQL Server database for SAP is supported only on Windows servers and using only the Enterprise Edition of the software. Other SQL Server editions are currently not supported.
 
 ## SAP NetWeaver architecture
-{: #sap-netweaver-arch-syb}
+{: #sap-netweaver-arch-mssql}
 
 SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for Advanced Business Application Programming (ABAP) and Java applications. SAP NetWeaver components are built on the SAP NetWeaver Application Server and are written in ABAP or Java Platform, Enterprise Edition. ABAP systems, Java systems, and dual-stack systems are distinct systems.
 
@@ -65,7 +65,7 @@ Within the Public Subnet, the [SAP router](https://support.sap.com/en/tools/conn
 
 A jumphost is used to access, manage, and administer SAP virtual server instances from the same customer ZONE directly from their premises. These SAP virtual server instances can be in a separate security zone but should be on same {{site.data.keyword.cloud_notm}} region. The customer connection to the jumphost follows the same rules as the direct connection from customer premises to the virtual server instance SAP instances. The connection uses the CFN IP and security group 1 firewall rules from a designated public subnet. In this architecture, there are two security groups defined; this arrangement is the simplest method for separating the public and private subnets. You can add more security groups if you require more isolation.
 
-## Virtual server instances on SAP NetWeaver 7.x APAB stack, JAVA stack, and dual stack (ABAP+JAVA) stack on Windows Servers with MS SQL Server DB
+## Virtual server instances on SAP NetWeaver 7.x APAB stack, Java stack, and dual stack (ABAP+Java) stack on Windows Servers with MS SQL Server DB
 {: #sap-refarch-nw-mssql-vsis}
 
 ### Standard system
@@ -101,7 +101,7 @@ Optionally, you can install the ASCS instance with an integrated:
 * SAP Web Dispatcher. For more information, see [ASCS Instance with Integrated SAP Web Dispatcher](https://help.sap.com/viewer/910828cec5d14d6685da380aec1dc4ae/CURRENT_VERSION/en-US/2e708e2d42134b4baabdfeae953b24c5.html). 
 * Gateway. For more information, see [ASCS Instance with Integrated Gateway](https://help.sap.com/viewer/ce9e270ad34949969c16d09d1b099a26/CURRENT_VERSION/en-US/bf1d359ac8384441a781ae3b0b5bd1b5.html). 
 
-**Architecture of SAP NetWeaver AS for JAVA**
+**Architecture of SAP NetWeaver AS for Java**
 
 1. Java central instance (J< nn > instance) – A Java instance is a unit in the AS Java cluster that is identified by its instance number. The elements that form an instance that is run on one physical machine. Also, it is possible to run several instances on one physical machine, but it is recommended that you split the different instances among different physical machines. A [Java Central Instance](https://help.sap.com/viewer/5bdacafd0bbd41648f4b80093a1bf9d6/7.5.4/en-US/4b1bb795eb2770d3e10000000a42189b.html) consists of:
 

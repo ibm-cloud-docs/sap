@@ -24,7 +24,7 @@ subcollection: sap
 {: #vs-set-up-infrastructure}
 
 Use the following information to deploy and set up SAP HANA and SAP NetWeaver on {{site.data.keyword.vsi_is_full}}.
-{:shortdesc}
+{: shortdesc}
 
 
 ## Setting up a Virtual Private Cloud (VPC) and subnet
@@ -109,7 +109,7 @@ Use the following steps to order your virtual server and necessary components. F
 1. Select a **Profile** based on the guidance detailed in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc), which lists the profiles that are certified for SAP HANA and SAP NetWeaver.
 1. Select the **SSH key** you want to add to the virtual server. For this step, you can create a new SSH key.
 1. Click **New volume** for **Data volumes**. Data volumes are required.
-   - For SAP HANA, these volumes must meet special KPI needs that are defined by SAP and are mandatory. See [Storage specifications - Intel Virtual Server (Gen2) certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-storage-specs) or [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations) to learn these special needs and how you should configure the data volumes.
+   - For SAP HANA, these volumes must meet special KPI needs that are defined by SAP and are mandatory. See [Storage specifications - Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-storage-specs) or [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations) to learn these special needs and how you should configure the data volumes.
    - For SAP NetWeaver, these volumes are based on the requirements of the installed SAP NetWeaver instance. The standard tiered options are 3K, 5K, and 10K IOPS, and custom IOPS. These options can be used to attune to the specific requirements.
 1. You can enable **Auto Delete** to automatically delete the data volume if the virtual server is deleted. This option is not recommended.
 1. **Attach** the appropriate data volumes to your virtual server.
@@ -126,7 +126,7 @@ Table 1 is a summary of the fields and values that are used to provision {{site.
 | Virtual private cloud | Specify the VPC where you want to create your virtual server. |
 | Resource group | Use resource groups to organize your account resources for access control and billing purposes. |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want to create your virtual server. |
-| Operating System | <ul><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-hana-...`**</li><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-applications...`**</li><li>Windows Server for SAP NetWeaver workloads, select Windows Server</li></ul>. Choose an operating system version that is supported by SAP as documented in [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external} |
+| Operating System | <ul><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-hana-...`**</li><li>Linux distribution for SAP NetWeaver workloads, select **Catalog image** > **`...-sap-applications...`**</li><li>Windows Server for SAP NetWeaver workloads, select Windows Server</li></ul>. Choose an operating system version that is supported by SAP as documented in [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external} |
 | Profile |  Select one of the profiles outlined in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key before you can create the instance. SSH keys are used to securely connect to a running instance. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
@@ -137,7 +137,7 @@ Table 1 is a summary of the fields and values that are used to provision {{site.
 {: caption="Table 1. Instance provisioning selections" caption-side="top"}
 
 
-## Adding Network {{site.data.keyword.block_storage_is_short}}
+## Adding {{site.data.keyword.block_storage_is_short}}
 {: #vs-adding-vpc-block-storage}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.

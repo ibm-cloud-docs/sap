@@ -22,7 +22,7 @@ subcollection: sap
 # Automating SAP workload HA deployment on IBM Cloud VPC with Terraform and Ansible
 {: #automate-ha-deployment-on-vpc}
 
-You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. The VPC provisioned includes virtual server instances with high network performance. The VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including virtual servers. After the VPC is provisioned, the scripts use the Ansible Playbook to install the SAP system.
+You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. The VPC provisioned includes virtual server instances with high network performance. The VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including virtual servers. After the VPC is provisioned, the scripts use the Ansible Playbooks to install the SAP system.
 
 ## IBM Cloud VPC introduction
 {: #automate-ha-deployment-on-vpc-intro}
@@ -35,9 +35,9 @@ VPC’s logical isolation is implemented by using virtual network functions and 
 
 With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to manually provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings including virtual servers for VPC. 
 
-To understand a simple use-case for planning, creating, and configuring resources for your VPC, and learn more about VPC overviews and VPC tutorials see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started).
+Use the following information to understand a simple use-case for planning, creating, and configuring resources for your VPC, and learn more about VPC overviews and VPC tutorials. For more information about the VPC, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started).
 
-## SAP products architecture on IBM Cloud VPC
+## SAP products architecture on {{site.data.keyword.cloud_notm}} VPC
 {: #automate-ha-deployment-on-vpc-architecture}
 
 A [Virtual Private Cloud (VPC)](https://www.ibm.com/cloud/learn/vpc?mhsrc=ibmsearch_a&mhq=VPC){: external} contains one of the most secure and reliable cloud environments for SAP applications within your own VPC with virtual server instances. This represents an Infrastructure-as-a-Service (IaaS) within {{site.data.keyword.cloud_notm}} that offers all the benefits of isolated, secure, and flexible virtual cloud infrastructure from IBM. In comparison, the {{site.data.keyword.cloud_notm}} classic infrastructure virtual servers offering uses virtual instances with native and VLAN networking to communicate with each other within a data center; however, the instances are restricted in one well-working pod by using subnet and VLAN networking as a gap scale up of virtual resources should rely between the pods. The {{site.data.keyword.vpc_short}} network orchestrator layer concept eliminates the pod boundaries and restrictions, so this new concept handles all the networking for every virtual instance running within VPC across regions and zones.
@@ -45,9 +45,9 @@ A [Virtual Private Cloud (VPC)](https://www.ibm.com/cloud/learn/vpc?mhsrc=ibmsea
 ## Highly available system for SAP NetWeaver on {{site.data.keyword.cloud_notm}} VPC
 {: #automate-ha-deployment-on-vpc-system-nw}
 
-In a Highly Available (HA) system, every instance run on a separate {{site.data.keyword.cloud_notm}} virtual server instance. The cluster HA configuration for the SAP application server consists of two virtual server instances, each of them located in the same zone within the region by using placement groups. Placement groups assure that both cluster resources and cloud resources are also located in different compute nodes as specified in the placement groups section:
+In a Highly Available (HA) system, every instance can run on a separate {{site.data.keyword.cloud_notm}} virtual server instance. The cluster HA configuration for the SAP application server consists of two virtual server instances, each of them located in the same zone within the region by using placement groups. Placement groups assure that both cluster resources and cloud resources are also located in different compute nodes as specified in the following placement groups section:
 
-![Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)](images/sap-ha-new-cluster-pas-aas.png "SAP HA applications cluster nodes PAS (Active) and AAS (Active)"){: caption="Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)" caption-side="bottom"}
+![Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)](images/sap-ha-vpc-single-zone.png "SAP HA applications cluster nodes PAS (Active) and AAS (Active)"){: caption="Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)" caption-side="bottom"}
 
 ### Placement groups on {{site.data.keyword.cloud_notm}} VPC for SAP HA architecture
 {: #automate-ha-deployment-on-vpc-placement-groups}
@@ -58,7 +58,7 @@ The design of placement groups for {{site.data.keyword.cloud_notm}} virtual serv
 
 Placement groups with the spread rule are available to create in selected {{site.data.keyword.cloud_notm}} data centers. After a spread rule is created, you can provision a virtual server into that group and ensure that it is not on the same host as any of your other virtual servers. This feature comes with no cost.
 
-You can create your placement group and assign upto four new virtual server instances. With the spread rule, each of your virtual servers are provisioned on different physical hosts. In the configuration example, the “Power Spread” option is used:
+You can create your placement group and assign upto four new virtual server instances. With the spread rule, each of your virtual servers are provisioned on different physical hosts. In the following configuration example, the “Power Spread” option is used:
 
 ![Figure 2. Placement groups host spread](images/sap-terraform-ha-pg-1.png "Placement groups host spread"){: caption="Figure 2. Placement groups host spread" caption-side="bottom"}
 ![Figure 3. Placement groups power spread](images/sap-terraform-ha-pg-2.png "Placement groups power spread"){: caption="Figure 3. Placement groups power spread" caption-side="bottom"}
@@ -169,6 +169,8 @@ The DNS service maps the FQDN of each ALB to the virtual hostnames of the ASCS, 
 ## Highly available system for SAP ASE SYBASE database with HADR system
 {: #automate-ha-deployment-on-vpc-ase-sybase-database}
 
+![Figure 7. SAP HA for ASE SYBASE DB instances cluster nodes Primary (Active) and Secondary (Companion)](images/sap-ha-hana-vpc-single-zone.svg "SAP HA for ASE SYBASE DB instances cluster nodes Primary (Active) and Secondary (Companion)"){: caption="Figure 2. SAP HA for ASE SYBASE DB instances cluster nodes Primary (Active) and Secondary (Companion)" caption-side="bottom"}
+
 At the most basic level, a standard HA ASE SYBASE cluster in an active(primary)-passive(companion) configuration has two nodes: one is the primary node and the other is the standby node. This means that the primary node is actively serving the active SAP DB instances (Primary and Companion), while the standby node is waiting to jump in if there is any failure.
 
 The cluster is set with a virtual hostname IP (hostname is mapped to the FQDN of the ASE SYBASE ALB through DNS, which is same as explained previously for SAP ASCS and ERS instances). Application instances (PAS and AAS) are used on the SAP profiles to call that particular component. The cluster assigns the virtual IP to the active node and uses a heartbeat monitor to confirm the availability of the components. If the primary node stops responding, it triggers the automatic failover mechanism that calls the standby node to step up to become the primary node. The ALB detects the change, redirects the traffic to the new active node, and assigns the virtual IP to it, restoring the component availability. Once fixed, the failed node comes online as a standby node.
@@ -221,7 +223,7 @@ There may be some data loss if the SAP Replication Server was in asynchronous mo
 
 Connection attempts to the companion server without the necessary privileges are silently redirected to the primary companion via the login redirection mechanism, which is supported by Connectivity libraries. If login redirection is not enabled, client connections fail and are disconnected.
 
-The SAP ASE HADR option installs these components:
+The SAP ASE HADR option installs the below components:
 
 * SAP ASE 
 * SAP Replication Server

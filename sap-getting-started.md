@@ -42,12 +42,11 @@ The following documentation does not replace any SAP implementation-related docu
 ## Before you begin
 {: #before-you-begin}
 
-Before you can install SAP software components on {{site.data.keyword.cloud_notm}}, you need an:
-* SAP S-User ID to review relevant SAP documentation and download SAP installation media
+Before you install the SAP software components on {{site.data.keyword.cloud_notm}}, you need an:
+* SAP S-User ID to review the relevant SAP documentation and download SAP installation media
 * IBM ID to create an {{site.data.keyword.cloud_notm}} account
 
-This information is covered in the *Pre-Requisites for SAP Workloads* topic group, under [Necessary account credentials for SAP and {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-necessary-credentials).
-
+This information is covered in the *Pre-requisites for SAP Workloads* topic group, under [Necessary account credentials for SAP and {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-necessary-credentials).
 
 ## Summary of an SAP landscape installation onto Cloud IaaS
 {: #summary-steps}
@@ -61,7 +60,7 @@ This table summarizes the SAP landscape installation steps for you and your team
 | Read the relevant SAP software documentation. | Short lists of planning considerations are available to assist under topic groups: \n * SAP Business Applications \n * SAP Technical Applications \n * SAP AnyDB databases \n Lists of usage, network, storage, database, and OS considerations are available for SAP Business Applications, SAP Technical Applications, SAP AnyDB databases, SAP Development Applications. References to SAP installation documents are also included. |
 | _Optional:_ Read the relevant SAP Business Partner certified solutions documents | Various SAP Open Ecosystem Partners are available from {{site.data.keyword.cloud_notm}}, with documents on how to best use these solutions for your SAP deployment. |
 | _Optional:_ Read the relevant IBM-SAP innovation solutions documents|{{site.data.keyword.ibm_cloud_sap}} | This documentation provides more options for maximizing your SAP landscape, including Cloud Migration Acceleration and {{site.data.keyword.ibmwatson_notm}}. |
-| Read and follow the documents in the **Pre-Requisites for SAP Workloads** topic group | Prepare the credentials, account structure, connectivity, software downloads, support procedures, and licensing that is needed before you begin your deployment. |
+| Read and follow the documents in the **Pre-requisites for SAP Workloads** topic group | Prepare the credentials, account structure, connectivity, software downloads, support procedures, and licensing that is needed before you begin your deployment. |
 | Read and follow the **Provisioning** topic groups in the **How to** section | For your specific infrastructure, follow the provisioning guidelines to set up the first servers at the sizes that are required to run your SAP systems. Planning your SAP landscape with the business is crucial to success. It is likely these documents might be read many months after the topics listed in the other steps. |
 | Revisit **Task 3**, and follow the relevant SAP software documentation to install SAP on the infrastructure | It is important to follow SAP guidance clearly, including any additional reference guidance available on SAP Notes for your chosen applications. This stage is the same as installations into servers hosted at on-premises data centers. |
 {: caption="Table 1. Overview of your SAP landscape installation steps" caption-side="top"}

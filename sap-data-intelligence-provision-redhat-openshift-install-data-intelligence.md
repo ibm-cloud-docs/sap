@@ -23,17 +23,16 @@ subcollection: sap
 # Preparing and Installing SAP Data Intelligence
 {: #rhos-di-dataintelligence}
 
-In the previous chapter we have created a {{site.data.keyword.openshiftshort}} cluster and prepared the jump host. The next steps cater to the preparation of the  cluster to be ready for the SAP Data Intelligence installation.
+In the previous chapter we have created {{site.data.keyword.openshiftshort}} cluster and prepared the jump host. The next steps cater to the preparation of the cluster to be ready for the SAP Data Intelligence installation.
 
 The instructions for implementing SAP Data Intelligence on the {{site.data.keyword.openshiftshort}} cluster follow the Red hat article (RHA) [SAP Data Intelligence 3 on OpenShift Container Platform 4](https://access.redhat.com/articles/5100521){: external} starting from [**3.3. OCP Post Installation Steps**](https://access.redhat.com/articles/5100521#ocp-post-installation){: external}, because in this scenario {{site.data.keyword.openshiftshort}} 4.8.x already has been provisioned.
-
 
 ## Setting the `sdi` role for the worker nodes for SAP Data Intelligence
 {: #rhos-di-label-nodes}
 
 According to section [3.3.4.1. Label the compute nodes for SAP Data Intelligence](https://access.redhat.com/articles/5100521#ocp-post-label-nodes){: external} in the RHA, set the `sdi` role for the worker nodes that will be considered by Red Hat's SDI observer. See below the parameter `SDI_NODE_SELECTOR` in the SDI observers's installation script.
 
-1. Determine the nodes' names.
+1. Determine the nodes names.
 
     ```
     oc get nodes
@@ -77,7 +76,6 @@ According to section [3.3.4.1. Label the compute nodes for SAP Data Intelligence
 
     Note that the `sdi`role has been added.
 
-
 ## Creating the related projects
 {: #rhos-di-create-sdi-projects}
 
@@ -86,7 +84,7 @@ For deployment of SAP applications in cloud-based environments, SAP provides the
 
 In the RHA, the sample project names (i.e. namespaces) are `sdi`, `sdi-observer` and `sap-slcbridge`. Following these naming conventions of the Red Hat    article, create the related projects as follows.
 
-1. create the projects
+1. Create the projects
     
     ```
     $ oc new-project sdi-observer
@@ -104,15 +102,15 @@ The projects' namespaces and {{site.data.keyword.registryshort_notm}} names used
 {: note}
 
     
-1. SDI Observer needs a secret with credentials for registry.redhat.io
+1. SDI Observer needs a secret with credentials for `registry.redhat.io`
 
    Follow the section [4.2.1. Prerequisites for Connected OpenShift Cluster](https://access.redhat.com/articles/5100521#sdi-observer-prereq-online){: external} in the RHA and save your `rht-registry-secret.yaml` in the ~/sap/install directory. This yaml file will be required to automatically set the respective parameters below.
 
-1. Get information about Red Hat's SDI Observer installation script
+1. Get information about Red Hat's SDI Observer installation script.
 
    Review the section [4.2.3. Instantiation of Observer's Template](https://access.redhat.com/articles/5100521#sdi-observer-instantiate){: external} in the RHA to confirm the deployment instructions and the source URL are valid.
 
-1. Download the installation script
+1. Download the installation script.
     ```
     curl -O https://raw.githubusercontent.com/redhat-sap/sap-data-intelligence/master/observer/run-observer-template.sh
     ```
@@ -155,7 +153,7 @@ The worker nodes need be configured to grant proper execution of SAP Data Intell
     ```
     {: pre}
 
-1. Create the objects directly from the downloaded template
+1. Create the objects directly from the downloaded template.
     ```
     oc process NAMESPACE=sdi-observer -f ./ocp-template.json | oc create -f -
     ```
@@ -167,7 +165,6 @@ For production environments, storage for backup&restore as well as Semantic Data
 {: shortdesc}
 
 For ad hoc small term test and evaluation environments, you may skip this topic and go directly to the [Installing the Software Lifecycle Container Bridge (SLCB)](/docs/sap?topic=sap-rhos-di-dataintelligence#rhos-di-install-slcb) section.
-
 
 ### Before you begin
 {: #rhos-di-before-you-begin-set-up-checkpoint-storage}
@@ -383,7 +380,6 @@ Now, select the link in the tools column which will launch SAP Intelligence inst
 | S-User Name: | Sxxxxxxxx |
 | S-User Password: | xxxxxxxx |
  
-
 The installation and the initialization of all pods may take a while to complete.
 {: note}
 
@@ -393,7 +389,6 @@ The installation and the initialization of all pods may take a while to complete
     watch oc get -n sdi pods -o wide
     ```
     {: pre}
-
 
 ### Final Step
 {: #rhos-di-final-step}

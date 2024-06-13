@@ -18,11 +18,7 @@ subcollection: sap
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 {:tip: .tip}
-<!--- {:deprecated: .deprecated}
 
-This document is out of date, it is being updated and replaced in November-2020 with new content.
-{: deprecated}
--->
 # SAP HANA scale-out Reference Architecture
 {: #refarch-hana-scaleout}
 

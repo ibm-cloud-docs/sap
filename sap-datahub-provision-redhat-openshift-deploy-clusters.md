@@ -48,8 +48,8 @@ The Information button provides field-specific information on how to use a field
 1. Select the **Geography** and the **Worker zone** based on your geographic location.
 1. Private VLAN and Public VLAN default based on your zone selections. You can change these values if necessary.
 
-  Your clusters, VLAN, and jump host must be in the same worker zone, or data center.
-  {: note}
+    Your clusters, VLAN, and jump host must be in the same worker zone, or data center.
+    {: note}
 
 1. Select *8 vCPUs, 32 GB RAM* for **Flavor** and at least *3 Worker nodes per data center* for the test environment.
 1. Enter a **Cluster name** and optionally **Tags**.
@@ -78,7 +78,6 @@ The instructions for implementing SAP Data Hub on the {{site.data.keyword.opensh
 
 Your {{site.data.keyword.openshiftshort}} cluster and your virtual server should be available in about 15 minutes.
 
-
 ## Preparing the jump host
 {: #rhos-prepare-jump-host}
 
@@ -88,7 +87,7 @@ Prepare your jump host to connect to the {{site.data.keyword.openshiftlong}} clu
 ### Before you begin
 {: #rhos-prepare-jump-host-before}
 
-It's recommended you become familiar with the [Managing your {{site.data.keyword.cloud_notm}}  accounts](/docs/account?topic=account-accounts){: external}. Your {{site.data.keyword.cloud_notm}} user ID must have the cluster Administrator role.
+It is recommended you become familiar with the [Managing your {{site.data.keyword.cloud_notm}}  accounts](/docs/account?topic=account-accounts){: external}. Your {{site.data.keyword.cloud_notm}} user ID must have the cluster Administrator role.
 
 ### Install the {{site.data.keyword.cloud_notm}} and {{site.data.keyword.openshiftshort}} client Command Line Interfaces (CLI)
 {: #rhos-jump-host}
@@ -101,6 +100,7 @@ Use the following commands to download and install the CLIs you use to configure
     curl -sL https://ibm.biz/idt-installer | bash
     ```
     {: pre}
+
     For more information on {{site.data.keyword.cloud_notm}} CLI, see [Getting started with the {{site.data.keyword.cloud_notm}} CLI and Developer Tools](/docs/cli?topic=cli-getting-started){: external}.
 
 1. Download and install the {{site.data.keyword.openshiftshort}} 3.11 CLI oc.
@@ -176,6 +176,7 @@ Use the following commands to download and install the CLIs you use to configure
     yum install -y docker device-mapper-libs device-mapper-event-libs
     ```
     {: pre}
+
     Start the docker process.
     ```
     systemctl enable --now docker.service
@@ -195,7 +196,9 @@ Use the following commands to download and install the CLIs you use to configure
     ibmcloud dev version 2.4.0
     ```
     {: screen}
-    Verify kubectl.
+    
+1. Verify kubectl.
+
     ```
     kubectl version
     ```
@@ -207,7 +210,9 @@ Use the following commands to download and install the CLIs you use to configure
     Client Version: version.Info{Major:"1", Minor:"11", GitVersion:"v1.11.10", GitCommit: ...
     ```
     {: screen}
-    Verify docker.
+
+1. Verify docker.
+
     ```
     systemctl status docker
     ```
@@ -286,7 +291,6 @@ After logging in to the jump host you **must complete the following steps** befo
 
 You have created an {{site.data.keyword.openshiftshort}} cluster and prepared the jump host.
 
-
 ## Choosing the Dynamic Storage Provisioner
 {: #rhos-configure-dynamic-storage-provider}
 
@@ -297,8 +301,8 @@ Use the steps below to define the default {{site.data.keyword.cloud_notm}} stora
 
 1. Select the appropriate storage class that will fit your needs.
 
-  For SAP Data Hub the `ibmc-block-bronze` storage class is recommended.
-  {: note}
+    For SAP Data Hub the `ibmc-block-bronze` storage class is recommended.
+    {: note}
 
 1. Remove the current default storage class:
 
@@ -317,7 +321,6 @@ Use the steps below to define the default {{site.data.keyword.cloud_notm}} stora
 
 The SAP Data Hub installation command lets you provide different storage classes for the different SAP Data Hub storage types.
 {: note}
-
 
 ## Setting up the {{site.data.keyword.cloud_notm}} Container Registry
 {: #rhos-set-up-external-image-registry}

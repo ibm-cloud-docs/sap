@@ -53,9 +53,7 @@ Depending on your scenarios, the following links provide helpful information.
 - [SAP ASE by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-ase#anydb-sap-ase-power-vs)
 - [SAP to IBM Power Virtual Server Migration Acceleration Program](/docs/sap?topic=sap-cloud-migration-acceleration-program)
 
-<!--## Tutorials
-- [SAP NetWeaver deployment to IBM Power Virtual Server by using AIX](/docs/sap?topic=sap-quickstudy-nw-power-vs-aix)
-- [SAP HANA deployment to IBM Power Virtual Server by using SLES](/docs/sap?topic=sap-quickstudy-hana-power-vs-sles)-->
+
 
 ## How to
 {: #fast-path-power-vs-how-to}
@@ -79,6 +77,13 @@ For more information about implementing high availability scenarios for SAP on I
 - [Configuring SAP HANA Multitarget System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitarget)
 - [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-ensa)
 - [Configuring an active-passive NFS server in a Red Hat High Availability cluster](/docs/sap?topic=sap-ha-rhel-nfs)
+
+For more information about SAP hybrid cloud migration scenarios for SAP on IBM {{site.data.keyword.powerSysFull}} moving to PowerVS, see the following links.
+- [Migrating SAP between on-premises and IBM Cloud on {{site.data.keyword.powerSysFull}} Overview](/docs/sap?topic=sap-sapmig-overview)
+- [Hybrid Cloud Network Considerations for SAP on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking)
+- [Migrating SAP S/4HANA Pre-Migration Steps Source](/docs/sap?topic=sap-sapmig-db-hana-presteps-source)
+- [Creating the Target SAP HANA System on IBM Power Systems Virtual Servers pre-step](/docs/sap?topic=sap-sapmig-db-hana-presteps-target)
+- [Migrating SAP S/4HANA using HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana-replication)
 
 ## Help
 {: #fast-path-power-vs-help}

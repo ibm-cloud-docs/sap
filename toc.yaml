@@ -2,18 +2,20 @@
 toc:
   properties:
     subcollection: sap
-    version: 2
     category: compute
-    audience: service
+    use-case: BusinessProcessAutomation
+    compliance: SAPCertified
+    audience: solution
+    content-type: solution
     href: /docs/sap
-    console-page: "/classic"
+    console-page: "/catalog?search=SAP#search_results"
     product-page: "https://www.ibm.com/cloud/sap"
     path: sap
+    description: IBM Cloud SAP-Certified Infrastructure gives you the flexibility to run your SAP workloads in the IBM Cloud when and where you need them.
     label: IBM Cloud for SAP | IBM Power Virtual Servers for SAP
-#  List your getting started tutorial (getting-started.md) as the first item in the Get started nav group. See https://test.cloud.ibm.com/docs/writing?topic=writing-navigation for more details on the toc design.
   entries:
   - navgroup:
-      id: learn
+      id: overview
       topics:
         - sap-getting-started.md
         - sap-offerings-overview.md
@@ -28,6 +30,9 @@ toc:
         - link:
             label: Executive solution brief of IBM Cloud for SAP
             href: https://www.ibm.com/cloud/smartpapers/accelerate-SAP/
+  - navgroup:
+      id: plan
+      topics:
         - topicgroup:
             label: Infrastructure environments
             topics:
@@ -44,7 +49,6 @@ toc:
               - sap-offerings-hana-iaas-power-virtual-server-profiles.md
               - sap-offerings-hana-iaas-vmware-sddc-profiles.md
               - sap-offerings-hana-iaas-intel-bm-vpc.md
-
         - topicgroup:
             label: Infrastructure profiles for SAP NetWeaver Application Server
             topics:
@@ -54,12 +58,12 @@ toc:
               - sap-offerings-netweaver-iaas-power-virtual-server-profiles.md
               - sap-offerings-netweaver-iaas-vmware-sddc-profiles.md
               - sap-offerings-netweaver-iaas-intel-bm-vpc.md
-
         - topicgroup:
             label: Plan your SAP workloads
             topics:
               - sap-sizing-planning-process.md
               - sap-sizing-planning-your-system-landscape.md
+              - hana-power-size-server.md
               - sap-prereq-determining-access.md
               - sap-prereq-software.md
               - sap-prereq-byol.md
@@ -97,10 +101,11 @@ toc:
               - sap-app-lama.md
               - sap-app-secure-logon-server.md
         - topicgroup:
-            label: SAP AnyDB databases additional design considerations
+            label: SAP AnyDB and SAP HANA databases additional design considerations
             topics:
                 - sap-anydb-ibm-db2.md
                 - sap-anydb-ms-sql.md
+                - sap-anydb-oracle-db.md
                 - sap-anydb-sap-maxdb.md
                 - sap-anydb-sap-ase.md
                 - sap-anydb-sap-iq.md
@@ -129,8 +134,9 @@ toc:
         - topicgroup:
             label: IBM certified for SAP solutions
             topics:
-              - sap-ibm-cloud-paks-mcm.md
+              - sap-ibm-cloud-paks-data.md
               - sap-ibm-cloud-paks-integration.md
+              - sap-ibm-cloud-paks-mcm.md
         - topicgroup:
             label: Innovations with IBM Cloud for SAP
             topics:
@@ -142,7 +148,6 @@ toc:
             topics:
               - sap-billing-considerations-storage.md
               - sap-billing-considerations-networking.md
-
   - navgroup:
       id: tutorial
       topics:
@@ -153,6 +158,7 @@ toc:
               - sap-quickstudy-nw-bm-wins.md
               - sap-quickstudy-nw-vs-gen2-rhel.md
               - sap-quickstudy-nw-vs-gen2-wins.md
+              - sap-quickstudy-nw-power-vs-aix.md
               - sap-quickstudy-hana-power-vs-sles.md
       - topicgroup:
           label: SAP Partner solution tutorials
@@ -162,7 +168,6 @@ toc:
           label: Proof of Concept (POC) innovation tutorials
           topics:
               - sap-tutorial-poc-overview.md
-
   - navgroup:
       id: howto
       topics:
@@ -232,8 +237,8 @@ toc:
                     - sap-terraform-overview-nw-db2-ansible.md
                     - sap-terraform-nw-db2-ansible-existing-vpc.md
               - topicgroup:
-                   label: SAP NetWeaver and Db2 3-tier on IBM Cloud VPC
-                   topics:
+                  label: SAP NetWeaver and Db2 3-tier on IBM Cloud VPC
+                  topics:
                     - sap-terraform-overview-3tier-nw-db2-ansible.md
                     - sap-terraform-3tier-nw-db2.md
               - topicgroup:
@@ -241,6 +246,11 @@ toc:
                     topics:
                       - sap-terraform-background-hana-standalone-vsi.md
                       - sap-terraform-automate-hana-standalone-vsi.md
+              - topicgroup:
+                  label: SAP AAS for SAP HANA and AnyDB on IBM Cloud VPC
+                  topics:
+                    - sap-terraform-automate-intro-hana-aas-anydb.md
+                    - sap-terraform-automate-hana-aas-anydb.md
               - topicgroup:
                   label: SAP NetWeaver and ASE SYB on IBM Cloud VPC
                   topics:
@@ -251,11 +261,6 @@ toc:
                   topics:
                     - sap-terraform-automate-ha-deployment.md
                     - sap-terraform-automate-ase-sybase-ha-deployment.md
-              - topicgroup:
-                  label: SAP AAS for SAP HANA and AnyDB on IBM Cloud VPC
-                  topics:
-                    - sap-terraform-automate-intro-hana-aas-anydb.md
-                    - sap-terraform-automate-hana-aas-anydb.md
               - topicgroup:
                   label: SAP S/4HANA HA deployment on IBM Cloud VPC
                   topics:
@@ -277,29 +282,33 @@ toc:
                   topics:
                     - sap-terraform-automate-intro-3tier-nw-hana.md
                     - sap-terraform-automate-3tier-nw-hana.md
+              - topicgroup:
+                  label: SAP ASE Sybase standalone database instance on IBM Cloud VPC
+                  topics:
+                    - sap-terraform-background-ase-sybase-standalone-vsi.md
+                    - sap-terraform-automate-ase-sybase-standalone-vsi.md
       - topicgroup:
-            label: High Availability Scenarios on Power Virtual Server
-            topics:
-            - sap-power-virtual-server-ha-overview.md
-            - sap-power-virtual-server-ha-rhel-refs.md
-            - sap-power-virtual-server-ha-vsi.md
-            - sap-power-virtual-server-ha-rhel.md
-            - sap-power-virtual-server-ha-rhel-hana-sr.md
-            - sap-power-virtual-server-ha-rhel-hana-sr-co.md
-            - sap-power-virtual-server-ha-rhel-hana-sr-aa.md
-            - sap-power-virtual-server-ha-rhel-hana-sr-multitier.md
-            - sap-power-virtual-server-ha-rhel-hana-sr-multitarget.md
-            - sap-power-virtual-server-ha-rhel-ensa.md
-            - sap-power-virtual-server-ha-rhel-nfs.md
+          label: High Availability Scenarios on Power Virtual Server
+          topics:
+              - sap-power-virtual-server-ha-overview.md
+              - sap-power-virtual-server-ha-rhel-refs.md
+              - sap-power-virtual-server-ha-vsi.md
+              - sap-power-virtual-server-ha-rhel.md
+              - sap-power-virtual-server-ha-rhel-hana-sr.md
+              - sap-power-virtual-server-ha-rhel-hana-sr-co.md
+              - sap-power-virtual-server-ha-rhel-hana-sr-aa.md
+              - sap-power-virtual-server-ha-rhel-hana-sr-multitier.md
+              - sap-power-virtual-server-ha-rhel-hana-sr-multitarget.md
+              - sap-power-virtual-server-ha-rhel-ensa.md
+              - sap-power-virtual-server-ha-rhel-nfs.md
       - topicgroup:
-            label: SAP Migration from on-premises to PowerVS
-            topics:
-            - sap-power-virtual-server-mig-overview.md
-            - sap-power-virtual-server-mig-hybrid-cloud-networking.md
-            - sap-power-virtual-server-mig-db-hana-source-presteps.md
-            - sap-power-virtual-server-mig-db-hana-target-presteps.md
-            - sap-power-virtual-server-mig-db-hana-replication.md      
-
+          label: SAP Migration from on-premises to PowerVS
+          topics:
+              - sap-power-virtual-server-mig-overview.md
+              - sap-power-virtual-server-mig-hybrid-cloud-networking.md
+              - sap-power-virtual-server-mig-db-hana-source-presteps.md
+              - sap-power-virtual-server-mig-db-hana-target-presteps.md
+              - sap-power-virtual-server-mig-db-hana-replication.md
   - navgroup:
       id: reference
       topics:
@@ -307,6 +316,7 @@ toc:
         - topicgroup:
             label: Infrastructure Reference Architectures for SAP
             topics:
+                - sap-refarch-hana-scaleup.md
                 - sap-refarch-hana-scaleout.md
                 - sap-refarch-nw-scaleup.md
                 - sap-refarch-nw-scaleout.md
@@ -326,7 +336,6 @@ toc:
                 - sap-deploypattern-power-vs-vs-gen2.md
         - sap-solarch-examples.md
         - sap-roadmap.md
-
   - navgroup:
       id: help
       topics:

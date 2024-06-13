@@ -17,7 +17,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip} 
 
-# Creating a single-tier Virtual Private Cloud (VPC) with NW7.X and Db2 on {{site.data.keyword.cloud_notm}} by using Terraform and Ansible
+# Deploying a single-tier Virtual Private Cloud (VPC) with NW7.X and Db2 on {{site.data.keyword.cloud_notm}} (Terraform and Ansible)
 {: #create-terraform-nw-db2-vpc-ansible}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.

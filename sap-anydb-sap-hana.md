@@ -33,11 +33,11 @@ To assist your project's planning phase, more design considerations are provided
 
 SAP HANA offers a robust set of capabilities, including database management, database administration, data security, multi-model processing, application development, and data virtualization.
 
-The SAP HANA database  is  a hybrid  in-memory  database that  combines row-based, column-based, and object-based  database  technology.Itallows  online  transaction  processing  (OLTP)  and  online  analytical processing (OLAP) on one system, without the need for redundant data storage or aggregates.
+The SAP HANA database is a hybrid in-memory database that combines row-based, column-based, and object-based  database technology. It allows online transaction processing (OLTP) and online analytical processing (OLAP) on one system, without the need for redundant data storage or aggregates.
 
-It  is  optimized  to  exploit  the  processing  capabilities  of  multi-core  /  CPU  architectures.  With  this architecture, SAP applications can benefit from current bar down technologies.
+It is optimized to exploit the processing capabilities of multi-core/CPU architectures. With this architecture, SAP applications can benefit from current bar down technologies.
 
-The [SAP  HANA  database](http://tekslate.com/tutorials/sap-hana-tutorials-interview-questions/) is the heart of SAP’s in-memory  technology  offering,  helping  customers  to improve their operational efficiency, agility, and flexibility.
+The [SAP HANA database](http://tekslate.com/tutorials/sap-hana-tutorials-interview-questions/) is the heart of SAP’s in-memory technology offering, helping customers to improve their operational efficiency, agility, and flexibility.
 
 ## Overview of SAP HANA database for SAP NW with IBM Cloud
 {: #anydb-hana-overview}
@@ -88,7 +88,7 @@ See [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM C
 
 A sample configuration is shown in: 
 
-* [Quick Study Tutorial - SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using RHEL](https://cloud.ibm.com/docs/sap?topic=sap-quickstudy-bm-netweaver-rhel) 
+* [Quick Study Tutorial - SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using RHEL](https://cloud.ibm.com/docs/sap?topic=sap-quickstudy-bm-netweaver-rhel)
 
 * [Quick Study Tutorial - SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using Windows Server](https://cloud.ibm.com/docs/sap?topic=sap-quickstudy-bm-netweaver-wins) 
 
@@ -102,4 +102,3 @@ A sample configuration is shown in:
 * [Quick Study Tutorial - SAP NetWeaver deployment to Intel Virtual Server (Gen2) on VPC Infrastructure, using RHEL](https://cloud.ibm.com/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-rhel) 
 
 * [Quick Study Tutorial - SAP NetWeaver deployment to Intel Virtual Server (Gen2) on VPC Infrastructure that uses Windows Server](https://cloud.ibm.com/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-wins) 
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-12-16"
+lastupdated: "2022-12-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -37,14 +37,12 @@ Alternatively, deployments can be made and managed by using:
 
 For more information, see [Managing VPC Infrastructure (IAM)](/docs/vpc?topic=vpc-iam-getting-started).
 
-
 ## Locations - availability zones
 {: #vpc-env-locations-availability-zones}
 
 With availability zones across North and South America, Europe, Asia, and Australia, you can provision cloud resources where (and when) you need them. Many regions are available globally, with multiple availability zones in each region. Each availability zone is connected to the {{site.data.keyword.cloud_notm}} global private network, making data transfers faster and more efficient anywhere in the world.
 
 For more information about {{site.data.keyword.cloud_notm}} availability zones, data centers, and Points of Presence (PoPs), see the [global regions, availability zones, and data centers map](https://www.ibm.com/cloud/data-centers/#datacentermap){: external}.
-
 
 ## Compute Resources
 {: #vpc-env-compute}
@@ -56,7 +54,6 @@ Two types of compute resource can be deployed in {{site.data.keyword.cloud_notm}
 These compute resources are offered in different profiles that define CPU and RAM combinations.
 
 For more information, see [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
-
 
 ## Networking
 {: #vpc-env-networking}
@@ -78,7 +75,6 @@ Every {{site.data.keyword.vpc_full}} is created for a region, and spans multiple
 When you deploy a VPC in an availability zone, an [address prefix](/docs/vpc?topic=vpc-vpc-addressing-plan-design) is used for that specified zone.
 
 Each VPC Zone (and the address prefix) contains one or more subnets. You can define each subnet manually by choosing the IP range and the subnet mask, or you can choose the number of IP addresses needed. A newly created compute resource is deployed into this subnet and can also be attached to further subnets.
-
 
 ### Networking connectivity
 {: #vpc-env-networking-connectivity}
@@ -113,13 +109,13 @@ Extra requirements exist in Classic Infrastructure networking to enable the _Tra
 It is advised that your networking department contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) after determining the layout of your landscape and the connectivity that is required on the SAP application layer.
 {: note}
 
-
 ### Networking protection
 {: #vpc-env-networking-protection}
 
 {{site.data.keyword.cloud}} offers further protection mechanisms that can provide your {{site.data.keyword.vsi_is_short}} with a layer of security that you can configure and adapt anytime. Two key principles are:
-    * **Network Access Control Lists (ACL)**: Available for use by all subnets in all zones. ACLs attach to a subnet and provide subnet-level protection by limiting a subnet's inbound and outbound traffic.
-    * **Security Groups**: Available for use by all subnets on all zones that are attached to a vNIC of any server that provides instance-level protection by acting as a firewall to restrict a vNIC inbound and outbound traffic.
+
+* **Network Access Control Lists (ACL)**: Available for use by all subnets in all zones. ACLs attach to a subnet and provide subnet-level protection by limiting a subnet's inbound and outbound traffic.
+* **Security Groups**: Available for use by all subnets on all zones that are attached to a vNIC of any server that provides instance-level protection by acting as a firewall to restrict a vNIC inbound and outbound traffic.
 
 For more information, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc).
 
@@ -147,4 +143,13 @@ All Block storage is selected based on capacity (GB) and performance (IOPS) meas
 
 IOPS values are measured based on 16 KB block size with a 50-50 read/write mix. To achieve a maximum I/O throughput, it's advisable to look at the tier and custom profiles available for storage and find the optimal combination of size and IOPS.
 
-Storage volumes differ in performance, depending on their IOPS tier. You can select among 3, 5, and 10 IOPS/GB (see [Tiered IOPS profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers)). You can also select a [custom s
+Storage volumes differ in performance, depending on their IOPS tier. You can select among 3, 5, and 10 IOPS/GB (see [Tiered IOPS profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers)). You can also select a [custom size](/docs/vpc?topic=vpc-block-storage-profiles#custom) (in GB and IOPS) that is based on the size of the storage.
+
+If you need more than the initially provisioned storage in your server, you can attach extra volumes to a it later. Contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
+
+### Shared Storage
+{: #vpc-env-shared-storage}
+
+Block storage can be detached and attached to other servers at any time, but, only to one server at the same time.
+
+No shared storage for servers is available in VPC at time of writing.

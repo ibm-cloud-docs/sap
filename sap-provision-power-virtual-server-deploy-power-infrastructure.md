@@ -38,4 +38,3 @@ Workspaces for {{site.data.keyword.powerSys_notm}} host all the SAP instances th
 Configuring and adding a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet).
 4. Create two IBM Cloud Connections as described [here](/docs/power-iaas?topic=power-iaas-cloud-connections#create-cloud-connections). Make sure that you select to enable IBM Transit Gateway. Attach the management and backup networks to both IBM Cloud Connections.
 5. Connect Direct Links (named exactly as IBM Cloud Connections that you created) to the transit gateway as described [here](/docs/transit-gateway?topic=transit-gateway-adding-connections&interface=ui). You can now ping gateway IBM PowerVS private networks IP addresses from the access host.
-

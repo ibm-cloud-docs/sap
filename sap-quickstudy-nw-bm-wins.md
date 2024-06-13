@@ -21,7 +21,7 @@ completion-time: 90m
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 {:tip: .tip}
-{:important .important}
+{: important .important}
 {:step: data-tutorial-type='step'}
 
 # SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, when you are using Windows Server
@@ -32,7 +32,7 @@ completion-time: 90m
 *A Quick Study, someone who is able to learn new things quickly.*
 {: note}
 
-These Quick Study Tutorials provide a single sample configuration with less detailed instructions to provide an introduction for customers who prefer hands-on tasks to increase their pace of learning.
+These Quick Study Tutorials provide a single sample configuration, with less detailed instructions, as an introduction for customers who prefer hands-on tasks to increase their pace of learning.
 {: shortdesc}
 
 The following information provides an introduction for customers who are new to the Classic Infrastructure environment. Two sample configurations are provided to help you through the ordering process to the start of the SAP installation.
@@ -69,8 +69,8 @@ Select your SAP-certified server and OS.
 3. Enter an optional public key for your **SSH key**, which you can use to log in to your server after provisioning is done. The default is *None*.
 4. Choose *Microsoft* as your **Image** (OS) and select *2016 Standard (64 bit)-HVM*.
 
-  If you're bringing your own license (BYOL) for your OS, select **No OS**. For more information, see [Bring your own license](#byol-32GB).
-  {: note}
+    If you're bringing your own license (BYOL) for your OS, select **No OS**. For more information, see [Bring your own license](#byol-32GB).
+    {: note}
 
 ### Adding storage disks
 {: #adding-storage-disks-32GB}
@@ -99,8 +99,8 @@ Select your SAP-certified server and OS.
 4. Review your Order Summary.
 5. Select **I read and agree to the following Third-Party Service Agreements**.
 
-  You can create your server, save the order as a quote to provision later, or add the order an estimate, which might include multiple services.
-  {: note}
+    You can create your server, save the order as a quote to provision later, or add the order an estimate, which might include multiple services.
+    {: note}
 
 6. Click **Create** to be redirected to the Checkout page after your order is verified.
 
@@ -167,8 +167,8 @@ Use the following steps to configure your database server and its OS.
 3. Enter an optional public key for your **SSH key**, which you can use to log in to your server after provisioning is done. The default is *None*.
 4. Choose *Microsoft* as your **Image** (OS), and select *2016 Standard (64 bit)-HVM*.
 
-  If you're bringing your own license (BYOL) for your OS, select **No OS**. For more information, see [Bring your own license](#byol-192GB).
-  {: note}
+    If you're bringing your own license (BYOL) for your OS, select **No OS**. For more information, see [Bring your own license](#byol-192GB).
+    {: note}
 
 ### Adding storage disks
 {: #adding-storage-disks-192GB}
@@ -189,8 +189,8 @@ Use the following steps to set up the network interface for your database server
 1. Select *1 Gbps Redundant Public and Private Network Uplinks* for **Uplink Port Speed**.
 2. Select the values in Table 1 for the following fields:
 
-  Make sure the network interface values for your database server match the values for your application server.
-  {: note}
+    Make sure the network interface values for your database server match the values for your application server.
+    {: note}
 
 |              Field               |      Value              |
 | -------------------------------- | ------------------------|
@@ -204,8 +204,8 @@ Use the following steps to set up the network interface for your database server
 4. Review your Order Summary.
 5. Select **I read and agree to the following Third-Party Service Agreements**.
 
-  You can create your server, save the order as a quote to provision later, or add the order to an estimate, which might include multiple services.
-  {: note}
+    You can create your server, save the order as a quote to provision later, or add the order to an estimate, which might include multiple services.
+    {: note}
 
 6. Click **Create** to be redirected to the Checkout page after your order is verified.
 
@@ -290,8 +290,8 @@ External storage can be added to your provisioned server, or servers. You can us
 4. Click **Hardware** to load available devices and select the hostname of your database server.
 5. Click **Save**.
 
-  More provisioning information can be found under [Ordering Block Storage through the Console](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole).
-  {: tip}  
+    More provisioning information can be found under [Ordering Block Storage through the Console](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole).
+    {: tip}  
 
 Follow the steps in [Connecting to MPIO iSCSCI LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#mountingWindows) to connect your block storage to your database server by using the data from the example. Follow the steps carefully; they lead to a new “offline” disk available for your Windows server.
 

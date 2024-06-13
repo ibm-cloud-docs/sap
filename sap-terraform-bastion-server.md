@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2023
+  years: 2022
 lastupdated: "2023-11-06"
 
 subcollection: sap
@@ -17,7 +17,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Automate SAP bastion server – SAP media storage repository 
+# Deploying the SAP bastion server – SAP media storage repository 
 {: #sap-bastion-server} 
 
 This task describes how to do an automated deployment of SAP bastion and storage setup on top of Red Hat Enterprise Linux 8.4. It shows how to deploy an {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) with a bastion host with secure remote SSH access. In SAP Terraform and Ansible deployments, the bastion host is used to give external administrative access to the other servers and applications. The bastion server is accessed through the Floating IP. The bastion server includes a customizable security group and subnet to enable access to the same region zones on its dedicated SAP/DBs and the VSI's IPs and ports. The Floating IP also allows the bastion host access to the internet so the sap and DB kits can be downloaded. 
@@ -33,12 +33,12 @@ Each customer is given an SAP S-user that reflects their contractual details wit
 
 It is the customer's responsibility to download and prepare the necessary SAP kits from [SAP launchpad support](https://launchpad.support.sap.com/) and store them on the dedicated and customizable storage. The SAP kits are used during automated deployment when Ansible is called.
 
-![Figure 1. Standard Bastion within a VPC region with 3 zones](images/sap-terraform-bastion-server.svg "Standard Bastion within a VPC region with 3 zones"){: caption="Figure 1. Standard Bastion within a VPC region with 3 zones" caption-side="bottom"}
-
 ## Solution implemented
 {: #bastion-solution-implemented}
 
 The Bastion server is used for remote software installation by using Terraform remote-exec and Ansible playbooks that are run by Schematics.
+
+![Figure 1. Standard Bastion within a VPC region with 3 zones](images/sap-terraform-bastion-server.svg "Standard Bastion within a VPC region with 3 zones"){: caption="Figure 1. Standard Bastion within a VPC region with 3 zones" caption-side="bottom"}
 
 The Terraform modules implement a 'reasonable' set of best practices for bastion host configuration only. Your own Organization might have more requirements that you must apply before the deployment.
 
@@ -90,6 +90,7 @@ The VSI is configured with Red Hat Enterprise Linux 8.4 (amd64), has a minimal o
 |IMAGE	|The OS image used for the VSI. For more information about available images, see [Virtual server images](docs/vpc?topic=vpc-about-images). Default value: ibm-redhat-8-4-minimal-amd64-1.|
 |SSH_KEYS	|List of SSH Keys IDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. View the list of available SSH Keys on the {{site.data.keyword.cloud_notm}} Console [SSH keys for VPC](https://cloud.ibm.com/vpc-ext/compute/sshKeys) page. Sample input (use your own SSH IDs from I{{site.data.keyword.cloud_notm}}): [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]|
 |VOL1 [ number ]|	The size for the disk in GB to be attached to the BASTION VSI as storage for the SAP deployment kits. The mount point for the new volume is: "/storage". Default value: 100 GB.|
+{: caption}
 
 Sensitive* - The variable value is not displayed in your workspace details after it is stored. Make sure to select **Sensitive** on the Settings page for all fields marked "Sensitive".
 
@@ -145,7 +146,7 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
 8. Click **View log** to review the log files of your Terraform execution plan.
 9. Apply your Terraform template by clicking **Apply plan**.
 10. Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
-11. At the end of the log is information that you need to deploy different SAP products and databases. Copy and save this information for your deployments. For example:
+11. At the end of the log is information that you need to deploy different SAP products and databases.  Copy and save this information for your deployments. For example: 
 
     ```
     2022/08/17 10:30:11 Terraform apply | FLOATING-IP = "xxx.xxx.xxx.xx"
@@ -158,5 +159,5 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
     2022/08/17 10:30:11 Terraform apply | ZONE = "eu-gb-1"
     ```
 
-This automation is offered free of charge however, the provisioned infrastructure comes at cost.
+This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
 {: note}

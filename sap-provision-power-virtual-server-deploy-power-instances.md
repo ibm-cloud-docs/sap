@@ -812,7 +812,7 @@ Check that the balance of CPU and memory placement is optimized for SAP HANA by 
     ```
     {: pre}
 
-In this example, a warning is generated because two NUMA nodes with an equal amount of CPU and memory were created. For more information, see [SAP Note 2923962](https://launchpad.support.sap.com/#/notes/2923962).<!-- why are we giving an example that throws a warning?-->
+In this example, a warning is generated because two NUMA nodes with an equal amount of CPU and memory were created. For more information, see [SAP Note 2923962](https://launchpad.support.sap.com/#/notes/2923962).
 
 ## Next Steps
 {: #power-vs-set-up-power-next_steps}

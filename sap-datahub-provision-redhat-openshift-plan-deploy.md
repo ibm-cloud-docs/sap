@@ -25,7 +25,7 @@ subcollection: sap
 SAP Data Hub is available for Red Hat OpenShift Container Platform 3.11. {{site.data.keyword.cloud_notm}} manages the platform for you; you chose the size and number of worker nodes and the geographic location of the data center.
 {: shortdesc}
 
-When Planning your deployment, you set the flavor of your worker nodes within your {{site.data.keyword.openshiftshort}} cluster. Flavor  describes the compute resources, such as CPU or vCPU, memory, and disk capacity that you order when you provision your worker node. Worker nodes of the same flavor are grouped in worker node pools. The total number of worker nodes in a cluster determines the compute capacity that is available to your apps in the cluster. For more information, see [Planning your worker node setup](/docs/openshift?topic=openshift-planning_worker_nodes){: external}.
+When planning your deployment, you set the flavor of your worker nodes within your {{site.data.keyword.openshiftshort}} cluster. Flavor describes the compute resources, such as CPU or vCPU, memory, and disk capacity that you order when you provision your worker nodes. Worker nodes of the same flavor are grouped in worker node pools. The total number of worker nodes in a cluster determines the compute capacity that is available to your apps in the cluster. For more information, see [Planning your worker node setup](/docs/openshift?topic=openshift-planning_worker_nodes){: external}.
 
 ## Red Hat OpenShift Cluster Network Connectivity
 {: #rhos-network-connectivity}
@@ -45,4 +45,4 @@ For productive setups, we recommend preparing the required SSL certificates usin
 ##  Red Hat OpenShift Cluster Storage
 {: #rhos-storage}
 
-SAP Data Hub requires access to persistent storage that is attached to the OpenShift cluster. For importing, exporting, and checkpointing SAP Vora database tables, SAP Data Hub requires access to a persistent shared file system or object store.  In the {{site.data.keyword.cloud_notm}} environment you will use {{site.data.keyword.cloud_notm}} Object Storage,
+SAP Data Hub requires access to persistent storage that is attached to the OpenShift cluster. For importing, exporting, and checkpointing SAP Vora database tables, SAP Data Hub requires access to a persistent shared file system or object store.  In the {{site.data.keyword.cloud_notm}} environment you will use {{site.data.keyword.cloud_notm}} Object Storage.

@@ -22,11 +22,11 @@ subcollection: sap
 # SAP NetWeaver design considerations
 {: #netweaver-design-considerations}
 
-It's important to carefully consider the design your SAP stack configuration, deployment, and database.
+It is important to carefully consider the design your SAP stack configuration, deployment, and database.
 
 With an SAP NetWeaver system, you have two deployment options:
-  * Central system, which is a single-host installation (two-tier)
-  * Distributed system, which is a multi-host installation (three-tier or multitier); this is required to achieve high-availability redundancy
+    * Central system, which is a single-host installation (two-tier)
+    * Distributed system, which is a multi-host installation (three-tier or multitier); this is required to achieve high-availability redundancy
 
 This initial deployment option decision to distribute your workload to different servers or keep the workload on one server for simplicity, has many other decisions which are taken to support the business requirements for the SAP Business Application.
 
@@ -53,14 +53,12 @@ When you create a high-availability environment for SAP Netweaver, spit each of 
 - Enqueue Replication Server Instance (ERS) = Enqueue (EN) with Replication Table (of the ASCS EN Lock Table)
 - Additional Application Servers (AAS) = ABAP Dispatcher (DI/WP)
 
-
 ## High-availability configuration for SAP NetWeaver
 {: #netweaver-ha}
 
 The {{site.data.keyword.cloud_notm}} environment does not support any preconfigured high-availability (HA) scenarios. However, you can configure HA scenarios based on the HA extension for the operating system you choose. You add the HA extension by adding the required hardware and the required software components to your landscapes. If you require additional software licenses, access to different software repositories, or both contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) to help you with setting up any additional requirements.
 
 This configuration information applies to HA software for SAP NetWeaver and to the HA software for the relational database management system (RDBMS) you choose. For example, the replication portion of your high-availability and disaster-recovery mechanisms for your RDBMS. Setup procedures do not differ from any setup procedures in an on-premises environment and require the same hardware and software configuration steps.
-
 
 ### Overview of SAP NetWeaver high-availability configurations
 {: #netweaver-ha-overview-configs}
@@ -72,8 +70,8 @@ All the operating systems and distributions that are supported by {{site.data.ke
 * [New Failover Clustering Improvements in Windows Server 2012 and Its Benefits for SAP NetWeaver High Availability](https://blogs.sap.com/2013/10/16/new-failover-clustering-improvements-in-windows-server-2012-and-its-benefits-for-sap-netweaver-high-availability/){: external} provides a description based on Microsoft Windows Server Failover Clustering (WFSC) on the Windows OS with SAP NetWeaver.
 
 * Two references for guidance on deploying SAP NetWeaver in a Linux-based HA environment with Linux&reg; Pacemaker are:
-  * SUSE SAP NetWeaver High Availability Cluster 7.40 Setup Guide
-  * Deploying Highly Available SAP NetWeaver-based Servers Using Red Hat Enterprise Linux HA add-on with Pacemaker
+    * SUSE SAP NetWeaver High Availability Cluster 7.40 Setup Guide
+    * Deploying Highly Available SAP NetWeaver-based Servers Using Red Hat Enterprise Linux HA add-on with Pacemaker
 
 * [Building High Availability for SAP NetWeaver and SAP HANA on Linux](https://support.sap.com/content/dam/SAAP/SAP_Activate/AGS_70.pdf){: external} is an SAP best-practice document and provides an in-depth technical description with a strong focus on SAP HANA.
 
@@ -91,15 +89,13 @@ Supporting DR system failover usually requires Local storage that is combined wi
 
 As with on-premises installations, check the performance and latency requirements of the database product when you plan your deployment.
 
-
 ### Configure high availability in Classic Infrastructure
 {: #netweaver-ha-classic}
 
 The {{site.data.keyword.cloud}} environment does not support any pre-configured high-availability (HA) scenarios for SAP. However, you can configure HA scenarios based on the HA extension for the operating system you choose.
-{:shortdesc}
+{: shortdesc}
 
 [HA and storage fencing considerations](#netweaver-ha-storage-fencing) and [HA and network considerations](#netweaver-ha-network) provide lists of things that you need to consider during your deployment. Apart from the considerations outlined here, installing SAP NetWeaver and its database system in an HA environment doesn’t differ from other on-premises installations.
-
 
 #### HA and storage fencing (that is, Quorum-based) considerations
 {: #netweaver-ha-storage-fencing}
@@ -129,22 +125,21 @@ Like on-premises installations, extra network adapters can be ordered depending 
 
 Ordering redundant network adapters during hardware deployments helps prevent single point of failures (SPOF) across your network topology.
 
-Redundant adapters for Bare Metals are set up in a failover configuration with Link Aggregation Control Protocol (LACP). For Linux, the setup uses bonding interfaces, and teaming adapters are used for Microsoft Windows. Doing so will create a logical interface for redundancy and increased bandwidth.
+Redundant adapters for Bare Metals are set up in a failover configuration with Link Aggregation Control Protocol (LACP). For Linux, the setup uses bonding interfaces, and teaming adapters are used for Microsoft Windows. This creates a logical interface for redundancy and increased bandwidth.
 
 When using IBM Cloud for VMware Solutions, redundant adapters for VMware are set up by the VMware vSphere Distributed Switch (VDS) using either [VDS on NSX-V](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-nsx-v-design#nsx-v-design-distr-switch) or [VDS on NSX-T](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-nsx-t-design#nsx-t-design-distr-switch), in accordance with current VMware best practices for SDDC. While subject to change, redundancy is configured by setting every Distributed Switch with the [Route Based on Originating Virtual Port](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-959E1CFE-2AE4-4A67-B4D4-2D2E13765715.html) load balancing algorithm, with all contained Port Groups using Teaming across 2 uplinks (Active: 0,1). When using IBM Bare Metal with VMware vSphere for a manual installation using vSwitch, LACP bonding of the physical NIC adapters could be used. This configuration choice depends on the need for increased throughput (e.g. bonding) versus redundant stability (e.g. load balancing with teaming).
 
-The NIC adapters are connected to redundant Switches on, so no additional SPOFs are introduced. The redundant infrastructure can be used by the ordered VLANs.
+The NIC adapters are connected to redundant switches on, so no additional SPOFs are introduced. The redundant infrastructure can be used by the ordered VLANs.
 
 For some network requirements, such as DR setup replication scenarios, you must check the location of the connected devices and any new network requirements specific to the software/application in question. In some cases, the {{site.data.keyword.cloud_notm}} Classic Infrastructure's File or Block Storage with snapshot backups might fulfill your requirements. Check with {{site.data.keyword.cloud_notm}} Support to determine which solution works best for your business needs.
-
 
 ### Configure high availability for IBM Power Infrastructure
 {: #netweaver-ha-power}
 
-This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services.
 {: note}
 
 The {{site.data.keyword.cloud}} environment does not support any pre-configured high-availability (HA) scenarios for SAP. However, you can configure HA scenarios based on the HA extension for the operating system you choose.
-{:shortdesc}
+{: shortdesc}
 
 You add the HA extension by adding the required hardware and the required software components to your landscapes. If you require more software licenses, access to different software repositories, or both, contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) to help you with setting up any additional requirements. In general, setup procedures do not differ from any setup procedures in an on-premises environment and require the same hardware and software configuration steps. For specific instructions on how to set up HA for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, see [High Availability and Disaster Recover options in {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-ha-dr).

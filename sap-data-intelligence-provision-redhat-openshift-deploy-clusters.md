@@ -90,7 +90,6 @@ The jump host's hardware and software requirements are 4 cores, 16 GB RAM, 20 GB
 
 Your {{site.data.keyword.openshiftshort}} cluster and your virtual server should be available in about 15 minutes.
 
-
 ## Preparing the jump host
 {: #rhos-di-prepare-jump-host}
 
@@ -99,7 +98,7 @@ Before setting up the {{site.data.keyword.openshiftlong}} cluster on which SAP D
 
 If you have created the jump server following the steps listed above, you first should update the operating system to the latest level, and then restart the virtual server instance.
 
-1. upade the OS
+1. Update the OS
 
     ```
     sudo dnf update       # press 'y' when prompted
@@ -116,7 +115,7 @@ If you have created the jump server following the steps listed above, you first 
 ### Before you begin
 {: #rhos-di-prepare-jump-host-before}
 
-It's recommended you become familiar with the [Managing your {{site.data.keyword.cloud_notm}}  accounts](/docs/account?topic=account-accounts){: external}. Your {{site.data.keyword.cloud_notm}} user ID must at least have the cluster Administrator role.
+It is recommended that you become familiar with the [Managing your {{site.data.keyword.cloud_notm}}  accounts](/docs/account?topic=account-accounts){: external}. Your {{site.data.keyword.cloud_notm}} user ID must at least have the cluster Administrator role.
 
 ### Install and verify the Command Line Interfaces (CLIs) for both, {{site.data.keyword.cloud_notm}} and {{site.data.keyword.openshiftshort}}
 {: #rhos-di-jump-host-clis}
@@ -245,7 +244,6 @@ Use the following commands to download and install the CLIs you use to configure
     ```
     {: screen}
 
-
 ### Store your login credentials and create a working directory on your jump host
 {: #rhos-di-jump-host-login}
 
@@ -291,7 +289,6 @@ Use the following commands to download and install the CLIs you use to configure
 ## Creating a new {{site.data.keyword.registryshort_notm}} namespace.
 {: #rhos-di-create-cr-ns}
 
-
 1. Log in to {{site.data.keyword.cloud_notm}} using the API key file that you have created during the previous step.
 
     The command is `ibmcloud login --apikey @<APIKeyFilename>`.
@@ -323,10 +320,8 @@ Use the following commands to download and install the CLIs you use to configure
     ```
     {: pre}
 
-
 ## Accessing the {{site.data.keyword.openshiftshort}} cluster
 {: #rhos-di-access-cluster}
-
 
 After logging in to the jump host you **must complete the following steps** before you can work with your cluster.
 
@@ -357,8 +352,6 @@ After logging in to the jump host you **must complete the following steps** befo
     ibmcloud logout
     ```
     {: pre}
-
-
 
 You have created a {{site.data.keyword.openshiftshort}} cluster, prepared the jump host and are now ready to prepare and install SAP Data Intelligence.
 
