@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2021, 2023
-lastupdated: "2023-05-15"
+years: 2021, 2023, 2024
+lastupdated: "2024-06-17"
 
 subcollection: sap
 
@@ -90,7 +90,13 @@ This automation is offered at no cost; however, the provisioned infrastructure c
 ## Ansible for SAP installation
 {: #sap-hana-ansible-for-install}
 
-Ansible is an automation tool for the deployment several IT tasks. This solution performs the automated deployment of SAP HANA 2.0 DB on Red Hat Enterprise Linux 7.6 for SAP HANA on stand-alone SAP HANA box VSI. For more information about Ansible, check out the documentation available on the Ansible page.
+Ansible is an automation tool for the deployment of several IT tasks. This solution performs the automated deployment of SAP HANA 2.0 DB on several validated OS platforms: 
+* SUSE Linux Enterprise Server 15 SP 4 for SAP
+* SUSE Linux Enterprise Server 15 SP 3 for SAP
+* Red Hat Enterprise Linux 8.6 for SAP
+* Red Hat Enterprise Linux 8.4 for SAP in an existing {{site.data.keyword.cloud_notm}} Gen2 VPC on stand-alone SAP HANA box VSI. 
+
+For more information about Ansible, see the documentation available on the Ansible page.
 
 The deployment is done by the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on [the Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html){: external}.
 
