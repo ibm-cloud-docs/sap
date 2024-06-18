@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022, 2023, 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-06-18"
 
 subcollection: sap
 
@@ -305,11 +305,8 @@ Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to 
 
 If you need to remove the resources created with the automation for your SAP solution, go to your project folder and run `terraform destroy`.
 
-    ```
-    terraform destroy
-    # you will be asked for the following sensitive variables as a destroy confirmation phase:
-    'IBMCLOUD_API_KEY'  and  'ASE_MASTER_PASSWORD'.
-    ```
+For destroy, you will be asked for the following sensitive variables as a destroy confirmation phase:
+`'IBMCLOUD_API_KEY'  and  'ASE_MASTER_PASSWORD'`
 
 ## Related information
 {: #automate-ase-sybase-standalone-vsi-related}
