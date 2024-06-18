@@ -89,7 +89,7 @@ The provided SSH keys are used to access the VSI through SSH, as a root user. Th
 ## Script files
 {: #terraform-sap-ase-sybase-vsi-files}
 
-The configuration and script files are available in the [GitHub repository](https://github.com/IBM-Cloud/sap-hana-db).
+The configuration and script files are available in the [GitHub repository](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md).
 
 The `input.auto.tfvars` file allows the customization of the resources and the variable values.
 
@@ -118,7 +118,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 If you don't have a deployment server (bastion server) in the same VPC, create a deployment server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server).
 
 *	Log in to your Deployment Server and verify that Terraform and Ansible are installed. 
-*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file.
+*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
 *  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
@@ -127,7 +127,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 {: terraform}
 
 1.	Log in to the Deployment Server (Bastion server) by using `ssh` command.
-2.	Clone the GitHub repository from https://github.com/IBM-Cloud/sap-hana-db and go to the **sap-ASE SYBASE-single-vsi** folder.
+2.	Clone the GitHub repository from https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md and go to the **sap-ASE SYBASE-single-vsi** folder.
 
     ```shell
 	$ git clone https://github.com/IBM-Cloud/sap-ASE SYBASE-single-vsi.git
@@ -139,15 +139,15 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 
     The following input variable values must be provided:
 
-    * REGION - Region for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file.
-    * ZONE - Zone for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file.
+    * REGION - Region for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
+    * ZONE - Zone for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
     * VPC - The name of an existing VPC in the specified region.
     * SECURITY_GROUP - The name of an existing security group in the same VPC.
     * RESOURCE_GROUP - The name of an existing resource group, previously created by the user.
     * SUBNET - The name of an existing subnet in the same region and zone as the VSI.
     * SSH_KEYS - A list of SSH keys UUIDs allowed to connect through SSH to the VSIs.
     * ID_RSA_FILE_PATH - existing `id_rsa` private key file path in OpenSSH format with 0600 permissions.
-    * HOSTNAME - The hostname of the SAP HANA server, up to 13 characters. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file.
+    * HOSTNAME - The hostname of the SAP HANA server, up to 13 characters. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
 
     ``` terraform
     ######################################################
@@ -262,7 +262,7 @@ Use these steps to configure the SAP ASE Sybase database single VSI on your exis
 2. Click **Create workspace**.
 3. On the **Specify template** page:
     * Enter the GitHub URL for the code you plan to deploy.
-    * Select the **Terraform version** that is listed in the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file.
+    * Select the **Terraform version** that is listed in the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
     * Click **Next**.
 4. On the **Workspace details** page:
     * Enter a name for the workspace.
@@ -291,7 +291,7 @@ Use these steps to configure the SAP ASE Sybase database single VSI on your exis
     * SAP main password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point.
     * Click **Save** changes.
 
-    For a more detailed description of the parameters, check the GitHub repo [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file, chapter “Input parameter file”. Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, IBM Cloud API, the SSH private keys (they are marked as “sensitive” in the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) in the “Input parameter file”).
+    For a more detailed description of the parameters, check the GitHub repo [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file, chapter “Input parameter file”. Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, IBM Cloud API, the SSH private keys (they are marked as “sensitive” in the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) in the “Input parameter file”).
 
 7. On the workspace **Settings** page, click **Generate** plan. Wait for the plan to complete.
 8. Click **View log** to review the log files of your Terraform execution plan.
