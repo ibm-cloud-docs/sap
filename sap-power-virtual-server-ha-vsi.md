@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-06-18"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -84,6 +84,7 @@ Follow this procedure to avoid that virtual IP addresses are erroneously used du
 - Select one unused IP address within the CIDR range of the subnet, but outside of the *IP range* that you previously restricted.
 - You need to manage the usage of these addresses on your own.
    Usage of *{{site.data.keyword.cloud}} DNS Services* might help for administration.
+
 
 ## Exploring more network architecture options
 {: #ha-vsi-explore-additional-network-options}
