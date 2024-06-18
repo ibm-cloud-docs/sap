@@ -151,66 +151,66 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 
     ``` terraform
     ######################################################
-    # General VPC variables:
+    # General & Default VPC variables for CLI deployment
     ######################################################
 
-    REGION = ""
-    Region for the VSI. Supported regions: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
-    Example: REGION = "eu-de"
+    REGION = "eu-de"  
+    # Region for the VSI. Supported regions: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
+    # Example: REGION = "eu-de"
 
-    ZONE = ""
-    # Availability zone for VSI. Supported zones: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
-    # Example: ZONE = "eu-de-2"
+    ZONE = "eu-de-1"    
+    #   Availability zone for VSI. Supported zones: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
+    # Example: ZONE = "eu-de-1"
 
-    VPC = ""
+    VPC = "ic4sap"
     # EXISTING VPC, previously created by the user in the same region as the VSI. The list of available VPCs: https://cloud.ibm.com/vpc-ext/network/vpcs
     # Example: VPC = "ic4sap"
 
-    SECURITY_GROUP = ""
+    SECURITY_GROUP = "ic4sap-securitygroup"
     # EXISTING Security group, previously created by the user in the same VPC. The list of available Security Groups: https://cloud.ibm.com/vpc-ext/network/securityGroups
     # Example: SECURITY_GROUP = "ic4sap-securitygroup"
 
-    RESOURCE_GROUP = ""
+    RESOURCE_GROUP = "wes-automation"
     # EXISTING Resource group, previously created by the user. The list of available Resource Groups: https://cloud.ibm.com/account/resource-groups
     # Example: RESOURCE_GROUP = "wes-automation"
 
-    SUBNET = ""
+    SUBNET = "ic4sap-subnet"
     # EXISTING Subnet in the same region and zone as the VSI, previously created by the user. The list of available Subnets: https://cloud.ibm.com/vpc-ext/network/subnets
     # Example: SUBNET = "ic4sap-subnet"
 
-    SSH_KEYS = [""]
+    SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
     # List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. The SSH Keys should be created for the same region as the VSI. The list of available SSH Keys UUIDs: https://cloud.ibm.com/vpc-ext/compute/sshKeys
     # Example: SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
 
     ID_RSA_FILE_PATH = "ansible/id_rsa"
-    # Input your existing id_rsa private key file path in OpenSSH format with 0600 permissions.
-    # This private key it is used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.
+    # The id_rsa private key file path in OpenSSH format with 0600 permissions.
+    # This private key is used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.
     # It must contain the relative or absoute path from your Bastion.
-    # Examples: "ansible/id_rsa_ASE SYBASE_single_vsi" , "~/.ssh/id_rsa_ASE SYBASE_single_vsi" , "/root/.ssh/id_rsa".
+    # Examples: "ansible/id_rsa_abap_syb_dst" , "~/.ssh/id_rsa_abap_syb_dst" , "/root/.ssh/id_rsa".
+
+    ##########################################################
+    # Activity Tracker variables:
+    ##########################################################
+
+    ATR_NAME="Activity-Tracker-SAP-eu-de"
+    # The name of the Activity Tracker instance, in the same region chosen for SAP system deployment.
+    # Example: ATR_NAME="Activity-Tracker-SAP-eu-de"
+
+    ##########################################################
     # DB VSI variables:
+    ##########################################################
 
-    HOSTNAME = ""
+    DB_HOSTNAME = "ic4sapdb"
     # The Hostname for the DB VSI. The hostname should be up to 13 characters, as required by SAP
-    # Example: HOSTNAME = "sapASE SYBASEdb"
+    # Example: DB-HOSTNAME = "ic4sapdb"
 
-    PROFILE = "mx2-16x128"
-    #for x86-64 instance profiles
-    # The DB VSI profile for both . The list of certified profiles for ASE SYBASE VSIs: https://cloud.ibm.com/docs/sap?topic=sap-ASE SYBASE-iaas-offerings-profiles-intel-vs-vpc . 
-    # Details about all x86 instance profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui
+    DB_PROFILE = "bx2-4x16"
+    # The DB VSI profile. Supported profiles for DB VSI: bx2-4x16. The list of available profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui
 
-    PROFILE = "cx2d-metal-96x192"
-    #DB_PROFILE = "bx2d-metal-96x384"
-    #for x86-64 bare metal server profiles
-    # The instance profile used for the ASE SYBASE server. The list of certified profiles for ASE SYBASE: https://cloud.ibm.com/docs/sap?topic=sap-ASE SYBASE-iaas-offerings-profiles-intel-bm-vpc
-
-    # Details about all x86 instance profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui
-    # For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check [SAP Note 2927211: SAP Applications on IBM Virtual Private Cloud](https://launchpad.support.sap.com/#/notes/2927211)
-    # Default value: "cx2d-metal-96x192"
-
-    IMAGE = "ibm-redhat-8-6-amd64-sap-ASE SYBASE-2"
-    # OS image for DB VSI.
+    DB_IMAGE = "ibm-redhat-8-6-amd64-sap-applications-6"
+    # OS image for DB VSI. Supported OS images for DB VSIs: ibm-redhat-8-6-amd64-sap-applications-6, ibm-redhat-8-4-amd64-sap-applications-10, ibm-sles-15-4-amd64-sap-applications-8, ibm-sles-15-3-amd64-sap-applications-11. 
     # The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://launchpad.support.sap.com/#/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
-    # Example: IMAGE = "ibm-redhat-8-6-amd64-sap-ASE SYBASE-2"
+    # Example: DB-IMAGE = "ibm-sles-15-4-amd64-sap-applications-8"
     ```
 
     * The hostname should be up to 13 characters as required by SAP. For more information about the rules that apply to hostnames for SAP systems, see SAP Note 611361 - Hostnames of SAP ABAP Platform servers.
@@ -219,26 +219,24 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     ``` terraform
     # SAP ASE SYBASE configuration
 
-    ASE SYBASE_SID = "HDB"
-    # SAP ASE SYBASE system ID. Should follow the SAP rules for SID naming.
-    # Example: ASE SYBASE_SID = "HDB"
+    ##########################################################
+    # SAP system configuration
+    ##########################################################
 
-    ASE SYBASE_SYSNO = "00"
-    # SAP ASE SYBASE instance number. Should follow the SAP rules for instance number naming.
-    # Example: ASE SYBASE_SYSNO = "01"
+    ASE_SID = "NWD"
+    # The SAP ASE system ID. Identifies the entire ASE system.
+    # Consists of exactly three alphanumeric characters and the first character must be a letter.
+    # Does not include any of the reserved IDs listed in SAP Note 1979280
 
-    ASE SYBASE_SYSTEM_USAGE = "custom"
-    # System usage. Default: custom. Suported values: production, test, development, custom
-    # Example: ASE SYBASE_SYSTEM_USAGE = "custom"
+    DATA_DISK_SIZE = "30"
+    # The size of data disk, in GB.
 
-    ASE SYBASE_COMPONENTS = "server"
-    # SAP ASE SYBASE Components. Default: server. Supported values: all, client, es, ets, lcapps, server, smartda, streaming, rdsync, xs, studio, afl, sca, sop, eml, rme, rtl, trp
-    # Example: ASE SYBASE_COMPONENTS = "server"
+    ##########################################################
+    # Kit Paths
+    ##########################################################
 
-    KIT_SAPASE SYBASE_FILE = "/storage/ASE SYBASEDB/51055299.ZIP"
-    # SAP ASE SYBASE Installation kit path
-    # Supported SAP ASE SYBASE versions on Red Hat 8 and Suse 15: ASE SYBASE 2.0 SP 5 Rev 57, kit file: 51055299.ZIP
-    # Example for Red Hat 8 or Suse 15: KIT_SAPASE SYBASE_FILE = "/storage/ASE SYBASEDB/51055299.ZIP"
+    KIT_ASE_FILE = "/storage/ASEDB/SP04/PL06/ASESERV160004P_6-80008862.TGZ"
+    ```
 
 4. Initialize the Terraform CLI.
     `terraform init`
@@ -303,9 +301,15 @@ Use these steps to configure the SAP ASE Sybase database single VSI on your exis
 ## Next steps
 {: #automate-ase-sybase-standalone-vsi-next}
 
-Do not use the IBM Cloud Dashboard and user interface to modify your resources after they are created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
+Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your resources after they are created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
 
 If you need to remove the resources created with the automation for your SAP solution, go to your project folder and run `terraform destroy`.
+
+    ```
+    terraform destroy
+    # you will be asked for the following sensitive variables as a destroy confirmation phase:
+    'IBMCLOUD_API_KEY'  and  'ASE_MASTER_PASSWORD'.
+    ```
 
 ## Related information
 {: #automate-ase-sybase-standalone-vsi-related}
