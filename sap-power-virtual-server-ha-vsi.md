@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-18"
+lastupdated: "2024-06-19"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -12,6 +12,8 @@ subcollection: sap
 
 # Creating instances for a high availability cluster on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-vsi}
+
+
 
 Use the following information and procedures to create the {{site.data.keyword.powerSys_notm}} instances that are required for a high availability cluster implementation.
 {: shortdesc}
