@@ -13,8 +13,6 @@ subcollection: sap
 # Creating instances for a high availability cluster on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-vsi}
 
-
-
 Use the following information and procedures to create the {{site.data.keyword.powerSys_notm}} instances that are required for a high availability cluster implementation.
 {: shortdesc}
 
