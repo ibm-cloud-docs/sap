@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-06-19"
 
 subcollection: sap
 
