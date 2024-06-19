@@ -75,7 +75,7 @@ SAP ASE includes server components that are installed into specific directories.
 * **XP server** – an Open Server application that manages and executes extended stored procedures (ESPs) from within SAP ASE.
 * **Job Scheduler** – provides a job scheduler for SAP ASE. Job Scheduler components are located in `ASE-16_0/jobscheduler/` path.
 
-## Single-host SAP ASE Sybase system
+## Single-host SAP ASE Sybase Instance Database
 {: #sap-ase-sybase-single-host}
 
 A single-host system is the simplest installation type that runs an SAP ASE Sybase system entirely on one host. You can scale the system up as needed. The single-host system has these components as shown in the architecture:
@@ -100,7 +100,7 @@ SAP ASE Sybase installation media used for this deployment is the default one fo
 
 Terraform on {{site.data.keyword.cloud_notm}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} solutions. For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Getting started with Terraform on {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 
-Terraform is used to provision of the infrastructure components in {{site.data.keyword.cloud_notm}}. For automating this process, the current solution uses a Terraform script for deploying a VPC and a VSI with SAP certified storage and network configuration. The VPC contains one subnet and one security group that has three rules:
+Terraform is used to provision the infrastructure components in {{site.data.keyword.cloud_notm}}. For automating this process, the current solution uses a Terraform script for deploying a VPC and a VSI with SAP certified storage and network configuration. The VPC contains one subnet and one security group that has three rules:
 
 * Allow all outbound traffic from the VSI
 * Allow inbound DNS traffic (UDP port 53)
@@ -112,7 +112,7 @@ Access creating single-tier VPC for SAP by using Terraform to get the detailed s
 ## Ansible for SAP installation
 {: #sap-ase-sybase-ansible-for-install}
 
-Ansible is an automation tool for the deployment several IT tasks. This solution performs the automated deployment of SAP ASE Sybase 2.0 DB on Red Hat Enterprise Linux 7.6 for SAP ASE Sybase on stand-alone SAP ASE Sybase box VSI. For more information about Ansible, check out the documentation available on the Ansible page.
+Ansible is an automation tool for deploying several IT tasks. This solution performs the automated deployment of SAP ASE Sybase 2.0 DB on Red Hat Enterprise Linux 7.6 for SAP ASE Sybase on stand-alone SAP ASE Sybase box VSI. For more information about Ansible, check out the documentation available on the Ansible page.
 
 The deployment is done by the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on [the Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html){: external}.
 
