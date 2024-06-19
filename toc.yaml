@@ -306,9 +306,7 @@ toc:
           topics:
               - sap-power-virtual-server-mig-overview.md
               - sap-power-virtual-server-mig-hybrid-cloud-networking.md
-              - sap-power-virtual-server-mig-db-hana-source-presteps.md
-              - sap-power-virtual-server-mig-db-hana-target-presteps.md
-              - sap-power-virtual-server-mig-db-hana-replication.md
+              - sap-power-virtual-server-mig-db-hana.md
   - navgroup:
       id: reference
       topics:
