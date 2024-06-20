@@ -23,6 +23,7 @@ subcollection: sap
 {: #automate-terraform-sap-ase-sybase-vsi}
 
 You can use Terraform scripts to create a VPC and SAP ASE Sybase database single VSI infrastructure in the VPC. The Terraform scripts use the information that you provide and then call the Ansible playbooks to create the SAP architecture in the specified VPC.
+{: terraform}
 
 You can use Schematics User Interface which is calling Terraform scripts to create a VPC and SAP ASE Sybase database single VSI infrastructure in the VPC. The Terraform scripts use the information that you provide and then call the Ansible playbooks to create the SAP architecture in the specified VPC.
 {: ui}
