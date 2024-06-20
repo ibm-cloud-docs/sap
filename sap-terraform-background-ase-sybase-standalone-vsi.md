@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-06-19"
+lastupdated: "2024-06-20"
 
 subcollection: sap
 
@@ -17,7 +17,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Background for automating ASE Sybase stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC
+# Background for automating ASE Sybase stand-alone virtual server instance deployment in {{site.data.keyword.cloud}} VPC
 {: #sap-ase-sybase-vpc-background}
 
 ## {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) introduction
@@ -100,23 +100,23 @@ SAP ASE Sybase installation media used for this deployment is the default one fo
 
 Terraform on {{site.data.keyword.cloud_notm}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} solutions. For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Getting started with Terraform on {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 
-Terraform is used to provision the infrastructure components in {{site.data.keyword.cloud_notm}}. For automating this process, the current solution uses a Terraform script for deploying a VPC and a VSI with SAP certified storage and network configuration. The VPC contains one subnet and one security group that has three rules:
+Terraform is used to provision the infrastructure components in {{site.data.keyword.cloud_notm}}. For automating this process, the current solution uses a Terraform script for deploying a VPC and a VSI with SAP certified storage and network configuration. The VPC is created along with the bastion (deployment) server, with one to three subnets and the following security rules:
 
-* Allow all outbound traffic from the VSI
-* Allow inbound DNS traffic (UDP port 53)
-* Allow inbound SSH traffic (TCP port 22)
+* Allow all traffic in the Security group for private networks.
+* Allow outbound traffic (ALL for port 53, TCP for ports 80, 443, 8443).
+* Allow inbound SSH traffic (TCP for port 22) from IBM Schematics Servers.
+* Option to Allow inbound SSH traffic with a custom source IP/CIDR list.
 
-After the successful deployment of the infrastructure, the Terraform script calls the Ansible Playbook, which automatically installs the SAP application.
-Access creating single-tier VPC for SAP by using Terraform to get the detailed steps about using Terraform only for the creation of a VPC for SAP.
+After the successful deployment of the infrastructure, the Terraform script calls the Ansible Playbooks, which perform the filesystem setup and the OS configuration before installing automatically the SAP application.
 
 ## Ansible for SAP installation
 {: #sap-ase-sybase-ansible-for-install}
 
-Ansible is an automation tool for deploying several IT tasks. This solution performs the automated deployment of SAP ASE Sybase 2.0 DB on Red Hat Enterprise Linux 7.6 for SAP ASE Sybase on stand-alone SAP ASE Sybase box VSI. For more information about Ansible, check out the documentation available on the Ansible page.
+Ansible is an IT automation engine that automates provisioning, configuration management, application deployment and other IT tasks. This solution performs the automated deployment of a stand-alone SAP ASE Sybase 2.0 DB on a Red Hat Enterprise Linux 8.6|8.4 for SAP or on a SUSE Linux Enterprise Server 15 SP 4|3 for SAP Applications VSI box. For more information about Ansible, check out the documentation available on the Ansible page.
 
-The deployment is done by the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on [the Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html){: external}.
+Ansible core provides CLI tools for automation. More information about Ansible core can be found on [the Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html){: external}.
 
-The Ansible playbook is called directly by the Terraform script. The Terraform script is run in one run. During the run, the first steps are Terraform specific for creating the VPC, and it continues automatically with the second, Ansible, steps for the installation of the SAP system.
+The Ansible playbooks are called directly by the Terraform script. The Terraform script is run in one run. During the run, the first steps are Terraform specific for creating the VPC resources, and it continues automatically with Ansible steps for the installation of the SAP system.
 
 This automation is offered free of charge however, the provisioned infrastructure comes at cost.
 {: note}

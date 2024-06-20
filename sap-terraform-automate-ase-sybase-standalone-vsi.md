@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022, 2023, 2024
-lastupdated: "2024-06-18"
+lastupdated: "2024-06-20"
 
 subcollection: sap
 
@@ -22,30 +22,34 @@ subcollection: sap
 # Deploying SAP ASE Sybase stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC
 {: #automate-terraform-sap-ase-sybase-vsi}
 
-You can use Terraform scripts to create a single-tier VPC and SAP ASE Sybase database single VSI infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
+You can use Terraform scripts to create a VPC and SAP ASE Sybase database single VSI infrastructure in the VPC. The Terraform scripts use the information that you provide and then call the Ansible playbooks to create the SAP architecture in the specified VPC.
+
+You can use Schematics User Interface which is calling Terraform scripts to create a VPC and SAP ASE Sybase database single VSI infrastructure in the VPC. The Terraform scripts use the information that you provide and then call the Ansible playbooks to create the SAP architecture in the specified VPC.
+{: ui}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware by using Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
 {: shortdesc}
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Getting started with Terraform on {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 
-To create resources with Terraform, you can use Terraform configuration files that describe the {{site.data.keyword.cloud_notm}} resources that you need and how you want to configure them. Based on your configuration, Terraform creates an execution plan and describes the actions that need to be run to create the resources. You can review the execution plan, change it, or run the plan. 
+To create resources with Terraform, you can use Terraform configuration files that describe the {{site.data.keyword.cloud_notm}} resources that you need and how you want to configure them. Based on your configuration, Terraform creates an execution plan and describes the actions that need to be run to create the resources. You can review the execution plan, change it, or run the plan.
+{: terraform}
 
 You have two deployment methods to choose from:
 
-* Terraform scripts run from the CLI on your bastion server.
-* The schematic user interface is accessed from the menu on your cloud dashboard.
+* In CLI, by running the Terraform scripts on your bastion server.
+* In Schematics User Interface, accessed from your {{site.data.keyword.cloud_notm}} dashboard menu.
 
 ## Prerequisites
 {: #terraform-sap-ase-sybase-vsi-prerequisites}
 {: terraform}
 
-A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server), should exist in the same VPC, same region, and have the same subnet and security group that is configured for the SAP system VSIs.
+A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server), should exist in the same VPC, same region, and have the same subnet and security group that is configured for the SAP system VSI.
 
 ## What is created
 {: #terraform-sap-ase-sybase-vsi-created}
 
-The scripts automate the deployment of the virtual infrastructure resources and the provisioning processes for the SAP architecture, in an existing VPC. An SAP ASE Sybase DB, on a virtual server instance VPC box, is provisioned. The scripts work in two phases.
+The scripts automate the deployment of the virtual infrastructure resources and the provisioning processes for the SAP architecture, in an existing VPC. An SAP ASE Sybase DB, on a VPC virtual server instance box, is provisioned. The scripts work in two phases.
 
 During the first phase, a virtual server instance, with SAP certified storage and network configuration (the same subnet and security group as for the deployment server (bastion server)) are configured.
 
@@ -56,42 +60,38 @@ There are {{site.data.keyword.cloud_notm}} VPC SAP certified server profiles whe
 ### x86-64 instance profiles
 {: #terraform-sap-ase-sybase-vsi-x86-64}
 
-During provisioning IBM Cloud® Virtual Servers for Virtual Private Cloud, you can select from six families of profiles: 
+During provisioning IBM Cloud® Virtual Servers for Virtual Private Cloud, you can select from the following families of profiles:
 
-* Balanced
-* Compute 
-* Memory 
-* Very High Memory
-* Ultra High Memory
-* Storage Optimized
-* GPU
+* Compute Optimized
+* Balanced 
+* Memory Optimized 
+* Very High Memory Optimized
+* Ultra High Memory Optimized
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.cloud_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 
-For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
+For more information about SAP profiles, [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
 
-The scripts use the information that you provide for an existing VPC and deploy SAP ASE Sybase database single VSI. For more information about this architecture, see [SAP NetWeaver 7.x on UNIX with Sybase on IBM Cloud VPC](/docs/sap?topic=sap-refarch-hana-scaleout&interface=ui). You can specify the information for the VPC in the `input.auto.tfvars` file.
-
-The scripts call the Ansible Playbooks to install the SAP architecture.
+The Terraform scripts use the information that you provide in `input.auto.tfvars` file, call the Ansible Playbooks and deploy SAP ASE Sybase database single VSI and the SAP architecture.
 
 ## Virtual server instance configuration
 {: #terraform-sap-ase-sybase-vsi-config}
 
-The following operating systems and OS images are supported:
+The following operating systems are supported:
 
-* Red Hat Enterprise Linux 8.6 for SAP ASE Sybase (amd64) - images: ibm-redhat-8-6-amd64-sap-ASE Sybase-<x>
-* Red Hat Enterprise Linux 8.4 for SAP ASE Sybase (amd64) - images: ibm-redhat-8-4-amd64-sap-ASE Sybase-<x>
-* SUSE Linux Enterprise Server 15 SP 4 for SAP Applications (amd64) - images: ibm-sles-15-4-amd64-sap-ASE Sybase-<x>
-* SUSE Linux Enterprise Server 15 SP 3 for SAP Applications (amd64) - images: ibm-sles-15-3-amd64-sap-ASE Sybase-<x>
+* Red Hat Enterprise Linux 8.6 for SAP (amd64)
+* Red Hat Enterprise Linux 8.4 for SAP (amd64)
+* SUSE Linux Enterprise Server 15 SP 4 for SAP Applications (amd64)
+* SUSE Linux Enterprise Server 15 SP 3 for SAP Applications (amd64)
 
-The provided SSH keys are used to access the VSI through SSH, as a root user. The storage volumes are configured based on the [Intel Virtual Server certified profiles on VPC infrastructure for SAP ASE Sybase](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc).
+The provided SSH keys are used to access the VSI through SSH, as a root user.
 
 ## Script files
 {: #terraform-sap-ase-sybase-vsi-files}
 
-The configuration and script files are available in the [GitHub repository](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md).
+The configuration and script files are available in the [GitHub repository](https://github.com/IBM-Cloud/sap-ase-db).
 
-The `input.auto.tfvars` file allows the customization of the resources and the variable values.
+The `input.auto.tfvars` file allows the customization of the input parameters.
 
 All other configuration files are provided and no modification is required.
 
@@ -99,11 +99,11 @@ All other configuration files are provided and no modification is required.
 {: #ui-sap-ase-sybase-vsi-schematics}
 {: ui}
 
-When you run the scripts with the Schematics interface, you:
+When you are using the Schematics interface for the deployment you need to:
 
-* Enter the workspace information
-* Enter the GitHub repository path
-* Modify the parameters in the Schematics interface. These are the same parameters as the `input.auto.tfvars` file that you use with the CLI.
+* Provide the workspace information.
+* Provide the GitHub repository path.
+* Update the value of the parameters in the Schematics interface. The parameters are similar to the ones from `input.auto.tfvars` file, which is used in the deployment from CLI.
 
 ## Support
 {: #terraform-sap-ase-sybase-vsi-support}
@@ -126,16 +126,16 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 {: #automate-sae-sybase-standalone-vsi-procedure}
 {: terraform}
 
-1.	Log in to the Deployment Server (Bastion server) by using `ssh` command.
-2.	Clone the GitHub repository from https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md and go to the **sap-ASE SYBASE-single-vsi** folder.
+1.	Log in to the Deployment Server (Bastion server) through `ssh`.
+2.	Clone the GitHub repository from https://github.com/IBM-Cloud/sap-ase-db and go to the **sap-ase-db** folder.
 
     ```shell
-	$ git clone https://github.com/IBM-Cloud/sap-ASE SYBASE-single-vsi.git
+	$ git clone https://github.com/IBM-Cloud/sap-ase-db.git
     	
-	$ cd sap-ASE SYBASE-single-vsi
+	$ cd sap-ase-db
     ```
 
-3.	Customize the VPC variables according to your existing VPC data. Modify the `input.auto.tfvars` file to specify your options. You need a 40-digit SSH key ID for the deployment. Additional SSH key IDs are optional. For more information related to SAP HANA certified profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP ASE Sybase](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc). For more options about images, see [Images](https://test.cloud.ibm.com/docs/vpc?topic=vpc-about-images).
+3.	Customize the values for VPC variable resources according to your existing VPC data. Your options can be specified by updating `input.auto.tfvars` file. You need a 40-digit SSH key ID for the deployment. Additional SSH key IDs are optional.
 
     The following input variable values must be provided:
 
@@ -147,7 +147,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     * SUBNET - The name of an existing subnet in the same region and zone as the VSI.
     * SSH_KEYS - A list of SSH keys UUIDs allowed to connect through SSH to the VSIs.
     * ID_RSA_FILE_PATH - existing `id_rsa` private key file path in OpenSSH format with 0600 permissions.
-    * HOSTNAME - The hostname of the SAP HANA server, up to 13 characters. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
+    * DB_HOSTNAME - The hostname of the SAP HANA server, up to 13 characters. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
 
     ``` terraform
     ######################################################
@@ -256,7 +256,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 {: #automate-ase-sybase-standalone-vsi-ui}
 {: ui}
 
-Use these steps to configure the SAP ASE Sybase database single VSI on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete.
+Follow the steps to deploy SAP ASE Sybase database single VSI in your existing VPC by using the Schematics User Interface. The scripts can take 1 - 2 hours to complete.
 
 1. From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
 2. Click **Create workspace**.
@@ -279,15 +279,13 @@ Use these steps to configure the SAP ASE Sybase database single VSI on your exis
     * The zone for your resources.
     * Existing VPC name
     * Existing Subnet name
-    * Create new port only when a new subnet is created
-    * TCP port range, minimum, and maximum
     * VPC name
     * Subnet name
     * Security group name
     * Hostname
     * Profile
     * Image
-    * Minimal recommended disk sizes
+    * Data disk size
     * SAP main password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point.
     * Click **Save** changes.
 
