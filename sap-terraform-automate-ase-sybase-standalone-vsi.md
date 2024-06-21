@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022, 2023, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-06-21"
 
 subcollection: sap
 
@@ -71,7 +71,7 @@ During provisioning IBM Cloud® Virtual Servers for Virtual Private Cloud, you c
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.cloud_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 
-For more information about SAP profiles, [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
+For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
 
 The Terraform scripts use the information that you provide in `input.auto.tfvars` file, call the Ansible Playbooks and deploy SAP ASE Sybase database single VSI and the SAP architecture.
 
