@@ -72,10 +72,10 @@ The three distinct and redundant network architectures within the secured networ
 - **Public network:** provides carrier grade internet connectivity to multi-home backbone carriers. On public IP, the connection is made to the {{site.data.keyword.cloud_notm}} network PoP closest to the origin request. Traffic travels directly across the {{site.data.keyword.cloud_notm}} data center to the data center network backbone into the correct data center, minimizing the network hops and handoffs between providers that add network latency.
 
 - **Private network:** provides complete control of the secured networking traffic without performance degradation if significant public network traffic occurs at the same time; the private network has three functional areas:
-  - **Host to and from Host**: network traffic in the private VLANs assigned to you. **Bandwidth is free and unmetered.**
-  - **Host to and from Backend Services:** network traffic to and from the private VLAN to OS update servers, NTP, DNS resolvers, network storage and more. **Bandwidth is free and unmetered.**
-  - **VPN and direct connections to and from VLAN:** network traffic to and from an existing internal network over direct connection or VPN that uses a distinct stand-alone network to the secure private VLAN. **Bandwidth is free and unmetered.**
-  - **Data center to Data center interconnectivity:** provides secure connectivity between hosts across {{site.data.keyword.cloud_notm}} data center locations. **Bandwidth is free and unmetered.**
+    - **Host to and from Host**: network traffic in the private VLANs assigned to you. **Bandwidth is free and unmetered.**
+    - **Host to and from Backend Services:** network traffic to and from the private VLAN to OS update servers, NTP, DNS resolvers, network storage and more. **Bandwidth is free and unmetered.**
+    - **VPN and direct connections to and from VLAN:** network traffic to and from an existing internal network over direct connection or VPN that uses a distinct stand-alone network to the secure private VLAN. **Bandwidth is free and unmetered.**
+    - **Data center to Data center interconnectivity:** provides secure connectivity between hosts across {{site.data.keyword.cloud_notm}} data center locations. **Bandwidth is free and unmetered.**
 
 - **Management network:** provides Out-Of-Band Management (OOBM) accessible through VPN (for example the built-in SSL VPN for administration) or direct connection (for example {{site.data.keyword.cloud_notm}} Direct Link). Network management allows Remote Console access through the IPMI network interface for Bare Metals hosts on the private network. **Bandwidth is free and unmetered.**
 
@@ -92,12 +92,12 @@ The following information is a summary of [Getting started with VLANs on Classic
 A VLAN can have multiple Subnets for you to use to segregate traffic, for example:
 
 - Public VLAN
-  - Public Primary Subnet (default)
-  - Public Secondary Portable Subnet
-  - Public Secondary Static Subnet
+    - Public Primary Subnet (default)
+    - Public Secondary Portable Subnet
+    - Public Secondary Static Subnet
 - Private VLAN
-  - Private Primary Subnet (default)
-  - Private Secondary Portable Subnet
+    - Private Primary Subnet (default)
+    - Private Secondary Portable Subnet
 
 If you want to separate different types of network traffic in your landscape, use subnets in your network design to separate network traffic and use more Virtual LANs (VLANs) only when required.
 

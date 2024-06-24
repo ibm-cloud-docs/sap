@@ -320,26 +320,7 @@ When you create new storage volumes, keep the following points in mind:
 - When you finish provisioning new volumes, you can toggle bootable and sharing switches.
 - Make volumes that belong to different OS file systems unique sizes. Otherwise, it is difficult to identify the storage volumes within the operating system.
 
-<!--
-### Sample storage configuration for SAP HANA that use the IBM Power Virtual Server
-{: #sample-power-hana}
-
-The following table shows an example of a storage layout for an SAP HANA system.
-
-SAP HANA Data and SAP HANA Log directory file systems must be striped over 4 or 8 storage volumes.
-
-Striping for other file systems (SAP executable files, HANA Shared, HANA Backup, HANA Export) is not required. See the SAP TDI documents for general storage requirements.
-
-| HANA file system | Total Space Required | Size of Volumes | Number of Volumes |
-|-----------------|----------------------|-----------------|-------------------|
-| /hana/data      | 560                  | 70              | 8                 |
-| /hana/log       | 640                  | 80              | 8                 |
-| /hana/shared    | 200                  | 200             | 1                 |
-| /usr/sap        | 130                  | 130             | 1                 |
-| /backup         | 560                  | 560             | 1                 |
-| /export         | 560                  | 560             | 1                 |
-{: caption="Table 6. Example of a storage layout for an SAP HANA system" caption-side="top"}
--->  
+  
 
 ### Storage Guidelines for SAP HANA based on Flexible IOPS
 {: #sap-fiops-config}

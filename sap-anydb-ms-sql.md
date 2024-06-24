@@ -26,21 +26,21 @@ subcollection: sap
 The SAP systems in a landscape have specific requirements for servers, operating systems, network setup, and supported storage.
 {: shortdesc}
 
-Deployment of SAP AnyDB on IBM Cloud is similar to deployments with infrastructure with on-premises data centers. Therefore, use the information that is provided from SAP and the RDBMS providers.
+Deployment of SAP AnyDB on {{site.data.keyword.cloud_notm}} is similar to deployments with infrastructure with on-premises data centers. Therefore, use the information that is provided from SAP and the RDBMS providers.
 
-To assist your project's planning phase, below are additional design considerations for **SAP AnyDB - Microsoft SQL Server** with {{site.data.keyword.ibm_cloud_sap}}.
+To assist your project's planning phase, there are additional design considerations for **SAP AnyDB - Microsoft SQL Server** with {{site.data.keyword.ibm_cloud_sap}}.
 
-## Overview of MSSQL Server for SAP with IBM Cloud
+## Overview of MS SQL Server for SAP with IBM Cloud
 {: #anydb-ms-sql-server-overview}
 
 Before you start deploying the MS SQL Server software, ensure that:
  * Check all relevant SAP and MS SQL Server information and prerequisites (for example, SAP Notes); including versions and fix pack levels of MS SQL Server that are supported
- * All required packages are installed for the relevant OS that you are using for MSSQL
+ * All required packages are installed for the relevant OS that you are using for MS SQL
 
 ## Documentation of MS SQL Server for SAP
 {: #anydb-ms-sql-server-documentation}
 
-A good entry point into the documentation is [SAP community page for MS SQL Server](https://community.sap.com/topics/sql-server)
+A good entry point into the documentation is the [SAP community page for MS SQL Server](https://community.sap.com/topics/sql-server)
 For a current overview of the combinations of MS SQL Server, SAP NetWeaver (or other SAP components), and operating systems - see the [Product Availability Matrix (PAM)](http://support.sap.com/pam).
 
 MS SQL Server database and SAP NetWeaver on Windows
@@ -75,5 +75,3 @@ See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported
 
 A sample configuration is shown in:
  * [SAP NetWeaver deployment to Intel Virtual Server (Gen2) on VPC Infrastructure that uses Windows Server](https://cloud.ibm.com/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-wins)
-
-

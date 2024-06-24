@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-07-06"
+  years: 2022
+lastupdated: "2022-12-05"
 
 subcollection: sap 
 
@@ -19,13 +19,11 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating SAP workload deployment on {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) with Terraform and Ansible
+# Overview SAP workload deployment on {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) with Terraform and Ansible
 {: #sap-automate-bw-4hana-overview}
 
-Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and other Intel&reg; technologies.
+You can use Terraform scripts to create a single-tier VPC and create the SAP and SAP HANA in a distributed architecture on the bastion server that you create. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC. Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and other Intel&reg; technologies.
 {: shortdesc}
-
-You can use Terraform scripts to create a single-tier VPC and create the SAP and SAP HANA in a distributed architecture on the bastion server that you create. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
 
 ## {{site.data.keyword.cloud}} VPC introduction
 {: #sap-automate-bw-4hana-vpc-intro}
@@ -77,4 +75,5 @@ After bastion VPC deployment is complete, you must download the SAP kits to the 
 To save costs, the bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on {{site.data.keyword.cloud_notm}} VPC. Or, you can keep the bastion server and use it as a jump host for that specific region. 
 {: note}
 
-This automation is offered free of charge however, the provisioned infrastructure comes at cost. {: note}
+This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
+{: note}

@@ -36,7 +36,6 @@ Many of the implementation steps are in the [SAP Data Hub 2 on OpenShift Contain
 - [Deploying your OpenShift cluster and jump host](/docs/sap?topic=sap-rhos-set-up-cluster)
 - [Preparation and Installation of SAP Data Hub](/docs/sap?topic=sap-rhos-datahub)
 
-
 ## Before you begin with SAP Data Hub 2.x and Red Hat OpenShift on IBM Cloud
 {: #data-hub-before-you-begin}
 

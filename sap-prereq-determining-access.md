@@ -29,26 +29,26 @@ subcollection: sap
 You can securely connect to your infrastructure in multiple ways by using various protocols and ports, based on the infrastructure chosen and the different network types:
 
 * **[Classic Infrastructure](/docs/sap?topic=sap-classic-env-introduction) network (formerly Softlayer network)**
-  * Intel Bare Metal
-  * Classic Intel Virtual Servers
-  * VMware solutions
+    * Intel Bare Metal
+    * Classic Intel Virtual Servers
+    * VMware solutions
 
 * **[VPC Infrastructure](/docs/sap?topic=sap-vpc-env-introduction) network**
-  * ~~Intel Virtual Servers (Generation 1), formerly known as VPC on Classic~~ `no longer available, not SAP certified`
-  * Intel Virtual Servers (Generation 2)
+    * ~~Intel Virtual Servers (Generation 1), formerly known as VPC on Classic~~ `no longer available, not SAP certified`
+    * Intel Virtual Servers (Generation 2)
 
 * **[IBM Power](/docs/sap?topic=sap-power-env-introduction) Virtual Server network, connection through {{site.data.keyword.cloud}}**
-  * IBM Power Virtual Servers, connection through {{site.data.keyword.cloud}}. _This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems_
+    * IBM Power Virtual Servers, connection through {{site.data.keyword.cloud}}. _This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems_
 
 
 ## Interconnectivity between {{site.data.keyword.cloud_notm}} network
 {: #determine-access-interconnectivity}
 
 * **Transit Gateway**, handling interconnectivity across the {{site.data.keyword.cloud_notm}} private backbone between the networks with defined and controlled communication between resources worldwide across the {{site.data.keyword.cloud_notm}} network or across multiple {{site.data.keyword.cloud_notm}} accounts (useful for Managed Service Providers of SAP). Transit Gateways are used to support hybrid workloads, frequent data transfers, and private workloads by providing dynamic scalability, high availability, and private, in-transit data between hosts on {{site.data.keyword.cloud_notm}}.
-  * Local routing, connect VPCs in same region
-  * Global routing, connect VPCs across regions
-  * Classic Infrastructure routing, connect to VLANs on Classic Infrastructure network
-  * Cross-account connection (also known as account-to-account routing), connect VPCs across multiple {{site.data.keyword.cloud_notm}} accounts. See [Adding a cross-account connection (VPC only)](/docs/transit-gateway?topic=transit-gateway-edit-gateway#adding-cross-account-connections)
+    * Local routing, connect VPCs in same region
+    * Global routing, connect VPCs across regions
+    * Classic Infrastructure routing, connect to VLANs on Classic Infrastructure network
+    * Cross-account connection (also known as account-to-account routing), connect VPCs across multiple {{site.data.keyword.cloud_notm}} accounts. See [Adding a cross-account connection (VPC only)](/docs/transit-gateway?topic=transit-gateway-edit-gateway#adding-cross-account-connections)
 
 
 ## Connectivity options within the {{site.data.keyword.cloud_notm}} Classic Infrastructure network
@@ -57,7 +57,7 @@ You can securely connect to your infrastructure in multiple ways by using variou
 * **Classic SSL VPN**, basic SSL Tunnel with user/password to various PoP or Data centers, which is built in to {{site.data.keyword.cloud}} Classic Infrastructure, enabled per user account and is a good option for administrators during initial stages of deployments to {{site.data.keyword.cloud_notm}}. It is not for bulk users due to bandwidth caps.
 * **Classic IPSecVPN**, service from the {{site.data.keyword.cloud_notm}} catalog, which can be provisioned and has advanced configuration options available for the IPsec Tunnel
 * **{{site.data.keyword.cloud}} Direct Link for Classic Infrastructure**, the most robust connection available in varying types from your internal network to {{site.data.keyword.cloud_notm}}'s Availability Zones (also known as data centers) that use Network Service Providers, Point of Presence (PoP), or directly between the data center colocation Room (also called a Meet Me Room). This option is available up to 10 Gbps network throughput as a Routed OSI Layer-2/3 connection, and is designed for enterprise workload connections. `Note: If you are using VPC Infrastructure, this option is not necessary as {{site.data.keyword.cloud}} Direct Link 2.0 can also connect to Classic Infrastructure`
-  * More information on [Direct Link 1.0](/docs/direct-link){: external}. To find from a specified site location to IBM Cloud and which network service providers are available, use [Cloud Pathfinder for IBM Cloud](https://ibm.find.cloud){: external} (powered by [Cloudscene](https://cloudscene.com){: external})
+    * More information on [Direct Link 1.0](/docs/direct-link){: external}. To find from a specified site location to IBM Cloud and which network service providers are available, use [Cloud Pathfinder for IBM Cloud](https://ibm.find.cloud){: external} (powered by [Cloudscene](https://cloudscene.com){: external})
 
 
 
@@ -75,7 +75,7 @@ Within the Classic Infrastructure network, there are many Gateway Appliance and 
 * **Floating IP**, a public internet IPv4 address, which can be configured with Security Groups to allow only certain network connection access on defined protocols and ports from specified source/target addresses. For initial tests option is often used, with more detail in the short guide on [Connecting to your Linux Virtual Server instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux).
 * **VPC IPSecVPN**, service from the {{site.data.keyword.cloud_notm}} catalog and deploys a VPN Gateway to a VPC and creating a VPN Connection with advanced configuration options available for the IPsec Tunnel; including integration with authentication strategies such as Microsoft Active Directory.
 * **{{site.data.keyword.cloud}} Direct Link 2.0**, the latest enhancement and the most robust connection available, now with access to both Classic Infrastructure network and VPC Infrastructure network simultaneously from your internal network to {{site.data.keyword.cloud_notm}}'s Availability Zones (Data centers) that use Network Service Providers, Point of Presence (PoP), or directly between the data center colocation Room (also called a Meet Me Room). This is available up to 10 Gbps network throughput as a Routed OSI Layer-2/3 connection, and is designed for enterprise workload connections.
-  * More information on [Direct Link 2.0](/docs/dl){: external}. To find from a specified site location to IBM Cloud and which network service providers are available, use [Cloud Pathfinder for IBM Cloud](https://ibm.find.cloud){: external} (powered by [Cloudscene](cloudscene.com){: external})
+    * More information on [Direct Link 2.0](/docs/dl){: external}. To find from a specified site location to IBM Cloud and which network service providers are available, use [Cloud Pathfinder for IBM Cloud](https://ibm.find.cloud){: external} (powered by [Cloudscene](cloudscene.com){: external})
 
 ### VPC VPN Gateway
 {: #determine-access-vpc-vpn-gateway}

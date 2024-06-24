@@ -28,9 +28,9 @@ subcollection: sap
 An existing {{site.data.keyword.ibm_cloud_sap}} workload can either be:
 - Moved as-is, from on-premises data centers to Cloud IaaS. This method is often called "lift-and-shift"
 - Migrating from one vendor or version to another:
-  - Changing vendor or version of the database server (for example, IBM Db2 to SAP HANA)
-  - Changing the version of the Application server (for example, SAP NetWeaver AS ABAP 7.0 to SAP NetWeaver AS ABAP 7.52)
-  - Changing the version of the Business Application (for example, SAP ECC to SAP S/4HANA)
+    - Changing vendor or version of the database server (for example, IBM Db2 to SAP HANA)
+    - Changing the version of the Application server (for example, SAP NetWeaver AS ABAP 7.0 to SAP NetWeaver AS ABAP 7.52)
+    - Changing the version of the Business Application (for example, SAP ECC to SAP S/4HANA)
 
 Moving workloads is an infrastructure-level change that affects the SAP systems because networking and storage changes are involved.
 

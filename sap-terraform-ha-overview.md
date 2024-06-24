@@ -73,7 +73,7 @@ These are the following SAP instances that are needed for an HA scenario:
 * Primary application instance (PAS) on node 1
 * Additional application instance (AAS) on node 2
 
-It's recommended that you run both the ASCS instance and the ERS instance in a switchover cluster infrastructure.
+It is recommended that you run both the ASCS instance and ERS instance in a switchover cluster infrastructure.
 
 ### {{site.data.keyword.filestorage_vpc_full_notm}} for SAP HA architecture
 {: #automate-sap-ha-file-storage}

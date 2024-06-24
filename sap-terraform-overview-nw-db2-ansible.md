@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022, 2023
-lastupdated: "2023-07-06"
+lastupdated: "2023-07-05"
 
 subcollection: sap
 
@@ -17,7 +17,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Automating SAP workload deployment on {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) with Terraform and Ansible
+# Overview SAP workload deployment on {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) (Terraform and Ansible)
 {: #components-terraform-nw-db2-terraform}
 
 You can use Terraform to automate {{site.data.keyword.cloud_notm}} VPC provisioning. The VPC provisioned includes virtual server instances with high network performance. The VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers. After the VPC is provisioned, the scripts use the Ansible Playbook to install the SAP system
@@ -70,7 +70,8 @@ Before you deploy any of the SAP automated solutions on {{site.data.keyword.clou
 
 After bastion VPC deployment is complete, you must download the SAP Kits to the temporary storage assigned to you on the Bastion Server. Ansible installs the kits for you. You specify the location of the Kits in the configuration files.
 
-To save costs the bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on {{site.data.keyword.cloud_notm}} VPC cloud. Or, you can keep the bastion server and use it as a jump host for that specific region. 
+This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
 {: note}
 
-This automation is offered free of charge however, the provisioned infrastructure comes at cost.{: note}
+To save costs the bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on {{site.data.keyword.cloud_notm}} VPC cloud. Or, you can keep the bastion server and use it as a jump host for that specific region.
+{: note}

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2024-03-04"
+  years: 2024, 2024
+lastupdated: 2024-06-21
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPN, Virtual Private Network, VPN for VPC, Direct Link, DL, Cloud connection, Software Defined Network, SDN, SD, Hybrid Cloud, Migration, AIX, Linux, RHEL, SuSE
 
@@ -93,7 +93,7 @@ A hybrid cloud setup in general combines the customer network with a customer n
 Connecting an on-premises network with IBM Power Servers in PowerVS in {{site.data.keyword.cloud}} is described in
 [Network architecture diagrams](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams).
 
-If you are new to PowerVS, architectures from the [Power Edge Router (PER) use cases](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#per-use-cases) are the recommended ones and are the easiest to implement. If you have an existing PowerVS workspace, you might either consider migrating to the newer PER setup or inspect the [Non-Power Edge Router use cases](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#networking-use-cases) solutions.
+If you are new to PowerVS, architectures from the [Power Edge Router (PER) use cases](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#per-use-cases) are the recommended ones and are the easiest to implement. If you have an existing PowerVS workspace, you might either consider migrating to the newer PER setup or inspect the [Power Virtual Server networking environment](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#networking-environment) description.
 
 Both PER and non-PER architectures offer these types of network connection options:
 

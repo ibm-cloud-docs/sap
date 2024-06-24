@@ -24,13 +24,13 @@ subcollection: sap
 {: #vmware-sddc-set-up-infrastructure}
 
 This topic contains information on how to deploy and set up SAP HANA and SAP NetWeaver on VMware that runs on {{site.data.keyword.cloud_notm}}. You will find references to previous topics, including setting up your network, security, storage, and operating system (OS).
-{:shortdesc}
+{: shortdesc}
 
 There are variations of VMware available from {{site.data.keyword.cloud_notm}} that support SAP. You need to decide whether you want to build your own VMware SDDC or use an automated build and configuration according to VMware best practices. For more information on these two choices, see:
 - [{{site.data.keyword.cloud_notm}} Intel Bare Metal and VMware vSphere (ESXi OS)](/docs/vmware?topic=vmware-about-vmware){: external} for the manual VMware setup and configuration
 - [{{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated](/docs/vmwaresolutions){: external} for fully automated VMware SDDC setup and configuration, which includes optional BYOL, configuration of different VMware components (such as VMware NSX, VMware vRealize) and access to advanced VMware capabilities (such as VMware HCX)
-  - **_vCenter Server (VCS)_** solution type, where the entire VMware SDDC setup is automated and creates a hosted vSphere stack as a service
-  - **_VMware vSphere (VSS)_** solution type, where selectable VMware SDDC components setup is automated and creates a customizable VMware with maximum flexibility. This solution type is the intermediary between manual with Bare Metal and fully auotmated from IBM Cloud for VMware Solutions.
+    - **_vCenter Server (VCS)_** solution type, where the entire VMware SDDC setup is automated and creates a hosted vSphere stack as a service
+    - **_VMware vSphere (VSS)_** solution type, where selectable VMware SDDC components setup is automated and creates a customizable VMware with maximum flexibility. This solution type is the intermediary between manual with Bare Metal and fully auotmated from IBM Cloud for VMware Solutions.
 
 Due to these variations, provisioning of a server, adding network storage, and configuring network connectivity and interfaces differ for each. The process to order a VMware setup for manual configuration is similar to [Provisioning your Bare Metal server](/docs/sap?topic=sap-bm-set-up-infrastructure#bm-provision-server). Therefore, the sections to follow will not cover this option. Rather, the focus is on {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated to using the vCenter Server (VCS) solution type.
 
@@ -48,13 +48,13 @@ Complete the following tasks before your initial provisioning. Additional inform
 
 1. Convert your {{site.data.keyword.cloud_notm}} account to use [Virtual routing and forwarding (VRF) on IBM Cloud](/docs/direct-link?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud), using the steps described in [Converting to virtual routing and forwarding](/docs/direct-link?topic=direct-link-what-happens-during-the-account-conversion-process).
 
-  Enabling VRF permanently alters networking for your IBM Cloud account. Be sure that you have understood both the benefits and minor tradeoffs, which impact your account and resources. After you enable VRF, it cannot be disabled.
-  {: important}
+    Enabling VRF permanently alters networking for your IBM Cloud account. Be sure that you have understood both the benefits and minor tradeoffs, which impact your account and resources. After you enable VRF, it cannot be disabled.
+    {: important}
 
 1. Enable the Cloud Service Endpoints (CSE) to provide a secure and unmetered connection to services on IBM Cloud from the IBM Cloud Classic Infrastructure private network. Follow the steps in [enabling service endpoints](/docs/account?topic=account-vrf-service-endpoint#service-endpoint).
 
-  This is not the same as Virtual Private Endpoints (VPE), which is the upgraded equivalent functionality for IBM Cloud VPC Infrastructure environment; this has more benefits that include IAM access control, endpoint with IP in the Subnet Range of the VPC, and does not require Virtual routing and forwarding (VRF).
-  {: note}
+    This is not the same as Virtual Private Endpoints (VPE), which is the upgraded equivalent functionality for IBM Cloud VPC Infrastructure environment; this has more benefits that include IAM access control, endpoint with IP in the Subnet Range of the VPC, and does not require Virtual routing and forwarding (VRF).
+    {: note}
 
 
 
@@ -113,7 +113,7 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
    - When the instance is ready to use, the status of the instance is changed to **Ready to use** and you receive a notification by email.
 
 If you change VMware components outside of the {{site.data.keyword.vmwaresolutions_short}} console, the changes are not synchronized with the console or can cause instability. Read the detailed IBM Cloud for VMware Solutions documentation for more details. Also, see [FAQ - Considerations about changing vCenter Server artifacts](/docs/vmwaresolutions?topic=vmwaresolutions-vcenter_chg_impact)
-{:important}
+{: important}
 
 
 ### Provisioning with VMware NSX-V selection
@@ -127,7 +127,7 @@ Selecting VMware-NSX during provisioning can change the ordering process.
 ### Provisioning with VMware vSAN
 {: #vmware-sddc-provision-vsan}
 
-VMware vSAN for SAP NetWeaver and SAP AnyDB is not permitted. The description in [SAP Note 2161991 - VMware vSphere configuration guidelines](https://launchpad.support.sap.com/#/notes/2161991){:external} is for SAP-certified Infrastructure in traditional on-premises data centers.
+VMware vSAN for SAP NetWeaver and SAP AnyDB is not permitted. The description in [SAP Note 2161991 - VMware vSphere configuration guidelines](https://launchpad.support.sap.com/#/notes/2161991){: external} is for SAP-certified Infrastructure in traditional on-premises data centers.
 
 VMware vSAN for SAP HANA is not permitted. The description in [SAP Note 2718982 - SAP HANA on VMware vSphere and vSAN](https://launchpad.support.sap.com/#/notes/2718982){: external} is for SAP-certified Infrastructure that uses SAP HANA hyper-converged infrastructure (HCI) certified hardware configurations in traditional on-premises data centers.
 
@@ -136,7 +136,7 @@ VMware vSAN for SAP HANA is not permitted. The description in [SAP Note 2718982 
 {: #vmware-sddc-adding-network-storage}
 
 {{site.data.keyword.filestorage_full_notm}} is ordered during your provisioning, and you can add more storage after.
-{:shortdesc}
+{: shortdesc}
 
 Refer to the following documents on adding or removing data stores attached to the VMware Cluster by using NFS:
 - [Adding NFS storage to vCenter Server instances](/docs/vmwaresolutions?topic=vmwaresolutions-vc_addingremovingservers#section-adding-nfs-storage-to-vcenter-server-instances)

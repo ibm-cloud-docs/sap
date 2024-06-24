@@ -21,7 +21,7 @@ completion-time: 90m
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 {:tip: .tip}
-{:important .important}
+{: important .important}
 {:step: data-tutorial-type='step'}
 
 # SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using RHEL
@@ -32,7 +32,7 @@ completion-time: 90m
 *A Quick Study, someone who is able to learn new things quickly.*
 {: note}
 
-These Quick Study Tutorials provide a single sample configuration with less detailed instructions to provide an introduction for customers who prefer hands-on tasks to increase their pace of learning.
+These Quick Study Tutorials provide a single sample configuration, with less detailed instructions, as an introduction for customers who prefer hands-on tasks to increase their pace of learning.
 {: shortdesc}
 
 The following information provides an introduction for customers who are new to the Classic Infrastructure environment. Two sample configurations are provided to help you through the ordering process to the start of the SAP installation.
@@ -173,8 +173,8 @@ Use the following steps to configure your database server and OS.
 3. Enter an optional public key for **SSH key**, which you can use to log in to your server after the server is provisioned. The default is *None*.
 4. Select *Red Hat* as your **Image** (OS). The default is *7.x (64 bit)*.
 
-  If you're bringing your own license (BYOL) for your OS, select *No OS* as your image. For more information, see [Bring your own license](#byol).
-  {: note}
+    If you're bringing your own license (BYOL) for your OS, select *No OS* as your image. For more information, see [Bring your own license](#byol).
+    {: note}
 
 ### Adding storage disks
 {: #adding-storage-disks}
@@ -195,8 +195,8 @@ Use the following steps to set up the network interface for your database server
 1. Select *1 Gbps Redundant Public & Private Network Uplinks* for **Uplink Port Speed**.
 2. Select the values in Table 1 for the following fields:
 
-  Make sure the network interface values for your database server match the values of your application server.
-  {: note}
+    Make sure the network interface values for your database server match the values of your application server.
+    {: note}
 
 |              Field               |      Value              |
 | -------------------------------- | ------------------------|
@@ -210,8 +210,8 @@ Use the following steps to set up the network interface for your database server
 4. Review your Order Summary.
 5. Select **I read and agree to the following Third-Party Service Agreements**.
 
-  You can create your server, save the order as a quote to provision later, or add the order to an estimate, which might include multiple services.
-  {: note}
+    You can create your server, save the order as a quote to provision later, or add the order to an estimate, which might include multiple services.
+    {: note}
 
 6. Click **Create** to be redirected to the Checkout page after your order is verified.
 
@@ -400,8 +400,8 @@ External storage can be added to your provisioned server or servers. You can use
 6. Check the status of your provisioned storage under **Devices** > (select your device) > **Storage** tab.
 7. Note the **Target Address** and iSCSI Qualified Name (**IQN**) for your server (iSCSI initiator), and the **username** and **password** for authorization with the iSCSI server. You need that information in the following steps.
 
-  More provisioning information can be found under [Ordering Block Storage through the Console](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole).
-  {: tip}  
+    More provisioning information can be found under [Ordering Block Storage through the Console](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole).
+    {: tip}  
 
 Follow the steps in [Connecting to MPIO iSCSCI LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#mountingWindows) to make your storage accessible from your provisioned server.
 
@@ -410,10 +410,10 @@ Follow the steps in [Connecting to MPIO iSCSCI LUNS on Microsoft Windows](/docs/
 {: step}
 
 In the sample deployment, you retrieved the following data from the **Storage** tab:
-  * Target IP: 10.2.62.78
-  * IQN: iqn.2005-05.com.softlayer:SL01SU276540-H896345
-  * User: SL01SU276540-H896345
-  * Password: EtJ79F4RA33dXm2q
+    * Target IP: 10.2.62.78
+    * IQN: iqn.2005-05.com.softlayer:SL01SU276540-H896345
+    * User: SL01SU276540-H896345
+    * Password: EtJ79F4RA33dXm2q
 
 1. Enter the following based on the retrieved information:
 ```

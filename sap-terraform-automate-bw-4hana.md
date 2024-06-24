@@ -19,8 +19,19 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating SAP BW/4HANA on 3-tier {{site.data.keyword.cloud}} VPC with Terraform and Ansible  
+# Deploying SAP BW/4HANA on 3-tier {{site.data.keyword.cloud}} VPC (Terraform and Ansible)  
 {: #bw4hana-automation-on-vpc}
+
+
+
+## Single-host SAP HANA system
+{: #bw4hana-automation-single-hana-system}
+
+A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components:
+
+![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/sap-hana-vpc-std-pas-aas.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
+
+The scripts are designed to create a new VPC and install SAP (SAP BW/4HANA release) solution together with its dedicated DB Hana box in one task flow.
 
 ## What is created
 {: #bw4hana-automation-created}
@@ -48,25 +59,10 @@ The configuration and script files are provided in GitHub. There are two reposit
 * Using the bastion server CLI to run the Terraform scripts - [GitHub repository](https://github.com/IBM-Cloud/sap-bw4hana/tree/main/cli){: external}
 * Using Schematics user interface on {{site.data.keyword.cloud_notm}} - [GitHub repository](https://github.com/ibm-cloud/sap-bw4hana/tree/main/schematics){: external}
 
-## Terraform scripts
-{: #bw4hana-automation-terraform-scripts}
+## SAP Kits
+{: #bw4hana-automation-sap-kits}
 
-For SAP BW/4HANA virtual server instance on {{site.data.keyword.vpc_short}}, you modify the:
-* `terraform.tfvars` file to add your {{site.data.keyword.cloud_notm}} API key
-* `input.auto.tfvars` file to customize the resources for your solution. You specify zones, resource names, SSH keys, and SAP variables.
-
-All of the other configuration files are provided and do not need to be modified.
-
-The {{site.data.keyword.terraform-provider_full_notm}} on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account.
-
-## Single-host SAP HANA system
-{: #bw4hana-automation-single-hana-system}
-
-A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components:
-
-![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/sap-hana-vpc-std-pas-aas.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
-
-The scripts are designed to create a new VPC and install SAP (SAP BW/4HANA release) solution together with its dedicated DB Hana box in one task flow.
+For each {{site.data.keyword.cloud_notm}} region, IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment (Bastion) Server. All file archives are decompressed by Ansible during the automatic deploying process. For more information, see the readme file.
 
 ## Schematics deployment
 {: #bw4hana-automation-schematics}
@@ -108,10 +104,13 @@ To run the scripts to deploy the SAP BW/4HANA release on dedicated SAP HANA 2.0 
 
 The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account.
 
-## SAP Kits
-{: #bw4hana-automation-sap-kits}
+For SAP BW/4HANA virtual server instance on {{site.data.keyword.vpc_short}}, you modify the:
+* `terraform.tfvars` file to add your {{site.data.keyword.cloud_notm}} API key
+* `input.auto.tfvars` file to customize the resources for your solution. You specify zones, resource names, SSH keys, and SAP variables.
 
-For each {{site.data.keyword.cloud_notm}} region, IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment (Bastion) Server. All file archives are decompressed by Ansible during the automatic deploying process. For more information, see the readme file.
+All of the other configuration files are provided and do not need to be modified.
+
+The {{site.data.keyword.terraform-provider_full_notm}} on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account.
 
 ## Support - Schematics and Terraform
 {: #bw4hana-automation-support-schematics-terraform}
@@ -211,7 +210,7 @@ Use these steps to configure the SAP BW/4HANA on your existing VPC by using the 
 6.  Select **Install**. The deployment starts and you are directed to the Schematics page that displays the script log files for you to monitor the deployment progress.
 
 ## Procedure for Schematics interface
-{: #bw4hana-automation-schematics}
+{: #bw4hana-automation-schematics-procedure}
 {: ui}
 
 Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete. 
@@ -398,5 +397,4 @@ This document is referenced by:
 *	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
 *	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 *	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
-
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-14"
+lastupdated: 2024-06-24
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -160,7 +160,7 @@ This behavior maximizes the time that the secondary virtual IP resource is assig
 The cluster configuration for the Active/Active (read enabled) scenario is complete.
 
 ### Checking the cluster configuration
-{: #ha-rhel-hana-sr-aa-check-cluster-config }
+{: #ha-rhel-hana-sr-aa-check-cluster-config}
 
 On a cluster node, run the following command to check the status of the cluster resources.
 
@@ -267,7 +267,7 @@ Ticket Constraints:
 {: screen}
 
 ### Checking access to the read enabled secondary SAP HANA instance
-{: #ha-rhel-hana-sr-aa-check-access-read-enabled }
+{: #ha-rhel-hana-sr-aa-check-access-read-enabled}
 
 You can use SAP HANA system replication *Active/Active (read enabled)* to connect to the secondary system for improved overall performance.
 Two connection methods are available to access the read enabled secondary HANA instance:
@@ -293,7 +293,7 @@ The commands in the following two sections prompt for the password of the SAP HA
 The command output shows the hostname and the IP addresses of the SAP HANA system that ran the SQL statement.
 
 #### Checking access by using an explicit read-only connection
-{: #ha-rhel-hana-sr-aa-check-access-read-enabled-explicit-connection }
+{: #ha-rhel-hana-sr-aa-check-access-read-enabled-explicit-connection}
 
 Verify the connection to the secondary instance by using an explicit read-only connection.
 
@@ -318,7 +318,7 @@ HOST,KEY,VALUE
 {: screen}
 
 #### Checking access by using hint-based statement routing
-{: #ha-rhel-hana-sr-aa-check-access-read-enabled-statement-routing }
+{: #ha-rhel-hana-sr-aa-check-access-read-enabled-statement-routing}
 
 Verify the connection to the secondary instance by using the hint-based statement routing.
 

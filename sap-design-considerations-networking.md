@@ -29,7 +29,6 @@ In some regards, SAP workloads that use a Cloud Service Provider (such as {{site
 
 To assist your project's planning phase, the below sections provide {{site.data.keyword.ibm_cloud_sap}} portfolio design considerations for **Networking**.
 
-
 ## Preface: units of measure for data/information
 {: #networking-units-of-measure}
 
@@ -44,7 +43,6 @@ For example,:
 - 1000 Mbps (Megabits per second) also known as 1 Gbps (Gigabits per second), would be 120 MiB/s (Mebibyte per second)
 - 10 Gbps (Gigabits per second), would be 1200 MiB/s (Mebibyte per second)
 
-
 ## Networking connectivity considerations
 {: #network-connectivity}
 
@@ -57,7 +55,6 @@ In most circumstances for SAP workloads, a connection to the existing internal n
 These connectivity options are dependent on business requirements, for example, whether the business wants to use Cloud and also decrease security risk by isolating network flows through their existing networking structure and security. In these "disconnected" or "private-only" connectivity designs, it is best to request {{site.data.keyword.cloud}} for additional information and discuss your use cases.
 
 In addition, it is strongly not recommended by SAP to split the SAP System tiering across On-Premises location/s and Cloud locations and it is up to the business to evaluate this; for example, it is not recommended by SAP to retain SAP AnyDB run from infrastructure in an On-Premises location and connect to SAP NetWeaver run from infrastructure in a Cloud location. For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s this split of SAP System tiering is not supported.
-
 
 ### Bring-your-own network (Subnet/CIDR/IP address range)
 {: #network-connectivity-byo}
@@ -78,7 +75,6 @@ If you use a bring-your-own subnet range **which is** defined under [RFC 1918](h
 
 It is not supported to use a bring-your-own subnet range **not** defined under [RFC 1918](https://tools.ietf.org/html/rfc1918){: external} IANA reserved IPv4 private network address spaces because this would not permit connectivity to an existing internal network when used with a Public Gateway (PGW) and Floating IPs.
 
-
 #### Classic Infrastructure with VMware
 {: #network-connectivity-byo-classic-vmware}
 
@@ -88,7 +84,6 @@ If the existing business operates SAP on VMware, it is possible to use IBM Cloud
 
 More information and is described on [IBM Cloud for VMware Solutions - VMware HCX overview](/docs/vmwaresolutions?topic=vmwaresolutions-hcx_considerations).
 
-
 ## Network Topology considerations
 {: #network-topology}
 
@@ -96,18 +91,18 @@ Dependent on the count and configuration of SAP Systems that are combined with t
 
 Using the Enterprise Resource Planning (ERP) business application, for example, an SAP System hosting the Production instance that uses the SAP System Tiering approach using High Availability of SAP NetWeaver and SAP HANA:
 - SAP NetWeaver, there are at least four hosts instead of 1:
-  - Central Services (ASCS)
-  - Primary Application Server (PAS), also known as Central Instance (CI)
-  - Enqueue Replication Server Instance (ERS)
-  - Additional Application Server (AAS)
+    - Central Services (ASCS)
+    - Primary Application Server (PAS), also known as Central Instance (CI)
+    - Enqueue Replication Server Instance (ERS)
+    - Additional Application Server (AAS)
 - SAP HANA, there are at least 2 hosts (possibly 3) instead of 1:
-  - SAP HANA primary node _(using SAP HANA System Replication)_
-  - SAP HANA secondary failover node _(using SAP HANA System Replication)_
-  - SAP HANA tertiary disaster recovery failover node _(using SAP HANA System Replication)_
+    - SAP HANA primary node _(using SAP HANA System Replication)_
+    - SAP HANA secondary failover node _(using SAP HANA System Replication)_
+    - SAP HANA tertiary disaster recovery failover node _(using SAP HANA System Replication)_
 
   This describes 1 SAP System within the SAP Landscape. An SAP Landscape might use:
-  - One Track, 5 SAP Systems (Sandbox > Development > Testing > Staging > Production)
-  - Dual Track, 5 SAP Systems (Sandbox > New Feature Development + Maintenance Development > New feature testing + Maintenance testing > Staging > Production)
+    - One Track, 5 SAP Systems (Sandbox > Development > Testing > Staging > Production)
+    - Dual Track, 5 SAP Systems (Sandbox > New Feature Development + Maintenance Development > New feature testing + Maintenance testing > Staging > Production)
 
 **Therefore for an SAP Landscape potentially 30 to 50 instances of SAP, spread across 10-50 host servers (physical or virtualized) might be required.** This is before more business applications are added for specific business operations, industry, or geographic functions.
 
@@ -126,13 +121,14 @@ However, in the simplest scenario there might be one private network for all pur
 Depending on your operating system, SAP workload, and network connectivity, you might need to configure access to many more SAP and non-SAP systems. The following is a list of various management systems that your SAP workloads might require to operate:
 
 * OS packages update server, with the different subscription channels of the OS packages for SAP HANA and SAP NetWeaver.
-  * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers. To avoid a common issue that occurs when you use the AIX NIM service handler, see [Using the NIM service handler](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-nim_service_handler).
+    * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers. To avoid a common issue that occurs when you use the AIX NIM service handler, see [Using the NIM service handler](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-nim_service_handler).
 * Software and patches download server. When the software is downloaded onto the server, you can use various protocols to transfer the files such as SCP or SFTP to transfer the software to the target server for installation.
 * Time server (NTP), using NTP on {{site.data.keyword.cloud_notm}} private backbone, public internet NTP or private NTP host.
-  * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, see [Configuring the NTP client](/docs/sap?topic=sap-power-vs-sles-hana#power-vs-sles-hana-ntp_time_server) (Linux) or [Configuring the NTP client](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-ntp_time_server_netweaver) (AIX).
+    * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, see [Configuring the NTP client](/docs/sap?topic=sap-power-vs-sles-hana#power-vs-sles-hana-ntp_time_server) (Linux) or [Configuring the NTP client](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-ntp_time_server_netweaver) (AIX).
 * Gateway (and Proxy) and Firewall hosts
 * Bastion/Jump host. Enables secured pass-through to your Cloud resources from public internet or other network access; often this uses tightly secured SSH on a non-default port.
 * Jump host that is enabled with VNC or RDP. Enables GUI access to a target machine (if GUI and VNC or RDP is installed on the target).
+
 * VPN hosts. Enables secured connection to your existing internal network.
 * Network Routing hosts, via TelCo or Network Service Provider. Enables secured private high-throughput connection to your existing internal network.
 * Backup management service hosts
@@ -153,7 +149,6 @@ The following are specific configuration items that you need consideration when 
 *	[SAP Solution Manager](https://support.sap.com/en/alm/solution-manager.html){: external}. Access to the SAP Solution Manager has different connectivity requirements between an SAP Solution Manager and its managed systems. The differences depend on your usage scenario. These scenarios require an understanding of the required network connectivity.
 * If you are deploying public gateways or floating IPs, you need to look into the details of Network Address Translation (NAT) and the behavior of SAP applications. Refer to the [SAP document on NAT](https://wiki.scn.sap.com/wiki/display/ABAPConn/NAT+and+RFC){: external} to consider potential issues on the application layer, especially in the SAP Remote Function Calls (RFCs).
 
-
 ## Networking consumption considerations
 {: #network-consumption}
 
@@ -166,8 +161,8 @@ Traditional SAP workload network communication is relatively small with under 10
 
 However, there are much larger SAP workload network communications too consuming significantly more network traffic, such as:
 - SAPUI5 preinstall libraries and themes for SAP Fiori Launchpad and Apps
-  - 10 MiB - 25 MiB (estimate) per new session that is loaded from SAP web Assistant (also known as. XRay), these preinstall libraries are then cached by the browser. _Once cached the libraries are available for use in any new browser tab, even after browser restart or SAP Fiori logout; until browser cache cleared_
-  - 20 KiB - 500 KiB (estimate) per each new Fiori app that is loaded within the session
+    - 10 MiB - 25 MiB (estimate) per new session that is loaded from SAP web Assistant (also known as. XRay), these preinstall libraries are then cached by the browser. _Once cached the libraries are available for use in any new browser tab, even after browser restart or SAP Fiori logout; until browser cache cleared_
+    - 20 KiB - 500 KiB (estimate) per each new Fiori app that is loaded within the session
 - SAP HANA System Replication (HSR) Sync or Async, streaming Gigabyte's of data per month from primary to secondary (or tertiary) nodes
 
 With increased traffic of new design SAP software, it is possible to heavily exceed the amount of network traffic seen in past SAP usage.
@@ -176,15 +171,12 @@ Designing your SAP applications to use the {{site.data.keyword.cloud_notm}} priv
 
 You should estimate the amount of data that is transferred. During initial project implementation stages, this can be difficult. However at least by an order of magnitude estimate should be performed.
 
-
 ## Networking Throughput performance considerations
 {: #network-performance-throughput}
 
 SAP generally recommends 10 Gbps (redundant) network throughput for traffic between its application servers and SAP HANA databases, and for other SAP HANA clients, such as SAP Business Intelligence.
 
 For deployments of SAP NetWeaver using SAP AnyDB with local storage, even for three-tier setups, 1 Gbps networks are usually sufficient.
-
-
 
 ## Networking Latency performance considerations
 {: #network-performance-latency}
@@ -200,8 +192,6 @@ However, if designing High Availability for SAP HANA across multiple sites withi
 This is because {{site.data.keyword.cloud_notm}} seeks to ensure high availability of the platform, by using geographically dispersed site locations with fault tolerance (for example, different risk assessments). More information available on [How IBM Cloud ensures high availability and disaster recovery](/docs/overview?topic=overview-zero-downtime).
 
 In particular, for VPC Infrastructure the Availability Zones are geographically dispersed locations within the Region. For most workloads, this design provides more redundancy across the Region. However, SAP HANA System Replication requires low network latency, which can become difficult to meet the necessary Round Trip Time (RTT) metric due to current technology physical data transfer limitations of cabling from a physics perspective (that is, speed of light over fiber Optic cable).
-
-
 
 ## Networking Ports security considerations
 {: #network-security-ports}
@@ -244,12 +234,10 @@ The below table includes some of the key Ports to use with SAP Systems that use 
 | | SAP HANA XSA Instance 00 Dynamic Range Internal HTTPS for the connection from the client to the xscontroller-managed Web Dispatcher (Platform Router) for access to the application instance. | 510`00`-515`00` |
 | | SAP HANA XSA Instance 00 Internal HTTPS xsexecagent to xscontroller | 3`00`29 |
 | | SAP HANA XSA Instance 00 Web Dispatcher HTTP(S) routing | 3`00`33 |
-| SAP NetWeaver JAVA | | |
-| | SAP NetWeaver AS JAVA P4 Port | 50304 |
-| | SAP NetWeaver AS JAVA P4 Port | 50404 |
+| SAP NetWeaver Java | | |
+| | SAP NetWeaver AS Java P4 Port | 50304 |
+| | SAP NetWeaver AS Java P4 Port | 50404 |
 {: caption="Table 1. Common Ports used with SAP Technical Applications" caption-side="top"}
-
-
 
 ## Networking Traffic Segregation security considerations
 {: #network-security-segregation}
@@ -257,9 +245,9 @@ The below table includes some of the key Ports to use with SAP Systems that use 
 You can separate different network traffic types in your landscape, either because of security restrictions or because of throughput considerations.
 
 Segregation of networks is useful for the following SAP workload use cases:
-  *	Multiple servers that exchange data
+*	Multiple servers that exchange data
     * SAP Systems in a three-tier logical architecture, where the SAP database and SAP application instances are on different hosts.
-  *	Multiple SAP Systems that exchange large amounts of data
+*	Multiple SAP Systems that exchange large amounts of data
     * Database servers, which need to have low network latency and high network throughput to network block/file storage therefore need to avoid firewalls. However the database still needs protection for other systems and networks access.
 
 To use segregation of networks effectively, interconnectivity must be allowed under specific conditions.
@@ -276,7 +264,6 @@ The Network ACL or Security Group would allow specific network interconnectivity
 However, a virtual server in VPC infrastructure cannot have multiple virtual network interfaces (vNICs) assigned to multiple subnets.
 {: note}
 
-
 ### Classic infrastructure separation of subnets
 {: #network-security-classic-separate-subnets}
 
@@ -284,44 +271,43 @@ To separate traffic, use multiple VLAN and subnets therein.
 
 Each VLAN is either public or private and is specific to the data center and the data center Pod. The VLAN can contain multiple subnets. These subnets within the VLAN are enabled to communicate with each other, unless blocked by a Gateway Appliance.
 
-Therefore, two bare metal hosts in classic infrastructure might have physical network interface cards that are assigned to different VLAN and subnets from each other.
+Therefore, two bare metal hosts  in classic infrastructure might have physical network interface cards that are assigned to different VLAN and subnets from each other.
 
 The Gateway Appliance would allow specific network interconnectivity flows across these separate subnets.
 
 A bare metal server by default (can change depending on the hardware specifications) use physical network interface cards (NICs) and consume four ethernet ports:
 - `eth0` NIC / `eth2` redundant NIC
-  - Public VLAN, as DMZ trunked to Gateway Appliance
-    - Public primary subnet
-      - Public IP behind DMZ
+    - Public VLAN, as DMZ trunked to Gateway Appliance
+        - Public primary subnet
+          - Public IP behind DMZ
 - `eth1` NIC / `eth3` redundant NIC
-  - Private VLAN, as DMZ trunked to Gateway Appliance
-    - Private primary subnet
-      - Private IP behind DMZ
+    - Private VLAN, as DMZ trunked to Gateway Appliance
+        - Private primary subnet
+          - Private IP behind DMZ
 - `mgmt0`	--- IPMI (Admin Network Zone)
 
 Bare metals can be reconfigured from default specific if the hardware specifications allow for it, with more subnets. This allows for maximum separation of traffic and can increase performance by using different network interface cards (NICs) to handle more network throughput in parallel. An example of this reconfiguration might be:
 
 - `eth0` NIC / `eth2` redundant NIC
-  - Public VLAN, as DMZ trunked to Gateway Appliance
-    - Public primary subnet
-      - Public IP behind DMZ
+    - Public VLAN, as DMZ trunked to Gateway Appliance
+        - Public primary subnet
+          - Public IP behind DMZ
 - `eth1` NIC / `altered to eth4` redundant NIC
-  - Private VLAN, as DMZ trunked to Gateway Appliance
-    - Private primary subnet
-      - Private IP behind DMZ
+    - Private VLAN, as DMZ trunked to Gateway Appliance
+        - Private primary subnet
+          - Private IP behind DMZ
 - `eth3` additional NIC / `eth5` additional redundant NIC
-  - Private VLAN
-    - Private secondary portable subnet A
-      - Private IP behind DMZ
-    - Private secondary portable subnet B
-      - Private IP behind DMZ
+    - Private VLAN
+        - Private secondary portable subnet A
+          - Private IP behind DMZ
+        - Private secondary portable subnet B
+          - Private IP behind DMZ
 - `mgmt0`	--- IPMI (Admin Network Zone)
 
 Such reconfiguration, as the example, will not be available in all scenarios.
 {: note}
 
 For SAP HANA and the high network performance and security that is required, additional VLANs can assist. Read the recommendations by SAP for on-premises environments on [SAP HANA Network Requirements](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html){: external} and identify the suitable network configuration for meeting your business needs.
-
 
 ### VMware on classic infrastructure separation of subnets
 {: #network-security-vmware-separate-subnets}

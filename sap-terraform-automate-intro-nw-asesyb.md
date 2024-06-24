@@ -19,10 +19,10 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Introduction to {{site.data.keyword.cloud_notm}} VPC and SAP on {{site.data.keyword.cloud_notm}} for SAP NetWeaver 7.x and ASE SYB
+# Introduction to SAP NetWeaver and ASE SYB DB 2-tier and 3-tier on {{site.data.keyword.cloud_notm}} VPC 
 {: #intro-automate-nw-asesyb-terraform-ansible}
 
-You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. The VPC provisioned includes virtual server instances with high network performance. The VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers. After the VPC is provisioned, the scripts use the Ansible Playbook to install the SAP system.  IBM Cloud VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.
+You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. The VPC provisioned includes virtual server instances with high network performance. The VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers. After the VPC is provisioned, the scripts use the Ansible Playbook to install the SAP system. IBM Cloud VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
 
 ## {{site.data.keyword.cloud_notm}} VPC introduction
 {: #intro-nw-asesyb-cloud-vpc}
@@ -42,11 +42,43 @@ SAP NetWeaver is the core foundation of the SAP technology stacks and is the pla
 
 For more information about SAP system architectures on {{site.data.keyword.cloud_notm}} VPC, see the infrastructure reference architectures for SAP for each supported database type. For example, [SAP NetWeaver 7.x on UNIX with ASE SYB on {{site.data.keyword.cloud_notm}} VPC](/docs/sap?topic=sap-sap-refarch-nw-sybase) is the dedicated reference architecture for this SAP solution.
 
+The SAP installation media that are used for this deployment are the default media for SAP NetWeaver 7.5 with ASE SYB v16. The media are available at the SAP Support Portal under INSTALLATION AND UPGRADE area. You provide the installation media as an input parameter for Terraform.
+
+This automated solution can be deployed in 2 scenarios: standard deployment and distributed deployment.
+
+### Standard deployment
+{: #intro-stand-depl}
+
+In a standard system, all main instances run on a single virtual server instance (VPC) within a private subnet. You can install a central system on a single host.
+
+Instances available in standard deployment:
+
+* ABAP central services instance (ASCS instance) Contains the ABAP message server and the ABAP enqueue server.
+* SAP recommends installing the ASCS instance because ASCS is used to cluster the message server and enqueue server separately from the central instance. However, you can also install your SAP system without the ASCS instance. In this case, follow the instructions in Installing a Central or Distributed System Without the ASCS Instance.
+* Optionally, you can install the ASCS instance with an embedded SAP Web Dispatcher. For more information, see ASCS Instance with Embedded SAP Web Dispatcher.
+* Database instance (DB instance)
+* Central instance
+
+Additionally, you can install one or more dialog instances. For more information, see SAP NW with SYB reference architecture section [Architectural design on IBM Cloud VPC on Unix](/docs/sap?topic=sap-sap-refarch-nw-sybase).
+
 Manually deploying a VPC and installing an SAP system can be time-consuming. The Terraform automation assures not only a much quicker implementation, but also a standardized and less error-prone deployment. Terraform and Ansible are used for automating the deployment processes.
 
-The Terraform scripts solution provides the automated deployment of a single host with SAP NetWeaver with ASE SYB on the Red Hat Enterprise Linux 8 and SUSE 15 for SAP Applications.
+### Distributed deployment 
+{: #intro-dist-depl}
 
-The SAP installation media that are used for this deployment are the default media for SAP NetWeaver 7.5 with ASE SYB XXXX.XXX. The media are available at the SAP Support Portal under INSTALLATION AND UPGRADE area. You provide the installation media as an input parameter for Terraform.
+In a distributed system, every instance can run on a separate host (VSI).
+Instances installed in a distributed hosts architecture include:
+
+* Database instance (DB instance)
+* Central instance
+
+Additionally, you can install one or more dialog instances. For more information, see SAP NW with SYB reference architecture section [Architectural design on IBM Cloud VPC on Unix](/docs/sap?topic=sap-sap-refarch-nw-sybase).
+
+The Terraform scripts solution provides the automated deployment of a:
+* Distributed host for SAP NetWeaver App instance and a 
+* Second host with an ASE SYB database instance on the Red Hat Enterprise Linux 8 and SUSE 15 for SAP Applications.
+
+The SAP installation media that are used for this deployment are the default media for SAP NetWeaver 7.5 with ASE SYB ASE SYB v16. The media are available at the SAP Support Portal under INSTALLATION AND UPGRADE area. You provide the installation media as an input parameter for Terraform.
 
 ## Ansible for SAP installation
 {: #intro-nw-asesyb-sap-ansible}
@@ -73,4 +105,5 @@ After Bastion VPC deployment is complete, you must download the SAP Kits to the 
 
 To save costs the Bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on {{site.data.keyword.cloud_notm}} VPC cloud. Or, you can keep the Bastion server and use it as a jump host for that specific region.
 
-This automation is offered free of charge however, the provisioned infrastructure comes at cost. {: note}
+This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
+{: note}

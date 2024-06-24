@@ -31,7 +31,6 @@ Several {{site.data.keyword.ibm_cloud_sap}} infrastructure options are certified
 
 Before you implement SAP Business One, considerations need to be made how are you going to use the application. For example, how many concurrent users will use the application at one time? Do you need only the Financial Management and Sales and Customer Management modules to start? Maybe you need all the modules (for more information about modules, see [SAP Business One Features](https://www.sap.com/products/business-one/features.html){: external}).
 
-
 ## SAP Business One installation guides
 {: #b1-installation-guides}
 
@@ -59,17 +58,14 @@ More information on SAP HANA versions can be found in
 
 The [SAP Business One community page](https://community.sap.com/topics/business-one){: external} has links to blogs where community members share their experiences with implementing and running SAP Business One.
 
-
 ### SAP Business One upgrade guides
 {: #b1-upgrade-guides}
 
 SAP Business One offers you several upgrade options when a new release is available.
 
 
-<!--- For more information, see the [SAP Business One Upgrade Strategy](https://help.sap.com/doc/011000358700001396142012e/9.3/en-US/B1_Upgrade_Strategy.pdf){: external} guide. Note: the hyperlink is momentarily not available... discussing with SAP (RV) --->
 
 These options are available if you're using SAP HANA or Microsoft SQL. See the [SAP Business One upgrade patches and programs information](https://support.sap.com/en/offerings-programs/support-small-medium-enterprises/business-one/upgrades-patches.html){: external} for more detail on upgrades, patches, and hot fixes.
-
 
 ## SAP Business One training information
 {: #b1-training}
@@ -77,7 +73,6 @@ These options are available if you're using SAP HANA or Microsoft SQL. See the [
 Training is available on the integration framework for SAP Business One. The self-paced, online course takes you through scenario design basics, the integration of SAP Business One, and integrating the SAP Business One database. For more information, see the [OpenSAP courses on SAP Business One](https://open.sap.com/courses/ifb1){: external}.
 
 Training is also available on the different SAP Business One modules. For more information about courses, see [SAP Training for Business One](https://training.sap.com/businessone){: external} or the online training available with SAP Learning Hub.
-
 
 ## Infrastructure options for SAP Business One
 {: #b1-iaas}

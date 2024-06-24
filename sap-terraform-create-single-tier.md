@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-06"
+lastupdated: "2023-07-05"
 
 subcollection: sap
 
@@ -15,12 +15,12 @@ subcollection: sap
 {:note: .note}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{:tip: .tip}
+{:tip: .tip} 
 
 # Creating single-tier VPC for SAP on {{site.data.keyword.cloud}} VPC with Terraform
 {: #create-terraform-single-tier-vpc-sap}
 
-Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel Xeon CPUs and additional Intel technologies.
+Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
 {: shortdesc}
 
 For more information about Terraform on {{site.data.keyword.cloud}}, see [Terraform on {{site.data.keyword.cloud_notm}} getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
@@ -127,9 +127,10 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
    ```
    terraform apply
    ```
-   The VPC and components are created and you see output similar to the terraform plan output.  
+   The VPC and components are created and you see output similar to the terraform plan output.
 
-This automation is offered free of charge however, the provisioned infrastructure comes at cost.{: note}
+This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
+{: note}
 
 ## Next steps
 

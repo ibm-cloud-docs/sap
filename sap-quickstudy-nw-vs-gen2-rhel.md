@@ -32,14 +32,14 @@ completion-time: 90m
 *A Quick Study, someone who is able to learn new things quickly.*
 {: note}
 
-These Quick Study Tutorials provide a single sample configuration with less detailed instructions to provide an introduction for customers who prefer hands-on tasks to increase their pace of learning.
+These Quick Study Tutorials provide a single sample configuration, with less detailed instructions, as an introduction for customers who prefer hands-on tasks to increase their pace of learning.
 {: shortdesc}
 
 The following information provides an introduction for customers who are new to {{site.data.keyword.vpc_full}} (VPC) Gen 2 environment. Two sample configurations are provided to help you through the ordering process to the start of the SAP installation.
 
 The first configuration sample is simple, a single node 128 GB, 32 vCPU server. The second is an advanced configuration of two nodes by adding a second virtual server to the landscape. The sample layouts might not be your preferred layout. The purpose of this guidance is to show you two possibilities if you are not experienced with the Linux&reg; operating system or with VPC Gen 2.
 
-![Figure 1. {{site.data.keyword.cloud_notm}} VPC](/images/quickstudy-intel-vs-gen2-image1.png "{{site.data.keyword.cloud_notm}} VPC Gen 2"){: caption="Figure 1. {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+![Figure 1. {{site.data.keyword.cloud_notm}} VPC](/images/quickstudy-intel-vs-gen2-image1.png "{{site.data.keyword.cloud_notm}} VPC Gen 2"){: caption="Figure 1. {{site.data.keyword.cloud_notm}} VPC" caption-side="bottom"}
 
 
 ## Securing Access
@@ -75,8 +75,8 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 
 1. _Optional: Default address prefixes_. Disable this option if you don't want to assign default subnet address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own subnet address prefixes. If you do disable this option, the **New subnet for VPC** section will be hidden, and will require manual definition after the VPC is created. Leave the default value.
 
-  If you want to create the subnet and your own subnet address prefixes later, become familiar with important details of VPC networking. For more information, see [About networking for VPC](/docs/vpc?topic=vpc-about-networking-for-vpc) and [Designing an addressing plan for a VPC](/docs/vpc?topic=vpc-vpc-addressing-plan-design).
-  {: note}
+    If you want to create the subnet and your own subnet address prefixes later, become familiar with important details of VPC networking. For more information, see [About networking for VPC](/docs/vpc?topic=vpc-about-networking-for-vpc) and [Designing an addressing plan for a VPC](/docs/vpc?topic=vpc-vpc-addressing-plan-design).
+    {: note}
 
 ### New subnet for VPC
 {: #new-subnet-for-vpc-sample}
@@ -124,8 +124,8 @@ Use the following steps to create a virtual server instance.
 
 ![Figure 3. Catalog image for SAP NetWeaver](/images/quickstudy-intel-vs-gen2-image8.png "Catalog image for SAP NetWeaver"){: caption="Figure 3. Catalog image for SAP NetWeaver" caption-side="bottom"}
 
-  For every SUSE Linux&reg; Enterprise and Red Hat&reg; Enterprise Linux&reg; version there are two different Catalog Images available each: one for SAP HANA and one for SAP NetWeaver (Applications). In these images, the specific repositories are enabled, so you can install the OS packages that are required to install SAP HANA or SAP NetWeaver.
-  {: note}
+    For every SUSE Linux&reg; Enterprise and Red Hat&reg; Enterprise Linux&reg; version there are two different Catalog Images available each: one for SAP HANA and one for SAP NetWeaver (Applications). In these images, the specific repositories are enabled, so you can install the OS packages that are required to install SAP HANA or SAP NetWeaver.
+    {: note}
 
 1. Click **All profiles** > **Balanced** and select *bx2-32x128*. For more information about SAP-certified profiles, see [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
 
@@ -418,7 +418,7 @@ Again, you need to determine the `/dev/disk/by-uuid` paths, as previously shown,
    /usr/sap/trans 10.17.139.0/24(rw,no_root_squash,sync,no_subtree_check)
    ```
 
-  You need to adapt the subnet in the previous example to your actual IP range and subnet mask. Replace the value `C10` with the SAP System ID for your SAP system. `C10` is a sample value. You must create the directory before you export it.
+    You need to adapt the subnet in the previous example to your actual IP range and subnet mask. Replace the value `C10` with the SAP System ID for your SAP system. `C10` is a sample value. You must create the directory before you export it.
 
 1. Run on the following command from the command line.
    ```
@@ -454,9 +454,9 @@ Your servers are now prepared to host the components of a distributed SAP instal
 {: step}
 
 An SAP installation requires that certain prerequisites are met regarding the packages that are installed on the OS and the OS daemons that are running. See the latest installation guides and support notes from SAP for an up-to-date list of these prerequisites. Currently, the following extra packages are required for an SAP NetWeaver installation:
-  - `compat-sap-c++-7`: Achieves compatibility of the C++ runtime with the compilers that are used by SAP
-  - `uuidd`: Maintains OS support for the creation of UUIDs
-  - `csh`: C shell support for the OS
+    - `compat-sap-c++-7`: Achieves compatibility of the C++ runtime with the compilers that are used by SAP
+    - `uuidd`: Maintains OS support for the creation of UUIDs
+    - `csh`: C shell support for the OS
 
 1. Follow [SAP note 2195019](https://launchpad.support.sap.com/#/notes/2195019){: external} and install package `compat-sap-c++-7`. Create a specific soft-link, which is required by the SAP binary files.
    ```

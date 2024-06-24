@@ -39,7 +39,7 @@ Before you start the software deployment of SAP ASE, ensure that:
 ### Documentation of SAP ASE
 {: #anydb-sap-ase-documentation}
 
-A good entry point into the documentation is the [SAP Community page for SAP Adaptive Server Enterprise (ASE)](https://community.sap.com/topics/applications-on-ase)){: external}.
+A good entry point into the documentation is the [SAP Community page for SAP Adaptive Server Enterprise (ASE)](https://community.sap.com/topics/applications-on-ase){: external}
 
 SAP ASE documentation:
 - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE)](https://help.sap.com/viewer/product/SAP_ASE/latest/en-US){: external}
@@ -49,8 +49,7 @@ SAP ASE documentation:
 - [SAP Note 1748888 - Installing Systems Based on NW 7.3 and Higher: SAP ASE](https://launchpad.support.sap.com/#/notes/1748888){: external}
 - [SAP Note 2489781 - SAP ASE 16.0 SP03 Supported Operating Systems and Versions](https://launchpad.support.sap.com/#/notes/2489781){: external}
 
-For a current overview of the combinations of SAP ASE, SAP NetWeaver (or other SAP components), and operating systems - see the [Product Availability Matrix (PAM)](http://support.sap.com/pam){: external}.
-
+For a current overview of the combinations of SAP ASE, SAP NetWeaver (or other SAP components), and operating systems - see the [Product Availability Matrix (PAM)](http://support.sap.com/pam){: external}
 
 SAP ASE and SAP NetWeaver **on UNIX/Linux**:
 - [Installation of SAP Systems Based on the Application Server **ABAP** of SAP NetWeaver 7.3 to 7.52 on UNIX/Linux: SAP Adaptive Server Enterprise](https://help.sap.com/viewer/e345db692e3c43928199d701df58c0d8/CURRENT_VERSION/en-US){: external}
@@ -60,17 +59,15 @@ SAP ASE and SAP NetWeaver **on Windows**:
 - [Installation of SAP Systems Based on the Application Server **ABAP** of SAP NetWeaver 7.3 to 7.52 on Windows: SAP Adaptive Server Enterprise](https://help.sap.com/viewer/b0c437ae5d1a4c70847bb55973923352/CURRENT_VERSION/en-US)
 - [Installation of SAP Systems Based on the Application Server **Java** of SAP NetWeaver 7.3 to 7.5 on Windows: SAP Adaptive Server Enterprise](https://help.sap.com/viewer/2b04bc65d45544bb8ba67c258d4fb2e2/CURRENT_VERSION/en-US)
 
-
 ### SAP ASE using Intel Virtual Servers
 {: #anydb-sap-ase-intel-vs-vpc}
 
 See [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported SAP ASE database versions.
 
-
 ### SAP ASE using IBM Power Virtual Servers
 {: #anydb-sap-ase-power-vs}
 
-This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
+This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services.
 {: note}
 
 See [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported SAP ASE database versions on AIX running on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.

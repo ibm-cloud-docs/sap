@@ -29,14 +29,12 @@ Deploying SAP AnyDB on {{site.data.keyword.cloud_notm}} is similar to deploying 
 
 To assist your project's planning phase, extra design considerations are listed for **SAP AnyDB - SAP Max DB** with {{site.data.keyword.ibm_cloud_sap}}.
 
-
 ## Overview of SAP MaxDB with {{site.data.keyword.cloud}}
 {: #anydb-sap-maxdb-overview}
 
 Before you start deploying SAP MaxDB software, be sure to:
 - Check all relevant SAP MaxDB information and prerequisites (for example, SAP Notes)
 - Verify that all required packages are installed for the relevant OS that that is used for SAP MaxDB
-
 
 ### Documentation of SAP MaxDB
 {: #anydb-sap-maxdb-documentation}
@@ -54,7 +52,6 @@ For a current overview of the combinations of SAP MaxDB, SAP NetWeaver (or other
 {: #anydb-sap-maxdb-bare-metal}
 
 See [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external} for supported SAP MaxDB versions.
-
 
 ### SAP MaxDB using Intel Virtual Servers
 {: #anydb-sap-maxdb-intel-vs-gen2}

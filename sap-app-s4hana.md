@@ -23,7 +23,7 @@ subcollection: sap
 # SAP S/4HANA
 {: #s4hana}
 
-SAP S/4HANA is the leading enterprise resource planning (ERP) software that is designed for the largest Enterprises, in any country worldwide within any industry, with extensive business processes and customization.
+SAP S/4HANA is the leading Enterprise Resource Planning (ERP) software that is designed for the largest enterprises, in any country worldwide within any industry, with extensive business processes and customization.
 {: shortdesc}
 
 ERP software integrates all business management and operations into one cohesive application to coordinate business execution, such as accounting and financials, purchasing and inventory, sales and customer relationships. An ERP can be considered a hub of all business operations. Various applications and all parts of the business can be connected into ERP, from the factory to the headquarters. The ERP software as a whole can have many add-on components (functional and industry) that provide different business functions for different lines of businesses and industries.
@@ -64,18 +64,24 @@ Regarding SAP S/4HANA, the {{site.data.keyword.ibm_cloud_sap}} portfolio documen
 
 In addition to selecting a variant of SAP S/4HANA (the operational model and the deployment model), many SAP-run customers need to make several other decisions, for example:
 
-**SAP S/4HANA adoption strategy**
+#### **SAP S/4HANA adoption strategy**
+{: #s4hana-variants-adoption}
+
 - New SAP customer first-time implementation
 - ERP Migration (Brownfield)
   - System Conversion (also known as Brownfield)
   - Selective Data Transition (that uses Shell Conversion or Mix&Match)
 - ERP Re-Implementation (Greenfield)
 
-**SAP S/4HANA delivery model for the project implementation, from the list of SAP Partners**
+#### **SAP S/4HANA delivery model for the project implementation, from the list of SAP Partners**
+{: #s4hana-delivery-model}
+
 - A Global Systems Integrator (GSI) for SAP
 - A Managed Services Provider (MSP) for SAP
 
-**SAP S/4HANA maintenance model for ongoing support, from the list of SAP Partners**
+#### **SAP S/4HANA maintenance model for ongoing support, from the list of SAP Partners**
+{: #s4hana-maintenance-model}
+
 - An Application Management Services provider (AMS) for SAP
 - A Managed Services Provider (MSP) for SAP
 
@@ -88,6 +94,7 @@ Awards for these SAP Partners are shown on the [SAP Partners information page](h
 These choices particularly affect how your SAP S/4HANA "AnyPremise" Edition on Cloud IaaS is deployed, operated, and maintained. For example, a GSI has exceeding depth of experience in implementation, functional configuration and development - with the flexibility to create a bespoke solution for the business requirements. However, the GSI has less experience in maintenance. Conversely, an MSP has more restrictions on the implementation to ensure more successful maintenance.
 
 Given the division of skills in traditional on-premises data center implementations of SAP workloads during previous decades, there were multiple tasks handled by the Data Center Provider. It is suggested to consider the skills of your SAP Partners in the following areas because the Cloud Service Provider is not responsible for those activities previously fullfilled by the Data Center Provider:
+
 * Cloud Account and IAM setup
 * Networking setup (including security)
 * Storage setup
@@ -95,7 +102,6 @@ Given the division of skills in traditional on-premises data center implementati
 * OS Configuration (including security)
 
 Further information on [Moving SAP Workloads](/docs/sap?topic=sap-faq-moving-sap-workloads) is described in the FAQ.
-
 
 ## Compute considerations
 {: #s4hana-compute}
@@ -127,13 +133,13 @@ During SAP Sizing, decision making, and Infrastructure selection, SAP S/4HANA is
 
 It is important to note that if you are using SAP HANA in scale-out deployment the transaction throughput of the system might be affected.
 
-[SAP Note 2428711 - S/4HANA Scale-Out Sizing](https://launchpad.support.sap.com/#/notes/2428711){: external} limits an SAP HANA scale-out to up to four nodes in total. This limit applies to S/4HANA deployments on IBM Cloud to prevent our customers from experiencing transactional throughput issues. {{site.data.keyword.ibm_cloud_sap}} does not actively publish those specifications.
+[SAP Note 2428711 - S/4HANA Scale-Out Sizing](https://launchpad.support.sap.com/#/notes/2428711){: external} limits an SAP HANA scale-out to up to four nodes in total. This limit applies to S/4HANA deployments on {{site.data.keyword.cloud_notm}} to prevent our customers from experiencing transactional throughput issues. {{site.data.keyword.ibm_cloud_sap}} does not actively publish those specifications.
 
-Instead, we advise customers who have exceptionally large SAP HANA requirements for running an SAP S/4HANA production instance (particularly those requirements over 14-18TB of DRAM) to discuss their requirements with IBM-SAP. Discussions with IBM and SAP worldwide technical experts can provide more accurate advice on the business problem and identify alternative paths forward.
+Instead, we advise customers who have exceptionally large SAP HANA requirements for running an SAP S/4HANA production instance (particularly those requirements over 14-18TB of DRAM) to discuss their requirements with IBM-SAP. Discussions with {{site.data.keyword.IBM_notm}} and SAP worldwide technical experts can provide more accurate advice on the business problem and identify alternative paths forward.
 
 Alternates can include, the creation of a Hybrid Cloud model with the use of the available high-performance scale-up options in traditional datacenter deployments.
 
-An example of Hybrid Cloud used with SAP S/4HANA when exceeding 14-18TB of DRAM, would be the use of IBM Power9 hardware provided by {{site.data.keyword.IBM_notm}} Power Systems, deployed into Traditional On-Premises datacenters. The maximum **IBM Power9 hardware can support 28TB of DRAM for SAP HANA 2.0 scale-up**. These complementary offerings are already succesfully running many customers SAP workloads at these largest memory footprints, through a close partnership and engineering discussions with SAP, therefore may suit the business needs for such exceptional scale-up requirements. For more information regarding SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems, see [SAP Note 2188482 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems: Allowed Hardware](https://launchpad.support.sap.com/#/notes/2188482){: external}.
+An example of Hybrid Cloud used with SAP S/4HANA when exceeding 14-18TB of DRAM, would be the use of {{site.data.keyword.IBM_notm}} Power9 hardware provided by {{site.data.keyword.IBM_notm}} Power Systems, deployed into Traditional On-Premises datacenters. The maximum **IBM Power9 hardware can support 28TB of DRAM for SAP HANA 2.0 scale-up**. These complementary offerings are already succesfully running many customers SAP workloads at these largest memory footprints, through a close partnership and engineering discussions with SAP, therefore may suit the business needs for such exceptional scale-up requirements. For more information regarding SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems, see [SAP Note 2188482 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems: Allowed Hardware](https://launchpad.support.sap.com/#/notes/2188482){: external}.
 
 ## SAP NetWeaver considerations
 {: #s4hana-netweaver}
@@ -151,6 +157,6 @@ For SAP S/4HANA "AnyPremise" 20xx (for example, 2020), the **SAP S/4HANA Server 
 - SAP ABAP Platform 20xx and SAP Kernel 7.7x _(the version number of these components are only shown after the installation is completed)_
 - ADT for Eclipse
 - Other additional technology components to run SAP S/4HANA
--
-For this reason, when you are running older SAP S/4HANA versions (such as 1511, 1610, 1709) it is not possible to upgrade SAP NetWeaver AS ABAP 7.5+ in isolation. All upgrades must be handled by using SAP Maintenance Planner for the entire stack on a specified OS (for example, Red Hat Linux&reg;, SUSE Linux, IBM AIX, Windows Server).
+
+For this reason, when you are running older SAP S/4HANA versions (such as 1511, 1610, 1709) it is not possible to upgrade SAP NetWeaver AS ABAP 7.5+ in isolation. All upgrades must be handled by using SAP Maintenance Planner for the entire stack on a specified OS (for example, Red Hat Linux&reg;, SUSE Linux, {{site.data.keyword.IBM_notm}} AIX, Windows Server).
 {: important}

@@ -59,7 +59,7 @@ Please regard the supported operated systems mentioned in the footnotes.
 ## Bare Metal profile names
 {: #hana-iaas-intel-bm-names-pmem}
 
-The Bare Metal profile names are contextual and sequential. For more information, see [Understanding Bare Metal profile names](https://test.cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-names) 
+The Bare Metal profile names are contextual and sequential. For more information, see [Understanding Bare Metal profile names](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-names) 
 
 ## Storage specifications
 {: #hana-iaas-intel-optane-storage-specs-optane}

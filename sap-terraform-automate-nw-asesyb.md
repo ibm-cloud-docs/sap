@@ -22,7 +22,7 @@ subcollection: sap
 # Deploying SAP NetWeaver 7.x and ASE SYB on an existing {{site.data.keyword.cloud_notm}} VPC (Terraform and Ansible)
 {: #automate-nw-asesyb-terraform-ansible}
 
-Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.
+Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
 
 You can use Terraform scripts to create either: 
 *   A single-tier VPC and create the SAP and ASE SYB infrastructure on the VPC within same host (VSI) 

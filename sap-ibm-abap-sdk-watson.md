@@ -53,13 +53,13 @@ The ABAP SDK for IBM Watson is available in two variants:
 
 It is tested with:
 - **SAP Business Applications**
-  - SAP S/4HANA
-  - SAP ECC
+    - SAP S/4HANA
+    - SAP ECC
 - **SAP Development Applications**
-  - SAP Cloud Platform ABAP Environment
+    - SAP Cloud Platform ABAP Environment
 - **SAP Development methods, frameworks, and tools**
-  - ABAP RESTful Application Programming Model
-  - SAP Fiori UX with SAPUI5 side-by-side extensions
+    - ABAP RESTful Application Programming Model
+    - SAP Fiori UX with SAPUI5 side-by-side extensions
 
 
 And it adheres to SAP coding standards for application development, such as:

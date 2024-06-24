@@ -45,5 +45,5 @@ For a typical development environment of SAP Commerce, it is straightforward (co
 
 More information is available on [cxwiki.sap.com](https://cxwiki.sap.com) and [sap.com/cxworks](https://www.sap.com/cxworks).
 
-{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are not available for SAP Commerce
+{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are not available for SAP Commerce.
 {: note}

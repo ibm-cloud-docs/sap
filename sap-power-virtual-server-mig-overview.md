@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2024-03-04"
+  years: 2024, 2024
+lastupdated: 2024-06-21
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Hybrid Cloud, Migration, AIX, Linux, RHEL, SuSE
 
@@ -34,7 +34,9 @@ Deciding on the network connection option and estimating bandwidth requirements 
 
 Multiple options to migrate SAP S/4HANA between sites are possible. The following solution reduces SAP application downtime by using SAP HANA System Replication (HSR):
 
-1. Check the [Pre-Migration Steps](/docs/sap?topic=sap-sapmig-db-hana-presteps-source) section.
-1. Install and prepare a target system in {{site.data.keyword.powerSys_notm}} as described in the [Creating the Target SAP HANA System on IBM Power Systems Virtual Servers pre-step](/docs/sap?topic=sap-sapmig-db-hana-presteps-target) section.
-1. Migrate the application data according to [SAP HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana-replication).
+1. Check the SAP S/4HANA [Pre-Migration Steps](/docs/sap?topic=sap-sapmig-db-hana#sapmig-db-hana-presteps-source) section.
+1. Install and prepare a target system in {{site.data.keyword.powerSys_notm}} as described in the [Creating the Target SAP HANA System on IBM Power Systems Virtual Servers pre-step](/docs/sap?topic=sap-sapmig-db-hana#sapmig-db-hana-presteps-target) section.
+1. Migrate the application data according to [SAP HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana#migrating-sap-s4hana-by-using-sap-hana-system-replication).
 1. Perform an [SAP HANA System Replication Takeover](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/123f2c8579fd452da2e7debf7cc2bd93.html){: external} to activate services on the target site and make sure that clients connect to the new location.
+
+

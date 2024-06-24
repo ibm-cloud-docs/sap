@@ -27,7 +27,7 @@ subcollection: sap
 SAP HANA is one of several databases that can be deployed on SAP NetWeaver in the {{site.data.keyword.cloud}}. SAP HANA is an in-memory database installed on a dedicated database server. The main architecture deployments for SAP HANA are single-host or multiple-host systems. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, Java, and SAP products based on these application server stacks. 
 
 ## SAP NetWeaver architecture
-{: #sap-netweaver-arch-syb}
+{: #sap-netweaver-arch-hana}
 
 SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for Advanced Business Application Programming (ABAP) and Java applications. SAP NetWeaver components are built on the SAP NetWeaver Application Server and are written in ABAP or Java Platform, Enterprise Edition. ABAP systems, Java systems, and dual-stack systems are distinct systems.
 
@@ -107,7 +107,7 @@ Optionally, you can install the ASCS instance with an integrated:
 * SAP Web Dispatcher. For more information, see [ASCS Instance with Integrated SAP Web Dispatcher](https://help.sap.com/viewer/910828cec5d14d6685da380aec1dc4ae/CURRENT_VERSION/en-US/2e708e2d42134b4baabdfeae953b24c5.html). 
 * Gateway. For more information, see [ASCS Instance with Integrated Gateway](https://help.sap.com/viewer/ce9e270ad34949969c16d09d1b099a26/CURRENT_VERSION/en-US/bf1d359ac8384441a781ae3b0b5bd1b5.html). 
 
-**Architecture of SAP NetWeaver AS for JAVA**
+**Architecture of SAP NetWeaver AS for Java**
 
 1. Java central instance (J< nn > instance) – A Java instance is a unit in the AS Java cluster that is identified by its instance number. The elements that form an instance that is run on one physical machine. Also, it is possible to run several instances on one physical machine, but it is recommended that you split the different instances among different physical machines. A [Java Central Instance](https://help.sap.com/viewer/5bdacafd0bbd41648f4b80093a1bf9d6/7.5.4/en-US/4b1bb795eb2770d3e10000000a42189b.html) consists of:
 
