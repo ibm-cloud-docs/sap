@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-19"
+lastupdated: 2024-06-24
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -78,13 +78,18 @@ Use the following steps to create a subnet.
 
 A high availability cluster typically needs *virtual IP addresses* that must move with the application in a failover scenario.
 
-Currently, {{site.data.keyword.powerSys_notm}} does not support reserving a floating IP address.
-Follow this procedure to avoid that virtual IP addresses are erroneously used during other virtual server deployments in the same workspace:
-- Go to the specific [Subnets](https://cloud.ibm.com/power/subnets) of your {{site.data.keyword.powerSys_notm}} *workspace*, and define a subset of the full CIDR as allowed *IP range*.
-- Select one unused IP address within the CIDR range of the subnet, but outside of the *IP range* that you previously restricted.
-- You need to manage the usage of these addresses on your own.
-   Usage of *{{site.data.keyword.cloud}} DNS Services* might help for administration.
+Reserve an IP address in the subnet to prevent {{site.data.keyword.powerSys_notm}} from assigning a specific IP address to a virtual server instance.
+See [Reserving IP addresses](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-configuring-subnet#reserv-ip){: external}.
 
+- Open [Subnets](https://cloud.ibm.com/power/subnets) in IBM Cloud for your {{site.data.keyword.powerSys_notm}} *workspace*.
+- From the list of subnets, click the subnet for which you want to reserve the *IP address*.
+- Click *Reserve IP*.
+- Enter your IP address in the *IP address* field.
+
+Make sure that the IP address you want to reserve is within the CIDR range of the subnet and within the *IP range* that you previously restricted.
+{: tip}
+
+- Provide a description of your reserved IP in the *Reserved IP description (optional)* field.
 
 ## Exploring more network architecture options
 {: #ha-vsi-explore-additional-network-options}
