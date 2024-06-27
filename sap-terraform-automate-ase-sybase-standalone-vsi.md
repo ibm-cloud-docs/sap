@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022, 2023, 2024
-lastupdated: "2024-06-21"
+years: 2024
+lastupdated: "2024-06-25"
 
 subcollection: sap
 
@@ -302,10 +302,7 @@ Follow the steps to deploy SAP ASE Sybase database single VSI in your existing V
 
 Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your resources after they are created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
 
-If you need to remove the resources created with the automation for your SAP solution, go to your project folder and run `terraform destroy`.
-
-For destroy, you are asked for the following sensitive variables as a destroy confirmation phase:
-`'IBMCLOUD_API_KEY'  and  'ASE_MASTER_PASSWORD'`
+If you need to remove the resources created with the automation for your SAP solution, go to the Workspace page > **Actions** and select **Destroy Resources**.
 
 ## Related information
 {: #automate-ase-sybase-standalone-vsi-related}
