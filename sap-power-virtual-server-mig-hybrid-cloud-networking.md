@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, 2024
-lastupdated: 2024-06-21
+  years: 2024
+lastupdated: "2024-06-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPN, Virtual Private Network, VPN for VPC, Direct Link, DL, Cloud connection, Software Defined Network, SDN, SD, Hybrid Cloud, Migration, AIX, Linux, RHEL, SuSE
 

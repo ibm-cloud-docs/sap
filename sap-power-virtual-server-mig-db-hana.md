@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, 2024
-lastupdated: 2024-06-21
+  years: 2024
+lastupdated: "2024-06-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 
@@ -263,7 +263,7 @@ Download the SAP HANA Software from SAP Marketplace - the version that matches y
    - Select the file `SAPCAR_1200-70007726.EXE` and make sure that the Selection box shows `LINUX ON POWER LE 64BIT`
    - Download to your laptop or PC or Jump Host
 
-Create a directory `/swrepo`on the target system.
+Create a directory `/swrepo` on the target system.
 
 ```sh
 sudo mkdir /swrepo
@@ -281,7 +281,7 @@ Transfer the installation files and sapcar utility downloads to the target SAP H
 The SAPCAR utility needs executable permissions to unpack the .SAR archive files.
 
 ```sh
-chmod -R 755 /swrepo/SAPCAR_1200-70007726.EXE`
+chmod -R 755 /swrepo/SAPCAR_1200-70007726.EXE
 ```
 {: pre}
 
@@ -511,8 +511,11 @@ The following example is the expected output.
 ```text
 SAP HANA Lifecycle Management - SAP HANA Database 2.00.061.00.1644229038
 ************************************************************************
+```
+{: screen}
 
-- This will scan the directories for the required software.
+This will scan the directories for the required software.
+
 ```text
 Scanning software locations...
 Detected components:
