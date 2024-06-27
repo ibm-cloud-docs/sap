@@ -41,7 +41,7 @@ toc:
               - sap-environment-power-infrastructure.md
         - sap-offerings-certified-iaas.md
         - topicgroup:
-            label: Infrastructure profiles for SAP HANA database server
+            label: Infrastructure profiles for SAP HANA database servers
             topics:
               - sap-offerings-hana-iaas-intel-bare-metal-profiles.md
               - sap-offerings-hana-iaas-intel-optane-profiles.md
@@ -50,7 +50,7 @@ toc:
               - sap-offerings-hana-iaas-vmware-sddc-profiles.md
               - sap-offerings-hana-iaas-intel-bm-vpc.md
         - topicgroup:
-            label: Infrastructure profiles for SAP NetWeaver Application Server
+            label: Infrastructure profiles for SAP NetWeaver Application Servers
             topics:
               - sap-offerings-netweaver-iaas-intel-bare-metal-profiles.md
               - sap-offerings-netweaver-iaas-amd-bare-metal-profiles.md
