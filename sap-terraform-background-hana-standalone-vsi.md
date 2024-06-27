@@ -1,7 +1,7 @@
 ---
 
 copyright:
-years: 2021, 2023, 2024
+years: 2023, 2024
 lastupdated: "2024-06-17"
 
 subcollection: sap

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020, 2021, 2022, 2023, 2024
+years: 2023, 2024
 lastupdated: "2024-05-13"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
