@@ -25,7 +25,7 @@ subcollection: sap
 You can use Terraform scripts to create a VPC and SAP ASE Sybase database single VSI infrastructure in the VPC. The Terraform scripts use the information that you provide and then call the Ansible playbooks to create the SAP architecture in the specified VPC.
 {: terraform}
 
-You can use Schematics User Interface, that calls Terraform scripts to create a VPC and SAP ASE Sybase database single VSI infrastructure in the VPC. The Terraform scripts use the information that you provide and then call the Ansible playbooks to create the SAP architecture in the specified VPC.
+You can use Schematics User Interface that calls Terraform scripts to create a VPC and SAP ASE Sybase database single VSI infrastructure in the VPC. The Terraform scripts use the information that you provide and then call the Ansible playbooks to create the SAP architecture in the specified VPC.
 {: ui}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware by using Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
@@ -39,13 +39,13 @@ To create resources with Terraform, you can use Terraform configuration files th
 You have two deployment methods to choose from:
 
 * In CLI, by running the Terraform script on your bastion server.
-* In Schematics User Interface, accessed from your {{site.data.keyword.cloud_notm}} dashboard menu.
+* In Schematics User Interface, which is accessed from your {{site.data.keyword.cloud_notm}} dashboard menu.
 
 ## Prerequisites
 {: #terraform-sap-ase-sybase-vsi-prerequisites}
 {: terraform}
 
-A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server), should exist in the same VPC, same region, and have the same subnet and security group that is configured for the SAP system VSI.
+A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server), should exist in the same VPC and same region. This should have the same subnet and security group that is configured for the SAP system VSI.
 
 ## What is created
 {: #terraform-sap-ase-sybase-vsi-created}
@@ -100,7 +100,7 @@ All other configuration files are provided and no modification is required.
 {: #ui-sap-ase-sybase-vsi-schematics}
 {: ui}
 
-When you are using the Schematics interface for the deployment you need to:
+When you are using the Schematics interface for the deployment, you need to:
 
 * Provide the workspace information.
 * Provide the GitHub repository path.
@@ -128,7 +128,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 {: terraform}
 
 1.	Log in to the Deployment Server (Bastion server) through `ssh`.
-2.	Clone the GitHub repository from https://github.com/IBM-Cloud/sap-ase-db and go to the **sap-ase-db** folder.
+2.	Clone the GitHub repository from https://github.com/IBM-Cloud/sap-ase-db and go to the `sap-ase-db` folder.
 
     ```shell
 	$ git clone https://github.com/IBM-Cloud/sap-ase-db.git
@@ -253,16 +253,16 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 7. Deploy the SAP solution.
     `terraform apply "plan1"`
 
-## Deploying SAP ASE Sybase database single VSI by using the Schematics user interface
+## Deploying SAP ASE Sybase database on single VSI by using the Schematics user interface
 {: #automate-ase-sybase-standalone-vsi-ui}
 {: ui}
 
-Follow the steps to deploy SAP ASE Sybase database single VSI in your existing VPC by using the Schematics User Interface. The scripts can take 1 - 2 hours to complete.
+Follow the steps to deploy the SAP ASE Sybase database on single VSI in your existing VPC by using the Schematics User Interface. The scripts can take 1 - 2 hours to complete.
 
 1. From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
 2. Click **Create workspace**.
 3. On the **Specify template** page:
-    * Enter the GitHub URL for the code you plan to deploy.
+    * Enter the GitHub URL for the code that you plan to deploy.
     * Select the **Terraform version** that is listed in the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
     * Click **Next**.
 4. On the **Workspace details** page:
@@ -273,9 +273,9 @@ Follow the steps to deploy SAP ASE Sybase database single VSI in your existing V
 5. Select **Create** to create your workspace.
 6. On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
     * Your IBM Cloud API key.
-    * A private SSH key to be used for the deployment.
+    * A private SSH key used for the deployment.
     * (Optional) You can change the `ID_RSA_FILE_PATH` for your SSH key file that is autogenerated on Schematics and on the bastion server.
-    * The ID(s) of the SSH key(s) that you created and uploaded to IBM Cloud. Enter the SSH key ID(s) in [] brackets and surrounded by quotation marks, for example [ "ibmcloud_ssh_key_UUID1", "ibmcloud_ssh_key_UUID2",... ].
+    * The ID(s) of the SSH keys that you created and uploaded to IBM Cloud. Enter the SSH key IDs in [] brackets and surrounded by quotation marks, for example [ "ibmcloud_ssh_key_UUID1", "ibmcloud_ssh_key_UUID2",... ].
     * The region for your resources.
     * The zone for your resources.
     * Existing VPC name
@@ -302,7 +302,7 @@ Follow the steps to deploy SAP ASE Sybase database single VSI in your existing V
 
 Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your resources after they are created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
 
-If you need to remove the resources created with the automation for your SAP solution, go to the Workspace page > **Actions** and select **Destroy Resources**.
+For your SAP solution, in case you want to remove the resources created with the automation then go to the Workspace page > Actions and select Destroy Resources.
 
 ## Related information
 {: #automate-ase-sybase-standalone-vsi-related}
