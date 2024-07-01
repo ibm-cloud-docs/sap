@@ -13,6 +13,7 @@ subcollection: sap
 {:screen: .screen}
 {:pre: .pre}
 {:note: .note}
+{:important: .important}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip} 
