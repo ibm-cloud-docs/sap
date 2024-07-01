@@ -22,9 +22,6 @@ subcollection: sap
 # VPC with Additional Application Server (AAS) ABAP on Linux for SAP HANA
 {: #automate-hana-aas-anydb-terraform-ansible}
 
-As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
-{: important}
-
 You can use Terraform scripts to create a single-tier VPC and create the AAS to HANA and AnyDB infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC. Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and more Intel&reg; technologies.
 
 You have two deployment methods to choose from:
@@ -33,6 +30,9 @@ You have two deployment methods to choose from:
 * {{site.data.keyword.bpshort}} user interface accessed from your cloud dashboard menu.
 
 You can create SAP AAS NetWeaver 7.x on the SAP HANA-based ABAP stack.
+
+As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
+{: important}
 
 ## SAP solution implemented
 {: #ui-automate-hana-aas-anydb-solution}
