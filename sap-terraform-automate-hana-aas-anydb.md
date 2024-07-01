@@ -32,7 +32,7 @@ You have two deployment methods to choose from:
 You can create SAP AAS NetWeaver 7.x on the SAP HANA-based ABAP stack.
 
 As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
-{: important}
+{: note}
 
 ## SAP solution implemented
 {: #ui-automate-hana-aas-anydb-solution}
