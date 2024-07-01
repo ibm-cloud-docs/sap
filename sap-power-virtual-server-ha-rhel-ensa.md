@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-01"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -394,7 +394,7 @@ vi /etc/lvm/lvm.conf
 ```
 {: pre}
 
-Locate the `auto_activation_volume_list' parameter and add all volume groups except the one you defined for the NFS cluster to this list.
+Locate the `auto_activation_volume_list` parameter and add all volume groups except the one you defined for the NFS cluster to this list.
 
 See an example of how to set the `auto_activation_volume_list` entry in `/etc/lvm/lvm.conf`:
 
