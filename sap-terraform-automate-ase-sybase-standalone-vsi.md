@@ -2,7 +2,7 @@
 
 copyright:
 years: 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-02"
 
 subcollection: sap
 
@@ -304,9 +304,11 @@ Follow the steps to deploy the SAP ASE Sybase database on a single VSI in your e
 ## Next steps
 {: #automate-ase-sybase-standalone-vsi-next}
 
-Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your resources after they are created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
-
 For your SAP solution, in case you want to remove the resources that are created with the automation, then go to the Workspace page > Actions and select Destroy Resources.
+{: ui}
+
+If you need to remove the resources created with the automation for your SAP solution, go to your project folder and run `terraform destroy`.
+{: terraform}
 
 ## Related information
 {: #automate-ase-sybase-standalone-vsi-related}
