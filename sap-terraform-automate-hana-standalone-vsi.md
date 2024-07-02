@@ -355,7 +355,7 @@ Use these steps to configure the SAP HANA DB single VSI on your existing VPC by 
 For your SAP solution, in case you want to remove the resources that are created with the automation, then go to the Workspace page > Actions and select Destroy Resources.
 {: ui}
 
-If you need to remove the resources created with the automation for your SAP solution, go to your project folder and run terraform destroy.
+If you need to remove the resources created with the automation for your SAP solution, go to your project folder and run `terraform destroy`.
 {: terraform}
 
 ## Related information

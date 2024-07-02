@@ -309,7 +309,7 @@ Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to 
 For your SAP solution, in case you want to remove the resources that are created with the automation, then go to the Workspace page > Actions and select Destroy Resources.
 {: ui}
 
-If you need to remove the resources created with the automation for your SAP solution, go to your project folder and run terraform destroy.
+If you need to remove the resources created with the automation for your SAP solution, go to your project folder and run `terraform destroy`.
 {: terraform}
 
 ## Related information
