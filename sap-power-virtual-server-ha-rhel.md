@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-06-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -214,7 +214,7 @@ firewall-cmd --reload
 #### Starting the PCS daemon
 {: #ha-rhel-start-pcsd-daemon}
 
-Start the PCS daemon that is used for controlling and configuraing RHEL HA Add-On clusters through PCS.
+Start the PCS daemon that is used for controlling and configuring RHEL HA Add-On clusters through PCS.
 
 On both nodes, run the following commands.
 

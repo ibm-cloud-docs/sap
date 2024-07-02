@@ -47,7 +47,7 @@ A [Virtual Private Cloud (VPC)](https://www.ibm.com/cloud/learn/vpc?mhsrc=ibmsea
 
 In a Highly Available (HA) system, every instance can run on a separate {{site.data.keyword.cloud_notm}} virtual server instance. The cluster HA configuration for the SAP application server consists of two virtual server instances, each of them located in the same zone within the region by using placement groups. Placement groups assure that both cluster resources and cloud resources are also located in different compute nodes as specified in the following placement groups section:
 
-![Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)](images/sap-ha-vpc-single-zone.png "SAP HA applications cluster nodes PAS (Active) and AAS (Active)"){: caption="Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)" caption-side="bottom"}
+![Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)](images/sap-ha-vpc-single-zone.svg "SAP HA applications cluster nodes PAS (Active) and AAS (Active)"){: caption="Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)" caption-side="bottom"}
 
 ### Placement groups on {{site.data.keyword.cloud_notm}} VPC for SAP HA architecture
 {: #automate-ha-deployment-on-vpc-placement-groups}

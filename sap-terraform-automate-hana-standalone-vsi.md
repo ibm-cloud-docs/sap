@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-05"
+lastupdated: "2024-06-28"
 
 subcollection: sap
 
@@ -13,6 +13,7 @@ subcollection: sap
 {:screen: .screen}
 {:pre: .pre}
 {:note: .note}
+{:important: .important}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
@@ -21,6 +22,9 @@ subcollection: sap
 
 # Deploying SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC
 {: #automate-terraform-sap-hana-vsi}
+
+As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
+{: important}
 
 You can use Terraform scripts to create a single-tier SAP HANA DB on VSI or Bare Metal Server in a VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbooks to create the SAP architecture on the specified VPC.
 

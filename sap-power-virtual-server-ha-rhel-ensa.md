@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-01"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -37,7 +37,7 @@ Review the general requirements, product documentation, support articles, and SA
 ## Prerequisites
 {: #ha-rhel-ensa-prerequisites}
 
-- Virtual server instances need to fulfill the hardware and resource requirements for the SAP instances in scope.
+- The virtual server instances must meet the hardware and resource requirements of the SAP instances installed on them.
    Follow the guidelines on instance types, storage, and memory sizing in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
 - This information describes a setup that uses shareable storage volumes accessible on both cluster nodes.
    Certain file systems are created on shareable storage volumes so that they can be mounted on both cluster nodes.
@@ -50,7 +50,7 @@ Review the general requirements, product documentation, support articles, and SA
    HA-LVM ensures that each of the two instance directories is mounted on only one node at a time.
 
    Different storage setups for the instance directories, such as NFS mounts, are possible.
-   This means that the general storage setup steps and creation of cluster file system resources must be adapted.
+   General storage setup steps or creation of cluster file system resources are not described in this document and must be adapted.
    {: important}
 
 - The virtual hostname for *ASCS* instance and *ERS* instance must meet the requirements as documented in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
@@ -60,7 +60,7 @@ Review the general requirements, product documentation, support articles, and SA
    The NFS server must be installed on virtual servers that are not part of the *ENSA2* cluster.
 
    [Configuring an active-passive NFS server in a Red Hat High Availability cluster](/docs/sap?topic=sap-ha-rhel-nfs) describes the implementation of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in {{site.data.keyword.powerSys_notm}}.
-- Make sure that all SAP installation media is available.
+- Ensure that all SAP installation media is available.
 
 ## Preparing nodes for SAP installation
 {: #ha-rhel-ensa-prepare-nodes}
@@ -203,7 +203,7 @@ All cluster nodes need to access the shared storage volumes, but only one node h
 #### Preparing High Availability Logical Volume Manager settings
 {: #ha-rhel-ensa-prepare-lvm}
 
-Edit file `/etc/lvm/lvm.conf` to include the *system ID* in the volume group.
+Edit the file `/etc/lvm/lvm.conf` to include the *system ID* in the volume group.
 
 On both nodes, edit the `lvm.conf`file.
 
@@ -212,7 +212,7 @@ vi /etc/lvm/lvm.conf
 ```
 {: pre}
 
-Search for parameter `system_id_source` and change its value to "uname".
+Search for the `system_id_source` parameter and change its value to `uname`.
 
 Sample setting for the `system_id_source` parameter in `etc/lvm/lvm.conf`.
 
@@ -224,11 +224,11 @@ system_id_source = "uname"
 #### Identifying World Wide Names of shared storage volumes
 {: #ha-rhel-ensa-identify-wwn}
 
-Identify the World Wide Name (WWN) for each storage volume that is in the shared volume groups.
+Determine the World Wide Name (WWN) for each storage volume that is part of one of the shared volume groups.
 
 1. Log in to {{site.data.keyword.cloud}} to the [Storage volumes](/power/storage){: external} view of {{site.data.keyword.powerSys_notm}}.
 1. Select your **workspace**.
-1. Filter for the *volume prefix* in the *Storage volumes* list, and identify all the **World Wide Names** of the volumes that are in scope for *ASCS* and *ERS* (the *World Wide Name* is a 32-digit hexadecimal number).
+1. Filter on the *volume prefix* in the *Storage volumes* list, and identify all the **World Wide Names** of the volumes that are in scope for *ASCS* and *ERS* instances. The *World Wide Name* is a 32-digit hexadecimal number.
 
    Make sure that the attribute **Shareable** is *On* for those volumes.
    {: tip}
@@ -248,7 +248,7 @@ rescan-scsi-bus.sh && sleep 10 && multipathd reconfigure
 
 Log in to both cluster nodes, and add the **WWN** to the environment variables of user `root`.
 
-The matching **WWN** values can also be found with the `pvs --all`command.
+Use the `pvs --all` command to determine the appropriate **WWN** values.
 {: tip}
 
 On NODE1, run the following command.
@@ -384,19 +384,19 @@ mkfs.xfs /dev/${ERS_vg}/${ERS_lv}
 
 Volume groups that are managed by the cluster must not activate automatically on startup.
 
-For RHEL 8.5 and later, you can disable autoactivation for a volume group when you create the volume group by specifying the `--setautoactivation n` flag for the vgcreate command.
+For RHEL 8.5 and later, disable autoactivation when creating the volume group by specifying the `--setautoactivation n` flag on the vgcreate command.
 {: tip}
 
-On both nodes, edit file `/etc/lvm/lvm.conf` and modify the `auto_activation_volume_list` entry to limit autoactivation to specific volume groups.
+On both nodes, edit the `/etc/lvm/lvm.conf` file and modify the `auto_activation_volume_list` entry to limit autoactivation to specific volume groups.
 
 ```sh
 vi /etc/lvm/lvm.conf
 ```
 {: pre}
 
-Search for parameter `auto_activation_volume_list` and add the volume groups, other than the volume group that you defined for the NFS cluster, as entries in that list.
+Locate the `auto_activation_volume_list` parameter and add all volume groups except the one you defined for the NFS cluster to this list.
 
-Sample setting of the `auto_activation_volume_list` entry in `/etc/lvm/lvm.conf`:
+See an example of how to set the `auto_activation_volume_list` entry in `/etc/lvm/lvm.conf`:
 
 ```sh
 auto_activation_volume_list = [ "rhel_root" ]
@@ -469,14 +469,14 @@ mount | grep nfs
 Use the SAP Software Provisioning Manager (SWPM) to install all instances.
 
 - Install SAP instances on the cluster nodes.
-   - Install *ASCS* instance on NODE1 by using the virtual hostname `${ASCS_vh}` that is associated with the virtual IP address for *ASCS*:
+   - Install an *ASCS* instance on NODE1 by using the virtual hostname `${ASCS_vh}` that is associated with the virtual IP address for *ASCS*:
 
    ```sh
    <swpm>/sapinst SAPINST_USE_HOSTNAME=${ASCS_vh}
    ```
    {: screen}
 
-   - Install *ERS* instance on NODE2 by using the virtual hostname `${ERS_vh}` that is associated with the virtual IP address for *ERS*:
+   - Install an *ERS* instance on NODE2 by using the virtual hostname `${ERS_vh}` that is associated with the virtual IP address for *ERS*:
 
    ```sh
    <swpm>/sapinst SAPINST_USE_HOSTNAME=${ERS_vh}
@@ -503,7 +503,7 @@ Use the following steps to prepare the SAP instances for the cluster integration
 ### Removing the ASCS and ERS entries from the SAP services files
 {: #ha-rhel-ensa-modify-sap-services}
 
-Adjust the SAP services file `/usr/sap/sapservices` to prevent automatic start of the `sapstartsrv` instance agent for both *ASCS* and *ERS* instance after a reboot.
+Adjust the SAP services file `/usr/sap/sapservices` to prevent automatic start of the `sapstartsrv` instance agent for both *ASCS* and *ERS* instances after a reboot.
 
 On both nodes, edit the *SAP services* file and remove or comment out the `sapstartsrv` entries for both *ASCS* and *ERS*.
 
@@ -611,7 +611,7 @@ dnf install -y resource-agents-sap  sap-cluster-connector
 ### Configuring SAP Cluster Connector
 {: #ha-rhel-ensa-configure-sap-cluster-connector}
 
-Add user `${sid}adm`to the `haclient` group.
+Add user `${sid}adm` to the `haclient` group.
 
 On both nodes, run the following command.
 
@@ -646,7 +646,7 @@ sed -i -e 's/Restart_Program_\([0-9][0-9]\)/Start_Program_\1/' ${SID}_ERS${ERS_n
 ```
 {: pre}
 
-Add the following two lines at the end of the SAP instance profile to configure `sap_cluster_connector` for the *ASCS* and *ERS* instance, and activate the integration.
+Add the following two lines at the end of the SAP instance profile to configure `sap_cluster_connector` for the *ASCS* and *ERS* instances.
 
 ```sh
 service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
@@ -951,7 +951,7 @@ Daemon Status:
 #### Test1 - Test Procedure
 {: #ha-rhel-ensa-test1-procedure}
 
-Crash SAP *ASCS* instance by sending a SIGKILL signal as user `${sid}adm` to the enque server.
+To crash the SAP *ASCS* instance, send a SIGKILL signal to the enque server as user `${sid}adm`.
 
 On NODE1, identify the PID of the enque server.
 
@@ -1054,7 +1054,7 @@ Simulate a crash of the node where the *ASCS* instance is running.
 #### Test2 - Test procedure
 {: #ha-rhel-ensa-test2-procedure}
 
-Crash primary on NODE2 by sending a `fast-restart` system request.
+Crash NODE2 by sending a `fast-restart` system request.
 
 On NODE2, run the following command.
 
@@ -1210,7 +1210,7 @@ Simulate a crash of the *ERS* instance.
 #### Test3 - Test Procedure
 {: #ha-rhel-ensa-test3-procedure}
 
-Crash SAP *ERS* instance by sending a SIGKILL signal.
+Crash the SAP *ERS* instance by sending a SIGKILL signal.
 
 On NODE2, identify the PID of the enque replication server.
 
@@ -1303,7 +1303,7 @@ pcs status --full
 ### Test4 - Testing the manual move of the ASCS instance
 {: #ha-rhel-ensa-test-manual-move}
 
-Use the folling information to test a manual move of an ASCS instance.
+Use the following information to test a manual move of an ASCS instance.
 
 #### Test4 - Description
 {: #ha-rhel-ensa-test4-description}
