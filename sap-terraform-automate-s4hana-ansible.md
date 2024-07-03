@@ -32,15 +32,15 @@ You can use Terraform scripts to create a single-tier VPC and create the SAP/SAP
 You have three deployment methods to choose from:
 
 *   Terraform scripts that run from the CLI on your bastion server.
-*   Catalog Tile user interface accessed from the {{site.data.keyword.cloud_notm}} Catalog.
+*   Catalog Tile user interface is accessed from the {{site.data.keyword.cloud_notm}} catalog.
 *   {{site.data.keyword.cloud}} Schematics user interface accessed from the menu on your cloud dashboard.
 
 ## SAP Solution implemented 
 {: #automate-s4hana-terraform-ansible-solution}
 
-SAP S/4HANA is an ERP system from SAP's ERP software product line. The software is based on the innovative SAP HANA database technology and was launched as the fourth product generation in 2015. Users can choose between the SAP S/4HANA Cloud and On-Premise solution.
+SAP S/4HANA is an ERP system from SAP's ERP software product line. The software is based on the innovative SAP HANA database technology and was started as the fourth product generation in 2015. Users can choose between the SAP S/4HANA Cloud and On-Premise solution.
 
-An ERP system is used for demand-oriented business resource planning. It is used to control processes and to link departments and functional areas in a meaningful way. Individual modules include applications for accounting, sales, production, and marketing. More complex tasks in customer or supply chain management can also be done by ERP software. As the successor to the core product SAP ECC, SAP S/4HANA was presented as the intelligent ERP system of the new generation. Thanks to modern technologies, the Software as Service (SaaS) version is designed to help companies standardize processes and make the leap to digitalization.
+An ERP system is used for demand-oriented business resource planning. It is used to control processes and to link departments and functional areas in a meaningful way. Individual modules include applications for accounting, sales, production, and marketing. More complex tasks in customer or supply chain management can be done by ERP software. As the successor to the core product SAP ECC, SAP S/4HANA was presented as the intelligent ERP system of the new generation. With the modern technologies, the Software as Service (SaaS) version is designed to help companies standardize processes and make the leap to digitalization.
 
 While previous SAP ERP solutions support the most common databases, SAP S/4HANA uses exclusively the SAP HANA in-memory database developed by SAP. This in-memory database offers users the greatest technical benefit and they benefit from increased performance. The "S" in S/4HANA stands for "simple", while the "4" refers to the generation sequence. Compared to the SAP core product SAP ECC, which is still used in most companies, SAP S/4HANA offers many innovative functions that revolutionize the system landscape from the ground up. As SAP plans to discontinue the mainstream maintenance of its existing ERP solutions by 2027, many SAP ECC users are already considering a migration to SAP S/4HANA.
 
@@ -51,7 +51,7 @@ The scripts work in two phases. The first phase automates the provisioning of th
 
 During the first phase, the VPC is provisioned with 2 X virtual server instances with SAP certified storage and network configurations.
 
-During the second phase, the Ansible playbooks are called and the SAP architecture is installed for both dedicated VSIs SAP App VSI system and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on stand-alone dedicated SAP HANA 2.0 box release as a distributed deployment model. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on IBM Cloud® VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi&interface=ui).
+During the second phase, the Ansible playbooks are called and the SAP architecture is installed for both dedicated VSIs SAP App VSI system and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on a stand-alone dedicated SAP HANA 2.0 box release as a distributed deployment model. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on IBM Cloud® VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi&interface=ui).
 
 ## Single-host SAP HANA system
 {: #automate-s4hana-terraform-ansible-single}
@@ -60,7 +60,7 @@ A single-host system is the simplest system installation type that runs an SAP H
  
  ![Figure 1. SAP NetWeaver 7.x SAP HANA 3-tier architecture](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA 3-tier architecture"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA 3-tier architecture" caption-side="bottom"}
 
-The scripts are designed to install SAP (SAP S/4HANA release) solution on an existing VPC together with its dedicated DB SAP HANA box in one task flow.
+The scripts are designed to install SAP (SAP S/4HANA release) solution on an existing VPC, together with its dedicated DB SAP HANA box in one task flow.
 
 ## SAP Kits
 {: #s4hana-automation-sap-kits}
@@ -71,7 +71,7 @@ It is your responsibility to download the necessary SAP and DB kits to your Depl
 {: #automate-s4hana-terraform-ansible-terraform}
 {: terraform}
 
-You use the Bastion server CLI to run the Terraform scripts that are located in the [GitHub repository for SAP S/4HANA for Terraform](https://github.com/ibm-cloud/sap-s4hana).
+You can use the Bastion server CLI to run the Terraform scripts that are located in the [GitHub repository for SAP S/4HANA for Terraform](https://github.com/ibm-cloud/sap-s4hana).
 
 To run the scripts to deploy the SAP S/4HANA release on dedicated SAP HANA 2.0 BOX VSI, you need to:
 
@@ -87,7 +87,7 @@ To run the scripts to deploy the SAP S/4HANA release on dedicated SAP HANA 2.0 B
     *  You can change the default SAP system configuration settings to match your solution. 
     *  You also specify the location where you downloaded the SAP kits.
 
-The {{site.data.keyword.cloud_notm}} Provider plug-ins for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a S/4HANA system in your {{site.data.keyword.cloud_notm}} account.
+The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a S/4HANA system in your {{site.data.keyword.cloud_notm}} account.
 
 ## Schematics deployment
 {: #s4hana-automation-schematics}
@@ -98,7 +98,7 @@ You use the Schematics user interface on {{site.data.keyword.cloud}} and enter t
 When you run the scripts with the Schematics interface, you:
 
 *   Enter Workspace information.  
-*   Enter the Github path.
+*   Enter the GitHub path.
 *	Modify the parameters in the Schematics interface. 
 
 ## Catalog Tile deployment
@@ -116,7 +116,7 @@ When you use the Catalog Tile for deployment, you:
 
 There are no warranties of any kind, and there is no service or technical support available for these materials from IBM. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
-Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, re-adapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
+Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
 ## Support - Catalog Tile
 {: #s4hana-automation-support-catalog-tile}
@@ -124,7 +124,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 
 The Catalog Tile offering is {{site.data.keyword.cloud_notm}} supported. For more information, see [Getting help and support from IBM Cloud or SAP](/docs/sap?topic=sap-help-support&interface=ui).
 
-If client issues are identified with SAP software, then SAP Support will assist client. Please follow the recommendations of SAP Note 90835, which describes the SAP Incident Escalation Procedure. This SAP Note (and others) is found at https://support.sap.com/en/index.html
+If client issues are identified with SAP software, then SAP Support assists the client. Follow the recommendations of SAP Note 90835, which describes the SAP Incident Escalation Procedure. This SAP Note (and others) is found at https://support.sap.com/en/index.html
 
 ## Before you begin
 {: #s4hana-automation-before}
@@ -146,7 +146,7 @@ Before you deploy SAP S/4HANA:
 Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing VPC. The scripts can take 2 - 3 hours to complete. The scripts can take 1 - 2 hours to complete. The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://github.com/IBM-Cloud/sap-s4hana) for recommended kits versions.
 
 1.	Log in to the Deployment Server by using `ssh`.
-2.	Clone the repository and change the path to sap-s4hana folder.
+2.	Clone the repository and change the path to the sap-s4hana folder.
 
     ```
 	$ git clone https://github.com/IBM-Cloud/sap-s4hana.git
@@ -154,7 +154,7 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 	$ cd sap-s4hana
     ```
 
-3.	Edit the input parameter file, `input.auto.tfvars`, and modify the variables to match your solution. The file is preset with the minimal recommended disk sizes. For using an existing VPC, you must modify:
+3.	Edit the input parameter file `input.auto.tfvars`, and modify the variables to match your solution. The file is preset with the minimal recommended disk sizes. For using an existing VPC, you must modify:
 
     * VPC - An existing VPC name
     * REGION - Region for the VSIs
@@ -163,7 +163,7 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
     * SUBNET - Existing subnet in the same region and zone as the VSIs, previously created by the user.
     * RESOURCE_GROUP - Existing resource group, previously created by the user.
     * SSH_KEYS - List of SSH Keys UUIDs that are allowed to SSH as root to the VSIs.
-    * ID_RSA_FILE_PATH - `id_rsa` private key file path in OpenSSH format with 0600 per-missions.
+    * ID_RSA_FILE_PATH - `id_rsa` private key file path in OpenSSH format with 0600 permissions.
     * APP_HOSTNAME/DB_HOSTNAME - Enter a hostname up to 12 characters. For more information, see the readme file.
     * DB_PROFILE/APP_PROFILE - The instance profile used for the HANA/APP VSI.
     * DB_IMAGE/APP_IMAGE - The OS image for DB/APP VSI.
@@ -238,7 +238,7 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 	terraform plan --out plan1
     ```
 
-	You will be asked to provide an SAP HANA main password, an SAP main password, and the {{site.data.keyword.cloud_notm}} API key.
+	You are asked to provide an SAP HANA main password, an SAP main password, and the {{site.data.keyword.cloud_notm}} API key.
 
     The SAP HANA main password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can contain only the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
     
@@ -252,7 +252,7 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 	terraform apply "plan1"
     ```
 
-    The {{site.data.keyword.cloud_notm}} resources are created and you will see the output similar to the terraform plan output.
+    The {{site.data.keyword.cloud_notm}} resources are created and you can see the output similar to the terraform plan output.
 
 ## Next steps for Terraform
 {: #s4hana-automation-next-steps-terraform}
@@ -269,7 +269,7 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
 1.	From the {{site.data.keyword.cloud_notm}} Catalog, select the **SAP S/4HANA** tile. The Tile opens the Create tab for SAP S/4HANA. For more information about this deployment, see the About tab or the Readme file link.
 2.	On the SAP S/4HANA page, configure your workspace:
     * Enter a name for the workspace or use the default.
-    * The Resource Group to use to create resources. Use the  Default or create a Resource Group.
+    * The Resource Group to use to create resources. Use the Default or create a Resource Group.
     * Select a **Location** to create your Schematics workspace. The workspace location does not have to match the resource location.
 3.  Enter the required deployment values, review the default input variables, and provide values that match your solution. These parameters are specific to your deployment.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/7265035e-c57d-41f4-b804-4e495ad4c4b7-global).
 
@@ -285,10 +285,10 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
     |SUBNET	|EXISTING Subnet name |
     |VPC	|EXISTING VPC name |
     |ZONE	|Cloud Zone where resources are deployed
-    |HANA_MAIN_PASSWORD	|HANA main password or use a secret stored in Secrets Manager |
-    |IBMCLOUD_API_KEY	|IBM Cloud API key or use a secret stored in Secrets Manager|
+    |HANA_MAIN_PASSWORD	|HANA main password or use a secret that is stored in Secrets Manager |
+    |IBMCLOUD_API_KEY	|IBM Cloud API key or use a secret that is stored in Secrets Manager|
     |PRIVATE_SSH_KEY	|Input id_rsa private key content or use a secret stored in Secrets Manager|
-    |SAP_MAIN_PASSWORD	|SAP main password or use a secret stored in Secrets Manager |
+    |SAP_MAIN_PASSWORD	|SAP main password or use a secret that is stored in Secrets Manager |
     |ATR_NAME	|The name of the existing Activity Tracker instance, in the same region as HANA VSI|
 
 4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/7265035e-c57d-41f4-b804-4e495ad4c4b7-global).
