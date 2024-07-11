@@ -307,6 +307,7 @@ toc:
               - sap-power-virtual-server-mig-overview.md
               - sap-power-virtual-server-mig-hybrid-cloud-networking.md
               - sap-power-virtual-server-mig-db-hana.md
+              - sap-power-virtual-server-mig-db-oracle.md          
   - navgroup:
       id: reference
       topics:

@@ -81,9 +81,8 @@ For more information about implementing high availability scenarios for SAP on I
 For more information about SAP hybrid cloud migration scenarios for SAP on IBM {{site.data.keyword.powerSysFull}} moving to PowerVS, see the following links.
 - [Migrating SAP between on-premises and IBM Cloud on {{site.data.keyword.powerSysFull}} Overview](/docs/sap?topic=sap-sapmig-overview)
 - [Hybrid Cloud Network Considerations for SAP on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking)
-- [Migrating SAP S/4HANA Pre-Migration Steps Source](/docs/sap?topic=sap-sapmig-db-hana-presteps-source)
-- [Creating the Target SAP HANA System on IBM Power Systems Virtual Servers pre-step](/docs/sap?topic=sap-sapmig-db-hana-presteps-target)
-- [Migrating SAP S/4HANA using HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana-replication)
+- [Migrating SAP S/4HANA using HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana)
+- [Migrating SAP ECC on Oracle to IBM Power Virtual Server](docs/sap?topic=sap-sapmig-db-oracle)
 
 ## Help
 {: #fast-path-power-vs-help}
