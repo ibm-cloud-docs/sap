@@ -88,7 +88,7 @@ toc:
               - sap-app-data-hub-2x.md
               - sap-app-data-intelligence-3x.md
         - topicgroup:
-            label: SAP Technical Applications additional design considerations
+            label: SAP Technical Applications extra design considerations
             topics:
               - sap-app-router.md
               - sap-app-web-dispatcher.md
@@ -101,7 +101,7 @@ toc:
               - sap-app-lama.md
               - sap-app-secure-logon-server.md
         - topicgroup:
-            label: SAP AnyDB and SAP HANA databases additional design considerations
+            label: SAP AnyDB and SAP HANA extra additional design considerations
             topics:
                 - sap-anydb-ibm-db2.md
                 - sap-anydb-ms-sql.md
@@ -111,12 +111,12 @@ toc:
                 - sap-anydb-sap-iq.md
                 - sap-anydb-sap-hana.md
         - topicgroup:
-            label: SAP Development Applications additional design considerations
+            label: SAP Development Applications extra design considerations
             topics:
               - sap-app-scp.md
               - sap-app-scp-single-tenant.md
         - topicgroup:
-            label: Operating Systems for SAP additional design considerations
+            label: Operating Systems for SAP extra design considerations
             topics:
               - sap-os-rhel.md
               - sap-os-sles.md

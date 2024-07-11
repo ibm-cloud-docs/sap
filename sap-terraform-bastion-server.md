@@ -20,7 +20,7 @@ subcollection: sap
 # Deploying the SAP bastion server – SAP media storage repository 
 {: #sap-bastion-server} 
 
-This task describes how to do an automated deployment of SAP bastion and storage setup on top of Red Hat Enterprise Linux 8.4. It shows how to deploy an {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) with a bastion host with secure remote SSH access. In SAP Terraform and Ansible deployments, the bastion host is used to give external administrative access to the other servers and applications. The bastion server is accessed through the Floating IP. The bastion server includes a customizable security group and subnet to enable access to the same region zones on its dedicated SAP/DBs and the VSI's IPs and ports. The Floating IP also allows the bastion host access to the internet so the sap and DB kits can be downloaded. 
+This topic describes how to do an automated deployment of SAP bastion and storage setup on Red Hat Enterprise Linux 8.4. It shows how to deploy an {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) with a bastion host with secure remote SSH access. In SAP Terraform and Ansible deployments, the bastion host is used to give external administrative access to the other servers and applications. The bastion server is accessed through the Floating IP. The bastion server includes a customizable security group and subnet to enable access to the same region zones on its dedicated SAP/DBs and the VSI's IPs and ports. The floating IP also allows the bastion host access to the internet so the sap and DB kits can be downloaded. 
 
 Before you decide which SAP automated solution you want to deploy in {{site.data.keyword.cloud_notm}} VPC, run the bastion server automated deployment. You need to specify the amount of dedicated storage that is needed to download and store the SAP kits. The SAP kits are used to deploy wanted SAP solution from the {{site.data.keyword.cloud_notm}} VPC automated SAP solutions pool. The bastion server in {{site.data.keyword.cloud_notm}} is primarily used for SAP solution deployment. It can be used as a Jump Host, for example, to maintain and administer all SAP solutions within its respective {{site.data.keyword.cloud_notm}} VPC region.
 
@@ -64,7 +64,7 @@ The VSI is configured with Red Hat Enterprise Linux 8.4 (amd64), has a minimal o
 ### Software configuration
 {: #sap-bastion-software-config}
 
-*	Terraform - an open source infrastructure as code software tool created by HashiCorp
+*	Terraform - an open source infrastructure as code software tool created by HashiCorp.
 *	Ansible - an open source software provisioning and configuration management tool.
 *	The {{site.data.keyword.cloud_notm}} Command Line Interface provides commands for managing resources in {{site.data.keyword.cloud_notm}}.
 
@@ -74,12 +74,12 @@ The VSI is configured with Red Hat Enterprise Linux 8.4 (amd64), has a minimal o
 |Parameter  |	Description   |
 |-----------|------------------|
 |ibmcloud_api_key	|{{site.data.keyword.cloud_notm}} API key (Sensitive* value).|
-|private_ssh_key	|The id_rsa private key content from your local machine (Sensitive* value).|
-|REGION	|The cloud region where to deploy the resources. For more information about regions and zones for VPC, see [Locations](/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review the supported locations in {{site.data.keyword.cloud_notm}} Schematics that are listed in [Locations and endpoints](/docs/schematics?topic=schematics-locations). Sample value: eu-de.|
+|private_ssh_key	|The id_rsa private key content from your local system (Sensitive* value).|
+|REGION	|The cloud region to deploy the resources. For more information about regions and zones for VPC, see [Locations](/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review the supported locations in {{site.data.keyword.cloud_notm}} Schematics that are listed in [Locations and endpoints](/docs/schematics?topic=schematics-locations). Sample value: eu-de.|
 |ZONE	| The cloud zone where to deploy the solution. Sample value: eu-de-2.|
 |VPC_EXISTS	    | Specify whether the chosen VPC exists (enter 'yes' or 'no'). If you choose 'no', the VPC is created.|
 |SUBNET_EXISTS	    | Specify whether the chosen SUBNET/SECURITYGROUP exist (use 'yes' or 'no'). If you choose 'no', a SUBNET/SECURITYGROUP with OPEN PORTS is created in the specified VPC. |
-|ADD_OPEN_PORTS_IN_NEW_SUBNET	|Create new port/s only if a NEW SUBNET is created, use 'yes' or 'no'.|
+|ADD_OPEN_PORTS_IN_NEW_SUBNET	|Create a new port/s only if a NEW SUBNET is created, use 'yes' or 'no'.|
 |OPEN_PORT_MINIMUM	(Required, Integer) |The TCP port range that includes the minimum value. Valid values are 1 - 65535. |
 |OPEN_PORT_MAXIMUM	(Required, Integer) | The TCP port range that includes the maximum value. Valid values are 1 - 65535.|
 |VPC	| The name of the VPC. View the list of available VPCs on the {{site.data.keyword.cloud_notm}} Console [Virtual private clouds](https://cloud.ibm.com/vpc-ext/network/vpcs) page.|
@@ -88,13 +88,13 @@ The VSI is configured with Red Hat Enterprise Linux 8.4 (amd64), has a minimal o
 |HOSTNAME	|The hostname for the VSI. The hostname must have up to 13 characters.|
 |PROFILE	|The profile used for the VSI. For more information about profiles, see [Instance profiles](docs/vpc?topic=vpc-profiles&interface=ui). Default value: "bx2-2x8".|
 |IMAGE	|The OS image used for the VSI. For more information about available images, see [Virtual server images](docs/vpc?topic=vpc-about-images). Default value: ibm-redhat-8-4-minimal-amd64-1.|
-|SSH_KEYS	|List of SSH Keys IDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. View the list of available SSH Keys on the {{site.data.keyword.cloud_notm}} Console [SSH keys for VPC](https://cloud.ibm.com/vpc-ext/compute/sshKeys) page. Sample input (use your own SSH IDs from I{{site.data.keyword.cloud_notm}}): [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]|
+|SSH_KEYS	|List of SSH Key IDs that are allowed to SSH as `root` to the VSI. This can contain one or more IDs. View the list of available SSH Keys on the {{site.data.keyword.cloud_notm}} Console [SSH keys for VPC](https://cloud.ibm.com/vpc-ext/compute/sshKeys) page. Sample input (use your own SSH IDs from {{site.data.keyword.cloud_notm}}): [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]|
 |VOL1 [ number ]|	The size for the disk in GB to be attached to the BASTION VSI as storage for the SAP deployment kits. The mount point for the new volume is: "/storage". Default value: 100 GB.|
 {: caption}
 
 Sensitive* - The variable value is not displayed in your workspace details after it is stored. Make sure to select **Sensitive** on the Settings page for all fields marked "Sensitive".
 
-VOL1 [ number ] variable represents the defined customer size of the storage that is needed to store downloaded SAP kits before you run the automated SAP deployment. The storage size can be customized when you deploy the bastion SAP VPC and VSI. Default storage that is allocated is 100 Gb.
+VOL1 [ number ] variable represents the defined customer size of the storage that is needed to store downloaded SAP kits before you run the automated SAP deployment. The storage size can be customized when you deploy the bastion SAP VPC and VSI. The default storage that is allocated is 100 GB.
 {: note}
 
 ## Before you begin
@@ -122,18 +122,18 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
     * Enter a name for the workspace.
     * Select a **Resource group**.
     * Select a **Location** for your workspace. The workspace location does not have to match the resource location.
-    * Select **Next**.
+    * Select Next.
 5. Select **Create** to create your workspace.
 6. On the workspace **Settings** page, in the Input variables section, review the default input variables and provide values that match your solution:
      * Your API key
-     * Your private SSH key from your local machine
+     * Your private SSH key from your local system.
      * The ID for the SSH key that you created and uploaded to {{site.data.keyword.cloud_notm}}
      * The Region for your resources
      * The Zone for your resources
      * Whether to use an existing VPC or create one
      * Whether to use an existing subnet
      * Whether to create new port only when a new subnet is created
-     * TCP port range, nimimun and maximum
+     * TCP port range, minimum and maximum
      * VPC name
      * Subnet name
      * Security group name
@@ -141,12 +141,12 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
      * Profile
      * Image
      * Minimal recommended disk sizes. 
-     * Click **Save changes**.
+     * Click Save changes.
 7. On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
 8. Click **View log** to review the log files of your Terraform execution plan.
 9. Apply your Terraform template by clicking **Apply plan**.
-10. Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
-11. At the end of the log is information that you need to deploy different SAP products and databases.  Copy and save this information for your deployments. For example: 
+10. Review the log file to make sure that no errors occurred during the provisioning, modification, or deletion process.
+11. At the end of the log is information that you need to deploy different SAP products and databases. Copy and save this information for your deployments. For example: 
 
     ```
     2022/08/17 10:30:11 Terraform apply | FLOATING-IP = "xxx.xxx.xxx.xx"
