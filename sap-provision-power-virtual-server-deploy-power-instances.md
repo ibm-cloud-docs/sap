@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-29"
+  years: 2020, 2024
+lastupdated: "2024-07-12"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -75,7 +75,9 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for shared file systems, 
    * Attach one or more storage volumes to make sure that you have enough capacity for your shared file system.
 5. In the **Networking** section, make the following selections:
    * Keep 'Public networks' deactivated
-   * Attach both your private networks (management and backup). Make sure that you specify the IP addresses as entered in DNS configuration for the corresponding hostnames. If IP addresses are assigned dynamically, you need to adapt the DNS entries for the system hostnames.
+
+   * Attach both your private networks (management and backup). Make sure that you specify the IP addresses as entered in the DNS configuration for the corresponding hostnames. If IP addresses are assigned dynamically, you need to adapt the DNS entries for the system hostnames.
+
 
 It takes some time until the {{site.data.keyword.powerSys_notm}} instance for shared file systems becomes available. The deployment is finished when you can log in to the instance over the VPC access host by using the SSH command:
 
@@ -158,7 +160,7 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for SAP HANA, go to your 
    {: caption="Table 8. SAP HANA boot image selections" caption-side="top"}
   
 3. In the **Profile** section, make the following selection:
-    * Select profile that fits your needs. For more information, see [SAP HANA profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
+    * Select a profile that fits your needs. For more information, see [SAP HANA profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
 4. In the **Storage volumes** section, make the following selection:
     * For SAP HANA the attached volumes are on different storage tiers 'Tier 1' and 'Tier 3'. You can't mix storage tiers in the instance creation process, so you need to attach storage volumes later. Keep this list empty.
 5. In the **Networking** section, make the following selections:
@@ -173,7 +175,7 @@ ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand="ssh
 ```
 {: pre}
 
- where `hana_pvs_mgmt_ip` is the virtual server instance IP address in the management subnet.topic=sap-power-vs-set-up-power-infrastructure) and create {{site.data.keyword.powerSys_notm}} instance as described [here](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#configuring-instance). Specify following parameters:
+ where `hana_pvs_mgmt_ip` the virtual server instance IP address is in the management subnet.
 
 ## Creating an SAP HANA {{site.data.keyword.powerSys_notm}} storage volume
 {: #power-vs-set-up-power-hana-volumes}
@@ -182,8 +184,8 @@ Modify the created {{site.data.keyword.powerSys_notm}} instance for SAP HANA and
 Attach the following volumes:
 
 * A storage volume for SAP HANA shared file system. Volume size must be MIN (1 x RAM; 1 TB). Storage tier "Tier 3" is sufficient. 'Shareable' switch can stay 'off'.
-* Four or eight storage volumes of the same size for SAP HANA log file system. File system size must be MIN (1/2xRAM; 512 GB). Divide file system size through Four or eight to determine the size for each storage volume. Select "Tier 1" as storage tier. 'Shareable' switch can stay 'off'.
-* Four or eight storage volumes of the same size for SAP HANA data file system. File system size must be at minimum equal to the amount of RAM. Divide file system size through Four or eight to determine size for each storage volume. Select "Tier 1" as storage tier. 'Shareable' switch can stay 'off'.
+* Four or eight storage volumes of the same size for SAP HANA log file system. File system size must be MIN (1/2xRAM; 512 GB). Divide file system size through Four or eight to determine the size for each storage volume. Select "Tier 1" as the storage tier. 'Shareable' switch can stay 'off'.
+* Four or eight storage volumes of the same size for SAP HANA data file system. File system size must be at minimum equal to the amount of RAM. Divide file system size through Four or eight to determine the size for each storage volume. Select "Tier 1" as the storage tier. 'Shareable' switch can stay 'off'.
 * An extra storage volume of chosen size for extra data (such as '/usr/sap' file system). Storage tier "Tier 3" is sufficient. 'Shareable' switch can stay 'off'.
 * You can attach extra volumes for backup or export.
 
@@ -306,7 +308,7 @@ After the package is installed, the file `/etc/chrony.conf` is available. You ne
 ### Configuring NTP client by using ansible automation
 {: #power-vs-configure-ntp-client-ansible}
 
-Configuring NTP client by using ansible automation, download the `ibm.power_linux_sap` ansible-galaxy collection.
+Configuring an NTP client by using ansible automation, download the `ibm.power_linux_sap` ansible-galaxy collection.
 
 ```yaml
 ansible-galaxy collection install ibm.power_linux_sap
@@ -369,7 +371,7 @@ This ansible execution helps make sure that the DNS service is configured.
 
 Use to following steps to manually create an NFS client.
 
-1. Export shared NFS directories. To make these exported NFS directories available, mount them by using NFS protocol. Then, install the `nfs-client` package and enable NFS client by using the systemctl command.
+1. Export shared NFS directories. To make these exported NFS directories available, mount them by using NFS protocol. Then, install the `nfs-client` package and enable the NFS client by using the systemctl command.
 
    * On SLES:
 
@@ -432,7 +434,7 @@ This ansible execution helps make sure that the NFS service is configured and th
 
 For shared SAP file systems, you need to create a file system to store SAP data and distribute them to all SAP instances. You can use extra file systems for other purposes.
 
-For an SAP NetWeaver instance, you need create a file system to store instance-specific data. You can use extra file systems for other purposes.
+For an SAP NetWeaver instance, you need to create a file system to store instance-specific data. You can use extra file systems for other purposes.
 
 To install SAP HANA, three file systems are created: data, log, and shared. According to the default installation catalog, these file systems are `/hana/data`, `/hana/log` and `/hana/shared`, but you can customize these file system names. You might also need file systems for other purposes (`/usr/sap` directory). `/hana/data` and `/hana/log` file systems are striped across four or eight disks according to the number of volumes that you created. `/hana/shared` and all other file systems are nonstripped 1-disk file systems.
 
@@ -526,15 +528,15 @@ ansible-galaxy collection install ibm.power_linux_sap
 ```
 {: pre}
 
-Ansible role, `powervs_fs_creation` is used to create filesystem for SAP HANA, SAP NetWeaver or for SAP shared file systems instance. This role performs the following tasks:
+The ansible role, `powervs_fs_creation` is used to create filesystem for SAP HANA, SAP NetWeaver or for SAP shared file systems instance. This role performs the following tasks:
 
 * Creates file systems with user-defined stripe size by using ansible built-in LVM logical volumes modules.
 * Mounts the file systems on provided mount points
 * Adds an entry to `/etc/fstab` for automount on reboot.
 
-2. To run this role, you can pass two types of variables. The first as a dictionary and other as a list. See the following example.
+2. To run this role, you can pass two types of variables. The first as a dictionary and the other as a list. See the following example.
 
-   * Example A. Data structure for `disks_configuration` as dictionary value example:
+   * Example A. The following example is the data structure for `disks_configuration` as the dictionary value:
 
         ```yaml
         disks_configuration:
@@ -571,9 +573,9 @@ Ansible role, `powervs_fs_creation` is used to create filesystem for SAP HANA, S
 
 WWNs associated with disks that are passed as input parameters for running the ansible role.
 
-3. To run this ansible playbook, run the following command after you update one of variable examples and store them in the`filesystem_creation_variables` file.
+3. To run this ansible playbook, run the following command after you update one of the variable examples and store them in the`filesystem_creation_variables` file.
 
-    * For RedHat
+    * For Red Hat
 
         ```yaml
         ansible-playbook \--connection=local -i \"localhost,\" powervs-rhel.yml -e @ filesystem_creation_variables
@@ -647,7 +649,7 @@ environments](https://launchpad.support.sap.com/#/notes/1275776).
     ```
     {: pre}
 
-6. Simulate the changes before you apply them. (optional)
+6. Simulate the changes before you apply them (optional).
 
     For SAP HANA:
 
@@ -716,17 +718,37 @@ total 28
 
 Use the following command to tune the operating system for the SAP HANA workload.
 
+
+* For RHEL 8.4 and previous versions, use this command:
+
 ```yaml
 ansible-playbook /root/sap-hana.yml
 ```
 {: pre}
 
-2. Use the following command to tune the operating systemfor the SAP NetWeaver workload.
+* For RHEL versions RHEL 8.6 and greater, use this command:
 
 ```yaml
-[root@rhel-84\]# ansible-playbook /root/sap-netweaver.yml
+ansible-playbook -i /root/inventory /root/sap-hana.yml 
 ```
 {: pre}
+
+Use the following command to tune the operating system for the SAP NetWeaver workload.
+
+* For RHEL 8.4 and previous versions, use this command:
+
+```yaml
+ansible-playbook /root/sap-netweaver.yml
+```
+{: pre}
+
+* For RHEL versions RHEL 8.6 and greater, use this command:
+
+```yaml
+ansible-playbook -i /root/inventory /root/sap-netweaver.yml
+```
+{: pre}
+
 
 For more information about running tasks, see the following documentation.
 * [SAP Note 2772999 "Red Hat Enterprise Linux 8.x: Installation and Configuration"](https://launchpad.support.sap.com/#/notes/2772999)
@@ -778,7 +800,7 @@ MTU='9000'
 ```
 {: pre}
 
-To activate the changes, restart your network (`ifdown envX; nmcli con down 'System envX'; nmcli con up 'System envX'`), or set the MTU for
+To activate the changes, restart your network (`ifdown envX; nmcli con down 'System envX'; nmcli con up 'System envX'`). Or, set the MTU for
 the current configuration (with `ip link set dev <envX> mtu 9000` and `ethtool -K <envX> tso on`).
 
 #### NUMA layout
@@ -820,10 +842,10 @@ In this example, a warning is generated because two NUMA nodes with an equal amo
 After the previous steps are completed, your infrastructure is ready to install the SAP software. Complete the following steps to install the SAP software.
 
 1. Install a Windows server in management or in workload VPCs and use it for SAP administration.
-2. Move SAP installation binary files to NFS server in the virtual server instance that is running in workload VPC.
+2. Move SAP installation binary files to the NFS server in the virtual server instance that is running in workload VPC.
 3. Log in through SSH and perform SAP installation by using the CLI on {{site.data.keyword.powerSys_notm}} instances.
 4. Log in with Windows server and perform SAP installation by using the SAP GUI on {{site.data.keyword.powerSys_notm}} instances.
 5. Create extra instances and extend the environment.
 6. Create more instances on edge VPC and install internet-facing SAP applications such as SAP routed or SAP Web Dispatcher.
-7. Install IBM Spectrum Protect as backup solution in workload VPC and configure IBM Spectrum Protect client on {{site.data.keyword.powerSys_notm}} instances.
+7. Install IBM Spectrum Protect as a backup solution in workload VPC and configure IBM Spectrum Protect client on {{site.data.keyword.powerSys_notm}} instances.
 8. Configure VPN in management VPC and deactivate floating IP address on the access host.

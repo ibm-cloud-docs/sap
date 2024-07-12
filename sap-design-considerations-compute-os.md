@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-07-12"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -22,6 +22,7 @@ In some regards, SAP workloads that use a Cloud Service Provider (such as {{site
 
 To assist your project's planning phase, the following sections provide {{site.data.keyword.ibm_cloud_sap}} portfolio design considerations for **Compute and OS**.
 
+
 ## Compute Performance considerations
 {: #compute}
 
@@ -30,13 +31,15 @@ The {{site.data.keyword.ibm_cloud_sap}} portfolio is ideal for practically all S
 ### SAP NetWeaver work processes scheduling and scaling
 {: #compute-workprocesses}
 
-CPU thread consumption affects the following processes:
+
+CPU thread consumption affects the following processes.
 
 * Dialog Work Process
 * Update Work Process
 * Background Work Process
 * Enqueue Work Process
 * Spool Work Process
+
 
 ### Compute Profiles of SAP-certified Bare Metal on Classic and on VPC Infrastructure
 {: #compute-baremetal}
@@ -47,10 +50,12 @@ These combinations are "Appliance" delivery model of hardware certification. The
 
 Some {{site.data.keyword.ibm_cloud_sap}} Bare Metal profiles do allow alterations, and therefore - as far as HANA deployments are concerned - would use the "TDI" delivery model for which you would need to run validation checks to gain SAP Support.
 
+
 ### Compute Profiles of SAP-certified Virtual Servers on VPC Infrastructure
 {: #compute-vs-vpc}
 
 {{site.data.keyword.ibm_cloud_sap}} provides SAP-certified infrastructure by using the latest Virtual Servers. These virtual servers are available with instantaneous provisioning, and are offered in different profiles that define CPU and RAM combinations.
+
 
 ### Compute Profiles of SAP-certified IBM Power Virtual Servers
 {: #compute-power}
@@ -76,7 +81,7 @@ For all other software components or third-party products, contact [SAP Support]
 VMware runs on the same SAP-certified Bare Metals. Therefore, the VMware vSphere (ESXi) installation on the certified hardware enables the VMware-SAP certification and agreements to be valid. Therefore, all VMware-SAP certification guidance must be followed (as described in SAP Notes for VMware-SAP).
 {: note}
 
-VMware SDDC is available as a customer-controlled root-access hypervisor, which is certified to run SAP workloads. Providing VMware SDDC does not automatically provide a pre-sized virtual machine for SAP HANA or SAP NetWeaver upon provisioning either the OS image with VMware vSphere (ESXi) for the Bare Metal or the fully automated setup from {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated. You choose how to size and configure your SAP Workloads (for SAP HANA, size and configuration is under the SAP HANA TDI delivery model)
+VMware SDDC is available as a customer-controlled root-access hypervisor, which is certified to run SAP workloads. Providing VMware SDDC does not automatically provide a pre-sized virtual machine for SAP HANA or SAP NetWeaver upon provisioning either the OS image with VMware vSphere (ESXi) for the Bare Metal or the fully automated setup from {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated. You choose how to size and configure your SAP Workloads (for SAP HANA, size and configuration is under the SAP HANA TDI delivery model).
 
 When you run SAP workloads on VMware, you have significant flexibility and the full capabilities which VMware built to run SAP workloads over decades is available to use.
 
@@ -94,16 +99,19 @@ Sources:
 - Only for half-socket VMs and sharing of NUMA Node between two VMs. Keep in mind that `"additional performance impact"` and a `"sizing buffer of at least 15%"` of the CPU (SAPS) is recommended.
 [SAP Community Wiki - SAP HANA on VMware vSphere](https://wiki.scn.sap.com/wiki/display/VIRTUALIZATION/SAP+HANA+on+VMware+vSphere){: external}
 
+
 Several other SAP-defined rules must be followed to deploy SAP HANA in a VMware SDDC environment. For more information, see the following documentation:
 * [SAP Note 2161991 - VMware vSphere configuration guidelines](https://launchpad.support.sap.com/#/notes/2161991){: external}
 * [SAP Note 2393917 - SAP HANA on VMware vSphere 6.5 and 6.7 in production](https://launchpad.support.sap.com/#/notes/2393917){: external}
 * [SAP Note 2779240 - Workload-based sizing for virtualized environments](https://launchpad.support.sap.com/#/notes/2779240){: external}
 * [SAP HANA Tailored Data Center Integration Frequently Asked Questions)](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external}
 
+
 ## Operating Systems considerations
 {: #os}
 
 The {{site.data.keyword.ibm_cloud_sap}} portfolio provides various Operating Systems for the Enterprise IT organization to select from.
+
 
 ### Operating Systems supported
 {: #os-supported}
@@ -125,6 +133,7 @@ For the Operating System, the SAP NetWeaver certified servers are available with
 For SAP HANA release versions (including SPS and Revision and Patch numbers), support is only available for pre-defined and specific major.minor releases of an Operating System (for example, RHEL 7.6). This information is shown in [SAP 2235581 - SAP HANA: Supported Operating Systems](https://launchpad.support.sap.com/#/notes/2235581){: external}. An example is available in the SAP Note attachment `SAP_HANA_OS_Release_Support_Matrix.pdf`.
 
 For SAP NetWeaver release versions, support is available for each major release of an Operating System (for example, SLES 12) meaning each subsequent release is available for use (example: SLES 12 SPS4, SLES 12 SP5, and so on). This information is shown in the [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}.
+
 
 ### OS configuration for SAP
 {: #os-configuration}
@@ -158,29 +167,30 @@ OS Packages update server with IBM Power Power Virtual Servers:
 
 | Operating system for SAP HANA | Operating system image (Bring your own license) | Operating system image (IBM subscription) |
 |---------|---------|---------|
-| Red Hat Enterprise Linux (RHEL) 8.1 | Linux-RHEL-SAP-8-1| - |
-| Red Hat Enterprise Linux (RHEL) 8.2 | Linux-RHEL-SAP-8-2| - |
 | Red Hat Enterprise Linux (RHEL) 8.4 | Linux-RHEL-SAP-8-4| RHEL8-SP4-SAP |
 | Red Hat Enterprise Linux (RHEL) 8.6 | Linux-RHEL-SAP-8-6| RHEL8-SP6-SAP |
-| SUSE Linux Enterprise Server (SLES) for SAP 12 SP4 | Linux-SUSE-SAP-12-4 | - |
+| Red Hat Enterprise Linux (RHEL) 8.8 | Linux-RHEL-SAP-8-8| RHEL8-SP8-SAP |
+| Red Hat Enterprise Linux (RHEL) 9.2 | Linux-RHEL-SAP-9-2| RHEL9-SP2-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | Linux-SUSE-SAP-15-2 | SLES15-SP2-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | Linux-SUSE-SAP-15-3 | SLES15-SP3-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | Linux-SUSE-SAP-15-4 | SLES15-SP4-SAP |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | Linux-SUSE-SAP-15-5 | SLES15-SP5-SAP |
 {: caption="Table 1. Operating systems for IBM Power virtual servers on SAP HANA" caption-side="bottom"}
 
 | Operating system for SAP NetWeaver | Operating system image (Bring your own license) | Operating system image (IBM subscription) |
 |---------|---------|---------|
-| Red Hat Enterprise Linux (RHEL) 8.1 | Linux-RHEL-SAP-8-1| - |
-| Red Hat Enterprise Linux (RHEL) 8.2 | Linux-RHEL-SAP-8-2| - |
 | Red Hat Enterprise Linux (RHEL) 8.4 | Linux-RHEL-SAP-8-4| RHEL8-SP4-SAP-NETWEAVER |
 | Red Hat Enterprise Linux (RHEL) 8.6 | Linux-RHEL-SAP-8-6| RHEL8-SP6-SAP-NETWEAVER |
-| SUSE Linux Enterprise Server (SLES) for SAP 12 SP4 | Linux-SUSE-SAP-12-4 | - |
+| Red Hat Enterprise Linux (RHEL) 8.8 | Linux-RHEL-SAP-8-8| RHEL8-SP8-SAP-NETWEAVER |
+| Red Hat Enterprise Linux (RHEL) 9.2 | Linux-RHEL-SAP-9-2| RHEL9-SP2-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | Linux-SUSE-SAP-15-2 | SLES15-SP2-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | Linux-SUSE-SAP-15-3 | SLES15-SP3-SAP-NETWEAVER |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | Linux-SUSE-SAP-15-4 | SLES15-SP4-SAP-NETWEAVER | 
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | Linux-SUSE-SAP-15-4 | SLES15-SP4-SAP-NETWEAVER |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | Linux-SUSE-SAP-15-5 | SLES15-SP5-SAP-NETWEAVER |
 | AIX 7.1 | 7100-05-05 or later |
 | AIX 7.2 | 7200-04-01 or later |
 {: caption="Table 2. Operating systems for IBM Power virtual servers on SAP NetWeaver" caption-side="bottom"}
+
 
 Update on new SAP HANA large t-shirt profiles feature
 IBM supports SLES15 SP4 for SAP and RHEL8.6 for SAP OS images with all other features on all t-shirt profiles with fewer than 64 cores. These SLES15 SP4 for SAP and RHEL8.6 for SAP OS images while they are updating to support the larger t-shirt profiles. Until further notice, use the larger t-shirt profiles with the SLES15 SP3 for SAP OS image or the RHEL8.4 for SAP OS image.
@@ -205,6 +215,7 @@ You need to make sure that the SAP HANA Tailored Data Center Integration (TDI) K
 See [SAP Note 2414097)](https://launchpad.support.sap.com/#/notes/2414097){: external} for version details.
 
 Refer to [Installing VMware vSphere ESXi by using Remote Console and Virtual Media](/docs/vmware?topic=vmware-installing-vsphere-esxi#installing-vsphere-esxi) and other VMware.com documentation to install a Guest OS.
+
 
 ## Bring-your-own-OS (custom OS image and BYOL License)
 {: #os-byos}
