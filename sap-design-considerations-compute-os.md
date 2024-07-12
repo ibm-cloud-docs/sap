@@ -32,6 +32,7 @@ The {{site.data.keyword.ibm_cloud_sap}} portfolio is ideal for practically all S
 {: #compute-workprocesses}
 
 
+CPU thread consumption affects the following processes.
 
 * Dialog Work Process
 * Update Work Process
@@ -80,7 +81,7 @@ For all other software components or third-party products, contact [SAP Support]
 VMware runs on the same SAP-certified Bare Metals. Therefore, the VMware vSphere (ESXi) installation on the certified hardware enables the VMware-SAP certification and agreements to be valid. Therefore, all VMware-SAP certification guidance must be followed (as described in SAP Notes for VMware-SAP).
 {: note}
 
-
+VMware SDDC is available as a customer-controlled root-access hypervisor, which is certified to run SAP workloads. Providing VMware SDDC does not automatically provide a pre-sized virtual machine for SAP HANA or SAP NetWeaver upon provisioning either the OS image with VMware vSphere (ESXi) for the Bare Metal or the fully automated setup from {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated. You choose how to size and configure your SAP Workloads (for SAP HANA, size and configuration is under the SAP HANA TDI delivery model).
 
 When you run SAP workloads on VMware, you have significant flexibility and the full capabilities which VMware built to run SAP workloads over decades is available to use.
 
@@ -168,18 +169,24 @@ OS Packages update server with IBM Power Power Virtual Servers:
 |---------|---------|---------|
 | Red Hat Enterprise Linux (RHEL) 8.4 | Linux-RHEL-SAP-8-4| RHEL8-SP4-SAP |
 | Red Hat Enterprise Linux (RHEL) 8.6 | Linux-RHEL-SAP-8-6| RHEL8-SP6-SAP |
+| Red Hat Enterprise Linux (RHEL) 8.8 | Linux-RHEL-SAP-8-8| RHEL8-SP8-SAP |
+| Red Hat Enterprise Linux (RHEL) 9.2 | Linux-RHEL-SAP-9-2| RHEL9-SP2-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | Linux-SUSE-SAP-15-2 | SLES15-SP2-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | Linux-SUSE-SAP-15-3 | SLES15-SP3-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | Linux-SUSE-SAP-15-4 | SLES15-SP4-SAP |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | Linux-SUSE-SAP-15-5 | SLES15-SP5-SAP |
 {: caption="Table 1. Operating systems for IBM Power virtual servers on SAP HANA" caption-side="bottom"}
 
 | Operating system for SAP NetWeaver | Operating system image (Bring your own license) | Operating system image (IBM subscription) |
 |---------|---------|---------|
 | Red Hat Enterprise Linux (RHEL) 8.4 | Linux-RHEL-SAP-8-4| RHEL8-SP4-SAP-NETWEAVER |
 | Red Hat Enterprise Linux (RHEL) 8.6 | Linux-RHEL-SAP-8-6| RHEL8-SP6-SAP-NETWEAVER |
+| Red Hat Enterprise Linux (RHEL) 8.8 | Linux-RHEL-SAP-8-8| RHEL8-SP8-SAP-NETWEAVER |
+| Red Hat Enterprise Linux (RHEL) 9.2 | Linux-RHEL-SAP-9-2| RHEL9-SP2-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | Linux-SUSE-SAP-15-2 | SLES15-SP2-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | Linux-SUSE-SAP-15-3 | SLES15-SP3-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | Linux-SUSE-SAP-15-4 | SLES15-SP4-SAP-NETWEAVER |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | Linux-SUSE-SAP-15-5 | SLES15-SP5-SAP-NETWEAVER |
 | AIX 7.1 | 7100-05-05 or later |
 | AIX 7.2 | 7200-04-01 or later |
 {: caption="Table 2. Operating systems for IBM Power virtual servers on SAP NetWeaver" caption-side="bottom"}

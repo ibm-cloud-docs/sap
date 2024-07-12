@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-07-12"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -75,6 +75,8 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for shared file systems, 
    * Attach one or more storage volumes to make sure that you have enough capacity for your shared file system.
 5. In the **Networking** section, make the following selections:
    * Keep 'Public networks' deactivated
+
+   * Attach both your private networks (management and backup). Make sure that you specify the IP addresses as entered in the DNS configuration for the corresponding hostnames. If IP addresses are assigned dynamically, you need to adapt the DNS entries for the system hostnames.
 
 
 It takes some time until the {{site.data.keyword.powerSys_notm}} instance for shared file systems becomes available. The deployment is finished when you can log in to the instance over the VPC access host by using the SSH command:
@@ -173,7 +175,7 @@ ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand="ssh
 ```
 {: pre}
 
- where `hana_pvs_mgmt_ip` is the virtual server instance IP address in the management subnet.topic=sap-power-vs-set-up-power-infrastructure) and create {{site.data.keyword.powerSys_notm}} instance as described [here](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#configuring-instance). Specify the following parameters:
+ where `hana_pvs_mgmt_ip` the virtual server instance IP address is in the management subnet.
 
 ## Creating an SAP HANA {{site.data.keyword.powerSys_notm}} storage volume
 {: #power-vs-set-up-power-hana-volumes}
@@ -716,6 +718,36 @@ total 28
 
 Use the following command to tune the operating system for the SAP HANA workload.
 
+
+* For RHEL 8.4 and previous versions, use this command:
+
+```yaml
+ansible-playbook /root/sap-hana.yml
+```
+{: pre}
+
+* For RHEL versions RHEL 8.6 and greater, use this command:
+
+```yaml
+ansible-playbook -i /root/inventory /root/sap-hana.yml 
+```
+{: pre}
+
+Use the following command to tune the operating system for the SAP NetWeaver workload.
+
+* For RHEL 8.4 and previous versions, use this command:
+
+```yaml
+ansible-playbook /root/sap-netweaver.yml
+```
+{: pre}
+
+* For RHEL versions RHEL 8.6 and greater, use this command:
+
+```yaml
+ansible-playbook -i /root/inventory /root/sap-netweaver.yml
+```
+{: pre}
 
 
 For more information about running tasks, see the following documentation.
