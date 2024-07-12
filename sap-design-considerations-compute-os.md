@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-07-12"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -166,30 +166,20 @@ OS Packages update server with IBM Power Power Virtual Servers:
 
 | Operating system for SAP HANA | Operating system image (Bring your own license) | Operating system image (IBM subscription) |
 |---------|---------|---------|
-| Red Hat Enterprise Linux (RHEL) 8.1 | Linux-RHEL-SAP-8-1| - |
-| Red Hat Enterprise Linux (RHEL) 8.2 | Linux-RHEL-SAP-8-2| - |
 | Red Hat Enterprise Linux (RHEL) 8.4 | Linux-RHEL-SAP-8-4| RHEL8-SP4-SAP |
 | Red Hat Enterprise Linux (RHEL) 8.6 | Linux-RHEL-SAP-8-6| RHEL8-SP6-SAP |
-
-| SUSE Linux Enterprise Server (SLES) for SAP 12 SP4 | Linux-SUSE-SAP-12-4 | - |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | Linux-SUSE-SAP-15-2 | SLES15-SP2-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | Linux-SUSE-SAP-15-3 | SLES15-SP3-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | Linux-SUSE-SAP-15-4 | SLES15-SP4-SAP |
-
 {: caption="Table 1. Operating systems for IBM Power virtual servers on SAP HANA" caption-side="bottom"}
 
 | Operating system for SAP NetWeaver | Operating system image (Bring your own license) | Operating system image (IBM subscription) |
 |---------|---------|---------|
-| Red Hat Enterprise Linux (RHEL) 8.1 | Linux-RHEL-SAP-8-1| - |
-| Red Hat Enterprise Linux (RHEL) 8.2 | Linux-RHEL-SAP-8-2| - |
 | Red Hat Enterprise Linux (RHEL) 8.4 | Linux-RHEL-SAP-8-4| RHEL8-SP4-SAP-NETWEAVER |
 | Red Hat Enterprise Linux (RHEL) 8.6 | Linux-RHEL-SAP-8-6| RHEL8-SP6-SAP-NETWEAVER |
-
-| SUSE Linux Enterprise Server (SLES) for SAP 12 SP4 | Linux-SUSE-SAP-12-4 | - |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | Linux-SUSE-SAP-15-2 | SLES15-SP2-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | Linux-SUSE-SAP-15-3 | SLES15-SP3-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | Linux-SUSE-SAP-15-4 | SLES15-SP4-SAP-NETWEAVER |
-
 | AIX 7.1 | 7100-05-05 or later |
 | AIX 7.2 | 7200-04-01 or later |
 {: caption="Table 2. Operating systems for IBM Power virtual servers on SAP NetWeaver" caption-side="bottom"}
