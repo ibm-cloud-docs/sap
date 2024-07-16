@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-16"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -39,7 +39,7 @@ Use the instructions in [Creating instances for a high availability cluster on {
 
 Parameters that are required for fencing agent configuration include the *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspace and the *instance IDs* of the virtual server instances.
 Some extra parameters need to be derived from the *CRN*.
-The fencing agent also uses the *API Key of the Service ID* to authenticate with the {{site.data.keyword.powerSys_notm}} API.
+The fencing agent uses the *API Key of the Service ID* to authenticate with the {{site.data.keyword.powerSys_notm}} API.
 
 The uppercase variables in the following section indicate that these parameters need to be set as environment variables on the virtual server instances to simplify the setup of the cluster.
 
@@ -78,6 +78,8 @@ The uppercase variables in the following section indicate that these parameters 
 1. In the list of the virtual server instances, click each of the cluster nodes and take a note of each **ID**.
 1. Set these IDs as *POWERVSI_01* and *POWERVSI_02*.
 
+1. The [Creating the API key for the Service ID in IBM Cloud Identity and Access Management](/docs/sap?topic=ha-vsi-create-service-api-key) section contains information about how to obtain the *API Key of the Service ID*.
+
 ## Preparing the nodes for RHEL HA Add-On installation
 {: #ha-rhel-prepare-nodes-for-rhel-ha-installation}
 
@@ -105,7 +107,7 @@ On both nodes, create a file with the following environment variables and update
 ```sh
 export CLUSTERNAME=SAP_CLUSTER         # Cluster Name
 
-export APIKEY=<APIKEY>                 # API Key of the ServiceID
+export APIKEY=<APIKEY>                 # API Key of the Service ID
 export IBMCLOUD_CRN=<IBMCLOUD_CRN>     # CRN of workspace
 export GUID=<GUID>                     # GUID of workspace
 export CLOUD_REGION=<CLOUD_REGION>     # Region of workspace
@@ -288,6 +290,7 @@ You must enable STONITH (fencing) for a RHEL HA Add-On production cluster.
 Fence agent *fence_ibm_powervs* is the only supported agent for a STONITH device on {{site.data.keyword.powerSys_notm}} clusters.
 
 The fence agent connects to the [Power Cloud API](https://cloud.ibm.com/apidocs/power-cloud){: external} by using parameters *APIKEY*, *IBMCLOUD_CRN*, *CLOUD_REGION*, *GUID*, and the instance IDs *POWERVSI_01* and *POWERVSI_02*.
+
 You can test the agent invocation by using the parameters that you gathered in the [Gathering required parameters for the cluster configuration](#ha-rhel-gather-parameters-for-cluster-config) section.
 
 #### Identifying the virtual server instances for fencing
