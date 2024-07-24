@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-16"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -21,9 +21,11 @@ The following information is provided in the following sections.
 - [Creating the {{site.data.keyword.powerSys_notm}} workspace in {{site.data.keyword.cloud}}](#ha-vsi-create-workspace)
 
     After the workspace is created, you can create and configure virtual server instances, network resources, and storage volumes.
+
 - [Creating a Service ID API Key in {{site.data.keyword.cloud}}](#ha-vsi-create-service-id)
 
     For monitoring and management, the fencing agent authenticates to the {{site.data.keyword.powerSys_notm}} API by using the Service API key.
+
 
 ## Before you begin
 {: #ha-vsi-begin}
@@ -153,35 +155,6 @@ Before you begin, make sure that the OVA image is loaded in the storage bucket.
 1. Enter **Cloud Object Storage access key** and **Cloud Object Storage secret key**.
 1. Click **Import image**.
 
-
-## Creating a Service ID and API key in {{site.data.keyword.cloud}}
-{: #ha-vsi-create-service-id}
-
-A Service ID in {{site.data.keyword.cloud}} identifies a service or an application in a similar way as a user ID identifies a user in {{site.data.keyword.cloud}}.
-The service ID is used by the cluster fencing agent to monitor the status of and control the virtual server instances in the cluster.
-
-1. Log in to [{{site.data.keyword.cloud}}](https://cloud.ibm.com/){: external}.
-1. In the toolbar, click **Manage** to expand the drop-down menu, then select **Access (IAM)**.
-1. Click **Service IDs** > **Create**.
-1. Enter **Name** and **Description** for the service ID.
-1. Click **Create**.
-1. In the Access policies section, click **Assign access**.
-1. As Service, click **Workspace for {{site.data.keyword.powerSys_notm}}** > **Next**.
-1. Click **Specific Resources** > *Attribute Type* **Service Instance** > name of the workspace that you created earlier > **Next**.
-1. In **Service access**, select **Manager** > **Add** > **Assign**.
-1. Click **API Keys** to toggle the screen to manage API keys for the service ID.
-1. Click **Create**.
-1. Enter the **Name** and **Description** for the key.
-1. Click **Create**.
-
-Copy the API key or download it to save it.
-
-The key is available for 300 seconds.
-After the 300 seconds, you won't be able to display or retrieve the key.
-{: important}
-
-
-
 ## Creating virtual server instances for the cluster
 {: #ha-vsi-create-virtual-server-instances}
 
@@ -229,3 +202,32 @@ Set up SSH forwarding on the bastion host, and prepare or test SSH remote login 
 If you deployed a virtual server instance from a stock image, you need to perform extra configuration tasks before you can install SAP software.
 For more information, see [Configuring a Power Virtual Server instance](https://cloud.ibm.com/docs/sap?topic=sap-power-vs-set-up-power-instances#power-vs-set-up-power-basic-os-config).
 {: important}
+
+
+## Creating a Service ID and API key in {{site.data.keyword.cloud}}
+{: #ha-vsi-create-service-id}
+
+A Service ID in {{site.data.keyword.cloud}} identifies a service or an application in a similar way as a user ID identifies a user in {{site.data.keyword.cloud}}.
+The service ID is used by the cluster fencing agent to monitor the status of and control the virtual server instances in the cluster.
+
+1. Log in to [{{site.data.keyword.cloud}}](https://cloud.ibm.com/){: external}.
+1. In the toolbar, click **Manage** to expand the drop-down menu, then select **Access (IAM)**.
+1. Click **Service IDs** > **Create**.
+1. Enter **Name** and **Description** for the service ID.
+1. Click **Create**.
+1. In the Access policies section, click **Assign access**.
+1. As Service, click **Workspace for {{site.data.keyword.powerSys_notm}}** > **Next**.
+1. Click **Specific Resources** > *Attribute Type* **Service Instance** > name of the workspace that you created earlier > **Next**.
+1. In **Service access**, select **Manager** > **Add** > **Assign**.
+1. Click **API Keys** to toggle the screen to manage API keys for the service ID.
+1. Click **Create**.
+1. Enter the **Name** and **Description** for the key.
+1. Click **Create**.
+
+Copy the API key or download it to save it.
+
+The key is available for 300 seconds.
+After the 300 seconds, you won't be able to display or retrieve the key.
+{: important}
+
+
