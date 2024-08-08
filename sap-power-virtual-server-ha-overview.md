@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-08-08"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -132,3 +132,5 @@ Depending on your requirements, select one of the two available topologies.
    Multitarget system replication allows primary and secondary systems to replicate changes to more than one system.
 
    [Configuring SAP HANA multitarget system replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitarget){: external}.
+
+
