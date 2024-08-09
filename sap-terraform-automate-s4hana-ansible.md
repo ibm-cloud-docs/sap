@@ -166,7 +166,7 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
     * ID_RSA_FILE_PATH - `id_rsa` private key file path in OpenSSH format with 0600 permissions.
     * APP_HOSTNAME/DB_HOSTNAME - Enter a hostname up to 12 characters. For more information, see the readme file.
     * DB_PROFILE/APP_PROFILE - The instance profile used for the HANA/APP VSI.
-    * DB_PROFILE/APP_PROFILE - The instance profile used for the HANA/APP VSI.HANA database instance can be deployed on x86 VSI or bare metal server types.
+    * DB_PROFILE/APP_PROFILE - The instance profile used for the HANA/APP VSI. HANA database instance can be deployed on x86 VSI or bare metal server types.
     * DB_IMAGE/APP_IMAGE - The OS image for DB/APP VSI.
 
     For more options for profile, see Instance Profiles. For more options for image, see Images. For descriptions of the variables, see the readme file.
