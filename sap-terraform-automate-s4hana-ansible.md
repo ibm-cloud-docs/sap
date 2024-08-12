@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-09"
+lastupdated: "2024-08-12"
 
 subcollection: sap
 
