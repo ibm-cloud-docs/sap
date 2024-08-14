@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-08-14"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -45,7 +45,7 @@ To create a monitoring instance by using the IBM Cloud UI, use the following ste
 
 Retrieve the authorization credentials after you create the monitoring instance.
 
-Enter the the authorization credentials later on in the metric exporter configuration files.
+Enter the authorization credentials later on in the metric exporter configuration files.
 
 1. In the {{site.data.keyword.cloud}} console, select **Observability** > **Monitoring** or go to [Monitoring](https://cloud.ibm.com/observe/monitoring){: external}.
 1. Select your monitoring instance from the table and click **Open dashboard**.

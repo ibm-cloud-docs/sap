@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-08-14"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -33,15 +33,15 @@ SAP variables description:
 | `sap_hana_ip` | IPv4 address of the SAP HANA DB server. |
 | `sap_ascs_ip` | IPv4 address of the SAP ASCS server. |
 | `sap_app_server_ip_01`| IPv4 address of the first SAP (primary) application server. |
-| `sap_app_server_ip_02` | If it exists, the optional IPv4 address of the second SAP application server. |
-| `sap_app_server_ip_03`| If it exists, the optional IPv4 address of third SAP application server.|
-| `sap_app_server_ip_<n>` | If it exists, the optional IPv4 address of SAP application server(n). |
-| `sap_hana_http_port`| HTTP port of the sapstartsrv Web service on the SAP HANA server. |
-|  `sap_ascs_http_port` | HTTP port of the sapstartsrv Web service of the ASCS (ENQ and MSG Central Services) on the SAP ASCS server. |
-|  `sap_app_server_port_01`| HTTP port of the sapstartsrv Web service on the first application server. |
-|  `sap_app_server_port_02`| HTTP port of the sapstartsrv Web service on the second application Server. |
-|  `sap_app_server_port_03` | HTTP port of the sapstartsrv Web service on the third application server. |
-|  `sap_app_server_port_<n>`| HTTP port of the sapstartsrv Web service on the `n` application Server. |
+| `sap_app_server_ip_02` | The optional IPv4 address of the second SAP application server. |
+| `sap_app_server_ip_03`| The optional IPv4 address of the third SAP application server. |
+| `sap_app_server_ip_<n>` | The optional IPv4 address of any other SAP application servers. |
+| `sap_hana_http_port`| HTTP port of the sapstartsrv web service on the SAP HANA server. |
+|  `sap_ascs_http_port` | HTTP port of the sapstartsrv web service of the ASCS (ENQ and MSG Central Services) on the SAP ASCS server. |
+|  `sap_app_server_port_01`| HTTP port of the sapstartsrv web service on the first application server. |
+|  `sap_app_server_port_02`| HTTP port of the sapstartsrv web service on the second application Server. |
+|  `sap_app_server_port_03` | HTTP port of the sapstartsrv web service on the third application server. |
+|  `sap_app_server_port_<n>`| HTTP port of the sapstartsrv web service on the `n` application Server. |
 |  `sap_hana_sql_systemdb_port`| SQL access port to the system database on the SAP HANA server. |
 | `sap_hana_sql_systemdb_user` | The new SQL user of the system database that was created with `ReadOnly` permissions. |
 | `sap_hana_sql_systemdb_password` | The new password of `sap_hana_sql_systemdb_user` that was created with `ReadOnly` permissions. |
@@ -88,7 +88,7 @@ That is, the names of the `systemd` processes and the numbers of the locally exp
 On each SAP system, the local operating system firewall and SELinux/AppArmor are disabled by default.
 If the operating system firewall is enabled, check the firewall settings on each SAP system for SQL ports and SAP instance ports.
 
-If you decide to use the firewalld service, open the ports used on the SAP system and on the monitoring host.
+If you decide to use the firewalld service, open the ports that are used on the SAP system and on the monitoring host.
 Use the following commands to allow additional ports in the firewalld service.
 
 ```sh
@@ -240,4 +240,4 @@ Add a line to the SAP default profile:
 ## Next steps
 {: mon-preparing-system-next-steps}
 
-After checking and preparing SAP system you can proceed to the next step [Creating of monitoring instance in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-mon-create-instance).
+After checking and preparing the SAP system, you can proceed to the next step [Creating of monitoring instance in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-mon-create-instance).

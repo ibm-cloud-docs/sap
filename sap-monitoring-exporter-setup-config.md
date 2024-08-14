@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-08-14"
 
 keywords: SAP Monitoring, {{site.data.keyword.cloud_notm}}, SAP Workloads
 
@@ -82,21 +82,21 @@ nc –vz ${sap_hana_ip} ${sap_hana_sql_systemdb_port}
 ```
 {: pre}
 
-Check connectivity from the SAP HANA database server to the HTTP port of the sapstartsrv Web service on the SAP HANA server.
+Check connectivity from the SAP HANA database server to the HTTP port of the sapstartsrv web service on the SAP HANA server.
 
 ```sh
 nc –vz ${sap_hana_ip} ${sap_hana_http_port}
 ```
 {: pre}
 
-Check connectivity from the SAP ASCS server to the HTTP port of the sapstartsrv Web service of the ASCS on the SAP ASCS server.
+Check connectivity from the SAP ASCS server to the HTTP port of the sapstartsrv web service of the ASCS on the SAP ASCS server.
 
 ```sh
 nc –vz ${sap_ascs_ip} ${sap_ascs_http_port}
 ```
 {: pre}
 
-Check connectivity from IP address of the first SAP (primary) application server to the HTTP port of the sapstartsrv Web service on the first application server.
+Check connectivity from IP address of the first SAP (primary) application server to the HTTP port of the sapstartsrv web service on the first application server.
 
 ```sh
 nc –vz ${sap_app_server_ip_01} ${sap_app_server_port_01}
@@ -193,7 +193,7 @@ Use the following steps to install the SAP Python driver `hdbcli`.
 
 1. Retrieve the SAP HANA Python driver by downloading the official SAP HANA Client. For more detailed information, see [Install the SAP HANA Client](https://developers.sap.com/tutorials/hana-clients-install.html){: external}.
 
-1. Install the SAP Python driver `hdbcli` as described in [Install the Python Driver](https://help.sap.com/docs/SAP_HANA_PLATFORM/0eec0d68141541d1b07893a39944924e/39eca89d94ca464ca52385ad50fc7dea.html){: external}.
+1. Install the SAP Python driver `hdbcli` as described in the [Installing the Python driver](https://help.sap.com/docs/SAP_HANA_PLATFORM/0eec0d68141541d1b07893a39944924e/39eca89d94ca464ca52385ad50fc7dea.html){: external}.
 
 1. Choose the following SAP HANA Client package with the current `<version>` and `<patch>`.
 
@@ -254,7 +254,7 @@ Use the following steps to install the SAP Python driver `hdbcli`.
 
 Use the following steps to create the `hdbuserstore` key.
 
-1. Create the stored user key with the same Python user that runs the hanadb_exporter. Use the ReadOnly-SQL-User as `<sap_hana_sql_systemdb_user>`.
+1. Create the stored user key with the same Python user that runs the hanadb_exporter. Use the ReadOnly SQL user as `<sap_hana_sql_systemdb_user>`.
 
    ```sh
    /usr/sap/hdbclient/hdbuserstore SET MONITORING-${sap_monitoring_nr}-KEY \
@@ -572,4 +572,4 @@ Only one extra `systemd` configuration file is required for all `sap_host_export
 ## Next steps
 {: mon-exporter-setup-next-steps}
 
-If the set up and configuration of the monitoring host was successful, continue with [Configuration of Prometheus server metric forwarding](/docs/sap?topic=sap-mon-metric-forwarding).
+If the setup and configuration of the monitoring host was successful, continue with [Configuration of Prometheus server metric forwarding](/docs/sap?topic=sap-mon-metric-forwarding).

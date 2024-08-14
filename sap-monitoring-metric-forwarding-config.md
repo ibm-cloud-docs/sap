@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-08-14"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -73,7 +73,7 @@ Use the following steps to configure metric forwarding for the Prometheus server
    Do not change the syntax of the Prometheus configuration file name: `/etc/prometheus/<sap_monitoring_nr>.yml`.
    {: note}
 
-1. Use following commands to enforce Prometheus user permissions in all Prometheus configuration files.
+1. Use the following commands to enforce Prometheus user permissions in all Prometheus configuration files.
 
    ```sh
    sudo chown -R prometheus:prometheus /etc/prometheus
@@ -124,7 +124,7 @@ As the root user, set the systemd service parameters to run the Prometheus serve
    ```
    {: codeblock}
 
-1. Use following commands to activate the configuration and start and enable the Prometheus agent.
+1. Use the following commands to activate the configuration and start and enable the Prometheus agent.
 
    ```sh
    systemctl daemon-reload
@@ -166,4 +166,4 @@ It takes some time for the metrics to appear in your dashboard.
 ## Next steps
 {: mon-metric-forwarding-next-steps}
 
-To visualise the metrics collected by Prometheus server go to the [Launch the monitoring web UI and work with dashboards](/docs/sap?topic=sap-mon-launch-web-ui-dashboards).
+To visualize the metrics that are collected by the Prometheus server, see [Launch the monitoring web UI and work with dashboards](/docs/sap?topic=sap-mon-launch-web-ui-dashboards).

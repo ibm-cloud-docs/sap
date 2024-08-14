@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-08-14"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -20,7 +20,7 @@ To prepare for the monitoring scenario, deploy one {{site.data.keyword.cloud}} M
 {{site.data.keyword.cloud}} Monitoring offers predefined SAP dashboards from {{site.data.keyword.cloud}} dashboard library free of charge.
 {: shortdesc}
 
-This setup does not support SAP systems in an High Availability setup.
+This setup does not support SAP systems in a High Availability setup.
 {: restriction}
 
 The metrics of monitored SAP systems are collected by an application that runs on the SLES VPC host. This means that you need an extra VPC host if your deployable architecture is RHEL-based.
@@ -29,7 +29,7 @@ The detailed information about Monitoring in {{site.data.keyword.cloud}} is desc
 
 As a prerequisite for getting started you have to deploy an infrastructure and SAP system landscape that is up and running without issues.
 
-The architecture overview diagram below shows {{site.data.keyword.cloud}} Monitoring for SAP systems when the infrastructure and SAP system landscape are built by a [deployable architecture](https://cloud.ibm.com/docs/sap-powervs?topic=sap-powervs-sap-s4hana-bw4hana){: external}.
+The following architecture overview diagram shows {{site.data.keyword.cloud}} Monitoring for SAP systems when the infrastructure and SAP system landscape are built by a [deployable architecture](https://cloud.ibm.com/docs/sap-powervs?topic=sap-powervs-sap-s4hana-bw4hana){: external}.
 
 ![Figure 1. {{site.data.keyword.cloud}} Monitoring for SAP systems](images/sap-monitoring-in-ibm-cloud.svg "{{site.data.keyword.cloud}} Monitoring for SAP systems")
 {: caption="Figure 1. {{site.data.keyword.cloud}} Monitoring for SAP systems" caption-side="bottom"}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-08-14"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -23,7 +23,7 @@ Use the following commands to determine SAP parameters on your SAP HANA database
 ### List the sapstartsrv services and operating system user of the processes
 {: #mon-list-sapstartsrv-services-and-os-user}
 
-As user `root`, use the following command to list the `sapstartsrv` services and the operating system user.
+As a user `root`, use the following command to list the `sapstartsrv` services and the operating system user.
 
 ```sh
 ps aux|grep sapstartsrv
@@ -50,7 +50,7 @@ su - <SID>adm
 ```
 {: pre}
 
-### List HTTP/HTTPS port of an SAP instance
+### List HTTP/HTTPS ports of an SAP instance
 {: #mon-list-https-port-of-sap-instance}
 
 As an SAP administrator, use the following command to list the HTTP/HTTPS ports of an SAP instance.
@@ -148,7 +148,7 @@ hdbsql -i <instance_nr> -d SYSTEMDB -u SYSTEM -p <sap_hana_sql_systemdb_password
 ### List processes of the SAP Control instances and the `sapstartsrv services`
 {: #mon-showing-control-instances-and-sapstartsrv}
 
-To list the processes of the SAP Control instances and the `sapstartsrv services`, run the following command as root user.
+To list the processes of the SAP Control instances and the `sapstartsrv services`, run the following command as the root user.
 
 ```sh
 ps aux|grep sapstartsrv
@@ -335,7 +335,7 @@ sudo systemctl remove sap_host_exporter@sap_host_exporter-${sap_monitoring_nr}-D
 ```
 {: pre}
 
-To delete the sap-host-exporter configurations, use the following commands.
+To delete the `sap_host_exporter` configurations, use the following commands.
 
 ```sh
 sudo rm /etc/sap_host_exporter/sap_host_exporter-${sap_monitoring_nr}-HANA.yaml
@@ -357,10 +357,10 @@ sudo rm /etc/sap_host_exporter/sap_host_exporter-${sap_monitoring_nr}-DI-02.yaml
 ```
 {: pre}
 
-## Optional changes to /etc/services
+## Optional changes to `/etc/services`
 {: #mon-optional-changes-to-etc-service}
 
-You can use the `/etc/services' file to map service names to port numbers on the local host.
+You can use the `/etc/services` file to map service names to port numbers on the local host.
 The current setup doesn't require any changes to this file, but you can add the following optional changes.
 
 ```sh
