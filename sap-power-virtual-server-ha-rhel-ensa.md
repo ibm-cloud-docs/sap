@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-07-01"
+lastupdated: "2024-07-30"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -23,8 +23,8 @@ The focus of this example configuration is on the second generation of the [Stan
 Starting with the release of SAP S/4HANA 1809, ENSA2 is installed by default, and can be configured in a two-node or multi-node cluster.
 This example uses the *ENSA2* setup for a two-node RHEL HA Add-On cluster.
 If the *ASCS* service fails in a two-node cluster, it restarts on the node where *ERS* is running.
-The lock entries for the SAP application are protected when they rebuild from the copy of the lock table that's available in the *ERS*.
-When the failed cluster node reactivates, the *ERS* instance moves to the other node (anti-collocation) to protect the lock table copy.
+The lock entries for the SAP application are restored from the copy of the lock table in the *ERS*.
+When an administrator activates the failed cluster node, the *ERS* instance moves to the other node (anti-collocation) to protect the lock table copy.
 
 It is recommended that you install the SAP database instance and other SAP application server instances on virtual server instances outside the two-node cluster for *ASCS* and *ERS*.
 
@@ -74,7 +74,7 @@ To simplify the setup, prepare the following environment variables for user `roo
 These environment variables are used in subsequent commands in the remainder of the instructions.
 
 On both nodes, create a file with the following environment variables.
-Then, you need to adapt them to your configuration.
+Next, update these variables according to your configuration.
 
 ```sh
 export SID=<SID>                   # SAP System ID (uppercase)

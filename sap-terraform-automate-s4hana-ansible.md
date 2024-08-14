@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-08-12"
 
 subcollection: sap
 
@@ -47,16 +47,16 @@ While previous SAP ERP solutions support the most common databases, SAP S/4HANA 
 ## What is created
 {: #automate-s4hana-terraform-ansible-created}
 
-The scripts work in two phases. The first phase automates the provisioning of the {{site.data.keyword.cloud_notm}} resources in the VPC created when you deployed the [bastion VSI](/docs/sap?topic=sap-sap-bastion-server&interface=terraform). The second phase creates the SAP architecture in a distributed environment SAP S/4HANA application server on a distinct VSI VPC system and SAP HANA DB on a dedicated server type VSI VPC box system. For more information about this architecture, see [SAP NetWeaver 7.x with SAP HANA IBM Cloud® VPC](/docs/sap?topic=sap-sap-refarch-nw-hana&interface=ui).
+The scripts work in two phases. The first phase automates the provisioning of the {{site.data.keyword.cloud_notm}} resources in the VPC created when you deployed the [bastion VSI](/docs/sap?topic=sap-sap-bastion-server&interface=terraform). The second phase creates the SAP architecture in a distributed environment SAP S/4HANA application server on a distinct VSI VPC system and SAP HANA DB on a dedicated server type VSI or Bare Metal VPC box system. For more information about this architecture, see [SAP NetWeaver 7.x with SAP HANA IBM Cloud® VPC](/docs/sap?topic=sap-sap-refarch-nw-hana&interface=ui).
 
 During the first phase, the VPC is provisioned with 2 X virtual server instances with SAP certified storage and network configurations.
 
-During the second phase, the Ansible playbooks are called and the SAP architecture is installed for both dedicated VSIs SAP App VSI system and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP S/4HANA release on a stand-alone dedicated SAP HANA 2.0 box release as a distributed deployment model. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on IBM Cloud® VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi&interface=ui).
+During the second phase, the Ansible playbooks are called and the SAP architecture is installed for both dedicated VSIs SAP App VSI system and dedicated SAP HANA VSI or Bare Metal box. The SAP architecture that is deployed is the SAP S/4HANA release on a stand-alone dedicated SAP HANA 2.0 box release as a distributed deployment model. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on IBM Cloud® VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi&interface=ui).
 
 ## Single-host SAP HANA system
 {: #automate-s4hana-terraform-ansible-single}
 
-A single-host system is the simplest system installation type that runs an SAP HANA db system entirely on one host. You can scale the system up as needed. The single-host system has these components: 
+A single-host system is the simplest system installation type that runs an SAP HANA database instance entirely on one host. With this automation you can deploy the HANA DB instance either on x86 VSI or Intel Virtual Bare Metal server types. You can scale the system up as needed. The single-host system has these components:
  
  ![Figure 1. SAP NetWeaver 7.x SAP HANA 3-tier architecture](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA 3-tier architecture"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA 3-tier architecture" caption-side="bottom"}
 
@@ -166,6 +166,7 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
     * ID_RSA_FILE_PATH - `id_rsa` private key file path in OpenSSH format with 0600 permissions.
     * APP_HOSTNAME/DB_HOSTNAME - Enter a hostname up to 12 characters. For more information, see the readme file.
     * DB_PROFILE/APP_PROFILE - The instance profile used for the HANA/APP VSI.
+    * DB_PROFILE/APP_PROFILE - The instance profile used for the HANA/APP VSI. HANA database instance can be deployed on x86 VSI or bare metal server types.
     * DB_IMAGE/APP_IMAGE - The OS image for DB/APP VSI.
 
     For more options for profile, see Instance Profiles. For more options for image, see Images. For descriptions of the variables, see the readme file.

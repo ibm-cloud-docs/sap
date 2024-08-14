@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-07-16"
+lastupdated: "2024-08-08"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -78,7 +78,7 @@ The uppercase variables in the following section indicate that these parameters 
 1. In the list of the virtual server instances, click each of the cluster nodes and take a note of each **ID**.
 1. Set these IDs as *POWERVSI_01* and *POWERVSI_02*.
 
-1. The [Creating the API key for the Service ID in IBM Cloud Identity and Access Management](/docs/sap?topic=ha-vsi-create-service-api-key) section contains information about how to obtain the *API Key of the Service ID*.
+1. The [Creating the API key for the Service ID in IBM Cloud Identity and Access Management](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id) section contains information about how to obtain the *API Key of the Service ID*.
 
 ## Preparing the nodes for RHEL HA Add-On installation
 {: #ha-rhel-prepare-nodes-for-rhel-ha-installation}

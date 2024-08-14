@@ -2,7 +2,7 @@
 copyright:
   years: 2023, 2024
 
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-30"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -105,7 +105,8 @@ EOT
 Recent versions of SAP HANA provide *hooks* so SAP HANA can send out notifications for certain events.
 For more information, see [Implementing a HA/DR Provider](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/1367c8fdefaa4808a7485b09815ae0f3.html){: external}.
 
-The *srConnectionChanged()* hook improves the ability of the cluster to detect a status change of HANA System Replication that requires an action from the cluster. The goal is to prevent data loss and corruption by preventing accidental takeovers.
+The *srConnectionChanged()* hook improves the ability of the cluster to detect a status change of HANA System Replication that requires an action from the cluster.
+The goal is to prevent data loss and corruption by preventing accidental takeovers.
 
 #### Activating the srConnectionChanged() hook on all SAP HANA instances
 {: #ha-rhel-hana-sr-activate-hana-sr-hook}
@@ -453,6 +454,8 @@ The virtual IP address must be present on the node where the primary resource of
    ip addr show
    ```
    {: pre}
+
+
 
 ### Enabling automated registration of secondary instance
 {: #ha-rhel-hana-sr-enable-automated-registration}

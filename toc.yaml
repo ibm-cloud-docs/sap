@@ -307,7 +307,17 @@ toc:
               - sap-power-virtual-server-mig-overview.md
               - sap-power-virtual-server-mig-hybrid-cloud-networking.md
               - sap-power-virtual-server-mig-db-hana.md
-              - sap-power-virtual-server-mig-db-oracle.md          
+              - sap-power-virtual-server-mig-db-oracle.md
+      - topicgroup:
+          label: SAP Monitoring with IBM Cloud Monitoring
+          topics:
+              - sap-monitoring-getting-started.md
+              - sap-monitoring-checking-and-preparing-sap-system.md
+              - sap-monitoring-creating-instance.md
+              - sap-monitoring-exporter-setup-config.md
+              - sap-monitoring-metric-forwarding-config.md
+              - sap-monitoring-launch-web-ui-and-dashboards.md
+              - sap-monitoring-troubleshooting-and-maintenance.md
   - navgroup:
       id: reference
       topics:
