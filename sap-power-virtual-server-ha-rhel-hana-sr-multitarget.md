@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-08-15"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -542,6 +542,7 @@ sudo -i -u ${sid}adm -- <<EOT
       -set SYSTEM/global.ini/system_replication/register_secondaries_on_takeover=true
 EOT
 ```
+{: pre}
 
 Verify the `[system_replication]` section in the `global.ini` configuration file.
 
