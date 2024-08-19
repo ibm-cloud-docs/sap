@@ -60,7 +60,7 @@ During the second phase, the Ansible playbooks are called and the SAP architectu
 
 A single-host system is the simplest system installation type that runs an SAP HANA database instance entirely on one host. With this automation you can deploy the HANA DB instance either on x86 VSI or Intel Virtual Bare Metal server types. You can scale the system up as needed. The single-host system has these components:
  
- ![Figure 1. Single-host SAP HANA system](images/refarch-sap-hana-single-host-only.svg "Single-host SAP HANA system"){: caption="Figure 1. Single-host SAP HANA system" caption-side="bottom"}
+ ![Figure 2. Single-host SAP HANA system](images/refarch-sap-hana-single-host-only.svg "Single-host SAP HANA system"){: caption="Figure 2. Single-host SAP HANA system" caption-side="bottom"}
 
 The scripts are designed to install SAP (SAP S/4HANA release) solution on an existing VPC, together with its dedicated DB SAP HANA box in one task flow.
 
