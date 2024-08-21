@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-08"
+lastupdated: "2024-08-21"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -69,13 +69,13 @@ The other technical components, such as the ASCS instance, the SAP HANA database
 
    A simple restart of the message server is sufficient because no data needs to be retained.
 
-   To set up an HA cluster for the ABAP System Central Services instance, follow the steps that are in [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external}.
+   To set up an HA cluster for the ABAP System Central Services instance, follow the steps that are in [Configuring High Availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external}.
 
 - Shared file system
 
    The recommended method of protecting the NFS server is to implement an extra virtual server instance. Then, create the NFS exported file systems on shared disks that are attached to both virtual server instances and automate the failover by using HA cluster software.
 
-   To set up an HA cluster for the shared file system, follow the steps that are in [Configuring an active-passive NFS server in a Red Hat High Availability cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external}.
+   To set up an HA cluster for the shared file system, follow the steps that are in [Configuring an Active-Passive NFS Server in a Red Hat High Availability Cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external}.
 
 - SAP HANA system
 
@@ -105,15 +105,15 @@ Depending on your requirements, select the documentation for one of the scenario
 
 - SAP HANA System Replication performance-optimized scenario
 
-   [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr){: external}.
+   [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr){: external}.
 
 - SAP HANA System Replication cost-optimized scenario
 
-   [Configuring SAP HANA Cost-Optimized Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-cost-optimized){: external}.
+   [Configuring SAP HANA Cost-Optimized Scale-Up System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-cost-optimized){: external}.
 
 - SAP HANA System Replication Active-Active (Read Enabled) scenario
 
-   [Configuring SAP HANA Active/Active (Read Enabled) System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa){: external}.
+   [Configuring SAP HANA Active/Active (Read Enabled) System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa){: external}.
 
 ## SAP HANA disaster recovery solution scenarios
 {: #ha-overview-hana-dr-scenarios}
@@ -125,12 +125,12 @@ Depending on your requirements, select one of the two available topologies.
 
    With SAP HANA multitier system replication, you can chain multiple systems together to achieve a higher level of availability.
 
-   [Configuring SAP HANA multitier system replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitier){: external}.
+   [Configuring SAP HANA Multitier System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitier){: external}.
 
 - SAP HANA multitarget system replication scenario
 
    Multitarget system replication allows primary and secondary systems to replicate changes to more than one system.
 
-   [Configuring SAP HANA multitarget system replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitarget){: external}.
+   [Configuring SAP HANA Multitarget System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitarget){: external}.
 
 

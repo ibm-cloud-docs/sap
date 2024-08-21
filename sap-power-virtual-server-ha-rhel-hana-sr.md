@@ -2,7 +2,7 @@
 copyright:
   years: 2023, 2024
 
-lastupdated: "2024-07-30"
+lastupdated: "2024-08-21"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -12,7 +12,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster
+# Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On Cluster
 {: #ha-rhel-hana-sr}
 
 The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) HA Add-On cluster for managing *SAP HANA Scale-Up System Replication*.
@@ -348,8 +348,10 @@ pcs status --full
 ```
 {: pre}
 
-### Creating a virtual IP address resource
+### Creating a virtual IP address resource in a singlezone enviroment
 {: #ha-rhel-hana-sr-create-virtual-ip-resource}
+
+Perform the following steps if both cluster nodes are running in a single Power Virtual Server workspace.
 
 Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA System Replication cluster.
 
@@ -384,6 +386,13 @@ pcs resource config vip_${SID}_${INSTNO}
 pcs status --full
 ```
 {: pre}
+
+Proceed to the [Creating constraints](#ha-rhel-hana-sr-create-constraints) section.
+
+### Creating a virtual IP address resource in a multizone region enviroment
+{: #ha-rhel-hana-sr-create-virtual-ip--mz-resource}
+
+If both cluster nodes are running in a multizone region environment, follow the instructions in [Creating a virtual IP address resource in the multizone region setup](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-define-subnet-resource){: external} to define a resource for the virtual IP address.
 
 ### Creating constraints
 {: #ha-rhel-hana-sr-create-constraints}

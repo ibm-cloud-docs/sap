@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-07-30"
+lastupdated: "2024-08-21"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -11,7 +11,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring high availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On cluster
+# Configuring High Availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On Cluster
 {: #ha-rhel-ensa}
 
 The following information describes the configuration of *ABAP SAP Central Services (ASCS)* and *Enqueue Replication Service (ERS)* with Red Hat Enterprise Linux (RHEL) in a RHEL HA Add-On cluster.
@@ -689,7 +689,7 @@ pcs resource create fs_sapmnt Filesystem \
     device="${NFS_vh}:/${SID}" \
     directory="/sapmnt/${SID}" \
     fstype='nfs' \
-    "options=${NFS_options}" \
+    options="${NFS_options}" \
     clone interleave=true
 ```
 {: pre}
@@ -735,6 +735,7 @@ pcs resource create ${sid}_fs_ascs${ASCS_nr} Filesystem \
     device="${NFS_vh}:${SID}/ASCS" \
     directory=/usr/sap/${SID}/ASCS${ASCS_nr} \
     fstype=nfs \
+    options="${NFS_options}" \
     force_unmount=safe \
     op start interval=0 timeout=60 \
     op stop interval=0 timeout=120 \
@@ -810,6 +811,7 @@ pcs resource create ${sid}_fs_ers${ERS_nr} Filesystem \
     device="${NFS_vh}:${SID}/ERS" \
     directory=/usr/sap/${SID}/ERS${ERS_nr} \
     fstype=nfs \
+    options="${NFS_options}" \
     force_unmount=safe \
     op start interval=0 timeout=60 \
     op stop interval=0 timeout=120 \
