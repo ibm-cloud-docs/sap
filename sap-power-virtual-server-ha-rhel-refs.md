@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-08-27"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -93,6 +93,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 - [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://access.redhat.com/articles/3004101){: external}
 - [Support Policies for RHEL High Availability Clusters - Management of SAP S/4HANA in a cluster](https://access.redhat.com/articles/4016901){: external}
 - [Configuring SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker](https://access.redhat.com/articles/3974941){: external}
+- [The Systemd-Based SAP Startup Framework](https://access.redhat.com/articles/6884531){: external}
 
 ## SAP HANA product documentation
 {: #ha-rhel-refs-sap-hana-product-docs}

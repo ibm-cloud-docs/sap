@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-08-27"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -500,6 +500,7 @@ Configure and test fencing as described in [Creating the fencing device](/docs/s
 
 Use the following steps to prepare the SAP instances for the cluster integration.
 
+
 ### Removing the ASCS and ERS entries from the SAP services files
 {: #ha-rhel-ensa-modify-sap-services}
 
@@ -518,6 +519,8 @@ Example:
 #LD_LIBRARY_PATH=/usr/sap/S01/ASCS01/exe:$LD_LIBRARY_PATH;export LD_LIBRARY_PATH;/usr/sap/S01/ASCS01/exe/sapstartsrv pf=/usr/sap/S01/SYS/profile/S01_ASCS01_cl-sap-scs -D -u s01adm
 ```
 {: screen}
+
+
 
 ### Creating mount points for the instance file systems on the takeover node
 {: #ha-rhel-ensa-create-mountpoints}
