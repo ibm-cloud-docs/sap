@@ -306,7 +306,6 @@ The following entries to `/etc/fstab` mount the file systems after their mount p
 /dev/mapper/hana_vg-hana_data_lv   /hana/data xfs defaults,largeio,swalloc,inode64 0 0
 ```
 
-
 ## Sample storage configurations on IBM Power Infrastructure
 {: #sample-power}
 
@@ -331,7 +330,6 @@ See [Storage tiers](/docs/power-iaas?topic=power-iaas-about-virtual-server#stora
 The storage tier and capacity that is recommended for deployment of SAP S/4HANA on Power Virtual Server is described in this topic. These recommendations are based on the best practices and to meet the minimum performance criteria defined by HCMT.
 {: shortdesc}
 
-
 **Recommendation for SAP HANA DB size 128 GB - 768 GB**
 * Use 4 volumes of Fixed 5,000 IOPS storage for storing log files. Log files are usually up to 512 GB and need the high performance
 * Use 4 volumes of Tier 0 storage for data file system 
@@ -349,7 +347,7 @@ There are no defined IOPS requirements for shared file system
 {: note}
 
 #### Sample storage tier and IOPS mapping
-{: tier-fiops-map}
+{: #tier-fiops-map}
 
 The tables below shows the mapping of minimum IOPS and its storage tier mapping based on the different SAP profiles.
 
@@ -658,4 +656,3 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 {: caption="Table 5. Sample storage layout for Db2 on Cloud" caption-side="top"}
 
 For more information, see [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/viewer/4fbd902c7c76410bb82c6311dd4dc94b/CURRENT_VERSION/en-US/713eb64f45c6448c8dbe8a51b85680ee.html){: external} and [SAP Note 1707361](https://launchpad.support.sap.com/#/notes/1707361){: external}.
-
