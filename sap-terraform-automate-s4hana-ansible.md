@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-08-28"
 
 subcollection: sap
 
@@ -181,7 +181,9 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 	SUBNET          = ""
 	SSH_KEYS        = [""]
     ID_RSA_FILE_PATH   = "ansible/id_rsa"
-    ATR_NAME        = ""
+    HANA_SERVER_TYPE = ""
+    S4HANA_VERSION = ""
+    HANA_TENANT = ""
 
     # SAP Database VSI variables:
 	DB_HOSTNAME     = ""
@@ -292,7 +294,9 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
     |IBMCLOUD_API_KEY	|IBM Cloud API key or use a secret that is stored in Secrets Manager|
     |PRIVATE_SSH_KEY	|Input id_rsa private key content or use a secret stored in Secrets Manager|
     |SAP_MAIN_PASSWORD	|SAP main password or use a secret that is stored in Secrets Manager |
-    |ATR_NAME	|The name of the existing Activity Tracker instance, in the same region as HANA VSI|
+    |HANA_TENANT	|The name of the SAP HANA tenant|
+    |HANA_SERVER_TYPE	|The type of SAP HANA Server. Allowed values: "virtual" or "bare metal".|
+    |SHANA_VERSION	|The version of S/4HANA. The version can take one of the following values: 2023, 2022, 2021, 2020.|
 
 4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/7265035e-c57d-41f4-b804-4e495ad4c4b7-global).
 
@@ -349,7 +353,6 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the S
      * The ID for the SSH key that you created and uploaded to {{site.data.keyword.cloud_notm}}. Enter the SSH key ID in square brackets and quotation marks, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
      * The floating IP address for your bastion server.
      * Resource group
-     * Activity Tracker instance name
      * The Region for your resources
      * The Zone for your resources
      * VPC name
