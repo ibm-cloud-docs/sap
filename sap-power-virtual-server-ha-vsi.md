@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-08-29"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -31,6 +31,7 @@ The following information is provided in the following sections.
 {: #ha-vsi-begin}
 
 Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+
 
 ## Creating the workspace
 {: #ha-vsi-create-workspace}
@@ -153,7 +154,8 @@ Before you begin, make sure that the OVA image is loaded in the storage bucket.
 1. Enter the file name of the image as **Image file name**.
 1. Enter the **Bucket name** of your Cloud Object Storage.
 1. Enter **Cloud Object Storage access key** and **Cloud Object Storage secret key**.
-1. Click **Import image**.
+
+
 
 ## Creating virtual server instances for the cluster
 {: #ha-vsi-create-virtual-server-instances}
@@ -229,5 +231,3 @@ Copy the API key or download it to save it.
 The key is available for 300 seconds.
 After the 300 seconds, you won't be able to display or retrieve the key.
 {: important}
-
-

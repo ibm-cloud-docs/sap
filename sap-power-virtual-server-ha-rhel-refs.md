@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-08-27"
+lastupdated: "2024-08-29"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -114,6 +114,8 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | [SAP Note 2235581 - SAP HANA: Supported Operating Systems](https://me.sap.com/notes/2235581){: external} |
 | [SAP Note 2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782){: external} |
 | [SAP Note 2369981 - Required configuration steps for authentication with HANA System Replication](https://me.sap.com/notes/2369981){: external} |
+| [SAP note 3115048 - sapstartsrv with native Linux systemd support](https://me.sap.com/notes/3115048){: external} |
+| [SAP note 3139184 - Linux: systemd integration for sapstartsrv and SAP Host Agent](https://me.sap.com/notes/3139184){: external} |
 {: class="simple-tab-table"}
 {: caption="Table 3. SAP Notes for RHEL 8" caption-side="bottom"}
 {: #rhel-sap-notes-table-rhel8}
@@ -126,6 +128,8 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | [SAP Note 2235581 - SAP HANA: Supported Operating Systems](https://me.sap.com/notes/2235581){: external} |
 | [SAP Note 3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302){: external} |
 | [SAP Note 2369981 - Required configuration steps for authentication with HANA System Replication](https://me.sap.com/notes/2369981){: external} |
+| [SAP note 3115048 - sapstartsrv with native Linux systemd support](https://me.sap.com/notes/3115048){: external} |
+| [SAP note 3139184 - Linux: systemd integration for sapstartsrv and SAP Host Agent](https://me.sap.com/notes/3139184){: external} |
 {: class="simple-tab-table"}
 {: caption="Table 3. SAP Notes for RHEL 9" caption-side="bottom"}
 {: #rhel-sap-notes-table-rhel9}

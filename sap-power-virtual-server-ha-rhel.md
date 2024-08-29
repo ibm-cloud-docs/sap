@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-08-29"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -191,7 +191,7 @@ RHEL 8
 :   fence-agents-ibm-powervs-4.2.1-121.el8
 
 RHEL 9
-:   fence-agents-ibm-powervs-4.10.0-55.el9
+:   fence-agents-ibm-powervs-4.10.0-43.el9
 
 ### Configuring a RHEL HA Add-On cluster
 {: #ha-rhel-configure-rhel-ha-cluster}
