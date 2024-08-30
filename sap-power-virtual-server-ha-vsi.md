@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-29"
+lastupdated: "2024-08-30"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -165,38 +165,33 @@ Complete the following steps to create the virtual server instances that you wan
 1. Log in to [Workspaces - {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces){: external}.
 1. Select the **Workspace** that you created.
 1. Click **View virtual server instances** > **Create Instance**.
-   You need to step through the subsections General, Boot Image, Profile, Storage Volume, Network Interfaces.
+   You need to step through the subsections **General**, **Boot Image**, **Profile**, **Storage Volume**, **Network Interfaces**.
 1. In subsection **General**, enter the **Instance name** and click **+** to increase the **Number of instances** to 2.
-1. Select **Numerical postfix** as Instance naming convention, and select **Different server** as Placement group colocation policy.
+1. Select **Numerical postfix** as *Instance naming convention*, and select **Different server** as *Placement group colocation policy*.
    A placement group with colocation policy *Different server* is automatically created as part of the virtual server instances deployment.
 1. Select the **SSH key** that you created and click **Continue**.
 1. In **Boot image**, select the **Operating system** according to your subscription model. \
    Use one of the Linux selections either from the *IBM-provided subscription* or through your *Client-provided subscription*. \
-   Keep **Auto-select pool** for selecting the Storage Pool. \
+   Keep **Auto-select pool** for selecting the *Storage Pool*. \
    Click **Continue**.
-1. In **Profile**, select **Machine type**, **Core type**, and the virtual server instance **profile** according to your workload requirements.
+1. In **Profile**, select **Machine type**, **Core type**, and the virtual server instance **profile** to match your workload requirements.
    Click **Continue**.
 1. In **Storage volumes**, click **Continue**.
 
-   When you deploy multiple instances, the storage volumes that are created are shared by both instances.
+   When you deploy multiple instances, the storage volumes that are created are shared by all instances.
    Certain high availability cluster scenarios require shared volumes.
    In these cases, create the shared volumes later.
    For SAP HANA, see [Storage configuration for SAP HANA](https://cloud.ibm.com/docs/sap?topic=sap-storage-design-considerations#storage-config-hana){: external}.
-   Those volumes must be created later for the individual server instances after their provisioning completes.
+   These volumes must be created later for the individual server instances after their deployment is complete.
    {: important}
 
-1. In subsection **Network Interfaces**, it is recommended that the cluster nodes are not accessible directly from a public network, so keep the configuration for *Public networks* as **Off**.
-1. Click **Attach existing** to attach the virtual server instances to a subnet.
+1. In the **Network Interfaces** subsection, it is recommended that the cluster nodes are not directly accessible from a public network, so leave the *Public networks* configuration as **Off**.
+1. Click **Attach** to attach the virtual server instances to an existing subnet.
 1. In the *Attach an existing network* screen, select one of the *Existing networks*. You can either select **Automatically assign IP address from IP range**, or **Manually specify an IP address from IP range** to specify an available IP address.
 1. Click **Attach.**
 1. Click **Finish**, check the *I agree to the Terms and Conditions* flag, and click **Create**.
 
 The deployment of the virtual server instances starts.
-
-## Preparing remote login for virtual server instances
-{: #ha-vsi-prepare-remote-login}
-
-Set up SSH forwarding on the bastion host, and prepare or test SSH remote login from your workstation by using your private SSH key.
 
 ## Preparing operating system for SAP installation
 {: #ha-vsi-prepare-sap-install}
