@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-28"
+lastupdated: "2024-08-30"
 
 subcollection: sap
 
@@ -182,7 +182,6 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 	SSH_KEYS        = [""]
     ID_RSA_FILE_PATH   = "ansible/id_rsa"
     HANA_SERVER_TYPE = ""
-    S4HANA_VERSION = ""
     HANA_TENANT = ""
 
     # SAP Database VSI variables:
@@ -200,13 +199,15 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 
     ```
     # S/4HANA version
-    S4HANA_VERSION = "2023"
+    S4HANA_VERSION = ""
 
 	# SAP HANA DB configuration
 	HANA_SID = "HDB"
 	HANA_SYSNO = "00"
 	HANA_SYSTEM_USAGE = "custom"
 	HANA_COMPONENTS = "server"
+    HANA_SERVER_TYPE = ""
+    HANA_TENANT = ""
 
 	# SAP HANA Installation kit path
 	KIT_SAPHANA_FILE = "/storage/HANADB/51057281.ZIP"
@@ -296,7 +297,6 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
     |SAP_MAIN_PASSWORD	|SAP main password or use a secret that is stored in Secrets Manager |
     |HANA_TENANT	|The name of the SAP HANA tenant|
     |HANA_SERVER_TYPE	|The type of SAP HANA Server. Allowed values: "virtual" or "bare metal".|
-    |SHANA_VERSION	|The version of S/4HANA. The version can take one of the following values: 2023, 2022, 2021, 2020.|
 
 4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/7265035e-c57d-41f4-b804-4e495ad4c4b7-global).
 
