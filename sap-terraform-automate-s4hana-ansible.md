@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-30"
+lastupdated: "2024-09-02"
 
 subcollection: sap
 
@@ -181,8 +181,6 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 	SUBNET          = ""
 	SSH_KEYS        = [""]
     ID_RSA_FILE_PATH   = "ansible/id_rsa"
-    HANA_SERVER_TYPE = ""
-    HANA_TENANT = ""
 
     # SAP Database VSI variables:
 	DB_HOSTNAME     = ""
@@ -295,8 +293,6 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
     |IBMCLOUD_API_KEY	|IBM Cloud API key or use a secret that is stored in Secrets Manager|
     |PRIVATE_SSH_KEY	|Input id_rsa private key content or use a secret stored in Secrets Manager|
     |SAP_MAIN_PASSWORD	|SAP main password or use a secret that is stored in Secrets Manager |
-    |HANA_TENANT	|The name of the SAP HANA tenant|
-    |HANA_SERVER_TYPE	|The type of SAP HANA Server. Allowed values: "virtual" or "bare metal".|
 
 4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/7265035e-c57d-41f4-b804-4e495ad4c4b7-global).
 
@@ -310,6 +306,8 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
     |HANA_SID	|hana_sid|
     |HANA_SYSNO	|hana_sysno|
     |HANA_SYSTEM_USAGE	|hana_system_usage|
+    |HANA_TENANT	|The name of the SAP HANA tenant|
+    |HANA_SERVER_TYPE	|The type of SAP HANA Server. Allowed values: "virtual" or "bare metal".|
     |HDB_CONCURRENT_JOBS	|hdb_concurent_jobs|
     |KIT_HDBCLIENT_FILE	|kit_hdbclient_file|
     |KIT_IGSEXE_FILE	|kit_igsexe_file|
