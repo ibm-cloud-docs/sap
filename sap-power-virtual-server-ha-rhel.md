@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-08"
+lastupdated: "2024-09-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -10,7 +10,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Implementing a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}}
+# Implementing a RHEL HA Add-On Cluster on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-rhel}
 
 Use the following information and procedures to implement a Red Hat Enterprise Linux (RHEL) High Availability (HA) cluster.
@@ -77,8 +77,8 @@ The uppercase variables in the following section indicate that these parameters 
 1. On the tile for the workspace, click **View Instances**.
 1. In the list of the virtual server instances, click each of the cluster nodes and take a note of each **ID**.
 1. Set these IDs as *POWERVSI_01* and *POWERVSI_02*.
-
-1. The [Creating the API key for the Service ID in IBM Cloud Identity and Access Management](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id) section contains information about how to obtain the *API Key of the Service ID*.
+1. For information on how to obtain the *Service ID API key*, see [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
+   The *apikey* object in the downloaded API key file provides the API key that is required by fencing agent.
 
 ## Preparing the nodes for RHEL HA Add-On installation
 {: #ha-rhel-prepare-nodes-for-rhel-ha-installation}
@@ -191,7 +191,7 @@ RHEL 8
 :   fence-agents-ibm-powervs-4.2.1-121.el8
 
 RHEL 9
-:   fence-agents-ibm-powervs-4.10.0-55.el9
+:   fence-agents-ibm-powervs-4.10.0-43.el9
 
 ### Configuring a RHEL HA Add-On cluster
 {: #ha-rhel-configure-rhel-ha-cluster}

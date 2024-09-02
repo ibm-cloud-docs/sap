@@ -41,7 +41,7 @@ The following table gives you an overview of the SAP-certified profiles with bar
 | ux2d-metal-224x6144 | 224 | 6,144 | 294,730 | OLTP/OLAP (\*) |
 {: caption="Table 1. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA" caption-side="bottom"}
 
-(\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions<br/>
+(\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions<br/>
 SLES 12 SP5, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
 
 (\*\*): SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5

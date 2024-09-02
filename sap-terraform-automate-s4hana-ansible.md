@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-09-02"
 
 subcollection: sap
 
@@ -44,6 +44,8 @@ An ERP system is used for demand-oriented business resource planning. It is used
 
 While previous SAP ERP solutions support the most common databases, SAP S/4HANA uses exclusively the SAP HANA in-memory database developed by SAP. This in-memory database offers users the greatest technical benefit and they benefit from increased performance. The "S" in S/4HANA stands for "simple", while the "4" refers to the generation sequence. Compared to the SAP core product SAP ECC, which is still used in most companies, SAP S/4HANA offers many innovative functions that revolutionize the system landscape from the ground up. As SAP plans to discontinue the mainstream maintenance of its existing ERP solutions by 2027, many SAP ECC users are already considering a migration to SAP S/4HANA.
 
+ ![Figure 1. SAP S/4HANA architecture](images/refarch-sap-s4_hana.svg "SAP S/4HANA architecture"){: caption="Figure 1. SAP S/4HANA architecture" caption-side="bottom"}
+
 ## What is created
 {: #automate-s4hana-terraform-ansible-created}
 
@@ -58,7 +60,7 @@ During the second phase, the Ansible playbooks are called and the SAP architectu
 
 A single-host system is the simplest system installation type that runs an SAP HANA database instance entirely on one host. With this automation you can deploy the HANA DB instance either on x86 VSI or Intel Virtual Bare Metal server types. You can scale the system up as needed. The single-host system has these components:
  
- ![Figure 1. SAP NetWeaver 7.x SAP HANA 3-tier architecture](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA 3-tier architecture"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA 3-tier architecture" caption-side="bottom"}
+ ![Figure 2. Single-host SAP HANA system](images/refarch-sap-hana-single-host-only.svg "Single-host SAP HANA system"){: caption="Figure 2. Single-host SAP HANA system" caption-side="bottom"}
 
 The scripts are designed to install SAP (SAP S/4HANA release) solution on an existing VPC, together with its dedicated DB SAP HANA box in one task flow.
 
@@ -179,7 +181,6 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 	SUBNET          = ""
 	SSH_KEYS        = [""]
     ID_RSA_FILE_PATH   = "ansible/id_rsa"
-    ATR_NAME        = ""
 
     # SAP Database VSI variables:
 	DB_HOSTNAME     = ""
@@ -196,13 +197,15 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 
     ```
     # S/4HANA version
-    S4HANA_VERSION = "2023"
+    S4HANA_VERSION = ""
 
 	# SAP HANA DB configuration
 	HANA_SID = "HDB"
 	HANA_SYSNO = "00"
 	HANA_SYSTEM_USAGE = "custom"
 	HANA_COMPONENTS = "server"
+    HANA_SERVER_TYPE = ""
+    HANA_TENANT = ""
 
 	# SAP HANA Installation kit path
 	KIT_SAPHANA_FILE = "/storage/HANADB/51057281.ZIP"
@@ -290,7 +293,6 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
     |IBMCLOUD_API_KEY	|IBM Cloud API key or use a secret that is stored in Secrets Manager|
     |PRIVATE_SSH_KEY	|Input id_rsa private key content or use a secret stored in Secrets Manager|
     |SAP_MAIN_PASSWORD	|SAP main password or use a secret that is stored in Secrets Manager |
-    |ATR_NAME	|The name of the existing Activity Tracker instance, in the same region as HANA VSI|
 
 4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/7265035e-c57d-41f4-b804-4e495ad4c4b7-global).
 
@@ -304,6 +306,8 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
     |HANA_SID	|hana_sid|
     |HANA_SYSNO	|hana_sysno|
     |HANA_SYSTEM_USAGE	|hana_system_usage|
+    |HANA_TENANT	|The name of the SAP HANA tenant|
+    |HANA_SERVER_TYPE	|The type of SAP HANA Server. Allowed values: "virtual" or "bare metal".|
     |HDB_CONCURRENT_JOBS	|hdb_concurent_jobs|
     |KIT_HDBCLIENT_FILE	|kit_hdbclient_file|
     |KIT_IGSEXE_FILE	|kit_igsexe_file|
@@ -347,7 +351,6 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the S
      * The ID for the SSH key that you created and uploaded to {{site.data.keyword.cloud_notm}}. Enter the SSH key ID in square brackets and quotation marks, for example [ "ibmcloud_ssh_key_UUID1","ibmcloud_ssh_key_UUID2",... ].
      * The floating IP address for your bastion server.
      * Resource group
-     * Activity Tracker instance name
      * The Region for your resources
      * The Zone for your resources
      * VPC name

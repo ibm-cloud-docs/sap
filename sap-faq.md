@@ -83,6 +83,7 @@ This table shows a brief list of services and the Business Partner types who can
 |Consulting and advisory and implementation|SAP "Global Systems Integrator" (GSI) providers|These providers advise and run SAP implementation and deployment projects.|
 |Application management|SAP "Application Management Services" (AMS) providers|These providers manage and maintain an existing deployment of SAP Applications (optional: incremental functional or development changes).|
 |End-to-end managed services|SAP "Managed Services Providers" (MSP)|These providers run the SAP implementation and deployment and manage the Infrastructure, OS, SAP Technical Applications, and SAP Business Applications. These services often do not include incremental functional or development changes).|
+{: caption="Table 1. Services and Business Partner Types" caption-side="top"}
 
 For example, some of the services that are available in partnership between {{site.data.keyword.cloud_notm}} and IBM Services include:
 - [GSI and IBM Services: SAP Consulting & Implementation Services](https://www.ibm.com/services/sap){: external}

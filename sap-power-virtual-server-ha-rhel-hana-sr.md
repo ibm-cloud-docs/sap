@@ -2,7 +2,7 @@
 copyright:
   years: 2023, 2024
 
-lastupdated: "2024-07-30"
+lastupdated: "2024-09-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -12,7 +12,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster
+# Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On Cluster
 {: #ha-rhel-hana-sr}
 
 The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) HA Add-On cluster for managing *SAP HANA Scale-Up System Replication*.
@@ -348,8 +348,10 @@ pcs status --full
 ```
 {: pre}
 
-### Creating a virtual IP address resource
+### Creating a virtual IP address resource in a singlezone enviroment
 {: #ha-rhel-hana-sr-create-virtual-ip-resource}
+
+Perform the following steps if both cluster nodes are running in a single Power Virtual Server workspace.
 
 Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA System Replication cluster.
 
@@ -384,6 +386,13 @@ pcs resource config vip_${SID}_${INSTNO}
 pcs status --full
 ```
 {: pre}
+
+Proceed to the [Creating constraints](#ha-rhel-hana-sr-create-constraints) section.
+
+### Creating a virtual IP address resource in a multizone region enviroment
+{: #ha-rhel-hana-sr-create-virtual-ip--mz-resource}
+
+If both cluster nodes are running in a multizone region environment, follow the instructions in [Creating a virtual IP address resource in the multizone region setup](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-define-subnet-resource){: external} to define a resource for the virtual IP address.
 
 ### Creating constraints
 {: #ha-rhel-hana-sr-create-constraints}
@@ -455,7 +464,96 @@ The virtual IP address must be present on the node where the primary resource of
    ```
    {: pre}
 
+### Enabling the SAP HANA srServiceStateChanged() hook (optional)
+{: #ha-rhel-hana-sr-enable-hana-servicestatechanged-hook}
 
+SAP HANA has built-in functionality to monitor its `indexserver`.
+In case of a problem, SAP HANA tries to recover automatically by stopping and restarting the process.
+To stop the process or clean up after a crash, the Linux kernel must free all memory allocated by the process.
+For large databases, this can take a very long time.
+During this time, SAP HANA continues to operate and accept new client requests.
+As a result, SAP HANA system replication may become out of sync.
+If another error occurs in the SAP HANA instance before the restart and recovery of the `indexserver` is complete, data consistency is at risk.
+
+The `ChkSrv.py` script for the `srServiceStateChanged()` hook reacts to such a situation and can stop the entire SAP HANA instance for faster recovery.
+If `automated failover` is enabled in the cluster, and the secondary node is in a healthy state, a takeover operation is invoked.
+Otherwise, recovery must continue locally, but is accelerated by the forced restart of the SAP HANA instance.
+
+The SAP HANA `srServiceStateChanged()` hook is available with `resource-agents-sap-hana` version 0.162.3 and later.
+{: note}
+
+The hook script analyzes the events in the instance, applies filters to the event details, and triggers actions based on the results.
+It distinguishes between a SAP HANA `indexserver` process that  is stopped and restarted by SAP HANA and the process that is stopped during an instance shutdown.
+
+Depending on the configuration of the `action_on_lost` parameter, the hook takes different actions:
+
+Ignore
+:   This action simply logs the events and decision information to a log file
+
+Stop
+:  This action triggers a graceful stop of the SAP HANA instance by using the sapcontrol command.
+
+Kill
+:   This action triggers the HDB kill-`<signal>` command with a default signal 9.
+    The signal can be configured.
+
+Both the *stop* and the *kill* actions result in a stopped SAP HANA instance, with the *kill* action being slightly faster.
+
+#### Activating the srServiceStateChanged() hook on all SAP HANA instances
+{: #ha-rhel-hana-sr-activate-hana-servicestatechanged-hook}
+
+The `srServiceStateChanged()` hook can be added while SAP HANA is running on both nodes.
+
+1. For each HANA instance, install the hook script that is provided by the *resource-agents-sap-hana* package in the `/hana/shared/myHooks` directory and set the required ownership.
+
+   On both nodes, run the following commands.
+
+   ```sh
+   cp /usr/share/SAPHanaSR/srHook/ChkSrv.py /hana/shared/myHooks
+   ```
+   {: pre}
+
+   ```sh
+   chown ${sid}adm:sapsys /hana/shared/myHooks/ChkSrv.py
+   ```
+   {: pre}
+
+1. Update the `global.ini` file on each SAP HANA node to enable the hook script.
+
+   On both nodes, run the following command.
+
+   ```sh
+   sudo -i -u ${sid}adm -- <<EOT
+       python \$DIR_INSTANCE/exe/python_support/setParameter.py \
+         -set SYSTEM/global.ini/ha_dr_provider_ChkSrv/provider=ChkSrv \
+         -set SYSTEM/global.ini/ha_dr_provider_ChkSrv/path=/hana/shared/myHooks \
+         -set SYSTEM/global.ini/ha_dr_provider_ChkSrv/execution_order=2 \
+         -set SYSTEM/global.ini/ha_dr_provider_ChkSrv/action_on_lost=stop \
+         -set SYSTEM/global.ini/trace/ha_dr_chksrv=info
+   EOT
+   ```
+   {: pre}
+
+   The `action_on_lost` parameter in this example is set to `stop`, the default would be `ignore`.
+   You can optionally set the parameters `stop_timeout` (default: `20` seconds) and `kill_signal` (default: `9`).
+
+1. Activate the `ChkSrv.py` hook
+
+   On both nodes, run the following command to reload the HA-DR providers.
+
+   ```sh
+   sudo -i -u ${sid}adm -- hdbnsutil -reloadHADRProviders
+   ```
+   {: pre}
+
+1. Check that the hook has logged some messages to the trace files.
+
+   On both nodes, run the following command.
+
+   ```sh
+   sudo -i -u ${sid}adm -- sh -c 'grep "ha_dr_ChkSrv" $DIR_INSTANCE/$VTHOSTNAME/trace/nameserver_* | cut -d" " -f2,3,6-'
+   ```
+   {: pre}
 
 ### Enabling automated registration of secondary instance
 {: #ha-rhel-hana-sr-enable-automated-registration}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-09-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -93,6 +93,8 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 - [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://access.redhat.com/articles/3004101){: external}
 - [Support Policies for RHEL High Availability Clusters - Management of SAP S/4HANA in a cluster](https://access.redhat.com/articles/4016901){: external}
 - [Configuring SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker](https://access.redhat.com/articles/3974941){: external}
+- [The Systemd-Based SAP Startup Framework](https://access.redhat.com/articles/6884531){: external}
+- [Pacemaker cluster does not trigger a takeover of HANA System Replication when the `hdbindexserver` process of the primary HANA instance hangs/crashes](https://access.redhat.com/solutions/5472351){: external}
 
 ## SAP HANA product documentation
 {: #ha-rhel-refs-sap-hana-product-docs}
@@ -113,6 +115,8 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | [SAP Note 2235581 - SAP HANA: Supported Operating Systems](https://me.sap.com/notes/2235581){: external} |
 | [SAP Note 2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782){: external} |
 | [SAP Note 2369981 - Required configuration steps for authentication with HANA System Replication](https://me.sap.com/notes/2369981){: external} |
+| [SAP note 3115048 - sapstartsrv with native Linux systemd support](https://me.sap.com/notes/3115048){: external} |
+| [SAP note 3139184 - Linux: systemd integration for sapstartsrv and SAP Host Agent](https://me.sap.com/notes/3139184){: external} |
 {: class="simple-tab-table"}
 {: caption="Table 3. SAP Notes for RHEL 8" caption-side="bottom"}
 {: #rhel-sap-notes-table-rhel8}
@@ -125,6 +129,8 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | [SAP Note 2235581 - SAP HANA: Supported Operating Systems](https://me.sap.com/notes/2235581){: external} |
 | [SAP Note 3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302){: external} |
 | [SAP Note 2369981 - Required configuration steps for authentication with HANA System Replication](https://me.sap.com/notes/2369981){: external} |
+| [SAP note 3115048 - sapstartsrv with native Linux systemd support](https://me.sap.com/notes/3115048){: external} |
+| [SAP note 3139184 - Linux: systemd integration for sapstartsrv and SAP Host Agent](https://me.sap.com/notes/3139184){: external} |
 {: class="simple-tab-table"}
 {: caption="Table 3. SAP Notes for RHEL 9" caption-side="bottom"}
 {: #rhel-sap-notes-table-rhel9}

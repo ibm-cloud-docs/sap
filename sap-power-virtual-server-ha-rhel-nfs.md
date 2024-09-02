@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-08-21"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -10,7 +10,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring an active-passive NFS server in a Red Hat High Availability cluster
+# Configuring an Active-Passive NFS Server in a Red Hat High Availability Cluster
 {: #ha-rhel-nfs}
 
 The following information describes the configuration of an active-passive NFS server in a Red Hat Enterprise Linux (RHEL) HA Add-On cluster.

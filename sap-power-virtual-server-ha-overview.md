@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-08"
+lastupdated: "2024-09-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -69,13 +69,13 @@ The other technical components, such as the ASCS instance, the SAP HANA database
 
    A simple restart of the message server is sufficient because no data needs to be retained.
 
-   To set up an HA cluster for the ABAP System Central Services instance, follow the steps that are in [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external}.
+   To set up an HA cluster for the ABAP System Central Services instance, follow the steps that are in [Configuring High Availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external}.
 
 - Shared file system
 
    The recommended method of protecting the NFS server is to implement an extra virtual server instance. Then, create the NFS exported file systems on shared disks that are attached to both virtual server instances and automate the failover by using HA cluster software.
 
-   To set up an HA cluster for the shared file system, follow the steps that are in [Configuring an active-passive NFS server in a Red Hat High Availability cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external}.
+   To set up an HA cluster for the shared file system, follow the steps that are in [Configuring an Active-Passive NFS Server in a Red Hat High Availability Cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external}.
 
 - SAP HANA system
 
@@ -105,15 +105,15 @@ Depending on your requirements, select the documentation for one of the scenario
 
 - SAP HANA System Replication performance-optimized scenario
 
-   [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr){: external}.
+   [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr){: external}.
 
 - SAP HANA System Replication cost-optimized scenario
 
-   [Configuring SAP HANA Cost-Optimized Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-cost-optimized){: external}.
+   [Configuring SAP HANA Cost-Optimized Scale-Up System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-cost-optimized){: external}.
 
 - SAP HANA System Replication Active-Active (Read Enabled) scenario
 
-   [Configuring SAP HANA Active/Active (Read Enabled) System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa){: external}.
+   [Configuring SAP HANA Active/Active (Read Enabled) System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa){: external}.
 
 ## SAP HANA disaster recovery solution scenarios
 {: #ha-overview-hana-dr-scenarios}
@@ -125,12 +125,46 @@ Depending on your requirements, select one of the two available topologies.
 
    With SAP HANA multitier system replication, you can chain multiple systems together to achieve a higher level of availability.
 
-   [Configuring SAP HANA multitier system replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitier){: external}.
+   [Configuring SAP HANA Multitier System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitier){: external}.
 
 - SAP HANA multitarget system replication scenario
 
    Multitarget system replication allows primary and secondary systems to replicate changes to more than one system.
 
-   [Configuring SAP HANA multitarget system replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitarget){: external}.
+   [Configuring SAP HANA Multitarget System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitarget){: external}.
 
+## SAP HANA high availability solution in a multizone region environment
+{: #ha-overview-hana-mzr-ha-scenario}
 
+A subnet in IBM Power Virtual Server cannot span multiple workspaces.
+It is not possible to move a service IP address to a second workspace and continue to use it from VPC or other workspaces to access the services provided.
+However, this capability is required to set up a highly available SAP HANA system replication scenario in a multizone region environment.
+
+The `powervs-subnet` resource agent addresses this limitation.
+During a takeover event, the resource agent moves the entire subnet, including the IP address, from one workspace to another.
+
+The following figures illustrate this scenario.
+
+Two virtual server instances are deployed in separate workspaces with different subnets.
+- SAP HANA is installed on both virtual server instances, and SAP HANA System Replication is configured.
+- The two virtual server instances are configured as a two-node high availability cluster with their own subnets.
+- A cluster resource using the `powervs-subnet` resource agent is configured for `Subnet 3` and `IP address 3`.
+- SAP HANA database clients use `IP address 3` connect to the database.
+
+During *normal operation*
+- *Subnet 3* is created in workspace 1.
+- *Subnet 3* is attached to virtual server instance 1.
+- *IP address 3* is configured on virtual server instance 1.
+- The *SAP HANA primary* is active on virtual server instance 1, the *SAP HANA secondary* is active on virtual server instance 2.
+
+![Figure 3. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](images/sap-power-virtual-server-ha-architecture-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview"){: caption="Figure 3. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
+
+After a *cluster takeover*
+- *Subnet 3* is created in workspace 2.
+- *Subnet 3* is attached to virtual server instance 2.
+- *IP address 3* is configured on virtual server instance 2.
+- The *SAP HANA primary* is active on virtual server instance 2.
+
+![Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](images/sap-power-virtual-server-ha-architecture-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover"){: caption="Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
+
+[Implementing a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}} in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz){: external}

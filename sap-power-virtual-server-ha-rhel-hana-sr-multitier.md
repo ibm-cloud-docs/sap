@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-08-21"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -10,7 +10,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring SAP HANA multitier system replication in a RHEL HA Add-On cluster
+# Configuring SAP HANA Multitier System Replication in a RHEL HA Add-On Cluster
 {: #ha-rhel-hana-sr-multitier}
 
 The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) HA add-on cluster for managing *SAP HANA&reg system replication* in a multitier replication scenario.
