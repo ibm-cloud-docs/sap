@@ -294,6 +294,7 @@ toc:
               - sap-power-virtual-server-ha-rhel-refs.md
               - sap-power-virtual-server-ha-vsi.md
               - sap-power-virtual-server-ha-rhel.md
+              - sap-power-virtual-server-ha-rhel-mz.md
               - sap-power-virtual-server-ha-rhel-hana-sr.md
               - sap-power-virtual-server-ha-rhel-hana-sr-co.md
               - sap-power-virtual-server-ha-rhel-hana-sr-aa.md

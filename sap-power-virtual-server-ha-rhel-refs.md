@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-08-29"
+lastupdated: "2024-09-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -94,6 +94,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 - [Support Policies for RHEL High Availability Clusters - Management of SAP S/4HANA in a cluster](https://access.redhat.com/articles/4016901){: external}
 - [Configuring SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker](https://access.redhat.com/articles/3974941){: external}
 - [The Systemd-Based SAP Startup Framework](https://access.redhat.com/articles/6884531){: external}
+- [Pacemaker cluster does not trigger a takeover of HANA System Replication when the `hdbindexserver` process of the primary HANA instance hangs/crashes](https://access.redhat.com/solutions/5472351){: external}
 
 ## SAP HANA product documentation
 {: #ha-rhel-refs-sap-hana-product-docs}

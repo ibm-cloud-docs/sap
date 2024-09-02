@@ -69,7 +69,8 @@ For more information about implementing high availability scenarios for SAP on I
 
 - [Implementing High Availability for SAP Applications on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-overview)
 - [Creating instances for a high availability cluster on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-vsi)
-- [Implementing RHEL HA Add-On cluster on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-rhel)
+- [Implementing a RHEL HA Add-On cluster on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-rhel)
+- [Implementing a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}} in a Multizone Region Environment](/docs/sap?topic=sap-ha-rhel-mz)
 - [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr)
 - [Configuring SAP HANA Cost-Optimized Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-cost-optimized)
 - [Configuring SAP HANA Active-Active (Read-Enabled) System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa)

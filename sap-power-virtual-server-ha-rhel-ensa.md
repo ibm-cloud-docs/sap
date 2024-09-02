@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-27"
+lastupdated: "2024-09-02"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -500,16 +500,49 @@ Configure and test fencing as described in [Creating the fencing device](/docs/s
 
 Use the following steps to prepare the SAP instances for the cluster integration.
 
+### Disabling the automatic start of the SAP instance agents for ASCS and ERS
+{: #ha-rhel-ensa-disable-agents}
 
-### Removing the ASCS and ERS entries from the SAP services files
-{: #ha-rhel-ensa-modify-sap-services}
+You must disable the automatic start of the `sapstartsrv` instance agents for both *ASCS* and *ERS* instances after a reboot.
 
-Adjust the SAP services file `/usr/sap/sapservices` to prevent automatic start of the `sapstartsrv` instance agent for both *ASCS* and *ERS* instances after a reboot.
+#### Verifying the SAP instance agent integration type
+{: #ha-rhel-ensa-verify-sap-services}
 
-On both nodes, edit the *SAP services* file and remove or comment out the `sapstartsrv` entries for both *ASCS* and *ERS*.
+Recent versions of the SAP instance agent `sapstartsrv` provide native `systemd` support on Linux.
+For more information, refer to the the SAP notes that are listed at [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs#ha-rhel-refs-sap-notes).
+
+On both nodes, check the content of the `/usr/sap/sapservices` file.
+```sh
+cat /usr/sap/sapservices
+```
+{: pre}
+
+In the `systemd` format, the lines start with `systemctl` entries.
+
+Example:
 
 ```sh
-vi /usr/sap/sapservices
+systemctl --no-ask-password start SAPS01_01 # sapstartsrv pf=/usr/sap/S01/SYS/profile/S01_ASCS01_cl-sap-scs
+```
+{: screen}
+
+If the entries for ASCS and ERS are in `systemd` format, continue with the steps in [Disabling systemd services of the ASCS and the ERS SAP instance](#ha-rhel-ensa-disable-systemd-services).
+
+In the `classic` format, the lines start with `LD_LIBRARY_PATH` entries.
+
+Example:
+
+```sh
+LD_LIBRARY_PATH=/usr/sap/S01/ASCS01/exe:$LD_LIBRARY_PATH;export LD_LIBRARY_PATH;/usr/sap/S01/ASCS01/exe/sapstartsrv pf=/usr/sap/S01/SYS/profile/S01_ASCS01_cl-sap-scs -D -u s01adm
+```
+{: screen}
+
+If the entries for ASCS and ERS are in `classic` format, then modify the `/usr/sap/sapservices` file to prevent the automatic start of the `sapstartsrv` instance agent for both *ASCS* and *ERS* instances after a reboot.
+
+On both nodes, remove or comment out the `sapstartsrv` entries for both *ASCS* and *ERS* in the *SAP services* file.
+
+```sh
+sed -i -e 's/^LD_LIBRARY_PATH=/#LD_LIBRARY_PATH=/ sapservices
 ```
 {: pre}
 
@@ -520,7 +553,71 @@ Example:
 ```
 {: screen}
 
+Now proceed to [Creating mount points for the instance file systems on the takeover node](#ha-rhel-ensa-create-mountpoints).
 
+#### Disabling systemd services of the ASCS and the ERS SAP instances
+{: #ha-rhel-ensa-disable-systemd-services}
+
+On both nodes, disable the instance agent for the ASCS.
+
+```sh
+systemctl disable --now SAP${SID}_${ASCS_nr}.service
+```
+{: pre}
+
+On both nodes, disable the instance agent for the ERS.
+
+```sh
+systemctl disable --now SAP${SID}_${ERS_nr}.service
+```
+{: pre}
+
+#### Disabling `systemd` restart of a crashed ASCS or ERS instance
+{: #ha-rhel-ensa-disable-crash-restart}
+
+`Systemd` has its own mechanisms for restarting a crashed service.
+In a high availability setup, only the HA cluster is responsible for managing the SAP ASCS and ERS instances.
+Create `systemd drop-in files` on both cluster nodes to prevent `systemd` from restarting a crashed SAP instance.
+
+On both nodes, create the directories for the drop-in files.
+
+```sh
+mkdir /etc/systemd/system/SAP${SID}_${ASCS_nr}.service.d
+```
+{: pre}
+
+```sh
+mkdir /etc/systemd/system/SAP${SID}_${ERS_nr}.service.d
+```
+{: pre}
+
+On both nodes, create the drop-in files for ASCS and ERS.
+
+```sh
+cat >> /etc/systemd/system/SAP${SID}_${ASCS_nr}.service.d/HA.conf << EOT
+[Service]
+Restart=no
+EOT
+```
+{: pre}
+
+```sh
+cat >> /etc/systemd/system/SAP${SID}_${ERS_nr}.service.d/HA.conf << EOT
+[Service]
+Restart=no
+EOT
+```
+{: pre}
+
+`Restart=no` must be in the `[Service]` section, and the drop-in files must be available on all cluster nodes.
+{: note}
+
+On both nodes, reload the `systemd` unit files.
+
+```sh
+systemctl daemon-reload
+```
+{: pre}
 
 ### Creating mount points for the instance file systems on the takeover node
 {: #ha-rhel-ensa-create-mountpoints}

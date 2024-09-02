@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-09-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -133,4 +133,38 @@ Depending on your requirements, select one of the two available topologies.
 
    [Configuring SAP HANA Multitarget System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitarget){: external}.
 
+## SAP HANA high availability solution in a multizone region environment
+{: #ha-overview-hana-mzr-ha-scenario}
 
+A subnet in IBM Power Virtual Server cannot span multiple workspaces.
+It is not possible to move a service IP address to a second workspace and continue to use it from VPC or other workspaces to access the services provided.
+However, this capability is required to set up a highly available SAP HANA system replication scenario in a multizone region environment.
+
+The `powervs-subnet` resource agent addresses this limitation.
+During a takeover event, the resource agent moves the entire subnet, including the IP address, from one workspace to another.
+
+The following figures illustrate this scenario.
+
+Two virtual server instances are deployed in separate workspaces with different subnets.
+- SAP HANA is installed on both virtual server instances, and SAP HANA System Replication is configured.
+- The two virtual server instances are configured as a two-node high availability cluster with their own subnets.
+- A cluster resource using the `powervs-subnet` resource agent is configured for `Subnet 3` and `IP address 3`.
+- SAP HANA database clients use `IP address 3` connect to the database.
+
+During *normal operation*
+- *Subnet 3* is created in workspace 1.
+- *Subnet 3* is attached to virtual server instance 1.
+- *IP address 3* is configured on virtual server instance 1.
+- The *SAP HANA primary* is active on virtual server instance 1, the *SAP HANA secondary* is active on virtual server instance 2.
+
+![Figure 3. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](images/sap-power-virtual-server-ha-architecture-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview"){: caption="Figure 3. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
+
+After a *cluster takeover*
+- *Subnet 3* is created in workspace 2.
+- *Subnet 3* is attached to virtual server instance 2.
+- *IP address 3* is configured on virtual server instance 2.
+- The *SAP HANA primary* is active on virtual server instance 2.
+
+![Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](images/sap-power-virtual-server-ha-architecture-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover"){: caption="Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
+
+[Implementing a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}} in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz){: external}
