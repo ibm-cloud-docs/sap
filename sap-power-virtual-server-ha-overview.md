@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-02"
+lastupdated: "2024-09-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -13,7 +13,7 @@ subcollection: sap
 # Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-overview}
 
-Running SAP on {{site.data.keyword.powerSysFull}} offers a consistent platform for SAP HANA based and traditional applications, world-class performance, resiliency for critical workloads, and a flexible infrastructure.
+Running SAP on {{site.data.keyword.powerSysFull}} offers a consistent platform for SAP HANA-based and traditional applications, world-class performance, resiliency for critical workloads, and a flexible infrastructure.
 {: shortdesc}
 
 Use the following information to understand how to implement high availability solutions for SAP systems by using {{site.data.keyword.powerSys_notm}} instances.
@@ -69,13 +69,13 @@ The other technical components, such as the ASCS instance, the SAP HANA database
 
    A simple restart of the message server is sufficient because no data needs to be retained.
 
-   To set up an HA cluster for the ABAP System Central Services instance, follow the steps that are in [Configuring High Availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external}.
+   Follow the steps in [Configuring High Availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external} to set up an HA cluster for the ABAP System Central Services instance.
 
 - Shared file system
 
    The recommended method of protecting the NFS server is to implement an extra virtual server instance. Then, create the NFS exported file systems on shared disks that are attached to both virtual server instances and automate the failover by using HA cluster software.
 
-   To set up an HA cluster for the shared file system, follow the steps that are in [Configuring an Active-Passive NFS Server in a Red Hat High Availability Cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external}.
+   Follow the steps in [Configuring an Active-Passive NFS Server in a Red Hat High Availability Cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external} to set up an HA cluster for the shared file system.
 
 - SAP HANA system
 
@@ -148,7 +148,7 @@ The following figures illustrate this scenario.
 Two virtual server instances are deployed in separate workspaces with different subnets.
 - SAP HANA is installed on both virtual server instances, and SAP HANA System Replication is configured.
 - The two virtual server instances are configured as a two-node high availability cluster with their own subnets.
-- A cluster resource using the `powervs-subnet` resource agent is configured for `Subnet 3` and `IP address 3`.
+- A cluster resource that uses the `powervs-subnet` resource agent is configured for `Subnet 3` and `IP address 3`.
 - SAP HANA database clients use `IP address 3` connect to the database.
 
 During *normal operation*

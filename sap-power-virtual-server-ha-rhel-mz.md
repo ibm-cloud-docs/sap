@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-09-02"
+lastupdated: "2024-09-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -47,7 +47,7 @@ Create two virtual server instances, one in each workspace.
 ## Gathering parameters for the cluster configuration
 {: #ha-rhel-mz-gather-parameters-for-cluster-config}
 
-Parameters that are required to configure the fencing agent include the *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspaces in the different zones and the *instance IDs* of the virtual server instances.
+The *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspaces in the different zones and the *instance IDs* of the virtual server instances are required to configure the fencing agent.
 Some extra parameters are derived from the *CRN*.
 The fencing agent also uses the *API Key of the Service ID* to authenticate with the {{site.data.keyword.powerSys_notm}} API.
 
@@ -92,7 +92,7 @@ Use the following steps to gather the parameters to configure a cluster.
 1. Repeat the previous two steps for the workspace in the second zone.
 1. Set these IDs as `POWERVSI_1` and `POWERVSI_2`.
 1. For information on how to obtain the *Service ID API key*, see [Creating the API key for the Service ID in IBM Cloud Identity and Access Management](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
-   The *apikey* object in the downloaded API key file provides the API key that is required by fencing agent.
+   The *apikey* object in the downloaded API key file provides the API key that is required by the fencing agent.
 
 ## Preparing the nodes for RHEL HA Add-On installation
 {: #ha-rhel-mz-prepare-nodes-for-rhel-ha-installation}
@@ -156,7 +156,7 @@ The *@server* group must be installed on the operating system.
 This installation is a standard requirement for SAP applications.
 {: attention}
 
-#### Checking that the RHEL HA repository is enabled
+#### Checking the RHEL HA repository
 {: #ha-rhel-mz-check-rhel-ha-repository}
 
 Check that the appropriate repository is enabled on both nodes by using the following command.
@@ -461,7 +461,7 @@ For the *powervs-subnet* resource agent to work, you must set the *stonith-actio
 When the cluster performs a fencing action, it triggers a *power-off* operation instead of a *reboot* for the fenced instance.
 {: attention}
 
-After this change, you always need to log in to the {{site.data.keyword.cloud}} Console, and manually start an instance that was fenced by the cluster.
+After this change, you always need to log in to the {{site.data.keyword.cloud}} Console, and manually start an instance that has been fenced by the cluster.
 
 ```sh
 pcs property set stonith-action=off
@@ -639,12 +639,13 @@ pcs resource describe powervs-subnet
 
 Follow the steps in [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id) to create a `Service ID` and an `API key` for the `powervs-subnet` resource agent.
 
-At this point, the basic cluster implementation is complete.
+This completes the basic cluster implementation.
 You can now proceed with the specific instructions for your planned high availability scenario.
 {: note}
 
 Do not perform the following steps now.
-At the time you configure the cluster for the specific multizone region high availability scenario, the instructions for creating a virtual IP address resource will refer you to the following section.
+You must create a virtual IP address resource later during the cluster configuration of the specific multizone region high availability scenario.
+Then the instructions refer to the following section.
 {: attention}
 
 ## Creating a virtual IP address resource in the multizone region setup
