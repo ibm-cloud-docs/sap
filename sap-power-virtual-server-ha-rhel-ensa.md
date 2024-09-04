@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-02"
+lastupdated: "2024-09-04"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -694,7 +694,7 @@ For more information, see [How to enable the SAP HA Interface for SAP ABAP appli
 On both nodes, run the following commands.
 
 If needed, use `subscription-manager` to enable the SAP NetWeaver repository.
-The [RHEL for SAP Subscriptions and Repositories](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/rhel_for_sap_subscriptions_and_repositories/asmb_enable_repo_rhel-for-sap-subscriptions-and-repositories-8#con_hana_rhel-for-sap-subscriptions-and-repositories-8){: external} documentation describes how to enable the required repositories.
+The [RHEL for SAP Subscriptions and Repositories](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/rhel_for_sap_subscriptions_and_repositories/asmb_enable_repo_rhel-for-sap-subscriptions-and-repositories-8#con_hana_rhel-for-sap-subscriptions-and-repositories-8){: external} documentation describes how to enable the required repositories.
 
 ```sh
 subscription-manager repos --enable="rhel-8-for-ppc64le-sap-netweaver-e4s-rpms"
