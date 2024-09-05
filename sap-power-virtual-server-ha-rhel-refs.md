@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-09-02"
+lastupdated: "2024-09-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -30,7 +30,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 
 | Product Documentation |
 | --- |
-| [Configuring and managing high availability clusters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index){: external} |
+| [Configuring and managing high availability clusters](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index){: external} |
 {: class="simple-tab-table"}
 {: caption="Table 1. RHEL 8 cluster documentation" caption-side="bottom"}
 {: #rhel-ha-docs-table-rhel8}
@@ -39,7 +39,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 
 | Product Documentation |
 | --- |
-| [Configuring and managing high availability clusters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/index){: external} |
+| [Configuring and managing high availability clusters](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/index){: external} |
 {: class="simple-tab-table"}
 {: caption="Table 1. RHEL 9 cluster documentation" caption-side="bottom"}
 {: #rhel-ha-docs-table-rhel9}
@@ -51,12 +51,12 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 
 | Product Documentation |
 | --- |
-| [Configuring RHEL 8 for SAP HANA2 installation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/configuring_rhel_8_for_sap_hana2_installation/index){: external} |
-| [Red Hat HA Solutions for SAP HANA, S/4HANA, and NetWeaver based SAP Applications](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index){: external} |
-| [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index){: external} |
-| [Configuring a Cost-Optimized SAP S/4HANA HA cluster (HANA System Replication + ENSA2) by using the RHEL HA Add-On](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/configuring_a_cost-optimized_sap_s4hana_ha_cluster_hana_system_replication_ensa2_using_the_rhel_ha_add-on/index){: external} |
-| [Configuring SAP HANA Scale-Up Multitarget System Replication for disaster recovery](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/configuring_sap_hana_scale-up_multitarget_system_replication_for_disaster_recovery/index) |
-| [Configuring an active-passive NFS server in a Red Hat High Availability cluster](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_configuring-active-passive-nfs-server-in-a-cluster-configuring-and-managing-high-availability-clusters#doc-wrapper){: external} |
+| [Configuring RHEL 8 for SAP HANA2 installation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/configuring_rhel_8_for_sap_hana2_installation/index){: external} |
+| [Red Hat HA Solutions for SAP HANA, S/4HANA, and NetWeaver based SAP Applications](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index){: external} |
+| [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index){: external} |
+| [Configuring a Cost-Optimized SAP S/4HANA HA cluster (HANA System Replication + ENSA2) by using the RHEL HA Add-On](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/configuring_a_cost-optimized_sap_s4hana_ha_cluster_hana_system_replication_ensa2_using_the_rhel_ha_add-on/index){: external} |
+| [Configuring SAP HANA Scale-Up Multitarget System Replication for disaster recovery](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/configuring_sap_hana_scale-up_multitarget_system_replication_for_disaster_recovery/index) |
+| [Configuring an active-passive NFS server in a Red Hat High Availability cluster](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_configuring-active-passive-nfs-server-in-a-cluster-configuring-and-managing-high-availability-clusters#doc-wrapper){: external} |
 {: class="simple-tab-table"}
 {: caption="Table 2. RHEL 8 for SAP documentation" caption-side="bottom"}
 {: #rhel-sap-8-docs-table}
@@ -65,11 +65,11 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 
 | Product Documentation |
 | --- |
-| [Configuring RHEL 9 for SAP HANA2 installation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/9/html/configuring_rhel_9_for_sap_hana2_installation/index){: external} |
-| [Red Hat HA Solutions for SAP HANA, S/4HANA, and NetWeaver based SAP Applications](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/9/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index){: external} |
-| [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/9/html/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index){: external} |
-| [Configuring SAP HANA Scale-Up Multitarget System Replication for disaster recovery](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/9/html/configuring_sap_hana_scale-up_multitarget_system_replication_for_disaster_recovery/index) |
-| [Configuring HA clusters to manage SAP NetWeaver or SAP S/4HANA Application server instances by using the RHEL HA Add-On](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/9/html/configuring_ha_clusters_to_manage_sap_netweaver_or_sap_s4hana_application_server_instances_using_the_rhel_ha_add-on/index){: external} |
+| [Installing RHEL 9 for SAP Solutions](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/installing_rhel_9_for_sap_solutions/index){: external} |
+| [Red Hat HA Solutions for SAP HANA, S/4HANA, and NetWeaver based SAP Applications](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index){: external} |
+| [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index){: external} |
+| [Configuring SAP HANA Scale-Up Multitarget System Replication for disaster recovery](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/configuring_sap_hana_scale-up_multitarget_system_replication_for_disaster_recovery/index) |
+| [Configuring HA clusters to manage SAP NetWeaver or SAP S/4HANA Application server instances by using the RHEL HA Add-On](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/configuring_ha_clusters_to_manage_sap_netweaver_or_sap_s4hana_application_server_instances_using_the_rhel_ha_add-on/index){: external} |
 {: class="simple-tab-table"}
 {: caption="Table 2. RHEL 9 for SAP documentation" caption-side="bottom"}
 {: #rhel-sap-9-docs-table}
