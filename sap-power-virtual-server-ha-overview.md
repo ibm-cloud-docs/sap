@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-11"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -69,7 +69,7 @@ The other technical components, such as the ASCS instance, the SAP HANA database
 
    A simple restart of the message server is sufficient because no data needs to be retained.
 
-   Follow the steps in [Configuring High Availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external} to set up an HA cluster for the ABAP System Central Services instance.
+   Follow the steps in [Configuring High Availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-ensa){: external} to set up an HA cluster for the ABAP System Central Services instance.
 
 - Shared file system
 
@@ -136,7 +136,7 @@ Depending on your requirements, select one of the two available topologies.
 ## SAP HANA high availability solution in a multizone region environment
 {: #ha-overview-hana-mzr-ha-scenario}
 
-A subnet in IBM Power Virtual Server cannot span multiple workspaces.
+A subnet in IBM {{site.data.keyword.powerSys_notm}} cannot span multiple workspaces.
 It is not possible to move a service IP address to a second workspace and continue to use it from VPC or other workspaces to access the services provided.
 However, this capability is required to set up a highly available SAP HANA system replication scenario in a multizone region environment.
 
@@ -167,4 +167,4 @@ After a *cluster takeover*
 
 ![Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](images/sap-power-virtual-server-ha-architecture-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover"){: caption="Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
 
-[Implementing a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}} in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz){: external}
+[Implementing a RHEL HA Add-On Cluster on IBM {{site.data.keyword.powerSys_notm}} in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz){: external}

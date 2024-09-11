@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-11"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -19,7 +19,7 @@ The virtual server instances run in different zones in a multizone region.
 The setup uses the *powervs-subnet* cluster resource agent to manage the service IP address of an application in a multizone region implementation.
 The resource agent supports only the use of different zones in the same multizone region.
 Deployment across multiple regions is not supported.
-See [Region and data center locations for resource deployment](https://cloud.ibm.com/docs/overview?topic=overview-locations#table-mzr){: external} for more information about multizone regions and available locations.
+See [Multizone regions (MZR)](https://cloud.ibm.com/docs/overview?topic=overview-locations#table-mzr){: external} and [IBM Cloud regions](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-ibm-cloud-reg){: external} for more information about multizone regions and available locations.
 
 The information describes how to transform the individual virtual server instances into a cluster.
 {: shortdesc}
@@ -37,7 +37,7 @@ Review the general requirements, product documentation, support articles, and SA
 ## Creating virtual server instances for the cluster
 {: #ha-rhel-mz-create-virtual-server-instances}
 
-Use the instructions in [Creating instances for a high availability cluster on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
+Use the instructions in [Creating Instances for a High Availability Cluster on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
 
 Create two workspaces in two zones of a multizone region.
 Create a [Transit Gateway](/docs/transit-gateway) and add both workspaces to the connections.
@@ -91,7 +91,7 @@ Use the following steps to gather the parameters to configure a cluster.
 1. In the list of the virtual server instances, click the cluster node and take a note of the **ID**.
 1. Repeat the previous two steps for the workspace in the second zone.
 1. Set these IDs as `POWERVSI_1` and `POWERVSI_2`.
-1. For information on how to obtain the *Service ID API key*, see [Creating the API key for the Service ID in IBM Cloud Identity and Access Management](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
+1. For information on how to obtain the *Service ID API key*, see [Creating a Custom Role, Service ID, and API key in IBM Cloud](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
    The *apikey* object in the downloaded API key file provides the API key that is required by the fencing agent.
 
 ## Preparing the nodes for RHEL HA Add-On installation
@@ -461,7 +461,7 @@ For the *powervs-subnet* resource agent to work, you must set the *stonith-actio
 When the cluster performs a fencing action, it triggers a *power-off* operation instead of a *reboot* for the fenced instance.
 {: attention}
 
-After this change, you always need to log in to the {{site.data.keyword.cloud}} Console, and manually start an instance that has been fenced by the cluster.
+After this change, you always need to log in to the {{site.data.keyword.cloud_notm}} Console, and manually start an instance that has been fenced by the cluster.
 
 ```sh
 pcs property set stonith-action=off
@@ -556,7 +556,7 @@ pcs cluster disable --all
 ```
 {: pre}
 
-When you restart an instance, check the instance status in the {{site.data.keyword.cloud}} Console and wait until the *Status* field shows *Active* with a green checkmark.
+When you restart an instance, check the instance status in the {{site.data.keyword.cloud_notm}} Console and wait until the *Status* field shows *Active* with a green checkmark.
 Then, use the following command to manually start the cluster.
 
 ```sh
@@ -637,7 +637,7 @@ pcs resource describe powervs-subnet
 ### Creating a service ID for the `powervs-subnet` resource agent
 {: #ha-rhel-mz-iam-custom-role}
 
-Follow the steps in [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id) to create a `Service ID` and an `API key` for the `powervs-subnet` resource agent.
+Follow the steps in [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id) to create a `Service ID` and an `API key` for the `powervs-subnet` resource agent.
 
 This completes the basic cluster implementation.
 You can now proceed with the specific instructions for your planned high availability scenario.

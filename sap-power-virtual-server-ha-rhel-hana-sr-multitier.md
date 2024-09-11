@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-09-11"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -43,8 +43,8 @@ Review the general requirements, product documentation, support articles, and SA
 
 - A Red Hat High Availability cluster is deployed on two virtual server instances in one workspace in {{site.data.keyword.powerSys_notm}}.
    Use the instructions in the following documents.
-   - [Implementing a RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
-   - [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
+   - [Implementing a RHEL HA Add-On Cluster on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
+   - [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
 - A third virtual server instance is deployed in another workspace in {{site.data.keyword.powerSys_notm}}.
 - SAP HANA is installed on the third virtual server instance with the same `SID` and `Instance Number`.
 - Optional - you can reserve a virtual IP address for the system on NODE3 as described in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses).
@@ -53,7 +53,7 @@ Review the general requirements, product documentation, support articles, and SA
 ## Setting up the multitier scenario
 {: #ha-rhel-hana-sr-mt-setup}
 
-The multitier scenario is an extension of the setup that is described in [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
+The multitier scenario is an extension of the setup that is described in [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
 Complete the setup for the system replication cluster before you continue with the following steps.
 
 If the `AUTOMATED_REGISTER` cluster attribute is set to `true`, the reintegration of a failed node in the cluster can lead to a setup with a wrong SAP HANA system replication mode or an undesired SAP HANA system replication topology.
@@ -70,11 +70,11 @@ pcs resource update SAPHana_${SID}_${INSTNO} AUTOMATED_REGISTER=false
 {: #ha-rhel-hana-sr-mt-conn}
 
 1. Use the information in [Creating the workspace](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-workspace) to create another workspace in a different geographic location or region.
-1. Create subnets and make sure that the IP ranges don't overlap with any subnet of the workspace that hosts the virtual server instances for the cluster. For more information, see [Creating subnets](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-subnets).
-1. Set up {{site.data.keyword.cloud}} connections up in both workspaces and activate *Enable IBM Transit Gateway*. For more information, see [Creating {{site.data.keyword.cloud}} connections](/docs/power-iaas?topic=power-iaas-cloud-connections#create-cloud-connections).
-1. Deploy an {{site.data.keyword.cloud}} Transit Gateway to interconnect the two IBM {{site.data.keyword.powerSys_notm}} workspaces.
+1. Create subnets and make sure that the IP ranges don't overlap with any subnet of the workspace that hosts the virtual server instances for the cluster. For more information, see [Creating private network subnets](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-subnets).
+1. Set up {{site.data.keyword.cloud}} connections up in both workspaces and activate *Enable IBM Transit Gateway*. For more information, see [Creating Power Virtual Server Cloud Connections](/docs/power-iaas?topic=power-iaas-cloud-connections#create-cloud-connections).
+1. Deploy an {{site.data.keyword.cloud_notm}} Transit Gateway to interconnect the two IBM {{site.data.keyword.powerSys_notm}} workspaces.
 
-   {{site.data.keyword.cloud}} Transit Gateway enables the interconnection of IBM {{site.data.keyword.powerSys_notm}}, {{site.data.keyword.cloud}} classic, and Virtual Private Cloud (VPC) infrastructures and keeps data within the {{site.data.keyword.cloud}} networks. For more information about planning and deploying {{site.data.keyword.cloud}} Transit Gateway, see [Planning for {{site.data.keyword.cloud}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-helpful-tips) and [Ordering {{site.data.keyword.cloud}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway).
+   {{site.data.keyword.cloud_notm}} Transit Gateway enables the interconnection of IBM {{site.data.keyword.powerSys_notm}}, {{site.data.keyword.cloud_notm}} classic, and Virtual Private Cloud (VPC) infrastructures and keeps data within the {{site.data.keyword.cloud_notm}} networks. For more information about planning and deploying {{site.data.keyword.cloud_notm}} Transit Gateway, see [Planning for {{site.data.keyword.cloud_notm}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-helpful-tips) and [Ordering {{site.data.keyword.cloud_notm}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway).
    {: note}
 
 1. To add the connections to your transit gateway to establish network connectivity between your IBM {{site.data.keyword.powerSys_notm}}, open [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
@@ -87,7 +87,7 @@ pcs resource update SAPHana_${SID}_${INSTNO} AUTOMATED_REGISTER=false
 
 1. Click **Add connection**.
 1. Choose and configure the specific network connections that you want to add to the transit gateway.
-1. Choose **Direct Link**, and select the names of your {{site.data.keyword.cloud}} connections.
+1. Choose **Direct Link**, and select the names of your {{site.data.keyword.cloud_notm}} connections.
 1. Click **Add** to create a connection.
 
 ### Preparing environment variables on NODE3
@@ -1049,7 +1049,7 @@ site name: SiteB
 #### Test3 - Recovery procedure
 {: #ha-rhel-hana-sr-mt-test3-recovery-procedure}
 
-Log in to the {{site.data.keyword.cloud}} console and start NODE1.
+Log in to the {{site.data.keyword.cloud_notm}} console and start NODE1.
 
 1. On NODE1, run the following command to register the system with the primary on NODE2.
 
@@ -1357,7 +1357,7 @@ Reactivate the cluster in the primary workspace and restore the original system 
 #### Test6 - Test procedure
 {: #ha-rhel-hana-sr-mt-test6-procedure}
 
-1. Log in to the {{site.data.keyword.cloud}} console and start both NODE1 and NODE2.
+1. Log in to the {{site.data.keyword.cloud_notm}} console and start both NODE1 and NODE2.
 1. Wait until both nodes are available again.
 1. Ensure that the Red Hat HA Add-On cluster services are stopped on both cluster nodes NODE1 and NODE2.
 1. On NODE3, verify that SAP HANA system replication is enabled.

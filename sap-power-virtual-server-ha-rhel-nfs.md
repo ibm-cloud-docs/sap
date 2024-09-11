@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-09-11"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -328,8 +328,8 @@ Reboot both nodes.
 
 Use the following instructions to perform the initial cluster configuration.
 
-- Install and set up the RHEL HA Add-On cluster according to [Implementing RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
-- Configure and test fencing as described in [Create the fencing device](/docs/sap?topic=sap-ha-rhel#ha-rhel-create-fencing-device).
+- Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On Cluster on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
+- Configure and test fencing as described in [Creating the fencing device](/docs/sap?topic=sap-ha-rhel#ha-rhel-create-fencing-device).
 
 Sample output of the cluster status at this stage.
 
@@ -894,7 +894,7 @@ Verify that the file system is still mounted on the *NFS client node*, and that 
 #### Test2 - Recovery procedure
 {: #ha-rhel-nfs-test2-recovery-procedure}
 
-Log in to the {{site.data.keyword.cloud}} Console and start the stopped instance.
+Log in to the {{site.data.keyword.cloud_notm}} Console and start the stopped instance.
 Wait until the cluster node is available again, then restart the cluster framework.
 
 On the cluster node, run the following command.
