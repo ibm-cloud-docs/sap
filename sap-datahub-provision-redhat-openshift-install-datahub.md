@@ -90,8 +90,8 @@ Review [Getting started with {{site.data.keyword.cloud_notm}} {{site.data.keywor
 
 Use the steps in [Provision storage](/docs/services/cloud-object-storage/basics?topic=cloud-object-storage-provision) to provision your {{site.data.keyword.cos_short}}.
 
-    The service instance name for the following example is `sdh_cos_k8`. Choose a name that fits your needs when creating your service instance.
-    {: note}
+The service instance name for the following example is `sdh_cos_k8`. Choose a name that fits your needs when creating your service instance.
+{: note}
 
 ### Creating the bucket and the directory
 {: #rhos-create-bucket}
@@ -114,18 +114,17 @@ Use the steps in [Provision storage](/docs/services/cloud-object-storage/basics?
 
 1. Follow the steps under [Service credentials](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials) to create the service credentials for accessing the bucket that is handed over to the SAP Data Hub installation script. Make sure that you select the **Writer** role and click **Include HMAC Credential**.
 
-    The credential name in this example is `sdhOScred`. Choose a name that fits your needs when creating your service credentials.
-    {: note}
+The credential name in this example is `sdhOScred`. Choose a name that fits your needs when creating your service credentials.
+{: note}
 
-    After the service credentials have been created, click **View credentials** and note the values of `access_key_id` and `secret_access_key`. See below for an example.
+After the service credentials have been created, click **View credentials** and note the values of `access_key_id` and `secret_access_key`. See below for an example.
 
-  ```
-  ...
+    ```
     "cos_hmac_keys": {
       "access_key_id": "383**************************cf3",
       "secret_access_key": "a24******************************************0f9"
     },
-  ```
+    ```
 
 ### Locating the Installation Dialog parameters
 {: #rhos-find-parameters}
@@ -136,26 +135,26 @@ During installation of SAP Data Hub, you're prompted to:
 
 If you're setting up a test environment, you can select **yes** or **no**. However, for a production environment, select **yes**. You're next asked for the following parameters:
 
-  ```
-  Please provide the following parameters for Vora's checkpoint store
-  Please enter type of shared storage (oss/s3/wasb/gcs/webhdfs):
-  Please enter S3 access key:
-  Please enter S3 secret access key:
-  Please enter S3 host (empty for default 'https://s3.amazonaws.com'):
-  Please enter S3 region you want to connect to (empty for default 'us-east-1'):
-  Please enter connection timeout in seconds (empty for default 180):
-  Please enter S3 bucket and directory (in the form my-bucket/directory):
-  Do you want to validate the checkpoint store? (yes/no)
-  ```
-    {: screen}
+    ```
+    Please provide the following parameters for Vora's checkpoint store
+    Please enter type of shared storage (oss/s3/wasb/gcs/webhdfs):
+    Please enter S3 access key:
+    Please enter S3 secret access key:
+    Please enter S3 host (empty for default 'https://s3.amazonaws.com'):
+    Please enter S3 region you want to connect to (empty for default 'us-east-1'):
+    Please enter connection timeout in seconds (empty for default 180):
+    Please enter S3 bucket and directory (in the form my-bucket/directory):
+    Do you want to validate the checkpoint store? (yes/no)
+    ```
+  {: screen}
 
 1. Select **s3** for **type of shared storage**. You can take advantage of {{site.data.keyword.cos_short}}'s compatibility with the S3 API.
 1. Enter the **access_key_id** from the generation of the service credentials for the **S3 access key**.
 1. Enter the **secret_access_key** from the generation of the service credentials for the **S3 secret access key**.
 1. Use [Endpoints and storage locations](/docs/cloud-object-storage?topic=cloud-object-storage-endpoints) to find the **S3 Host** that matches the location where your bucket's created. In the example, it's `s3.eu-de.cloud-object-storage.appdomain.cloud`. Leave **S3 region** blank. It's taken from the endpoint's URL, for example, `eu-de`.
 
-    In a production environment, you should use the private endpoint.
-    {: note}
+In a production environment, you should use the private endpoint.
+{: note}
 
 1. Leave **connection timeout in second** blank. It will default to 180 seconds.
 1. Enter the bucket and directory names you entered in [Creating the bucket and the directory](#rhos-create-bucket) for **S3 bucket and directory**. In the example, it's `sdh-cos-vora-bucket/checkpoints`.
