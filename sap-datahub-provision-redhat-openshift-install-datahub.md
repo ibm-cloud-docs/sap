@@ -130,13 +130,13 @@ The service instance name for the following example is `sdh_cos_k8`. Choose a na
 ### Locating the Installation Dialog parameters
 {: #rhos-find-parameters}
 
-During installation of SAP Data Hub, you're prompted to:
+1. During installation of SAP Data Hub, you're prompted to:
 
     ```
     Enable Vora checkpoint store? (yes/no)
     ```
 
-If you're setting up a test environment, you can select **yes** or **no**. However, for a production environment, select **yes**. You're next asked for the following parameters:
+1. If you're setting up a test environment, you can select **yes** or **no**. However, for a production environment, select **yes**. You're next asked for the following parameters:
 
     ```
     Please provide the following parameters for Vora's checkpoint store
