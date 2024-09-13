@@ -114,10 +114,10 @@ The service instance name for the following example is `sdh_cos_k8`. Choose a na
 
 1. Follow the steps under [Service credentials](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials) to create the service credentials for accessing the bucket that is handed over to the SAP Data Hub installation script. Make sure that you select the **Writer** role and click **Include HMAC Credential**.
 
-The credential name in this example is `sdhOScred`. Choose a name that fits your needs when creating your service credentials.
-{: note}
+    The credential name in this example is `sdhOScred`. Choose a name that fits your needs when creating your service credentials.
+    {: note}
 
-After the service credentials have been created, click **View credentials** and note the values of `access_key_id` and `secret_access_key`. See below for an example.
+1. After the service credentials have been created, click **View credentials** and note the values of `access_key_id` and `secret_access_key`. See below for an example.
 
     ```
     ...
