@@ -118,25 +118,26 @@ The credential name in this example is `sdhOScred`. Choose a name that fits your
 {: note}
 
 After the service credentials have been created, click **View credentials** and note the values of `access_key_id` and `secret_access_key`. See below for an example.
+
     ```
+    ...
     "cos_hmac_keys": {
       "access_key_id": "383**************************cf3",
       "secret_access_key": "a24******************************************0f9"
     },
     ```
-    {: screen}
 
 ### Locating the Installation Dialog parameters
 {: #rhos-find-parameters}
 
 During installation of SAP Data Hub, you're prompted to:
+
     ```
     Enable Vora checkpoint store? (yes/no)
     ```
-    {: screen}
-
 
 If you're setting up a test environment, you can select **yes** or **no**. However, for a production environment, select **yes**. You're next asked for the following parameters:
+
     ```
     Please provide the following parameters for Vora's checkpoint store
     Please enter type of shared storage (oss/s3/wasb/gcs/webhdfs):
@@ -148,7 +149,6 @@ If you're setting up a test environment, you can select **yes** or **no**. Howev
     Please enter S3 bucket and directory (in the form my-bucket/directory):
     Do you want to validate the checkpoint store? (yes/no)
     ```
-    {: screen}
 
 1. Select **s3** for **type of shared storage**. You can take advantage of {{site.data.keyword.cos_short}}'s compatibility with the S3 API.
 1. Enter the **access_key_id** from the generation of the service credentials for the **S3 access key**.
