@@ -97,7 +97,7 @@ Use the following commands to download and install the CLIs you use to configure
 1. Login to the jump host as `root` and install the {{site.data.keyword.cloud_notm}} CLI `ibmcloud`.
 
     ```
-    curl -sL https://ibm.biz/idt-installer | bash
+      curl -fsSL https://clis.cloud.ibm.com/install/linux | sudo sh
     ```
     {: pre}
 

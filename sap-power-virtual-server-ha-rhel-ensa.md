@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-11"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -38,7 +38,7 @@ Review the general requirements, product documentation, support articles, and SA
 {: #ha-rhel-ensa-prerequisites}
 
 - The virtual server instances must meet the hardware and resource requirements of the SAP instances installed on them.
-   Follow the guidelines on instance types, storage, and memory sizing in the [Planning the Deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
+   Follow the guidelines on instance types, storage, and memory sizing in the [Planning your deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
 - This information describes a setup that uses shareable storage volumes accessible on both cluster nodes.
    Certain file systems are created on shareable storage volumes so that they can be mounted on both cluster nodes.
    This setup applies to both instance directories.
@@ -50,7 +50,7 @@ Review the general requirements, product documentation, support articles, and SA
    HA-LVM ensures that each of the two instance directories is mounted on only one node at a time.
 
    Different storage setups for the instance directories, such as NFS mounts, are possible.
-   General storage setup steps or creation of cluster file system resources are not described in this document and must be adapted.
+   Storage setup steps for file storage or creation of cluster file system resources are not described in this document.
    {: important}
 
 - The virtual hostname for *ASCS* instance and *ERS* instance must meet the requirements as documented in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
@@ -59,7 +59,7 @@ Review the general requirements, product documentation, support articles, and SA
    These file systems are typically provided by an external NFS server.
    The NFS server must be installed on virtual servers that are not part of the *ENSA2* cluster.
 
-   [Configuring an active-passive NFS server in a Red Hat High Availability cluster](/docs/sap?topic=sap-ha-rhel-nfs) describes the implementation of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in {{site.data.keyword.powerSys_notm}}.
+   [Configuring an Active-Passive NFS Server in a Red Hat High Availability Cluster](/docs/sap?topic=sap-ha-rhel-nfs) describes the implementation of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in {{site.data.keyword.powerSys_notm}}.
 - Ensure that all SAP installation media is available.
 
 ## Preparing nodes for SAP installation
@@ -491,7 +491,7 @@ Use the SAP Software Provisioning Manager (SWPM) to install all instances.
 ## Installing and setting up the RHEL HA Add-On cluster
 {: #ha-rhel-ensa-set-up}
 
-Install and set up the RHEL HA Add-On cluster according to [Implement RHEL HA Add-On cluster on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
+Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On Cluster on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
 
 Configure and test fencing as described in [Creating the fencing device](/docs/sap?topic=sap-ha-rhel#ha-rhel-create-fencing-device).
 
@@ -509,7 +509,7 @@ You must disable the automatic start of the `sapstartsrv` instance agents for bo
 {: #ha-rhel-ensa-verify-sap-services}
 
 Recent versions of the SAP instance agent `sapstartsrv` provide native `systemd` support on Linux.
-For more information, refer to the the SAP notes that are listed at [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs#ha-rhel-refs-sap-notes).
+For more information, refer to the the SAP notes that are listed at [SAP Notes](/docs/sap?topic=sap-ha-rhel-refs#ha-rhel-refs-sap-notes).
 
 On both nodes, check the content of the `/usr/sap/sapservices` file.
 ```sh

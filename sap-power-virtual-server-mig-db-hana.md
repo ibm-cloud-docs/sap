@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-06-27"
+lastupdated: "2024-09-12"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 
@@ -474,9 +474,9 @@ Note: CPU Micro Benchmark
 If you receive an error 'Port 50000 is already used', SAP HANA is probably installed already. Stop the SAP HANA system and then run the `hcmt` command again.
 {: tip}
 
-*Plan Variant: CPU Performance*
+Plan Variant: CPU Performance
 
-This command generates a hcmresult-YYYMMDDHHMMSS.zip file in the setup directory. You need to upload this file to the HCMT SAP website and review the results to make sure that the HANA is set up and configured correctly.
+This command generates a hcmresult-YYYMMDDHHMMSS.zip file in the setup directory. Upload this file to the HCMT SAP website and review the results to make sure that the HANA is set up and configured correctly.
 
 - [SAP HCMT Cloud Server URL](https://hotui-supportportal.dispatcher.hana.ondemand.com/index.html){: external}
 
@@ -703,7 +703,7 @@ On the SYSTEMDB entry, -> right click and select.
 - Destination `File`
 - Backup Destination `/swrepo/backup/data/SYSTEMDB` make sure that this directory structure exists and is writable with user `${sid}adm`.
 - Backup Prefix `COMPLETE_DATA_BACKUP_INITIAL_DDMMYYY`
-Next
+   Next
 - `Review Backup Setup` and then select `Finish`
 
 Make sure that the `SYSTEMDB@${SID}` backup completes successfully.
@@ -715,12 +715,12 @@ Backup & Recovery
 
 - Backup Up Tenant Database
 - Specify the Tenant Database `${sid}`.
-Next
+   Next
 - Backup Type `Complete Data Backup`.
 - Destination `File`.
 - Backup Destination `/swrepo/backup/data/DB_${sid}` make sure that this directory structure exists and is writable with user `${sid}adm`.
 - Backup Prefix `COMPLETE_DATA_BACKUP_INITIAL_DDMMYYY`.
-Next
+   Next
 - `Review Backup Setup` and then select `Finish`.
 
 Make sure that the backup of `DB_${sid}` completes without errors.
@@ -999,10 +999,14 @@ hdbdaemon is stopped.
 Now register the secondary system.
 
 ```sh
-sudo -i -u ${sid}adm -- hdbnsutil -sr_register --name=<secondarySiteName> --remoteHost=<primary_host> --remoteInstance=<primary_systemnr>
---replicationMode=[sync|syncmem|async]--operationMode=[delta_datashipping|logreplay|logreplay_readaccess]
+sudo -i -u ${sid}adm -- hdbnsutil -sr_register \
+    --name=<secondarySiteName> \
+    --remoteHost=<primary_host> \
+    --remoteInstance=<primary_systemnr> \
+    --replicationMode=[sync|syncmem|async] \
+    --operationMode=[delta_datashipping|logreplay|logreplay_readaccess]
 ```
-{: pre}
+{: codeblock}
 
 For example, if you use
 
@@ -1013,9 +1017,14 @@ For example, if you use
 The last command looks like the following example.
 
 ```sh
-$ sudo -i -u ${sid}adm -- hdbnsutil -sr_register --name=SiteOnCloud --remoteHost=<primary_host> --remoteInstance=<primary_systemnr>  --replicationMode=syncmem --operationMode=logreplay
+sudo -i -u ${sid}adm -- hdbnsutil -sr_register \
+    --name=SiteOnCloud \
+    --remoteHost=<primary_host> \
+    --remoteInstance=<primary_systemnr> \
+    --replicationMode=syncmem \
+    --operationMode=logreplay
 ```
-{: codeblock}
+{: pre}
 
 The following output is expected.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-11"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -18,10 +18,10 @@ Use the following information and procedures to create the {{site.data.keyword.p
 
 The following information is provided in the following sections.
 
-- [Creating the {{site.data.keyword.powerSys_notm}} workspace in {{site.data.keyword.cloud}}](#ha-vsi-create-workspace)
+- [Creating the workspace](#ha-vsi-create-workspace)
 
     After the workspace is created, you can create and configure virtual server instances, network resources, and storage volumes.
-- [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud}}](#ha-vsi-create-service-id)
+- [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](#ha-vsi-create-service-id)
 
     For monitoring and management, the fencing agent authenticates to the {{site.data.keyword.powerSys_notm}} API by using the Service API key.
     A custom role allows only the actions that are required by the fencing agent.
@@ -39,9 +39,9 @@ These resources include compute, network, and storage volumes.
 Resources cannot be moved or shared between different workspaces.
 Each workspace is bound to a single data center.
 
-To create a workspace, follow the steps that are described in [Creating a Power Virtual Server workspace](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-service){: external}.
+To create a workspace, follow the steps that are described in [Creating a {{site.data.keyword.powerSys_notm}} workspace](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-service){: external}.
 
-The created workspaces are listed under **Workspaces** on the left navigation pane of the Power Virtual Server user interface.
+The created workspaces are listed under **Workspaces** on the left navigation pane of the {{site.data.keyword.powerSys_notm}} user interface.
 Select the workspace and follow the instructions after this.
 
 ### Creating private network subnets
@@ -73,11 +73,12 @@ If your {{site.data.keyword.powerSys_notm}} *workspace* is enabled for *Power Ed
 The PER solution creates a direct connection to the IBM Cloud Multi Protocol Label Switching (MPLS) backbone, making it easy for different parts of the IBM network to communicate with each other.
 For more information, see [Getting started with the Power Edge Router](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-per).
 
-Otherwise, use an {{site.data.keyword.cloud}} connection to connect your {{site.data.keyword.powerSys_notm}} instances to other {{site.data.keyword.cloud}} resources within your account.
-{{site.data.keyword.cloud}} connections are not required to configure a Red Hat High Availability cluster on {{site.data.keyword.powerSys_notm}}. They may be required for integration scenarios when using the {{site.data.keyword.cloud}} Classic network and Virtual Private Cloud (VPC) infrastructures.
-For more information, see [Managing {{site.data.keyword.cloud}} connections](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-cloud-connections){: external}.
+Otherwise, create {{site.data.keyword.cloud}} Connections to connect your {{site.data.keyword.powerSys_notm}} instances to other {{site.data.keyword.cloud_notm}} resources within your account.
+{{site.data.keyword.cloud_notm}} Connections are not required to configure a Red Hat High Availability cluster on {{site.data.keyword.powerSys_notm}}.
+They may be required for integration scenarios when using the {{site.data.keyword.cloud_notm}} Classic network and Virtual Private Cloud (VPC) infrastructures.
+For more information, see [IBM {{site.data.keyword.powerSys_notm}} Cloud Connections](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-cloud-connections){: external}.
 
-Use IBM Transit Gateway to connect your {{site.data.keyword.powerSys_notm}} to {{site.data.keyword.cloud}} classic and Virtual Private Cloud (VPC) infrastructures outside your account or region.
+Use IBM Transit Gateway to connect your {{site.data.keyword.powerSys_notm}} to {{site.data.keyword.cloud_notm}} classic and Virtual Private Cloud (VPC) infrastructures outside your account or region.
 For more information about integrating the on-premises network and {{site.data.keyword.powerSys_notm}}, see [Network architecture diagrams](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-network-architecture-diagrams){: external}.
 
 ### Creating an SSH key
@@ -111,12 +112,12 @@ Use the following steps to select a boot image.
 
 You can choose from several types of stock images that are already prepared for {{site.data.keyword.powerSys_notm}}.
 Images are available in the *IBM Provided Subscription* and *Client Provided Subscription* sections of the {{site.data.keyword.powerSys_notm}} provisioning page.
-For more information, see [Full Linux® subscription for {{site.data.keyword.powerSys_notm}} instances](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-set-full-Linux){: external}.
+For more information, see [Full Linux® subscription for IBM {{site.data.keyword.powerSys_notm}} (Off-premises)](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-set-full-Linux){: external}.
 
-If you want to import a custom Linux image, you must first upload the image to the {{site.data.keyword.cloud}} Object Storage in OVA format.
+If you want to import a custom Linux image, you must first upload the image to the {{site.data.keyword.cloud_notm}} Object Storage in OVA format.
 
 - [Importing a boot image](/docs/power-iaas?topic=power-iaas-importing-boot-image){: external}
-- [Deploying a custom image within IBM Power Virtual Server](/docs/power-iaas?topic=power-iaas-deploy-custom-image){: external}
+- [Deploying a custom image within IBM {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-deploy-custom-image){: external}
 
 Before you begin, make sure that the OVA image is loaded in the storage bucket.
 
@@ -125,7 +126,7 @@ Before you begin, make sure that the OVA image is loaded in the storage bucket.
 
 Complete the following steps to create the virtual server instances that you want to use as high availability cluster nodes.
 
-1. Log in to [Workspaces - {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces){: external}.
+1. Log in to [Workspaces](https://cloud.ibm.com/power/workspaces){: external}.
 1. Select the **Workspace** that you created.
 1. Click **View virtual server instances** > **Create Instance**.
    You need to step through the subsections **General**, **Boot Image**, **Profile**, **Storage Volume**, **Network Interfaces**.
@@ -160,13 +161,13 @@ The deployment of the virtual server instances starts.
 {: #ha-vsi-prepare-sap-install}
 
 If you deployed a virtual server instance from a stock image, you need to perform extra configuration tasks before you can install SAP software.
-For more information, see [Configuring a Power Virtual Server instance](https://cloud.ibm.com/docs/sap?topic=sap-power-vs-set-up-power-instances#power-vs-set-up-power-basic-os-config).
+For more information, see [Configuring a {{site.data.keyword.powerSys_notm}} instance](https://cloud.ibm.com/docs/sap?topic=sap-power-vs-set-up-power-instances#power-vs-set-up-power-basic-os-config).
 {: important}
 
-## Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud}}
+## Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}
 {: #ha-vsi-create-service-id}
 
-A *Service ID* in {{site.data.keyword.cloud}} identifies a service or an application in a similar way as a user ID identifies a user.
+A *Service ID* in {{site.data.keyword.cloud_notm}} identifies a service or an application in a similar way as a user ID identifies a user.
 Create a *service ID* for the fencing agent to allow access to IBM Power Cloud actions such as monitoring or controlling the virtual server instances.
 Create a custom role in advance to limit the allowed IBM Power Cloud API actions to only those actions that are required for fencing.
 
@@ -177,7 +178,7 @@ Navigate to the IAM for the following steps.
 {: #ha-vsi-create-service-id-logon}
 
 Access IBM Cloud Identity and Access Management (IAM).
-1. Log on to [{{site.data.keyword.cloud}}](https://cloud.ibm.com/){: external}.
+1. Log on to [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/){: external}.
 1. On the toolbar, click **Manage** to expand the drop-down menu, then select **Access (IAM)**.
 
 ### Creating a custom role for the fencing agent

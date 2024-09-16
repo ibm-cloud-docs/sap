@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-11"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -56,7 +56,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index){: external} |
 | [Configuring a Cost-Optimized SAP S/4HANA HA cluster (HANA System Replication + ENSA2) by using the RHEL HA Add-On](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/configuring_a_cost-optimized_sap_s4hana_ha_cluster_hana_system_replication_ensa2_using_the_rhel_ha_add-on/index){: external} |
 | [Configuring SAP HANA Scale-Up Multitarget System Replication for disaster recovery](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/configuring_sap_hana_scale-up_multitarget_system_replication_for_disaster_recovery/index) |
-| [Configuring an active-passive NFS server in a Red Hat High Availability cluster](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_configuring-active-passive-nfs-server-in-a-cluster-configuring-and-managing-high-availability-clusters#doc-wrapper){: external} |
+| [Configuring an Active-Passive NFS server in a Red Hat High Availability cluster](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_configuring-active-passive-nfs-server-in-a-cluster-configuring-and-managing-high-availability-clusters#doc-wrapper){: external} |
 {: class="simple-tab-table"}
 {: caption="Table 2. RHEL 8 for SAP documentation" caption-side="bottom"}
 {: #rhel-sap-8-docs-table}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-02"
+lastupdated: "2024-09-11"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -32,7 +32,7 @@ Review the general requirements, product documentation, support articles, and SA
 ## Creating virtual server instances for the cluster
 {: #ha-rhel-create-virtual-server-instances}
 
-Use the instructions in [Creating instances for a high availability cluster on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
+Use the instructions in [Creating Instances for a High Availability Cluster on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
 
 ## Gathering parameters for the cluster configuration
 {: #ha-rhel-gather-parameters-for-cluster-config}
@@ -77,7 +77,7 @@ The uppercase variables in the following section indicate that these parameters 
 1. On the tile for the workspace, click **View Instances**.
 1. In the list of the virtual server instances, click each of the cluster nodes and take a note of each **ID**.
 1. Set these IDs as *POWERVSI_01* and *POWERVSI_02*.
-1. For information on how to obtain the *Service ID API key*, see [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
+1. For information on how to obtain the *Service ID API key*, see [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
    The *apikey* object in the downloaded API key file provides the API key that is required by fencing agent.
 
 ## Preparing the nodes for RHEL HA Add-On installation
@@ -425,7 +425,7 @@ pcs stonith status
 #### Setting the stonith-action cluster property
 {: #ha-rhel-set-stonith-action-cluster-property}
 
-To speed up failover times in an IBM Power Virtual Server cluster, you can change the cluster property *stonith-action* to *off*.
+To speed up failover times in an IBM {{site.data.keyword.powerSys_notm}} cluster, you can change the cluster property *stonith-action* to *off*.
 When the cluster performs a fencing action, it triggers a *power off* operation instead of a *reboot* for the fenced instance.
 
 After this change, you always need to log in to the IBM Cloud Console, and manually start an instance that was fenced by the cluster.
