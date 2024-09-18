@@ -166,7 +166,7 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
     ```
     2024/09/16 12:01:08 Terraform refresh | FLOATING_IP = " xxx.xxx.xxx.xxx "
     2024/09/16 12:01:08 Terraform refresh | HOSTNAME = "myhost"
-     2024/09/16 12:01:08 Terraform refresh | OVPN_FILE = "/root/OpenVPN.ovpn"
+    2024/09/16 12:01:08 Terraform refresh | OVPN_FILE = "/root/OpenVPN.ovpn"
     2024/09/16 12:01:08 Terraform refresh | PRIVATE_IP = " xxx.xxx.xxx.xxx "
     2024/09/16 12:01:08 Terraform refresh | REGION = "eu-de"
     2024/09/16 12:01:08 Terraform refresh | SECURITY_GROUP = "secgrp-myhost "
