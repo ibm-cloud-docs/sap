@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2023-09-18"
+lastupdated: "2023-09-19"
 
 subcollection: sap
 
@@ -64,13 +64,14 @@ The VSI is configured with Red Hat Enterprise Linux 8.4 (amd64), has a minimal o
 ### VPN Configuration
 {: #sap-bastion-vpn-config}
 
-For VPN solution, a Secrets Manager instance will be provisioned. Two secrets are provisioned inside the server certificate and the client certificate; both will be used during the VPN creation and also to generate the `ovpn` file for the connection. You can see this under the Secrets Managers page > Secrets and select **View secret** option.
+For the VPN solution, a Secrets Manager instance will be provisioned. Two secrets are provisioned, the server certificate and the client certificate; both will be used during the VPN creation and also to generate the `ovpn` file for the connection. You can see these secrets under the Secrets Managers page > Secrets and select **View secret** option.
 
-The VPN server will have a dedicated Security Group. During the VPN creation, the UDP port 443 is open for all source IP addresses and this can be customized later according to the customers needs.
+The VPN server will have a dedicated Security Group. The Security Group will open the UDP port 443 for all source IP addresses. This can be later customized according to the customers needs.
 
-A rule is added for the bastion's Security Group to allow all the traffic from the VPN's Security Group server. Later, if other Security Groups are added to the VPC to access the VPN solution then the same rule must be configured for those as well.
+A rule is added for the bastion's Security Group to allow all the traffic from the VPN's Security Group. 
+Later, if other Security Groups are added to the VPC and you want to allow access to their attached resources through the VPN connection, then the same rule should be configured for those as well.
 
-The automation script gets generated on the bastion server for your OpenVPN client. You need to download from the bastion and import in your OpenVPN client.
+The automation script will generate on the bastion server an ovpn profile file for your OpenVPN client. You need to download from the bastion and import in your OpenVPN client.
 
 ### Software configuration
 {: #sap-bastion-software-config}
