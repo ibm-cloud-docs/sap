@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-09-19"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, backup, restore
 
@@ -117,7 +117,7 @@ The RMAN BACKUP command supports backing up the following types of files:
 RMAN does not backup these files associated with the Oracle database.
 {: important}
 
-Although the database depends on other types of files, such as network configuration files, password files, and the contents of the Oracle home, you cannot back up these files with RMAN. 
+Although the database depends on other types of files, such as network configuration files, password files, and the contents of the Oracle home, you cannot back up these files with RMAN.
 Likewise, some features of Oracle Database, such as external tables, might depend upon files other than the data files, control files, and redo log. Also needed for this procedure is a parameter file from the source database, as well the files listed that follow:
 
 1. Oracle database parameter file: `init<SID>.ora`
@@ -327,7 +327,7 @@ For more details, please consult the following document.
 
 Customer should balance how parallelism and/or compression is applied (and associated resources that are allocated to support) with requirements for database availability and performance while backups are being performed.
 
-Consider applying *section size* to backup configuration. Without specifying `section size` that you can end up with very few very large files which makes it challenging to handle or restart in case of a transfer failure. Parallelism at restore is also limited to the number of backup files available to process concurrently. 
+Consider applying *section size* to backup configuration. Without specifying `section size` that you can end up with very few very large files which makes it challenging to handle or restart in case of a transfer failure. Parallelism at restore is also limited to the number of backup files available to process concurrently.
 
 Using a `good section size` allows to control the size of each backup file that is generated and thereby also influence how many files are generated which can then be processed in parallel during restore in IBM PowerVS.
 
@@ -377,7 +377,7 @@ More information can be found in:
 #### Ensure that RMAN Configuration is Documented
 {: #sapmig-db-oracle-rman1-rman-conf-dok}
 
-As described in the preparation section [Document RMAN Configuration](/doc/sap?topic=sap-#sapmig-db-oracle-prep-rman), be sure to record current RMAN configuration and associated parameters. 
+As described in the preparation section [Document RMAN Configuration](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-prep-rman), be sure to record current RMAN configuration and associated parameters.
 
 After completing special backups for migration, you want to ensure that RMAN configuration is left as before so normally scheduled backup operations continue.
 
@@ -552,7 +552,7 @@ The full backup (level 0) and all incremental backups (level 1) since the last f
 When moving the database to a new server - which includes ending services on the source system, the last incremental backup is an offline backup.
 {: note}
 
-When using the *multitenant architecture*, you must connect to the root container database (CDB) and the backups include the pluggable databases (PDBs).  
+When using the *multitenant architecture*, you must connect to the root container database (CDB) and the backups include the pluggable databases (PDBs).
 
 More information can be found in:
 [Performing Operations on CDBs/PDBs](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/starting-interacting-with-rman-client.html#GUID-2C7C92ED-41ED-4A51-848E-34E695B107D4){: external}
@@ -572,7 +572,7 @@ SELECT SUM (bytes)/1024/1024/1024 AS GB FROM dba_segments;
 #### Ensure that RMAN Configuration is Documented
 {: #sapmig-db-oracle-rman2-rman-conf-dok}
 
-As described in the preparation section [Document RMAN Configuration](/doc/sap?topic=sap-#sapmig-db-oracle-prep-rman), be sure to record current RMAN configuration and associated parameters. After completing special backups for migration, you want to ensure RMAN configuration is left as before so normally scheduled backup operations continue.
+As described in the preparation section [Document RMAN Configuration](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-prep-rman), be sure to record current RMAN configuration and associated parameters. After completing special backups for migration, you want to ensure RMAN configuration is left as before so normally scheduled backup operations continue.
 
 
 #### Backup Option 2 - Create Target Directories
@@ -640,7 +640,7 @@ then RMAN creates backups in the recovery area and automatically gives them uniq
 
 The following directive instructs RMAN to check whether a specific archived redo log was already included in a previous backup and, if yes, do not include the file in a new incremental backup.
 
-If yes, do not include the file in a new incremental backup. Note that this option should NOT be used if other backups are taken of the database that are not to be transferred to the destination, 
+If yes, do not include the file in a new incremental backup. Note that this option should NOT be used if other backups are taken of the database that are not to be transferred to the destination,
 then this option should be set to `OFF`.
 ```sql
 CONFIGURE BACKUP OPTIMIZATION ON;
@@ -658,7 +658,7 @@ BACKUP AS compressed BACKUPSET section size 6000M DEVICE TYPE DISK DATABASE PLUS
 
 Note that the script also contains `CONFIGURE CHANNEL DEVICE TYPE DISK` and `CONFIGURE CONTROLFILE AUTOBACKUP FORMAT for DEVICE TYPE DISK TO <directory>` commands, which define the backup type and file system location.
 
-Set disk device parallelism - likely to speed up the backup and to reduce the backup window. 
+Set disk device parallelism - likely to speed up the backup and to reduce the backup window.
 
 The optimal parallelism depends on several factors:
 * Availability of CPU resources to run many concurrent backup processes. With the selected compression and encryption each RMAN process typically uses all CPU cycles of a logical processor, assuming the storage subsystem can provide the data fast enough.
@@ -707,7 +707,7 @@ The key command to start the incremental (level 1) backup in this script is:
 `BACKUP ... incremental level 1 ...`
 
 Please replace the terms `<sid>` with the SID value from your system and  ensure the target backup directory defined in the script matches the directory that you have created in.
-[Backup Option 2 - Create Target Directories](/doc/sap?target=sap-sapmig-db-oracle-rman2-create-fs-bk).
+[Backup Option 2 - Create Target Directories](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-rman2-create-fs-bk).
 
 *`option2_backup_inc1.rman` script*
 ```sql
@@ -1134,14 +1134,14 @@ ARCHIVE LOG LIST;
 {: pre}
 
 Finally create a new database backup on this target system that will also include the Archive files.
-As described previously in the section [Backup the Source Oracle Database using RMAN](/docs/sap?topic=sap-sapmig-db-oracle-backup)
+As described previously in the section [Back up the Source Oracle Database by using RMAN](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-backup)
 
 
 #### Why are `nofilenamecheck` and `noredo` Options Used With `duplicate database`
 {: #sapmig-db-oracle-restore-noredo-nofilenamecheck}
 
 `nofilenamecheck`
-: The option `nofilenamecheck` will stop RMAN pre-checking the directory and file location of the target system by comparing the information that is contained with the controlfiles of the duplicate backup. 
+: The option `nofilenamecheck` will stop RMAN pre-checking the directory and file location of the target system by comparing the information that is contained with the controlfiles of the duplicate backup.
 This is necessary if you want to restore a 1-2-1 copy of your source database to target using identical filesystem locations, SID and so on. If the option is not present then, you could receive a warning and the restore stops stating that there are discovered conflicts where target file locations where the datafiles will be restored to match source file locations. If this occurs add the `nofilenamecheck` to the restore command and retry, then the restore works.
 
 `noredo`
