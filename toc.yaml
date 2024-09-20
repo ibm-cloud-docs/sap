@@ -271,6 +271,12 @@ toc:
                   topics:
                     - sap-terraform-automate-intro-hana-db-backup-cos.md
                     - sap-terraform-automate-hana-db-backup-cos-proc.md
+              - sap-terraform-automate-s4hana-ansible.md
+              - topicgroup:
+                  label: SAP HANA DB cross-region DR automation on IBM Cloud VPC
+                  topics:
+                    - sap-terraform-automate-intro-hana-db-crossregion-dr.md
+                    - sap-terraform-automate-hana-db-crossregion-dr.md
               - topicgroup:
                   label: SAP BW/4HANA 3-tier on IBM Cloud VPC
                   topics:
