@@ -30,36 +30,40 @@ The published names are subject to change.
 
 These tables give you an overview of the SAP-certified bare metal profiles for VPC that represent dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 96 vCPU = 48 physical cores). The term vCPU is kept for comparison with their virtual counterparts.
 
-1. Profiles hosted on Intel Cascade Lake CPU
-
-    | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
-    | --- | --- | --- | --- |
-    | **Compute Optimized** | | | |
-    | cx2d-metal-96x192 | 96 | 192 | 101,070|
-    | **Balanced** | | | |
-    | bx2d-metal-96x384 | 96 | 384 | 124,130 |
-    | **Memory Optimized** | | | |
-    | mx2d-metal-96x768 | 96 | 768 | 127,620 |
-    | **Ultra High Memory Optimized** | | | |
-    | ux2d-metal-112x3072 | 112 | 3,072 | 140,730 |
-    | ux2d-metal-224x6144 | 224 | 6,144 | 294,730 |
-    {: caption="Table 1. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Cascade Lake CPU" caption-side="bottom"}
+### Profiles hosted on Intel Cascade Lake CPU
+{: #nw-iaas-intel-bm-cl-vpc-list}
 
 
-1. Profiles hosted on Intel Sapphire Rapids CPU
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
+| --- | --- | --- | --- |
+| **Compute Optimized** | | | |
+| cx2d-metal-96x192 | 96 | 192 | 101,070|
+| **Balanced** | | | |
+| bx2d-metal-96x384 | 96 | 384 | 124,130 |
+| **Memory Optimized** | | | |
+| mx2d-metal-96x768 | 96 | 768 | 127,620 |
+| **Ultra High Memory Optimized** | | | |
+| ux2d-metal-112x3072 | 112 | 3,072 | 140,730 |
+| ux2d-metal-224x6144 | 224 | 6,144 | 294,730 |
+{: caption="Table 1. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Cascade Lake CPU" caption-side="bottom"}
 
-    | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
-    | --- | --- | --- | --- |
-    | **Balanced** | | | |
-    | bx3d-metal-48x256 | 48 | 256 | 93.670 |
-    | bx3d-metal-64x256 | 64 | 256 | 124.520 |
-    | bx3d-metal-192x1024 | 192 | 1.024 | 297.770 |
-    | **Memory Optimized** | | | |
-    | mx3d-metal-64x512 | 64 | 512 | 128.750 |
-    | mx3d-metal-96x1024 | 96 | 1.024 | 182.670 |
-    | **Very High Memory Optimized** | | | |
-    | vx3d-metal-16x256 | 16 | 256 | 35.520 |
-    {: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-    side="bottom"}
+### Profiles hosted on Intel Sapphire Rapids CPU
+{: #nw-iaas-intel-bm-sr-vpc-list}
+
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
+| --- | --- | --- | --- |
+| **Balanced** | | | |
+| bx3d-metal-48x256 | 48 | 256 | 93.670 |
+| bx3d-metal-64x256 | 64 | 256 | 124.520 |
+| bx3d-metal-192x1024 | 192 | 1.024 | 297.770 |
+| **Memory Optimized** | | | |
+| mx3d-metal-64x512 | 64 | 512 | 128.750 |
+| mx3d-metal-96x1024 | 96 | 1.024 | 182.670 |
+| **Very High Memory Optimized** | | | |
+| vx3d-metal-16x256 | 16 | 256 | 35.520 |
+| **Ultra High Memory Optimized** | | | |
+| ux3d-metal-16x512 | 16 | 512 | 34.320 |
+{: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-    side="bottom"}
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment]    (https://launchpad.support.sap.com/#/notes/2927211){: external}. 
 
