@@ -28,7 +28,11 @@ subcollection: sap
 The published names are subject to change.
 {: note}
 
-This table gives you an overview of the SAP-certified profiles with bare metal servers for VPC. The vCPUs in this list are CPU cores and their secondary threads. The term vCPU is kept for comparison with their virtual counterparts.
+These tables give you an overview of the SAP-certified bare metal profiles for VPC that represent dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 96 vCPU = 48 physical cores). The term vCPU is kept for comparison with their virtual counterparts.
+
+### Profiles hosted on Intel Cascade Lake CPU
+{: #nw-iaas-intel-bm-cl-vpc-list}
+
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
 | --- | --- | --- | --- |
@@ -41,9 +45,27 @@ This table gives you an overview of the SAP-certified profiles with bare metal s
 | **Ultra High Memory Optimized** | | | |
 | ux2d-metal-112x3072 | 112 | 3,072 | 140,730 |
 | ux2d-metal-224x6144 | 224 | 6,144 | 294,730 |
-{: caption="Table 1. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver" caption-side="bottom"}
+{: caption="Table 1. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Cascade Lake CPU" caption-side="bottom"}
 
-For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}. 
+### Profiles hosted on Intel Sapphire Rapids CPU
+{: #nw-iaas-intel-bm-sr-vpc-list}
+
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
+| --- | --- | --- | --- |
+| **Balanced** | | | |
+| bx3d-metal-48x256 | 48 | 256 | 93.670 |
+| bx3d-metal-64x256 | 64 | 256 | 124.520 |
+| bx3d-metal-192x1024 | 192 | 1.024 | 297.770 |
+| **Memory Optimized** | | | |
+| mx3d-metal-64x512 | 64 | 512 | 128.750 |
+| mx3d-metal-96x1024 | 96 | 1.024 | 182.670 |
+| **Very High Memory Optimized** | | | |
+| vx3d-metal-16x256 | 16 | 256 | 35.520 |
+| **Ultra High Memory Optimized** | | | |
+| ux3d-metal-16x512 | 16 | 512 | 34.320 |
+{: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-    side="bottom"}
+
+For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment]    (https://launchpad.support.sap.com/#/notes/2927211){: external}. 
 
 ## Understanding Bare Metal Server profile names
 {: #nw-iaas-intel-bm-vpc-names}
@@ -51,18 +73,19 @@ For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virt
 With {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC, the profile families that are certified for SAP are: *Compute Optimized*, *Balanced*, *Memory Optimized*, and *Ultra High Memory Optimized*.
 - *Compute Optimized* family profiles provide more compute power, and they have more cores with less memory.
 - *Balanced* family profiles provide a good mix of performance and scalability for more common workloads.
-- *Memory Optimized* and *Ultra High Memory Optimized* family profiles cater to memory intensive workloads, such as demanding database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads.
+- *Memory Optimized*, *Very High Memory Optimized*, and *Ultra High Memory Optimized* family profiles cater to memory intensive workloads, such as demanding database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads.
 
 For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile).
 
 The first letter of the profile name indicates the profile family:
 
-| First letter | Characteristics of the related profile family |
-| --- | --- |
-| c | *Compute Optimized* family, vCPU to memory ratio 1:2 |
-| b | *Balanced* family, vCPU to memory ratio 1:4 |
-| m | *Memory Optimized* family, higher vCPU to memory ratio 1:8 |
-| u | *Ultra High Memory Optimized* family, even higher CPU to memory ratio 1:27.43 |
+| **First letter** | **Characteristics of the related profile family** | **Ratio Cascade Lake** | **Ratio Sapphire Rapids** |
+| --- | --- | --- | --- |
+| c | *Compute Optimized* family | 1:2 | 1:2 or 1:2.67 |
+| b | *Balanced* family | 1:4 | 1:4 or 1:5.33 |
+| m | *Memory Optimized* family| 1:8 | 1:8 or 1:10.67 |
+| u | *Ultra High Memory Optimized* family | 1:27.43 | from 1:21.33 to 1:42.67 |
+| v | *Very High Memory Optimized* family | 1:27.43 | 1:16 |
 {: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
 <br/>
@@ -71,9 +94,9 @@ The Bare Metal Server profile names are contextual and sequential. See the follo
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
 | mx2d-metal-96x768 | m | *Memory Optimized* family |
-| | x | Intel x86_64 CPU Architecture |
-| | 2 | The generation for the underlying hardware | 
-| | d | the optional 'd' in the name indicates that the server is equipped with one or more SSD storage devices |
+| | x | Intel x86_64 CPU architecture |
+| | 2 | Intel x86_64 Cascade Lake CPU  - *3: Intel x86_64 Sapphire Rapids CPU* |
+| | d | the optional 'd' in the name indicates that the server is equipped with one or more additional NVMe SSD storage devices |
 | | — | _spacer_ |
 | | metal | *metal* in the name indicates that this is a bare metal server |
 | | — | _spacer_ |
@@ -91,14 +114,20 @@ All {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC are available wi
 ## Storage specifications
 {: #nw-iaas-intel-bm-vpc-storage-specs}
 
-When the bare metal server profiles for SAP NetWeaver are initially provisioned, the servers all have one pre-configured disk (sda) attached with the following basic layout:
+When the bare metal server profiles for SAP NetWeaver are initially provisioned, the servers have one or more pre-configured disks attached.
 
-| File system | Partition | Storage type | Size |
-| --- | --- | --- | --- |
-| | `sda1` | Pre-configured BIOS volume | 1 MB |
-| `/boot/efi` | `sda2` | Pre-configured boot volume | 100 MB |
-| `/` | `sda3` | Pre-configured root volume | 9.9 GB |
-{: caption="Table 4. Storage configuration of the default bare metal server deployment (boot volume)" caption-side="top"}
+1. Servers that are hosted on Cascade Lake CPU have one disk (sda) with the following basic layout:
+
+    | File system | Partition | Storage type | Size |
+    | --- | --- | --- | --- |
+    | | `sda1` | Pre-configured BIOS volume | 1 MB |
+    | `/boot/efi` | `sda2` | Pre-configured boot volume | 100 MB |
+    | `/` | `sda3` | Pre-configured root volume | 9.9 GB |
+    {: caption="Table 4. Storage configuration of the default bare metal server deployment (boot volume)" caption-side="top"}
+
+1. Servers that are hosted on Sapphire Rapids CPU
+
+    See the appropriate profile in [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile#bare-metal-servers-profile-list).
 
 
 ### Internal Storage
@@ -110,4 +139,3 @@ Your bare metal server on VPC comes with a number of internal NVMEs, depending o
 {: #nw-iaas-intel-bm-vpc-ext-storage}
 
 If more storage needs are to be added to your bare metal server on VPC, for example, for backup purposes, NFS-based `file shares` can be created and mounted. Learn more details in the corresponding chapter [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
-
