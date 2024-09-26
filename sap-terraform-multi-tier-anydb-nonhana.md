@@ -153,12 +153,12 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
     |-----------|-----------|
     |REGION	   |The cloud region where the solution is deployed. The regions and zones for VPC are listed [here](/docs/containers?topic=containers-regions-and-zones#zones-vpc).|
     |ZONE	    |The cloud zone where the solution is deployed.	|
-    |VPC  |The name of the VPC. The list of VPCs is available [here](https://cloud.ibm.com/vpc-ext/network/vpcs).|
-    |SECURITYGROUP	    |The name of the Security Group. The list of Security Groups is available [here](https://cloud.ibm.com/vpc-ext/network/subnets)|
-    |SUBNET	     |The name of the Subnet. The list of Subnets is available [here](https://cloud.ibm.com/vpc-ext/network/subnets)|
+    |VPC  |The name of the VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs).|
+    |SECURITYGROUP	    |The name of the Security Group. The list of Security Groups is available [here](https://cloud.ibm.com/infrastructure/network/subnets)|
+    |SUBNET	     |The name of the Subnet. The list of Subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets)|
     |PROFILE	     |The profile used for the VSI. A list of profiles is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles).|
     |IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
-    |SSH_KEYS	   |List of SSH Keys IDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/vpc-ext/compute/sshKeys).|
+    |SSH_KEYS	   |List of SSH Keys IDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys).|
     |[DB/APP]-HOSTNAME	|The hostname for the VSI. The hostname must have up to 13 characters as required by SAP. For more information about rules regarding hostnames for SAP systems, see [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/%20611361).|
     {: caption}
 

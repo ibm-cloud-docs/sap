@@ -168,11 +168,11 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     # Example: ZONE = "eu-de-1"
 
     VPC = "ic4sap"
-    # EXISTING VPC, previously created by the user in the same region as the VSI. The list of available VPCs: https://cloud.ibm.com/vpc-ext/network/vpcs
+    # EXISTING VPC, previously created by the user in the same region as the VSI. The list of available VPCs: https://cloud.ibm.com/infrastructure/network/vpcs
     # Example: VPC = "ic4sap"
 
     SECURITY_GROUP = "ic4sap-securitygroup"
-    # EXISTING Security group, previously created by the user in the same VPC. The list of available Security Groups: https://cloud.ibm.com/vpc-ext/network/securityGroups
+    # EXISTING Security group, previously created by the user in the same VPC. The list of available Security Groups: https://cloud.ibm.com/infrastructure/network/securityGroups
     # Example: SECURITY_GROUP = "ic4sap-securitygroup"
 
     RESOURCE_GROUP = "wes-automation"
@@ -180,11 +180,11 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     # Example: RESOURCE_GROUP = "wes-automation"
 
     SUBNET = "ic4sap-subnet"
-    # EXISTING Subnet in the same region and zone as the VSI, previously created by the user. The list of available Subnets: https://cloud.ibm.com/vpc-ext/network/subnets
+    # EXISTING Subnet in the same region and zone as the VSI, previously created by the user. The list of available Subnets: https://cloud.ibm.com/infrastructure/network/subnets
     # Example: SUBNET = "ic4sap-subnet"
 
     SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
-    # List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. The SSH Keys should be created for the same region as the VSI. The list of available SSH Keys UUIDs: https://cloud.ibm.com/vpc-ext/compute/sshKeys
+    # List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. The SSH Keys should be created for the same region as the VSI. The list of available SSH Keys UUIDs: https://cloud.ibm.com/infrastructure/compute/sshKeys
     # Example: SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
 
     ID_RSA_FILE_PATH = "ansible/id_rsa"
