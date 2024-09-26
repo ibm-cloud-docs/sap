@@ -314,6 +314,7 @@ toc:
               - sap-power-virtual-server-mig-hybrid-cloud-networking.md
               - sap-power-virtual-server-mig-db-hana.md
               - sap-power-virtual-server-mig-db-oracle.md
+              - sap-power-virtual-server-mig-db-db2.md
       - topicgroup:
           label: SAP Monitoring with IBM Cloud Monitoring
           topics:

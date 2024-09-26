@@ -28,7 +28,7 @@ An Infrastructure-as-a-Service (IaaS) environment consists of many components - 
 ## Deployment and management
 {: #vpc-env-deployment-and-management}
 
-{{site.data.keyword.cloud_notm}} VPC Infrastructure offerings, such as virtual or bare metal servers, are deployed through the [{{site.data.keyword.cloud_notm}} VPC Infrastructure console](https://cloud.ibm.com/vpc-ext/overview).
+{{site.data.keyword.cloud_notm}} VPC Infrastructure offerings, such as virtual or bare metal servers, are deployed through the [{{site.data.keyword.cloud_notm}} VPC Infrastructure console](https://cloud.ibm.com/infrastructure/overview).
 
 Alternatively, deployments can be made and managed by using:
 - {{site.data.keyword.cloud_notm}} CLI

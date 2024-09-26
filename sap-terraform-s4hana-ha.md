@@ -240,7 +240,7 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     # When the default value is used, the virtual hostname will automatically be changed based on <SAP_SID> to "db<hana_sid>hana"
 
     VPC = ""
-    # The name of an EXISTING VPC. Must be in the same region as the solution to be deployed. The list of VPCs is available here: https://cloud.ibm.com/vpc-ext/network/vpcs.
+    # The name of an EXISTING VPC. Must be in the same region as the solution to be deployed. The list of VPCs is available here: https://cloud.ibm.com/infrastructure/network/vpcs.
     # Example: VPC = "ic4sap"
 
     ZONE_1 = ""
@@ -248,7 +248,7 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     # Example: ZONE = "eu-de-1"
 
     SUBNET_1 = ""
-    # The name of an EXISTING Subnet, in the same VPC, ZONE_1, where DB_HOSTNAME_1 and APP_HOSTNAME_1 VSIs will be created. The list of Subnets is available here: https://cloud.ibm.com/vpc-ext/network/subnets
+    # The name of an EXISTING Subnet, in the same VPC, ZONE_1, where DB_HOSTNAME_1 and APP_HOSTNAME_1 VSIs will be created. The list of Subnets is available here: https://cloud.ibm.com/infrastructure/network/subnets
     # Example: SUBNET = "ic4sap-subnet_1"
 
     ZONE_2 = ""
@@ -257,12 +257,12 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     # Example: ZONE = "eu-de-2"
 
     SUBNET_2 = ""
-    # The name of an EXISTING Subnet, in the same VPC, ZONE_2, where DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs will be created. The list of Subnets is available here: https://cloud.ibm.com/vpc-ext/network/subnets. 
+    # The name of an EXISTING Subnet, in the same VPC, ZONE_2, where DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs will be created. The list of Subnets is available here: https://cloud.ibm.com/infrastructure/network/subnets. 
     # If the same value as for SUBNET_1 is used, and the value for ZONE_1 is the same with the value for ZONE_2, the deployment will be done in a single zone. If the values for ZONE_1, SUBNET_1 are different than the ones for ZONE_2, SUBNET_2 then it an SAP Multizone deployment will be done.
     # Example: SUBNET = "ic4sap-subnet_2"
 
     SECURITY_GROUP = ""
-    # The name of an EXISTING Security group for the same VPC. It can be found at the end of the Bastion Server deployment log, in \"Outputs\", before \"Command finished successfully\" message. The list of Security Groups is available here: https://cloud.ibm.com/vpc-ext/network/securityGroups.
+    # The name of an EXISTING Security group for the same VPC. It can be found at the end of the Bastion Server deployment log, in \"Outputs\", before \"Command finished successfully\" message. The list of Security Groups is available here: https://cloud.ibm.com/infrastructure/network/securityGroups.
     # Example: SECURITY_GROUP = "ic4sap-securitygroup"
 
     RESOURCE_GROUP = ""
@@ -270,7 +270,7 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     # Example: RESOURCE_GROUP = "wes-automation"
 
     SSH_KEYS = [""]
-    # List of SSH Keys UUIDs that are allowed to connect via SSH, as root, to the VSI. Can contain one or more IDs. The list of SSH Keys is available here: https://cloud.ibm.com/vpc-ext/compute/sshKeys.
+    # List of SSH Keys UUIDs that are allowed to connect via SSH, as root, to the VSI. Can contain one or more IDs. The list of SSH Keys is available here: https://cloud.ibm.com/infrastructure/compute/sshKeys.
     # Example: SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
 
     ID_RSA_FILE_PATH = "ansible/id_rsa"
@@ -606,10 +606,3 @@ This document is referenced by:
 * [SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
 * [SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 * [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
-
-
-
-
-
-
-

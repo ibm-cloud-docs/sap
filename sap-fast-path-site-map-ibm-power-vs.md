@@ -84,6 +84,7 @@ For more information about SAP hybrid cloud migration scenarios for SAP on IBM {
 - [Hybrid Cloud Network Considerations for SAP on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking)
 - [Migrating SAP S/4HANA using HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana)
 - [Migrating SAP ECC on Oracle to IBM Power Virtual Server](/docs/sap?topic=sap-sapmig-db-oracle)
+- [Migrating SAP ERP 6 on IBM Db2 to IBM Power Virtual Server](/docs/sap?topic=sap-sapmig-db-db2)
 
 ## Help
 {: #fast-path-power-vs-help}

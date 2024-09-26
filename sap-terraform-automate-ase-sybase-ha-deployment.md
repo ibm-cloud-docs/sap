@@ -205,11 +205,11 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
    Default = "db($your_ASE SYBASE_sid)ASE SYBASE"
  
 9. VPC = "ic4sap"
-   EXISTING VPC, previously created by the user in the same region as the VSI. The list of available VPCs: https://cloud.ibm.com/vpc-ext/network/vpcs
+   EXISTING VPC, previously created by the user in the same region as the VSI. The list of available VPCs: https://cloud.ibm.com/infrastructure/network/vpcs
    Example: VPC = "ic4sap"
 
 10. SECURITY_GROUP = "ic4sap-securitygroup"
-    EXISTING Security group, previously created by the user in the same VPC. The list of available Security Groups: https://cloud.ibm.com/vpc-ext/network/securityGroups
+    EXISTING Security group, previously created by the user in the same VPC. The list of available Security Groups: https://cloud.ibm.com/infrastructure/network/securityGroups
     Example: SECURITY_GROUP = "ic4sap-securitygroup"
 
 11. RESOURCE_GROUP = "wes-automation"
@@ -217,11 +217,11 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
     Example: RESOURCE_GROUP = "wes-automation"
 
 12. SUBNET = "ic4sap-subnet"
-    EXISTING Subnet in the same region and zone as the VSI, previously created by the user. The list of available Subnets: https://cloud.ibm.com/vpc-ext/network/subnets
+    EXISTING Subnet in the same region and zone as the VSI, previously created by the user. The list of available Subnets: https://cloud.ibm.com/infrastructure/network/subnets
     Example: SUBNET = "ic4sap-subnet"
 
 13. SSH_KEYS = [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
-    List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. The SSH Keys should be created for the same region as the VSI. The list of available SSH Keys UUIDs: https://cloud.ibm.com/vpc-ext/compute/sshKeys
+    List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. The SSH Keys should be created for the same region as the VSI. The list of available SSH Keys UUIDs: https://cloud.ibm.com/infrastructure/compute/sshKeys
     Example: SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
 
 ### File share variables

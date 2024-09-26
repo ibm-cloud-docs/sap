@@ -230,10 +230,10 @@ Use these steps to configure the SAP AAS NetWeaver (ABAP) on HANA on your existi
     |HOSTNAME	|The hostname for the VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check [SAP Note 611361: Hostnames of SAP ABAP Platform servers](https://accounts.sap.com/saml2/idp/sso)|
     |REGION	|The cloud region to deploy the solution. The regions and zones for VPC are listed [here](/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in IBM Cloud Schematics [here](https://cloud.ibm.com/docs/schematics?topic=schematics-locations). Sample value: eu-de.|
     |RESOURCE_GROUP	|The name of an existing Resource Group for VSIs and Volumes resources. Default value: "Default". The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups).|
-    |SECURITY_GROUP	|The name of an existing Security group. The list of security groups is available [here](https://cloud.ibm.com/vpc-ext/network/securityGroups). |
-    |SSH_KEYS	|The list of SSH Keys UUIDs that are allowed to SSH as root to the VSI can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/vpc-ext/compute/sshKeys). Sample input (use your own SSH UUIDs from IBM Cloud): ["r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e"]|
-    |SUBNET	|The name of an existing subnet. The list of subnets is available [here](https://cloud.ibm.com/vpc-ext/network/subnets).|
-    |VPC	|The name of an existing VPC. The list of VPCs is available [here](https://cloud.ibm.com/vpc-ext/network/vpcs).|
+    |SECURITY_GROUP	|The name of an existing Security group. The list of security groups is available [here](https://cloud.ibm.com/infrastructure/network/securityGroups). |
+    |SSH_KEYS	|The list of SSH Keys UUIDs that are allowed to SSH as root to the VSI can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys). Sample input (use your own SSH UUIDs from IBM Cloud): ["r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e"]|
+    |SUBNET	|The name of an existing subnet. The list of subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets).|
+    |VPC	|The name of an existing VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs).|
     |ZONE	|The cloud zone where to deploy the solution. Sample value: eu-de-2.|
     |ibmcloud_api_key	|IBM Cloud API key (Sensitive* value).|
     |private_ssh_key	|Required only for Schematics Deployments - Input your id_rsa private key pair content in OpenSSH format (Sensitive* value). This private key should be used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.|
