@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-09-12"
+lastupdated: "2024-10-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 
@@ -884,7 +884,7 @@ Make sure that the configuration parameter `log_mode` is set to *normal* in the 
 Run the following command on both systems to verify the `log_mode` setting.
 
 ```sh
-sudo -i -u ${sid}adm -- grep -i 'log_mode' /usr/sap/${SID}/HDB${INST}/exe/config/global.ini
+sudo -i -u ${sid}adm -- grep -i 'log_mode' /usr/sap/${SID}/HDB${INSTNO}/exe/config/global.ini
 ```
 {: pre}
 
@@ -901,7 +901,7 @@ log_mode=normal
 On the primary SAP HANA system, run the following command to register this node as the `primary` for SAP HANA System Replication.
 
 ```sh
-sudo -i -u ${sid}adm -- hdbnsutil -sr_enable --name={SiteOnPrem}
+sudo -i -u ${sid}adm -- hdbnsutil -sr_enable --name=${SiteOnPrem}
 ```
 {: pre}
 
@@ -1018,9 +1018,9 @@ The last command looks like the following example.
 
 ```sh
 sudo -i -u ${sid}adm -- hdbnsutil -sr_register \
-    --name=SiteOnCloud \
-    --remoteHost=<primary_host> \
-    --remoteInstance=<primary_systemnr> \
+    --name=${SiteOnCloud} \
+    --remoteHost=${NODE1} \
+    --remoteInstance=${INSTNO} \
     --replicationMode=syncmem \
     --operationMode=logreplay
 ```
@@ -1341,7 +1341,7 @@ This script displays one status line for each database and an overall status aft
 Run the Python script with the following command.
 
    ```sh
-   sudo -i -u ${sid}adm -- python python ${DIR_INSTANCE}/exe/python_support/systemReplicationStatus.py
+   sudo -i -u ${sid}adm -- python ${DIR_INSTANCE}/exe/python_support/systemReplicationStatus.py
    ```
    {: pre}
 

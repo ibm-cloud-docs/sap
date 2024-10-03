@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-10-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, backup, restore, Db2, IBM Db2, HADR
 
@@ -11,7 +11,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Migrating SAP ERP 6 on IBM Db2 to an IBM Power Virtual Server
+# Migrating SAP ERP 6 on IBM Db2 to IBM Power Virtual Server
 {: #sapmig-db-db2}
 
 Use the following guide to migrate your SAP Enterprise Resource Planning 6 (ERP) system from an IBM Db2 to an IBM Power Virtual Server. You have different options to migrate IBM Db2 databases to a target system.
@@ -24,7 +24,7 @@ For SAP ERP on IBM Db2, you have two migration options:
 
 - [Migration option 1 - Back up and restore](/docs/sap?topic=sap-sapmig-db-db2#sapmig-db-db2-option1-backup-restore) is based on standard administrative tasks such as start, stop, backup, and restore. It is a less complicated approach, but it requires downtime during migration.
 
-- [Migration option 2 - IBM Db2 high availability and disaster recovery (HADR)](/docs/sap?topic=sap-sapmig-db-db2#sapmig-db-db2-option2-backup-restore-hadr) is a downtime, optimized approach for SAP production systems. It is based on IBM Db2 High Availability and Disaster Recovery (IBM Db2 HADR) Database Synchronization and an online back up. The system downtime is minimized, but the method requires a higher configuration approach compared to option 1.
+- [Migration option 2 - IBM Db2 high availability and disaster recovery (HADR)](/docs/sap?topic=sap-sapmig-db-db2#sapmig-db-db2-option2-backup-restore-hadr) is a downtime-optimized approach for SAP production systems. It is based on IBM Db2 High Availability and Disaster Recovery (IBM Db2 HADR) Database Synchronization and an online back up. The system downtime is minimized, but the method requires a higher configuration approach compared to option 1.
 
 ## Migration option 1 - Back up and restore
 {: #sapmig-db-db2-option1-backup-restore}
