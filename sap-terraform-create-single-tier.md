@@ -17,7 +17,7 @@ subcollection: sap
 {:codeblock: .codeblock}
 {:tip: .tip} 
 
-# Creating single-tier VPC for SAP on {{site.data.keyword.cloud}} VPC with Terraform
+# Creating 2-tier VPC for SAP on {{site.data.keyword.cloud}} VPC with Terraform
 {: #create-terraform-single-tier-vpc-sap}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
