@@ -1,7 +1,7 @@
 ---
 copyright:
-    years: 2024, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2024
+lastupdated: "2024-10-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Hybrid Cloud, Migration, AIX, Linux, RHEL, SuSE
 
