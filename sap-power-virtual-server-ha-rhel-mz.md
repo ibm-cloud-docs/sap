@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-10-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -461,7 +461,7 @@ For the *powervs-subnet* resource agent to work, you must set the *stonith-actio
 When the cluster performs a fencing action, it triggers a *power-off* operation instead of a *reboot* for the fenced instance.
 {: attention}
 
-After this change, you always need to log in to the {{site.data.keyword.cloud_notm}} Console, and manually start an instance that has been fenced by the cluster.
+After this change, you always need to log in to the {{site.data.keyword.cloud_notm}} Console, and manually start an instance that was fenced by the cluster.
 
 ```sh
 pcs property set stonith-action=off
@@ -701,6 +701,8 @@ pcs resource create vip_${SID}_${INSTNO} powervs-subnet \
     op monitor interval=60 timeout=30
 ```
 {: pre}
+
+
 
 Check the configured virtual IP address resource and the cluster status.
 
