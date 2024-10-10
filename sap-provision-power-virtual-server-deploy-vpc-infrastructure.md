@@ -23,7 +23,7 @@ As a best practice for SAP that runs on {{site.data.keyword.powerSysFull}}, thre
 * **Host for internet services that are deployed in edge VPC** is used to configure the access from {{site.data.keyword.powerSys_notm}} instances to IBM Cloud services and to the public internet.
 * **Host for private services that are deployed in workload VPC** provides certain management services to the {{site.data.keyword.powerSys_notm}} instances, like NFS, DNS, NTP.
 
-![VPC landing zone for SAP on PowerVS](images/step1_manual_VPC-for-PowerVS.svg){: caption="Figure 1. VPC landing zone for SAP on PowerVS" caption-side="bottom"}
+![VPC landing zone for SAP on PowerVS](images/step1_manual_VPC-for-PowerVS.svg){: caption="VPC landing zone for SAP on PowerVS" caption-side="bottom"}
 
 ## Deploying {{site.data.keyword.vpc_short}} for management services (management VPC)
 {: #power-vs-set-up-management-vpc}
@@ -47,7 +47,7 @@ Access host is a **mandatory** component in the SAP on {{site.data.keyword.power
     |ALL                |CIDR Block     |161.26.0.0/16|n/a       |Address block of OS registration servers               |
     |TCP                |CIDR Block     |0.0.0.0/0    |Port 22-22|Address block allowed for host administration over SSH |
     {: class="simple-tab-table"}
-    {: caption="Table 1. Overview of the inbound security group rules for the access host" caption-side="bottom"}
+    {: caption="Overview of the inbound security group rules for the access host" caption-side="bottom"}
     {: #inboundsecurityrulesaccesshost}
     {: tab-title="Inbound security group rules"}
     {: tab-group="Access-host-security-group-rules"}
@@ -56,7 +56,7 @@ Access host is a **mandatory** component in the SAP on {{site.data.keyword.power
     |-------------------|---------------|-------------|----------|-------------------------------------------------------|
     |ALL                |CIDR Block     |0.0.0.0/0    |n/a       |Allow all connections initiated from the hosts         |
     {: class="simple-tab-table"}
-    {: caption="Table 2. Overview of the outbound security group rules for the access host" caption-side="bottom"}
+    {: caption="Overview of the outbound security group rules for the access host" caption-side="bottom"}
     {: #outboundsecuritygrouprulesaccesshost}
     {: tab-title="Outbound security group rules"}
     {: tab-group="Access-host-security-group-rules"}
@@ -70,7 +70,7 @@ Access host is a **mandatory** component in the SAP on {{site.data.keyword.power
     |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets|
     |4                |Deny          |ALL         |Any IP                   |Any IP                   |n/a      |Deny all other inbound traffic                              |
     {: class="simple-tab-table"}
-    {: caption="Table 3. Overview of the inbound ACL rules for the access host" caption-side="bottom"}
+    {: caption="Overview of the inbound ACL rules for the access host" caption-side="bottom"}
     {: #aclinboundrulesaccesshost}
     {: tab-title="Inbound ACL rules"}
     {: tab-group="Access-host-ACL-rules"}
@@ -82,7 +82,7 @@ Access host is a **mandatory** component in the SAP on {{site.data.keyword.power
     |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets|
     |4                |Deny          |ALL         |Any IP                   |Any IP                   |n/a      |Deny all other outbound traffic                             |
     {: class="simple-tab-table"}
-    {: caption="Table 4. Overview of the outbound ACL rules for the access host" caption-side="bottom"}
+    {: caption="Overview of the outbound ACL rules for the access host" caption-side="bottom"}
     {: #acloutboundrulesaccesshost}
     {: tab-title="Outbound ACL rules"}
     {: tab-group="Access-host-ACL-rules"}
@@ -141,7 +141,7 @@ The following example setup uses open ports for standard SQUID proxy server that
     |ALL                |CIDR Block     |161.26.0.0/16|n/a           |address block of OS registration servers               |
     |UDP                |CIDR Block     |0.0.0.0/0    |Port 53-53    |DNS                                                    |
     {: class="simple-tab-table"}
-    {: caption="Table 5. Overview of inbound security group rules for the internet services host" caption-side="bottom"}
+    {: caption="Overview of inbound security group rules for the internet services host" caption-side="bottom"}
     {: #inboundsecuritygroup-internetserviceshost}
     {: tab-title="Inbound security group rules"}
     {: tab-group="Internet-services-host-security-group-rules"}
@@ -150,7 +150,7 @@ The following example setup uses open ports for standard SQUID proxy server that
     |-------------------|---------------|-------------|--------------|-------------------------------------------------------|
     |ALL                |CIDR Block     |0.0.0.0/0    |n/a           |Allow all connections initiated from the hosts         |
     {: class="simple-tab-table"}
-    {: caption="Table 6. Overview of outbound security group rules for the internet services host" caption-side="bottom"}
+    {: caption="Overview of outbound security group rules for the internet services host" caption-side="bottom"}
     {: #outboundsecuritygroup-internetserviceshost}
     {: tab-title="Outbound security group rules"}
     {: tab-group="Internet-services-host-security-group-rules"}
@@ -167,7 +167,7 @@ The following example setup uses open ports for standard SQUID proxy server that
     |6                |Allow         |TCP         |Any IP, ports 80-80      |10.0.0.0/8, any port     |n/a      |HTTP                                                        |
     |7                |Deny          |ALL         |Any IP                   |Any IP                   |n/a      |Deny all other inbound traffic                              |
     {: class="simple-tab-table"}
-    {: caption="Table 7. Overview of ACL inbound rules for the internet services host" caption-side="bottom"}
+    {: caption="Overview of ACL inbound rules for the internet services host" caption-side="bottom"}
     {: #inboundacl-internetserviceshost}
     {: tab-title="Inbound ACL rules"}
     {: tab-group="Internet-services-host-ACL-rules"}
@@ -182,7 +182,7 @@ The following example setup uses open ports for standard SQUID proxy server that
     |6                |Allow         |TCP         |10.0.0.0/8, any port     |Any IP, ports 80-80      |n/a      |HTTP                                                        |
     |7                |Deny          |ALL         |Any IP                   |Any IP                   |n/a      |Deny all other outbound traffic                             |
     {: class="simple-tab-table"}
-    {: caption="Table 8. Overview of ACL outbound rules for the internet services host" caption-side="bottom"}
+    {: caption="Overview of ACL outbound rules for the internet services host" caption-side="bottom"}
     {: #outboundacl-internetserviceshost}
     {: tab-title="Outbound ACL rules"}
     {: tab-group="Internet-services-host-ACL-rules"}
@@ -219,7 +219,7 @@ By the using the following setup, we open ports for standard widely used managem
     |ALL                |CIDR Block     |161.26.0.0/16|n/a           |address block of OS registration servers               |
     |UDP                |CIDR Block     |0.0.0.0/0    |Port 53-53    |DNS                                                    |
     {: class="simple-tab-table"}
-    {: caption="Table 9. Overview of the inbound security group rules for the workload services host" caption-side="bottom"}
+    {: caption="Overview of the inbound security group rules for the workload services host" caption-side="bottom"}
     {: #inboundsecuritygroupworkloadserviceshost}
     {: tab-title="Inbound security group rules"}
     {: tab-group="Security-Group-Workload-services-host-rules"}
@@ -228,7 +228,7 @@ By the using the following setup, we open ports for standard widely used managem
     |-------------------|---------------|-------------|--------------|-------------------------------------------------------|
     |ALL                |CIDR Block     |0.0.0.0/0    |n/a           |Allow all connections initiated from the hosts         |
     {: class="simple-tab-table"}
-    {: caption="Table 10. Overview of the outbound security group rules for the workload services host" caption-side="bottom"}
+    {: caption="Overview of the outbound security group rules for the workload services host" caption-side="bottom"}
     {: #outboundsecuritygroupworkloadserviceshost}
     {: tab-title="Outbound security group rules"}
     {: tab-group="Security-Group-Workload-services-host-rules"}
@@ -242,7 +242,7 @@ By the using the following setup, we open ports for standard widely used managem
     |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets|
     |4                |Deny          |ALL         |Any IP                   |Any IP                   |n/a      |Deny all other inbound traffic                              |
     {: class="simple-tab-table"}
-    {: caption="Table 11. Overview of the inbound ACL rules for the workload services host" caption-side="bottom"}
+    {: caption="Overview of the inbound ACL rules for the workload services host" caption-side="bottom"}
     {: #inboundaclworkloadserviceshost}
     {: tab-title="Inbound ACL rules"}
     {: tab-group="ACL-Workload-services-host-rules"}
@@ -254,7 +254,7 @@ By the using the following setup, we open ports for standard widely used managem
     |3                |Allow         |ALL         |10.0.0.0/8               |10.0.0.0/8               |n/a      |address block that is allowed for {{site.data.keyword.vpc_short}} and {{site.data.keyword.powerSys_notm}} management subnets|
     |4                |Deny          |ALL         |Any IP                   |Any IP                   |n/a      |Deny all other outbound traffic                             |
     {: class="simple-tab-table"}
-    {: caption="Table 12. Overview of the outbound ACL rules for the workload services host" caption-side="bottom"}
+    {: caption="Overview of the outbound ACL rules for the workload services host" caption-side="bottom"}
     {: #outboundaclworkloadserviceshost}
     {: tab-title="Outbound ACL rules"}
     {: tab-group="ACL-Workload-services-host-rules"}

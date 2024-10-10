@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-10-10"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -47,7 +47,7 @@ SAP variables description:
 | `sap_hana_sql_systemdb_password` | The new password of `sap_hana_sql_systemdb_user` that was created with `ReadOnly` permissions. |
 | `ibmcloud_monitoring_instance_url` | URL for Prometheus remote write endpoint of the monitoring instance. The keyword `private.` is added to the URL and is used in the Prometheus agent configuration. Example `https://ingest.prws.private.eu-de.monitoring.cloud.ibm.com/prometheus/remote/write`. |
 | `ibmcloud_monitoring_authorization_credentials` | Credentials for authorization to identify a monitoring instance in the customer account that is used in the Prometheus agent configuration file. |
-{: caption="Table 1. SAP variables description" caption-side="bottom"}
+{: caption="SAP variables description" caption-side="bottom"}
 
 The values for variables such as `<ibmcloud_monitoring_instance_url>` and `<ibmcloud_monitoring_authorization_credentials>` are available after you create a monitoring instance.
 For more information, see [Creating of monitoring instance in the IBM Cloud](/docs/sap?topic=sap-mon-create-instance).
@@ -72,7 +72,7 @@ The corresponding services are based on the [SAP HANA Database exporter](https:/
 |  `5<sap_monitoring_nr>05` | `sap_host_exporter` is the primary or first SAP Application Server.|
 | `5<sap_monitoring_nr>06`  | `sap_host_exporter` is the second SAP Application Server. |
 | `5<sap_monitoring_nr>07`  | `sap_host_exporter` is the third SAP Application Server. |
-{: caption="Table 2. Exposed ports for services" caption-side="bottom"}
+{: caption="Exposed ports for services" caption-side="bottom"}
 {: #mon-exposed-ports}
 
 If you have multiple SAP systems, you need to differentiate between them.

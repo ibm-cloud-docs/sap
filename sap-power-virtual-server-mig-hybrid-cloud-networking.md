@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-06-27"
+lastupdated: "2024-10-10"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPN, Virtual Private Network, VPN for VPC, Direct Link, DL, Cloud connection, Software Defined Network, SDN, SD, Hybrid Cloud, Migration, AIX, Linux, RHEL, SuSE
 
@@ -78,7 +78,7 @@ The following table lists the calculated transfer times for a 1-Terabyte databa
 |       1024 GB | 500 MBps |    +100% |        09:19 hours |
 |       1024 GB | 250 MBps |    +100% |        18:38 hours |
 |       1024 GB | 150 MBps |    +100% |        31:38 hours |
-{: caption="Table 1. Calculated estimated time for IPsec VPN full synchronization" caption-side="bottom"}
+{: caption="Calculated estimated time for IPsec VPN full synchronization" caption-side="bottom"}
 
 As an example, if an SAP system needs to be productive again within 8 hours after a synchronization error occurred, for a 922 GB database size, the calculated network bandwidth must be greater than 500 MB/s.
 

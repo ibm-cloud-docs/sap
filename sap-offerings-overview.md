@@ -176,7 +176,7 @@ These solutions from SAP Patners may not apply to all SAP software or all Infras
 | Actifio | [Actifio Go for SAP HANA](https://www.actifio.com/solutions/application/sap){: external} | Block-based backups for SAP HANA |
 | Veeam | [Veeam Backup & Replication for SAP HANA](https://www.veeam.com/backup-sap-hana-plugin.html){: external} | Backint backups from SAP HANA |
 | F5 | [F5 BigIP for SAP NetWeaver](https://www.f5.com/partners/technology-alliances/sap){: external} | Load balancing and traffic management for SAP |
-{: caption="Table 1. Overview of SAP Partner solutions" caption-side="top"}
+{: caption="Overview of SAP Partner solutions" caption-side="top"}
 
 ## Comparing the different SAP-certified IaaS offerings
 {: #iaas-offerings-compare-summary}

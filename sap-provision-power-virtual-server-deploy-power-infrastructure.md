@@ -24,7 +24,7 @@ For SAP workloads that run on {{site.data.keyword.powerSysFull}}, one workspace 
 
 The following diagram shows deployed components.
 
-![PowerVS infrastructure for SAP](images/step2_manual_PowerVS-with-VPC.svg){: caption="Figure 1. {{site.data.keyword.powerSys_notm}} infrastructure for SAP" caption-side="bottom"}
+![PowerVS infrastructure for SAP](images/step2_manual_PowerVS-with-VPC.svg){: caption="{{site.data.keyword.powerSys_notm}} infrastructure for SAP" caption-side="bottom"}
 
 ## Deploying a {{site.data.keyword.powerSys_notm}}
 {: #power-vs-set-up-power-service}

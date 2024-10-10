@@ -143,7 +143,7 @@ There are a few considerations to be mindful of when looking at the directories 
 | **Benchmark impacting factors:** | Impacted by quantity of initial records to load | Impacted by number of records selected in Phase 2 | | Impacted by number of records selected in Phase 2 |
 | - | - | - | - | - |
 | **Example comparison calculation for infrastructure selections (attempts to account for the impacting factors):** | _Seconds to load 1 billion records_ might help comparisons of read from storage \n \n `(for example, divide Phase 1 data load in seconds by initial records)` | _Total records parsed per hour during Query Execution_ might help comparisons of calculations performed by CPU \n \n `(for example, multiply query executions per hour by records selected)` | | _Total records parsed per minute during complex query_ might help comparisons of calculations performed by CPU \n \n `(for example, divide records selected by runtime of complex query seconds, then multiply by 60)` |
-{: caption="Table 1. Examples of inferring benchmark results into sizing decisions" caption-side="top"}
+{: caption="Examples of inferring benchmark results into sizing decisions" caption-side="top"}
 
 **Additional SAP Notes regarding SAP BW/4HANA and sizing for scale-out:**
 - [SAP Note 2296290 - New Sizing Report for SAP BW/4HANA](https://launchpad.support.sap.com/#/notes/2296290){: external}

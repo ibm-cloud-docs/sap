@@ -68,4 +68,4 @@ The SAP Data Hub is a fundamental technology in the SAP strategy. Part of the di
 | Big Data, Machine Learning, Artificial Intelligence | Move your data science projects from PowerPoint to operational applications, gleaning real insight from what you’re already collecting |
 | Data Warehousing | Make it possible to add disparate data streams into your data warehouse, and transform it from an archival reporting system to a core business value |
 | Master Data and Governance | Automate your metadata tagging and discovery, understand what data is coming from where, and control who can see the data based on security and privacy standards |
-{: caption="Table 1. Common scenarios for SAP Data Hub" caption-side="top"}
+{: caption="Common scenarios for SAP Data Hub" caption-side="top"}

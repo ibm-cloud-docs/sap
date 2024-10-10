@@ -52,7 +52,7 @@ The three installation types for SAP NetWeaver Application Server are:
 
 This diagram shows the SAP NetWeaver 7.X on Sybase DB integrated with {{site.data.keyword.cloud_notm}} on the SAP NetWeaver 7.x architecture:
 
-![Figure 1. Sample reference architecture](images/refarch-sap-syb-std-all.svg "SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}"){: caption="Figure 1. SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+![Figure 1. Sample reference architecture](images/refarch-sap-syb-std-all.svg "SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}"){: caption="SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
 ## Access from an external network
 {: #sap-refarch-nw-sybase-access}
@@ -71,7 +71,7 @@ A jumphost is used to access, manage, and administer SAP virtual server instance
 
 In a standard system, all main instances run on a single virtual server instance within a private subnet. [about virtual servers for VPC](https://cloud.ibm.com/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-virtual-private-cloud). The virtual server instance has these components: 
 
-![Figure 2. Standard installation](images/refarch-sap-syb-std-only.svg "SAP NetWeaver 7.x SYB standard installation with AAS"){: caption="Figure 2. SAP NetWeaver 7.x SYB standard installation with AAS" caption-side="bottom"}
+![Figure 2. Standard installation](images/refarch-sap-syb-std-only.svg "SAP NetWeaver 7.x SYB standard installation with AAS"){: caption="SAP NetWeaver 7.x SYB standard installation with AAS" caption-side="bottom"}
 
 **Architecture of SAP NetWeaver AS for ABAP**
 
@@ -142,7 +142,7 @@ Optionally, you can install the ASCS instance with an integrated:
 
 In a distributed system, there are multiple virtual server instances and every instance can run on a separate host:
 
-![Figure 3. Distribured architecture Sybase](images/refarch-sap-syb-dist-only.svg "SAP NetWearver 7.x SYB distributed installation with AAS"){: caption="Figure 3. SAP NetWeaver SYB standard installation with AAS" caption-side="bottom"}
+![Figure 3. Distribured architecture Sybase](images/refarch-sap-syb-dist-only.svg "SAP NetWearver 7.x SYB distributed installation with AAS"){: caption="SAP NetWeaver SYB standard installation with AAS" caption-side="bottom"}
 
 The components in a distributed system are the same as the components in a standard system, but there are restrictions as to which instances can go on which hosts.  
 

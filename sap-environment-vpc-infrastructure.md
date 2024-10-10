@@ -68,7 +68,7 @@ The {{site.data.keyword.vpc_short}} infrastructure network, is robust, secure, a
 | VPC |
 | Availability zone (with address prefix) |
 | Subnet |
-{: caption="Table 1. Networking component layers overview" caption-side="top"}
+{: caption="Networking component layers overview" caption-side="top"}
 
 Every {{site.data.keyword.vpc_full}} is created for a region, and spans multiple availability zones.
 

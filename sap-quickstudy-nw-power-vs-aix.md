@@ -59,7 +59,7 @@ If you are using the Windows platform, you can install useful tools like WinSCP 
 | Java 8        | Prerequisite for SAP GUI for Windows  | [Java SE Runtime Environment 8 Downloads](https://www.oracle.com/java/technologies/javase-jre8-downloads.html){: external}                |
 | SAP GUI       | SAP GUI for Windows                   | [SAP GUI 7.6 Core Download](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=N&FUNCTIONBAR=Y&EVENT=TREE&TMPL=INTRO_SWDC_IU_FC&V=INST&REFERER=CATALOG-INSTALLATIONS&ROUTENAME=products/By%20Category%20-%20SAP%20Frontend%20Components){: external}      |
 | Google Chrome | Internet browser                      | [Download Chrome](https://www.google.com/chrome/?brand=CHBD&gclid=EAIaIQobChMImqvg5Zb36gIVKoBQBh0QTwsyEAAYASABEgIR_vD_BwE&gclsrc=aw.ds){: external}         |
-{: caption="Table 1. Tools for jump servers on Windows" caption-side="top"}
+{: caption="Tools for jump servers on Windows" caption-side="top"}
 
 If you are using Windows as a jump server, you can use Windows PowerShell which includes a built-in SSH server.
 
@@ -432,7 +432,7 @@ Before you install the system by using Software Provisioning Manager (SWPM), fol
 | `/swrepo/SAP/DB`         | Location for the database product and client software        |
 | `/swrepo/SAP/others`      | Location for miscellaneous software such as saphostagent |
 | `/swrepo/SAP/prereqcheck` | Location for the prerequisite check output                        |
-{: caption="Table 2. Software repository directory structure" caption-side="top"}
+{: caption="Software repository directory structure" caption-side="top"}
 
 ## Installing by using a client machine
 {: #installing_client_machine}
@@ -586,7 +586,7 @@ The following links will assist you in the installation and configuration of you
 | [2947579 - SAP HANA on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579)                       | SAP HANA and virtual server instances                         |
 | [2923962 - Check SAP HANA NUMA Layout on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2923962)     | Checking the NUMA layout                  |
 | [2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://launchpad.support.sap.com/#/notes/2932766) | Key Monitoring Metrics                    |
-{: caption="Table 3. Cloud-related resources - {{site.data.keyword.IBM_notm}} Power Virtual Servers" caption-side="top"}
+{: caption="Cloud-related resources - {{site.data.keyword.IBM_notm}} Power Virtual Servers" caption-side="top"}
 
 ### Operating systems - AIX
 {: #os_aix}
@@ -606,7 +606,7 @@ The following links will assist you in the installation and configuration of you
 | [Fix Level Recommendation Tool - FLRT](https://www14.software.ibm.com/support/customercare/flrt/)                                                  | Cross-compatibility and fix recommendations tool           |
 | [IBM AIX Developer](https://developer.ibm.com/components/aix/)                                                                     | AIX developer website                                      |
 | [IBM AIX Enhancements and Modernization](http://www.redbooks.ibm.com/abstracts/sg248453.html?Open)                                                | The latest updated IBM Redbook for AIX                     |
-{: caption="Table 4. Operating systems - AIX" caption-side="top"}
+{: caption="Operating systems - AIX" caption-side="top"}
 
 ### Operating systems - Linux
 {: #os_linux-aix}
@@ -631,7 +631,7 @@ The following links will assist you in the installation and configuration of you
 | [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://community.sap.com/topics/linux/sap-on-ibm-power-systems-on-linux)                                       | News about SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux                 |
 | [Technical Resource for SAP Business Applications on Red Hat](https://blogs.sap.com/2013/02/28/technical-resources-for-sap-business-applications-on-red-hat/)  | A useful collection of links for SAP and Redhat  |
 | [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/)                                                                                              | IBM and SUSE                                     |
-{: caption="Table 5. Operating systems - Linux" caption-side="top"}
+{: caption="Operating systems - Linux" caption-side="top"}
 
 
 ### Databases - Db2
@@ -645,7 +645,7 @@ The following links will assist you in the installation and configuration of you
 | [Currently supported DB2 software levels and Fixpacks](https://launchpad.support.sap.com/#/notes/101809)                                                                                   | Db2 software levels + Fixes         |
 | [Currently supported database features DB2](https://launchpad.support.sap.com/#/notes/1555903)                                                                                             | Db2 feature support                 |
 | [Required File systems for DB2 and SAP Netweaver](https://help.sap.com/viewer/4fbd902c7c76410bb82c6311dd4dc94b/CURRENT_VERSION/en-US/713eb64f45c6448c8dbe8a51b85680ee.html)                | Filesystem overview and mountpoints |
-{: caption="Table 6. Databases - Db2" caption-side="top"}
+{: caption="Databases - Db2" caption-side="top"}
 
 ### Databases - Oracle
 {: #db_oracle}
@@ -671,7 +671,7 @@ The following links will assist you in the installation and configuration of you
 | [Central Landing page for Oracle Versions and Products](https://docs.oracle.com/en/database/oracle/oracle-database/index.html)                                                                                                                                                                | Useful to bookmark                                              |
 | [Oracle Client Installation](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/axcli/index.html)                                                                                                                                                                                | Oracle Client Installation                                      |
 | [Oracle 18c Installation and Upgrade repository](https://docs.oracle.com/en/database/oracle/oracle-database/18/install-and-upgrade.html)                                                                                                                                                      | Useful hints and guidance for 18c                               |
-{: caption="Table 7. Databases - Oracle" caption-side="top"}
+{: caption="Databases - Oracle" caption-side="top"}
 
 ### Databases - MaxDB
 {: #db_maxdb}
@@ -691,7 +691,7 @@ The following links will assist you in the installation and configuration of you
 | [819641 - FAQ: SAP MaxDB performance](https://launchpad.support.sap.com/#/notes/819641)                                                                                                                                                       | MaxDB performance                     |
 | [720261 - System prerequisite AIX - liveCache/MaxDB 7.4-7.9](https://launchpad.support.sap.com/#/notes/720261)                                                                                                                                | Important SAP Note                    |
 | [725489 - SAP MaxDB performance analysis tools](https://launchpad.support.sap.com/#/notes/725489)                                                                                                                                             | Performance tracking                  |
-{: caption="Table 8. Databases - MaxDB" caption-side="top"}
+{: caption="Databases - MaxDB" caption-side="top"}
 
 ### Applications - SAP
 {: #applications_sap}
@@ -705,4 +705,4 @@ The following links will assist you in the installation and configuration of you
 | [{{site.data.keyword.IBM_notm}} Power Systems Infrastructure I/O for SAP Applications](http://www.redbooks.ibm.com/abstracts/redp5581.html?Open)                                                                                            | IBM Redbook for infrastructure planning and SAP   |
 | [2158828 - Minimal DB system platform requirements for SAP NetWeaver 7.5](https://launchpad.support.sap.com/#/notes/2158828)                                                                                     | Platform requirements for NW7.5                   |
 | [2329005 - Minimal DB system platform requirements for NW AS ABAP 7.51 INNOVATION PKG](https://launchpad.support.sap.com/#/notes/2329005)                                                                        | Platform requirements for innovation package 7.51 |
-{: caption="Table 9. Applications - SAP" caption-side="top"}
+{: caption="Applications - SAP" caption-side="top"}

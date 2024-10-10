@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-12"
+lastupdated: "2024-10-10"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -175,7 +175,7 @@ OS Packages update server with IBM Power Power Virtual Servers:
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | Linux-SUSE-SAP-15-3 | SLES15-SP3-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | Linux-SUSE-SAP-15-4 | SLES15-SP4-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | Linux-SUSE-SAP-15-5 | SLES15-SP5-SAP |
-{: caption="Table 1. Operating systems for IBM Power virtual servers on SAP HANA" caption-side="bottom"}
+{: caption="Operating systems for IBM Power virtual servers on SAP HANA" caption-side="bottom"}
 
 | Operating system for SAP NetWeaver | Operating system image (Bring your own license) | Operating system image (IBM subscription) |
 |---------|---------|---------|
@@ -189,7 +189,7 @@ OS Packages update server with IBM Power Power Virtual Servers:
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | Linux-SUSE-SAP-15-5 | SLES15-SP5-SAP-NETWEAVER |
 | AIX 7.1 | 7100-05-05 or later |
 | AIX 7.2 | 7200-04-01 or later |
-{: caption="Table 2. Operating systems for IBM Power virtual servers on SAP NetWeaver" caption-side="bottom"}
+{: caption="Operating systems for IBM Power virtual servers on SAP NetWeaver" caption-side="bottom"}
 
 
 Update on new SAP HANA large t-shirt profiles feature

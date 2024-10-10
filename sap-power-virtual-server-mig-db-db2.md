@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-10-03"
+lastupdated: "2024-10-10"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, backup, restore, Db2, IBM Db2, HADR
 
@@ -783,7 +783,7 @@ HADR uses two TCP ports to synchronize data.
    |--------------------|------------------------|------------------------|-------------|
    | db2th1ha_l         | `5921/tcp`               | `5920/tcp`               | Local port  |
    | db2th1ha_r         | `5920/tcp`               | `5921/tcp`               | Remote port |
-   {: caption="Table 1. TCP port assignment in `/etc/services` on both servers" caption-side="bottom"}
+   {: caption="TCP port assignment in `/etc/services` on both servers" caption-side="bottom"}
 
 1. Use your favorite editor to change `/etc/services` on both servers.
 
@@ -824,7 +824,7 @@ HADR needs the following set of configurations.
 | HADR_REMOTE_INST   | \<db2 instance name\>     | \<db2 instance name\>     | The other node's IBM Db2 instance name (not the database name) |
 | LOGINDEXBUILD      | `ON`                      | `ON`                      | Set to `ON` on for both hosts             |
 | HADR_SYNCMODE      | \<a valid sync mode\>     | \<a valid sync mode\>     | See [HADR Synchronization Mode](https://www.ibm.com/docs/en/db2/11.5?topic=hadr-synchronization-mode){: external} |
-{: caption="Table 2. HADR parameter overview, both servers" caption-side="bottom"}
+{: caption="HADR parameter overview, both servers" caption-side="bottom"}
 
 Local and remote hostnames (`HADR_LOCAL_HOST` and `HADR_REMOTE_HOST`) must be turned on for both systems. `HADR_LOCAL_HOST` is always the hostname of the node. The configuration command is run on and the remote host is the hostname of the respective other system.
 
@@ -936,7 +936,7 @@ Use the following steps to start HADR and to check whether the data is syncing.
    | HADR_ROLE           | `PRIMARY`     | `STANDBY`     |
    | HADR_STATE          | `PEER`        | `PEER`        |
    | HADR_CONNECT_STATUS | `CONNECTED`   | `CONNECTED`   |
-   {: caption="Table 3. HADR Status Values, both servers" caption-side="bottom"}
+   {: caption="HADR Status Values, both servers" caption-side="bottom"}
 
 ### Running the core migration
 {: #sapmig-db-db2-option2-migration}

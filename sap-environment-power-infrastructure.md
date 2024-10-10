@@ -72,7 +72,7 @@ The {{site.data.keyword.IBM_notm}} Power Systems Infrastructure network, is buil
 | Datacenter colocation Room |
 | VLAN (Public and Private) `used internally, effectively transparent to the administrator` |
 | Subnet (Public and Private) |
-{: caption="Table 1. Networking component layers overview" caption-side="top"}
+{: caption="Networking component layers overview" caption-side="top"}
 
 Connectivity is available to the {{site.data.keyword.IBM_notm}} Power Systems Infrastructure network leveraging connectivity options available from leading global network providers and TelCo providers in addition to the connectivity options available using the {{site.data.keyword.cloud_notm}} global footprint of more than 60 {{site.data.keyword.cloud_notm}} data centers and 28 points of presence (PoPs).
 

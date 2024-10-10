@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-09-19"
+lastupdated: "2024-10-10"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, backup, restore
 
@@ -82,7 +82,7 @@ The following flowchart illustrates the two options that are currently covered b
 * *Option 2*: Inconsistent RMAN backup + archived redo logs (or level 0 + incremental backups) from source, with backup files to be used by the RMAN Restore/Recover Database procedure to restore to IBM PowerVS.
 * *Option 3*: Leveraging Oracle Data Guard, currently being researched and will be the recommended method if it is the same platform – create a mirror and as soon as it is in sync you can switchover with just minutes of database downtime. The online documentation will be updated as soon as the testing and assessment phases have been completed.
 
-![Figure 1. Collect relevant metrics](/images/sap-power-virtual-server-mig-db-oracle-mig-options.png "Image showing Preparation - Collect relevant metrics"){: caption="Figure 1. Collect relevant metrics" caption-side="bottom"}
+![Figure 1. Collect relevant metrics](/images/sap-power-virtual-server-mig-db-oracle-mig-options.png "Image showing Preparation - Collect relevant metrics"){: caption="Collect relevant metrics" caption-side="bottom"}
 
 #### Selected Considerations
 {: #sapmig-db-oracle-selected-considerations}
@@ -354,7 +354,7 @@ This reference also contains the [Accelerated network transfer migration guide](
 ### Backup Procedure Options
 {: #sapmig-db-oracle-backup-procedures}
 
-![Figure 2. IBM Aspera backup procedure](/images/sap-power-virtual-server-mig-db-oracle-mig-timings.png "Image showing IBM Aspera backup procedure"){: caption="Figure 2. IBM Aspera backup procedure" caption-side="bottom"}
+![Figure 2. IBM Aspera backup procedure](/images/sap-power-virtual-server-mig-db-oracle-mig-timings.png "Image showing IBM Aspera backup procedure"){: caption="IBM Aspera backup procedure" caption-side="bottom"}
 
 Procedures specific to both options are presented now.
 
@@ -757,7 +757,7 @@ Setting the NLS Date format is used as the format model to implicitly cast from 
 The second SQL command seen in the following image is forcing Oracle to write to a new redolog, the command ran after shows the date stamp of when the file was created and provides you with a timestamp to roll the database forward to by applying the applicable redologs.
 
 
-![Figure 3. Incremental time stamp](/images/sap-power-virtual-server-mig-db-oracle-timestamp_incremental_1.png "Image showing Incremental time stamp"){: caption="Figure 3. Incremental time stamp" caption-side="bottom"}
+![Figure 3. Incremental time stamp](/images/sap-power-virtual-server-mig-db-oracle-timestamp_incremental_1.png "Image showing Incremental time stamp"){: caption="Incremental time stamp" caption-side="bottom"}
 
 Execute the final incremantal backup via RMAN.
 
@@ -833,7 +833,7 @@ Two methods to restore an Oracle Database to the target system are provided:
 
 Both methods will use the backups created in the previous RMAN backup section.
 
-![Figure 4. Restore options](/images/sap-power-virtual-server-mig-db-oracle-restore-options.png "Image showing restore options"){: caption="Figure 4. Restore options" caption-side="bottom"}
+![Figure 4. Restore options](/images/sap-power-virtual-server-mig-db-oracle-restore-options.png "Image showing restore options"){: caption="Restore options" caption-side="bottom"}
 
 
 Option 1 - RMAN Duplicate Database
@@ -880,11 +880,11 @@ Reference the version-specific Oracle Database Installation Guide for AIX on Pow
 Here is a sample view of backup files that have been staged in the `/backup/rman` folder:
 Note that files were copied to a local `JFS/2` file system… partial list of files.
 
-![Figure 5. Restore Options](/images/sap-power-virtual-server-mig-db-oracle-backup-list-example.png "Image showing restore options"){: caption="Figure 5. Restore options" caption-side="bottom"}
+![Figure 5. Restore Options](/images/sap-power-virtual-server-mig-db-oracle-backup-list-example.png "Image showing restore options"){: caption="Restore options" caption-side="bottom"}
 
 Displayed in a separate folder are miscellaneous files directly copied from the on-premises Oracle database, as recommended in the backup procedure before this.
 
-![Figure 6. Backup folder tree](/images/sap-power-virtual-server-mig-db-oracle-backup-folder-tree.png "Image showing backup folder tree"){: caption="Figure 6. Backup folder tree" caption-side="bottom"}
+![Figure 6. Backup folder tree](/images/sap-power-virtual-server-mig-db-oracle-backup-folder-tree.png "Image showing backup folder tree"){: caption="Backup folder tree" caption-side="bottom"}
 
 ### Check Configuration
 {: #sapmig-db-oracle-restore-configuration}
@@ -900,14 +900,14 @@ Review database parameters that are contained within the saved PFILE and examine
 
 If the file locations in the target server do not match the source environment additional configuration changes are required in the rman scripts, so it is important that when `cloning` your Oracle server in IBM Cloud that you compare the configurations that are mentioned in the `init<SID>.ora` file and ensure that the locations exist on your target system.
 
-![Figure 7. Audit file destination](/images/sap-power-virtual-server-mig-db-oracle-audit-file-dest-sap.png "Image showing audit file destination"){: caption="Figure 7. Audit file destination" caption-side="bottom"}
+![Figure 7. Audit file destination](/images/sap-power-virtual-server-mig-db-oracle-audit-file-dest-sap.png "Image showing audit file destination"){: caption="Audit file destination" caption-side="bottom"}
 
 #### Check Audit Directory
 {: #sapmig-db-oracle-restore-bkup-cfg-auditdir}
 
  Check and confirm that the audit file directory is present on the target server and as listed in the PFILE and give the proper ownership and mode.
 
-![Figure 8. Backup folder tree](/images/sap-power-virtual-server-mig-db-oracle-audit-file-dest-create.png "Image showing backup folder tree"){: caption="Figure 8. Backup folder tree" caption-side="bottom"}
+![Figure 8. Backup folder tree](/images/sap-power-virtual-server-mig-db-oracle-audit-file-dest-create.png "Image showing backup folder tree"){: caption="Backup folder tree" caption-side="bottom"}
 
 #### Check ASM Disk Groups and other Directory Definitions
 {: #sapmig-db-oracle-restore-bkup-cfg-asm}

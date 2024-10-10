@@ -66,7 +66,7 @@ Each profile must have at least two dedicated cores. For required storage perfor
 | ush1-4x384 | 4 | 32 | 384 | 1,240 | 24,000 | OLAP/OLTP |
 | ush1-4x512 | 4 | 32 | 512 | 1,650 | 24,000 | OLAP/OLTP |
 | ush1-4x768 | 4 | 32 | 768 | 2,140 | 24,000 | OLAP/OLTP |
-{: caption="Table 1. SAP HANA servers Small profile family" caption-side="top"}
+{: caption="SAP HANA servers Small profile family" caption-side="top"}
 
 ## Balanced
 {: #balanced}
@@ -87,7 +87,7 @@ Each profile must have at least two dedicated cores. For required storage perfor
 | bh1-100x10000 | 100 | 800 | 10,000 | 11,970 | 600,000 | OLAP * |
 | bh1-120x12000 | 120 | 900 | 12,000 | 13,570 | 720,000 | OLAP * |
 | bh1-140x14000 | 140 | 1,120 | 14,000 | 15,970 | 840,000 | OLAP |
-{: caption="Table 2. SAP HANA servers Balanced profile family" caption-side="top"}
+{: caption="SAP HANA servers Balanced profile family" caption-side="top"}
 
 
 ## Compute Intensive
@@ -101,7 +101,7 @@ Each profile must have at least two dedicated cores. For required storage perfor
 | ch1-100x5000 | 100 | 800 | 5,000 | 6,610 | 600,000 | OLAP * |
 | ch1-120x6000 | 120 | 900 | 6,000 | 7,570 | 720,000 | OLAP * |
 | ch1-140x7000 | 140 | 1,120 | 7,000 | 8,610 | 840,000 | OLAP |
-{: caption="Table 3. SAP HANA servers Compute Intensive profile family" caption-side="top"}
+{: caption="SAP HANA servers Compute Intensive profile family" caption-side="top"}
 
 ## High Memory
 {: #hmemory}
@@ -125,7 +125,7 @@ Each profile must have at least two dedicated cores. For required storage perfor
 
 
 
-{: caption="Table 4. SAP HANA servers High Memory profile family" caption-side="top"}
+{: caption="SAP HANA servers High Memory profile family" caption-side="top"}
 
 ## Ultra Memory
 {: #umemory}
@@ -146,7 +146,7 @@ Each profile must have at least two dedicated cores. For required storage perfor
 | umh-40x9600 | 40 | 320 | 9,600 | 11,170 | 240,000 | OLTP * |
 | umh-50x12000 | 50 | 400 | 12,000 | 13,570 | 300,000 | OLTP * |
 | umh-60x14400 | 60 | 480 | 14,400 | 15,970 | 360,000 | OLTP |
-{: caption="Table 5. SAP HANA servers Ultra Memory profile family" caption-side="top"}
+{: caption="SAP HANA servers Ultra Memory profile family" caption-side="top"}
 
 Profile types that are marked with an `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median, and largest within each profile family. This action was taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. For more information, see [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}.
 {: note}
@@ -172,7 +172,7 @@ The Virtual Server profile names are contextual and sequential. The following ta
 | | 16 | 16 CPU Cores |
 | | x | _spacer_ |
 | | 3840 | 3840 GiB RAM |
-{: caption="Table 6. Profile naming scheme for SAP HANA" caption-side="top"}
+{: caption="Profile naming scheme for SAP HANA" caption-side="top"}
 
 
 | Directory | Purpose | 
@@ -184,7 +184,7 @@ The Virtual Server profile names are contextual and sequential. The following ta
 | /hana/shared | Matches the GiB RAM value up to a maximum of 1 TB |
 | /export | Local storage for exported images |
 | /backup | A preliminary backup on disk |
-{: caption="Table 7. Directory information for profiles" caption-side="top"}
+{: caption="Directory information for profiles" caption-side="top"}
 
 ## Profiles available on Hourly Consumption Billing
 {: #hana-iaas-power-vs-hourly}

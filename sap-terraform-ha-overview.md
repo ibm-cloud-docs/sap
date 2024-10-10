@@ -46,9 +46,9 @@ A [Virtual Private Cloud (VPC)](https://www.ibm.com/cloud/learn/vpc?mhsrc=ibmsea
 
 In a highly available (HA) system, every instance can run on a separate {{site.data.keyword.cloud_notm}} virtual server instance. The cluster HA configuration for the SAP application server consists of two virtual server instances, each of them located in the same zone for single zone or in different zones for multi zone within the same region by using placement groups. Placement groups assure that both cluster resources and cloud resources are also located in different compute nodes as specified in the following placement groups section.
 
-![Figure 1. SAP HA SZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance HA cluster](images/sap-ha-vpc-single-zone.svg "SAP HA SZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance HA cluster)"){: caption="Figure 1. SAP HA SZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance HA cluster" caption-side="bottom"}
+![Figure 1. SAP HA SZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance HA cluster](images/sap-ha-vpc-single-zone.svg "SAP HA SZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance HA cluster)"){: caption="SAP HA SZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance HA cluster" caption-side="bottom"}
 
-![Figure 2. SAP HA MZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance in HA cluster ](images/sap-ha-vpc-multi-zone.svg "SAP HA MZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance in HA cluster)"){: caption="Figure 2. SAP HA MZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance in HA cluster" caption-side="bottom"}
+![Figure 2. SAP HA MZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance in HA cluster ](images/sap-ha-vpc-multi-zone.svg "SAP HA MZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance in HA cluster)"){: caption="SAP HA MZ for SAP applications cluster nodes PAS (Active) and AAS (Active) with HANA DB instance in HA cluster" caption-side="bottom"}
 
 ### Placement groups on {{site.data.keyword.cloud_notm}} VPC for SAP HA architecture
 {: #automate-sap-ha-placement-groups}
@@ -61,9 +61,9 @@ Placement groups with the “spread” rule are available to create in select {{
 
 You can create your placement group, then assign up to four new virtual server instances. With the "spread" rule, each of your virtual servers are provisioned on different physical hosts. In the following example configurations, the “Power Spread” option is used.
 
-![Figure 3. Placement groups host spread](images/sap-terraform-ha-pg-1.png "Placement groups host spread"){: caption="Figure 3. Placement groups host spread" caption-side="bottom"}
+![Figure 3. Placement groups host spread](images/sap-terraform-ha-pg-1.png "Placement groups host spread"){: caption="Placement groups host spread" caption-side="bottom"}
 
-![Figure 4. Placement groups power spread](images/sap-terraform-ha-pg-2.png "Placement groups power spread"){: caption="Figure 4. Placement groups power spread" caption-side="bottom"}
+![Figure 4. Placement groups power spread](images/sap-terraform-ha-pg-2.png "Placement groups power spread"){: caption="Placement groups power spread" caption-side="bottom"}
 
 These are the following SAP instances that are needed for an HA scenario:
 
@@ -80,7 +80,7 @@ It is recommended that you run both the ASCS instance and ERS instance in a swit
 
 [{{site.data.keyword.filestorage_vpc_full_notm}}](/docs/vpc?topic=vpc-file-storage-vpc-about) technology is used to make the SAP directories available to the SAP system. The technologies of choice are NFS, shared disks, and cluster file system. If you have decided to use a highly available (HA) solution for your SAP system, make sure that you properly address the HA requirements of the SAP file systems in your SAP environment.
 
-![Figure 5. Fire shares for VPC](images/sap-terraform-ha-file-shares.png "File shares for VPC"){: caption="Figure 5. File shares for VPC" caption-side="bottom"}
+![Figure 5. Fire shares for VPC](images/sap-terraform-ha-file-shares.png "File shares for VPC"){: caption="File shares for VPC" caption-side="bottom"}
 
 * File shares that are mounted as NFS permanent file systems on both cluster nodes for SAP apps HA:
     * `/usr/sap/<SAPSID>/SYS`
@@ -122,7 +122,7 @@ In this VPC-based SAP HA solution, the shared file system that is required by th
 
 In this scenario, three ALBs are used, one for each Single Point of Failure component (SPOF) in order to replace the virtual IP requirement: ALB for ASCS, ALB for ERS, and ALB for HANA. Each ALB is configured as a backend for the corresponding cluster servers and redirects all of the communication that is received on the front-end ports to the active server in the backend pool.
 
-![Figure 6. Application load balancer management of HA IPs mechanism](images/sap-terraform-ha-load-balancers.png "Application load balancer management of HA IPs mechanism"){: caption="Figure 6. Application load balancer management of HA IPs mechanism" caption-side="bottom"}
+![Figure 6. Application load balancer management of HA IPs mechanism](images/sap-terraform-ha-load-balancers.png "Application load balancer management of HA IPs mechanism"){: caption="Application load balancer management of HA IPs mechanism" caption-side="bottom"}
 
 ### Private application load balancer
 {: #automate-sap-ha-private-application-load-balancer}
@@ -163,7 +163,7 @@ Resource records and zones that are configured through {{site.data.keyword.dns_s
 
 The DNS service maps the FQDN of each ALB to the virtual hostnames of the ASCS, ERS, and HANA that are used by SAP applications.
 
-![Figure 7. DNS records](images/sap-terraform-ha-dns.png "DNS records"){: caption="Figure 7. DNS records" caption-side="bottom"}
+![Figure 7. DNS records](images/sap-terraform-ha-dns.png "DNS records"){: caption="DNS records" caption-side="bottom"}
 
 ### Network latency between VPC Zones and Regions
 {: #automate-sap-ha-network-latency}
@@ -175,14 +175,14 @@ The results reported are as measured. There are no performance guarantees implie
 ## Highly available system for SAP HANA database
 {: #automate-sap-ha-hana-database}
 
-![Figure 8. SAP HA for HANA DB instances cluster nodes Primary (Active) and Secondary (Passive) in a Single Zone architecture](images/sap-ha-hana-vpc-single-zone.svg "SAP HA for HANA DB instances cluster nodes Primary (Active) and Secondary (Passive) in a Single Zone architecture"){: caption="Figure 8. SAP HA for HANA DB instances cluster nodes Primary (Active) and Secondary (Passive) in a Single Zone architecture" caption-side="bottom"}
+![Figure 8. SAP HA for HANA DB instances cluster nodes Primary (Active) and Secondary (Passive) in a Single Zone architecture](images/sap-ha-hana-vpc-single-zone.svg "SAP HA for HANA DB instances cluster nodes Primary (Active) and Secondary (Passive) in a Single Zone architecture"){: caption="SAP HA for HANA DB instances cluster nodes Primary (Active) and Secondary (Passive) in a Single Zone architecture" caption-side="bottom"}
 
 At the most basic level, a standard HA HANA cluster in an active-passive configuration has two nodes: one is the primary node and the other is the standby node. This simply means that the primary node is actively serving the active SAP instances (PAS and AAS), while the standby node is waiting to jump in if there is a failure.
 
 ## Highly available system for SAP application instance
 {: #automate-sap-ha-hana-app-instance}
 
-![Figure 9. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) in a Single Zone architecture](images/sap-hana-ha-sz-sap-layer.svg "SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) in a Single Zone architecture"){: caption="Figure 9. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) in a Single Zone architecture" caption-side="bottom"}
+![Figure 9. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) in a Single Zone architecture](images/sap-hana-ha-sz-sap-layer.svg "SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) in a Single Zone architecture"){: caption="SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) in a Single Zone architecture" caption-side="bottom"}
 
 The cluster is set with a virtual hostname IP (hostname is mapped to the FQDN of the HANA ALB through DNS, which is the same as explained previously for SAP ASCS and ERS instances). App instances (PAS and AAS), these are the details to be used on the SAP profiles to call that particular component. The cluster assigns that virtual IP to the active node and uses a heartbeat monitor to confirm the availability of the components. If the primary node stops responding, it triggers the automatic failover mechanism that calls the standby node to step up to become the primary node. The ALB detects the change, redirects the traffic to the new active node, and assigns the virtual IP to it, restoring the component availability. After the failed node is fixed, it comes online as a standby node.
 

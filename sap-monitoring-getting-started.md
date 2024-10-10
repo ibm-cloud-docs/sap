@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-10-10"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -32,7 +32,7 @@ As a prerequisite for getting started you have to deploy an infrastructure and S
 The following architecture overview diagram shows {{site.data.keyword.cloud}} Monitoring for SAP systems when the infrastructure and SAP system landscape are built by a [deployable architecture](https://cloud.ibm.com/docs/sap-powervs?topic=sap-powervs-sap-s4hana-bw4hana){: external}.
 
 ![Figure 1. {{site.data.keyword.cloud}} Monitoring for SAP systems](images/sap-monitoring-in-ibm-cloud.svg "{{site.data.keyword.cloud}} Monitoring for SAP systems")
-{: caption="Figure 1. {{site.data.keyword.cloud}} Monitoring for SAP systems" caption-side="bottom"}
+{: caption="{{site.data.keyword.cloud}} Monitoring for SAP systems" caption-side="bottom"}
 {: external download="sap-monitoring-in-ibm-cloud.svg"}
 
 To set up SAP monitoring, you must perform the following tasks.

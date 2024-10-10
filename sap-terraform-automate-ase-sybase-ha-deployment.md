@@ -101,7 +101,7 @@ During the second phase, the Ansible Playbook is called and the SAP High availab
 ## Highly available system for SAP ASE SYBASE database
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-database}
 
-![Figure 1. SAP NetWeaver ASE Sybase HA on VPC Single zone](images/sapnw_ase_syb_ha_on_vpc_singlezone.svg "SAP NetWeaver ASE Sybase HA on VPC Single zone"){: caption="Figure 1. SAP NetWeaver ASE Sybase HA on VPC Single zone" caption-side="bottom"}
+![Figure 1. SAP NetWeaver ASE Sybase HA on VPC Single zone](images/sapnw_ase_syb_ha_on_vpc_singlezone.svg "SAP NetWeaver ASE Sybase HA on VPC Single zone"){: caption="SAP NetWeaver ASE Sybase HA on VPC Single zone" caption-side="bottom"}
 
 At the most basic level, a standard HA ASE SYBASE cluster in an active-passive configuration has two nodes: one is the primary node and the other is the standby node. The primary node is actively serving the active SAP instances (PAS and AAS), while the standby node is waiting to jump in if necessary.
 

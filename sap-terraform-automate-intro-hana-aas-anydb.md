@@ -51,7 +51,7 @@ In many SAP project scenarios, the deployment of an SAP system is often a key an
 
 After your HANA DB and SAP NetWeaver application server are up and running, you may want additional SAP application servers deployed to increase workload capacity. With this automation, deploying infrastructure, performing SAP software installation, and joining the existing SAP system in less than twenty minutes is possible. For more information, go to [VPC with Additional Application Server ABAP on Linux for SAP HANA](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-sap-vpc-automation-hana-nw-abap-aas-51f5ccbc-23fe-42d0-a17c-7a90b73da835-global).
 
- ![Figure 1. Additional Application Server (AAS) to SAP instance and HANA instance](images/sap_value_guide_aas.svg "Additional Application Server (AAS) to SAP instance and HANA instance"){: caption="Figure 1. Additional Application Server (AAS) to SAP instance and HANA instance" caption-side="bottom"}
+ ![Figure 1. Additional Application Server (AAS) to SAP instance and HANA instance](images/sap_value_guide_aas.svg "Additional Application Server (AAS) to SAP instance and HANA instance"){: caption="Additional Application Server (AAS) to SAP instance and HANA instance" caption-side="bottom"}
 
 ## SAP Additional Application Server Instance
 {: #intro-aas-hana-anydb-sap-refarch}
@@ -63,7 +63,7 @@ An additional application server instance can run on:
 *   The host of any instance of the existing SAP system
 *   On a dedicated host - distributed on additional IBM VPC (VSI instance)
 
-![Figure 1. Standard installation](images/refarch-sap-hana-single-host-all-q2-23.svg "SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS" caption-side="bottom"}
+![Figure 1. Standard installation](images/refarch-sap-hana-single-host-all-q2-23.svg "SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS"){: caption="SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS" caption-side="bottom"}
 
 For example, SAP NetWeaver (ABAP or Java stack) has a dedicated reference architecture that is running on SAP HANA or AnyDB databases that are published on IBM cloud [SAP NetWeaver on UNIX architecture diagram](/docs/sap?topic=sap-sap-refarch-nw-sybase#sap-netweaver-arch-diag-syb).
 

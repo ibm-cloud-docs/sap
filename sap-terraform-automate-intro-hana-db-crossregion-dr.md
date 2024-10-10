@@ -83,9 +83,9 @@ With these options, you can set up a Highly Available (HA) architecture and/or a
 
 In the diagrams below, SAP HANA database is represented as a HANA secondary passive. The synchronous and asynchronous replication architectures are illustrated for both HA and DR scenarious.
 
-![Figure 1. HANA HA (with HSR Async replication)](images/hana_ha_hsr_async_replication.svg "HANA HA (with HSR Async replication)"){: caption="Figure 1. HANA HA (with HSR Async replication)" caption-side="bottom"}
+![Figure 1. HANA HA (with HSR Async replication)](images/hana_ha_hsr_async_replication.svg "HANA HA (with HSR Async replication)"){: caption="HANA HA (with HSR Async replication)" caption-side="bottom"}
 
-![Figure 2. HANA DR (with HSR Async replication cross-regions)](images/hana_dr_hsr_async_replication_cross_regions.svg "HANA DR (with HSR Async replication cross-regions)"){: caption="Figure 2. HANA DR (with HSR Async replication cross-regions)" caption-side="bottom"}
+![Figure 2. HANA DR (with HSR Async replication cross-regions)](images/hana_dr_hsr_async_replication_cross_regions.svg "HANA DR (with HSR Async replication cross-regions)"){: caption="HANA DR (with HSR Async replication cross-regions)" caption-side="bottom"}
 
 Different RPO/RTO values can be associated with different kinds of faults. Business critical systems are expected to operate with an RPO of zero data loss in case of local faults, and often even in case of a disaster. But the challenges of disaster recovery are different from locally recoverable faults. To achieve zero RPO and low RTO, data must be replicated synchronously over longer distances, which impacts regular system performance and may require more expensive standby and failover solutions. All of this leads to tradeoff decisions around the attributes of fault recovery functionality, cost, and complexity.
 
@@ -128,15 +128,15 @@ Transit gateways provide flexibility by allowing you to add networks to local ga
 
 * Create transit gateway.
 
-![Figure 3. Create the Transit Gateway](images/create_transit_gateway.png "Create the Transit Gateway"){: caption="Figure 3. Create the Transit Gateway" caption-side="bottom"}
+![Figure 3. Create the Transit Gateway](images/create_transit_gateway.png "Create the Transit Gateway"){: caption="Create the Transit Gateway" caption-side="bottom"}
 
 * The Transit Gateway is now created and available.
 
-![Figure 4. Transit Gateway](images/transit_gateway.png "Transit Gateway"){: caption="Figure 4. Transit Gateway" caption-side="bottom"}
+![Figure 4. Transit Gateway](images/transit_gateway.png "Transit Gateway"){: caption="Transit Gateway" caption-side="bottom"}
 
 * The transit gateway shows two connections having the VSIs HANA db instance in 2 separate regions.
 
-![Figure 5. Transit Gateway Connections](images/transit_gateway_connections.png "Transit Gateway Connections"){: caption="Figure 5. Transit Gateway Connections" caption-side="bottom"}
+![Figure 5. Transit Gateway Connections](images/transit_gateway_connections.png "Transit Gateway Connections"){: caption="Transit Gateway Connections" caption-side="bottom"}
 
 ### Network latency dashboards
 {: #sap-hana-db-backup-dr-network_latency_dashboards}
@@ -153,6 +153,3 @@ Manually deploying a VPC and configuring a HANA db as standby database with Asyn
 The automation based on Terraform scripts and Ansible playbooks is used for cross region Disaster Recovery protection enablement for a non-HA SAP HANA system on VSI. Ansible is an open source IT automation engine that can be used to configure systems, deploy software and orchestrate workflows to support application deployment and system updates. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html){: external}.
 
 The Ansible playbooks are called directly by the Terraform scripts. First the VPC infrastructure elements are created by the Terraform scripts, then the Ansible playbooks are used for LVM configuration, OS setup and for the SAP HANA secondary system installation along with the DR setup and enablement.
-
-
-

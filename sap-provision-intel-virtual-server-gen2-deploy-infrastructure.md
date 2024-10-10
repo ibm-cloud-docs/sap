@@ -134,7 +134,7 @@ Table 1 is a summary of the fields and values that are used to provision {{site.
 | Boot volume | The default boot volume size for all profiles is 100 GB. You can edit the boot volume by clicking the pencil icon.|
 | Data volume  | You can add one or more secondary data volumes when you provision the instance. To add volumes, click **New volume**. For more information about provisioning the volume, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). Attach data volumes to your virtual server depending on your SAP HANA or SAP NetWeaver virtual server profile. |
 | Network interfaces | Assign networking options to connect into the {{site.data.keyword.cloud_notm}} VPC. You can create and assign up to five network interfaces to each instance - see below. |
-{: caption="Table 1. Instance provisioning selections" caption-side="top"}
+{: caption="Instance provisioning selections" caption-side="top"}
 
 
 ## Adding {{site.data.keyword.block_storage_is_short}}

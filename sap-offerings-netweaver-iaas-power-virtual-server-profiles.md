@@ -38,7 +38,7 @@ For SAP applications the following virtual server configurations are supported. 
 | -- | -- | -- |
 | S922 | 5,570 | 696.25 |
 | E980 | 6,000 | 750 |
-{: caption="Table 1. {{site.data.keyword.IBM_notm}} Power Virtual Servers certified for SAP NetWeaver" caption-side="top"}
+{: caption="{{site.data.keyword.IBM_notm}} Power Virtual Servers certified for SAP NetWeaver" caption-side="top"}
 
 For more information, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}
 

@@ -70,7 +70,7 @@ The capability of processors is measured during the standard (SAP SD) benchmark 
 | Incomplete/Insufficient input data | - Information discovery requires support from business departments and the IT organization  /n - Communication issues are a common cause of invalid data therefore assignment of a project manager to run workshops is recommended  /n - Any unknown data will become an assumption
 | Assumptions are not verified |   /n - Assumptions must be documented and need a verification process included in the project plan
 | Custom code and special data structures |   /n - Hard to predict scenarios, that are solved by custom code and special data structures, require a verification process to determine whether there is an impact to infrastructure (commonly processing and storage)
-{: caption="Table 1. SAP Sizing inaccuracies can cause risks to SAP implementation projects" caption-side="top"}
+{: caption="SAP Sizing inaccuracies can cause risks to SAP implementation projects" caption-side="top"}
 
 ## SAP logical structure and SAP Sizing impacts for infrastructure
 {: #sizing-infrastructure-impacts}
@@ -183,4 +183,3 @@ Beyond the topic group "Sizing and Planning SAP Workloads", there are individual
     - [AnyDB - SAP MaxDB](/docs/sap?topic=sap-anydb-sap-maxdb)
     - [AnyDB - SAP ASE](/docs/sap?topic=sap-anydb-sap-ase)
     - [AnyDB - SAP IQ](/docs/sap?topic=sap-anydb-sap-iq)
-

@@ -44,7 +44,7 @@ The following table is an overview of the SAP-certified profiles with either:
 | BI.S4.NW768 (VMware) | 40 | 80 | 768 GB | 101,547 |
 | BI.S4.NW1500 (VMware) | 56 | 112 | 1536 GB | 132,498 |
 | BI.S4.NW3000 (VMware) | 56 | 112 | 3072 GB | 121,614 |
-{: caption="Table 1. SAP NetWeaver servers" caption-side="top"}
+{: caption="SAP NetWeaver servers" caption-side="top"}
 
 
 ## Understanding Bare Metal profile names
@@ -61,4 +61,4 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP HA
 | | 4 | 4 TB RAM |
 | | 01 | Revision number (00 is launch, 01 is first revision, and so on) |
 | | A or B | Available as appliances with preconfigured built-in disks (A) or as boot servers only (B) |
-{: caption="Table 2. Profile naming for SAP NetWeaver" caption-side="top"}
+{: caption="Profile naming for SAP NetWeaver" caption-side="top"}
