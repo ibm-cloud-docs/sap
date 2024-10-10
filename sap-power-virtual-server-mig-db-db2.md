@@ -178,7 +178,7 @@ Use the following steps to shut down the SAP application and deactivate the data
    If applications are still listed, stop the applications and check again. Only if the external applications still don't stop, try disconnecting applications from the database server with `db2 force applications all`.
    {: tip}
 
-1. The IBM Db2 offline backup requires that the database is deactivated. Use the following command to deactive the database:
+1. The IBM Db2 offline backup requires that the database is deactivated. Use the following command to deactivate the database:
 
    ```sh
    db2 deactivate database $DBNAME
@@ -209,7 +209,7 @@ A backup directory to store the compressed offline backup was created in the pre
 1. Start the IBM Db2 offline backup:
 
    ```sh
-   db2 backup database $DBNAME to $BACKUPDIR compressed
+   db2 backup database $DBNAME to $BACKUPDIR compress
    ```
    {: pre}
 
@@ -640,7 +640,7 @@ A downtime is required to enable archive logging.
    IBM Db2 database enforces a backup after this change:
 
    ```sh
-   db2 backup database $DBNAME to $BACKUPDIR compressed
+   db2 backup database $DBNAME to $BACKUPDIR compress
    ```
    {: pre}
 
@@ -931,7 +931,7 @@ Use the following steps to start HADR and to check whether the data is syncing.
 
    And check for these fields:
 
-   | field               | source server | target server |
+   | Field               | Source server | Target server |
    |---------------------|---------------|---------------|
    | HADR_ROLE           | `PRIMARY`     | `STANDBY`     |
    | HADR_STATE          | `PEER`        | `PEER`        |
