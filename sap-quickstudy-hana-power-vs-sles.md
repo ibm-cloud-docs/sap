@@ -60,7 +60,7 @@ If you are using the Windows platform, you can install useful tools like WinSCP 
 | Java 8        | Prerequisite for SAP GUI for Windows  | [Java SE Runtime Environment 8 Downloads](https://www.oracle.com/java/technologies/javase-jre8-downloads.html){: external}                |
 | SAP GUI       | SAP GUI for Windows                   | [SAP GUI 7.6 Core Download](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=N&FUNCTIONBAR=Y&EVENT=TREE&TMPL=INTRO_SWDC_IU_FC&V=INST&REFERER=CATALOG-INSTALLATIONS&ROUTENAME=products/By%20Category%20-%20SAP%20Frontend%20Components){: external}      |
 | Google Chrome | Internet browser                      | [Download Chrome](https://www.google.com/chrome/?brand=CHBD&gclid=EAIaIQobChMImqvg5Zb36gIVKoBQBh0QTwsyEAAYASABEgIR_vD_BwE&gclsrc=aw.ds){: external}         |
-{: caption="Table 1. Tools for jump servers on Windows" caption-side="top"}
+{: caption="Tools for jump servers on Windows" caption-side="top"}
 
 If you are using Windows as a jump server, you can use Windows PowerShell which includes a built-in SSH server.
 
@@ -196,7 +196,7 @@ When you provision a new Linux server, the default size of the boot logical volu
 | [SAP Note 2055470 - HANA on POWER Planning and Installation Specifics - Central Note](https://launchpad.support.sap.com/#/notes/2055470)               | Server and storage setup and configuration        |
 | [SAP Note 1943937 - Hardware Configuration Check Tool - Central Note](https://launchpad.support.sap.com/#/notes/1943937/E)                                   | Required checks to run with the HWCCT (Hardware Configuration Check Tool)                         |
 | [Best Practices TDI Certified for IBM Storage](http://www-03.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/WP102347)     |  How to configure SAP HANA TDI certified IBM storage                    |
-{: caption="Table 1. Information resources" caption-side="top"}
+{: caption="Information resources" caption-side="top"}
 
 For test systems, follow these guidelines for storage allocation:
 
@@ -211,7 +211,7 @@ For test systems, follow these guidelines for storage allocation:
 | /hana/shared | Same size as RAM up to a maximum of 1 TB   |
 | /export      | Local storage for exported images **       |
 | /backup      | A preliminary backup on disk **           |
-{: caption="Table 2. SAP HANA file storage locations" caption-side="top"}
+{: caption="SAP HANA file storage locations" caption-side="top"}
 
 ** Optional directory for the Linux server
 
@@ -575,7 +575,7 @@ The following links will assist you with the installation and configuration of y
 | [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux)     | SAP on {{site.data.keyword.IBM_notm}} Power Systems library                                    |
 | [2382421 - Optimizing the Network Configuration on HANA- and OS-Level](https://launchpad.support.sap.com/#/notes/2382421)          | Increasing efficiency on network for operating systems and SAP HANA |
 | [401162 - Linux: Avoiding TCP/IP port conflicts and start problems](https://launchpad.support.sap.com/#/notes/401162)              | Preventive guidance to avoid network-related start issues         |
-{: caption="Table 3. Operating systems – general Linux" caption-side="top"}
+{: caption="Operating systems – general Linux" caption-side="top"}
 
 ### Operating systems – SUSE Linux
 {: #suse_linux}
@@ -590,7 +590,7 @@ The following links will assist you with the installation and configuration of y
 | [1275776 - Linux: Preparing SLES for SAP environments](https://launchpad.support.sap.com/#/notes/1275776)                                                 | Preparing SLES for SAP environments           |
 | [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap)                                                                   | A useful collection of SUSE documentation     |
 | [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/)                                                                              | IBM and SUSE                                  |
-{: caption="Table 4. Operating systems – SUSE Linux" caption-side="top"}
+{: caption="Operating systems – SUSE Linux" caption-side="top"}
 
 
 ### SAP HANA-related information
@@ -604,4 +604,4 @@ The following links will assist you with the installation and configuration of y
 | [SAP HANA Platform Landing page](https://help.sap.com/viewer/product/SAP_HANA_PLATFORM/2.0.05/en-US?task=discover_task) | Useful for installation guides and upgrade guides |
 | [SAP Guide Finder](https://help.sap.com/viewer/nwguidefinder/576f5c1808de4d1abecbd6e503c9ba42.html)                     | Useful to locate user guides and information on updates     |
 | [2380291 - SAP HANA 2.0 Cockpit Central Release Note](https://launchpad.support.sap.com/#/notes/2380291)                | SAP HANA Cockpit central note                      |
-{: caption="Table 5. SAP HANA-related information" caption-side="top"}
+{: caption="SAP HANA-related information" caption-side="top"}

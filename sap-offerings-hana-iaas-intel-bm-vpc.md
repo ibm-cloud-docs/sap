@@ -39,7 +39,7 @@ The following table gives you an overview of the SAP-certified profiles with bar
 | **Ultra High Memory Optimized** | | | |
 | ux2d-metal-112x3072 | 112 | 3,072 | 140,730 | OLTP/OLAP (\*) |
 | ux2d-metal-224x6144 | 224 | 6,144 | 294,730 | OLTP/OLAP (\*) |
-{: caption="Table 1. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA" caption-side="bottom"}
+{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA" caption-side="bottom"}
 
 (\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions<br/>
 SLES 12 SP5, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
@@ -71,7 +71,7 @@ The first letter of the profile name indicates the profile family:
 | b | *Balanced* family, vCPU to memory ratio 1:4 |
 | m | *Memory Optimized* family, higher vCPU to memory ratio 1:8 |
 | u | *Ultra High Memory Optimized* family, even higher vCPU to memory ratio 1:27.43 |
-{: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
+{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
 <br/>
 The bare metal server profile names are contextual and sequential. See the following example:
@@ -88,7 +88,7 @@ The bare metal server profile names are contextual and sequential. See the follo
 | | 96 | 96 vCPU |
 | | x | _spacer_ |
 | | 768 | 768 GiB RAM |
-{: caption="Table 2. Profile naming for SAP HANA" caption-side="top"}
+{: caption="Profile naming for SAP HANA" caption-side="top"}
 
 ## Profiles available on Hourly Consumption Billing
 {: #hana-iaas-intel-bm-vpc-hourly}
@@ -138,7 +138,7 @@ The following table shows the required physical volumes, related volume groups, 
 | `ux2d-metal-224x6144`  | `/hana/shared` | `hana_shared_lv` | 6,144 | `vg0` | `nvme0n1-`\n`nvme1n1-` |
 | | `/hana/log` | `hana_log_lv` | 512 | `vg0` | |
 | | `/hana/data` | `hana_data_lv` | *the remaining space ~17,190*  | `vg0` | |
-{: caption="Table 3. Storage layout for Bare Metal Servers for VPC" caption-side="top"}
+{: caption="Storage layout for Bare Metal Servers for VPC" caption-side="top"}
 
 <br/>
 <br/>
@@ -258,4 +258,3 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
 
 
 Check [SAP Note 2777782](https://launchpad.support.sap.com/#/notes/2777782) for RHEL and [SAP Note 2684254](https://launchpad.support.sap.com/#/notes/2684254) for SLES to adapt your OS configuration settings according to the requirements for SAP HANA.
-

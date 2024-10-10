@@ -29,7 +29,7 @@ subcollection: sap
 
 A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components:
 
-![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/sap-hana-vpc-std-pas-aas.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
+![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation with AAS](images/sap-hana-vpc-std-pas-aas.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
 
 The scripts are designed to create a new VPC and install SAP (SAP BW/4HANA release) solution together with its dedicated DB Hana box in one task flow.
 
@@ -397,4 +397,3 @@ This document is referenced by:
 *	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
 *	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 *	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-12"
+lastupdated: "2024-10-10"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -27,7 +27,7 @@ When architecture for SAP that runs on {{site.data.keyword.powerSysFull}} is dep
 
 The following diagram shows deployed SAP on PowerVS infrastructure components.
 
-![SAP on PowerVS infrastructure](images/step3_manual_SAP-on-PowerVS.svg){: caption="Figure 1. SAP on PowerVS infrastructure" caption-side="bottom"}
+![SAP on PowerVS infrastructure](images/step3_manual_SAP-on-PowerVS.svg){: caption="SAP on PowerVS infrastructure" caption-side="bottom"}
 
 ## Deploying a separate private network for SAP systems
 {: #power-vs-set-up-power-sap-network}
@@ -52,7 +52,7 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for shared file systems, 
    | Server placement group (optional) | You can skip this selection if you don't use placement groups. |
    | VM pinning (optional) | Keeping this selection is recommended. |
    | SSH key | Select the key that you created previously. |
-   {: caption="Table 1. General shared file systems selections" caption-side="top"}
+   {: caption="General shared file systems selections" caption-side="top"}
 
 2. In the **Boot image** section, make the following selections:
    | Field | Details |
@@ -61,7 +61,7 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for shared file systems, 
    | Image | Select operating system and version. Make sure that you use the same operating system and version for all deployments. |
    | Tier | Select the tier that best fits your needs. |
    | Storage pool variations | Select the variation that best fits your needs. |
-   {: caption="Table 2. Shared file systems boot image selections" caption-side="top"}
+   {: caption="Shared file systems boot image selections" caption-side="top"}
 
 3. In the **Profile** section, make the following selections:
    | Field | Details |
@@ -69,7 +69,7 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for shared file systems, 
    | Machine type | Select the type that best fits your needs. |
    | Core type | Select the core type that best fits your needs. |
    | Cores and Memory (GiB) | Select based on your performance requirements. |
-   {: caption="Table 3. Share file system profile selections" caption-side="top"}
+   {: caption="Share file system profile selections" caption-side="top"}
 
 4. In the **Storage volumes** section, make the following selection:
    * Attach one or more storage volumes to make sure that you have enough capacity for your shared file system.
@@ -101,7 +101,7 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver, go to 
    | Server placement group (optional) | You can skip this selection if you don't use placement groups. |
    | VM pinning (optional) | Keeping this selection is recommended. |
    | SSH key | Select the key that you created previously. |
-   {: caption="Table 4. SAP NetWeaver Linux general selections" caption-side="top"}
+   {: caption="SAP NetWeaver Linux general selections" caption-side="top"}
 
 2. In the **Boot image** section, make the following selections:
    | Field | Details |
@@ -110,7 +110,7 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver, go to 
    | Image | Select operating system and version. Make sure that you use the same operating system and version for all deployments. |
    | Tier | Select the tier that best fits your needs. |
    | Storage pool variations | Select the variation that best fits your needs. |
-   {: caption="Table 5. Shared file systems boot image selections" caption-side="top"}
+   {: caption="Shared file systems boot image selections" caption-side="top"}
 
 3. In the **Profile** section, make the following selections:
    | Field | Details |
@@ -118,7 +118,7 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver, go to 
    | Machine type | Select the type that best fits your needs. |
    | Core type | Select the core type that best fits your needs. |
    | Cores and Memory (GiB) | Select based on your performance requirements. For more information, see [Power virtual server profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs). |
-   {: caption="Table 6. Shared file systems profile selections" caption-side="top"}
+   {: caption="Shared file systems profile selections" caption-side="top"}
 
 4. In the **Storage volumes** section, make the following selection:
     * Attach one or more volumes to make sure that you have enough capacity for the file system for SAP NetWeaver (/usr/sap)
@@ -148,7 +148,7 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for SAP HANA, go to your 
    | Server placement group (optional) | You can skip this selection if you don't use placement groups. |
    | VM pinning (optional) | "Soft" is the recommended selection. |
    | SSH key | Select the key that you created previously. |
-   {: caption="Table 7. SAP HANA general selections" caption-side="top"}
+   {: caption="SAP HANA general selections" caption-side="top"}
 
 2. In the **Boot image** section, make the following selections:
    | Field | Details |
@@ -157,7 +157,7 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for SAP HANA, go to your 
    | Image | Select operating system and version. Make sure that you use the same operating system and version for all deployments. |
    | Tier | Select the tier that best fits your needs. |
    | Storage pool | Select the tier that best fits your needs. |
-   {: caption="Table 8. SAP HANA boot image selections" caption-side="top"}
+   {: caption="SAP HANA boot image selections" caption-side="top"}
   
 3. In the **Profile** section, make the following selection:
     * Select a profile that fits your needs. For more information, see [SAP HANA profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
@@ -701,7 +701,7 @@ Beginning with `rhel-system-roles-sap-3.2.0-1.el8_4`, the role names changed. An
 |sap-preconfigure           |sap_general_preconfigure  | 
 |sap-netweaver-preconfigure |sap_netweaver_preconfigure|
 |sap-hana-preconfigure      |sap_hana_preconfigure     |
-{: caption="Table 9. RHEL System Roles" caption-side="bottom"}
+{: caption="RHEL System Roles" caption-side="bottom"}
 
 The execution files are in the root directory.
 

@@ -52,7 +52,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | ux2d-72x2016 | 72 | 2,016 | 77,606 | OLTP (\*) |
 | ux2d-100x2800 | 100 | 2,800 | 107,785 | OLTP (\*) |
 | ux2d-200x5600 | 200 | 5,600 | 215,570 | OLTP (\*) |
-{: caption="Table 1. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA" caption-side="bottom"}
+{: caption="{{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA" caption-side="bottom"}
 
 (\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.1 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, 8.8 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions<br/>
 SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5<br/>
@@ -82,7 +82,7 @@ The first letter of the profile name indicates the profile family that is mentio
 | m | *Memory Optimized* family, higher vCPU to memory ratio 1:8 |
 | v | *Very High Memory Optimized* family, very high vCPU to memory ratio 1:14 |
 | u | *Ultra High Memory Optimized* family, ultra high vCPU to memory ratio 1:28 |
-{: caption="Table 2. {{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
+{: caption="{{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
 
 
 <br/>
@@ -98,7 +98,7 @@ The Virtual Server profile names are contextual and sequential. See the followin
 | | 16 | 16 vCPU |
 | | x | _spacer_ |
 | | 128 | 128 GiB RAM |
-{: caption="Table 3. Profile naming for SAP HANA" caption-side="top"}
+{: caption="Profile naming for SAP HANA" caption-side="top"}
 
 (\*) Note for Virtual Server Instances using instance storage on SSD: you must not place any SAP workload related data on such instance storage, because data loss may occur in certain situations - see more information here: [About instance storage](/docs/vpc?topic=vpc-instance-storage).
 {: note}
@@ -117,7 +117,7 @@ When the virtual server profiles for SAP HANA are initially provisioned, the ser
 | --- | --- | --- | --- | --- |
 | `/` | `vda1` | Pre-configured boot volume | 100 | 3,000 |
 | `/boot` | `vda2` | Pre-configured boot volume | 0.25 | 3,000 |
-{: caption="Table 4. Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
+{: caption="Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
 
 ### {{site.data.keyword.block_storage_is_full}}
 {: #hana-iaas-intel-vs-vpc-storage-specs-general}
@@ -159,7 +159,7 @@ The following table shows the required physical volumes, related volume groups, 
 | | | | | | `vdh` | 100 |
 | | | | | | `vdi` | 100 |
 | | | | | | `vdj` | 100 |
-{: caption="Table 5. Storage layout for mx2-* profiles based virtual servers" caption-side="top"}
+{: caption="Storage layout for mx2-* profiles based virtual servers" caption-side="top"}
 
 ### mx2-* profiles - Setup Instructions
 {: #hana-iaas-intel-vs-vpc-mx2-setup}
@@ -209,7 +209,7 @@ The following table shows the required volumes and related volume groups, if nec
 | | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdi` | 192 |
 | | | | | | `vdj` | 192 |
 | | | | | | `vdk` | 192 |
-{: caption="Table 6. Storage for vx2* profile based virtual servers" caption-side="top"}
+{: caption="Storage for vx2* profile based virtual servers" caption-side="top"}
 
 
 ### vx2d-* profiles - Setup Instructions
@@ -358,7 +358,7 @@ The following table shows the required volumes and related volume groups, if nec
 | | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdi` | 192 |
 | | | | | | `vdj` | 192 |
 | | | | | | `vdk` | 192 |
-{: caption="Table 7. Storage for ux2* profile based virtual servers" caption-side="top"}
+{: caption="Storage for ux2* profile based virtual servers" caption-side="top"}
 
 
 ### ux2d-* profiles - Setup Instructions

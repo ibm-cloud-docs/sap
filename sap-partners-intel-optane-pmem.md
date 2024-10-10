@@ -26,7 +26,7 @@ subcollection: sap
 
 SAP HANA now has a non-volatile in-memory option on Bare Metal servers. Intel Optane&trade; persistent memory (PMEM) retains its contents like traditional storage options but with speeds similar to main memory. 
 
-![Figure 1. SAP HANA Intel Optane PMem](images/sap-partners-intel-optane-pmem.svg "SAP HANA Intel Optane PMem Overview"){: caption="Figure 1. SAP HANA Intel Optane PMem[^Figure] overview" caption-side="bottom"}
+![Figure 1. SAP HANA Intel Optane PMem](images/sap-partners-intel-optane-pmem.svg "SAP HANA Intel Optane PMem Overview"){: caption="SAP HANA Intel Optane PMem[^Figure] overview" caption-side="bottom"}
 
 [^Figure]: This diagram originally appeared in the [SAP Community blog by Andreas Schuster](https://blogs.sap.com/2018/11/29/sap-hana-persistent-memory-2/)
 
@@ -78,4 +78,3 @@ When you order your Bare Metal server with persistent memory, regions are create
 ### Backup, recovery, and system replication
 
 Backup, recovery, and system replication are part of standard Bare Metal configuration. You perform the same steps for post provisioning on the Bare Metal servers as you do for SAP HANA.
-

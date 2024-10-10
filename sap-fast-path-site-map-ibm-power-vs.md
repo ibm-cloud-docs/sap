@@ -120,7 +120,7 @@ For more information about SAP on Linux, see the following table.
 | [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+IBM+Power+Systems+running+Linux){: external}     | SAP on {{site.data.keyword.IBM_notm}} Power Systems library                                    |
 | [2382421 - Optimizing the Network Configuration on HANA- and OS-Level](https://launchpad.support.sap.com/#/notes/2382421){: external}          | Increasing efficiency on network for operating systems and SAP HANA |
 | [401162 - Linux: Avoiding TCP/IP port conflicts and start problems](https://launchpad.support.sap.com/#/notes/401162){: external}              | Avoiding network-related start issues         |
-{: caption="Table 1. Operating systems – general Linux" caption-side="top"}
+{: caption="Operating systems – general Linux" caption-side="top"}
 
 ### Operating systems – SUSE Linux
 {: #power-vs-sles-hana-snote-suse_linux}
@@ -137,7 +137,7 @@ For more information about SAP on SUSE Linux, see the following table.
 | [1275776 - Linux: Preparing SLES for SAP environments](https://launchpad.support.sap.com/#/notes/1275776)                                                 | Preparing SLES for SAP environments           |
 | [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap)                                                                   | A useful collection of SUSE documentation     |
 | [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/)                                                                              | IBM and SUSE                                  |
-{: caption="Table 2. Operating systems – SUSE Linux&reg;" caption-side="top"}
+{: caption="Operating systems – SUSE Linux&reg;" caption-side="top"}
 
 ### Operating systems – Red Hat Linux&reg; (RHEL)
 {: #power-vs-rehl-hana-snote-redhat_linux}
@@ -151,7 +151,7 @@ For more information about SAP on RHEL, see the following table.
 | [SAP Note 2382421 Optimizing the Network Configuration on HANA and OS-Level](https://launchpad.support.sap.com/#/notes/2578899)                                         | SLES 15 installation note                     |
 | [2684254 - SAP HANA DB: Recommended OS settings for SLES 15 / SLES for SAP Applications 15](https://launchpad.support.sap.com/#/notes/2382421)            | - |
 | [RHEL System Roles for SAP](https://access.redhat.com/sites/default/files/attachments/rhel_system_roles_for_sap_1.pdf) | - |
-{: caption="Table 3. Operating systems – Red Hat Linux" caption-side="top"}
+{: caption="Operating systems – Red Hat Linux" caption-side="top"}
 
 ### SAP HANA-related information
 {: #power-vs-sles-hana-snote-hana_info}
@@ -166,4 +166,4 @@ For more information about SAP HANA, see the following table.
 | [SAP HANA Platform Landing page](https://help.sap.com/viewer/product/SAP_HANA_PLATFORM/2.0.05/en-US?task=discover_task) | Useful for installation guides and upgrade guides |
 | [SAP Guide Finder](https://help.sap.com/viewer/nwguidefinder/576f5c1808de4d1abecbd6e503c9ba42.html)                     | Useful to locate user guides and information on updates     |
 | [2380291 - SAP HANA 2.0 Cockpit Central Release Note](https://launchpad.support.sap.com/#/notes/2380291)                | SAP HANA Cockpit central note                      |
-{: caption="Table 4. SAP HANA-related information" caption-side="top"}
+{: caption="SAP HANA-related information" caption-side="top"}

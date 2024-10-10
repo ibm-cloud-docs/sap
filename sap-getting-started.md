@@ -63,7 +63,7 @@ This table summarizes the SAP landscape installation steps for you and your team
 | Read and follow the documents in the **Pre-requisites for SAP Workloads** topic group | Prepare the credentials, account structure, connectivity, software downloads, support procedures, and licensing that is needed before you begin your deployment. |
 | Read and follow the **Provisioning** topic groups in the **How to** section | For your specific infrastructure, follow the provisioning guidelines to set up the first servers at the sizes that are required to run your SAP systems. Planning your SAP landscape with the business is crucial to success. It is likely these documents might be read many months after the topics listed in the other steps. |
 | Revisit **Task 3**, and follow the relevant SAP software documentation to install SAP on the infrastructure | It is important to follow SAP guidance clearly, including any additional reference guidance available on SAP Notes for your chosen applications. This stage is the same as installations into servers hosted at on-premises data centers. |
-{: caption="Table 1. Overview of your SAP landscape installation steps" caption-side="top"}
+{: caption="Overview of your SAP landscape installation steps" caption-side="top"}
 
 ## Next steps
 {: #next-steps}

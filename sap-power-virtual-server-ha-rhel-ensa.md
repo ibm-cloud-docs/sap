@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-10-09"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -57,9 +57,10 @@ Review the general requirements, product documentation, support articles, and SA
    Make sure that the virtual IP addresses for the SAP instances are assigned to a network adapter and that they can communicate in the network.
 - SAP application server instances require a common shared file system *SAPMNT* `/sapmnt/<SID>` with *read and write* access, and other shared file systems such as *SAPTRANS* `/usr/sap/trans`.
    These file systems are typically provided by an external NFS server.
-   The NFS server must be installed on virtual servers that are not part of the *ENSA2* cluster.
+   The NFS server must be high-available and must not be installed on virtual servers that are part of the *ENSA2* cluster.
 
    [Configuring an Active-Passive NFS Server in a Red Hat High Availability Cluster](/docs/sap?topic=sap-ha-rhel-nfs) describes the implementation of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in {{site.data.keyword.powerSys_notm}}.
+   
 - Ensure that all SAP installation media is available.
 
 ## Preparing nodes for SAP installation
@@ -205,7 +206,7 @@ All cluster nodes need to access the shared storage volumes, but only one node h
 
 Edit the file `/etc/lvm/lvm.conf` to include the *system ID* in the volume group.
 
-On both nodes, edit the `lvm.conf`file.
+On both nodes, edit the `lvm.conf` file.
 
 ```sh
 vi /etc/lvm/lvm.conf
@@ -351,7 +352,7 @@ Sample output:
 #### Creating logical volumes and file systems
 {: #ha-rhel-ensa-create-lv}
 
-Create the logical volume for the *ASCS* and format it as *XFS* file system.
+Create the logical volume for the *ASCS* and format it as an *XFS* file system.
 
 On NODE1, run the following commands.
 
@@ -365,7 +366,7 @@ mkfs.xfs /dev/${ASCS_vg}/${ASCS_lv}
 ```
 {: pre}
 
-Create the logical volume for the *ERS* and format it as *XFS* file system.
+Create the logical volume for the *ERS* and format it as an *XFS* file system.
 
 On NODE2, run the following commands.
 

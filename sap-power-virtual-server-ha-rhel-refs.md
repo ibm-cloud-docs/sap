@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-10-10"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -32,7 +32,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | --- |
 | [Configuring and managing high availability clusters](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index){: external} |
 {: class="simple-tab-table"}
-{: caption="Table 1. RHEL 8 cluster documentation" caption-side="bottom"}
+{: caption="RHEL 8 cluster documentation" caption-side="bottom"}
 {: #rhel-ha-docs-table-rhel8}
 {: tab-title="RHEL 8"}
 {: tab-group="rhel-ha-docs"}
@@ -41,7 +41,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | --- |
 | [Configuring and managing high availability clusters](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/index){: external} |
 {: class="simple-tab-table"}
-{: caption="Table 1. RHEL 9 cluster documentation" caption-side="bottom"}
+{: caption="RHEL 9 cluster documentation" caption-side="bottom"}
 {: #rhel-ha-docs-table-rhel9}
 {: tab-title="RHEL 9"}
 {: tab-group="rhel-ha-docs"}
@@ -58,7 +58,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | [Configuring SAP HANA Scale-Up Multitarget System Replication for disaster recovery](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/configuring_sap_hana_scale-up_multitarget_system_replication_for_disaster_recovery/index) |
 | [Configuring an Active-Passive NFS server in a Red Hat High Availability cluster](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_configuring-active-passive-nfs-server-in-a-cluster-configuring-and-managing-high-availability-clusters#doc-wrapper){: external} |
 {: class="simple-tab-table"}
-{: caption="Table 2. RHEL 8 for SAP documentation" caption-side="bottom"}
+{: caption="RHEL 8 for SAP documentation" caption-side="bottom"}
 {: #rhel-sap-8-docs-table}
 {: tab-title="RHEL 8"}
 {: tab-group="rhel-sap-docs"}
@@ -71,7 +71,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | [Configuring SAP HANA Scale-Up Multitarget System Replication for disaster recovery](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/configuring_sap_hana_scale-up_multitarget_system_replication_for_disaster_recovery/index) |
 | [Configuring HA clusters to manage SAP NetWeaver or SAP S/4HANA Application server instances by using the RHEL HA Add-On](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/configuring_ha_clusters_to_manage_sap_netweaver_or_sap_s4hana_application_server_instances_using_the_rhel_ha_add-on/index){: external} |
 {: class="simple-tab-table"}
-{: caption="Table 2. RHEL 9 for SAP documentation" caption-side="bottom"}
+{: caption="RHEL 9 for SAP documentation" caption-side="bottom"}
 {: #rhel-sap-9-docs-table}
 {: tab-title="RHEL 9"}
 {: tab-group="rhel-sap-docs"}
@@ -118,7 +118,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | [SAP note 3115048 - sapstartsrv with native Linux systemd support](https://me.sap.com/notes/3115048){: external} |
 | [SAP note 3139184 - Linux: systemd integration for sapstartsrv and SAP Host Agent](https://me.sap.com/notes/3139184){: external} |
 {: class="simple-tab-table"}
-{: caption="Table 3. SAP Notes for RHEL 8" caption-side="bottom"}
+{: caption="SAP Notes for RHEL 8" caption-side="bottom"}
 {: #rhel-sap-notes-table-rhel8}
 {: tab-title="RHEL 8"}
 {: tab-group="rhel-sap-notes"}
@@ -132,7 +132,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | [SAP note 3115048 - sapstartsrv with native Linux systemd support](https://me.sap.com/notes/3115048){: external} |
 | [SAP note 3139184 - Linux: systemd integration for sapstartsrv and SAP Host Agent](https://me.sap.com/notes/3139184){: external} |
 {: class="simple-tab-table"}
-{: caption="Table 3. SAP Notes for RHEL 9" caption-side="bottom"}
+{: caption="SAP Notes for RHEL 9" caption-side="bottom"}
 {: #rhel-sap-notes-table-rhel9}
 {: tab-title="RHEL 9"}
 {: tab-group="rhel-sap-notes"}

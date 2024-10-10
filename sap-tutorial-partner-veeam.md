@@ -81,7 +81,7 @@ After the order is submitted, the server, depending on your order, is available 
 | Endurance (IOPS tiers) | 0.25 IOPS/GB |
 | Snapshot space | 0 GB  |
 | OS Type | Windows 2008+  |
-{: caption="Table 1. Recommended values for block storage" caption-side="top"}
+{: caption="Recommended values for block storage" caption-side="top"}
 
 4. Click **Create**.
 
@@ -172,7 +172,7 @@ You are going between the {{site.data.keyword.cloud_notm}} console and the Windo
 | File system                                   | ReFS                                               |
 | Allocation unit size                          | 64K                                                |
 | Volume name                                   | Enter a name for the volume, for example `VBRrepo` |
-{: caption="Table 2. Summary of input" caption-side="top"}
+{: caption="Summary of input" caption-side="top"}
 
 
 ## Creating the Veeam backup repository

@@ -91,7 +91,7 @@ The sample layouts might not be your preferred layout. The purpose of this guida
 | Public VLAN                      | tor01.fcr01a.851     |
 | Private Subnet                   | 10.114.63.64/26      |
 | Public Subnet                    | 158.85.65.224/28      |
-{: caption="Table 1. 32 GB network interface values" caption-side="top"}  
+{: caption="32 GB network interface values" caption-side="top"}  
 
 3. Leave the default values for all other fields.
 4. Review your Order Summary.
@@ -204,7 +204,7 @@ Use the following steps to set up the network interface for your database server
 | Public VLAN                      | tor01.fcr01a.851      |
 | Private Subnet                   | 10.114.63.64/26       |
 | Public Subnet                    | 158.85.65.224/28      |
-{: caption="Table 2. 192 GB network interface values" caption-side="top"}
+{: caption="192 GB network interface values" caption-side="top"}
 
 3. Leave the default values for all other fields.
 4. Review your Order Summary.
@@ -254,7 +254,7 @@ Use the following commands to create the required directories for installing the
 
 If you are planning to install a three-tier setup, the network needs to be set up correctly. In the example, a 192 GB database server (named "sdb192") and a 32 GB application server (named "e2e1270") are deployed. The database server also hosts the (A)SCS instance. Adding the IP addresses on the private network to your `/etc/hosts` helps with the upcoming steps and ensures that SAP internal network traffic goes through the right network.
 
-![Figure 1. Sample of three-tier setup](/images/quickstudy-network_2019-07-23.png "Sample of three-tier setup"){: caption="Figure 1. Sample of three-tier setup" caption-side="bottom"}
+![Figure 1. Sample of three-tier setup](/images/quickstudy-network_2019-07-23.png "Sample of three-tier setup"){: caption="Sample of three-tier setup" caption-side="bottom"}
 
 Use the following steps to establish your network.
 
@@ -382,7 +382,7 @@ External storage can be added to your provisioned server or servers. You can use
 |Endurance (IOPS tiers)            | 10 IOPS/GB                                        |
 |Snapshot space                    | 0 GB                                              |
 |OS Type                           | Linux (default)                                   |
-{: caption="Table 3. Recommended values for block storage" caption-side="top"}
+{: caption="Recommended values for block storage" caption-side="top"}
 
 5. Review the Order Summary.
 6. Select **I have read and agree to the terms and conditions listed below**.

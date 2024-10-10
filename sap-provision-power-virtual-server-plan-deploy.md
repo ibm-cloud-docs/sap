@@ -65,7 +65,7 @@ Review the following prerequisites.
     | Workload VPC | Address prefix for VPC workload network \n VPC management network for virtual server instances | 172.11.0.0/16  \n 172.11.2.0/24 |
     | Edge VPC | Address prefix for VPC edge network \n VPC edge network for virtual server instances | 172.12.0.0/16  \n 172.11.1.0/24 |
     | Power VS workspace | Power VS management network  \n PowerVS backup network  \n  \n Separate network for each SAP system on Power VS and each SAP system or SAP component group on VPC \n SAP S4/HANA PRD \n SAP S4/HANA QA1 \n SAP Web Dispatchers on edge VPC | 10.10.10.0/24 \n 10.10.11.0/24 \n  \n  \n 10.10.20.0/24  \n 10.10.21.0/24 |
-    {: caption="Table 1. Private networks IP address ranges" caption-side="bottom"}
+    {: caption="Private networks IP address ranges" caption-side="bottom"}
 
 7. Define hostnames for all the virtual server instances and services that you deploy in the landscape. Map the hostnames to the IP addresses. Also, it's possible to deploy the virtual server instances and assign the IP address dynamically. Make sure that you clear DNS/IP picture before you start. You can use a DNS service of your choice. The only requirement is that this service must be reachable from the Virtual Private Cloud. In the example, IBM Cloud DNS service is used with the following hostname / IP address mappings.
 
@@ -79,7 +79,7 @@ Review the following prerequisites.
    | Example SAP HANA DB host | `db.prd.example.com` | `10.10.20.5` |
    | Example virtual server instance host for SAP NetWeaver | `app1.mgmt.prd.example.com` | `10.10.10.6` |
    | Example SAP NetWeaver application server host | `app1.prd.example.com` | `10.10.20.6` |
-   {: caption="Table 2. Example host name and IP address mappings" caption-side="bottom"}
+   {: caption="Example host name and IP address mappings" caption-side="bottom"}
 
 8. Each Unix OS user has a UID and GUID. These IDs are used to specify file system ownership and become a part of file system metadata. In the management scenarios, where file system is backed up on one host and restored on another, both hosts must use the same UID and GUID for the same users. For the best experience, make sure that you use central user management for SAP users. In the example deployment, LDAP client setup was used on the virtual server instances that are running on {{site.data.keyword.powerSysShort}}.
 9. You need an overview about the ports that must be opened for communication between SAP workloads that run on IBM Power Systems Virtual Servers (such as SAP NetWeaver or SAP HANA), in VPC (such as SAP Web Dispatcher, SAP Solution Manager) and outside of the environment (such as clients in public internet or in on-premises environment).

@@ -45,7 +45,7 @@ High-level overview breakdown of SAP HANA design considerations and example deci
 | Disaster Recovery replication mode | SAP HANA System Replication, Asynchronous replication to different Region |
 | Backups | Backint native, daily complete backup + incremental backup every 30 minutes |
 | SAP HANA Components | Live Cache Apps (LCAPPS), Extended Application Services Advanced (XSA - Cloud Foundry) |
-{: caption="Table 1. High-level overview breakdown of SAP HANA design considerations and example decisions" caption-side="top"}
+{: caption="High-level overview breakdown of SAP HANA design considerations and example decisions" caption-side="top"}
 
 ## SAP HANA performance indicators and sizing
 {: #hana-sizing-kpis}
@@ -60,7 +60,7 @@ Examples of these performance indicators for SAP HANA include:
 | **CPU** | <ul><li>Compared to SAP AnyDB options, more CPU power is required to fully benefit from the parallel processing capabilities of SAP HANA for optimal response times.</li><li>The large parallelization in analytical scenarios influence on Response Times. Therefore, CPU requirement is more important for analytical scenarios.</li><li>Mixed transactional and analytic workloads are supported by SAP HANA but compete for shared resources.</li></ul> |
 | **Disk capacity size**<br />**Disk throughput (I/O)** | <ul><li>Disk capacity that is required for data persistence for logging and cache data</li><li>Disk capacity size depends on the type of database store usage (such as row and column) </li><li>Sufficient I/O performance is required to enable processes to run with acceptable data throughput and storage system latency (that is, read/write from or to the disk)</li></ul> |
 | **Network Load** | <ul><li>Network throughput bandwidth in gigabits per second (Gbps):</li><ul><li>_Amount of data transferred between SAP Application Servers and Database Servers_</li><li>_Amount of data transferred between SAP Application and End User_</li></ul><li>Network latency roundtrip in milliseconds (ms):</li><ul><li>_Time between SAP Application Servers and Database Servers_</li><li>_Time between hosts and any network-attached storage_</li><li>_Time between SAP Application and End User_</li></ul></ul> |
-{: caption="Table 2. Example performance indicators for SAP HANA" caption-side="top"}
+{: caption="Example performance indicators for SAP HANA" caption-side="top"}
 
 ## SAP HANA Sizing Type and Deployment Method
 {: #hana-delivery-models}
@@ -79,7 +79,7 @@ Here is the summary of the Appliance and TDI deployment methods:
 | _Virtualization (optional)_ | _Virtualization (optional)_ |
 | Server | Server |
 | Storage | Custom Storage |
-{: caption="Table 3. Appliance vs. TDI deployment methods" caption-side="top"}
+{: caption="Appliance vs. TDI deployment methods" caption-side="top"}
 
 The following sub-sections describe the appliance deployment method for Standard Sizing type, and the TDI deployment method for Expert Sizing. Detailed documentation regarding the methods and types are shown in SAP documentation:
 - [SAP HANA Administration Guide for SAP HANA Platform](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/latest/en-US)
@@ -261,7 +261,7 @@ The example demonstrates the net capacity for SAP HANA when using 4TB Memory (DR
 | Available for SAP HANA | 3969 GB |
 | Reserved for SAP HANA services and caches | 50 GB |
 | Net capacity available for SAP HANA data + temporary disk space | 3919 GB |
-{: caption="Table 1. Example of SAP HANA net capacity" caption-side="top"}
+{: caption="Example of SAP HANA net capacity" caption-side="top"}
 
 This is shown in more detail on [SAP Note 2296290 - New Sizing Report for SAP BW/4HANA](https://launchpad.support.sap.com/#/notes/2296290){: external} under attachment SAPBW4HANA_Sizing_V2.6.4.pdf
 

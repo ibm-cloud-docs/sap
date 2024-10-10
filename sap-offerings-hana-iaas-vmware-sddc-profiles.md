@@ -46,7 +46,7 @@ The following table is an overview of the SAP-certified profiles with either:
 | BI.S4.H4.3000 (VMware) | 112 | 224 | 3072 GB | 257,373 | OLAP/OLTP |
 | BI.S4.H4.6000 (VMware) | 112 | 224 | 6144 GB | 257,373 | OLAP/OLTP |
 | BI.S4.H8.6000 (VMware) | 224 | 448 | 6144 GB | 495,603 | OLAP/OLTP |
-{: caption="Table 1. SAP HANA servers" caption-side="top"}
+{: caption="SAP HANA servers" caption-side="top"}
 
 
 ## Understanding Bare Metal profile names
@@ -63,4 +63,4 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP HA
 | | 4 | 4 TB RAM |
 | | 01 | Revision number (00 is launch, 01 is first revision, and so on) |
 | | A or B | Available as appliances with preconfigured built-in disks (A) or as boot servers only (B) |
-{: caption="Table 2. Profile naming for SAP HANA" caption-side="top"}
+{: caption="Profile naming for SAP HANA" caption-side="top"}

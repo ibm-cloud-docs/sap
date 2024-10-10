@@ -237,7 +237,7 @@ The below table includes some of the key Ports to use with SAP Systems that use 
 | SAP NetWeaver Java | | |
 | | SAP NetWeaver AS Java P4 Port | 50304 |
 | | SAP NetWeaver AS Java P4 Port | 50404 |
-{: caption="Table 1. Common Ports used with SAP Technical Applications" caption-side="top"}
+{: caption="Common Ports used with SAP Technical Applications" caption-side="top"}
 
 ## Networking Traffic Segregation security considerations
 {: #network-security-segregation}

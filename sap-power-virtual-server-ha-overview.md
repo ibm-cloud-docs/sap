@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-10-10"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -46,7 +46,7 @@ Shared file system
 
 Figure 1 illustrates the technical components of an SAP system.
 
-![Figure 1. Technical components for SAP systems](images/sap-power-virtual-server-ha-technical-components.svg "Technical components for SAP systems"){: caption="Figure 1. Technical components for SAP systems" caption-side="bottom"}
+![Figure 1. Technical components for SAP systems](images/sap-power-virtual-server-ha-technical-components.svg "Technical components for SAP systems"){: caption="Technical components for SAP systems" caption-side="bottom"}
 
 ## Considerations for implementing an SAP high availability solution
 {: #ha-overview-ha-considerations}
@@ -87,7 +87,7 @@ The other technical components, such as the ASCS instance, the SAP HANA database
 
 The following figure shows an architectural overview of a highly available SAP system that is implemented on {{site.data.keyword.powerSys_notm}}.
 
-![Figure 2. SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview](images/sap-power-virtual-server-ha-architecture-overview.svg "SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview"){: caption="Figure 2. SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview" caption-side="bottom"}
+![Figure 2. SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview](images/sap-power-virtual-server-ha-architecture-overview.svg "SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview"){: caption="SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview" caption-side="bottom"}
 
 ## SAP HANA high availability solution scenarios
 {: #ha-overview-hana-ha-scenarios}
@@ -99,7 +99,7 @@ The solution varies depending on the recovery time objective (RTO).
 | Performance Optimized         | A few minutes         | Unless you have specific requirements, this scenario is the default. |
 | Active/Active (read enabled)  | A few minutes         | In an Active/Active (read enabled) configuration, SAP HANA system replication allows read access to the database content on the secondary system. |
 | Cost Optimized                | A few tens of minutes | In a cost-optimized configuration, a nonproduction SAP HANA system runs on the secondary node during normal operation. The hardware resources on the secondary node are shared between the nonproduction system and the SAP HANA System Replication secondary. The memory consumption of the production SAP HANA System Replication secondary is reduced by turning off the preloading of data in the column tables. When a failover occurs, the nonproduction instance is automatically stopped before the node takes over the production workload. The take-over time is longer compared to a performance-optimized configuration. |
-{: caption="Table 1. Variations for high availability solutions for SAP HANA" caption-side="bottom"}
+{: caption="Variations for high availability solutions for SAP HANA" caption-side="bottom"}
 
 Depending on your requirements, select the documentation for one of the scenarios.
 
@@ -157,7 +157,7 @@ During *normal operation*
 - *IP address 3* is configured on virtual server instance 1.
 - The *SAP HANA primary* is active on virtual server instance 1, the *SAP HANA secondary* is active on virtual server instance 2.
 
-![Figure 3. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](images/sap-power-virtual-server-ha-architecture-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview"){: caption="Figure 3. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
+![Figure 3. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](images/sap-power-virtual-server-ha-architecture-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
 
 After a *cluster takeover*
 - *Subnet 3* is created in workspace 2.
@@ -165,6 +165,6 @@ After a *cluster takeover*
 - *IP address 3* is configured on virtual server instance 2.
 - The *SAP HANA primary* is active on virtual server instance 2.
 
-![Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](images/sap-power-virtual-server-ha-architecture-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover"){: caption="Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
+![Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](images/sap-power-virtual-server-ha-architecture-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
 
 [Implementing a RHEL HA Add-On Cluster on IBM {{site.data.keyword.powerSys_notm}} in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz){: external}

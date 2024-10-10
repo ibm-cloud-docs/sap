@@ -58,7 +58,7 @@ The classic infrastructure network, is robust, secure, and flexible; built upon 
 | Data center Pod |
 | VLAN (Public and Private) |
 | Subnet (Public and Private) |
-{: caption="Table 1. Networking component layers overview" caption-side="top"}
+{: caption="Networking component layers overview" caption-side="top"}
 
 Classic Infrastructure was formerly known as Softlayer.
 {: note}

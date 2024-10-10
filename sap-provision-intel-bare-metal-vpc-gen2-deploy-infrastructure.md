@@ -99,7 +99,7 @@ Table 1 is a summary of the fields and values that are used to provision Bare Me
 | _Optional_: **User data** | You can add user data to automatically complete common configuration tasks or run scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
 | **Virtual private cloud** | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
 | **Network interfaces** | Assign networking options to connect into the {{site.data.keyword.cloud_notm}} VPC. You can create and assign multiple up to 8 PCI network interfaces and 128 VLAN interfaces on top of network interfaces. |
-{: caption="Table 1. Bare metal server provisioning selections" caption-side="top"}
+{: caption="Bare metal server provisioning selections" caption-side="top"}
 
 ## Creating the network interface
 {: #bm-vpc-creating-network-interface}
@@ -140,4 +140,3 @@ Your Bare metal server on VPC comes with a number of internal NVMEs, depending o
 {: #bm-vpc-external-storage}
 
 If more storage needs to be added to your bare metal server on VPC, for example, for backup purposes, NFS-based `file shares` can be created and mounted. Learn more details in the corresponding chapter [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
-

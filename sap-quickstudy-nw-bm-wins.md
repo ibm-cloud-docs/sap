@@ -93,7 +93,7 @@ Select your SAP-certified server and OS.
 | Public VLAN                      | dal10.fcr01a.926      |
 | Private Subnet                   | 10.177.119.192/26     |
 | Public Subnet                    | 169.46.15.96/27       |
-{: caption="Table 1. 32 GB network interface values" caption-side="top"}  
+{: caption="32 GB network interface values" caption-side="top"}  
 
 3. Leave the default values for all other fields.
 4. Review your Order Summary.
@@ -198,7 +198,7 @@ Use the following steps to set up the network interface for your database server
 | Public VLAN                      | dal10.fcr01a.926      |
 | Private Subnet                   | 10.177.119.192/26     |
 | Public Subnet                    | 169.46.15.96/27       |
-{: caption="Table 2. 192 GB network interface values" caption-side="top"}  
+{: caption="192 GB network interface values" caption-side="top"}  
 
 3. Leave the default values for all other fields.                  
 4. Review your Order Summary.
@@ -240,7 +240,7 @@ The server does not require any further installation steps for storage.
 
 If you are installing a three-tier setup, you need to prepare the network setup. For the sample setup, a 192 GB database server (named "sdb192") and a 32 GB application server (named "e2e1270") are deployed. The database server also hosts the ABAP SAP Central Services (ASCS) instance. Adding the IPs on the private network to your hosts file helps with the upcoming steps and ensures that SAP internal network traffic goes through the right network.
 
-![Figure 1. Sample of three-tier setup](/images/quickstudy-network_2019-07-23.png "Sample of three-tier setup"){: caption="Figure 1. Sample of three-tier setup" caption-side="bottom"}
+![Figure 1. Sample of three-tier setup](/images/quickstudy-network_2019-07-23.png "Sample of three-tier setup"){: caption="Sample of three-tier setup" caption-side="bottom"}
 
 *Figure 1. Sample of three-tier setup*
 
@@ -275,7 +275,7 @@ External storage can be added to your provisioned server, or servers. You can us
 |Endurance (IOPS tiers)            | 10 IOPS/GB                                        |
 |Snapshot space                    | 0 GB                                              |
 |OS Type                           | Windows 2008+                                     |
-{: caption="Table 3. Recommended values for block storage" caption-side="top"}
+{: caption="Recommended values for block storage" caption-side="top"}
 
 5. Review the Order Summary.
 6. Select **I have read and agree to the terms and conditions listed below**.

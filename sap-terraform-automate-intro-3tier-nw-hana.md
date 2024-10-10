@@ -81,7 +81,7 @@ Prerequisites to deploy the automation:
 
 The automation deploys SAP certified infrastructure and the application/database software in one step. The installation process follows the SAP Master Installation Guides. For more information, go to [VPC for SAP HANA NetWeaver ABAP](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-sap-vpc-automation-hana-nw-abap-c0fc9daf-791b-42d2-9fe3-406f267b89ac-global).
 
- ![Figure 1. SAP NetWeaver with HANA landscape deployment](images/sap_value_guide_netweaver.svg "SAP NetWeaver with HANA landscape deployment"){: caption="Figure 1. SAP NetWeaver with HANA landscape deployment" caption-side="bottom"}
+ ![Figure 1. SAP NetWeaver with HANA landscape deployment](images/sap_value_guide_netweaver.svg "SAP NetWeaver with HANA landscape deployment"){: caption="SAP NetWeaver with HANA landscape deployment" caption-side="bottom"}
 
 ## Ansible for SAP installation
 {: #intro-automate-deploy-vpc-terraform-ansible-sap-install}

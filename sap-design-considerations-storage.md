@@ -146,7 +146,7 @@ Table 1 is a sample storage configuration for a 256 GB server with 50,000 [SAPS]
 | `/db2` (including logs) | 1 | Internal | N/A | 250 GB | N/A |
 | `sapdata` | 1 | External | 4 IOPS/GB | 1,500 GB | 6,000 |
 | `backup/log and backup` | 1 | External | 2 IOPS/GB | 3,000 GB | 6,000 |
-{: caption="Table 1. Sample storage layout based on IOPS calculation" caption-side="top"}
+{: caption="Sample storage layout based on IOPS calculation" caption-side="top"}
 
 
 
@@ -173,7 +173,7 @@ After you attach the two data volumes, two new virtual disks will appear in the 
 | `/boot` | `vda2` | Pre-configured boot volume | N/A | 0.25 GB | 3,000 |
 | `/db2` | `vdd` (can vary) | Data volume | 20 IOPS/GB | 500 GB | 10,000 |
 | `backup/log` and `backup` | `vde` (can vary) | Data volume | 5 IOPS/GB | 2,000 GB | 4,000 |
-{: caption="Table 2. Sample storage configuration" caption-side="top"}
+{: caption="Sample storage configuration" caption-side="top"}
 
 Table 1 shows a basic layout of the file system to support an IBM Db2 installation. Generally, an IBM Db2 installation uses subdirectories that can be segmented into independent volumes.
 
@@ -412,7 +412,7 @@ The tables below shows the mapping of minimum IOPS and its storage tier mapping 
 |	bh1-140x14000	|	4 x 128 GB 	|    	12,800  	|	 Tier 0    	 |
 {: class="simple-tab-table"}
 {: tab-group="recommended storage-tier"}
-{: caption="Table 1. Recommended storage tier and capacity for log data" caption-side="top"}
+{: caption="Recommended storage tier and capacity for log data" caption-side="top"}
 {: #log}
 {: tab-title="Log"}
 
@@ -476,7 +476,7 @@ The tables below shows the mapping of minimum IOPS and its storage tier mapping 
 |	bh1-140x14000	|	4 x 4,200 GB	|    	7,500	|	 Tier 3      |
 {: class="simple-tab-table"}
 {: tab-group="recommended storage-tier"}
-{: caption="Table 2. Recommended storage tier and capacity for data" caption-side="top"}
+{: caption="Recommended storage tier and capacity for data" caption-side="top"}
 {: #data}
 {: tab-title="Data"}
 
@@ -540,7 +540,7 @@ The tables below shows the mapping of minimum IOPS and its storage tier mapping 
 |mh1-125x22500|	1 x 1,000 GB|	Tier 3|
 {: class="simple-tab-table"}
 {: tab-group="recommended storage-tier"}
-{: caption="Table 3. Recommended storage tier and capacity for shared data" caption-side="top"}
+{: caption="Recommended storage tier and capacity for shared data" caption-side="top"}
 {: #shared}
 {: tab-title="Shared"}
 
@@ -558,7 +558,7 @@ Sample pricing calculation when you need a storage of 1 GB
 | Tier 0  	   | 	 1 GB x $.24  	 | 	 $0.240	 | 	 25 IOPS  | 
 | Fixed 5,000 IOPS  | 	 1 GB x $.288 	 | 	 $0.288	 | 	 5,000 IOPS|
 {: class="simple-table"}
-{: caption="Table 4. Sample pricing when the storage required is 1 GB" caption-side="top"}
+{: caption="Sample pricing when the storage required is 1 GB" caption-side="top"}
 
 
 Sample pricing calculation when you need a storage of 100 GB
@@ -567,7 +567,7 @@ Sample pricing calculation when you need a storage of 100 GB
 | Tier 0  	   | 	 100 GB x $.24  	 | 	 $24 	 | 	 2,500 IOPS  | 
 | Fixed 5,000 IOPS  | 	 100 GB x $.288 	 | 	 $29 	 | 	 5,000 IOPS|
 {: class="simple-table"}
-{: caption="Table 5. Sample pricing when the storage required is 100 GB" caption-side="top"} 
+{: caption="Sample pricing when the storage required is 100 GB" caption-side="top"} 
 
 
 
@@ -588,7 +588,7 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | | | `lvusrsapmnt` | `/sapmnt/<SID>` |
 | | | `lvusrsaptrans` | `/usr/sap/trans` |
 | | | `lvsapDAH` | `/usr/sap/DAH` |
-{: caption="Table 3. Sample storage layout for Linux" caption-side="top"}
+{: caption="Sample storage layout for Linux" caption-side="top"}
 
 
 ### Sample storage configuration for Oracle DB on IBM AIX that use the IBM Power Virtual Server
@@ -619,7 +619,7 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | | | `lv<SID>sapdata3` | `/oracle/<SID>/sapdata3` |
 | | | `lv<SID>sapdata4` | `/oracle/<SID>/sapdata4` |
 | | | `lv<SID>oraclient` | `/oracle/client` |
-{: caption="Table 4. Sample storage layout for Oracle" caption-side="top"}
+{: caption="Sample storage layout for Oracle" caption-side="top"}
 
 For more information, see [SAP Note 2172935](https://launchpad.support.sap.com/#/notes/2172935){: external}.
 
@@ -653,6 +653,6 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | | | ``lv<SID>sapdata2` | `/db2/<SID>/sapdata2` |
 | | | ``lv<SID>sapdata3` | `/db2/<SID>/sapdata3` |
 | | | ``lv<SID>sapdata4` | `/db2/<SID>/sapdata4` |
-{: caption="Table 5. Sample storage layout for Db2 on Cloud" caption-side="top"}
+{: caption="Sample storage layout for Db2 on Cloud" caption-side="top"}
 
 For more information, see [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/viewer/4fbd902c7c76410bb82c6311dd4dc94b/CURRENT_VERSION/en-US/713eb64f45c6448c8dbe8a51b85680ee.html){: external} and [SAP Note 1707361](https://launchpad.support.sap.com/#/notes/1707361){: external}.

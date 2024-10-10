@@ -41,7 +41,7 @@ An ERP system is used for demand-oriented business resource planning. It is used
 
 While previous SAP ERP solutions support the most common databases, SAP S/4HANA uses exclusively the SAP HANA in-memory database developed by SAP. This in-memory database offers users the greatest technical benefit and they benefit from increased performance. The "S" in S/4HANA stands for "simple", while the "4" refers to the generation sequence. Compared to the SAP core product SAP ECC, which is still used in most companies, SAP S/4HANA offers many innovative functions that revolutionize the system landscape from the ground up. As SAP plans to discontinue the mainstream maintenance of its existing ERP solutions by 2027, many SAP ECC users are already considering a migration to SAP S/4HANA.
 
- ![Figure 1. SAP S/4HANA architecture](images/refarch-sap-s4_hana.svg "SAP S/4HANA architecture"){: caption="Figure 1. SAP S/4HANA architecture" caption-side="bottom"}
+ ![Figure 1. SAP S/4HANA architecture](images/refarch-sap-s4_hana.svg "SAP S/4HANA architecture"){: caption="SAP S/4HANA architecture" caption-side="bottom"}
 
 ## What is created
 {: #automate-s4hana-terraform-ansible-created}
@@ -57,7 +57,7 @@ During the second phase, the Ansible playbooks are called and the SAP architectu
 
 A single-host system is the simplest system installation type that runs an SAP HANA database instance entirely on one host. With this automation you can deploy the HANA DB instance either on x86 VSI or Intel Virtual Bare Metal server types. You can scale the system up as needed. The single-host system has these components:
  
- ![Figure 2. Single-host SAP HANA system](images/refarch-sap-hana-single-host-only.svg "Single-host SAP HANA system"){: caption="Figure 2. Single-host SAP HANA system" caption-side="bottom"}
+ ![Figure 2. Single-host SAP HANA system](images/refarch-sap-hana-single-host-only.svg "Single-host SAP HANA system"){: caption="Single-host SAP HANA system" caption-side="bottom"}
 
 The scripts are designed to install SAP (SAP S/4HANA release) solution on an existing VPC, together with its dedicated DB SAP HANA box in one task flow.
 

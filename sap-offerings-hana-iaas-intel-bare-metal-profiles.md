@@ -47,7 +47,7 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 | [BI.S4.H4.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1113){: external} | 112 | 224 | 6144 GB | 285,970 | OLAP/OLTP (\*\*) |
 | [BI.S4.H8.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1121){: external} | 224 | 448 | 6144 GB | 550,670 | OLAP/OLTP (\*\*) | 
 | [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1129){: external} | 224 | 448 | 12288 GB | 550,670 | OLAP/OLTP (\*\*) |
-{: caption="Table 1. SAP HANA servers" caption-side="top"}
+{: caption="SAP HANA servers" caption-side="top"}
 
 (\*): RHEL 7.4 for SAP Solutions, RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions<br/>
 SLES 12 SP2, SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3
@@ -77,7 +77,7 @@ The Bare Metal profile names are contextual and sequential.  This example uses a
 | | H | HANA-certified server |
 | | 2 | 2-socket server |
 | | 1500 | 1500 GB RAM |
-{: caption="Table 2. Profile naming for SAP HANA" caption-side="top"}
+{: caption="Profile naming for SAP HANA" caption-side="top"}
 
 
 ## Profiles available on Hourly Consumption Billing
@@ -501,7 +501,7 @@ This table compares the file storage (using NFS protocol) and the performance IO
 | 10,000-12,000 | 1,000-48,000 |
 | Up to 24,000 | Up to 96,000 [by special request](/docs/FileStorage?topic=FileStorage-expandCapacity#increasecapacityover12TB) |
 | Up to 18,000 | Up to 180,000 [by special request](/docs/FileStorage?topic=FileStorage-expandCapacity#increasecapacityover12TB) |
-{: caption="Table 3. {{site.data.keyword.filestorage_full_notm}} Performance storage GB and IOPS" caption-side="top"}
+{: caption="{{site.data.keyword.filestorage_full_notm}} Performance storage GB and IOPS" caption-side="top"}
 
 
 ### BI.S4.H2.192 (boot only)

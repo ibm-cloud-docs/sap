@@ -45,7 +45,7 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 | **Ultra High Memory Optimized** | | | |
 | ux2d-metal-112x3072 | 112 | 3,072 | 140,730 |
 | ux2d-metal-224x6144 | 224 | 6,144 | 294,730 |
-{: caption="Table 1. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Cascade Lake CPU" caption-side="bottom"}
+{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Cascade Lake CPU" caption-side="bottom"}
 
 ### Profiles hosted on Intel Sapphire Rapids CPU
 {: #nw-iaas-intel-bm-sr-vpc-list}
@@ -63,7 +63,7 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 | vx3d-metal-16x256 | 16 | 256 | 35.520 |
 | **Ultra High Memory Optimized** | | | |
 | ux3d-metal-16x512 | 16 | 512 | 34.320 |
-{: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-    side="bottom"}
+{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-    side="bottom"}
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment]    (https://launchpad.support.sap.com/#/notes/2927211){: external}. 
 
@@ -86,7 +86,7 @@ The first letter of the profile name indicates the profile family:
 | m | *Memory Optimized* family| 1:8 | 1:8 or 1:10.67 |
 | u | *Ultra High Memory Optimized* family | 1:27.43 | from 1:21.33 to 1:42.67 |
 | v | *Very High Memory Optimized* family | 1:27.43 | 1:16 |
-{: caption="Table 2. {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
+{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
 <br/>
 The Bare Metal Server profile names are contextual and sequential. See the following example:
@@ -103,7 +103,7 @@ The Bare Metal Server profile names are contextual and sequential. See the follo
 | | 96 | 96 vCPU |
 | | x | _spacer_ |
 | | 768 | 768 GiB RAM |
-{: caption="Table 3. Profile naming for SAP NetWeaver" caption-side="top"}
+{: caption="Profile naming for SAP NetWeaver" caption-side="top"}
 
 
 ## Profiles available on Hourly Consumption Billing
@@ -123,7 +123,7 @@ When the bare metal server profiles for SAP NetWeaver are initially provisioned,
     | | `sda1` | Pre-configured BIOS volume | 1 MB |
     | `/boot/efi` | `sda2` | Pre-configured boot volume | 100 MB |
     | `/` | `sda3` | Pre-configured root volume | 9.9 GB |
-    {: caption="Table 4. Storage configuration of the default bare metal server deployment (boot volume)" caption-side="top"}
+    {: caption="Storage configuration of the default bare metal server deployment (boot volume)" caption-side="top"}
 
 1. Servers that are hosted on Sapphire Rapids CPU
 

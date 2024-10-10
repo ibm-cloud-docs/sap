@@ -51,7 +51,7 @@ In many SAP project scenarios, the deployment of an SAP system is often a key an
 
 With this system being a key part of your SAP project, you want to backup the HANA database. For more information, go to [Cloud Object Storage on VPC for SAP HANA Backup](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-sap-vpc-automation-hana-backup-cos-a2a5c6fa-64e8-4907-a88d-f8d38214d218-global) to automatically provision {{site.data.keyword.cloud_notm}} Object Storage resources as a backup target within HANA Studio, by using the backint agent for {{site.data.keyword.cloud_notm}} available from SAP.
 
- ![Figure 1. SAP HANA database backup to {{site.data.keyword.cloud_notm}} Object Storage](images/sap_value_guide_cos.svg "SAP HANA database backup to {{site.data.keyword.cloud_notm}} Object Storage"){: caption="Figure 1. SAP HANA database backup to {{site.data.keyword.cloud_notm}} Object Storage" caption-side="bottom"}
+ ![Figure 1. SAP HANA database backup to {{site.data.keyword.cloud_notm}} Object Storage](images/sap_value_guide_cos.svg "SAP HANA database backup to {{site.data.keyword.cloud_notm}} Object Storage"){: caption="SAP HANA database backup to {{site.data.keyword.cloud_notm}} Object Storage" caption-side="bottom"}
 
 ## HANA db backup to {{site.data.keyword.cloud_notm}} Object Storage (Cloud Object Storage)
 {: #sap-hana-db-backkup-cos}

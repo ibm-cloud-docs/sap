@@ -45,7 +45,7 @@ The following is an overview of the SAP-certified profiles with Intel Bare Metal
 | BI.S4.NW768_v3 | 16 | 32 | 768 GB |  60,420 |
 | BI.S4.NW1500 | 56 | 112 | 1.5 TB | 147,220 |
 | BI.S4.NW3000 | 56 | 112 | 3 TB | 135,127 |
-{: caption="Table 1. SAP NetWeaver servers" caption-side="top"}
+{: caption="SAP NetWeaver servers" caption-side="top"}
 
 See also [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external}.
 
@@ -61,7 +61,7 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP Ne
 | | S3 | Series 3 (processor generation)<br/><ul><li>S3 is Intel Skylake/Kaby Lake</li><li>S4 is Intel Cascade Lake</li></ul> |
 | | NW | NetWeaver-certified server |
 | | 384 | 384 GB RAM |
-{: caption="Table 2. Profile naming for SAP NetWeaver" caption-side="top"}
+{: caption="Profile naming for SAP NetWeaver" caption-side="top"}
 
 
 ## Profiles available on Hourly Consumption Billing

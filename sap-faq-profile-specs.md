@@ -35,7 +35,7 @@ This table is a summary table of the certifications, highest benchmark scores, a
 | IBM Cloud Virtual Server | 215,570 | 5,600 GB | 2,464 GB | 17,248 GB from 7x of 2,464 GB nodes (excl. 1 standby) |
 | IBM Power Virtual Server  \n _(complementary offering from {{site.data.keyword.IBM_notm}} Power Systems)_ | 840,000 | 23,040 GB | 14,000 GB | 42,000 GB from 7x of 6,000 GB nodes (excl. 1 standby) |
 | IBM Cloud for VMware | 495,603 | 6,144 GB | 3,072 GB | 30,720 GB from 15x of 2,048 GB nodes (excl. 1 standby) |
-{: caption="Table 1. Highest specifications of the SAP-certified IaaS" caption-side="top"}
+{: caption="Highest specifications of the SAP-certified IaaS" caption-side="top"}
 
 
 ## Do you have a full list of Profile specifications, including SAP sizing for different workloads?
@@ -267,7 +267,7 @@ The following table can be copied into spreadsheet software. All profiles - with
 | BI.S4.NW768_v2 (VMware) | IBM Cloud for VMware |  48 | 96 | 768 | 124,620 | Intel Cascade Lake SP | 8.00 | -- | -- | Classic |
 | BI.S4.NW1500 (VMware) | IBM Cloud for VMware | 56 | 112 | 1,536 | 132,498 | Intel Cascade Lake SP | 13.71 | -- | -- | Classic |
 | BI.S4.NW3000 (VMware) | IBM Cloud for VMware | 56 | 112 | 3,072 | 121,614 | Intel Cascade Lake SP | 27.43 | -- | -- | Classic |
-{: caption="Table 2. Full list of SAP-certified IaaS" caption-side="top"}
+{: caption="Full list of SAP-certified IaaS" caption-side="top"}
 
 
 The profiles marked with `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median, and largest within each profile family. This action has been taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. See [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} for more detail.
@@ -295,7 +295,7 @@ The following table can be copied into spreadsheet software.
 | bh1-30x3000 | IBM Power Virtual Server | **`21,000`** | Up to 8 nodes:   7 active nodes _(1 parent, 6 worker nodes)_ and 1 standby node | TDI | OLAP | 210 | 1,680 | [OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;iaas;ve:28;v:105&id=s:2565){: external} | n/a | n/a |
 | bh1-60x6000 | IBM Power Virtual Server | **`42,000`** | Up to 8 nodes:   7 active nodes _(1 parent, 6 worker nodes)_ and 1 standby node | TDI | OLAP | 420 | 3,360 |  [OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;iaas;ve:28;v:105&id=s:2359){: external}| n/a | n/a |
 | ch1-60x3000 | IBM Power Virtual Server | **`21,000`** | Up to 8 nodes:   7 active nodes _(1 parent, 6 worker nodes)_ and 1 standby node | TDI | OLAP | 210 | 1,680 |  [OLAP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;iaas;ve:28;v:105&id=s:2357){: external}| n/a | n/a |
-{: caption="Table 3. Full list of SAP-certified IaaS in scale-out deployment" caption-side="top"}
+{: caption="Full list of SAP-certified IaaS in scale-out deployment" caption-side="top"}
 
 
 ## Do you have a full list of Profiles on the SAP HANA Hardware Directory?
@@ -389,4 +389,4 @@ The following table can be copied into spreadsheet software.
 | umh-60x14400 | IBM Power Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2386){: external}</li></ul> |
 | ush1-4x128 | IBM Power Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2546){: external}</li></ul> |
 | ush1-4x512 | IBM Power Virtual Server | <ul><li>[OLTP Record](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas&id=s:2547){: external}</li></ul> |
-{: caption="Table 4. Full list of profiles on SAP HANA Hardware Directory" caption-side="top"}
+{: caption="Full list of profiles on SAP HANA Hardware Directory" caption-side="top"}

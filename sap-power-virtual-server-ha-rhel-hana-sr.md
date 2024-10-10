@@ -2,7 +2,7 @@
 copyright:
   years: 2023, 2024
 
-lastupdated: "2024-09-11"
+lastupdated: "2024-10-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -348,7 +348,8 @@ pcs status --full
 ```
 {: pre}
 
-### Creating a virtual IP address resource in a singlezone enviroment
+
+### Creating a virtual IP address resource in a singlezone environment
 {: #ha-rhel-hana-sr-create-virtual-ip-resource}
 
 Perform the following steps if both cluster nodes are running in a single {{site.data.keyword.powerSys_notm}} workspace.
@@ -389,10 +390,12 @@ pcs status --full
 
 Proceed to the [Creating constraints](#ha-rhel-hana-sr-create-constraints) section.
 
-### Creating a virtual IP address resource in a multizone region enviroment
-{: #ha-rhel-hana-sr-create-virtual-ip--mz-resource}
+### Creating a virtual IP address resource in a multizone region environment
+{: #ha-rhel-hana-sr-create-virtual-ip-resource-mz}
 
 If both cluster nodes are running in a multizone region environment, follow the instructions in [Creating a virtual IP address resource in the multizone region setup](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-define-subnet-resource){: external} to define a resource for the virtual IP address.
+
+
 
 ### Creating constraints
 {: #ha-rhel-hana-sr-create-constraints}

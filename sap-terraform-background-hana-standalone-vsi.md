@@ -56,7 +56,7 @@ An SAP HANA system can be configured as either:
 
 A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components: 
 
- ![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation on bare metal and x86 VSIs](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA single-host installation on bare metal and x86 VSIs"){: caption="Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation on bare metal and x86 VSIs" caption-side="bottom"}
+ ![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation on bare metal and x86 VSIs](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA single-host installation on bare metal and x86 VSIs"){: caption="SAP NetWeaver 7.x SAP HANA single-host installation on bare metal and x86 VSIs" caption-side="bottom"}
 
 For more information about SAP systems architectures in {{site.data.keyword.cloud_notm}} VPC, see [reference architectures](/docs/sap?topic=sap-sap-refarch-nw-hana) for each supported database type.
 
