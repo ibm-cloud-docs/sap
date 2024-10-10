@@ -783,7 +783,7 @@ HADR uses two TCP ports to synchronize data.
    |--------------------|------------------------|------------------------|-------------|
    | db2th1ha_l         | `5921/tcp`               | `5920/tcp`               | Local port  |
    | db2th1ha_r         | `5920/tcp`               | `5921/tcp`               | Remote port |
-   {: caption="TCP port assignment in `/etc/services` on both servers" caption-side="bottom"}
+   {: caption="TCP port assignment in /etc/services on both servers" caption-side="bottom"}
 
 1. Use your favorite editor to change `/etc/services` on both servers.
 
