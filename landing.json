@@ -1,0 +1,59 @@
+{
+    "version": 2,
+    "title": "SAP",
+    "introduction": "Find out how to run SAP Solutions on IBM Cloud. Review the documentation for your specific configuration.",
+    "product_page": "https://www.ibm.com/cloud/sap",
+    "section_topics": {
+      "links": [
+        {
+          "title": "SAP Solutions on IBM Cloud Intel Bare Metal on Classic Infrastructure",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-intel-bm"
+        },
+        {
+          "title": "SAP Solutions on IBM Cloud Intel Bare Metal Servers on VPC Infrastructure",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-intel-bm-vpc"
+        },
+        {
+          "title": "SAP Solutions on IBM Cloud Intel Virtual Servers on VPC Infrastructure",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2"
+        },
+        {
+          "title": "SAP Solutions on IBM Power Virtual Servers",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-power-vs"
+        },
+        {
+          "title": "SAP Solutions on IBM Cloud for VMware on Classic Infrastructure",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-vmware-sddc"
+        }
+      ]
+    },
+    "section_highlights": [
+      {
+        "title": "IBM Cloud for SAP",
+        "description": "Why IBM Cloud for SAP.",
+        "href": "https://www.ibm.com/cloud/sap",
+        "type": "Web Site"
+      },
+      {
+        "title": "IBM and SAP partnership",
+        "description": "An introduction to the partnership between IBM and SAP.",
+        "href": "https://www.ibm.com/sap",
+        "type": "Web Site"
+      }
+    ],
+    "section_architectures": [
+    ],
+    "section_updates": {
+      "view_more": "/docs/sap?topic=sap-whatsnew",
+      "tiles": [
+        {
+          "date": "27 September 2024",
+          "title": "Publish SAP ERP on IBM Db2 to IBM Power Virtual Server migration guide"
+        },
+        {
+          "date": "25 September 2024",
+          "title": "Update SAP-certified bare metal profiles for VPC"
+        }
+      ]
+    }
+  }
