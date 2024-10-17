@@ -44,20 +44,5 @@
         "href": "https://www.ibm.com/blog/announcement/automate-sap-deployments-on-ibm-cloud/",
         "type": "blog"
       }
-    ],
-    "section_architectures": [
-    ],
-    "section_updates": {
-      "view_more": "/docs/sap?topic=sap-whatsnew",
-      "tiles": [
-        {
-          "date": "27 September 2024",
-          "title": "Publish SAP ERP on IBM Db2 to IBM Power Virtual Server migration guide"
-        },
-        {
-          "date": "25 September 2024",
-          "title": "Update SAP-certified bare metal profiles for VPC"
-        }
-      ]
-    }
+    ]
   }
