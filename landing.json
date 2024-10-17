@@ -6,6 +6,10 @@
     "section_topics": {
       "links": [
         {
+          "title": "Get started",
+          "href": "/docs/sap?topic=sap-get-started"
+        },
+        {
           "title": "SAP Solutions on IBM Cloud Intel Bare Metal on Classic Infrastructure",
           "href": "/docs/sap?topic=sap-fast-path-site-map-intel-bm"
         },
@@ -29,16 +33,16 @@
     },
     "section_highlights": [
       {
-        "title": "IBM Cloud for SAP",
-        "description": "Why IBM Cloud for SAP.",
-        "href": "https://www.ibm.com/cloud/sap",
-        "type": "Web Site"
+        "title": "Automate SAP S/4HANA infrastructure deployment on IBM Power Virtual Server with deployable architectures",
+        "description": "How to automate the deployment of a complete landscape for an S/4HANA installation.",
+        "href": "https://www.ibm.com/blog/automate-sap-s-4hana-infrastructure-deployment-on-ibm-power-virtual-server-with-deployable-architectures/",
+        "type": "blog"
       },
       {
-        "title": "IBM and SAP partnership",
-        "description": "An introduction to the partnership between IBM and SAP.",
-        "href": "https://www.ibm.com/sap",
-        "type": "Web Site"
+        "title": "­Automate SAP deployments on IBM Cloud",
+        "description": "Get a quick overview of the SAP system deployment automation available on IBM Cloud.",
+        "href": "https://www.ibm.com/blog/announcement/automate-sap-deployments-on-ibm-cloud/",
+        "type": "blog"
       }
     ],
     "section_architectures": [
