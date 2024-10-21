@@ -126,7 +126,7 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
 
 5. Verify that you can access the URL used for this solution [Automation script for SAP solutions using a BASTION & STORAGE setup deployment through Terraform and IBM Schematics](https://github.com/IBM-Cloud/sap-bastion-setup).
 
-6. [Create an IAM service-to-service authorization for your VPN server and IBM Cloud Secrets Manager](/docs/vpc?topic=vpc-client-to-site-authentication#creating-iam-service-to-service). This will allow the client-to-site VPN service to access and use the secrets created under the Secret Manager instance.
+6. [Create an IAM service-to-service authorization for your VPN server and IBM Cloud Secrets Manager](/docs/vpc?topic=vpc-client-to-site-authentication#creating-iam-service-to-service). This will allow the client-to-site VPN service to access and use the secrets created under the Secrets Manager instance.
 
 ## Procedure
 
