@@ -1,0 +1,48 @@
+{
+    "version": 2,
+    "title": "SAP",
+    "introduction": "Find out how to run SAP Solutions on IBM Cloud. Review the documentation for your specific configuration.",
+    "product_page": "https://www.ibm.com/cloud/sap",
+    "section_topics": {
+      "links": [
+        {
+          "title": "Get started",
+          "href": "/docs/sap?topic=sap-get-started"
+        },
+        {
+          "title": "SAP Solutions on IBM Cloud Intel Bare Metal on Classic Infrastructure",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-intel-bm"
+        },
+        {
+          "title": "SAP Solutions on IBM Cloud Intel Bare Metal Servers on VPC Infrastructure",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-intel-bm-vpc"
+        },
+        {
+          "title": "SAP Solutions on IBM Cloud Intel Virtual Servers on VPC Infrastructure",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2"
+        },
+        {
+          "title": "SAP Solutions on IBM Power Virtual Servers",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-power-vs"
+        },
+        {
+          "title": "SAP Solutions on IBM Cloud for VMware on Classic Infrastructure",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-vmware-sddc"
+        }
+      ]
+    },
+    "section_highlights": [
+      {
+        "title": "Automate SAP S/4HANA infrastructure deployment on IBM Power Virtual Server with deployable architectures",
+        "description": "How to automate the deployment of a complete landscape for an S/4HANA installation.",
+        "href": "https://www.ibm.com/blog/automate-sap-s-4hana-infrastructure-deployment-on-ibm-power-virtual-server-with-deployable-architectures/",
+        "type": "blog"
+      },
+      {
+        "title": "­Automate SAP deployments on IBM Cloud",
+        "description": "Get a quick overview of the SAP system deployment automation available on IBM Cloud.",
+        "href": "https://www.ibm.com/blog/announcement/automate-sap-deployments-on-ibm-cloud/",
+        "type": "blog"
+      }
+    ]
+  }

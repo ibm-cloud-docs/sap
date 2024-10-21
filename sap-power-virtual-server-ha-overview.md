@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-16"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -149,6 +149,7 @@ Two virtual server instances are deployed in separate workspaces with different 
 - SAP HANA is installed on both virtual server instances, and SAP HANA System Replication is configured.
 - The two virtual server instances are configured as a two-node high availability cluster with their own subnets.
 - A cluster resource that uses the `powervs-subnet` resource agent is configured for `Subnet 3` and `IP address 3`.
+   Choose a small range for the Classless Inter-Domain Routing (CIDR), only `IP address 3` and an IP address for the gateway are allocated in `Subnet 3`.
 - SAP HANA database clients use `IP address 3` connect to the database.
 
 During *normal operation*

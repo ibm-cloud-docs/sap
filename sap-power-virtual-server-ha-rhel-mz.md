@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-10-09"
+lastupdated: "2024-10-16"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -651,36 +651,47 @@ Then the instructions refer to the following section.
 ## Creating a virtual IP address resource in the multizone region setup
 {: #ha-rhel-mz-define-subnet-resource}
 
-On NODE1, set the following environment variables.
-These variables are used with the next command and are required in addition to the environment variables used to create the cluster and stonith devices.
+To simplify the setup of the virtual IP address set the following environment variables on NODE1.
+These variables are required in addition to the environment variables used to create the cluster and stonith devices, and are used with the next command.
 
 ```sh
+export SUBNET_NAME="vip-${sid}-net"            # Name which is used to define the subnet in IBM Cloud
 export CIDR="CIDR of subnet"                   # CIDR of the subnet containing the service IP address
 export VIP="Service IP address"                # IP address in the subnet
-export APIKEY="APIKEY or path to file"         # API Key of the ServiceID
-export API_TYPE="private or public"            # Use private or public API endpoints
 export JUMBO="true or false"                   # Enable Jumbo frames
-export SUBNET_NAME="vip-${sid}-net"            # Name which is used to define the subnet in IBM Cloud
+export APIKEY="APIKEY or path to file"         # API Key of the IBM Cloud IAM ServiceID for the resource agent
+export API_TYPE="private or public"            # Use private or public API endpoints
 ```
 {: screen}
 
-When you create the ServiceID, you can copy its APIKEY and use the value to set the `APIKEY` environment variable.
-Alternatively, you can download the key as a JSON file.
-You can then place a copy of this file on both cluster nodes and set `APIKEY` to a string that starts with the `@` character followed by the full path to the key file.
+The variable `SUBNET_NAME` is set to the name for the subnet.
+The variable `CIDR` represents the Classless Inter-Domain Routing (CIDR) notation for the subnet.
+Specify `CIDR` in the format `<IPv4_address>/number`.
+The variable `VIP` is the IP address for the virtual IP address resource, and must belong to the `CIDR` of the subnet.
+Set variable `JUMBO` to `true` if you like to enable the subnet for a large MTU size.
+Set variable `API_TYPE` to `private` to communicate to IBM Cloud IAM and IBM Power Cloud API across private endpoints.
+
+When you are [Creating a service ID for the powervs-subnet resource agent](docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-iam-custom-role), you can copy its APIKEY and set the `APIKEY` environment variable to this value.
+Alternatively, you can download the key as a JSON file, and place a copy of this file on both cluster nodes.
+Then set the `APIKEY` environment variable to a string that starts with the `@` character, followed by the full path to the key file.
+
 The second option is recommended.
 {: note}
 
-The following example shows the environment variables that are needed.
+The following shows an example of the environment variables.
 
 ```sh
+export SUBNET_NAME="vip-mha-net"
 export CIDR="10.40.11.100/30"
 export VIP="10.40.11.102"
+export JUMBO="true"
 export APIKEY="@/root/.apikey.json"
 export API_TYPE="private"
-export JUMBO="true"
-export SUBNET_NAME="vip-mha-net"
 ```
 {: screen}
+
+Run the command `pcs resource describe powervs-subnet` on one of the cluster nodes to get information about the parameters for the resource agent.
+{: note}
 
 On NODE1, create a `powervs-subnet` resource by running the following command.
 
@@ -694,13 +705,15 @@ pcs resource create vip_${SID}_${INSTNO} powervs-subnet \
     vsi_host_map="${NODE1}:${POWERVSI_1};${NODE2}:${POWERVSI_2}" \
     jumbo=${JUMBO} \
     region=${CLOUD_REGION} \
-    proxy="http://${PROXY_IP}:3128" \
     subnet_name=${SUBNET_NAME} \
     op start timeout=720 \
     op stop timeout=300 \
     op monitor interval=60 timeout=30
 ```
 {: pre}
+
+If you set `API_TYPE` to `public` then you need to specify a `proxy` parameter in addition.
+{: note}
 
 
 
