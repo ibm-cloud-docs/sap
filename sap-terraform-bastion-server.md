@@ -124,7 +124,9 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
 
 4. [Generate an SSH key](/docs/vpc?topic=vpc-ssh-keys). The SSH key is required to access the provisioned VPC virtual server instances through the bastion host. After you create your SSH key, make sure to [upload this SSH key to your {{site.data.keyword.cloud_notm}} account](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-managing-ssh-keys#managing-ssh-keys-with-ibm-cloud-console) in the VPC region and resource group where you want to deploy the bastion server.
 
-5. Verify that you can access the URL used for this solution [Automation script for SAP solutions using a BASTION & STORAGE setup deployment through Terraform and IBM Schematics](https://github.com/IBM-Cloud/sap-bastion-setup). 
+5. Verify that you can access the URL used for this solution [Automation script for SAP solutions using a BASTION & STORAGE setup deployment through Terraform and IBM Schematics](https://github.com/IBM-Cloud/sap-bastion-setup).
+
+6. [Create an IAM service-to-service authorization for your VPN server and IBM Cloud Secrets Manager](/docs/vpc?topic=vpc-client-to-site-authentication#creating-iam-service-to-service). This will allow the client-to-site VPN service to access and use the secrets created under the Secret Manager instance.
 
 ## Procedure
 
