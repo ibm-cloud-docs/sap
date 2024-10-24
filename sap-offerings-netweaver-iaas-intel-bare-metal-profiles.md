@@ -68,7 +68,7 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP Ne
 {: #nw-iaas-intel-bm-hourly}
 
 The following Bare Metal servers are available on **Hourly** Consumption Billing:
-- BI.S3.NW32
-- BI.S4.NW192
-- BI.S4.NW384
-- BI.S4.NW768
+- BI.S3.NW32   (OS Options)
+- BI.S4.NW192  (OS Options)
+- BI.S4.NW384  (OS Options)
+- BI.S4.NW768  (OS Options)
