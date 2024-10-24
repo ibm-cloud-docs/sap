@@ -84,8 +84,6 @@ The Bare Metal profile names are contextual and sequential.  This example uses a
 {: #hana-iaas-intel-bm-hourly}
 
 The following Bare Metal servers are available on **Hourly** Consumption Billing:
-- BI.S3.H2.192
-- BI.S3.H2.384
 - BI.S4.H2.192 Appliance
 - BI.S4.H2.384 Appliance
 - BI.S4.H2.768 Appliance
