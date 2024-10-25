@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-20"
+lastupdated: "2024-10-25"
 
 subcollection: sap
 
@@ -78,10 +78,6 @@ To run the Terraform script, you should modify:
     * SSH Keys UUIDs allowed to connect to the secondary SAP HANA system
     * Profile of the primary SAP HANA system instance
     * OS image of the primary SAP HANA system
-    * SID of the primary SAP HANA system
-    * System number of the primary SAP HANA system
-    * SAP HANA tenants on the primary SAP HANA system
-    * SAP HANA system usage
 
 You can change the default SAP system configuration settings to match your solution. You must also specify the location where you downloaded the SAP kits.
 
@@ -209,11 +205,6 @@ The script takes 40 minutes to complete after a fresh install of SAP HANA primar
     ##########################################################
     # SAP HANA configuration
     ##########################################################
-    HANA_SID = "HDB"
-    HANA_SYSNO = "00"
-    HANA_TENANTS = ["HDB"]
-    HANA_SYSTEM_USAGE = "custom"
-    HANA_COMPONENTS = "server"
     KIT_SAPHANA_FILE = "/storage/HANADB/SP07/Rev73/51057281.ZIP"
     ```
 
@@ -292,17 +283,7 @@ Follow these steps to enable cross-region DR protection for a non-HA SAP HANA Sy
     |Parameter	|Description|
     |-----|-----|
     |HANA_MAIN_PASSWORD	|HANA system master password (Sensitive* value). |
-    |HANA_SID	|Existing SAP HANA system ID on the primary SAP HANA system.|
-    |HANA_SYSNO	|Existing SAP HANA instance number on the primary SAP HANA system.|
-    |HANA_TENANTS	|A list of existing SAP HANA tenant databases on the primary SAP HANA system. |
-    |HANA_SYSTEM_USAGE	|Existing system usage of the primary SAP HANA system. Valid values: "production”, "test\", "development", "custom"|
     |KIT_SAPHANA_FILE	|SAP HANA installation kit path.|
-
-    **SAP input parameters (Optional):**
-
-    |Parameter	|Description|
-    |-----|-----|
-    |HANA_COMPONENTS	|Existing SAP HANA components on the primary SAP HANA system. Default: server. |
 
     For more detailed description of each parameters, check the GitHub repo [Readme](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md) file, chapter “Input parameter file”. Also, ensure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the readme file, under the Input parameter file.
     Save each parameter that you modify.

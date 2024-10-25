@@ -1,18 +1,16 @@
 ---
-
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-12"
+  years: 2020, 2024
+lastupdated: "2024-10-25"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
 subcollection: sap
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Fast Path of IBM Power Virtual Servers
+# Fast Path of SAP Solutions and IBM Power Virtual Server
 {: #fast-path-site-map-power-vs}
 
 Use this collection of shortcuts to quickly access relevant documentation for each offering, excluding general information that applies to all offerings, such as SAP Sizing.
@@ -99,9 +97,9 @@ Use the following links if you need more help.
 ## More resources for SAP HANA
 {: #power-vs-sles-hana-information_resources_hana}
 
-The following links can help you install and configure your {{site.data.keyword.powerSys_notm}} instances with SAP HANA on Linux&reg;. Links with numerals in the title lead to the SAP Support Portal.
+The following links can help you install and configure your {{site.data.keyword.powerSys_notm}} instances with SAP HANA on Linux&reg;. Links with numerals in the title lead to the SAP for Me portal.
 
-### Operating systems – General Linux&reg;
+### Operating systems – Linux
 {: #power-vs-sles-hana-snote-os_linux}
 
 For more information about SAP on Linux, see the following table.
@@ -122,7 +120,7 @@ For more information about SAP on Linux, see the following table.
 | [401162 - Linux: Avoiding TCP/IP port conflicts and start problems](https://launchpad.support.sap.com/#/notes/401162){: external}              | Avoiding network-related start issues         |
 {: caption="Operating systems – general Linux" caption-side="top"}
 
-### Operating systems – SUSE Linux
+### Operating systems – SUSE Linux Enterprise Server (SLES)
 {: #power-vs-sles-hana-snote-suse_linux}
 
 For more information about SAP on SUSE Linux, see the following table.
@@ -139,7 +137,7 @@ For more information about SAP on SUSE Linux, see the following table.
 | [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/)                                                                              | IBM and SUSE                                  |
 {: caption="Operating systems – SUSE Linux&reg;" caption-side="top"}
 
-### Operating systems – Red Hat Linux&reg; (RHEL)
+### Operating systems – Red Hat Enterprise Linux (RHEL)
 {: #power-vs-rehl-hana-snote-redhat_linux}
 
 For more information about SAP on RHEL, see the following table.

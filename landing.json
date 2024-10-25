@@ -10,24 +10,24 @@
           "href": "/docs/sap?topic=sap-get-started"
         },
         {
-          "title": "SAP Solutions on IBM Cloud Intel Bare Metal on Classic Infrastructure",
+          "title": "SAP Solutions and IBM Cloud Intel Bare Metal Servers on Classic Infrastructure",
           "href": "/docs/sap?topic=sap-fast-path-site-map-intel-bm"
         },
         {
-          "title": "SAP Solutions on IBM Cloud Intel Bare Metal Servers on VPC Infrastructure",
+          "title": "SAP Solutions and IBM Cloud Intel Bare Metal Servers on VPC Infrastructure",
           "href": "/docs/sap?topic=sap-fast-path-site-map-intel-bm-vpc"
         },
         {
-          "title": "SAP Solutions on IBM Cloud Intel Virtual Servers on VPC Infrastructure",
+          "title": "SAP Solutions and IBM Cloud Intel Virtual Servers on VPC Infrastructure",
           "href": "/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2"
         },
         {
-          "title": "SAP Solutions on IBM Power Virtual Servers",
-          "href": "/docs/sap?topic=sap-fast-path-site-map-power-vs"
+          "title": "SAP Solutions and IBM Cloud for VMware on Classic Infrastructure",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-vmware-sddc"
         },
         {
-          "title": "SAP Solutions on IBM Cloud for VMware on Classic Infrastructure",
-          "href": "/docs/sap?topic=sap-fast-path-site-map-vmware-sddc"
+          "title": "SAP Solutions on IBM Power Virtual Server",
+          "href": "/docs/sap?topic=sap-fast-path-site-map-power-vs"
         }
       ]
     },

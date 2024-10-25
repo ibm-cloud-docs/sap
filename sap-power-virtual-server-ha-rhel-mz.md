@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-10-16"
+lastupdated: "2024-10-25"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -643,6 +643,7 @@ This completes the basic cluster implementation.
 You can now proceed with the specific instructions for your planned high availability scenario.
 {: note}
 
+
 Do not perform the following steps now.
 You must create a virtual IP address resource later during the cluster configuration of the specific multizone region high availability scenario.
 Then the instructions refer to the following section.
@@ -671,7 +672,7 @@ The variable `VIP` is the IP address for the virtual IP address resource, and mu
 Set variable `JUMBO` to `true` if you like to enable the subnet for a large MTU size.
 Set variable `API_TYPE` to `private` to communicate to IBM Cloud IAM and IBM Power Cloud API across private endpoints.
 
-When you are [Creating a service ID for the powervs-subnet resource agent](docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-iam-custom-role), you can copy its APIKEY and set the `APIKEY` environment variable to this value.
+When you are [Creating a service ID for the powervs-subnet resource agent](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-iam-custom-role), you can copy its APIKEY and set the `APIKEY` environment variable to this value.
 Alternatively, you can download the key as a JSON file, and place a copy of this file on both cluster nodes.
 Then set the `APIKEY` environment variable to a string that starts with the `@` character, followed by the full path to the key file.
 

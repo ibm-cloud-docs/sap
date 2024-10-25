@@ -81,8 +81,6 @@ toc:
               - sap-app-s4hana.md
               - sap-app-bw4hana.md
               - sap-app-commerce.md
-              - sap-app-b1.md
-              - sap-app-data-hub-2x.md
         - topicgroup:
             label: SAP AnyDB and SAP HANA extra additional design considerations
             topics:
@@ -93,20 +91,10 @@ toc:
               - sap-anydb-sap-iq.md
               - sap-anydb-sap-hana.md
         - topicgroup:
-            label: Operating Systems for SAP extra design considerations
-            topics:
-              - sap-os-rhel.md
-        - topicgroup:
             label: SAP Partner certified solutions
             topics:
               - sap-partners-veeam.md
               - sap-partners-ibm-security-services.md
-              - sap-partners-intel-optane-pmem.md
-        - topicgroup:
-            label: Innovations with IBM Cloud for SAP
-            topics:
-              - sap-ibm-abap-sdk-watson.md
-              - sap-ibm-cloud-migration-program.md
   - navgroup:
       id: tutorial
       topics:
@@ -117,10 +105,6 @@ toc:
             - sap-quickstudy-nw-bm-wins.md
             - sap-quickstudy-nw-vs-gen2-rhel.md
             - sap-quickstudy-nw-vs-gen2-wins.md
-      - topicgroup:
-          label: SAP Partner solution tutorials
-          topics:
-              - sap-tutorial-partner-veeam.md
   - navgroup:
       id: howto
       topics:
@@ -279,7 +263,7 @@ toc:
             - sap-monitoring-troubleshooting-and-maintenance.md
   - navgroup:
       id: reference
-      topics: 
+      topics:
         - topicgroup:
             label: Infrastructure Reference Architectures for SAP
             topics:
@@ -288,10 +272,6 @@ toc:
               - sap-refarch-nw-db2.md
               - sap-refarch-nw-mssql.md
               - sap-refarch-nw-hana.md
-        - topicgroup:
-            label: SAP automated workload responsibilities on IBM Cloud VPC
-            topics:
-              - sap-responsibilities-auto-workloads.md
   - navgroup:
       id: help
       topics:
