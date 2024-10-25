@@ -2,7 +2,7 @@
 copyright:
   years: 2023, 2024
 
-lastupdated: "2024-10-09"
+lastupdated: "2024-10-25"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -349,7 +349,7 @@ pcs status --full
 {: pre}
 
 
-### Creating a virtual IP address resource in a singlezone environment
+### Creating a virtual IP address resource in a single zone environment
 {: #ha-rhel-hana-sr-create-virtual-ip-resource}
 
 Perform the following steps if both cluster nodes are running in a single {{site.data.keyword.powerSys_notm}} workspace.

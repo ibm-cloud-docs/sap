@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-25"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, backup, restore, Db2, IBM Db2, HADR
 
@@ -58,6 +58,17 @@ The exact same commands are required on the target server as shown in chapter [R
 
 Set the following environment variables according to your needs.
 
+1. Start a C shell session as `root` user on the source system:
+
+   ```sh
+   csh
+   ```
+   {: pre}
+
+   The command syntax for defining environment variables depends on the shell type. 
+   Default shell type for Db2 and SAP administrator users `db2<sid>` and `<sid>adm` is the C shell.
+   When using the same shell, you can copy the command examples and paste them into your session environment.
+
 1. Define the hostname of the target migration system (example:`cdb6ecc1`) and replace it with your target hostname:
 
    ```sh
@@ -100,6 +111,13 @@ Set the following environment variables according to your needs.
 
    ```sh
    mkdir -p $BACKUPDIR
+   ```
+   {: pre}
+
+   and transfer the ownership of the backup directory to the Db2 administrator:
+
+   ```sh
+   chown $DB2ADM $BACKUPDIR
    ```
    {: pre}
 
@@ -177,6 +195,18 @@ Use the following steps to shut down the SAP application and deactivate the data
 
    If applications are still listed, stop the applications and check again. Only if the external applications still don't stop, try disconnecting applications from the database server with `db2 force applications all`.
    {: tip}
+
+1. Define the environment variables for the DB2ADM user again:
+
+   ```sh
+   set DBNAME=th1
+   ```
+   {: pre}
+
+   ```sh
+   set BACKUPDIR=/db2/backup
+   ```
+   {: pre}
 
 1. The IBM Db2 offline backup requires that the database is deactivated. Use the following command to deactivate the database:
 
@@ -272,8 +302,8 @@ Use the following steps to transfer the backup files.
 1. Copy the backup files from the source SAP system to the target:
 
    ```sh
-   scp $BACKUPDIR/*$TIMESTAMP* \
-       $TARGETSERVER:$BACKUPDIR
+   scp ${BACKUPDIR}/*${TIMESTAMP}* \
+       ${TARGETSERVER}:${BACKUPDIR}
    ```
    {: pre}
 
@@ -520,7 +550,14 @@ The same commands are required on the target server as noted in [Restoring the d
    mkdir -p $BACKUPDIR
    ```
    {: pre}
+   
+   and transfer the ownership of the backup directory to the Db2 administrator:
 
+   ```sh
+   chown $DB2ADM $BACKUPDIR
+   ```
+   {: pre}
+   
    This backup directory needs enough space to store the compressed backup files. Determine the current IBM Db2 database size by calling the `GET_DBSIZE_INFO` procedure. For more information, see [GET_DBSIZE_INFO procedure](https://www.ibm.com/docs/en/db2/11.5?topic=views-get-dbsize-info-database-size-capacity){: external}.
    {: tip}
 
@@ -589,10 +626,26 @@ A downtime is required to enable archive logging.
    ```
    {: pre}
 
+1. Quit the SAP administrative user:
+
+   ```sh
+   exit
+   ```
+   {: pre}
+
+1. Switch to the IBM Db2 administration account:
+
+   ```sh
+   su - $DB2ADM
+   ```
+   {: pre}
+
+1. Use the saved commands to ensure environment variables like `DBNAME` and `BACKUPDIR` are set.
+
 1. Define a directory for log archive files:
 
    ```sh
-   LOGARCHDIR=/db2/log_archive
+   set LOGARCHDIR=/db2/log_archive
    ```
    {: pre}
 
@@ -708,8 +761,8 @@ Use the following steps to transfer the backup files to the target system.
 1. Copy the backup files from the source SAP system to the target system:
 
    ```sh
-   scp $BACKUPDIR/*$TIMESTAMP* \
-       $TARGETSERVER:$BACKUPDIR
+   scp ${BACKUPDIR}/*${TIMESTAMP}* \
+       ${TARGETSERVER}:${BACKUPDIR}
    ```
    {: pre}
 
@@ -838,7 +891,7 @@ Use the following commands to configure both systems:
 1. Local host is the system that the `hostname` command reports to:
 
    ```sh
-   db2 "update db cfg for $DBNAME using HADR_LOCAL_HOST $(hostname)"
+   db2 "update db cfg for $DBNAME using HADR_LOCAL_HOST `hostname`"
    ```
    {: pre}
 
