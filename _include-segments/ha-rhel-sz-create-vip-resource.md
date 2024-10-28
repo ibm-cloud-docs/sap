@@ -16,10 +16,8 @@ echo $VIP
 ```
 {: pre}
 
-{{ VIP_RESOURCE_NAME }}
-
 ```sh
-pcs resource create {{ VIP_RESOURCE_NAME }} IPaddr2 ip=$VIP
+pcs resource create vip_${SID}_${INSTNO} IPaddr2 ip=$VIP
 ```
 {: pre}
 
