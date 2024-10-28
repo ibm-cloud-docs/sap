@@ -68,15 +68,7 @@ During the first phase, two virtual server instances, with SAP certified storage
 During the second phase, the Ansible playbooks are called and the SAP architecture is installed for both dedicated VSIs: SAP App VSI system and dedicated SAP HANA VSI box.
 The SAP architecture that is deployed is the SAP NW 7.x release on a stand-alone dedicated SAP HANA 2.0 box.
 
-The [IBM Cloud Activity Tracker](https://cloud.ibm.com/docs/activity-tracker?topic=activity-tracker-getting-started) service should be used to capture the records of your {{site.data.keyword.cloud_notm}} activities and monitor the activity of your {{site.data.keyword.cloud_notm}} account. You can use this service to investigate abnormal activity, critical actions, and comply with regulatory audit requirements. In addition, you can be alert on the actions as they occur. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard.
-
-You can deploy an Activity Tracker instance along with the SAP system by using the SAP deployment Automation or if you already have created one, you can specify the Activity Tracker name in the deployment variables. You can set the Activity Tracker plan variable according to your chosen [Service plans](https://cloud.ibm.com/docs/activity-tracker?topic=activity-tracker-service_plan). By default, the Lite (free) plan is selected. For more information on how to provision an Activity Tracker instance, see [here](https://cloud.ibm.com/docs/activity-tracker?topic=activity-tracker-getting-started).
-
-Important:
-
-* Every user who accesses the {{site.data.keyword.cloud_notm}} Activity Tracker service in your account must be assigned an access policy with an IAM user role defined. The policy determines what actions the user can perform within the context of the service or instance you select. The allowable actions are customized and defined as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles. For more information, see [here](https://cloud.ibm.com/docs/services/activity-tracker?topic=activity-tracker-iam).
-
-* You can provision only one instance of the service per {{site.data.keyword.cloud_notm}} region.
+You can provision only one instance of the service per {{site.data.keyword.cloud_notm}} region.
 
 {{site.data.keyword.cloud_notm}} Activity Tracker provides a solution for administrators to capture, store, view, search, and monitor API activity in a single place. It also offers a notification feature to alert you by using any of the supported notification channels.
 
@@ -361,30 +353,6 @@ Use these steps to create the VPC resources and install the SAP architecture. Th
     APP-PROFILE		= "bx2-4x16"
     APP_IMAGE = "ibm-redhat-8-6-amd64-sap-applications-2"
     ```
-
-    Edit your IBM Cloud Activity Tracker (only for ABAP stack) input variables below:
-
-    ``` terraform
-    # Activity Tracker variables:
-    ATR_PROVISION = "true"
-    # Activity Tracker : Disable this to not provision Activity Tracker instance. 
-    # If an Activity Tracker instance already exists in the same region where this solution is to be deployed then  
-    # disable (ATR_PROVISION = "false") this to avoid provisioning an Activity Tracker instance. 
-    # A new instance of Activity Tracker will be deployed with this solution if ATR_PROVISION=true
-    # Example to create Activity Tracker instance: ATR_PROVISION = "true"
-    # Example to integrate existing Activity Tracker instance : ATR_PROVISION = "false"
-    ATR_NAME = "Activity-Tracker-COS-eu-de"
-    # Provide the Activity Tracker instance name to create or 
-    # provide the existing Activity Tracker instance name in the same region where this solution is to be be deployed.
-    # Example: ATR_NAME = "Activity-Tracker-COS-eu-de"
-    ATR_TAGS = [""]
-    # Activity Tracker: (Optional) only if ATR_PROVISION = "true", tags that should be applied to the Activity Tracker instance.
-    # example ATR_TAGS = ["activity-tracker-cos"]
-    ATR_PLAN = "lite"
-    # Mandatory only if ATR_PROVISION is set to true. Activity Tracker: The type of plan the service instance should run under (lite, 7-day, 14-day, or 30-day). 
-    # The list of service plan is avaialble here: https://cloud.ibm.com/docs/activity-tracker?topic=activity-tracker-service_plan#service_plan"
-    # Example ATR_PLAN = "lite"
-    ```
     
     The hostname must have up to 13 characters as required by SAP. For more information about the rules that apply to hostnames for SAP systems, see SAP Note 611361 - Hostnames of SAP ABAP Platform servers
 
@@ -504,7 +472,6 @@ This document is referenced by:
 *	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
 *	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 *	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
-*   [IBM Cloud Activity Tracker](https://cloud.ibm.com/docs/activity-tracker?topic=activity-tracker-getting-started)
 
 This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
 {: note}
