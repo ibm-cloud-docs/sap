@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-10-28"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -716,7 +716,8 @@ pcs resource create vip_${SID}_${INSTNO} powervs-subnet \
 If you set `API_TYPE` to `public` then you need to specify a `proxy` parameter in addition.
 {: note}
 
-
+Ensure that both virtual server instances of the cluster have status `Active` and health status `OK` before running the `pcs resource config` command.
+{: important}
 
 Check the configured virtual IP address resource and the cluster status.
 
