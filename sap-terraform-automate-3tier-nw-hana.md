@@ -23,9 +23,6 @@ subcollection: sap
 # Automating SAP NetWeaver 7.x on HANA db 3-tier architecture on {{site.data.keyword.cloud}} VPC (Terraform and Ansible)
 {: #create-terraform-3tier-nw-hana-vpc-ansible}
 
-As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
-{: important}
-
 You can use Terraform scripts to create a single-tier VPC and also create SAP and SAP HANA infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbooks to create the SAP architecture on the specified VPC. Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
 {: shortdesc}
 
@@ -68,13 +65,6 @@ During the first phase, two virtual server instances, with SAP certified storage
 During the second phase, the Ansible playbooks are called and the SAP architecture is installed for both dedicated VSIs: SAP App VSI system and dedicated SAP HANA VSI box.
 The SAP architecture that is deployed is the SAP NW 7.x release on a stand-alone dedicated SAP HANA 2.0 box.
 
-You can provision only one instance of the service per {{site.data.keyword.cloud_notm}} region.
-
-{{site.data.keyword.cloud_notm}} Activity Tracker provides a solution for administrators to capture, store, view, search, and monitor API activity in a single place. It also offers a notification feature to alert you by using any of the supported notification channels.
-
-{{site.data.keyword.cloud_notm}} Activity Tracker collects and stores audit records for API calls made to resources that run in the {{site.data.keyword.cloud_notm}}. You can archive these events on {{site.data.keyword.cloud_notm}} for long-term storage.
-{: note}
-
 ![Figure 1. Sample reference architecture](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x with SAP HANA standard 3-tier installation to {{site.data.keyword.cloud_notm}} VPC"){: caption="SAP NetWeaver 7.x with SAP HANA standard 3-tier installation to {{site.data.keyword.cloud_notm}} VPC" caption-side="bottom"}
 
 The scripts are designed to install SAP (SAP NW 7.x release) solution together with its dedicated DB SAP HANA box in one task flow.
@@ -95,19 +85,12 @@ Other configuration files are provided and no modification is required.
 ## Virtual server instance configuration
 {: #terraform-3tier-nw-hana-vsi-config}
 
-Following are the supported operating system images for SAP NetWeaver primary application server:
+The supported operating systems for SAP NetWeaver primary application server are the following and for HANA database are: 
 
-*  ibm-redhat-8-6-amd64-sap-applications-2
-*  ibm-redhat-8-4-amd64-sap-applications-2
-*  ibm-sles-15-4-amd64-sap-applications-3
-*  ibm-sles-15-3-amd64-sap-applications-2
-
-Following are the supported operating system images for HANA database:
-
-*  ibm-redhat-8-6-amd64-sap-hana-2
-*  ibm-redhat-8-4-amd64-sap-hana-2
-*  ibm-sles-15-4-amd64-sap-hana-1
-*  ibm-sles-15-3-amd64-sap-hana-2
+* Red Hat Enterprise Linux 8.6 for SAP
+* Red Hat Enterprise Linux 8.4 for SAP
+* SUSE Linux Enterprise Server 15 SP 4 for SAP
+* SUSE Linux Enterprise Server 15 SP 3 for SAP
 
 For both server instances, the provided SSH key is used to access the VSIs via SSH as a `root` user.
 
@@ -118,7 +101,7 @@ For both server instances, the provided SSH key is used to access the VSIs via S
 The configuration and script files are available in the GitHub repository:
 
 *   ABAP: https://github.com/IBM-Cloud/sap-netweaver-abap-hana/tree/main
-*   Java: https://github.com/IBM-Cloud/sap-netweaver-java-hana/tree/main/schematics
+*   Java: https://github.com/IBM-Cloud/sap-netweaver-java-hana/tree/main
 
 When the {{site.data.keyword.bpshort}} interface is used, the following information should be provided:
 *   the workspace information.
@@ -226,38 +209,39 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
       |SUBNET	|The name of an EXISTING Subnet. The list of Subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets). |
       |VPC	|The name of an EXISTING VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs).|
       |ZONE	|The cloud zone where to deploy the solution.
-      |hana_main_password	|Common password for all users that are created during the installation. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images). |
-      |ibmcloud_api_key	|IBM Cloud API key (Sensitive* value).|
-      |private_ssh_key	|Input your id_rsa private key pair content in OpenSSH format (Sensitive* value). This private key should be used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.|
-      |sap_main_password	|Common password for all users that are created during the installation. See [Obs* section](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md). |
+      |HANA_MAIN_PASSWORD	|Common password for all users that are created during the installation. A list of images is available here. |
+      |IBMCLOUD_API_KEY	|IBM Cloud API key (Sensitive* value).|
+      |PRIVATE_SSH_KEY	|Input your id_rsa private key pair content in OpenSSH format (Sensitive* value). This private key should be used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.|
+      |SAP_MAIN_PASSWORD	|Common password for all users that are created during the installation. See Obs* section. |
     
    * **Optional input variables** - Review and update the optional parameters. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md).
 
       |Parameter	|Description|
       |-----|-----|
-      |APP-IMAGE	|The OS image used for SAP Application VSI. See [Obs* section](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md). A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
-      |APP-PROFILE	|The instance profile used for SAP Application VSI. A list of profiles is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles). For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check SAP Note 2927211: "SAP Applications on IBM Virtual Private Cloud".|
-      |DB-IMAGE	|The OS image used for HANA VSI. See [Obs* section](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md). A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
-      |DB-PROFILE	|The instance profile used for the HANA VSI. The list of profiles is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles). For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check SAP Note 2927211: "SAP Applications on IBM Virtual Private Cloud".|
+      |APP_IMAGE	|The OS image used for SAP Application VSI. See Obs* section. A list of images is available here.|
+      |APP_PROFILE	|The instance profile used for SAP Application VSI. A list of profiles is available here. For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check SAP Note 2927211: "SAP Applications on IBM Virtual Private Cloud".|
+      |DB_IMAGE	|The OS image used for HANA VSI. See Obs* section. A list of images is available here.|
+      |DB_PROFILE	|The instance profile used for the HANA VSI. The list of profiles is available here. For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check SAP Note 2927211: "SAP Applications on IBM Virtual Private Cloud".|
       |ID_RSA_FILE_PATH	|The file path for private_ssh_key is automatically generated by default. If it is changed, it must contain the relative path from git repo folders.|
-      |hana_components	|SAP HANA Components. Default: "server". Valid values: "all", "client", "es", "ets", "lcapps", "server", "smartda", "streaming", "rdsync", "xs", "studio", "afl", "sca", "sop", "eml", "rme", "rtl", "trp".|
-      |hana_sid	|The SAP system ID identifies the SAP HANA system.|
-      |hana_sysno |Specifies the instance number of the SAP HANA system.|
-      |hana_system_usage	|System Usage. Default: "custom". Valid values: "production", "test", "development", "custom".|
-      |hdb_concurent_jobs	|Number of concurrent jobs used to load and/or extract archives to HANA Host.|
-      |kit_hdbclient_file	|Path to the HANA DB client archive (SAR), as downloaded from SAP Support Portal.|
-      |kit_igsexe_file	|Path to the IGS archive (SAR), as downloaded from SAP Support Portal.|
-      |kit_igshelper_file	|Path to the IGS Helper archive (SAR), as downloaded from SAP Support Portal.|
-      |kit_nwhana_export	|Path to the NetWeaver Installation Export dir. The archives downloaded from SAP Support Portal should be present in this path.|
-      |kit_sapcar_file	|Path to the sapcar binary, as downloaded from SAP Support Portal.|
-      |kit_sapexe_file	|Path to the SAP Kernel OS archive (SAR), as downloaded from SAP Support Portal.|
-      |kit_sapexedb_file	|Path to the SAP Kernel DB archive (SAR), as downloaded from SAP Support Portal.|
-      |kit_saphana_file	|Path to the SAP HANA ZIP file. See [Obs* section](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md). As downloaded from SAP Support Portal.|
-      |kit_saphotagent_file	|Path to the SAP Host Agent archive (SAR), as downloaded from SAP Support Portal.|
-      |kit_swpm_file	|Path to SWPM archive (SAR), as downloaded from SAP Support Portal.|
-      |sap_ascs_instance_number	|Technical identifier for the internal processes of ASCS.|
-      |sap_ci_instance_number	|Technical identifier for the internal processes of CI.|
-      |sap_sid	|The SAP system ID identifies the entire SAP system.|
+      |HANA_COMPONENTS	|SAP HANA Components. Default: "server". Valid values: "all", "client", "es", "ets", "lcapps", "server", "smartda", "streaming", "rdsync", "xs", "studio", "afl", "sca", "sop", "eml", "rme", "rtl", "trp".|
+      |HANA_SID	|The SAP system ID identifies the SAP HANA system.|
+      |HANA_SYSNO |Specifies the instance number of the SAP HANA system.|
+      |HANA_SYSTEM_USAGE	|System Usage. Default: "custom". Valid values: "production", "test", "development", "custom".|
+      |HDB_CONCURENT_JOBS	Number of concurrent jobs used to load and/or extract archives to HANA Host.|
+      |KIT_HDB_CLIENT_FILE	|Path to the HANA DB client archive (SAR), as downloaded from SAP Support Portal.|
+      |KIT_IGSEXE_FILE	|Path to the IGS archive (SAR), as downloaded from SAP Support Portal.|
+      |KIT_IGSHELPER_FILE	|Path to the IGS Helper archive (SAR), as downloaded from SAP Support Portal.|
+      |KIT_NWHANA_EXPORT_FILE	|Path to the NetWeaver Installation Export ZIP File. The archives downloaded from SAP Support Portal should be present in this path.|
+      |KIT_SAPCAR_FILE	|Path to the sapcar binary, as downloaded from SAP Support Portal.|
+      |KIT_SAPEXE_FILE	|Path to the SAP Kernel OS archive (SAR), as downloaded from SAP Support Portal.|
+      |KIT_SAPEXEDB_FILE	|Path to the SAP Kernel DB archive (SAR), as downloaded from SAP Support Portal.|
+      |KIT_SAPHANA_FILE	|Path to the SAP HANA ZIP file. See [Obs* section](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md). As downloaded from SAP Support Portal.|
+      |KIT_SAPHOSTAGENT_FILE	|Path to the SAP Host Agent archive (SAR), as downloaded from SAP Support Portal.|
+      |KIT_SWPM_FILE	|Path to SWPM archive (SAR), as downloaded from SAP Support Portal.|
+      |SAP_ASCS_INSTANCE_NUMBER	|Technical identifier for the internal processes of ASCS.|
+      |SAP_CI_INSTANCE_NUMBER	|Technical identifier for the internal processes of CI.|
+      |SAP_SID	|The SAP system ID identifies the entire SAP system.|
+      |HANA_TENANT |SAP HANA tenant name.|
 
 6. Accept the license agreement.
 7. Select **Deploy**. The deployment starts and you are directed to the {{site.data.keyword.bpshort}} page that displays the script log files for you to monitor the deployment progress.
@@ -344,14 +328,14 @@ Use these steps to create the VPC resources and install the SAP architecture. Th
     SSH_KEYS        = [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a" , "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
 
     # SAP Database VSI variables:
-    DB-HOSTNAME     = "sapnwhdb"
-    DB-PROFILE      = "mx2-16x128"
-    DB_IMAGE        = "ibm-redhat-8-6-amd64-sap-hana-2"
+    DB_HOSTNAME     = "sapnwhdb"
+    DB_PROFILE      = "mx2-16x128"
+    DB_IMAGE        = "ibm-redhat-8-6-amd64-sap-hana-6"
 
     # SAP APPs VSI variables:
-    APP-HOSTNAME	= "sapnwci"
-    APP-PROFILE		= "bx2-4x16"
-    APP_IMAGE = "ibm-redhat-8-6-amd64-sap-applications-2"
+    APP_HOSTNAME	= "sapnwci"
+    APP_PROFILE	= "bx2-4x16"
+    APP_IMAGE 	= "ibm-redhat-8-6-amd64-sap-applications-6"
     ```
     
     The hostname must have up to 13 characters as required by SAP. For more information about the rules that apply to hostnames for SAP systems, see SAP Note 611361 - Hostnames of SAP ABAP Platform servers
@@ -391,32 +375,33 @@ Use these steps to create the VPC resources and install the SAP architecture. Th
     For ABAP:
     ``` terraform
     # HANA DB configuration for ABAP stack
-    hana_sid                 = "HDB"
-    hana_sysno               = "00"
-    hana_system_usage        = "custom"
-    hana_components          = "server"
+    HANA_SID                = "HDB"
+    HANA_SYSNO              = "00"
+    HANA_TENANT		= "NWD"
+    HANA_SYSTEM_USAGE       = "custom"
+    HANA_COMPONENTS 	= "server"
 
     # SAP HANA Installation kit path
-    kit_saphana_file         = "/storage/HANADB/51055299.ZIP"
+    KIT_SAPHANA_FILE 	= "/storage/HANADB/SP07/Rev73/51057281.ZIP"
 
     # SAP system configuration
-    sap_sid = "NWD"
-    sap_ascs_instance_number = "01"
-    sap_ci_instance_number   = "00"
+    SAP_SID = "NWD"
+    SAP_ASCS_INSTANCE_NUMBER = "01"
+    SAP_CI_INSTANCE_NUMBER 	 = "00"
 
     # Number of concurrent jobs used to load and/or extract archives to HANA Host
-    hdb_concurrent_jobs      = "12"
+    HDB_CONCURRENT_JOBS 	 = "12"
 
     # SAP NW APP Installation kit path
-    kit_sapcar_file = "/storage/NW75HDB/SAPCAR_1010-70006178.EXE"
-    kit_swpm_file = "/storage/NW75HDB/SWPM10SP31_7-20009701.SAR"
-    kit_sapexe_file = "/storage/NW75HDB/SAPEXE_801-80002573.SAR"
-    kit_sapexedb_file = "/storage/NW75HDB/SAPEXEDB_801-80002572.SAR"
-    kit_igsexe_file = "/storage/NW75HDB/igsexe_13-80003187.sar"
-    kit_igshelper_file = "/storage/NW75HDB/igshelper_17-10010245.sar"
-    kit_saphotagent_file = "/storage/NW75HDB/SAPHOSTAGENT51_51-20009394.SAR"
-    kit_hdbclient_file = "/storage/NW75HDB/IMDB_CLIENT20_009_28-80002082.SAR"
-    kit_nwhana_export = "/storage/NW75HDB/ABAPEXP"
+    KIT_SAPCAR_FILE 	 = "/storage/NW75HDB/SAPCAR_1300-70007716.EXE"
+    KIT_SWPM_FILE 		 = "/storage/NW75HDB/SWPM10SP42_0-20009701.SAR"
+    KIT_SAPEXE_FILE 	 = "/storage/NW75HDB/KERNEL/754/SAPEXE_400-80007612.SAR"
+    KIT_SAPEXEDB_FILE 	 = "/storage/NW75HDB/KERNEL/754/SAPEXEDB_400-80007611.SAR"
+    KIT_IGSEXE_FILE 	 = "/storage/NW75HDB/KERNEL/754/igsexe_4-80007786.sar"
+    KIT_IGSHELPER_FILE 	 = "/storage/NW75HDB/igshelper_17-10010245.sar"
+    KIT_SAPHOSTAGENT_FILE 	 = "/storage/NW75HDB/SAPHOSTAGENT65_65-80004822.SAR"
+    KIT_HDBCLIENT_FILE 	 = "/storage/NW75HDB/IMDB_CLIENT20_022_27-80002082.SAR"
+    KIT_NWHANA_EXPORT_FILE   = "/storage/NW75HDB/ABAPEXP/51050829_3.ZIP"
     ```
 
 5. Initialize the Terraform CLI. 
@@ -430,7 +415,7 @@ Use these steps to create the VPC resources and install the SAP architecture. Th
    ``` terraform
    terraform plan --out plan1
    ```
-    You must enter an SAP main password.
+    You will be asked for SAP main password, HANA main password, and the API key.
     
     The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain !. It must not start with a digit or an underscore ( _ ).
 
@@ -449,8 +434,6 @@ Use these steps to create the VPC resources and install the SAP architecture. Th
 Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results. 
 
 If you need to remove your VPC, go to your project folder and run ``terraform destroy``.
-
-If the resources created with the SAP deployment automation is removed, the Activity Tracker instance is also removed, if it is provisioned at the same time with the SAP solution (when ATR_PROVISION parameter is set to `true` during the deployment of the SAP solution).
 
 ## Related information
 
