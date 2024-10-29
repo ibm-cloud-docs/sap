@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-10-28"
+lastupdated: "2024-10-29"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -634,14 +634,19 @@ pcs resource describe powervs-subnet
 ```
 {: pre}
 
+
 ### Creating a service ID for the `powervs-subnet` resource agent
 {: #ha-rhel-mz-iam-custom-role}
 
 Follow the steps in [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id) to create a `Service ID` and an `API key` for the `powervs-subnet` resource agent.
 
-This completes the basic cluster implementation.
+## Conclusion
+{: #ha-rhel-mz-conclusion}
+
+This completes the basic cluster implementation and the necessary preparations for creating a `powervs-subnet` cluster resource.
+The `powervs-subnet` cluster resource itself is created during the configuration of the specific high availability scenario.
+
 You can now proceed with the specific instructions for your planned high availability scenario.
-{: note}
 
 
 Do not perform the following steps now.
@@ -676,7 +681,7 @@ When you are [Creating a service ID for the powervs-subnet resource agent](/docs
 Alternatively, you can download the key as a JSON file, and place a copy of this file on both cluster nodes.
 Then set the `APIKEY` environment variable to a string that starts with the `@` character, followed by the full path to the key file.
 
-The second option is recommended.
+The second option is the preferred one.
 {: note}
 
 The following shows an example of the environment variables.
