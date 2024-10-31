@@ -282,7 +282,7 @@ The key is available for 300 seconds.
 After 300 seconds, you won't be able to view or retrieve the key.
 {: important}
 
-### Collecting parameters for configuring a RHEL HA Add-On cluster
+## Collecting parameters for configuring a RHEL HA Add-On cluster
 {: #ha-rhel-collect-parameters-for-cluster-config}
 
 There are several parameters that are required to set up a specific high availability scenario.

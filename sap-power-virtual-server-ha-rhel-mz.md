@@ -95,7 +95,7 @@ export POWERVSI_2=<POWERVSI_2>           # Virtual server instance id
 ```
 {: codeblock}
 
-To find the settings for the `APIKEY`, `IBMCLOUD_CRN_?`, `GUID_?`, and `POWERVSI_?` variables, follow the steps in [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-collect-parameters-for-cluster-config).
+To find the settings for the `APIKEY`, `IBMCLOUD_CRN_?`, `GUID_?`, and `POWERVSI_?` variables, follow the steps in [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config).
 
 ## Installing and configuring a RHEL HA Add-On cluster
 {: #ha-rhel-mz-install-and-configure-rhel-ha-cluster}

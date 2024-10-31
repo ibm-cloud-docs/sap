@@ -114,10 +114,10 @@ The following is an example of how to set the extra environment variables that a
 
 ```sh
 export CLOUD_REGION="eu-de"
-export IBMCLOUD_CRN_1="crn:v1:bluemix:public:power-iaas:eu-de-2:a/56d7525df12343bf851224e58eff1898:173f212d-9b08-4629-992c-edfdc1be29ea::"
-export IBMCLOUD_CRN_2="crn:v1:bluemix:public:power-iaas:eu-de-1:a/56d7525df12343bf851224e58eff1898:e6b49db9-20d1-4ffe-976a-0c9c37595ca1::"
-export POWERVSI_1="6f2a522d-bfca-4033-9f05-c0ffcfb1fbb0"
-export POWERVSI_2="712ec06b-7eda-41c9-ae11-990e7f08efc0"
+export IBMCLOUD_CRN_1="crn:v1:bluemix:public:power-iaas:eu-de-2:***:***::"
+export IBMCLOUD_CRN_2="crn:v1:bluemix:public:power-iaas:eu-de-1:***:***::"
+export POWERVSI_1="***"
+export POWERVSI_2="***"
 export SUBNET_NAME="vip-mha-net"
 export CIDR="10.40.11.100/30"
 export VIP="10.40.11.102"
