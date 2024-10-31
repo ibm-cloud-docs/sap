@@ -52,20 +52,78 @@ The instructions are based on the Red Hat product documentation and articles tha
 {: #ha-rhel-hana-sr-prepare-environment-variables}
 
 To simplify the setup, prepare the following environment variables for root on both nodes.
-These environment variables are used in subsequent commands in the remainder of the examples.
+These environment variables are used with later operating system commands in this information.
 
-On both nodes, run the following commands.
+On both nodes, set the following environment variables.
 
 ```sh
+# General settings
 export SID=<SID>            # SAP HANA System ID (uppercase)
 export sid=<sid>            # SAP HANA System ID (lowercase)
-export INSTNO=<INSTNO>      # SAP HANA Instance Number
+export INSTNO=<INSTNO>      # SAP HANA instance number
 
-export DC1=<Site1>          # HANA System Replication Site Name 1
-export DC2=<Site2>          # HANA System Replication Site Name 2
+# Cluster node 1
+export NODE1=<HOSTNAME_1>   # Virtual server instance hostname
+export DC1="Site1"          # HANA System Replication site name
 
-export NODE1=<Hostname 1>   # Hostname of virtual server instance 1
-export NODE2=<Hostname 2>   # Hostname of virtual server instance 2
+# Cluster node 2
+export NODE2=<HOSTNAME_2>   # Virtual server instance hostname
+export DC2="Site2"          # HANA System Replication site name
+
+# Single zone
+export VIP=<IP address>     # SAP HANA System Replication cluster virtual IP address
+
+# Multizone region
+export CLOUD_REGION=<CLOUD_REGION>       # Multizone region name
+export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace 1 CRN
+export IBMCLOUD_CRN_2=<IBMCLOUD_CRN_2>   # Workspace 2 CRN
+export POWERVSI_1=<POWERVSI_1>           # Virtual server instance 1 id
+export POWERVSI_2=<POWERVSI_2>           # Virtual server instance 2 id
+export SUBNET_NAME="vip-${sid}-net"      # Name which is used to define the subnet in IBM Cloud
+export CIDR="CIDR of subnet"             # CIDR of the subnet containing the service IP address
+export VIP="Service IP address"          # IP address in the subnet
+export JUMBO="true or false"             # Enable Jumbo frames
+export APIKEY="APIKEY or path to file"   # API Key of the IBM Cloud IAM ServiceID for the resource agent
+export API_TYPE="private or public"      # Use private or public API endpoints
+```
+{: codeblock}
+
+#### Setting extra environment variables for a single zone implementation
+{: #ha-rhel-hana-sr-sz-prepare-environment-variables}
+
+Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA System Replication cluster.
+Set the `VIP`environment variable to the reserved IP address.
+
+#### Setting extra environment variables for a multizone region implementation
+{: #ha-rhel-hana-sr-mz-prepare-environment-variables}
+
+The `SUBNET_NAME` variable contains the name of the subnet.
+The `CIDR` variable represents the *Classless Inter-Domain Routing (CIDR)* notation for the subnet in the format `<IPv4_address>/number`.
+The `VIP` variable is the IP address of the virtual IP address resource and must belong to the `CIDR` of the subnet.
+Set the `JUMBO` variable to `true` if you want to enable the subnet for a large MTU size.
+Set the `API_TYPE` variable to `private` to communicate with the IBM Cloud IAM and IBM Power Cloud API via private endpoints.
+
+When you are [Creating a service ID for the powervs-subnet resource agent](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-iam-custom-role), you can copy its APIKEY and set the `APIKEY` environment variable to this value.
+Alternatively, you can download the key as a JSON file, and place a copy of this file on both cluster nodes.
+Then set the `APIKEY` environment variable to a string that starts with the `@` character, followed by the full path to the key file.
+
+The second option is the preferred one.
+{: note}
+
+The following is an example of how to set the extra environment variables that are required for a multizone region implementation.
+
+```sh
+export CLOUD_REGION="eu-de"
+export IBMCLOUD_CRN_1="crn:v1:bluemix:public:power-iaas:eu-de-2:a/56d7525df12343bf851224e58eff1898:173f212d-9b08-4629-992c-edfdc1be29ea::"
+export IBMCLOUD_CRN_2="crn:v1:bluemix:public:power-iaas:eu-de-1:a/56d7525df12343bf851224e58eff1898:e6b49db9-20d1-4ffe-976a-0c9c37595ca1::"
+export POWERVSI_1="6f2a522d-bfca-4033-9f05-c0ffcfb1fbb0"
+export POWERVSI_2="712ec06b-7eda-41c9-ae11-990e7f08efc0"
+export SUBNET_NAME="vip-mha-net"
+export CIDR="10.40.11.100/30"
+export VIP="10.40.11.102"
+export JUMBO="true"
+export APIKEY="@/root/.apikey.json"
+export API_TYPE="private"
 ```
 {: codeblock}
 
@@ -360,24 +418,8 @@ Depending on the scenario, proceed to one of the following sections:
 #### Creating a virtual IP address cluster resource in a single zone environment
 {: #ha-rhel-hana-sr-sz-create-virtual-ip-resource}
 
-Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA System Replication cluster.
-
 Use the reserved IP address to create a virtual IP address cluster resource.
 This virtual IP address is used to reach the SAP HANA System Replication primary instance.
-
-On NODE1, assign the reserved IP address to the `VIP` environment variable.
-
-```sh
-export VIP=<reserved IP address>
-```
-{: screen}
-
-Verify the environment variable.
-
-```sh
-echo $VIP
-```
-{: pre}
 
 Create the virtual IP address cluster resource with the following command.
 
@@ -404,44 +446,6 @@ Proceed to the [Creating cluster resource constraints](#ha-rhel-hana-sr-create-c
 {: #ha-rhel-hana-sr-mz-create-virtual-ip-resource}
 
 Verify the completion of all steps in the [Preparing a multi-zone RHEL HA Add-On cluster for a virtual IP address resource](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-create-vip) section.
-
-To simplify the virtual IP address setup, set the following environment variables on NODE1.
-These variables are required in addition to the environment variables used to create the cluster and stonith devices, and are used with the `pcs resource create` command.
-
-```sh
-export SUBNET_NAME="vip-${sid}-net"            # Name which is used to define the subnet in IBM Cloud
-export CIDR="CIDR of subnet"                   # CIDR of the subnet containing the service IP address
-export VIP="Service IP address"                # IP address in the subnet
-export JUMBO="true or false"                   # Enable Jumbo frames
-export APIKEY="APIKEY or path to file"         # API Key of the IBM Cloud IAM ServiceID for the resource agent
-export API_TYPE="private or public"            # Use private or public API endpoints
-```
-{: screen}
-
-The `SUBNET_NAME` variable contains the name of the subnet.
-The `CIDR` variable represents the *Classless Inter-Domain Routing (CIDR)* notation for the subnet in the format `<IPv4_address>/number`.
-The `VIP` variable is the IP address of the virtual IP address resource and must belong to the `CIDR` of the subnet.
-Set the `JUMBO` variable to `true` if you want to enable the subnet for a large MTU size.
-Set the `API_TYPE` variable to `private` to communicate with the IBM Cloud IAM and IBM Power Cloud API via private endpoints.
-
-When you are [Creating a service ID for the powervs-subnet resource agent](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-iam-custom-role), you can copy its APIKEY and set the `APIKEY` environment variable to this value.
-Alternatively, you can download the key as a JSON file, and place a copy of this file on both cluster nodes.
-Then set the `APIKEY` environment variable to a string that starts with the `@` character, followed by the full path to the key file.
-
-The second option is the preferred one.
-{: note}
-
-The following is an example of how to set the environment variables.
-
-```sh
-export SUBNET_NAME="vip-mha-net"
-export CIDR="10.40.11.100/30"
-export VIP="10.40.11.102"
-export JUMBO="true"
-export APIKEY="@/root/.apikey.json"
-export API_TYPE="private"
-```
-{: screen}
 
 Run the `pcs resource describe powervs-subnet` command to get information about the resource agent parameters.
 {: note}

@@ -84,14 +84,14 @@ export SID=<SID>                   # SAP System ID (uppercase)
 export sid=<sid>                   # SAP System ID (lowercase)
 
 # ASCS instance
-export ASCS_NO=<INSTNO>            # ASCS instance number
+export ASCS_INSTNO=<INSTNO>        # ASCS instance number
 export ASCS_VH=<virtual hostname>  # ASCS virtual hostname
 export ASCS_IP=<IP address>        # ASCS virtual IP address
 export ASCS_VG=<vg name>           # ASCS volume group name
 export ASCS_LV=<lv name>           # ASCS logical volume name
 
 # ERS instance
-export ERS_NO=<INSTNO>             # ERS instance number
+export ERS_INSTNO=<INSTNO>         # ERS instance number
 export ERS_VH=<virtual hostname>   # ERS virtual hostname
 export ERS_IP=<IP address>         # ERS virtual IP address
 export ERS_VG=<vg name>            # ERS volume group name
@@ -428,12 +428,12 @@ vgchange -a y ${ASCS_VG}
 {: pre}
 
 ```sh
-mkdir -p /usr/sap/${SID}/ASCS${ASCS_NO}
+mkdir -p /usr/sap/${SID}/ASCS${ASCS_INSTNO}
 ```
 {: pre}
 
 ```sh
-mount /dev/${ASCS_VG}/${ASCS_LV} /usr/sap/${SID}/ASCS${ASCS_NO}
+mount /dev/${ASCS_VG}/${ASCS_LV} /usr/sap/${SID}/ASCS${ASCS_INSTNO}
 ```
 {: pre}
 
@@ -445,12 +445,12 @@ vgchange -a y ${ERS_VG}
 {: pre}
 
 ```sh
-mkdir -p /usr/sap/${SID}/ERS${ERS_NO}
+mkdir -p /usr/sap/${SID}/ERS${ERS_INSTNO}
 ```
 {: pre}
 
 ```sh
-mount /dev/${ERS_VG}/${ERS_LV} /usr/sap/${SID}/ERS${ERS_NO}
+mount /dev/${ERS_VG}/${ERS_LV} /usr/sap/${SID}/ERS${ERS_INSTNO}
 ```
 {: pre}
 
@@ -562,14 +562,14 @@ Now proceed to [Creating mount points for the instance file systems on the takeo
 On both nodes, disable the instance agent for the ASCS.
 
 ```sh
-systemctl disable --now SAP${SID}_${ASCS_NO}.service
+systemctl disable --now SAP${SID}_${ASCS_INSTNO}.service
 ```
 {: pre}
 
 On both nodes, disable the instance agent for the ERS.
 
 ```sh
-systemctl disable --now SAP${SID}_${ERS_NO}.service
+systemctl disable --now SAP${SID}_${ERS_INSTNO}.service
 ```
 {: pre}
 
@@ -583,19 +583,19 @@ Create `systemd drop-in files` on both cluster nodes to prevent `systemd` from r
 On both nodes, create the directories for the drop-in files.
 
 ```sh
-mkdir /etc/systemd/system/SAP${SID}_${ASCS_NO}.service.d
+mkdir /etc/systemd/system/SAP${SID}_${ASCS_INSTNO}.service.d
 ```
 {: pre}
 
 ```sh
-mkdir /etc/systemd/system/SAP${SID}_${ERS_NO}.service.d
+mkdir /etc/systemd/system/SAP${SID}_${ERS_INSTNO}.service.d
 ```
 {: pre}
 
 On both nodes, create the drop-in files for ASCS and ERS.
 
 ```sh
-cat >> /etc/systemd/system/SAP${SID}_${ASCS_NO}.service.d/HA.conf << EOT
+cat >> /etc/systemd/system/SAP${SID}_${ASCS_INSTNO}.service.d/HA.conf << EOT
 [Service]
 Restart=no
 EOT
@@ -603,7 +603,7 @@ EOT
 {: pre}
 
 ```sh
-cat >> /etc/systemd/system/SAP${SID}_${ERS_NO}.service.d/HA.conf << EOT
+cat >> /etc/systemd/system/SAP${SID}_${ERS_INSTNO}.service.d/HA.conf << EOT
 [Service]
 Restart=no
 EOT
@@ -628,24 +628,24 @@ Create the mount points for the instance file systems and adjust their ownership
 On NODE1, run the following commands.
 
 ```sh
-mkdir /usr/sap/${SID}/ERS${ERS_NO}
+mkdir /usr/sap/${SID}/ERS${ERS_INSTNO}
 ```
 {: pre}
 
 ```sh
-chown ${sid}adm:sapsys /usr/sap/${SID}/ERS${ERS_NO}
+chown ${sid}adm:sapsys /usr/sap/${SID}/ERS${ERS_INSTNO}
 ```
 {: pre}
 
 On NODE2, run the following commands.
 
 ```sh
-mkdir /usr/sap/${SID}/ASCS${ASCS_NO}
+mkdir /usr/sap/${SID}/ASCS${ASCS_INSTNO}
 ```
 {: pre}
 
 ```sh
-chown ${sid}adm:sapsys /usr/sap/${SID}/ASCS${ASCS_NO}
+chown ${sid}adm:sapsys /usr/sap/${SID}/ASCS${ASCS_INSTNO}
 ```
 {: pre}
 
@@ -738,12 +738,12 @@ cd /sapmnt/${SID}/profile
 Change all occurrences of `Restart_Program` to `Start_Program` in the instance profile of both *ASCS* and *ERS*.
 
 ```sh
-sed -i -e 's/Restart_Program_\([0-9][0-9]\)/Start_Program_\1/' ${SID}_ASCS${ASCS_NO}_${ASCS_VH}
+sed -i -e 's/Restart_Program_\([0-9][0-9]\)/Start_Program_\1/' ${SID}_ASCS${ASCS_INSTNO}_${ASCS_VH}
 ```
 {: pre}
 
 ```sh
-sed -i -e 's/Restart_Program_\([0-9][0-9]\)/Start_Program_\1/' ${SID}_ERS${ERS_NO}_${ERS_VH}
+sed -i -e 's/Restart_Program_\([0-9][0-9]\)/Start_Program_\1/' ${SID}_ERS${ERS_INSTNO}_${ERS_VH}
 ```
 {: pre}
 
@@ -803,28 +803,28 @@ Create a resource for the virtual IP address of the ASCS.
 On NODE1, run the following command.
 
 ```sh
-pcs resource create ${sid}_vip_ascs${ASCS_NO} IPaddr2 \
+pcs resource create ${sid}_vip_ascs${ASCS_INSTNO} IPaddr2 \
     ip=${ASCS_IP} \
-    --group ${sid}_ascs${ASCS_NO}_group
+    --group ${sid}_ascs${ASCS_INSTNO}_group
 ```
 {: pre}
 
 In this example of creating resources for an HA-LVM file system on a shared storage volume, you create resources for LVM-activate and for the instance file system of the ASCS.
 
 ```sh
-pcs resource create ${sid}_fs_ascs${ASCS_NO}_lvm LVM-activate \
+pcs resource create ${sid}_fs_ascs${ASCS_INSTNO}_lvm LVM-activate \
     vgname="${ASCS_VG}" \
     vg_access_mode=system_id \
-    --group ${sid}_ascs${ASCS_NO}_group
+    --group ${sid}_ascs${ASCS_INSTNO}_group
 ```
 {: pre}
 
 ```sh
-pcs resource create ${sid}_fs_ascs${ASCS_NO} Filesystem \
+pcs resource create ${sid}_fs_ascs${ASCS_INSTNO} Filesystem \
     device="/dev/mapper/${ASCS_VG}-${ASCS_LV}" \
-    directory=/usr/sap/${SID}/ASCS${ASCS_NO} \
+    directory=/usr/sap/${SID}/ASCS${ASCS_INSTNO} \
     fstype=xfs \
-    --group ${sid}_ascs${ASCS_NO}_group
+    --group ${sid}_ascs${ASCS_INSTNO}_group
 ```
 {: pre}
 
@@ -832,31 +832,31 @@ In the alternative example that the instance file system of the *ASCS* is provid
 Make sure that you defined the environment variable `${NFS_VH}` according to your *NFS server*, and that you created a directory `${SID}/ASCS` under the NFS root directory during the SAP installation of the *ASCS* instance.
 
 ```sh
-pcs resource create ${sid}_fs_ascs${ASCS_NO} Filesystem \
+pcs resource create ${sid}_fs_ascs${ASCS_INSTNO} Filesystem \
     device="${NFS_VH}:${SID}/ASCS" \
-    directory=/usr/sap/${SID}/ASCS${ASCS_NO} \
+    directory=/usr/sap/${SID}/ASCS${ASCS_INSTNO} \
     fstype=nfs \
     options="${NFS_OPTIONS}" \
     force_unmount=safe \
     op start interval=0 timeout=60 \
     op stop interval=0 timeout=120 \
-    --group ${sid}_ascs${ASCS_NO}_group
+    --group ${sid}_ascs${ASCS_INSTNO}_group
 ```
 {: pre}
 
 Create a resource for managing the *ASCS* instance.
 
 ```sh
-pcs resource create ${sid}_ascs${ASCS_NO} SAPInstance \
-    InstanceName="${SID}_ASCS${ASCS_NO}_${ASCS_VH}" \
-    START_PROFILE=/sapmnt/${SID}/profile/${SID}_ASCS${ASCS_NO}_${ASCS_VH} \
+pcs resource create ${sid}_ascs${ASCS_INSTNO} SAPInstance \
+    InstanceName="${SID}_ASCS${ASCS_INSTNO}_${ASCS_VH}" \
+    START_PROFILE=/sapmnt/${SID}/profile/${SID}_ASCS${ASCS_INSTNO}_${ASCS_VH} \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
     migration-threshold=1 failure-timeout=60 \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 \
     op stop interval=0 timeout=600 \
-    --group ${sid}_ascs${ASCS_NO}_group
+    --group ${sid}_ascs${ASCS_INSTNO}_group
 ```
 {: pre}
 
@@ -866,7 +866,7 @@ The `meta resource-stickiness=5000` option is used to balance the failover const
 Add a resource stickiness to the group to make sure that the *ASCS* remains on the node.
 
 ```sh
-pcs resource meta ${sid}_ascs${ASCS_NO}_group \
+pcs resource meta ${sid}_ascs${ASCS_INSTNO}_group \
     resource-stickiness=3000
 ```
 {: pre}
@@ -879,28 +879,28 @@ Create a resource for the virtual IP address of the *ERS*.
 On NODE1, run the following command.
 
 ```sh
-pcs resource create ${sid}_vip_ers${ERS_NO} IPaddr2 \
+pcs resource create ${sid}_vip_ers${ERS_INSTNO} IPaddr2 \
     ip=${ERS_IP} \
-    --group ${sid}_ers${ERS_NO}_group
+    --group ${sid}_ers${ERS_INSTNO}_group
 ```
 {: pre}
 
 In the example of creating resources for an HA-LVM file system on a shared storage volume, you create resources for LVM-activate and for the instance file system of the *ERS*.
 
 ```sh
-pcs resource create ${sid}_fs_ers${ERS_NO}_lvm LVM-activate \
+pcs resource create ${sid}_fs_ers${ERS_INSTNO}_lvm LVM-activate \
     vgname="${ERS_VG}" \
     vg_access_mode=system_id \
-    --group ${sid}_ers${ERS_NO}_group
+    --group ${sid}_ers${ERS_INSTNO}_group
 ```
 {: pre}
 
 ```sh
-pcs resource create ${sid}_fs_ers${ERS_NO} Filesystem \
+pcs resource create ${sid}_fs_ers${ERS_INSTNO} Filesystem \
     device="/dev/mapper/${ERS_VG}-${ERS_LV}" \
-    directory=/usr/sap/${SID}/ERS${ERS_NO} \
+    directory=/usr/sap/${SID}/ERS${ERS_INSTNO} \
     fstype=xfs \
-    --group ${sid}_ers${ERS_NO}_group
+    --group ${sid}_ers${ERS_INSTNO}_group
 ```
 {: pre}
 
@@ -908,64 +908,64 @@ In the alternative example that the instance file system of the *ERS* is provide
 Make sure that you defined the environment variable `${NFS_VH}` according to your *NFS server*, and that you created a directory `${SID}/ERS` under the NFS root directory during the SAP installation of the *ERS* instance.
 
 ```sh
-pcs resource create ${sid}_fs_ers${ERS_NO} Filesystem \
+pcs resource create ${sid}_fs_ers${ERS_INSTNO} Filesystem \
     device="${NFS_VH}:${SID}/ERS" \
-    directory=/usr/sap/${SID}/ERS${ERS_NO} \
+    directory=/usr/sap/${SID}/ERS${ERS_INSTNO} \
     fstype=nfs \
     options="${NFS_OPTIONS}" \
     force_unmount=safe \
     op start interval=0 timeout=60 \
     op stop interval=0 timeout=120 \
-    --group ${sid}_ers${ERS_NO}_group
+    --group ${sid}_ers${ERS_INSTNO}_group
 ```
 {: pre}
 
 Create a resource for managing the *ERS* instance.
 
 ```sh
-pcs resource create ${sid}_ers${ERS_NO} SAPInstance \
-    InstanceName="${SID}_ERS${ERS_NO}_${ERS_VH}" \
-    START_PROFILE=/sapmnt/${SID}/profile/${SID}_ERS${ERS_NO}_${ERS_VH} \
+pcs resource create ${sid}_ers${ERS_INSTNO} SAPInstance \
+    InstanceName="${SID}_ERS${ERS_INSTNO}_${ERS_VH}" \
+    START_PROFILE=/sapmnt/${SID}/profile/${SID}_ERS${ERS_INSTNO}_${ERS_VH} \
     AUTOMATIC_RECOVER=false \
     IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 \
     op stop interval=0 timeout=600 \
-    --group ${sid}_ers${ERS_NO}_group
+    --group ${sid}_ers${ERS_INSTNO}_group
 ```
 {: pre}
 
 ### Configuring cluster resource constraints
 {: #ha-rhel-ensa-cfg-constraints}
 
-A colocation constraint prevents resource groups `${sid}_ascs${ASCS_NO}_group` and `${sid}_ers${ERS_NO}_group` from being active on the same node whenever possible.
+A colocation constraint prevents resource groups `${sid}_ascs${ASCS_INSTNO}_group` and `${sid}_ers${ERS_INSTNO}_group` from being active on the same node whenever possible.
 The stickiness score of `-5000` makes sure that they run on the same node if only a single node is available.
 
 ```sh
 pcs constraint colocation add \
-    ${sid}_ers${ERS_NO}_group with ${sid}_ascs${ASCS_NO}_group -5000
+    ${sid}_ers${ERS_INSTNO}_group with ${sid}_ascs${ASCS_INSTNO}_group -5000
 ```
 {: pre}
 
-An order constraint controls that resource group `${sid}_ascs${ASCS_NO}_group` starts before `${sid}_ers${ERS_NO}_group`.
+An order constraint controls that resource group `${sid}_ascs${ASCS_INSTNO}_group` starts before `${sid}_ers${ERS_INSTNO}_group`.
 
 ```sh
 pcs constraint order start \
-    ${sid}_ascs${ASCS_NO}_group then stop ${sid}_ers${ERS_NO}_group \
+    ${sid}_ascs${ASCS_INSTNO}_group then stop ${sid}_ers${ERS_INSTNO}_group \
     symmetrical=false \
     kind=Optional
 ```
 {: pre}
 
-The following two order constraints make sure that the file system *SAPMNT* mounts before resource groups `${sid}_ascs${ASCS_NO}_group` and `${sid}_ers${ERS_NO}_group` start.
+The following two order constraints make sure that the file system *SAPMNT* mounts before resource groups `${sid}_ascs${ASCS_INSTNO}_group` and `${sid}_ers${ERS_INSTNO}_group` start.
 
 ```sh
-pcs constraint order fs_sapmnt-clone then ${sid}_ascs${ASCS_NO}_group
+pcs constraint order fs_sapmnt-clone then ${sid}_ascs${ASCS_INSTNO}_group
 ```
 {: pre}
 
 ```sh
-pcs constraint order fs_sapmnt-clone then ${sid}_ers${ERS_NO}_group
+pcs constraint order fs_sapmnt-clone then ${sid}_ers${ERS_INSTNO}_group
 ```
 {: pre}
 
@@ -1000,10 +1000,10 @@ Simulate a crash of the SAP *ASCS* instance that is running on NODE1.
 - A functional two-node RHEL HA Add-On cluster for SAP ENSA2.
 - Both cluster nodes are active.
 - Cluster is started on NODE1 and NODE2.
-   - Resource group ${sid}_ascs${ASCS_NO}_group is active on NODE1.
-   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_NR}_lvm, ${sid}_fs_ascs${ASCS_NR} and ${sid}_ascs${ASCS_NR} are `Started` on NODE1.
-   - Resource group ${sid}_ers${ERS_NO}_group is active on NODE2.
-   - Resources ${sid}_vip_ers${ERS_NO}, ${sid}_fs_ers${ERS_NO}_lvm, ${sid}_fs_ers${ERS_NO} and ${sid}_ers${ERS_NO} are `Started` on NODE2.
+   - Resource group ${sid}_ascs${ASCS_INSTNO}_group is active on NODE1.
+   - Resources ${sid}_vip_ascs${ASCS_INSTNO}, ${sid}_fs_ascs${ASCS_INSTNO}_lvm, ${sid}_fs_ascs${ASCS_INSTNO} and ${sid}_ascs${ASCS_INSTNO} are `Started` on NODE1.
+   - Resource group ${sid}_ers${ERS_INSTNO}_group is active on NODE2.
+   - Resources ${sid}_vip_ers${ERS_INSTNO}, ${sid}_fs_ers${ERS_INSTNO}_lvm, ${sid}_fs_ers${ERS_INSTNO} and ${sid}_ers${ERS_INSTNO} are `Started` on NODE2.
 - Check SAP instance processes:
    - *ASCS* instance is running on NODE1.
    - *ERS* instance is running on NODE2.
@@ -1079,10 +1079,10 @@ Sample output:
 
 - SAP *ASCS* instance on NODE1 crashes.
 - The cluster detects the crashed *ASCS* instance.
-- The cluster stops the dependent resources on NODE1 (virtual IP address, file system `/usr/sap/${SID}/ASCS${ASCS_NO}`, and the LVM resources), and acquires them on NODE2.
+- The cluster stops the dependent resources on NODE1 (virtual IP address, file system `/usr/sap/${SID}/ASCS${ASCS_INSTNO}`, and the LVM resources), and acquires them on NODE2.
 - The cluster starts the *ASCS* on NODE2.
 - The cluster stops the *ERS* instance on NODE2.
-- The cluster stops the dependent resources on NODE1 (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_NO}`, and the LVM resources), and acquires them on NODE1.
+- The cluster stops the dependent resources on NODE1 (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_INSTNO}`, and the LVM resources), and acquires them on NODE1.
 - The cluster starts the *ERS* on NODE1.
 
 After a few seconds, check the status with the following command.
@@ -1146,10 +1146,10 @@ Simulate a crash of the node where the *ASCS* instance is running.
 - A functional two-node RHEL HA Add-On cluster for SAP ENSA2.
 - Both cluster nodes are active.
 - Cluster is started on NODE1 and NODE2.
-   - Resource group ${sid}_ascs${ASCS_NO}_group is active on NODE2.
-   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_NR}_lvm, ${sid}_fs_ascs${ASCS_NR} and ${sid}_ascs${ASCS_NR} are `Started` on NODE2.
-   - Resource group ${sid}_ers${ERS_NO}_group is active on NODE1.
-   - Resources ${sid}_vip_ers${ERS_NO}, ${sid}_fs_ers${ERS_NO}_lvm, ${sid}_fs_ers${ERS_NO} and ${sid}_ers${ERS_NO} are `Started` on NODE1.
+   - Resource group ${sid}_ascs${ASCS_INSTNO}_group is active on NODE2.
+   - Resources ${sid}_vip_ascs${ASCS_INSTNO}, ${sid}_fs_ascs${ASCS_INSTNO}_lvm, ${sid}_fs_ascs${ASCS_INSTNO} and ${sid}_ascs${ASCS_INSTNO} are `Started` on NODE2.
+   - Resource group ${sid}_ers${ERS_INSTNO}_group is active on NODE1.
+   - Resources ${sid}_vip_ers${ERS_INSTNO}, ${sid}_fs_ers${ERS_INSTNO}_lvm, ${sid}_fs_ers${ERS_INSTNO} and ${sid}_ers${ERS_INSTNO} are `Started` on NODE1.
 - Check SAP instance processes:
    - *ASCS* instance is running on NODE2.
    - *ERS* instance is running on NODE1.
@@ -1171,10 +1171,10 @@ sync; echo b > /proc/sysrq-trigger
 
 - NODE2 restarts.
 - The cluster detects the failed node and sets its state to offline (UNCLEAN).
-- The cluster acquires the *ASCS* resources (virtual IP address, file system `/usr/sap/${SID}/ASCS${ASCS_NO}`, and the LVM items) on NODE1.
+- The cluster acquires the *ASCS* resources (virtual IP address, file system `/usr/sap/${SID}/ASCS${ASCS_INSTNO}`, and the LVM items) on NODE1.
 - The cluster starts the *ASCS* on NODE1.
 - The cluster stops the *ERS* instance on NODE1.
-- The cluster stops the dependent resources on NODE1 (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_NO}`, and the LVM resources), and releases them.
+- The cluster stops the dependent resources on NODE1 (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_INSTNO}`, and the LVM resources), and releases them.
 
 After a while, check the status with the following command.
 
@@ -1238,7 +1238,7 @@ pcs cluster start
 ```
 {: pre}
 
-- The cluster starts on NODE2 and acquires the *ERS* resources (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_NO}`, and the LVM resources) on NODE2.
+- The cluster starts on NODE2 and acquires the *ERS* resources (virtual IP address, file system `/usr/sap/${SID}/ERS${ERS_INSTNO}`, and the LVM resources) on NODE2.
 - The cluster starts the *ERS* instance on NODE2.
 
 Wait a moment and check the status with the following command.
@@ -1302,10 +1302,10 @@ Simulate a crash of the *ERS* instance.
 - A functional two-node RHEL HA Add-On cluster for SAP ENSA2.
 - Both cluster nodes are active.
 - Cluster starts on NODE1 and NODE2.
-   - Resource group ${sid}_ascs${ASCS_NO}_group is active on NODE1.
-   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_NR}_lvm, ${sid}_fs_ascs${ASCS_NR} and ${sid}_ascs${ASCS_NR} are `Started` on NODE1.
-   - Resource group ${sid}_ers${ERS_NO}_group is active on NODE2.
-   - Resources ${sid}_vip_ers${ERS_NO}, ${sid}_fs_ers${ERS_NO}_lvm, ${sid}_fs_ers${ERS_NO} and ${sid}_ers${ERS_NO} are `Started` on NODE2.
+   - Resource group ${sid}_ascs${ASCS_INSTNO}_group is active on NODE1.
+   - Resources ${sid}_vip_ascs${ASCS_INSTNO}, ${sid}_fs_ascs${ASCS_INSTNO}_lvm, ${sid}_fs_ascs${ASCS_INSTNO} and ${sid}_ascs${ASCS_INSTNO} are `Started` on NODE1.
+   - Resource group ${sid}_ers${ERS_INSTNO}_group is active on NODE2.
+   - Resources ${sid}_vip_ers${ERS_INSTNO}, ${sid}_fs_ers${ERS_INSTNO}_lvm, ${sid}_fs_ers${ERS_INSTNO} and ${sid}_ers${ERS_INSTNO} are `Started` on NODE2.
 - Check SAP instance processes:
    - *ASCS* instance is running on NODE1.
    - *ERS* instance is running on NODE2.
@@ -1347,7 +1347,7 @@ pcs status
 ```
 {: pre}
 
-The `${sid}_ers${ERS_NO}` *ERS* resource restarted on the second node.
+The `${sid}_ers${ERS_INSTNO}` *ERS* resource restarted on the second node.
 If you run the `pcs status` command too soon, you might see the *ERS* resource briefly in status `FAILED`.
 
 Sample output:
@@ -1420,10 +1420,10 @@ Use *SAP Control* commands to move the *ASCS* instance to the other node for mai
 - The `sap_cluster_connector` is installed and configured.
 - Both cluster nodes are active.
 - Cluster is started on NODE1 and NODE2.
-   - Resource group ${sid}_ascs${ASCS_NO}_group is active on NODE1.
-   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_NR}_lvm, ${sid}_fs_ascs${ASCS_NR} and ${sid}_ascs${ASCS_NR} are `Started` on NODE1.
-   - Resource group ${sid}_ers${ERS_NO}_group is active on NODE2.
-   - Resources ${sid}_vip_ers${ERS_NO}, ${sid}_fs_ers${ERS_NO}_lvm, ${sid}_fs_ers${ERS_NO} and ${sid}_ers${ERS_NO} are `Started` on NODE2.
+   - Resource group ${sid}_ascs${ASCS_INSTNO}_group is active on NODE1.
+   - Resources ${sid}_vip_ascs${ASCS_INSTNO}, ${sid}_fs_ascs${ASCS_INSTNO}_lvm, ${sid}_fs_ascs${ASCS_INSTNO} and ${sid}_ascs${ASCS_INSTNO} are `Started` on NODE1.
+   - Resource group ${sid}_ers${ERS_INSTNO}_group is active on NODE2.
+   - Resources ${sid}_vip_ers${ERS_INSTNO}, ${sid}_fs_ers${ERS_INSTNO}_lvm, ${sid}_fs_ers${ERS_INSTNO} and ${sid}_ers${ERS_INSTNO} are `Started` on NODE2.
 - Check SAP instance processes:
    - *ASCS* instance is running on NODE1.
    - *ERS* instance is running on NODE2.
@@ -1434,7 +1434,7 @@ Use *SAP Control* commands to move the *ASCS* instance to the other node for mai
 Log in to NODE1 and run `sapcontrol` to move the *ASCS* instance to the other node.
 
 ```sh
-sudo -i -u ${sid}adm -- sh -c "sapcontrol -nr ${ASCS_NO} -function HAFailoverToNode"
+sudo -i -u ${sid}adm -- sh -c "sapcontrol -nr ${ASCS_INSTNO} -function HAFailoverToNode"
 ```
 {: pre}
 
@@ -1527,7 +1527,7 @@ Ticket Constraints:
 {: screen}
 
 ```sh
-pcs resource clear ${sid}_ascs${ASCS_NO}_group
+pcs resource clear ${sid}_ascs${ASCS_INSTNO}_group
 ```
 {: pre}
 

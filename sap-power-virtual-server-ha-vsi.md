@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-10-31"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -281,3 +281,56 @@ Keep the key in a safe place.
 The key is available for 300 seconds.
 After 300 seconds, you won't be able to view or retrieve the key.
 {: important}
+
+### Collecting parameters for configuring a RHEL HA Add-On cluster
+{: #ha-rhel-collect-parameters-for-cluster-config}
+
+There are several parameters that are required to set up a specific high availability scenario.
+These include the following parameters, which can be collected now.
+
+- *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspace
+- Virtual server *instance IDs*
+- Extra parameters that must be derived from the *CRN*
+
+The upper case variables in the following section indicate that these parameters are used as environment variables to simplify the cluster setup. Make a note of their contents now, as they will be exported as environment variables in the setup instructions for a specific high availability scenario.
+
+1. `CLOUD_REGION` contains the geographical area of your virtual server instance and is used to target the correct [Power Cloud API endpoint](https://cloud.ibm.com/apidocs/power-cloud#endpoint){: external}.
+
+   `CLOUD_REGION` if you are using public endpoints
+   :   For public endpoints, use the first word in the hostname of the public endpoint URL for the location, for example, locations *syd04* and *syd05* map to *syd*.
+
+   `CLOUD_REGION` if you are using private endpoints
+   :   For private endpoints, use the second word in the hostname of the public endpoint URL for the location, for example, locations *syd04* and *syd05* map to *au-syd*.
+
+1. For information on how to obtain the *Service ID API key*, see [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
+   The *apikey* object in the downloaded API key file provides the API key for the `APIKEY` variable.
+1. Log in to [Workspaces - {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces){: external}.
+1. The list contains the name and CRN of the workspaces.
+
+   Locate your **Workspace**, or both workspaces in the case of a multizone region deployment.
+   Click **Copy** next to the CRN and paste it into a temporary document.
+
+   A CRN has multiple sections that are divided by a colon.
+   The base format of a CRN is:
+
+   `crn:version:cname:ctype:service-name:location:scope:service-instance:resource-type:resource`
+
+   service-name
+   :   The fifth field of the CRN of the workspace is always *power-iaas*, the **service-name**.
+
+   location
+   :   The sixth field is the **location** that needs to be mapped to a region.
+
+   scope
+   :   The seventh field is the **Tenant ID**.
+
+   service-instance
+   :   The eighth field is the **Cloud Instance ID** or **GUID**.
+
+1. `IBMCLOUD_CRN_1` contains the full *CRN*.
+1. `GUID_1` refers to the contents of the *service-instance* field in the *CRN*.
+1. In a multizone region deployment, use the *CRN* of the second workspace and note the contents for  `IBM_CLOUD_CRN_2` and `GUID_2`.
+1. Click on the workspace name and then **View virtual servers**.
+1. Click on  the virtual server instance names and note their **ID**.
+1. Note these IDs for `POWERVSI_1` and `POWERVSI_2`.
+   In a multizone deployment, use the second workspace to find the ID of the second instance.

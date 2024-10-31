@@ -34,53 +34,6 @@ Review the general requirements, product documentation, support articles, and SA
 
 Use the instructions in [Creating Instances for a High Availability Cluster on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
 
-## Gathering parameters for the cluster configuration
-{: #ha-rhel-gather-parameters-for-cluster-config}
-
-Parameters that are required for fencing agent configuration include the *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspace and the *instance IDs* of the virtual server instances.
-Some extra parameters need to be derived from the *CRN*.
-The fencing agent uses the *API Key of the Service ID* to authenticate with the {{site.data.keyword.powerSys_notm}} API.
-
-The uppercase variables in the following section indicate that these parameters need to be set as environment variables on the virtual server instances to simplify the setup of the cluster.
-
-1. Log in to [Workspaces - {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces){: external}.
-1. The list contains the name and CRN of the workspaces.
-
-   Locate your **Workspace**. Click **Copy** next to the CRN and paste it into a temporary document.
-
-   A CRN has multiple sections that are divided by a colon.
-   The base format of a CRN is:
-
-   `crn:version:cname:ctype:service-name:location:scope:service-instance:resource-type:resource`
-
-   service-name
-   :   The fifth field of the CRN of the workspace is always *power-iaas*, the **service-name**.
-
-   location
-   :   The sixth field is the **location** that needs to be mapped to a region.
-
-   scope
-   :   The seventh field is the **Tenant ID**.
-
-   service-instance
-   :   The eighth field is the **Cloud Instance ID** or **GUID**.
-
-1. Set IBMCLOUD_CRN_1 to the full *CRN*.
-1. Set GUID_1 to the contents of the *service-instance* field in the *CRN*.
-1. Set CLOUD_REGION to the prefix that represents the geographic area of your service instance to target the correct [Power Cloud API endpoint](https://cloud.ibm.com/apidocs/power-cloud#endpoint){: external}.
-
-   CLOUD_REGION if you are using public endpoints
-   :   For public endpoints, use the first word in the hostname of the public endpoint URL for the location, for example, locations *syd04* and *syd05* map to *syd*.
-
-   CLOUD_REGION if you are using private endpoints
-   :   For private endpoints, use the second word in the hostname of the public endpoint URL for the location, for example, locations *syd04* and *syd05* map to *au-syd*.
-
-1. On the tile for the workspace, click **View Instances**.
-1. In the list of the virtual server instances, click each of the cluster nodes and take a note of each **ID**.
-1. Set these IDs as *POWERVSI_1* and *POWERVSI_2*.
-1. For information on how to obtain the *Service ID API key*, see [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
-   The *apikey* object in the downloaded API key file provides the API key that is required by fencing agent.
-
 ## Preparing the nodes for RHEL HA Add-On installation
 {: #ha-rhel-prepare-nodes-for-rhel-ha-installation}
 
@@ -101,18 +54,22 @@ For more information, see [Setting up /etc/hosts files on RHEL cluster nodes](h
 ### Preparing environment variables
 {: #ha-rhel-prepare-environment-variables}
 
-To simplify the setup process, prepare the following environment variables for the root user on both nodes.
+Prepare some environment variables for the root user on both nodes to simplify the setup process.
+These environment variables are used with later operating system commands in this information.
 
 On both nodes, create a file with the following environment variables and update to your environment.
 
 ```sh
-export CLUSTERNAME=SAP_CLUSTER           # Cluster name
+# General settings
+export CLUSTERNAME="SAP_CLUSTER"         # Cluster name
 
 export APIKEY=<APIKEY>                   # Service ID API key
 export CLOUD_REGION=<CLOUD_REGION>       # Workspace region
+export PROXY_IP=<IP_ADDRESS>             # Proxy server IP address
+
+# Workspace 1
 export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace CRN
 export GUID_1=<GUID_1>                   # Workspace GUID
-export PROXY_IP=<IP_ADDRESS>             # Proxy server IP address
 
 # Virtual server instance 1
 export NODE1=<HOSTNAME_1>                # Virtual server instance hostname
@@ -123,6 +80,8 @@ export NODE2=<HOSTNAME_2>                # Virtual server instance hostname
 export POWERVSI_2=<POWERVSI_2>           # Virtual server instance id
 ```
 {: codeblock}
+
+To find the settings for the `APIKEY`, `IBMCLOUD_CRN_?`, `GUID_?`, and `POWERVSI_?` variables, follow the steps in [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-collect-parameters-for-cluster-config).
 
 ## Installing and configuring a RHEL HA Add-On cluster
 {: #ha-rhel-install-and-configure-rhel-ha-cluster}

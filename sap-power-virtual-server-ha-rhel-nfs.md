@@ -737,8 +737,8 @@ Prepare the final mount points that are used for the SAP installation.
 mkdir -p /sapmnt/${SID} \
          /usr/sap/trans \
          /usr/sap/${SID}/SYS \
-         /usr/sap/${SID}/ASCS${ASCS_NR} \
-         /usr/sap/${SID}/ERS${ERS_NR}
+         /usr/sap/${SID}/ASCS${ASCS_INSTNO} \
+         /usr/sap/${SID}/ERS${ERS_INSTNO}
 ```
 {: pre}
 
@@ -748,8 +748,8 @@ Change the attributes of the mount points.
 chattr +i /sapmnt/${SID} \
           /usr/sap/trans \
           /usr/sap/${SID}/SYS \
-          /usr/sap/${SID}/ASCS${ASCS_NR} \
-          /usr/sap/${SID}/ERS${ERS_NR}
+          /usr/sap/${SID}/ASCS${ASCS_INSTNO} \
+          /usr/sap/${SID}/ERS${ERS_INSTNO}
 ```
 {: pre}
 
@@ -806,8 +806,8 @@ Add the new file systems to `/etc/fstab`.
 cat >> /etc/fstab < EOT
 ​${NFS_VH}:/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
 ${NFS_VH}:/sap${SID}/sapmnt /sapmnt/${SID}  nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_VH}:/sap${SID}/ASCS /usr/sap/${SID}/ASCS${ASCS_NR} nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_VH}:/sap${SID}/ERS  /usr/sap/${SID}/ERS${ERS_NR} nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_VH}:/sap${SID}/ASCS /usr/sap/${SID}/ASCS${ASCS_INSTNO} nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_VH}:/sap${SID}/ERS  /usr/sap/${SID}/ERS${ERS_INSTNO} nfs vers=4,minorversion=1,sec=sys  0  0
 ${NFS_VH}:/sap${SID}/SYS  /usr/sap/${SID}/SYS  nfs vers=4,minorversion=1,sec=sys  0  0
 EOT
 ```
