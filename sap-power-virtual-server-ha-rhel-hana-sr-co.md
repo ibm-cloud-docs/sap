@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-10-31"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -66,9 +66,9 @@ On NODE2, create a file with the following environment variables.
 Then, adapt them according to the configuration of the nonproduction system.
 
 ```sh
-export SID_np=<SID>            # SAP HANA System ID of non-production system (uppercase)
+export SID_NP=<SID>            # SAP HANA System ID of non-production system (uppercase)
 export sid_np=<sid>            # SAP HANA System ID of non-production system (lowercase)
-export INSTNO_np=<INSTNO>      # SAP HANA Instance Number of non-production system
+export INSTNO_NP=<INSTNO>      # SAP HANA Instance Number of non-production system
 export NODE1=<Hostname 1>      # Hostname of virtual server instance 1 (production primary)
 export NODE2=<Hostname 2>      # Hostname of virtual server instance 2 (non-production, production secondary)
 export vIP_np=<vIP>            # Optional: virtual IP address assigned to the non-production system
@@ -385,7 +385,7 @@ EOT
 
 Verify the configuration file.
 ```sh
-cat /hana/shared/${SID_np}/global/hdb/custom/config/global.ini
+cat /hana/shared/${SID_NP}/global/hdb/custom/config/global.ini
 ```
 {: pre}
 
@@ -426,10 +426,10 @@ subscription-manager repos --enable="rhel-8-for-ppc64le-sap-netweaver-e4s-rpms"
 On NODE2, run the following command.
 
 ```sh
-pcs resource create SAPHana_np_${SID_np}_HDB${INSTNO_np} SAPInstance \
-    InstanceName="${SID_np}_HDB${INSTNO_np}_${NODE2}" \
+pcs resource create SAPHana_np_${SID_NP}_HDB${INSTNO_NP} SAPInstance \
+    InstanceName="${SID_NP}_HDB${INSTNO_NP}_${NODE2}" \
     MONITOR_SERVICES="hdbindexserver|hdbnameserver" \
-    START_PROFILE="/usr/sap/${SID_np}/SYS/profile/${SID_np}_HDB${INSTNO_np}_${NODE2}" \
+    START_PROFILE="/usr/sap/${SID_NP}/SYS/profile/${SID_NP}_HDB${INSTNO_NP}_${NODE2}" \
     op start timeout=600 op stop timeout=600 op monitor interval=60 timeout=600 \
     --group group_${sid_np}_non_prod
 ```
@@ -618,7 +618,7 @@ Simulate a crash of the primary HANA database instance that is running on NODE1.
 - The secondary SAP HANA database on NODE2 is running with reduced memory configuration.
    - The `global_allocation_limit` is reduced.
    - Preload of column tables is disabled (`preload_column_tables = false`).
-- A nonproduction SAP HANA system `${SID_np}`is running on NODE2.
+- A nonproduction SAP HANA system `${SID_NP}`is running on NODE2.
 
 #### Test1 - Test procedure
 {: #ha-rhel-hana-sr-co-test1-procedure}
@@ -638,7 +638,7 @@ sudo -i -u ${sid}adm -- HDB kill-9
 - SAP HANA primary instance on NODE1 crashes.
 - The cluster detects the stopped primary HANA database and marks the resource as `failed`.
 - The cluster promotes the secondary HANA database on NODE2 to take over as new primary.
-   - The cluster stops the nonproduction database `${SID_np}` on NODE2.
+   - The cluster stops the nonproduction database `${SID_NP}` on NODE2.
    - During activation, the `global_allocation_limit` and `preload_column_tables` parameters are reset to default.
 - The cluster releases the virtual IP address on NODE1, and acquires it on the new primary on NODE2.
 - If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
@@ -737,7 +737,7 @@ Use cluster commands to move the primary instance back to the other node.
    - The primary SAP HANA database is running on NODE2.
    - The secondary SAP HANA database is running on NODE1.
    - HANA System Replication is activated and in sync.
-- The nonproduction SAP HANA system `${SID_np}`is stopped on NODE2.
+- The nonproduction SAP HANA system `${SID_NP}`is stopped on NODE2.
 
 #### Test2 - Test Preparation
 {: #ha-rhel-hana-sr-co-test2-preparation}
@@ -767,7 +767,7 @@ pcs resource move SAPHana_${SID}_${INSTNO}-clone
 - The cluster creates a location constraint to move the resource.
 - The cluster triggers a takeover to the secondary HANA database on NODE1.
 - If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
-- The resource of the nonproduction SAP HANA system *`${SID_np}`* is in the *unmanaged* state and isn't started automatically.
+- The resource of the nonproduction SAP HANA system *`${SID_NP}`* is in the *unmanaged* state and isn't started automatically.
 
 #### Test2 - Recovery procedure
 {: #ha-rhel-hana-sr-co-test2-recovery-procedure}
@@ -836,7 +836,7 @@ Several steps need to be followed to reestablish the complete HA scenario.
    ```
    {: pre}
 
-   The resource of the nonproduction SAP HANA system `${SID_np}` is *managed* and the nonproduction system starts on NODE2.
+   The resource of the nonproduction SAP HANA system `${SID_NP}` is *managed* and the nonproduction system starts on NODE2.
 
    ```sh
    pcs status --full
@@ -867,7 +867,7 @@ Simulate a crash of the node that is running the primary HANA database.
 - The secondary SAP HANA database on NODE2 is running with reduced memory configuration.
    - The `global_allocation_limit` is reduced.
    - Preload of column tables is disabled (`preload_column_tables = false`).
-- A nonproduction SAP HANA system `${SID_np}`is running on NODE2.
+- A nonproduction SAP HANA system `${SID_NP}`is running on NODE2.
 
 #### Test3 - Test procedure
 {: #ha-rhel-hana-sr-co-test3-procedure}
@@ -887,7 +887,7 @@ sync; echo o > /proc/sysrq-trigger
 - NODE1 shuts down.
 - The cluster detects the failed node and sets its state to `OFFLINE`.
 - The cluster promotes the secondary HANA database on NODE2 to take over as new primary.
-   - The cluster stops the nonproduction database `${SID_np}` on NODE2.
+   - The cluster stops the nonproduction database `${SID_NP}` on NODE2.
    - During activation, the `global_allocation_limit` and `preload_column_tables` parameters of SAP HANA `${SID}`are reset.
 - The cluster acquires the virtual IP address on NODE2 on the new primary.
 - If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.

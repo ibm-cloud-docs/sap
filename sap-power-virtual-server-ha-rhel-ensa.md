@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-10-31"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -62,7 +62,7 @@ Review the general requirements, product documentation, support articles, and SA
    The NFS server must be high-available and must not be installed on virtual servers that are part of the *ENSA2* cluster.
 
    [Configuring an Active-Passive NFS Server in a Red Hat High Availability Cluster](/docs/sap?topic=sap-ha-rhel-nfs) describes the implementation of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in {{site.data.keyword.powerSys_notm}}.
-   
+   The RHEL HA Add-On cluster for the active-passive NFS server must be deployed in a single {{site.data.keyword.powerSys_notm}} workspace.
 - Ensure that all SAP installation media is available.
 
 ## Preparing nodes for SAP installation
@@ -771,12 +771,12 @@ Up to this point, the following are assumed:
 
 Create a cloned *Filesystem* cluster resource to mount the *SAPMNT* share from an external NFS server to all cluster nodes.
 
-Make sure that the environment variable `${NFS_VH}` is set to the virtual hostname of your NFS server `${NFS_VH}`, and `${NFS_options}` according to your mount options.
+Make sure that the environment variable `${NFS_VH}` is set to the virtual hostname of your NFS server `${NFS_VH}`, and `${NFS_OPTIONS}` according to your mount options.
 
 Example mount options:
 
 ```sh
-export NFS_options="rw,sec=sys"
+export NFS_OPTIONS="rw,sec=sys"
 ```
 {: codeblock}
 
@@ -790,7 +790,7 @@ pcs resource create fs_sapmnt Filesystem \
     device="${NFS_VH}:/${SID}" \
     directory="/sapmnt/${SID}" \
     fstype='nfs' \
-    options="${NFS_options}" \
+    options="${NFS_OPTIONS}" \
     clone interleave=true
 ```
 {: pre}
@@ -836,7 +836,7 @@ pcs resource create ${sid}_fs_ascs${ASCS_NO} Filesystem \
     device="${NFS_VH}:${SID}/ASCS" \
     directory=/usr/sap/${SID}/ASCS${ASCS_NO} \
     fstype=nfs \
-    options="${NFS_options}" \
+    options="${NFS_OPTIONS}" \
     force_unmount=safe \
     op start interval=0 timeout=60 \
     op stop interval=0 timeout=120 \
@@ -912,7 +912,7 @@ pcs resource create ${sid}_fs_ers${ERS_NO} Filesystem \
     device="${NFS_VH}:${SID}/ERS" \
     directory=/usr/sap/${SID}/ERS${ERS_NO} \
     fstype=nfs \
-    options="${NFS_options}" \
+    options="${NFS_OPTIONS}" \
     force_unmount=safe \
     op start interval=0 timeout=60 \
     op stop interval=0 timeout=120 \
@@ -1001,7 +1001,7 @@ Simulate a crash of the SAP *ASCS* instance that is running on NODE1.
 - Both cluster nodes are active.
 - Cluster is started on NODE1 and NODE2.
    - Resource group ${sid}_ascs${ASCS_NO}_group is active on NODE1.
-   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_nr}_lvm, ${sid}_fs_ascs${ASCS_nr} and ${sid}_ascs${ASCS_nr} are `Started` on NODE1.
+   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_NR}_lvm, ${sid}_fs_ascs${ASCS_NR} and ${sid}_ascs${ASCS_NR} are `Started` on NODE1.
    - Resource group ${sid}_ers${ERS_NO}_group is active on NODE2.
    - Resources ${sid}_vip_ers${ERS_NO}, ${sid}_fs_ers${ERS_NO}_lvm, ${sid}_fs_ers${ERS_NO} and ${sid}_ers${ERS_NO} are `Started` on NODE2.
 - Check SAP instance processes:
@@ -1147,7 +1147,7 @@ Simulate a crash of the node where the *ASCS* instance is running.
 - Both cluster nodes are active.
 - Cluster is started on NODE1 and NODE2.
    - Resource group ${sid}_ascs${ASCS_NO}_group is active on NODE2.
-   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_nr}_lvm, ${sid}_fs_ascs${ASCS_nr} and ${sid}_ascs${ASCS_nr} are `Started` on NODE2.
+   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_NR}_lvm, ${sid}_fs_ascs${ASCS_NR} and ${sid}_ascs${ASCS_NR} are `Started` on NODE2.
    - Resource group ${sid}_ers${ERS_NO}_group is active on NODE1.
    - Resources ${sid}_vip_ers${ERS_NO}, ${sid}_fs_ers${ERS_NO}_lvm, ${sid}_fs_ers${ERS_NO} and ${sid}_ers${ERS_NO} are `Started` on NODE1.
 - Check SAP instance processes:
@@ -1303,7 +1303,7 @@ Simulate a crash of the *ERS* instance.
 - Both cluster nodes are active.
 - Cluster starts on NODE1 and NODE2.
    - Resource group ${sid}_ascs${ASCS_NO}_group is active on NODE1.
-   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_nr}_lvm, ${sid}_fs_ascs${ASCS_nr} and ${sid}_ascs${ASCS_nr} are `Started` on NODE1.
+   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_NR}_lvm, ${sid}_fs_ascs${ASCS_NR} and ${sid}_ascs${ASCS_NR} are `Started` on NODE1.
    - Resource group ${sid}_ers${ERS_NO}_group is active on NODE2.
    - Resources ${sid}_vip_ers${ERS_NO}, ${sid}_fs_ers${ERS_NO}_lvm, ${sid}_fs_ers${ERS_NO} and ${sid}_ers${ERS_NO} are `Started` on NODE2.
 - Check SAP instance processes:
@@ -1421,7 +1421,7 @@ Use *SAP Control* commands to move the *ASCS* instance to the other node for mai
 - Both cluster nodes are active.
 - Cluster is started on NODE1 and NODE2.
    - Resource group ${sid}_ascs${ASCS_NO}_group is active on NODE1.
-   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_nr}_lvm, ${sid}_fs_ascs${ASCS_nr} and ${sid}_ascs${ASCS_nr} are `Started` on NODE1.
+   - Resources ${sid}_vip_ascs${ASCS_NO}, ${sid}_fs_ascs${ASCS_NR}_lvm, ${sid}_fs_ascs${ASCS_NR} and ${sid}_ascs${ASCS_NR} are `Started` on NODE1.
    - Resource group ${sid}_ers${ERS_NO}_group is active on NODE2.
    - Resources ${sid}_vip_ers${ERS_NO}, ${sid}_fs_ers${ERS_NO}_lvm, ${sid}_fs_ers${ERS_NO} and ${sid}_ers${ERS_NO} are `Started` on NODE2.
 - Check SAP instance processes:

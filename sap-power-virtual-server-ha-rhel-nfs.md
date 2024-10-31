@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-10-31"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -136,44 +136,44 @@ These environment variables are used in subsequent commands in the remainder of 
 On both nodes, create a file with the environment variables.
 Then, adapt them to your configuration.
 
-Adapt `NFS_vh`, `NFS_ip`, `NFS_clientspec`, and `NFS_options` to your environment.
-For `NFS_pvid`, use the *WWN* that you identified previously.
+Adapt `NFS_VH`, `NFS_IP`, `NFS_CLIENTSPEC`, and `NFS_OPTIONS` to your environment.
+For `NFS_PVID`, use the *WWN* that you identified previously.
 In addition to the file system that is used for the NFS share, the example shows two more file systems that are used for an SAP system landscape with system ID `${SID}` and the SAP transport directory.
-The sample sizes `${NFS_sz1}`, `${NFS_sz2}`, and `${NFS_sz3}` are percentages of the `${NFS_vg}` volume group size and need to be modified according to your requirements.
+The sample sizes `${NFS_SZ1}`, `${NFS_SZ2}`, and `${NFS_SZ3}` are percentages of the `${NFS_VG}` volume group size and need to be modified according to your requirements.
 The volume group names and mount point names are suggestions and need to be changed to match your own naming conventions.
 
-Make sure that you set the `NFS_pvid` environment variable by using lowercase letters in the hexadecimal number.
+Make sure that you set the `NFS_PVID` environment variable by using lowercase letters in the hexadecimal number.
 {: tip}
 
 ```sh
 # virtual hostnames
-export NFS_vh=<virtual hostname>        # virtual hostname for NFS server
-export NFS_ip=<IP address>              # virtual IP address for NFS server
+export NFS_VH=<virtual hostname>        # virtual hostname for NFS server
+export NFS_IP=<IP address>              # virtual IP address for NFS server
 
 # LVM storage for NFS file systems
-export NFS_pvid=3<WWN>                  # WWN of shareable storage volume used for NFS
-export NFS_vg="nfssharevg"              # volume group name for NFS exported file systems
+export NFS_PVID=3<WWN>                  # WWN of shareable storage volume used for NFS
+export NFS_VG="nfssharevg"              # volume group name for NFS exported file systems
 
 # NFS share file system
-export NFS_lv1="nfssharelv"             # logical volume name export #1
-export NFS_sz1="5%VG"                   # logical volume size
-export NFS_fs1="/nfsshare"              # file system mount point
-export NFS_root="${NFS_fs1}/export"     # base export directory
+export NFS_LV1="nfssharelv"             # logical volume name export #1
+export NFS_SZ1="5%VG"                   # logical volume size
+export NFS_FS1="/nfsshare"              # file system mount point
+export NFS_ROOT="${NFS_FS1}/export"     # base export directory
 
 # NFS share file system for SAP system ID <SID>
 export SID=<SID>                        # SAP system ID
-export NFS_lv2="sap${SID}lv"            # logical volume name export #2
-export NFS_sz2="40%VG"                  # logical volume size
-export NFS_fs2="${NFS_root}/sap${SID}"  # file system mount point
+export NFS_LV2="sap${SID}lv"            # logical volume name export #2
+export NFS_SZ2="40%VG"                  # logical volume size
+export NFS_FS2="${NFS_ROOT}/sap${SID}"  # file system mount point
 
 # NFS share file system for SAP transport directory
-export NFS_lv3="saptranslv"             # logical volume name export #3
-export NFS_sz3="40%VG"                  # logical volume size
-export NFS_fs3="${NFS_root}/saptrans"   # file system mount point
+export NFS_LV3="saptranslv"             # logical volume name export #3
+export NFS_SZ3="40%VG"                  # logical volume size
+export NFS_FS3="${NFS_ROOT}/saptrans"   # file system mount point
 
 # NFS client options
-export NFS_clientspec="10.111.1.0/24"   # client specs (subnet and netmask) for allowed NFS clients
-export NFS_options="rw,sync,no_root_squash,no_subtree_check,crossmnt"   # options for NFS export
+export NFS_CLIENTSPEC="10.111.1.0/24"   # client specs (subnet and netmask) for allowed NFS clients
+export NFS_OPTIONS="rw,sync,no_root_squash,no_subtree_check,crossmnt"   # options for NFS export
 ```
 {: codeblock}
 
@@ -202,14 +202,14 @@ Use the following information to create LVM objects.
 On NODE1, run the following command.
 
 ```sh
-pvcreate /dev/mapper/${NFS_pvid}
+pvcreate /dev/mapper/${NFS_PVID}
 ```
 {: pre}
 
 Sample output:
 
 ```sh
-pvcreate /dev/mapper/${NFS_pvid}
+pvcreate /dev/mapper/${NFS_PVID}
   Physical volume "/dev/mapper/360050768108103357000000000002ddc" successfully created.
 ```
 {: screen}
@@ -220,7 +220,7 @@ pvcreate /dev/mapper/${NFS_pvid}
 On NODE1, create the volume group for the NFS export.
 
 ```sh
-vgcreate ${NFS_vg} /dev/mapper/${NFS_pvid}
+vgcreate ${NFS_VG} /dev/mapper/${NFS_PVID}
 ```
 {: pre}
 
@@ -246,17 +246,17 @@ Sample output:
 On NODE1, create three logical volumes for the NFS export.
 
 ```sh
-lvcreate -l ${NFS_sz1} -n ${NFS_lv1} ${NFS_vg}
+lvcreate -l ${NFS_SZ1} -n ${NFS_LV1} ${NFS_VG}
 ```
 {: pre}
 
 ```sh
-lvcreate -l ${NFS_sz2} -n ${NFS_lv2} ${NFS_vg}
+lvcreate -l ${NFS_SZ2} -n ${NFS_LV2} ${NFS_VG}
 ```
 {: pre}
 
 ```sh
-lvcreate -l ${NFS_sz3} -n ${NFS_lv3} ${NFS_vg}
+lvcreate -l ${NFS_SZ3} -n ${NFS_LV3} ${NFS_vg}
 ```
 {: pre}
 
@@ -270,17 +270,17 @@ Other file system types are possible.
 Then, the resource definitions need to be changed.
 
 ```sh
-mkfs.xfs /dev/${NFS_vg}/${NFS_lv1}
+mkfs.xfs /dev/${NFS_VG}/${NFS_LV1}
 ```
 {: pre}
 
 ```sh
-mkfs.xfs /dev/${NFS_vg}/${NFS_lv2}
+mkfs.xfs /dev/${NFS_VG}/${NFS_LV2}
 ```
 {: pre}
 
 ```sh
-mkfs.xfs /dev/${NFS_vg}/${NFS_lv3}
+mkfs.xfs /dev/${NFS_VG}/${NFS_LV3}
 ```
 {: pre}
 
@@ -290,7 +290,7 @@ mkfs.xfs /dev/${NFS_vg}/${NFS_lv3}
 On both nodes, run the following command.
 
 ```sh
-mkdir -p ${NFS_fs1}
+mkdir -p ${NFS_FS1}
 ```
 {: pre}
 
@@ -387,7 +387,7 @@ On NODE1, run the following command.
 
 ```sh
 pcs resource create nfs_vg ocf:heartbeat:LVM-activate \
-    vgname=${NFS_vg} \
+    vgname=${NFS_VG} \
     vg_access_mode=system_id \
     --group nfsgroup
 ```
@@ -414,14 +414,14 @@ Sample output:
 {: screen}
 
 The following command configures the `xfs` file system resources for the `nfsgroup` resource group.
-The file systems use LVM volume group `${NFS_vg}` and the logical volumes (`${NFS_lv1}`, `${NFS_lv2}`, `${NFS_lv3}`) that were created before.
+The file systems use LVM volume group `${NFS_vg}` and the logical volumes (`${NFS_LV1}`, `${NFS_LV2}`, `${NFS_LV3}`) that were created before.
 
 On NODE1, run the following command.
 
 ```sh
 pcs resource create nfs_fs1 Filesystem \
-    device=/dev/${NFS_vg}/${NFS_lv1} \
-    directory=${NFS_fs1} \
+    device=/dev/${NFS_VG}/${NFS_LV1} \
+    directory=${NFS_FS1} \
     fstype=xfs \
     --group nfsgroup
 ```
@@ -446,11 +446,11 @@ Sample output:
 ```
 {: screen}
 
-On the node with the active resource group `nfsgroup`, create two subdirectories in `${NFS_fs1}`.
-`${NFS_fs1}/stat` is used as `nfs_shared_infodir` for NFS lock information and `${NFS_fs1}/export` is used as NFS root.
+On the node with the active resource group `nfsgroup`, create two subdirectories in `${NFS_FS1}`.
+`${NFS_FS1}/stat` is used as `nfs_shared_infodir` for NFS lock information and `${NFS_FS1}/export` is used as NFS root.
 
 ```sh
-mkdir ${NFS_fs1}/stat ${NFS_fs1}/export
+mkdir ${NFS_FS1}/stat ${NFS_FS1}/export
 ```
 {: pre}
 
@@ -459,7 +459,7 @@ Create the mount points for the other exported file systems.
 On both nodes, run the following command.
 
 ```sh
-mkdir ${NFS_fs2} ${NFS_fs3}
+mkdir ${NFS_FS2} ${NFS_FS3}
 ```
 {: pre}
 
@@ -469,8 +469,8 @@ On NODE1, run the following commands.
 
 ```sh
 pcs resource create nfs_fs2 Filesystem \
-    device=/dev/${NFS_vg}/${NFS_lv2} \
-    directory=${NFS_fs2} \
+    device=/dev/${NFS_VG}/${NFS_LV2} \
+    directory=${NFS_FS2} \
     fstype=xfs \
     --group nfsgroup
 ```
@@ -478,8 +478,8 @@ pcs resource create nfs_fs2 Filesystem \
 
 ```sh
 pcs resource create nfs_fs3 Filesystem \
-    device=/dev/${NFS_vg}/${NFS_lv3} \
-    directory=${NFS_fs3} \
+    device=/dev/${NFS_VG}/${NFS_LV3} \
+    directory=${NFS_FS3} \
     fstype=xfs \
     --group nfsgroup
 ```
@@ -510,7 +510,7 @@ On NODE1, create a resource for managing the NFS server.
 
 ```sh
 pcs resource create nfs_daemon nfsserver \
-    nfs_shared_infodir=${NFS_fs1}/stat \
+    nfs_shared_infodir=${NFS_FS1}/stat \
     nfs_no_notify=true \
     --group nfsgroup
 ```
@@ -541,16 +541,16 @@ Sample output:
 #### Creating the exportfs resource
 {: #ha-rhel-nfs-cfg-exportfs-rg}
 
-To export the `${NFS_root}` directory, add the *exportfs* resources to the `nfsgroup` group, which builds a virtual directory for NFSv4 clients.
+To export the `${NFS_ROOT}` directory, add the *exportfs* resources to the `nfsgroup` group, which builds a virtual directory for NFSv4 clients.
 NFSv3 clients can access these exports too.
 
 On NODE1, run the following command.
 
 ```sh
 pcs resource create nfs_export exportfs \
-    clientspec=${NFS_clientspec} \
-    options=${NFS_options} \
-    directory=${NFS_root} \
+    clientspec=${NFS_CLIENTSPEC} \
+    options=${NFS_OPTIONS} \
+    directory=${NFS_ROOT} \
     fsid=0 \
     --group nfsgroup
 ```
@@ -568,7 +568,7 @@ On NODE1, run the following command.
 
 ```sh
 pcs resource create nfs_ip IPaddr2 \
-    ip=${NFS_ip} \
+    ip=${NFS_IP} \
     --group nfsgroup
 ```
 {: pre}
@@ -582,7 +582,7 @@ On NODE1, run the following command.
 
 ```sh
 pcs resource create nfs_notify nfsnotify \
-    source_host=${NFS_ip} \
+    source_host=${NFS_IP} \
     --group nfsgroup
 ```
 {: pre}
@@ -629,7 +629,7 @@ Run all the commands on an *NFS client node* outside the HA NFS cluster.
 Verify the NFS exports.
 
 ```sh
-showmount -e ${NFS_ip}
+showmount -e ${NFS_IP}
 ```
 {: pre}
 
@@ -660,12 +660,12 @@ chattr +i /sapmnt/${SID} \
 Mount the NFS shares.
 
 ```sh
-mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_vh}:/saptrans /usr/sap/trans
+mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_VH}:/saptrans /usr/sap/trans
 ```
 {: pre}
 
 ```sh
-mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_vh}:/sap${SID} /sapmnt/${SID}
+mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_VH}:/sap${SID} /sapmnt/${SID}
 ```
 {: pre}
 
@@ -702,8 +702,8 @@ Add the new file systems to `/etc/fstab`.
 
 ```sh
 cat >> /etc/fstab << EOT
-​${NFS_vh}:/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_vh}:/sap${SID} /sapmnt/${SID}  nfs vers=4,minorversion=1,sec=sys  0  0
+​${NFS_VH}:/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_VH}:/sap${SID} /sapmnt/${SID}  nfs vers=4,minorversion=1,sec=sys  0  0
 EOT
 ```
 {: pre}
@@ -722,12 +722,12 @@ Export environment variables for the *ASCS* and *ERS* system numbers.
 Change the following numbers to the system numbers that you used during *ASCS* and *ERS* installation.
 
 ```sh
-export ASCS_nr=01
+export ASCS_NR=01
 ```
 {: pre}
 
 ```sh
-export ERS_nr=02
+export ERS_NR=02
 ```
 {: pre}
 
@@ -737,8 +737,8 @@ Prepare the final mount points that are used for the SAP installation.
 mkdir -p /sapmnt/${SID} \
          /usr/sap/trans \
          /usr/sap/${SID}/SYS \
-         /usr/sap/${SID}/ASCS${ASCS_nr} \
-         /usr/sap/${SID}/ERS${ERS_nr}
+         /usr/sap/${SID}/ASCS${ASCS_NR} \
+         /usr/sap/${SID}/ERS${ERS_NR}
 ```
 {: pre}
 
@@ -748,15 +748,15 @@ Change the attributes of the mount points.
 chattr +i /sapmnt/${SID} \
           /usr/sap/trans \
           /usr/sap/${SID}/SYS \
-          /usr/sap/${SID}/ASCS${ASCS_nr} \
-          /usr/sap/${SID}/ERS${ERS_nr}
+          /usr/sap/${SID}/ASCS${ASCS_NR} \
+          /usr/sap/${SID}/ERS${ERS_NR}
 ```
 {: pre}
 
 Mount the NFS shares to create the required subdirectories, change the ownership, and change the permissions.
 
 ```sh
-mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_vh}:/saptrans /mnt
+mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_VH}:/saptrans /mnt
 ```
 {: pre}
 
@@ -776,7 +776,7 @@ umount /mnt
 {: pre}
 
 ```sh
-mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_vh}:/sap${SID} /mnt
+mount -t nfs -o vers=4,minorversion=1,sec=sys ${NFS_VH}:/sap${SID} /mnt
 ```
 {: pre}
 
@@ -804,11 +804,11 @@ Add the new file systems to `/etc/fstab`.
 
 ```sh
 cat >> /etc/fstab < EOT
-​${NFS_vh}:/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_vh}:/sap${SID}/sapmnt /sapmnt/${SID}  nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_vh}:/sap${SID}/ASCS /usr/sap/${SID}/ASCS${ASCS_nr} nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_vh}:/sap${SID}/ERS  /usr/sap/${SID}/ERS${ERS_nr} nfs vers=4,minorversion=1,sec=sys  0  0
-${NFS_vh}:/sap${SID}/SYS  /usr/sap/${SID}/SYS  nfs vers=4,minorversion=1,sec=sys  0  0
+​${NFS_VH}:/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_VH}:/sap${SID}/sapmnt /sapmnt/${SID}  nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_VH}:/sap${SID}/ASCS /usr/sap/${SID}/ASCS${ASCS_NR} nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_VH}:/sap${SID}/ERS  /usr/sap/${SID}/ERS${ERS_NR} nfs vers=4,minorversion=1,sec=sys  0  0
+${NFS_VH}:/sap${SID}/SYS  /usr/sap/${SID}/SYS  nfs vers=4,minorversion=1,sec=sys  0  0
 EOT
 ```
 {: pre}
