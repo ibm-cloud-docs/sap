@@ -85,7 +85,7 @@ Other configuration files are provided and no modification is required.
 ## Virtual server instance configuration
 {: #terraform-3tier-nw-hana-vsi-config}
 
-The supported operating systems for SAP NetWeaver primary application server are the following and for HANA database are: 
+The supported operating systems for SAP NetWeaver application server and for HANA database server are the following: 
 
 * Red Hat Enterprise Linux 8.6 for SAP
 * Red Hat Enterprise Linux 8.4 for SAP
@@ -227,7 +227,7 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
       |HANA_SID	|The SAP system ID identifies the SAP HANA system.|
       |HANA_SYSNO |Specifies the instance number of the SAP HANA system.|
       |HANA_SYSTEM_USAGE	|System Usage. Default: "custom". Valid values: "production", "test", "development", "custom".|
-      |HDB_CONCURENT_JOBS	Number of concurrent jobs used to load and/or extract archives to HANA Host.|
+      |HDB_CONCURENT_JOBS	|Number of concurrent jobs used to load and/or extract archives to HANA Host.|
       |KIT_HDB_CLIENT_FILE	|Path to the HANA DB client archive (SAR), as downloaded from SAP Support Portal.|
       |KIT_IGSEXE_FILE	|Path to the IGS archive (SAR), as downloaded from SAP Support Portal.|
       |KIT_IGSHELPER_FILE	|Path to the IGS Helper archive (SAR), as downloaded from SAP Support Portal.|
