@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2021, 2023
-lastupdated: "2023-07-05"
+years: 2023, 2024
+lastupdated: "2024-11-04"
 
 subcollection: sap
 
@@ -32,11 +32,7 @@ To create resources with Terraform, you use Terraform configuration files that d
 
 The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-infra-anydb-distributed](https://github.com/IBM-Cloud/sap-infra-anydb-distributed). 
 
-For 2-tier and 3-tier VPC for SAP, you modify the:
-
-*  ``terraform.tfvars`` file to add your {{site.data.keyword.cloud_notm}} API-key
-
-*  ``input.auto.tfvars`` file to customize the resources for your solution. You specify zones, resource names, and SSH keys.  
+For 2-tier and 3-tier VPC for SAP, you modify the ``input.auto.tfvars`` file to customize the resources for your solution. You specify zones, resource names, and SSH keys.
 
 All of the other configuration files are provided and do not need to be modified. 
 
@@ -47,22 +43,19 @@ The IBM Cloud Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}}
 
 A VPC is a private space in {{site.data.keyword.cloud_notm}} where you can run an isolated environment with custom network policies. The variables that you define are used by the scripts to provision the following VPC infrastructure resources for you: 
 
-*	1 VPC where you provision your virtual server instance
-*	1 security group and rules for this security group to allow DNS and SSH connections to your virtual server instance and all outbound traffic
-*	1 subnet to enable networking in your VPC
-*	2 virtual server instances (1 SAP App VSI and 1 DB(anydb) instance server VSI)
-*	2 storage volumes, 1 for swap and 1 for data for SAP app VSI and 4 storage 1 x SWAP and 3 x DATA volumes for DB VSI 
-*	2 floating IP address that you use to access your VPC virtual server instances over the public network
+*	1 VPC where you provision your virtual server instance.
+*	1 security group and rules for this security group to allow DNS and SSH connections to your virtual server instance and all outbound traffic.
+*	1 subnet to enable networking in your VPC.
+*	2 virtual server instances (1 SAP App VSI and 1 DB(anydb) instance server VSI).
+*	2 storage volumes, 1 for swap and 1 for data for SAP app VSI and 4 storage 1 x SWAP and 3 x DATA volumes for DB VSI.
 
-
-The VSIs are configured with Red Hat Enterprise Linux 7.x for SAP Applications (amd64) and they have at least two SSH keys that are configured to access as root user. The VSIs have the following storage volumes:
+The VSIs are configured with Red Hat Enterprise Linux 8.x for SAP Applications (amd64) and Suse Enterprise Linux 15 (amd64) and they have at least one SSH key that are configured to access as root user. The VSIs have the following storage volumes:
 
 DB virtual server instance disks:
 •	1x 40 GB disk with 10 IOPS / GB - SWAP
 •	1 x 32 GB disk with 10 IOPS / GB - DATA (DB LOG)
 •	1x 64 GB disk with 10 IOPS / GB - DATA (DB ARCHIVE LOG)
 •	1 x 128/256 GB disk with 10 IOPS / GB – DATA
-•	1 floating IP address that you use to access your VPC virtual server instance over the public network
 
 SAP app virtual server instance disks:
 •	1x 40 GB disk with 10 IOPS / GB - SWAP
@@ -101,19 +94,9 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
     `mkdir myproject && cd myproject`
 
-2.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main/cli) to the project folder that you created in the Terraform installation directory. 
+2.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main/cli) to the project folder that you created in the Terraform installation directory.
 
-3.  Edit the ``terraform.tfvars`` variable file and enter the IBM Cloud API key that you retrieved. 
-
-    ```terraform
-    ibmcloud_api_key = "<ibmcloud_apikey>"
-    ```
-
-    Variables that are defined in the ``terraform.tfvars`` file are automatically loaded by Terraform when the {{site.data.keyword.cloud_notm}} Provider plug-in is initialized and you can reference them in every Terraform configuration file that you use.  
-
-    Because the ``terraform.tfvars`` file contains confidential information, do not push this file to a version control system. Keep this file on your local system only. 
-  
-4.	Edit the ``input.auto.tfvars`` file to customize your solution. Modify the file to specify your VPC name, subnet, security group, hostname, profile, image, SSH keys, and disk sizes. You must modify:
+3.	Edit the ``input.auto.tfvars`` file to customize your solution. Modify the file to specify your VPC name, subnet, security group, hostname, profile, image, SSH keys, and disk sizes. You must modify:
 
     * VPC - Unique VPC name.
     * SECURITYGROUP - Change ic4sap to the VPC name.
@@ -134,8 +117,10 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
     SECURITYGROUP = "ic4sap-securitygroup"
     SUBNET        = "ic4sap-subnet"
     SSH_KEYS      = [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a" , "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
-    PROFIL        = "bx2-4x16" # default value
-    IMAGE         = "ibm-redhat-7-6-amd64-sap-applications-1" # default value
+    DB_PROFILE = "bx2-4x16"
+    APP_PROFILE = "bx2-4x16"
+    DB_IMAGE = "ibm-redhat-8-6-amd64-sap-applications-4"
+    APP_IMAGE = "ibm-redhat-8-6-amd64-sap-applications-4"
 
     # SAP Database VSI variables:
     DB-HOSTNAME   = "ep12db"
@@ -156,28 +141,30 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
     |VPC  |The name of the VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs).|
     |SECURITYGROUP	    |The name of the Security Group. The list of Security Groups is available [here](https://cloud.ibm.com/infrastructure/network/subnets)|
     |SUBNET	     |The name of the Subnet. The list of Subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets)|
-    |PROFILE	     |The profile used for the VSI. A list of profiles is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles).|
-    |IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
+    |DB_PROFILE	     |The profile used for the VSI. A list of profiles is available here.|
+    |APP_PROFILE     |The profile used for the VSI. A list of profiles is available here.|
+    |DB_IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
+    |APP_IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
     |SSH_KEYS	   |List of SSH Keys IDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys).|
     |[DB/APP]-HOSTNAME	|The hostname for the VSI. The hostname must have up to 13 characters as required by SAP. For more information about rules regarding hostnames for SAP systems, see [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/%20611361).|
     {: caption}
 
 
-5. Initialize the Terraform CLI. 
+4. Initialize the Terraform CLI. 
 
    ```terraform
    terraform init
    ```
 
-6. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the VPC instance in your account.
+5. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the VPC instance in your account.
 
    ```terraform
    terraform init
    ```
 
-7. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
+6. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
 
-8. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
+9. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
    ```terraform
    terraform apply
