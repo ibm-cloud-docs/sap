@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-31"
+lastupdated: "2024-11-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -191,6 +191,10 @@ You must grant access for the following actions.
 - getting information about a virtual server instance
 - performing an action on a virtual server instance
 
+The action set of a custom role must be unique within the account.
+You cannot create multiple custom roles with the same action set.
+{: note}
+
 Create a **custom role** in IAM.
 1. Click **Roles** > **Create**.
 1. Enter the **Name**, **ID**, and **Description** for the custom role.
@@ -236,15 +240,13 @@ Create a **custom role** in IAM.
    - power-iaas.pvm-instance-network.delete
 1. Click **Create** to save the role.
 
-If you want to share a common `Service ID` and `API key` for both the fencing agent and the `powervs-subnet` resource agent, add the action `power-iaas.pvm-instance.action` to the custom role.
-{: note}
-
 ### Creating a Service ID
 {: #ha-vsi-create-service-id-id}
 
-Create a *Service ID* for the fencing agent and assign the custom role to it.
+Create a *Service ID* for the fencing agent and assign one or more custom roles to it.
 In a multizone region implementation, you can create a second *Service ID* for the `powervs-subnet` resource agent.
 It is also possible to use a common Service ID for both agents (see the note in the previous section).
+If you are using a common Service ID, assign both the custom role for fencing and the custom role for the `powervs-subnet` resource agent.
 
 Create a **Service ID** in IAM.
 1. Click **Service IDs** > **Create**.
@@ -254,11 +256,12 @@ Create a **Service ID** in IAM.
 1. In the  *Service* section, select **Workspace for {{site.data.keyword.powerSys_notm}}** and click **Next**.
 1. In the *Resource* section, select **Specific Resources** > **Service Instance** > **string equals** > *name of the workspace that you created earlier*.
    Click **Next**.
-1. In the *Roles and actions* section, select the custom role that you created earlier from **Custom access** and click **next**.
+1. In the *Roles and actions* section, select one or more of the custom roles that you created earlier in **Custom access** and click **next**.
 1. You can skip the *Conditions (Optional)* section.
 1. Click **Add** and then **Assign** to create the *Service ID*.
 
-If you create a *Service ID* for the `powervs-subnet` resource agent in a multizone region implementation, you must click **Assign access** in the *Access policies* section again and follow the steps to assign access for the second workspace.
+If you create a *Service ID* for the `powervs-subnet` resource agent in a multizone region implementation, you must grant access to both workspace resources.
+In the *Access policies* section, click **Assign access**  again and follow the steps to assign access for the second workspace.
 {: important}
 
 ### Creating an API key for the Service ID
@@ -297,10 +300,14 @@ The upper case variables in the following section indicate that these parameters
 1. `CLOUD_REGION` contains the geographical area of your virtual server instance and is used to target the correct [Power Cloud API endpoint](https://cloud.ibm.com/apidocs/power-cloud#endpoint){: external}.
 
    `CLOUD_REGION` if you are using public endpoints
-   :   For public endpoints, use the first word in the hostname of the public endpoint URL for the location, for example, locations *syd04* and *syd05* map to *syd*.
+   :   Public endpoint URLs match the pattern `https://<CLOUD_REGION>.power-iaas.cloud.ibm.com`
+       For `CLOUD_REGION`, note the first word in the hostname in the public endpoint URL of the specific location.
+       For example, sites *syd04* and *syd05* map to *syd*.
 
    `CLOUD_REGION` if you are using private endpoints
-   :   For private endpoints, use the second word in the hostname of the public endpoint URL for the location, for example, locations *syd04* and *syd05* map to *au-syd*.
+   :   Private endpoint URLs match the pattern `https://private.<CLOUD_REGION>.power-iaas.cloud.ibm.com`
+       For `CLOUD_REGION`, note the second word in the hostname in the private endpoint URL of the specific location.
+       For example, sites *syd04* and *syd05* map to *au-syd*.
 
 1. For information on how to obtain the *Service ID API key*, see [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
    The *apikey* object in the downloaded API key file provides the API key for the `APIKEY` variable.
