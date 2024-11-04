@@ -87,7 +87,7 @@ You use the Bastion server CLI to run the Terraform scripts that are located in 
 
 To run the scripts to deploy the SAP BW/4HANA release on dedicated SAP HANA 2.0 BOX VSI, you need to:
 
-*	The input.auto.tfvars file to customize the resources for your solution. 
+*	The `input.auto.tfvars` file to customize the resources for your solution. 
     *  Enter the floating IP and subnet information from the Bastion server.
     *  By default, the VSI is configured with:
         * Red Hat Enterprise Linux® 8.x for SAP Applications (amd64) or Suse Enterprise Linux 15 for SAP Applications (amd64), 
@@ -268,8 +268,8 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
     * VPC - An existing VPC name. By defulat, the scripts expect an existing VPC name.  
     * SECURITYGROUP - change `ic4sap` to the VPC name.
     * SUBNET - change `ic4sap` to the VPC name.
-    * DB-HOSTNAME - enter a hostname up to 13 characters. For more information, see the readme file. 
-    * APP-HOSTNAME - enter a hostname up to 13 characters. For more information, see the readme file. 
+    * DB_HOSTNAME - enter a hostname up to 13 characters. For more information, see the readme file. 
+    * APP_HOSTNAME - enter a hostname up to 13 characters. For more information, see the readme file. 
 
     Replace the SSH keys in the file with your SSH key 40-digit ID.
 
@@ -283,14 +283,14 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
     SSH_KEYS        = [ "ssh key1" , "ssh key2" ]
 
     # SAP Database VSI variables:
-    DB-HOSTNAME     = "sapbw4db"
-    DB-PROFILE      = "mx2-16x128" 
-    DB-IMAGE        = "ibm-redhat-7-6-amd64-sap-hana-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP Note: 2927211.
+    DB_HOSTNAME     = "sapbw4db"
+    DB_PROFILE      = "mx2-16x128" 
+    DB_IMAGE        = "ibm-redhat-7-6-amd64-sap-hana-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP Note: 2927211.
 
     # SAP APPs VSI variables:
-    APP-HOSTNAME    = "sapbw4app"
-    APP-PROFILE     = "bx2-4x16"
-    APP-IMAGE       = "ibm-redhat-7-6-amd64-sap-applications-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP Note: 2927211.
+    APP_HOSTNAME    = "sapbw4app"
+    APP_PROFILE     = "bx2-4x16"
+    APP_IMAGE       = "ibm-redhat-7-6-amd64-sap-applications-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP Note: 2927211.
 
     ```
 
@@ -366,7 +366,6 @@ If you need to remove your VPC, go to your project folder and run ``terraform de
 For more information about Terraform on IBM Cloud, see [Terraform on IBM Cloud getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 
 For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier virtual private cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
-
 
 SAP One Support Notes that apply to this document:
 
