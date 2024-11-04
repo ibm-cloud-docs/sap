@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-11-04"
 
 subcollection: sap
 
@@ -199,8 +199,8 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
 
       |Parameter	|Description|
       |-----|-----|
-      |APP-HOSTNAME	|The Hostname for the SAP Application VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check SAP Note 611361: "Hostnames of SAP ABAP Platform servers".|
-      |DB-HOSTNAME	|The Hostname for the HANA VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check SAP Note 611361: "Hostnames of SAP ABAP Platform servers".|
+      |APP_HOSTNAME	|The hostname for the SAP Application VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check SAP Note 611361: "Hostnames of SAP ABAP  Platform servers".|
+      |DB_HOSTNAME	|The Hostname for HANA VSI. The hostname should be up to 13 characters as required  by SAP. For more information on the rules regarding hostnames for SAP systems, check SAP Note 611361: "Hostnames of SAP ABAP Platform servers".|
       |BASTION_FLOATING_IP	|Input the FLOATING IP from the Bastion Server.|
       |REGION	|The cloud region where to deploy the solution. The regions and zones for VPC are listed [here](https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in IBM Cloud Schematics [here](https://cloud.ibm.com/docs/schematics?topic=schematics-locations). |
       |RESOURCE_GROUP	|The name of an EXISTING Resource Group for VSIs and Volumes resources. The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups).|
@@ -300,8 +300,8 @@ Use these steps to create the VPC resources and install the SAP architecture. Th
     DB_IMAGE      = "ibm-redhat-8-6-amd64-sap-hana-2" # For any manual change in the Terraform code, you have to make sure that you use a certified image based on the SAP Note: 2927211.
 
     # SAP APPs VSI variables:
-    APP-HOSTNAME    = "sapjavci"
-    APP-PROFILE     = "bx2-4x16"
+    APP_HOSTNAME    = "sapjavci"
+    APP_PROFILE     = "bx2-4x16"
     APP_IMAGE = "ibm-redhat-8-6-amd64-sap-applications-2" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP Note: 2927211.
 
     ```
@@ -314,8 +314,8 @@ Use these steps to create the VPC resources and install the SAP architecture. Th
     *  RESOURCE_GROUP - The name of an existing Resource group, previously created by the user
     *  SUBNET - The name of an existing Subnet in the same region and zone as the VSI
     *  SSH_KEYS - A list of SSH keys UUIDs allowed to connect via SSH to the VSIs
-    *  DB-HOSTNAME - The hostname of the database VSI, up to 13 characters. For more information, see the Readme file.
-    *  APP-HOSTNAME - The hostname of the application server VSI, up to 13 characters. For more information, see the Readme file.
+    *  DB_HOSTNAME - The hostname of the database VSI, up to 13 characters. For more information, see the Readme file.
+    *  APP_HOSTNAME - The hostname of the application server VSI, up to 13 characters. For more information, see the Readme file.
 
     ``` terraform
     # General VPC variables for ABAP stack
