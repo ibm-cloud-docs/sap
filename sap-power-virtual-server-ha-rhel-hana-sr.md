@@ -3,7 +3,7 @@
 copyright:
   years: 2023, 2024
 
-lastupdated: "2024-10-31"
+lastupdated: "2024-11-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -97,33 +97,27 @@ Set the `VIP`environment variable to the reserved IP address.
 #### Setting extra environment variables for a multizone region implementation
 {: #ha-rhel-hana-sr-mz-prepare-environment-variables}
 
+Set the `CLOUD_REGION`, `IBMCLOUD_CRN_?`, `POWERVSI_?`, `APIKEY` variables as described in [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
+Set the `API_TYPE` variable to `private` to communicate with the IBM Cloud IAM and IBM Power Cloud API via private endpoints.
 The `SUBNET_NAME` variable contains the name of the subnet.
 The `CIDR` variable represents the *Classless Inter-Domain Routing (CIDR)* notation for the subnet in the format `<IPv4_address>/number`.
 The `VIP` variable is the IP address of the virtual IP address resource and must belong to the `CIDR` of the subnet.
 Set the `JUMBO` variable to `true` if you want to enable the subnet for a large MTU size.
-Set the `API_TYPE` variable to `private` to communicate with the IBM Cloud IAM and IBM Power Cloud API via private endpoints.
-
-When you are [Creating a service ID for the powervs-subnet resource agent](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-iam-custom-role), you can copy its APIKEY and set the `APIKEY` environment variable to this value.
-Alternatively, you can download the key as a JSON file, and place a copy of this file on both cluster nodes.
-Then set the `APIKEY` environment variable to a string that starts with the `@` character, followed by the full path to the key file.
-
-The second option is the preferred one.
-{: note}
 
 The following is an example of how to set the extra environment variables that are required for a multizone region implementation.
 
 ```sh
 export CLOUD_REGION="eu-de"
-export IBMCLOUD_CRN_1="crn:v1:bluemix:public:power-iaas:eu-de-2:***:***::"
-export IBMCLOUD_CRN_2="crn:v1:bluemix:public:power-iaas:eu-de-1:***:***::"
-export POWERVSI_1="***"
-export POWERVSI_2="***"
+export IBMCLOUD_CRN_1="crn:v1:bluemix:public:power-iaas:eu-de-2:a/a1b2c3d4e5f60123456789a1b2c3d4e5:a1b2c3d4-0123-4567-89ab-a1b2c3d4e5f6::"
+export IBMCLOUD_CRN_2="crn:v1:bluemix:public:power-iaas:eu-de-1:a/a1b2c3d4e5f60123456789a1b2c3d4e5:e5f6a1b2-cdef-0123-4567-a1b2c3d4e5f6::"
+export POWERVSI_1="a1b2c3d4-0123-890a-f012-0123456789ab"
+export POWERVSI_2="e5f6a1b2-4567-bcde-3456-cdef01234567"
+export APIKEY="@/root/.apikey.json"
+export API_TYPE="private"
 export SUBNET_NAME="vip-mha-net"
 export CIDR="10.40.11.100/30"
 export VIP="10.40.11.102"
 export JUMBO="true"
-export APIKEY="@/root/.apikey.json"
-export API_TYPE="private"
 ```
 {: codeblock}
 

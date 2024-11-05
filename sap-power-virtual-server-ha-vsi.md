@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-04"
+lastupdated: "2024-11-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -42,7 +42,7 @@ Each workspace is bound to a single data center.
 To create a workspace, follow the steps that are described in [Creating a {{site.data.keyword.powerSys_notm}} workspace](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-service){: external}.
 
 The created workspaces are listed under **Workspaces** on the left navigation pane of the {{site.data.keyword.powerSys_notm}} user interface.
-Select the workspace and follow the instructions after this.
+Select the workspace and follow the instructions.
 
 ### Creating private network subnets
 {: #ha-vsi-create-subnets}
@@ -70,12 +70,12 @@ Make sure that the IP address you want to reserve is within the CIDR range of th
 {: #ha-vsi-explore-additional-network-options}
 
 If your {{site.data.keyword.powerSys_notm}} *workspace* is enabled for *Power Edge Router* (PER), you already have network communication with parts of the IBM Cloud network.
-The PER solution creates a direct connection to the IBM Cloud Multi Protocol Label Switching (MPLS) backbone, making it easy for different parts of the IBM network to communicate with each other.
+The PER solution creates a direct connection to the IBM Cloud Multi Protocol Label Switching (MPLS) backbone, making it easier for different parts of the IBM network to communicate with each other.
 For more information, see [Getting started with the Power Edge Router](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-per).
 
-Otherwise, create {{site.data.keyword.cloud}} Connections to connect your {{site.data.keyword.powerSys_notm}} instances to other {{site.data.keyword.cloud_notm}} resources within your account.
-{{site.data.keyword.cloud_notm}} Connections are not required to configure a Red Hat High Availability cluster on {{site.data.keyword.powerSys_notm}}.
-They may be required for integration scenarios when using the {{site.data.keyword.cloud_notm}} Classic network and Virtual Private Cloud (VPC) infrastructures.
+Otherwise, create {{site.data.keyword.cloud}} connections to connect your {{site.data.keyword.powerSys_notm}} instances to other {{site.data.keyword.cloud_notm}} resources within your account.
+{{site.data.keyword.cloud_notm}} connections are not required to configure a Red Hat High Availability cluster in {{site.data.keyword.powerSys_notm}}.
+They might be required for integration scenarios with the {{site.data.keyword.cloud_notm}} Classic network and Virtual Private Cloud (VPC) infrastructures.
 For more information, see [IBM {{site.data.keyword.powerSys_notm}} Cloud Connections](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-cloud-connections){: external}.
 
 Use IBM Transit Gateway to connect your {{site.data.keyword.powerSys_notm}} to {{site.data.keyword.cloud_notm}} classic and Virtual Private Cloud (VPC) infrastructures outside your account or region.
@@ -241,7 +241,7 @@ Create a **custom role** in IAM.
 1. Click **Create** to save the role.
 
 ### Creating a Service ID
-{: #ha-vsi-create-service-id-id}
+{: #ha-vsi-create-service-id}
 
 Create a *Service ID* for the fencing agent and assign one or more custom roles to it.
 In a multizone region implementation, you can create a second *Service ID* for the `powervs-subnet` resource agent.
@@ -270,7 +270,7 @@ In the *Access policies* section, click **Assign access**  again and follow the 
 When you configure the *fencing agent* in the *Red Hat HA cluster* or the *powervs-subnet* resource agent in a multizone region implementation, you must specify an *API key*.
 The *API key* authorizes the fencing agent or resource agent to use the IBM Power Cloud API to perform the actions that are defined in the *Service ID*.
 
-Create the **API Key** for the **Service ID** in IAM.
+Create the **API Key** for the **Service ID** in the IAM.
 
 1. Click **Service IDs** and select the *Service ID* that you created earlier.
 2. Click **API Keys** to switch to the *Create and manage API keys for this service ID* tab.
@@ -278,8 +278,8 @@ Create the **API Key** for the **Service ID** in IAM.
 4. Enter a **Name** and a **Description** for the key.
 5. Click **Create**.
 
-Click download to save the API key.
-Keep the key in a safe place.
+Click download to save the API key to a JSON file.
+Keep the downloaded file in a safe place.
 
 The key is available for 300 seconds.
 After 300 seconds, you won't be able to view or retrieve the key.
@@ -288,24 +288,27 @@ After 300 seconds, you won't be able to view or retrieve the key.
 ## Collecting parameters for configuring a RHEL HA Add-On cluster
 {: #ha-rhel-collect-parameters-for-cluster-config}
 
-There are several parameters that are required to set up a specific high availability scenario.
+Several parameters are required to set up a specific high availability scenario.
 These include the following parameters, which can be collected now.
 
 - *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspace
 - Virtual server *instance IDs*
 - Extra parameters that must be derived from the *CRN*
+- API key for the *fencing agent*
+- API key for the *powervs-subnet* resource agent if you are implementing a multizone region environment
 
-The upper case variables in the following section indicate that these parameters are used as environment variables to simplify the cluster setup. Make a note of their contents now, as they will be exported as environment variables in the setup instructions for a specific high availability scenario.
+The uppercase variables in the following section indicate that these parameters are used as environment variables to simplify the cluster setup.
+Make a note of their contents now, as they will be needed in the setup instructions for a specific high availability scenario.
 
 1. `CLOUD_REGION` contains the geographical area of your virtual server instance and is used to target the correct [Power Cloud API endpoint](https://cloud.ibm.com/apidocs/power-cloud#endpoint){: external}.
 
    `CLOUD_REGION` if you are using public endpoints
-   :   Public endpoint URLs match the pattern `https://<CLOUD_REGION>.power-iaas.cloud.ibm.com`
+   :   Public endpoint URLs match the pattern `https://<CLOUD_REGION>.power-iaas.cloud.ibm.com`.
        For `CLOUD_REGION`, note the first word in the hostname in the public endpoint URL of the specific location.
        For example, sites *syd04* and *syd05* map to *syd*.
 
    `CLOUD_REGION` if you are using private endpoints
-   :   Private endpoint URLs match the pattern `https://private.<CLOUD_REGION>.power-iaas.cloud.ibm.com`
+   :   Private endpoint URLs match the pattern `https://private.<CLOUD_REGION>.power-iaas.cloud.ibm.com`.
        For `CLOUD_REGION`, note the second word in the hostname in the private endpoint URL of the specific location.
        For example, sites *syd04* and *syd05* map to *au-syd*.
 
@@ -314,7 +317,7 @@ The upper case variables in the following section indicate that these parameters
 1. Log in to [Workspaces - {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces){: external}.
 1. The list contains the name and CRN of the workspaces.
 
-   Locate your **Workspace**, or both workspaces in the case of a multizone region deployment.
+   Locate your **Workspace**, or both workspaces for a multizone region deployment.
    Click **Copy** next to the CRN and paste it into a temporary document.
 
    A CRN has multiple sections that are divided by a colon.
@@ -336,8 +339,11 @@ The upper case variables in the following section indicate that these parameters
 
 1. `IBMCLOUD_CRN_1` contains the full *CRN*.
 1. `GUID_1` refers to the contents of the *service-instance* field in the *CRN*.
-1. In a multizone region deployment, use the *CRN* of the second workspace and note the contents for  `IBM_CLOUD_CRN_2` and `GUID_2`.
-1. Click on the workspace name and then **View virtual servers**.
-1. Click on  the virtual server instance names and note their **ID**.
+1. In a multizone region deployment, use the *CRN* of the second workspace and note the contents for `IBM_CLOUD_CRN_2` and `GUID_2`.
+1. Click the workspace name and then **View virtual servers**.
+1. Click the virtual server instance names and find their **ID**.
 1. Note these IDs for `POWERVSI_1` and `POWERVSI_2`.
    In a multizone deployment, use the second workspace to find the ID of the second instance.
+1. `APIKEY` contains the the value of the `apikey` entry in the JSON file that was downloaded in the [Creating an API key for the Service ID](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
+
+   In a multizone region deployment, the preferred option for the resource agent API key is to place a copy of the downloaded JSON file on both nodes and set `APIKEY` to a string that starts with the `@` character, followed by the full path to the key file.
