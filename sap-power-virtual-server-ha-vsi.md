@@ -16,25 +16,15 @@ subcollection: sap
 Use the following information and procedures to create the {{site.data.keyword.powerSys_notm}} instances that are required for a high availability cluster implementation.
 {: shortdesc}
 
-The following information is provided in the following sections.
-
-- [Creating the workspace](#ha-vsi-create-workspace)
-
-    After the workspace is created, you can create and configure virtual server instances, network resources, and storage volumes.
-- [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](#ha-vsi-create-service-id)
-
-    For monitoring and management, the fencing agent authenticates to the {{site.data.keyword.powerSys_notm}} API by using the Service API key.
-    A custom role allows only the actions that are required by the fencing agent.
-
 ## Before you begin
 {: #ha-vsi-begin}
 
 Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
-## Creating the workspace
+## Creating a workspace
 {: #ha-vsi-create-workspace}
 
-A workspace is an environment that acts as a folder for all the {{site.data.keyword.powerSys_notm}} resources in a geographic region.
+A workspace is an environment that acts as a folder for all {{site.data.keyword.powerSys_notm}} resources in a geographical region.
 These resources include compute, network, and storage volumes.
 Resources cannot be moved or shared between different workspaces.
 Each workspace is bound to a single data center.
@@ -42,13 +32,12 @@ Each workspace is bound to a single data center.
 To create a workspace, follow the steps that are described in [Creating a {{site.data.keyword.powerSys_notm}} workspace](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-service){: external}.
 
 The created workspaces are listed under **Workspaces** on the left navigation pane of the {{site.data.keyword.powerSys_notm}} user interface.
-Select the workspace and follow the instructions.
 
 ### Creating private network subnets
 {: #ha-vsi-create-subnets}
 
-The virtual server instance is connected to the network and is assigned an IP address from the defined range of IP addresses.
-It is recommended that you connect the cluster nodes to a private network rather than a public one.
+A virtual server instance is connected to the network and is assigned an IP address from the defined range of IP addresses.
+It is recommended that you connect the cluster nodes to a private network rather than a public network.
 
 Follow the steps in [Configuring a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet){: external} to create a subnet.
 
@@ -98,7 +87,7 @@ It offers both security and performance advantages.
 {: tip}
 
 1. Log in to [Workspaces](https://cloud.ibm.com/power/ssh-keys){: external}.
-1. Select the **workspace** that you created.
+1. Click the **workspace** name and **View virtual servers**.
 1. Click [SSH keys](https://cloud.ibm.com/power/ssh-keys){: external}.
 1. Click **Create SSH key**.
 1. Enter a **Key name**. Then, copy and paste the **public key** that you generated earlier into the field.
@@ -127,16 +116,18 @@ Before you begin, make sure that the OVA image is loaded in the storage bucket.
 Complete the following steps to create the virtual server instances that you want to use as high availability cluster nodes.
 
 1. Log in to [Workspaces](https://cloud.ibm.com/power/workspaces){: external}.
-1. Select the **Workspace** that you created.
-1. Click **View virtual server instances** > **Create Instance**.
+1. Click the **workspace** name and **View virtual servers**.
+1. Click **Virtual server instances** > **Create Instance**.
    You need to step through the subsections **General**, **Boot Image**, **Profile**, **Storage Volume**, **Network Interfaces**.
-1. In subsection **General**, enter the **Instance name** and click **+** to increase the **Number of instances** to 2.
-1. Select **Numerical postfix** as *Instance naming convention*, and select **Different server** as *Placement group colocation policy*.
+1. In subsection **General**, enter the **Instance name**.
+1. For a singlezone implementation, click **+** to increase the **Number of instances** to 2.
+   Select **Numerical postfix** as *Instance naming convention*, and select **Different server** as *Placement group colocation policy*.
    A placement group with colocation policy *Different server* is automatically created as part of the virtual server instances deployment.
-1. Select the **SSH key** that you created and click **Continue**.
-1. In the **Boot image** section, select the **Operating system** according to your subscription model. \
-   Use one of the Linux selections either from the *IBM-provided subscription* or through your *Client-provided subscription*. \
-   Keep **Auto-select pool** for selecting the *Storage Pool*. \
+1. Select an **SSH key** and click **Continue**.
+1. In the **Boot image** section, select the **Operating system** according to your subscription model.
+   Use one of the Linux selections either from the *IBM-provided subscription* or through your *Client-provided subscription*.
+   In the **Tier* section, select the desired storage tier.
+   Keep **Auto-select pool** for selecting the *Storage Pool*.
    Click **Continue**.
 1. In **Profile**, select **Machine type**, **Core type**, and the virtual server instance **profile** to match your workload requirements.
    Click **Continue**.
@@ -149,20 +140,21 @@ Complete the following steps to create the virtual server instances that you wan
    These volumes must be created later for the individual server instances after their deployment is complete.
    {: important}
 
-1. In the **Network Interfaces** subsection, it is recommended that the cluster nodes are not directly accessible from a public network, so leave the *Public networks* configuration as **Off**.
-1. Click **Attach** to attach the virtual server instances to an existing subnet.
-1. In the *Attach an existing network* screen, select one of the *Existing networks*. You can either select **Automatically assign IP address from IP range**, or **Manually specify an IP address from IP range** to specify an available IP address.
-1. Click **Attach.**
-1. Click **Finish**, check the *I agree to the Terms and Conditions* flag, and click **Create**.
+8. In the **Network Interfaces** subsection, it is preferable that the cluster nodes are not directly accessible from a public network, so leave the *Public networks* configuration as **Off**.
+9. Click **Attach** to attach the virtual server instances to an existing subnet.
+10. In the *Attach an existing network* screen, select one of the *Existing networks*. You can either select **Automatically assign IP address from IP range**, or **Manually specify an IP address from IP range** to specify an available IP address.
+11. Click **Attach.**
+12. Click **Finish**, check the *I agree to the Terms and Conditions* flag, and click **Create**.
 
 The deployment of the virtual server instances starts.
 
-## Preparing the operating system for SAP installation
+For a multizone region deployment, follow the same steps again to create the second virtual server instance in a different workspace.
+
+## Preparing the operating system for installating an SAP solution
 {: #ha-vsi-prepare-sap-install}
 
 If you deployed a virtual server instance from a stock image, you need to perform extra configuration tasks before you can install SAP software.
 For more information, see [Configuring a {{site.data.keyword.powerSys_notm}} instance](https://cloud.ibm.com/docs/sap?topic=sap-power-vs-set-up-power-instances#power-vs-set-up-power-basic-os-config).
-{: important}
 
 ## Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}
 {: #ha-vsi-create-service-id}
@@ -177,14 +169,14 @@ Navigate to the IAM for the following steps.
 ### Log in to IBM Cloud Identity and Access Management
 {: #ha-vsi-create-service-id-logon}
 
-Access IBM Cloud Identity and Access Management (IAM).
+Go to the IBM Cloud Identity and Access Management (IAM) console.
 1. Log on to [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/){: external}.
-1. On the toolbar, click **Manage** to expand the drop-down menu, then select **Access (IAM)**.
+1. On the menu bar, click **Manage** and select **Access (IAM)**.
 
 ### Creating a custom role for the fencing agent
 {: #ha-vsi-create-service-id-fencing-role}
 
-Create a *custom role* in IAM and assign the set of actions that are required for a fencing operation in the role.
+Create a *custom role* in IAM and assign the set of actions that are required for a fencing operation to the role.
 You must grant access for the following actions.
 - reading objects in the *cloud_instance* or *workspace*
 - listing virtual server instances
@@ -312,10 +304,8 @@ Make a note of their contents now, as they will be needed in the setup instructi
        For `CLOUD_REGION`, note the second word in the hostname in the private endpoint URL of the specific location.
        For example, sites *syd04* and *syd05* map to *au-syd*.
 
-1. For information on how to obtain the *Service ID API key*, see [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
-   The *apikey* object in the downloaded API key file provides the API key for the `APIKEY` variable.
 1. Log in to [Workspaces - {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces){: external}.
-1. The list contains the name and CRN of the workspaces.
+   The list contains the name and CRN of the workspaces.
 
    Locate your **Workspace**, or both workspaces for a multizone region deployment.
    Click **Copy** next to the CRN and paste it into a temporary document.
@@ -341,9 +331,11 @@ Make a note of their contents now, as they will be needed in the setup instructi
 1. `GUID_1` refers to the contents of the *service-instance* field in the *CRN*.
 1. In a multizone region deployment, use the *CRN* of the second workspace and note the contents for `IBM_CLOUD_CRN_2` and `GUID_2`.
 1. Click the workspace name and then **View virtual servers**.
-1. Click the virtual server instance names and find their **ID**.
+   Click the virtual server instance names and find their **ID**.
 1. Note these IDs for `POWERVSI_1` and `POWERVSI_2`.
    In a multizone deployment, use the second workspace to find the ID of the second instance.
-1. `APIKEY` contains the the value of the `apikey` entry in the JSON file that was downloaded in the [Creating an API key for the Service ID](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
+1. `APIKEY` contains the API key for the fencing agent. Use the value of the `apikey` entry in the JSON file that was downloaded in the [Creating an API key for the Service ID](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
 
-   In a multizone region deployment, the preferred option for the resource agent API key is to place a copy of the downloaded JSON file on both nodes and set `APIKEY` to a string that starts with the `@` character, followed by the full path to the key file.
+   In a multizone region deployment, an API key is also required for the `powervs-subnet` cluster resource agent.
+   As before, you can use the value of the apikey entry for the `APIKEY` variable.
+   However, the preferred option is to place a copy of the downloaded JSON file on both nodes and set `APIKEY` to a string that starts with a `@` sign followed by the full path to the key file.
