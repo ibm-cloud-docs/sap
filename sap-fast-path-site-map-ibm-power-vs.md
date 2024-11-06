@@ -10,10 +10,10 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Fast Path of SAP Solutions and IBM Power Virtual Server
+# Fast Path of IBM Power Virtual Server
 {: #fast-path-site-map-power-vs}
 
-Use this collection of shortcuts to quickly access relevant documentation for each offering, excluding general information that applies to all offerings, such as SAP Sizing.
+Use this collection of shortcuts to quickly access relevant documentation for each offering, excluding general information that applies to all offerings, such as SAP Solution sizing.
 {: shortdesc}
 
 ## Learn
@@ -21,9 +21,9 @@ Use this collection of shortcuts to quickly access relevant documentation for ea
 
 An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated zone and or data center. For more information, see [{{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment introduction](/docs/sap?topic=sap-power-env-introduction).
 
-Certified IaaS for SAP HANA database server is available in many variations. Each variation has different capabilities and sizes to fit different SAP workload scenarios. For more information, see [Infrastructure that is certified for SAP - IBM Power Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs).
+Certified IaaS for SAP HANA database server is available in many variants. Each variant has different capabilities and sizes to fit different SAP workload scenarios. For more information, see [Infrastructure that is certified for SAP - IBM Power Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs).
 
-The following links give an overview of the SAP-certified profiles with IBM Power Virtual Servers for SAP HANA and SAP NetWeaver.
+The following links provide an overview of the SAP-certified profiles with IBM Power Virtual Servers for SAP HANA and SAP NetWeaver.
 
 - [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
 - [IBM Power Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)
@@ -126,14 +126,14 @@ For more information about SAP on SUSE Linux, see the following table.
 
 | Link | Description |
 | ---- | ----------- |
-| [SAP Note 2205917 - SAP HANA DB: Recommended OS settings for SLES 12 / SLES for SAP Applications 12](https://me.sap.com/notes/2205917) | SLES 12 recommended operating system settings |
-| [SAP Note 1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://me.sap.com/notes/1984787) | SLES 12 installation note |
-| [SAP Note 2684254 - SAP HANA DB: Recommended OS settings for SLES 15 / SLES for SAP Applications 15](https://me.sap.com/notes/2684254) | SLES 15 recommended operating system settings |
-| [SAP Note 2578899 - SUSE Linux Enterprise Server 15: Installation Note](https://me.sap.com/notes/2578899) | SLES 15 installation note |
-| [SAP Note 2790462 - HANA Server connection is not available or timed out after you upgrade to SUSE 15 from SUSE 12](https://me.sap.com/notes/2790462) | Known issue when you upgrade from 12 to 15      |
-| [SAP Note 1275776 - Linux: Preparing SLES for SAP environments](https://me.sap.com/notes/1275776)                                                 | Preparing SLES for SAP environments           |
-| [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap)                                                                   | A useful collection of SUSE documentation     |
-| [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/)                                                                              | IBM and SUSE                                  |
+| [SAP Note 2205917 - SAP HANA DB: Recommended OS settings for SLES 12 / SLES for SAP Applications 12](https://me.sap.com/notes/2205917){: external}| SLES 12 recommended operating system settings |
+| [SAP Note 1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://me.sap.com/notes/1984787){: external}| SLES 12 installation note |
+| [SAP Note 2684254 - SAP HANA DB: Recommended OS settings for SLES 15 / SLES for SAP Applications 15](https://me.sap.com/notes/2684254){: external}| SLES 15 recommended operating system settings |
+| [SAP Note 2578899 - SUSE Linux Enterprise Server 15: Installation Note](https://me.sap.com/notes/2578899){: external}| SLES 15 installation note |
+| [SAP Note 2790462 - HANA Server connection is not available or timed out after you upgrade to SUSE 15 from SUSE 12](https://me.sap.com/notes/2790462){: external}| Known issue when you upgrade from 12 to 15      |
+| [SAP Note 1275776 - Linux: Preparing SLES for SAP environments](https://me.sap.com/notes/1275776){: external}                                                | Preparing SLES for SAP environments           |
+| [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap){: external}                                                                  | A useful collection of SUSE documentation     |
+| [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/){: external}                                                                             | IBM and SUSE                                  |
 {: caption="Operating systems – SUSE Linux&reg;" caption-side="top"}
 
 ### Operating systems – Red Hat Enterprise Linux (RHEL)
@@ -143,11 +143,11 @@ For more information about SAP on RHEL, see the following table.
 
 | Link | Description |
 | ---- | ----------- |
-| [SAP Note 2772999 RHEL 8.x: Installation and Configuration](https://me.sap.com/notes/2772999)            | - |
-| [SAP Note 2777782 SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782)                                        | - |
-| [SAP Note 3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302)                                        | - |
-| [SAP Note 2382421 Optimizing the Network Configuration on HANA and OS-Level](https://me.sap.com/notes/2578899)                                         | SLES 15 installation note                     |
-| [RHEL System Roles for SAP](https://access.redhat.com/sites/default/files/attachments/rhel_system_roles_for_sap_1.pdf) | - |
+| [SAP Note 2772999 RHEL 8.x: Installation and Configuration](https://me.sap.com/notes/2772999){: external}           | - |
+| [SAP Note 2777782 SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782){: external}                                       | - |
+| [SAP Note 3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302){: external}                                       | - |
+| [SAP Note 2382421 Optimizing the Network Configuration on HANA and OS-Level](https://me.sap.com/notes/2578899){: external}                                        | SLES 15 installation note                     |
+| [RHEL System Roles for SAP](https://access.redhat.com/sites/default/files/attachments/rhel_system_roles_for_sap_1.pdf){: external}| - |
 {: caption="Operating systems – Red Hat Linux" caption-side="top"}
 
 ### SAP HANA-related information
@@ -157,10 +157,10 @@ For more information about SAP HANA, see the following table.
 
 | Link | Description |
 | ---- | ----------- |
-| [SAP Note 2000003 - FAQ: SAP HANA](https://me.sap.com/notes/2000003)                                | Extensive overview of SAP HANA                     |
-| [SAP Note 1999880 - FAQ: SAP HANA System Replication](https://me.sap.com/notes/1999880)             | HSR central note                     |
-| [SAP Note 2000002 - FAQ: SAP HANA SQL Optimization](https://me.sap.com/notes/2000002)               | Useful tips to improve SQL processing times        |
-| [SAP Note 2380291 - SAP HANA 2.0 Cockpit Central Release Note](https://me.sap.com/notes/2380291)                | SAP HANA Cockpit central note                      |
-| [SAP HANA Platform Landing page](https://help.sap.com/docs/SAP_HANA_PLATFORM?locale=en-US) | Useful for installation guides and upgrade guides |
-| [SAP Guide Finder](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?locale=en-US)                     | Useful to locate user guides and information on updates     |
+| [SAP Note 2000003 - FAQ: SAP HANA](https://me.sap.com/notes/2000003){: external}                               | Extensive overview of SAP HANA                     |
+| [SAP Note 1999880 - FAQ: SAP HANA System Replication](https://me.sap.com/notes/1999880){: external}            | HSR central note                     |
+| [SAP Note 2000002 - FAQ: SAP HANA SQL Optimization](https://me.sap.com/notes/2000002){: external}              | Useful tips to improve SQL processing times        |
+| [SAP Note 2380291 - SAP HANA 2.0 Cockpit Central Release Note](https://me.sap.com/notes/2380291){: external}               | SAP HANA Cockpit central note                      |
+| [SAP HANA Platform Landing page](https://help.sap.com/docs/SAP_HANA_PLATFORM?locale=en-US){: external}| Useful for installation guides and upgrade guides |
+| [SAP Guide Finder](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?locale=en-US){: external}                    | Useful to locate user guides and information on updates     |
 {: caption="SAP HANA-related information" caption-side="top"}

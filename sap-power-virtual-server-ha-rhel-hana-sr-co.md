@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-31"
+lastupdated: "2024-11-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -56,38 +56,28 @@ Review the general requirements, product documentation, support articles, and SA
 The cost optimized scenario is an extension of the setup that is described in [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
 Complete the setup for the production system System Replication cluster before you continue with the following steps.
 
-### Configuring the nonproduction SAP HANA Instance on NODE2
-{: #ha-rhel-hana-sr-co-non-prod}
+### Preparing environment variables
+{: #ha-rhel-hana-sr-co-prepare-environment-variables}
 
 To simplify the setup, prepare the following environment variables for user ID `root` on NODE2.
-These environment variables are used in subsequent commands in the remainder of the instructions.
+These environment variables are used with later operating system commands in this information.
 
-On NODE2, create a file with the following environment variables.
-Then, adapt them according to the configuration of the nonproduction system.
+On NODE2, set the following environment variables.
 
 ```sh
+# General settings
 export SID_NP=<SID>            # SAP HANA System ID of non-production system (uppercase)
 export sid_np=<sid>            # SAP HANA System ID of non-production system (lowercase)
 export INSTNO_NP=<INSTNO>      # SAP HANA Instance Number of non-production system
+
+# Cluster nodes
 export NODE1=<Hostname 1>      # Hostname of virtual server instance 1 (production primary)
 export NODE2=<Hostname 2>      # Hostname of virtual server instance 2 (non-production, production secondary)
-export vIP_np=<vIP>            # Optional: virtual IP address assigned to the non-production system
+
+# Optional virtual IP address
+export VIP_NP=<IP address>     # Virtual IP address for the non-production system
 ```
 {: codeblock}
-
-You must source this file before you use the sample commands in the remainder of this document.
-
-For example, if you created a file that is called `sap_non_prod.sh`, run the following command on NODE2 to set the environment variables.
-
-```sh
-source sap_non_prod.sh
-```
-{: pre}
-
-Every time that you start a new terminal session, you must run the previous `source` command.
-As an alternative, you can move add the environment variables file to the `/etc/profile.d` directory during the cluster configuration.
-In this example, the file is sourced automatically each time you log in to the server.
-{: important}
 
 ### Configuring the SAP HANA HA/DR provider hook
 {: #ha-rhel-hana-sr-co-hook}
@@ -439,7 +429,7 @@ If you want to assign a virtual IP address to the nonproduction instance, add a 
 
 ```sh
 pcs resource create vip_np IPaddr2 \
-    ip="${vIP_np}" \
+    ip="${VIP_NP}" \
     --group group_${sid_np}_non_prod
 ```
 {: pre}

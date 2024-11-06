@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-16"
+lastupdated: "2024-11-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -168,4 +168,4 @@ After a *cluster takeover*
 
 ![Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](images/sap-power-virtual-server-ha-architecture-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
 
-[Implementing a RHEL HA Add-On Cluster on IBM {{site.data.keyword.powerSys_notm}} in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz){: external}
+See the information in [Implementing a RHEL HA Add-On Cluster on IBM {{site.data.keyword.powerSys_notm}} in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz){: external} on how to prepare and configure a Red Hat Enterprise Linux (RHEL) High Availability (HA) cluster for the `powervs-subnet` resource agent.
