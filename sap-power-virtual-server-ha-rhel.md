@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-31"
+lastupdated: "2024-11-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -42,19 +42,17 @@ Make sure that you follow the steps on both nodes.
 
 Log in as the root user to each of the cluster nodes.
 
-### Populating entries for each node in the hosts file
+### Adding cluster node entries to the hosts file
 {: #ha-rhel-update-hosts-file}
 
-On both nodes, use the following information to populate entries.
-
-Add the IP addresses and hostnames of both nodes to the hosts file `/etc/hosts`.
+On both nodes, add the IP addresses and hostnames of both nodes to the `/etc/hosts` file.
 
 For more information, see [Setting up /etc/hosts files on RHEL cluster nodes](https://access.redhat.com/solutions/81123){: external}.
 
 ### Preparing environment variables
 {: #ha-rhel-prepare-environment-variables}
 
-Prepare some environment variables for the root user on both nodes to simplify the setup process.
+To simplify the setup process, prepare some environment variables for the root user.
 These environment variables are used with later operating system commands in this information.
 
 On both nodes, create a file with the following environment variables and update to your environment.
@@ -63,7 +61,7 @@ On both nodes, create a file with the following environment variables and update
 # General settings
 export CLUSTERNAME="SAP_CLUSTER"         # Cluster name
 
-export APIKEY=<APIKEY>                   # Service ID API key
+export APIKEY=<APIKEY>                   # API Key of the IBM Cloud IAM ServiceID for the fencing agent
 export CLOUD_REGION=<CLOUD_REGION>       # Workspace region
 export PROXY_IP=<IP_ADDRESS>             # Proxy server IP address
 

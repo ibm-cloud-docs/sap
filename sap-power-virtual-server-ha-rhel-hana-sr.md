@@ -3,7 +3,7 @@
 copyright:
   years: 2023, 2024
 
-lastupdated: "2024-11-05"
+lastupdated: "2024-11-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -75,6 +75,8 @@ export VIP=<IP address>     # SAP HANA System Replication cluster virtual IP add
 
 # Multizone region
 export CLOUD_REGION=<CLOUD_REGION>       # Multizone region name
+export APIKEY="APIKEY or path to file"   # API Key of the IBM Cloud IAM ServiceID for the resource agent
+export API_TYPE="private or public"      # Use private or public API endpoints
 export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace 1 CRN
 export IBMCLOUD_CRN_2=<IBMCLOUD_CRN_2>   # Workspace 2 CRN
 export POWERVSI_1=<POWERVSI_1>           # Virtual server instance 1 id
@@ -83,8 +85,6 @@ export SUBNET_NAME="vip-${sid}-net"      # Name which is used to define the subn
 export CIDR="CIDR of subnet"             # CIDR of the subnet containing the service IP address
 export VIP="Service IP address"          # IP address in the subnet
 export JUMBO="true or false"             # Enable Jumbo frames
-export APIKEY="APIKEY or path to file"   # API Key of the IBM Cloud IAM ServiceID for the resource agent
-export API_TYPE="private or public"      # Use private or public API endpoints
 ```
 {: codeblock}
 
@@ -97,7 +97,7 @@ Set the `VIP`environment variable to the reserved IP address.
 #### Setting extra environment variables for a multizone region implementation
 {: #ha-rhel-hana-sr-mz-prepare-environment-variables}
 
-Set the `CLOUD_REGION`, `IBMCLOUD_CRN_?`, `POWERVSI_?`, `APIKEY` variables as described in [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
+Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, `POWERVSI_?` variables as described in [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
 Set the `API_TYPE` variable to `private` to communicate with the IBM Cloud IAM and IBM Power Cloud API via private endpoints.
 The `SUBNET_NAME` variable contains the name of the subnet.
 The `CIDR` variable represents the *Classless Inter-Domain Routing (CIDR)* notation for the subnet in the format `<IPv4_address>/number`.
@@ -439,12 +439,12 @@ Proceed to the [Creating cluster resource constraints](#ha-rhel-hana-sr-create-c
 #### Creating a virtual IP address cluster resource in a multizone region environment
 {: #ha-rhel-hana-sr-mz-create-virtual-ip-resource}
 
-Verify the completion of all steps in the [Preparing a multi-zone RHEL HA Add-On cluster for a virtual IP address resource](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-create-vip) section.
+Verify that you have completed all the steps in the [Preparing a multi-zone RHEL HA Add-On cluster for a virtual IP address resource](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-create-vip) section.
 
 Run the `pcs resource describe powervs-subnet` command to get information about the resource agent parameters.
 {: note}
 
-On NODE1, create a `powervs-subnet` resource by running the following command.
+On NODE1, create a `powervs-subnet` cluster resource by running the following command.
 
 ```sh
 pcs resource create vip_${SID}_${INSTNO} powervs-subnet \
