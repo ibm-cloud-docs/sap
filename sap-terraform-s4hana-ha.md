@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-10-28"
 
 subcollection: sap
 
@@ -22,9 +22,6 @@ subcollection: sap
 
 # Deploying SAP workload S/4HANA HA deployment on {{site.data.keyword.cloud}} VPC (Terraform and Ansible)
 {: #automate-s4hana-ha-terraform-ansible}
-
-As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
-{: important}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.vpc_short}} infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and other Intel&reg; technologies.
 
@@ -316,10 +313,10 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     # For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check [SAP Note 2927211: SAP Applications on IBM Virtual Private Cloud](https://launchpad.support.sap.com/#/notes/2927211) 
     # Default value: "mx2-16x128"
 
-    DB_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-5"
-    # OS image for DB VSI. Supported OS images for DB VSIs: ibm-redhat-8-6-amd64-sap-hana-5, ibm-redhat-8-4-amd64-sap-hana-9
+    DB_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-6"
+    # OS image for DB VSI. OS images validated for DB VSIs: ibm-redhat-8-6-amd64-sap-hana-6, ibm-redhat-8-4-amd64-sap-hana-10
     # The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://launchpad.support.sap.com/#/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
-    # Example: DB_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-9" 
+    # Example: DB_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-10" 
 
     ##########################################################
     # SAP APP VSI variables:
@@ -338,18 +335,10 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     APP_PROFILE = "bx2-4x16"
     # The APP VSI profile. Supported profiles: bx2-4x16. The list of available profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui
 
-    APP_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-5"
-    # OS image for SAP APP VSI. Supported OS images for APP VSIs: ibm-redhat-8-6-amd64-sap-hana-5, ibm-redhat-8-4-amd64-sap-hana-9.
+    APP_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-6"
+    # OS image for SAP APP VSI. OS images validated for APP VSIs: ibm-redhat-8-6-amd64-sap-hana-6, ibm-redhat-8-4-amd64-sap-hana-10.
     # The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://launchpad.support.sap.com/#/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
-    # Example: APP_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-9" 
-
-    ##########################################################
-    # Activity Tracker variables:
-    ##########################################################
-
-    ATR_NAME = ""
-    # The name of the EXISTING Activity Tracker instance, in the same region chosen for SAP system deployment.
-    # Example: ATR_NAME="Activity-Tracker-SAP-eu-de"
+    # Example: APP_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-10" 
     ```
 
 4. Customize your SAP system configuration. In the same `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme file](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md){: external}.

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -44,56 +44,6 @@ Create a [Transit Gateway](/docs/transit-gateway) and add both workspaces to the
 Create two virtual server instances, one in each workspace.
 {: overview}
 
-## Gathering parameters for the cluster configuration
-{: #ha-rhel-mz-gather-parameters-for-cluster-config}
-
-The *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspaces in the different zones and the *instance IDs* of the virtual server instances are required to configure the fencing agent.
-Some extra parameters are derived from the *CRN*.
-The fencing agent also uses the *API Key of the Service ID* to authenticate with the {{site.data.keyword.powerSys_notm}} API.
-
-The uppercase variables in the following section indicate that these parameters must be set as environment variables on the virtual server instances to simplify the cluster setup.
-
-Use the following steps to gather the parameters to configure a cluster.
-
-1. Log in to [Workspaces - {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces){: external}.
-1. The list contains the name and CRN of the workspaces.
-
-   Locate both workspaces. Click **Copy** next to the CRN and paste it into a temporary document.
-
-   A CRN has multiple sections that are divided by a colon.
-   The following example is the base format of a CRN:
-
-   `crn:version:cname:ctype:service-name:location:scope:service-instance:resource-type:resource`
-
-   service-name
-   :   The fifth field of the CRN of the workspace is always *power-iaas*, the **service name**.
-
-   location
-   :   The sixth field is the **location** that needs to be mapped to the region.
-
-   scope
-   :   The seventh field is the **Tenant ID**.
-
-   service_instance
-   :   The eighth field is the **Cloud Instance ID** or **GUID**.
-
-1. Set `IBMCLOUD_CRN_1` to the full CRN and `GUID_1` to the contents of the *service_instance* field of the first workspace.
-1. Set `IBMCLOUD_CRN_2` and `GUID_2` to the same fields from the second workspace.
-1. Set `CLOUD_REGION` to the prefix that represents the geographic area of your service instance to target the correct [Power Cloud API endpoint](https://cloud.ibm.com/apidocs/power-cloud#endpoint){: external}.
-
-   CLOUD_REGION when you use a public network
-   :   For a public network, map the location to its respective geographic area (*us-east, us-south, eu-de, lon, tor, syd, or tok*).
-
-   CLOUD_REGION when you use a private network
-   :   For a private network, map the location to its respective geographic area (*us-east, us-south, eu-de, eu-gb, ca-tor, au-syd, jp-tok, jp-osa, br-sao, or ca-mon*).
-
-1. On the tile for the workspace in the first zone, click **View Instances**.
-1. In the list of the virtual server instances, click the cluster node and take a note of the **ID**.
-1. Repeat the previous two steps for the workspace in the second zone.
-1. Set these IDs as `POWERVSI_1` and `POWERVSI_2`.
-1. For information on how to obtain the *Service ID API key*, see [Creating a Custom Role, Service ID, and API key in IBM Cloud](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
-   The *apikey* object in the downloaded API key file provides the API key that is required by the fencing agent.
-
 ## Preparing the nodes for RHEL HA Add-On installation
 {: #ha-rhel-mz-prepare-nodes-for-rhel-ha-installation}
 
@@ -102,39 +52,48 @@ Make sure that you follow the steps on both nodes.
 
 Log in as the root user to each of the cluster nodes.
 
-### Populating entries for each node in the hosts file
+### Adding cluster node entries to the hosts file
 {: #ha-rhel-mz-update-hosts-file}
 
-On both nodes, use the following information to populate entries.
-
-Add the IP addresses and hostnames of both nodes to the hosts file `/etc/hosts`.
+On both nodes, add the IP addresses and hostnames of both nodes to the `/etc/hosts` file.
 
 For more information, see [Setting up `/etc/hosts` files on RHEL cluster nodes](https://access.redhat.com/solutions/81123){: external}.
 
 ### Preparing environment variables
 {: #ha-rhel-mz-prepare-environment-variables}
 
-To simplify the setup process, prepare the following environment variables for the root user on both nodes.
+To simplify the setup process, prepare some environment variables for the root user.
+These environment variables are used with later operating system commands in this information.
 
 On both nodes, create a file with the following environment variables and update to your environment.
 
 ```sh
-export CLUSTERNAME=SAP_CLUSTER              # Cluster Name
-export NODE1=<HOSTNAME_1>                   # Hostname of first virtual server instance
-export NODE2=<HOSTNAME_2>                   # Hostname of second virtual server instance
+# General settings
+export CLUSTERNAME="SAP_CLUSTER"         # Cluster name
 
-export APIKEY=<APIKEY>                      # API Key of the ServiceID
-export CLOUD_REGION=<CLOUD_REGION>          # Multizone region of workspaces
-export PROXY_IP=<IP_ADDRESS>                # IP address of proxy server
+export APIKEY=<APIKEY>                   # API Key of the IBM Cloud IAM ServiceID for the fencing agent
+export CLOUD_REGION=<CLOUD_REGION>       # Multizone region name
+export PROXY_IP=<IP_ADDRESS>             # IP address of proxy server
 
-export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>      # CRN of first workspace
-export IBMCLOUD_CRN_2=<IBMCLOUD_CRN_2>      # CRN of second workspace
-export GUID_1=<GUID_1>                      # GUID of first workspace
-export GUID_2=<GUID_2>                      # GUID of second workspace
-export POWERVSI_1=<POWERVSI_1>              # ID of first virtual server instance
-export POWERVSI_2=<POWERVSI_2>              # ID of second virtual server instance
+# Workspace 1
+export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace CRN
+export GUID_1=<GUID_1>                   # Workspace GUID
+
+# Workspace 2
+export IBMCLOUD_CRN_2=<IBMCLOUD_CRN_2>   # Workspace CRN
+export GUID_2=<GUID_2>                   # Workspace GUID
+
+# Virtual server instance 1
+export NODE1=<HOSTNAME_1>                # Virtual server instance hostname
+export POWERVSI_1=<POWERVSI_1>           # Virtual server instance id
+
+# Virtual server instance 2
+export NODE2=<HOSTNAME_2>                # Virtual server instance
+export POWERVSI_2=<POWERVSI_2>           # Virtual server instance id
 ```
 {: codeblock}
+
+To find the settings for the `APIKEY`, `IBMCLOUD_CRN_?`, `GUID_?`, and `POWERVSI_?` variables, follow the steps in [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config).
 
 ## Installing and configuring a RHEL HA Add-On cluster
 {: #ha-rhel-mz-install-and-configure-rhel-ha-cluster}
@@ -634,203 +593,16 @@ pcs resource describe powervs-subnet
 ```
 {: pre}
 
+
 ### Creating a service ID for the `powervs-subnet` resource agent
 {: #ha-rhel-mz-iam-custom-role}
 
 Follow the steps in [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id) to create a `Service ID` and an `API key` for the `powervs-subnet` resource agent.
 
-This completes the basic cluster implementation.
+## Conclusion
+{: #ha-rhel-mz-conclusion}
+
+This completes the basic cluster implementation and the necessary preparations for creating a `powervs-subnet` cluster resource.
+The `powervs-subnet` cluster resource itself is created during the configuration of the specific high availability scenario.
+
 You can now proceed with the specific instructions for your planned high availability scenario.
-{: note}
-
-
-Do not perform the following steps now.
-You must create a virtual IP address resource later during the cluster configuration of the specific multizone region high availability scenario.
-Then the instructions refer to the following section.
-{: attention}
-
-## Creating a virtual IP address resource in the multizone region setup
-{: #ha-rhel-mz-define-subnet-resource}
-
-To simplify the setup of the virtual IP address set the following environment variables on NODE1.
-These variables are required in addition to the environment variables used to create the cluster and stonith devices, and are used with the next command.
-
-```sh
-export SUBNET_NAME="vip-${sid}-net"            # Name which is used to define the subnet in IBM Cloud
-export CIDR="CIDR of subnet"                   # CIDR of the subnet containing the service IP address
-export VIP="Service IP address"                # IP address in the subnet
-export JUMBO="true or false"                   # Enable Jumbo frames
-export APIKEY="APIKEY or path to file"         # API Key of the IBM Cloud IAM ServiceID for the resource agent
-export API_TYPE="private or public"            # Use private or public API endpoints
-```
-{: screen}
-
-The variable `SUBNET_NAME` is set to the name for the subnet.
-The variable `CIDR` represents the Classless Inter-Domain Routing (CIDR) notation for the subnet.
-Specify `CIDR` in the format `<IPv4_address>/number`.
-The variable `VIP` is the IP address for the virtual IP address resource, and must belong to the `CIDR` of the subnet.
-Set variable `JUMBO` to `true` if you like to enable the subnet for a large MTU size.
-Set variable `API_TYPE` to `private` to communicate to IBM Cloud IAM and IBM Power Cloud API across private endpoints.
-
-When you are [Creating a service ID for the powervs-subnet resource agent](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-iam-custom-role), you can copy its APIKEY and set the `APIKEY` environment variable to this value.
-Alternatively, you can download the key as a JSON file, and place a copy of this file on both cluster nodes.
-Then set the `APIKEY` environment variable to a string that starts with the `@` character, followed by the full path to the key file.
-
-The second option is recommended.
-{: note}
-
-The following shows an example of the environment variables.
-
-```sh
-export SUBNET_NAME="vip-mha-net"
-export CIDR="10.40.11.100/30"
-export VIP="10.40.11.102"
-export JUMBO="true"
-export APIKEY="@/root/.apikey.json"
-export API_TYPE="private"
-```
-{: screen}
-
-Run the command `pcs resource describe powervs-subnet` on one of the cluster nodes to get information about the parameters for the resource agent.
-{: note}
-
-On NODE1, create a `powervs-subnet` resource by running the following command.
-
-```sh
-pcs resource create vip_${SID}_${INSTNO} powervs-subnet \
-    api_key=${APIKEY} \
-    api_type=${API_TYPE} \
-    cidr=${CIDR} \
-    ip=${VIP} \
-    crn_host_map="${NODE1}:${IBMCLOUD_CRN_1};${NODE2}:${IBMCLOUD_CRN_2}" \
-    vsi_host_map="${NODE1}:${POWERVSI_1};${NODE2}:${POWERVSI_2}" \
-    jumbo=${JUMBO} \
-    region=${CLOUD_REGION} \
-    subnet_name=${SUBNET_NAME} \
-    op start timeout=720 \
-    op stop timeout=300 \
-    op monitor interval=60 timeout=30
-```
-{: pre}
-
-If you set `API_TYPE` to `public` then you need to specify a `proxy` parameter in addition.
-{: note}
-
-
-
-Check the configured virtual IP address resource and the cluster status.
-
-```sh
-pcs resource config vip_${SID}_${INSTNO}
-```
-{: pre}
-
-Sample output:
-
-```sh
-# pcs resource config vip_MHA_00
-Resource: vip_MHA_00 (class=ocf provider=heartbeat type=powervs-subnet)
-  Attributes: vip_MHA_00-instance_attributes
-    api_key=@/root/.apikey.json
-    api_type=private
-    cidr=10.40.11.100/30
-    crn_host_map=cl-mha-1:crn:v1:bluemix:public:power-iaas:eu-de-2:**********************************:************************************::;cl-mha-2:crn:v1:bluemix:public:power-iaas:eu-
-        de-1:**********************************:************************************::
-    ip=10.40.11.102
-    jumbo=true
-    proxy=http://10.30.40.4:3128
-    region=eu-de
-    subnet_name=vip-mha-net
-    vsi_host_map=cl-mha-1:************************************;cl-mha-2:************************************
-  Operations:
-    monitor: res_vip_MHA_00-monitor-interval-60
-      interval=60
-      timeout=60
-    start: res_vip_MHA_00-start-interval-0s
-      interval=0s
-      timeout=720
-    stop: res_vip_MHA_00-stop-interval-0s
-      interval=0s
-      timeout=300
-```
-{: screen}
-
-
-```sh
-pcs status --full
-```
-{: pre}
-
-The following example is a sample output of an SAP HANA System Replication cluster in a multizone region setup.
-
-```sh
-# pcs status --full
-Cluster name: SAP_MHA
-Status of pacemakerd: 'Pacemaker is running' (last updated 2024-07-31 11:37:49 +02:00)
-Cluster Summary:
-  * Stack: corosync
-  * Current DC: cl-mha-2 (2) (version 2.1.5-9.el9_2.4-a3f44794f94) - partition with quorum
-  * Last updated: Wed Jul 31 11:37:50 2024
-  * Last change:  Wed Jul 31 11:37:31 2024 by root via crm_attribute on cl-mha-1
-  * 2 nodes configured
-  * 7 resource instances configured
-
-Node List:
-  * Node cl-mha-1 (1): online, feature set 3.16.2
-  * Node cl-mha-2 (2): online, feature set 3.16.2
-
-Full List of Resources:
-  * fence_node1	(stonith:fence_ibm_powervs):	 Started cl-mha-1
-  * fence_node2	(stonith:fence_ibm_powervs):	 Started cl-mha-2
-  * Clone Set: SAPHanaTopology_MHA_00-clone [SAPHanaTopology_MHA_00]:
-    * SAPHanaTopology_MHA_00	(ocf:heartbeat:SAPHanaTopology):	 Started cl-mha-2
-    * SAPHanaTopology_MHA_00	(ocf:heartbeat:SAPHanaTopology):	 Started cl-mha-1
-  * Clone Set: SAPHana_MHA_00-clone [SAPHana_MHA_00] (promotable):
-    * SAPHana_MHA_00	(ocf:heartbeat:SAPHana):	 Unpromoted cl-mha-2
-    * SAPHana_MHA_00	(ocf:heartbeat:SAPHana):	 Promoted cl-mha-1
-  * vip_MHA_00	(ocf:heartbeat:powervs-subnet):	 Started cl-mha-1
-
-Node Attributes:
-  * Node: cl-mha-1 (1):
-    * hana_mha_clone_state            	: PROMOTED
-    * hana_mha_op_mode                	: logreplay
-    * hana_mha_remoteHost             	: cl-mha-2
-    * hana_mha_roles                  	: 4:P:master1:master:worker:master
-    * hana_mha_site                   	: SiteA
-    * hana_mha_sra                    	: -
-    * hana_mha_srah                   	: -
-    * hana_mha_srmode                 	: syncmem
-    * hana_mha_sync_state             	: PRIM
-    * hana_mha_version                	: 2.00.075.00
-    * hana_mha_vhost                  	: cl-mha-1
-    * lpa_mha_lpt                     	: 1722418651
-    * master-SAPHana_MHA_00           	: 150
-  * Node: cl-mha-2 (2):
-    * hana_mha_clone_state            	: DEMOTED
-    * hana_mha_op_mode                	: logreplay
-    * hana_mha_remoteHost             	: cl-mha-1
-    * hana_mha_roles                  	: 4:S:master1:master:worker:master
-    * hana_mha_site                   	: SiteB
-    * hana_mha_sra                    	: -
-    * hana_mha_srah                   	: -
-    * hana_mha_srmode                 	: syncmem
-    * hana_mha_sync_state             	: SOK
-    * hana_mha_version                	: 2.00.075.00
-    * hana_mha_vhost                  	: cl-mha-2
-    * lpa_mha_lpt                     	: 30
-    * master-SAPHana_MHA_00           	: 100
-
-Migration Summary:
-
-Tickets:
-
-PCSD Status:
-  cl-mha-1: Online
-  cl-mha-2: Online
-
-Daemon Status:
-  corosync: active/disabled
-  pacemaker: active/disabled
-  pcsd: active/enabled
-```
-{: screen}

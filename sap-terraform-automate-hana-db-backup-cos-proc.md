@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-10-28"
 
 subcollection: sap
 
@@ -22,9 +22,6 @@ subcollection: sap
 
 # Deploying SAP HANA db backup to Cloud Object Storage on existing {{site.data.keyword.cloud_notm}} VPC with automation
 {: #sap-automate-hana-db-backup-cos-deploy}
-
-As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
-{: important}
 
 You can use Terraform scripts to create the required setup for storing HANA db backup in IBM Cloud Object Storage (COS), in case of a HANA database instance that is already deployed in the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbooks to create the SAP architecture on the specified VPC. Terraform on {{site.data.keyword.cloud_notm}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
 {: shortdesc}
@@ -56,21 +53,6 @@ All data backup, log backup, and catalog backup files are saved in the same dedi
 * SUSE Linux Enterprise Server 15 SP 3 for SAP
 * Red Hat Enterprise Linux 8.6 for SAP
 * Red Hat Enterprise Linux 8.4 for SAP
-
-The [IBM Cloud Activity Tracker](https://cloud.ibm.com/docs/activity-tracker?topic=activity-tracker-getting-started) service should be used to capture the records of your {{site.data.keyword.cloud_notm}} activities and monitor the activity of your {{site.data.keyword.cloud_notm}} account. You can use this service to investigate abnormal activity, critical actions, and comply with regulatory audit requirements. In addition, you can be alert on the actions as they occur. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard.
-
-You can deploy an Activity Tracker instance along with the SAP system by using the SAP deployment Automation or if you already have created one, you can specify the Activity Tracker name in the deployment variables. You can set the Activity Tracker plan variable according to your chosen [Service plans](https://cloud.ibm.com/docs/activity-tracker?topic=activity-tracker-service_plan). By default, the Lite (free) plan is selected. For more information on how to provision an Activity Tracker instance, see [here](https://cloud.ibm.com/docs/activity-tracker?topic=activity-tracker-getting-started).
-
-Important:
-
-* Every user who accesses the {{site.data.keyword.cloud_notm}} Activity Tracker service in your account must be assigned an access policy with an IAM user role defined. The policy determines what actions the user can perform within the context of the service or instance you select. The allowable actions are customized and defined as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles. For more information, see [here](https://cloud.ibm.com/docs/services/activity-tracker?topic=activity-tracker-iam).
-
-* You can provision only one instance of the service per {{site.data.keyword.cloud_notm}} region.
-
-{{site.data.keyword.cloud_notm}} Activity Tracker provides a solution for administrators to capture, store, view, search, and monitor API activity in a single place. It also offers a notification feature to alert you by using any of the supported notification channels.
-
-{{site.data.keyword.cloud_notm}} Activity Tracker collects and stores audit records for API calls made to resources that run in the {{site.data.keyword.cloud_notm}}. You can archive these events on {{site.data.keyword.cloud_notm}} for long-term storage.
-{: note}
 
 ## Script files
 {: #sap-hana-db-backup-cos-script-files}
@@ -137,11 +119,6 @@ This solution is applied on existing VSIs with SAP HANA deployed in an existing 
 Before you use the scripts:
 
 * An SAP HANA system that is built on one of the above OS should be deployed in an IBM Cloud Gen2 VPC, on a single host with or without HA.
-    This HANA backup solution is implemented and tested on the following OS images available in {{site.data.keyword.cloud_notm}}:
-    * ibm-sles-15-4-amd64-sap-hana-3
-    * ibm-sles-15-3-amd64-sap-hana-2 
-    * ibm-redhat-8-6-amd64-sap-hana-2 
-    * ibm-redhat-8-4-amd64-sap-hana-2
 
 * A bastion server with secure remote SSH access must be deployed in the same region and zone of {{site.data.keyword.cloud_notm}} Gen2 VPC as the SAP HANA system.
 
@@ -301,30 +278,6 @@ The scripts take 1-2 hours to complete. A full backup of System DB and Tenant DB
     DB_HOSTNAME_2    = ""
     ```
 
-    Edit your IBM Cloud Activity Tracker (only for ABAP stack) input variables below:
-
-    ``` terraform
-    # Activity Tracker variables:
-    ATR_PROVISION = "true"
-    # Activity Tracker : Disable this to not provision Activity Tracker instance. 
-    # If an Activity Tracker instance already exists in the same region where this solution is to be deployed then  
-    # disable (ATR_PROVISION = "false") this to avoid provisioning an Activity Tracker instance. 
-    # A new instance of Activity Tracker will be deployed with this solution if ATR_PROVISION=true
-    # Example to create Activity Tracker instance: ATR_PROVISION = "true"
-    # Example to integrate existing Activity Tracker instance : ATR_PROVISION = "false"
-    ATR_NAME = "Activity-Tracker-COS-eu-de"
-    # Provide the Activity Tracker instance name to create or 
-    # provide the existing Activity Tracker instance name in the same region where this solution is to be be deployed.
-    # Example: ATR_NAME = "Activity-Tracker-COS-eu-de"
-    ATR_TAGS = [""]
-    # Activity Tracker: (Optional) only if ATR_PROVISION = "true", tags that should be applied to the Activity Tracker instance.
-    # example ATR_TAGS = ["activity-tracker-cos"]
-    ATR_PLAN = "lite"
-    # Mandatory only if ATR_PROVISION is set to true. Activity Tracker: The type of plan the service instance should run under (lite, 7-day, 14-day, or 30-day). 
-    # The list of service plan is avaialble here: https://cloud.ibm.com/docs/activity-tracker?topic=activity-tracker-service_plan#service_plan"
-    # Example ATR_PLAN = "lite"
-    ```
-
 4.	Customize your SAP system configuration. In the same `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md) file.
 
     ```terraform
@@ -391,15 +344,11 @@ Second, release the IBM Bucket and delete all the backups:
 1. Run `terraform destroy` to delete the used IBM bucket (the Cloud Object Storage instance, as well) and all its contents/backups.
 - The used files/directories for "Python 3.7 with ssl support" and "S3 backint" are still present at the OS level on Hana VSI but Hana will no longer use them.
 
-If the resources created with the SAP deployment automation is removed, the Activity Tracker instance is also removed, if it is provisioned at the same time with the SAP solution (when ATR_PROVISION parameter is set to `true` during the deployment of the SAP solution).
-
 ## Next steps
 {: #sap-hana-db-backup-next}
 {: ui}
 
 Do not use the {{site.data.keyword.cloud_notm}} dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
-
-If the resources created with the SAP deployment automation is removed, the Activity Tracker instance is also removed, if it is provisioned at the same time with the SAP solution (when ATR_PROVISION parameter is set to `true` during the deployment of the SAP solution).
 
 ## Related information
 {: #sap-hana-db-backup-cos-related}
@@ -424,7 +373,6 @@ This document is referenced by:
 *	[SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
 *	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
 *	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
-*   [IBM Cloud Activity Tracker](https://cloud.ibm.com/docs/activity-tracker?topic=activity-tracker-getting-started)
 
 This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
 {: note}

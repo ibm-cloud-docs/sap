@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-21"
+lastupdated: "2024-11-04"
 
 subcollection: sap
 
@@ -102,7 +102,10 @@ The automation script will generate on the bastion server an ovpn profile file f
 |IMAGE	|The OS image used for the VSI. For more information about available images, see [Virtual server images](docs/vpc?topic=vpc-about-images). Default value: ibm-redhat-8-4-minimal-amd64-1.|
 |SSH_KEYS	|List of SSH Key IDs that are allowed to SSH as `root` to the VSI. This can contain one or more IDs. View the list of available SSH Keys on the {{site.data.keyword.cloud_notm}} Console [SSH keys for VPC](https://cloud.ibm.com/infrastructure/compute/sshKeys) page. Sample input (use your own SSH IDs from {{site.data.keyword.cloud_notm}}): [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]|
 |VOL1 [ number ]	|The size for the disk in GB to be attached to the BASTION VSI as storage for the SAP deployment kits. The mount point for the new volume is: "/storage". Default value: 100 GB.|
+|VPN_CREATE	 | Specifies if you want a VPN solution to be added to your bastion setup. If 'yes' a VPN solution will be automatically deployed for you, allowing you access to the private ip addressing space of your VPC.|
 |VPN_PREFIX	 | The prefix to use for the VPN-related elements. The prefix set under this variable will be added to the Secrets Manager instance created, also used as a prefix for the VPN's Security Group and it will be used as a name for the VPN server created.|
+|VPN_NETWORK_PORT_PROTOCOL |The protocol to be used for the VPN solution. (must be either 'tcp' or 'udp')|
+|VPN_NETWORK_PORT_NUMBER |The port number to be used for the VPN solution. (must be between 1 and 65535)|
 |SM_PLAN | The pricing plan to be used for the Secrets Manager instance, provided as a plan ID. Use 869c191a-3c2a-4faf-98be-18d48f95ba1f for trial or 7713c3a8-3be8-4a9a-81bb-ee822fcaac3d for standard.|
 |VPN_CLIENT_IP_POOL	|Optional variable to specify the CIDR for VPN client IP pool space. This is the IP space that will be used by systems connecting with the VPN. You should only need to change this if you have a conflict with your local network.|
 |DESTROY_BASTION_SERVER_VSI	|For the initial deployment, should remain set to false. After the initial deployment, in case there is a wish to destroy the Deployment Server (Bastion Server) VSI, but preserve the rest of the Cloud resources (VPC, Subnet, Security Group, and VPN Solution), in Schematics, the value must be set to true and then the changes must be applied by pressing the "Apply plan" button.|

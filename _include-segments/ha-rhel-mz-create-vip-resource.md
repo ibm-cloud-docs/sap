@@ -14,12 +14,11 @@ export API_TYPE="private or public"            # Use private or public API endpo
 ```
 {: screen}
 
-The variable `SUBNET_NAME` is set to the name for the subnet.
-The variable `CIDR` represents the Classless Inter-Domain Routing (CIDR) notation for the subnet.
-Specify `CIDR` in the format `<IPv4_address>/number`.
-The variable `VIP` is the IP address for the virtual IP address resource, and must belong to the `CIDR` of the subnet.
-Set variable `JUMBO` to `true` if you like to enable the subnet for a large MTU size.
-Set variable `API_TYPE` to `private` to communicate to IBM Cloud IAM and IBM Power Cloud API across private endpoints.
+The `SUBNET_NAME` variable contains the name of the subnet.
+The `CIDR` variable represents the Classless Inter-Domain Routing (CIDR) notation for the subnet in the format `<IPv4_address>/number`.
+The `VIP` variable is the IP address of the virtual IP address resource and must belong to the `CIDR` of the subnet.
+Set the `JUMBO` variable to `true` if you want to enable the subnet for a large MTU size.
+Set the `API_TYPE` variable to `private` to communicate with the IBM Cloud IAM and IBM Power Cloud API via private endpoints.
 
 When you are [Creating a service ID for the powervs-subnet resource agent](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-iam-custom-role), you can copy its APIKEY and set the `APIKEY` environment variable to this value.
 Alternatively, you can download the key as a JSON file, and place a copy of this file on both cluster nodes.
@@ -28,7 +27,7 @@ Then set the `APIKEY` environment variable to a string that starts with the `@` 
 The second option is recommended.
 {: note}
 
-The following shows an example of the environment variables.
+The following is an example of how to set the environment variables.
 
 ```sh
 export SUBNET_NAME="vip-mha-net"
@@ -40,7 +39,7 @@ export API_TYPE="private"
 ```
 {: screen}
 
-Run the command `pcs resource describe powervs-subnet` on one of the cluster nodes to get information about the parameters for the resource agent.
+Run the `pcs resource describe powervs-subnet` command to get information about the resource agent parameters.
 {: note}
 
 On NODE1, create a `powervs-subnet` resource by running the following command.
@@ -62,7 +61,7 @@ pcs resource create vip_${SID}_${INSTNO} powervs-subnet \
 ```
 {: pre}
 
-If you set `API_TYPE` to `public` then you need to specify a `proxy` parameter in addition.
+If you set `API_TYPE` to `public`, you must also specify a `proxy` parameter.
 {: note}
 
 Ensure that both virtual server instances in the cluster have the status `Active` and the health status `OK` before running the `pcs resource config` command.

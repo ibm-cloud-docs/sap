@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-11-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -34,52 +34,6 @@ Review the general requirements, product documentation, support articles, and SA
 
 Use the instructions in [Creating Instances for a High Availability Cluster on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
 
-## Gathering parameters for the cluster configuration
-{: #ha-rhel-gather-parameters-for-cluster-config}
-
-Parameters that are required for fencing agent configuration include the *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspace and the *instance IDs* of the virtual server instances.
-Some extra parameters need to be derived from the *CRN*.
-The fencing agent uses the *API Key of the Service ID* to authenticate with the {{site.data.keyword.powerSys_notm}} API.
-
-The uppercase variables in the following section indicate that these parameters need to be set as environment variables on the virtual server instances to simplify the setup of the cluster.
-
-1. Log in to [Workspaces - {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces){: external}.
-1. The list contains the name and CRN of the workspaces.
-
-   Locate your **Workspace**. Click **Copy** next to the CRN and paste it into a temporary document.
-
-   A CRN has multiple sections that are divided by a colon.
-   The base format of a CRN is:
-
-   `crn:version:cname:ctype:service-name:location:scope:service-instance:resource-type:resource`
-
-   service-name
-   :   The fifth field of the CRN of the workspace is always *power-iaas*, the **service name**.
-
-   location
-   :   The sixth field is the **location** that needs to be mapped to the region.
-
-   scope
-   :   The seventh field is the **Tenant ID**.
-
-   service_instance
-   :   The eighth field is the **Cloud Instance ID** or **GUID**.
-
-1. Set IBMCLOUD_CRN to the full *CRN* and GUID to the content of the *service_instance* field.
-1. Set the CLOUD_REGION to the prefix that represents the geographic area of your service instance to target the correct [Power Cloud API endpoint](https://cloud.ibm.com/apidocs/power-cloud#endpoint){: external}.
-
-   CLOUD_REGION when you use a public network
-   :   For a public network, map the location to its respective geographic area (*us-east, us-south, eu-de, lon, tor, syd, or tok*).
-
-   CLOUD_REGION when you use a private network
-   :   For a private network, map the location to its respective geographic area (*us-east, us-south, eu-de, eu-gb, ca-tor, au-syd, jp-tok, jp-osa, br-sao, or ca-mon*).
-
-1. On the tile for the workspace, click **View Instances**.
-1. In the list of the virtual server instances, click each of the cluster nodes and take a note of each **ID**.
-1. Set these IDs as *POWERVSI_01* and *POWERVSI_02*.
-1. For information on how to obtain the *Service ID API key*, see [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id).
-   The *apikey* object in the downloaded API key file provides the API key that is required by fencing agent.
-
 ## Preparing the nodes for RHEL HA Add-On installation
 {: #ha-rhel-prepare-nodes-for-rhel-ha-installation}
 
@@ -88,38 +42,44 @@ Make sure that you follow the steps on both nodes.
 
 Log in as the root user to each of the cluster nodes.
 
-### Populating entries for each node in the hosts file
+### Adding cluster node entries to the hosts file
 {: #ha-rhel-update-hosts-file}
 
-On both nodes, use the following information to populate entries.
-
-Add the IP addresses and hostnames of both nodes to the hosts file `/etc/hosts`.
+On both nodes, add the IP addresses and hostnames of both nodes to the `/etc/hosts` file.
 
 For more information, see [Setting up /etc/hosts files on RHEL cluster nodes](https://access.redhat.com/solutions/81123){: external}.
 
 ### Preparing environment variables
 {: #ha-rhel-prepare-environment-variables}
 
-To simplify the setup process, prepare the following environment variables for the root user on both nodes.
+To simplify the setup process, prepare some environment variables for the root user.
+These environment variables are used with later operating system commands in this information.
 
 On both nodes, create a file with the following environment variables and update to your environment.
 
 ```sh
-export CLUSTERNAME=SAP_CLUSTER         # Cluster Name
+# General settings
+export CLUSTERNAME="SAP_CLUSTER"         # Cluster name
 
-export APIKEY=<APIKEY>                 # API Key of the Service ID
-export IBMCLOUD_CRN=<IBMCLOUD_CRN>     # CRN of workspace
-export GUID=<GUID>                     # GUID of workspace
-export CLOUD_REGION=<CLOUD_REGION>     # Region of workspace
-export PROXY_IP=<IP_ADDRESS>           # IP address of proxy server
+export APIKEY=<APIKEY>                   # API Key of the IBM Cloud IAM ServiceID for the fencing agent
+export CLOUD_REGION=<CLOUD_REGION>       # Workspace region
+export PROXY_IP=<IP_ADDRESS>             # Proxy server IP address
 
-export NODE1=<HOSTNAME_01>             # <Hostname of virtual server instance 1
-export NODE2=<HOSTNAME_02>             # <Hostname of virtual server instance 2
+# Workspace 1
+export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace CRN
+export GUID_1=<GUID_1>                   # Workspace GUID
 
-export POWERVSI_01=<POWERVSI_01>       # ID virtual server instance 1
-export POWERVSI_02=<POWERVSI_02>       # ID virtual server instance 2
+# Virtual server instance 1
+export NODE1=<HOSTNAME_1>                # Virtual server instance hostname
+export POWERVSI_1=<POWERVSI_1>           # Virtual server instance id
+
+# Virtual server instance 2
+export NODE2=<HOSTNAME_2>                # Virtual server instance hostname
+export POWERVSI_2=<POWERVSI_2>           # Virtual server instance id
 ```
 {: codeblock}
+
+To find the settings for the `APIKEY`, `IBMCLOUD_CRN_1`, `GUID_1`, and `POWERVSI_?` variables, follow the steps in [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config).
 
 ## Installing and configuring a RHEL HA Add-On cluster
 {: #ha-rhel-install-and-configure-rhel-ha-cluster}
@@ -289,7 +249,7 @@ You must enable STONITH (fencing) for a RHEL HA Add-On production cluster.
 
 Fence agent *fence_ibm_powervs* is the only supported agent for a STONITH device on {{site.data.keyword.powerSys_notm}} clusters.
 
-The fence agent connects to the [Power Cloud API](https://cloud.ibm.com/apidocs/power-cloud){: external} by using parameters *APIKEY*, *IBMCLOUD_CRN*, *CLOUD_REGION*, *GUID*, and the instance IDs *POWERVSI_01* and *POWERVSI_02*.
+The fence agent connects to the [Power Cloud API](https://cloud.ibm.com/apidocs/power-cloud){: external} by using parameters *APIKEY*, *IBMCLOUD_CRN_1*, *CLOUD_REGION*, *GUID*, and the instance IDs *POWERVSI_1* and *POWERVSI_2*.
 
 You can test the agent invocation by using the parameters that you gathered in the [Gathering required parameters for the cluster configuration](#ha-rhel-gather-parameters-for-cluster-config) section.
 
@@ -303,8 +263,8 @@ On any node, run the following command.
 ```sh
 fence_ibm_powervs \
     --token=${APIKEY} \
-    --crn=${IBMCLOUD_CRN} \
-    --instance=${GUID} \
+    --crn=${IBMCLOUD_CRN_1} \
+    --instance=${GUID_1} \
     --region=${CLOUD_REGION} \
     --api-type=public \
     -o list
@@ -318,8 +278,8 @@ Example:
 ```sh
 fence_ibm_powervs \
     --token=${APIKEY} \
-    --crn=${IBMCLOUD_CRN} \
-    --instance=${GUID} \
+    --crn=${IBMCLOUD_CRN_1} \
+    --instance=${GUID_1} \
     --region=${CLOUD_REGION} \
     --api-type=private \
     --proxy=http://${PROXY_IP}:3128 \
@@ -337,10 +297,10 @@ On both nodes, run the following commands.
 ```sh
 time fence_ibm_powervs \
     --token=${APIKEY} \
-    --crn=${IBMCLOUD_CRN} \
-    --instance=${GUID} \
+    --crn=${IBMCLOUD_CRN_1} \
+    --instance=${GUID_1} \
     --region=${CLOUD_REGION} \
-    --plug=${POWERVSI_01} \
+    --plug=${POWERVSI_1} \
     --api-type=private \
     --proxy=http://${PROXY_IP}:3128 \
     -o status
@@ -350,10 +310,10 @@ time fence_ibm_powervs \
 ```sh
 time fence_ibm_powervs \
     --token=${APIKEY} \
-    --crn=${IBMCLOUD_CRN} \
-    --instance=${GUID} \
+    --crn=${IBMCLOUD_CRN_1} \
+    --instance=${GUID_1} \
     --region=${CLOUD_REGION} \
-    --plug=${POWERVSI_02} \
+    --plug=${POWERVSI_2} \
     --api-type=private \
     --proxy=http://${PROXY_IP}:3128 \
     -o status
@@ -385,12 +345,12 @@ On NODE1, run the following command.
 ```sh
 pcs stonith create res_fence_ibm_powervs fence_ibm_powervs \
     token=${APIKEY} \
-    crn=${IBMCLOUD_CRN} \
-    instance=${GUID} \
+    crn=${IBMCLOUD_CRN_1} \
+    instance=${GUID_1} \
     region=${CLOUD_REGION} \
     api_type=private \
     proxy=http://${PROXY_IP}:3128 \
-    pcmk_host_map="${NODE1}:${POWERVSI_01};${NODE2}:${POWERVSI_02}" \
+    pcmk_host_map="${NODE1}:${POWERVSI_1};${NODE2}:${POWERVSI_2}" \
     pcmk_reboot_timeout=600 \
     pcmk_monitor_timeout=600 \
     pcmk_status_timeout=60

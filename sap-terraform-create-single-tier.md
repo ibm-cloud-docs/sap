@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-07-05"
+  years: 2021, 2024
+lastupdated: "2024-11-04"
 
 subcollection: sap
 
@@ -32,11 +32,7 @@ To create resources with Terraform, you use Terraform configuration files that d
 
 The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli). 
 
-For single-tier virtual private cloud on SAP, you modify the:
-
-*  ``terraform.tfvars`` file to add your {{site.data.keyword.cloud_notm}} API-key
-
-*  ``input.auto.tfvars`` file to customize the resources for your solution. You specify zones, resource names, and SSH keys.  
+For single-tier virtual private cloud on SAP, you modify the ``input.auto.tfvars`` file to customize the resources for your solution. You specify zones, resource names, and SSH keys.
 
 All of the other configuration files are provided and do not need to be modified. 
 
@@ -52,7 +48,6 @@ A VPC is a private space in {{site.data.keyword.cloud_notm}} where you can run a
 *	1 subnet to enable networking in your VPC
 *	1 virtual server instance 
 *	2 storage volumes, 1 for swap and 1 for data
-*	1 floating IP address that you use to access your VPC virtual server instance over the public network
 
 ## Support
 {: #terraform-single-tier-vpc-sap-support}
@@ -83,17 +78,9 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
     `mkdir myproject && cd myproject`
 
-3.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli) to the project folder that you created in the Terraform installation directory. 
-
-4.  Edit the ``terraform.tfvars`` variable file and enter the IBM Cloud API key that you retrieved. 
-
-    `ibmcloud_api_key = "<ibmcloud_apikey>"`
-
-    Variables that are defined in the ``terraform.tfvars`` file are automatically loaded by Terraform when the {{site.data.keyword.cloud_notm}} Provider plug-in is initialized and you can reference them in every Terraform configuration file that you use.  
-
-    Because the ``terraform.tfvars`` file contains confidential information, do not push this file to a version control system. Keep this file on your local system only. 
+3.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli) to the project folder that you created in the Terraform installation directory.
   
-5.	Edit the ``input.auto.tfvars`` file to customize your solution. Modify the file to specify your zone, VPC component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images).
+4.	Edit the ``input.auto.tfvars`` file to customize your solution. Modify the file to specify your zone, VPC component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images).
 
     ```
     ZONE			= "eu-de-1"
@@ -102,27 +89,27 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
     SUBNET			= "test-subnet"
     HOSTNAME		= "test-vsi"
     PROFILE		    = "bx2-4x16"
-    IMAGE			= "ibm-redhat-7-6-amd64-sap-applications-1"
+    IMAGE = "ibm-redhat-8-6-amd64-sap-applications-4"
     SSH_KEYS		= [ "<SSH Key ID 1>" , "<SSH Key ID 2>" ]
     SWAP			= "16"
     VOL1			= "10"
     ```
    
-6. Initialize the Terraform CLI. 
+5. Initialize the Terraform CLI. 
 
    ```
    terraform init
    ```
 
-7. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the VPC instance in your account.
+6. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the VPC instance in your account.
 
    ```
    terraform plan
    ```
 
-8. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
+7. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
 
-9. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
+8. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
    ```
    terraform apply
