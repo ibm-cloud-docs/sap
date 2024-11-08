@@ -24,7 +24,7 @@ subcollection: sap
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.cloud}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and other Intel&reg; technologies.
 
-You can use Terraform scripts to create a VPC and create 2 clustered layers, one for SAP NW(ABAP) and second for SAP ASE SYBASE in-memory database in a HA Single Zone architecture on the bastion server. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The automation scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
+You can use Terraform scripts to create a VPC and create 2 clustered layers, one for SAP NW(ABAP) and second for SAP ASE SYBASE in-memory database in a HA Single Zone or Multi Zone architecture on the bastion server. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The automation scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
 
 You have three deployment methods to choose from:
 
@@ -80,8 +80,8 @@ An ERP system is used for demand-oriented business resource planning. It is used
 
 The scripts work in two phases. The first phase automates creating the resources for the VPC provisioning process in an existing VPC created when you deployed the bastion VSI. The second phase creates the SAP architecture in a distributed environment. This phase creates the:
 
-* SAP HA SZ SAP NetWeaver App cluster server on a distinct VSI as a single zone VPC.
-* SAP ASE SYBASE cluster DB on a dedicated server type VSI as a single zone VPC
+* SAP HA SZ SAP NetWeaver App cluster server on a distinct VSI as a single zone or multi zone VPC.
+* SAP ASE SYBASE cluster DB on a dedicated server type VSI as a single zone or multi zone VPC.
 
 For more information about this architecture, see [SAP NetWeaver 7.x with SAP ASE SYBASE {{site.data.keyword.cloud}} VPC](https://cloud.ibm.com/docs/sap?topic=sap-sap-refarch-nw-hana&interface=ui).
 
@@ -127,7 +127,7 @@ To run the Terraform scripts, you modify:
     * You can change the default SAP system configuration settings to match your solution.
     * You also specify the location where you downloaded the SAP kits.
 
-The {{site.data.keyword.cloud}} Provider Plug-in for Terraform on {{site.data.keyword.cloud}} uses these configuration files to install SAP NetWeaver High Availability on Single Zone on the specified VPC in your {{site.data.keyword.cloud}} account.
+The {{site.data.keyword.cloud}} Provider Plug-in for Terraform on {{site.data.keyword.cloud}} uses these configuration files to install SAP NetWeaver High Availability on Single Zone or Multi Zone on the specified VPC in your {{site.data.keyword.cloud}} account.
 
 ## SAP Kits
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-sap-kits}
@@ -144,7 +144,7 @@ Though the materials provided herein are not supported by the {{site.data.keywor
 ## Before you begin
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-before}
 
-Before you deploy SAP NetWeaver High Availability on Single Zone:
+Before you deploy SAP NetWeaver High Availability on Single Zone or Multi Zone:
 
 * The automation for this deployment requires {{site.data.keyword.cloud}} File Storage for VPC to complete successfully. {{site.data.keyword.cloud}} File Storage for VPC is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative to get access. For more information, see [{{site.data.keyword.cloud}} File Storage for VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-file-storage-vpc-about).
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](https://cloud.ibm.com/docs/account?topic=account-accountfaqs#changeacct).
@@ -355,7 +355,7 @@ The SAP main password must be 10 - 14 characters long and contain at least one d
 10. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 11. `terraform apply "plan1"`
 The VPC and components are created and you see output similar to the terraform plan output.
-12. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/docs/page-not-found?url=https%3A%2F%2Fhelp.sap.com%2Fdoc%2F7abd5470728810148a4b1a83b0e91070%2F1511).
+12. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/docs/ABAP_PLATFORM_NEW/b1c834a22d05483b8a75710743b5ff26/9ad405e746ef43288755cb80a14be542.html).
 
 ## Deploying SAP NetWeaver High Availability on Single Zone with the catalog tile interface
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-catalog-tile}

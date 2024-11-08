@@ -2,7 +2,7 @@
 
 copyright:
 years: 2023, 2024
-lastupdated: "2024-11-04"
+lastupdated: "2024-11-08"
 
 subcollection: sap
 
@@ -60,8 +60,6 @@ DB virtual server instance disks:
 SAP app virtual server instance disks:
 •	1x 40 GB disk with 10 IOPS / GB - SWAP
 •	1 x 128 GB disk with 10 IOPS / GB – DATA
-•	1 floating IP address that you use to access your VPC virtual server instance over the public network
-
 
 ## Support
 {: #terraform-multi-tier-anydb-support}
@@ -123,13 +121,13 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
     APP_IMAGE = "ibm-redhat-8-6-amd64-sap-applications-4"
 
     # SAP Database VSI variables:
-    DB-HOSTNAME   = "ep12db"
-    DB-VOLUME_SIZES = [ "40" , "32" , "64" , "128" ]
+    DB_HOSTNAME = "ep12db"
+    DB_VOLUME_SIZES = [ "40" , "32" , "64" , "128" ]
 
 
     # SAP APPs VSI variables:
-    APP-HOSTNAME  = "ep12app" # default value
-    APP-VOLUME_SIZES= [ "40" , "128" ]
+    APP_HOSTNAME = "ep12app" # default value
+    APP_VOLUME_SIZES= [ "40" , "128" ]
 
     ```
     {: codeblock}
@@ -146,7 +144,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
     |DB_IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
     |APP_IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
     |SSH_KEYS	   |List of SSH Keys IDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys).|
-    |[DB/APP]-HOSTNAME	|The hostname for the VSI. The hostname must have up to 13 characters as required by SAP. For more information about rules regarding hostnames for SAP systems, see [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/%20611361).|
+    |[DB/APP]_HOSTNAME	|The hostname for the VSI. The hostname must have up to 13 characters as required by SAP. For more information about rules regarding hostnames for SAP systems, see [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/%20611361).|
     {: caption}
 
 
