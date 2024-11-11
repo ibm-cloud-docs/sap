@@ -140,13 +140,6 @@ The {{site.data.keyword.cloud}} Provider Plug-in for Terraform on {{site.data.ke
 
 For each {{site.data.keyword.cloud}} region, IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment Server. All files archives are decompressed by Ansible during the automation deployment process. For more information, see the Readme file.
 
-## Support
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-support}
-
-There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
-
-Though the materials provided herein are not supported by the {{site.data.keyword.IBM}} Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
-
 ## Before you begin
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-before}
 {: terraform}
@@ -446,6 +439,13 @@ Use these steps to configure the SAP HA SZ SAP NetWeaver on your existing VPC by
 
 4. Accept the license agreement.
 5. Select **Deploy**. The deployment starts and you are directed to the {{site.data.keyword.bpshort}} page that displays the script log files for you to monitor the deployment progress.
+
+## Support
+{: #automate-sap-ase-sybase-ha-sz-delpoyment-support}
+
+There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
+
+Though the materials provided herein are not supported by the {{site.data.keyword.IBM}} Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
 ## Next steps
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-next}
