@@ -21,6 +21,7 @@ subcollection: sap
 
 # Automating SAP workload SAP NetWeaver on ASE SYBASE HA SZ deployment on IBM Cloud VPC with Terraform and Ansible
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-intro}
+{: terraform}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.cloud}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and other Intel&reg; technologies.
 
@@ -34,6 +35,7 @@ You have three deployment methods to choose from:
 
 ## Terraform scripts include
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-scripts}
+{: terraform}
 
 The terraform scripts included for deploying are:
 
@@ -62,6 +64,7 @@ Ansible is started by Terraform and must be available on the same host.
 
 ## SAP Solution implemented
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-solution}
+{: terraform}
 
 SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for ABAP and Java applications. The SAP system can be installed and configured in {{site.data.keyword.cloud}} for various system and database types.
 
@@ -77,6 +80,7 @@ An ERP system is used for demand-oriented business resource planning. It is used
 
 ## What is created
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-components}
+{: terraform}
 
 The scripts work in two phases. The first phase automates creating the resources for the VPC provisioning process in an existing VPC created when you deployed the bastion VSI. The second phase creates the SAP architecture in a distributed environment. This phase creates the:
 
@@ -100,6 +104,7 @@ During the second phase, the Ansible Playbook is called and the SAP High availab
 
 ## Highly available system for SAP ASE SYBASE database
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-database}
+{: terraform}
 
 ![Figure 1. SAP NetWeaver ASE Sybase HA on VPC Single zone](images/sapnw_ase_syb_ha_on_vpc_singlezone.svg "SAP NetWeaver ASE Sybase HA on VPC Single zone"){: caption="SAP NetWeaver ASE Sybase HA on VPC Single zone" caption-side="bottom"}
 
@@ -109,6 +114,7 @@ The cluster is set with a virtual hostname IP. Hostname is mapped to the FQDN of
 
 ## Terraform deployment overview
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-terraform-overview}
+{: terraform}
 
 You use Terraform on the bastion server CLI to download and run the scripts that are located [here](https://github.com/IBM-Cloud/sap-s4hana-sz-ha).
 
@@ -131,6 +137,7 @@ The {{site.data.keyword.cloud}} Provider Plug-in for Terraform on {{site.data.ke
 
 ## SAP Kits
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-sap-kits}
+{: terraform}
 
 For each {{site.data.keyword.cloud}} region, IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment Server. All files archives are decompressed by Ansible during the automation deployment process. For more information, see the Readme file.
 
@@ -143,6 +150,7 @@ Though the materials provided herein are not supported by the {{site.data.keywor
 
 ## Before you begin
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-before}
+{: terraform}
 
 Before you deploy SAP NetWeaver High Availability on Single Zone or Multi Zone:
 
@@ -155,6 +163,7 @@ Before you deploy SAP NetWeaver High Availability on Single Zone or Multi Zone:
 
 ## Deploying SAP HA SAP NetWeaver by using Terraform with the bastion server CLI
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-bastion-server}
+{: terraform}
 
 Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in and use Terraform to install SAP HA SAP NetWeaver on your existing VPC. The scripts can take 1 - 2 hours to complete.
 
@@ -175,6 +184,7 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
   For descriptions of the variables, see [README](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md) file.
 
 ### General VPC variables
+{: terraform}
 
 4. REGION = "eu-de"
    Region for the VSI. Supported regions: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
@@ -225,6 +235,7 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
     Example: SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
 
 ### File share variables
+{: terraform}
 
     share_profile = "tier-5iops"
     Enter the IOPs (IOPS per GB) tier for File Share storage. Valid values are 3, 5, and 10.
@@ -240,6 +251,7 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
   Enter Custom File Shares sizes for SAP mounts.
 
 ### DB VSI variables
+{: terraform}
 
 1. DB-HOSTNAME-1 = "ASE SYBASEdb-1"
     ASE SYBASE Cluster VSI1 Hostname.
@@ -260,6 +272,7 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
     Example: DB-IMAGE = "ibm-redhat-8-4-amd64-sap-ASE SYBASE-4" 
 
 ### SAP APP VSI variables
+{: terraform}
 
 1. APP-HOSTNAME-1 = "sapapp-1"
     SAP Cluster VSI1 Hostname.
@@ -282,6 +295,7 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
 Customize your SAP system configuration. In `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md) file.
 
 ## SAP system configuration
+{: terraform}
 
 1. ASE SYBASE_sid = "HDB"
    AP ASE SYBASE system ID. Should follow the SAP rules for SID naming.
@@ -330,6 +344,7 @@ Customize your SAP system configuration. In `input.auto.tfvars` file, edit the S
    Number of concurrent jobs used to load and/or extract archives to ASE SYBASE Host
 
 ### SAP NetWeaver application kit paths
+{: terraform}
 
 1. kit_sapcar_file = "/storage/S4ASE SYBASE/SAPCAR_1010-70006178.EXE"
 2. kit_swpm_file = "/storage/S4ASE SYBASE/SWPM20SP13_1-80003424.SAR"
