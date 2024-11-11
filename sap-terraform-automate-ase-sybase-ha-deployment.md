@@ -19,9 +19,8 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating SAP workload SAP NetWeaver on ASE SYBASE HA SZ deployment on IBM Cloud VPC with Terraform and Ansible
+# Automating SAP workload SAP NetWeaver on ASE SYBASE HA SZ deployment on IBM Cloud VPC with Terraform and Ansible 
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-intro}
-{: terraform}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.cloud}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and other Intel&reg; technologies.
 
