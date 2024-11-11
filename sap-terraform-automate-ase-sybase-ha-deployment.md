@@ -359,6 +359,7 @@ The VPC and components are created and you see output similar to the terraform p
 
 ## Deploying SAP NetWeaver High Availability on Single Zone with the catalog tile interface
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-catalog-tile}
+{: ui}
 
 Use these steps to configure the SAP HA SZ SAP NetWeaver on your existing VPC by using the catalog tile interface. The scripts can take 2 - 3 hours to complete.
 
@@ -434,7 +435,6 @@ Use these steps to configure the SAP HA SZ SAP NetWeaver on your existing VPC by
 
 ## Next steps
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-next}
-{: terraform}
 
 If you need to rename your resources after they are created, modify the input.auto.tfvars file to change the names and run `terraform plan` and `terraform apply` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
 
