@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-31"
+lastupdated: "2024-11-15"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -16,17 +16,17 @@ subcollection: sap
 # Configuring High Availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On Cluster
 {: #ha-rhel-ensa}
 
-The following information describes the configuration of *ABAP SAP Central Services (ASCS)* and *Enqueue Replication Service (ERS)* with Red Hat Enterprise Linux (RHEL) in a RHEL HA Add-On cluster.
+The following information describes the configuration of *ABAP SAP Central Services (ASCS)* and *Enqueue Replication Server (ERS)* in a Red Hat Enterprise Linux (RHEL) HA Add-On cluster.
 The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 {: shortdesc}
 
-The focus of this example configuration is on the second generation of the [Standalone Enqueue Server](https://help.sap.com/docs/ABAP_PLATFORM/cff8531bc1d9416d91bb6781e628d4e0/902412f09e134f5bb875adb6db585c92.html){: external}, or *ENSA2*.
+This sample configuration focuses on the second generation of the [Standalone Enqueue Server](https://help.sap.com/docs/ABAP_PLATFORM/cff8531bc1d9416d91bb6781e628d4e0/902412f09e134f5bb875adb6db585c92.html){: external}, also called *ENSA2*.
 
 Starting with the release of SAP S/4HANA 1809, ENSA2 is installed by default, and can be configured in a two-node or multi-node cluster.
 This example uses the *ENSA2* setup for a two-node RHEL HA Add-On cluster.
-If the *ASCS* service fails in a two-node cluster, it restarts on the node where *ERS* is running.
-The lock entries for the SAP application are restored from the copy of the lock table in the *ERS*.
-When an administrator activates the failed cluster node, the *ERS* instance moves to the other node (anti-collocation) to protect the lock table copy.
+If the *ASCS* service fails in a two-node cluster, it restarts on the node where the *ERS* instance is running.
+The lock entries for the SAP application are then restored from the copy of the lock table in the *ERS* instance.
+When an administrator activates the failed cluster node, the *ERS* instance moves to the other node (anti-collocation) to protect its copy of the lock table.
 
 It is recommended that you install the SAP database instance and other SAP application server instances on virtual server instances outside the two-node cluster for *ASCS* and *ERS*.
 
@@ -39,13 +39,13 @@ Review the general requirements, product documentation, support articles, and SA
 ## Prerequisites
 {: #ha-rhel-ensa-prerequisites}
 
-- The virtual server instances must meet the hardware and resource requirements of the SAP instances installed on them.
+- The virtual server instances must meet the hardware and resource requirements of the SAP instances.
    Follow the guidelines on instance types, storage, and memory sizing in the [Planning your deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
 - This information describes a setup that uses shareable storage volumes accessible on both cluster nodes.
    Certain file systems are created on shareable storage volumes so that they can be mounted on both cluster nodes.
    This setup applies to both instance directories.
-   - `/usr/sap/<SID>/ASCS<Inst#>` of the *ASCS* instance.
-   - `/usr/sap/<SID>/ERS<Inst#>` of the *ERS* instance.
+   - `/usr/sap/<SID>/ASCS<INSTNO>` of the *ASCS* instance.
+   - `/usr/sap/<SID>/ERS<INSTNO>` of the *ERS* instance.
 
    Make sure that the storage volumes that were created for these file systems are attached to both virtual server instances.
    During SAP instance installation and RHEL HA Add-On cluster configuration, each instance directory must be mounted on its appropriate node.
@@ -55,7 +55,7 @@ Review the general requirements, product documentation, support articles, and SA
    Storage setup steps for file storage or creation of cluster file system resources are not described in this document.
    {: important}
 
-- The virtual hostname for *ASCS* instance and *ERS* instance must meet the requirements as documented in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
+- The virtual hostnames for the *ASCS* and *ERS* instances must meet the requirements as documented in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
    Make sure that the virtual IP addresses for the SAP instances are assigned to a network adapter and that they can communicate in the network.
 - SAP application server instances require a common shared file system *SAPMNT* `/sapmnt/<SID>` with *read and write* access, and other shared file systems such as *SAPTRANS* `/usr/sap/trans`.
    These file systems are typically provided by an external NFS server.
@@ -68,16 +68,15 @@ Review the general requirements, product documentation, support articles, and SA
 ## Preparing nodes for SAP installation
 {: #ha-rhel-ensa-prepare-nodes}
 
-The following information describes how to prepare the nodes for an SAP installation.
+The following information describes how to prepare the nodes for an SAP application instance installation.
 
 ### Preparing environment variables
 {: #ha-rhel-ensa-prepare-environment-variables}
 
 To simplify the setup, prepare the following environment variables for user `root` on both cluster nodes.
-These environment variables are used in subsequent commands in the remainder of the instructions.
+These environment variables are used with later operating system commands in this information.
 
-On both nodes, create a file with the following environment variables.
-Next, update these variables according to your configuration.
+On both nodes, set the following environment variables.
 
 ```sh
 export SID=<SID>                   # SAP System ID (uppercase)

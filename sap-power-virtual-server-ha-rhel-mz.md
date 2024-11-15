@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-15"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -65,7 +65,7 @@ For more information, see [Setting up `/etc/hosts` files on RHEL cluster nodes]
 To simplify the setup process, prepare some environment variables for the root user.
 These environment variables are used with later operating system commands in this information.
 
-On both nodes, create a file with the following environment variables and update to your environment.
+On both nodes, set the following environment variables.
 
 ```sh
 # General settings
