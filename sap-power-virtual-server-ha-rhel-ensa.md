@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-15"
+lastupdated: "2024-11-18"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -20,7 +20,7 @@ The following information describes the configuration of *ABAP SAP Central Servi
 The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 {: shortdesc}
 
-This sample configuration focuses on the second generation of the [Standalone Enqueue Server](https://help.sap.com/docs/ABAP_PLATFORM/cff8531bc1d9416d91bb6781e628d4e0/902412f09e134f5bb875adb6db585c92.html){: external}, also called *ENSA2*.
+This example configuration applies to the second generation of the [Standalone Enqueue Server](https://help.sap.com/docs/ABAP_PLATFORM/cff8531bc1d9416d91bb6781e628d4e0/902412f09e134f5bb875adb6db585c92.html){: external}, also called *ENSA2*.
 
 Starting with the release of SAP S/4HANA 1809, ENSA2 is installed by default, and can be configured in a two-node or multi-node cluster.
 This example uses the *ENSA2* setup for a two-node RHEL HA Add-On cluster.
@@ -65,10 +65,10 @@ Review the general requirements, product documentation, support articles, and SA
    The RHEL HA Add-On cluster for the active-passive NFS server must be deployed in a single {{site.data.keyword.powerSys_notm}} workspace.
 - Ensure that all SAP installation media is available.
 
-## Preparing nodes for SAP installation
+## Preparing nodes to install ASCS and ERS instances
 {: #ha-rhel-ensa-prepare-nodes}
 
-The following information describes how to prepare the nodes for an SAP application instance installation.
+The following information describes how to prepare the nodes for installing the SAP *ASCS* and *ERS* instances.
 
 ### Preparing environment variables
 {: #ha-rhel-ensa-prepare-environment-variables}
@@ -79,6 +79,7 @@ These environment variables are used with later operating system commands in thi
 On both nodes, set the following environment variables.
 
 ```sh
+# General settings
 export SID=<SID>                   # SAP System ID (uppercase)
 export sid=<sid>                   # SAP System ID (lowercase)
 
@@ -95,6 +96,11 @@ export ERS_VH=<virtual hostname>   # ERS virtual hostname
 export ERS_IP=<IP address>         # ERS virtual IP address
 export ERS_VG=<vg name>            # ERS volume group name
 export ERS_LV=<lv name>            # ERS logical volume name
+
+# NFS settings
+export NFS_SERVER="NFS server"           # Hostname or IP address of the highly available NFS server
+export NFS_SHARE="NFS server directory"  # Exported file system directory on the NFS server
+export NFS_OPTIONS="rw,sec=sys"          # Sample NFS client mount options
 ```
 {: codeblock}
 
@@ -104,20 +110,6 @@ Don't use hyphens in the volume group or logical volume names.
 
 - s01ascsvg and s01ascslv
 - s01ersvg and s01erslv
-
-You must source this file before you use the sample commands in the remainder of the instructions.
-
-For example, if you created a file that is named `sap_envs.sh`, run the following command on both nodes to set the environment variables.
-
-```sh
-source sap_envs.sh
-```
-{: pre}
-
-Every time that you start a new terminal session, you must run the previous `source` command.
-As an alternative, you can move the environment variables file to the `/etc/profile.d` directory during the cluster configuration.
-In this example, the file is sourced automatically each time you log in to the server.
-{: important}
 
 ### Assigning virtual IP addresses
 {: #ha-rhel-ensa-assign-virtual-ip}
@@ -765,28 +757,18 @@ Up to this point, the following are assumed:
    - SAP *ERS* is installed and active on node 2 of the cluster.
 - All steps in [Prepare ASCS and ERS instances for the cluster integration](#ha-rhel-ensa-prepare-ascs-ers) are complete.
 
-### Configuring resource for sapmnt share
+### Configuring sapmnt cluster resource
 {: #ha-rhel-ensa-cfg-shared}
 
 Create a cloned *Filesystem* cluster resource to mount the *SAPMNT* share from an external NFS server to all cluster nodes.
 
-Make sure that the environment variable `${NFS_VH}` is set to the virtual hostname of your NFS server `${NFS_VH}`, and `${NFS_OPTIONS}` according to your mount options.
-
-Example mount options:
-
-```sh
-export NFS_OPTIONS="rw,sec=sys"
-```
-{: codeblock}
-
-Check SAP recommendations for NFS mount options at the [Recommended mount options for read-write directories](https://help.sap.com/docs/SUPPORT_CONTENT/basis/3354611703.html){: external} wiki page.
-{: note}
+Make sure that the environment variable `${NFS_VH}` is set to the virtual hostname of the NFS server, and `${NFS_OPTIONS}` is set to your desired mount options.
 
 On NODE1, run the following command.
 
 ```sh
 pcs resource create fs_sapmnt Filesystem \
-    device="${NFS_VH}:/${SID}" \
+    device="${NFS_VH}:/${SID}/sapmnt" \
     directory="/sapmnt/${SID}" \
     fstype='nfs' \
     options="${NFS_OPTIONS}" \
@@ -828,7 +810,7 @@ pcs resource create ${sid}_fs_ascs${ASCS_INSTNO} Filesystem \
 {: pre}
 
 In the alternative example that the instance file system of the *ASCS* is provided by an HA NFS server, only the file system resource is required.
-Make sure that you defined the environment variable `${NFS_VH}` according to your *NFS server*, and that you created a directory `${SID}/ASCS` under the NFS root directory during the SAP installation of the *ASCS* instance.
+Make sure that you have defined the environment variable `${NFS_VH}` according to your *NFS server*, and that you have created a directory `${SID}/ASCS` under the NFS root directory during the SAP installation of the *ASCS* instance.
 
 ```sh
 pcs resource create ${sid}_fs_ascs${ASCS_INSTNO} Filesystem \
@@ -904,7 +886,7 @@ pcs resource create ${sid}_fs_ers${ERS_INSTNO} Filesystem \
 {: pre}
 
 In the alternative example that the instance file system of the *ERS* is provided by an HA NFS server, only the file system resource is required.
-Make sure that you defined the environment variable `${NFS_VH}` according to your *NFS server*, and that you created a directory `${SID}/ERS` under the NFS root directory during the SAP installation of the *ERS* instance.
+Make sure that you have defined the environment variable `${NFS_VH}` according to your *NFS server*, and that you have created a directory `${SID}/ERS` under the NFS root directory during the SAP installation of the *ERS* instance.
 
 ```sh
 pcs resource create ${sid}_fs_ers${ERS_INSTNO} Filesystem \
