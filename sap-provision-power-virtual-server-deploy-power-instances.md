@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-21"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -12,8 +12,10 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Deploying SAP {{site.data.keyword.powerSys_notm}}
+# Deploying SAP applications on {{site.data.keyword.powerSys_notm}}
 {: #power-vs-set-up-power-instances}
+
+
 
 When architecture for SAP that runs on {{site.data.keyword.powerSysFull}} is deployed, you get the following features.
 
@@ -157,7 +159,7 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for SAP HANA, go to your 
    | Image | Select operating system and version. Make sure that you use the same operating system and version for all deployments. |
    | Tier | Select the tier that best fits your needs. |
    | Storage pool | Select the tier that best fits your needs. |
-   {: caption="SAP HANA boot image selections" caption-side="top"}
+   {: caption="Table 8. SAP HANA boot image selections" caption-side="top"}
   
 3. In the **Profile** section, make the following selection:
     * Select a profile that fits your needs. For more information, see [SAP HANA profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
@@ -189,7 +191,7 @@ Attach the following volumes:
 * An extra storage volume of chosen size for extra data (such as '/usr/sap' file system). Storage tier "Tier 3" is sufficient. 'Shareable' switch can stay 'off'.
 * You can attach extra volumes for backup or export.
 
-## Configuring a {{site.data.keyword.powerSys_notm}} instance 
+## Configuring a {{site.data.keyword.powerSys_notm}} instance
 {: #power-vs-set-up-power-basic-os-config}
 
 Complete following configurations on your {{site.data.keyword.powerSys_notm}} instances.
@@ -469,7 +471,7 @@ export pv_size=60G
 export lv_name=hana_data_lv
 export vg_name=hana_data_vg
 export mount=/hana/data
-# use following command if you USE multipath aliases 
+# use following command if you USE multipath aliases
 devices=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$3}' | tr '\n' ' ')
 stripes=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$2}' | wc | awk '{print $1}')
 pvcreate $devices
@@ -487,7 +489,7 @@ export pv_size=110G
 export lv_name=hana_log_lv
 export vg_name=hana_log_vg
 export mount=/hana/log
-# use following command if you USE multipath aliases 
+# use following command if you USE multipath aliases
 devices=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$3}' | tr '\n' ' ')
 stripes=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$2}' | wc | awk '{print $1}')
 pvcreate $devices
@@ -505,7 +507,7 @@ export pv_size=400G
 export lv_name=hana_shared_lv
 export vg_name=hana_shared_vg
 export mount=/hana/shared
-# use following command if you USE multipath aliases 
+# use following command if you USE multipath aliases
 devices=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$3}' | tr '\n' ' ')
 stripes=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$2}' | wc | awk '{print $1}')
 pvcreate $devices
@@ -698,7 +700,7 @@ Beginning with `rhel-system-roles-sap-3.2.0-1.el8_4`, the role names changed. An
 
 |Previous role name         |New role name             |
 |---------------------------|--------------------------|
-|sap-preconfigure           |sap_general_preconfigure  | 
+|sap-preconfigure           |sap_general_preconfigure  |
 |sap-netweaver-preconfigure |sap_netweaver_preconfigure|
 |sap-hana-preconfigure      |sap_hana_preconfigure     |
 {: caption="RHEL System Roles" caption-side="bottom"}
@@ -729,7 +731,7 @@ ansible-playbook /root/sap-hana.yml
 * For RHEL versions RHEL 8.6 and greater, use this command:
 
 ```yaml
-ansible-playbook -i /root/inventory /root/sap-hana.yml 
+ansible-playbook -i /root/inventory /root/sap-hana.yml
 ```
 {: pre}
 
@@ -839,7 +841,8 @@ In this example, a warning is generated because two NUMA nodes with an equal amo
 ## Next Steps
 {: #power-vs-set-up-power-next_steps}
 
-After the previous steps are completed, your infrastructure is ready to install the SAP software. Complete the following steps to install the SAP software.
+After the previous steps are completed, your infrastructure is ready to install the SAP software.
+Complete the following steps to install the SAP software.
 
 1. Install a Windows server in management or in workload VPCs and use it for SAP administration.
 2. Move SAP installation binary files to the NFS server in the virtual server instance that is running in workload VPC.
