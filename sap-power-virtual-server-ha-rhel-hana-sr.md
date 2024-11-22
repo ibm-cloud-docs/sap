@@ -3,7 +3,7 @@
 copyright:
   years: 2023, 2024
 
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-22"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -910,12 +910,12 @@ pcs resource config SAPHana_${SID}_${INSTNO}
 #### Test 2 - Test procedure
 {: #ha-rhel-hana-sr-test2-procedure}
 
-Crash primary on NODE2 by sending a *shutoff* system request.
+Crash primary on NODE2 by sending a *crash* system request.
 
 On NODE2, run the following command.
 
 ```sh
-sync; echo o > /proc/sysrq-trigger
+sync; echo c > /proc/sysrq-trigger
 ```
 {: pre}
 

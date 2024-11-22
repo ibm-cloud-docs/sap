@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-22"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -407,9 +407,6 @@ pcs config
 
 To test the STONITH configuration, you need to manually fence the nodes.
 
-When fencing is manually triggered through `pcs stonith fence`, the `stonith-action` cluster attribute is not used and the node is restarted.
-{: note}
-
 On NODE1, run the following commands.
 
 ```sh
@@ -422,9 +419,9 @@ pcs status
 ```
 {: pre}
 
-As a result, NODE2 restarts.
+As a result, NODE2 stops.
 
-After NODE2 is running again, start the cluster on NODE2 and try to fence NODE1.
+Activate NODE2, then start the cluster on the node and try to fence NODE1.
 
 On NODE2, run the following commands.
 
@@ -448,9 +445,9 @@ pcs stonith fence ${NODE1}
 ```
 {: pre}
 
-NODE1 restarts.
+NODE1 stops.
 
-After the node is running, start the cluster on NODE1 again.
+Activate NODE2, then start the cluster on the node.
 
 On NODE1, run the following command.
 

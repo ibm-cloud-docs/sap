@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-18"
+lastupdated: "2024-11-22"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -455,10 +455,10 @@ mount | grep nfs
 ```
 {: pre}
 
-## Installing SAP instances
+## Installing the ASCS and ERS instances
 {: #ha-rhel-ensa-install-sap-instances}
 
-Use the SAP Software Provisioning Manager (SWPM) to install all instances.
+Use the SAP Software Provisioning Manager (SWPM) to install both instances.
 
 - Install SAP instances on the cluster nodes.
    - Install an *ASCS* instance on NODE1 by using the virtual hostname `${ASCS_VH}` that is associated with the virtual IP address for *ASCS*:
@@ -475,10 +475,7 @@ Use the SAP Software Provisioning Manager (SWPM) to install all instances.
    ```
    {: screen}
 
-- Install instances outside the cluster.
-   - DB instance
-   - PAS instance
-   - AAS instances
+- Install all other SAP application instances outside the cluster.
 
 ## Installing and setting up the RHEL HA Add-On cluster
 {: #ha-rhel-ensa-set-up}
@@ -924,7 +921,7 @@ The stickiness score of `-5000` makes sure that they run on the same node if onl
 
 ```sh
 pcs constraint colocation add \
-    ${sid}_ers${ERS_INSTNO}_group with ${sid}_ascs${ASCS_INSTNO}_group -5000
+    ${sid}_ers${ERS_INSTNO}_group with ${sid}_ascs${ASCS_INSTNO}_group -- -5000
 ```
 {: pre}
 
@@ -1138,12 +1135,12 @@ Simulate a crash of the node where the *ASCS* instance is running.
 #### Test 2 - Test procedure
 {: #ha-rhel-ensa-test2-procedure}
 
-Crash NODE2 by sending a `fast-restart` system request.
+Crash NODE2 by sending a *crash* system request.
 
 On NODE2, run the following command.
 
 ```sh
-sync; echo b > /proc/sysrq-trigger
+sync; echo c > /proc/sysrq-trigger
 ```
 {: pre}
 
