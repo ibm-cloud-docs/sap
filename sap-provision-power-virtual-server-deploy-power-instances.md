@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-21"
+lastupdated: "2024-11-22"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -160,7 +160,7 @@ To deploy {{site.data.keyword.powerSys_notm}} instance for SAP HANA, go to your 
    | Tier | Select the tier that best fits your needs. |
    | Storage pool | Select the tier that best fits your needs. |
    {: caption="Table 8. SAP HANA boot image selections" caption-side="top"}
-  
+
 3. In the **Profile** section, make the following selection:
     * Select a profile that fits your needs. For more information, see [SAP HANA profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
 4. In the **Storage volumes** section, make the following selection:
