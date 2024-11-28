@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-28"
 
 subcollection: sap 
 
@@ -19,7 +19,7 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating SAP workload SAP NetWeaver on ASE SYBASE HA SZ deployment on IBM Cloud VPC with Terraform and Ansible 
+# Automating SAP workload SAP NetWeaver on ASE SYBASE HA deployment on IBM Cloud VPC with Terraform and Ansible 
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-intro}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.cloud}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and other Intel&reg; technologies.
@@ -83,7 +83,7 @@ An ERP system is used for demand-oriented business resource planning. It is used
 
 The scripts work in two phases. The first phase automates creating the resources for the VPC provisioning process in an existing VPC created when you deployed the bastion VSI. The second phase creates the SAP architecture in a distributed environment. This phase creates the:
 
-* SAP HA SZ SAP NetWeaver App cluster server on a distinct VSI as a single zone or multi zone VPC.
+* SAP HA SAP NetWeaver App cluster server on a distinct VSI as a single zone or multi zone VPC.
 * SAP ASE SYBASE cluster DB on a dedicated server type VSI as a single zone or multi zone VPC.
 
 For more information about this architecture, see [SAP NetWeaver 7.x with SAP ASE SYBASE {{site.data.keyword.cloud}} VPC](https://cloud.ibm.com/docs/sap?topic=sap-sap-refarch-nw-hana&interface=ui).
@@ -105,7 +105,7 @@ During the second phase, the Ansible Playbook is called and the SAP High availab
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-database}
 {: terraform}
 
-![Figure 1. SAP NetWeaver ASE Sybase HA on VPC Single zone](images/sapnw_ase_syb_ha_on_vpc_singlezone.svg "SAP NetWeaver ASE Sybase HA on VPC Single zone"){: caption="SAP NetWeaver ASE Sybase HA on VPC Single zone" caption-side="bottom"}
+![Figure 1. SAP NetWeaver ASE Sybase HA on VPC distributed in two zones](images/sapnw_ase_syb_ha_on_vpc_singlezone.svg "SAP NetWeaver ASE Sybase HA on VPC distributed in two zones"){: caption="SAP NetWeaver ASE Sybase HA on VPC distributed in two zones" caption-side="bottom"}
 
 At the most basic level, a standard HA ASE SYBASE cluster in an active-passive configuration has two nodes: one is the primary node and the other is the standby node. The primary node is actively serving the active SAP instances (PAS and AAS), while the standby node is waiting to jump in if necessary.
 
@@ -138,7 +138,7 @@ The {{site.data.keyword.cloud}} Provider Plug-in for Terraform on {{site.data.ke
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-sap-kits}
 {: terraform}
 
-For each {{site.data.keyword.cloud}} region, IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment Server. All files archives are decompressed by Ansible during the automation deployment process. For more information, see the Readme file.
+For each {{site.data.keyword.cloud}} region, IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment Server. All files archives are decompressed by Ansible during the automation deployment process. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file.
 
 ## Before you begin
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-before}
@@ -149,7 +149,7 @@ Before you deploy SAP NetWeaver High Availability on Single Zone or Multi Zone:
 * The automation for this deployment requires {{site.data.keyword.cloud}} File Storage for VPC to complete successfully. {{site.data.keyword.cloud}} File Storage for VPC is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative to get access. For more information, see [{{site.data.keyword.cloud}} File Storage for VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-file-storage-vpc-about).
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](https://cloud.ibm.com/docs/account?topic=account-accountfaqs#changeacct).
 * If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server. You need the floating IP from your bastion server for deployment.
-* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the README file, in the respective GitHub repository for [Schematics](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/tree/main/schematics) and [Terraform](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) and on the About page for the catalog tile.
+* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file, in the respective GitHub repository for [Schematics](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/tree/main/schematics) and [Terraform](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) and on the About page for the catalog tile.
 * [Create or retrieve an {{site.data.keyword.cloud}} API key](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud}} platform and to determine your permissions for {{site.data.keyword.cloud}} services.
 * [Create or retrieve your SSH key ID](https://cloud.ibm.com/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
@@ -163,9 +163,9 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
 2. Clone the solution repository as below:
 
     ```sh
-    git clone https://github.com/IBM-Cloud/sap-s4ASE SYBASE-sz-ha.git
+    git clone https://github.com/IBM-Cloud/sap-nwase-ha.git
 
-    cd sap-s4ASE SYBASE-sz-ha/cli/terraform
+    cd sap-nwase-ha/cli/terraform
     ```
 
 3. Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. 
@@ -173,7 +173,7 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
 
   For more options for profile, see [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles). 
   For more options for images, see [Images](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images). 
-  For descriptions of the variables, see [README](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md) file.
+  For descriptions of the variables, see [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file.
 
 ### General VPC variables
 {: terraform}
@@ -182,11 +182,15 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
    Region for the VSI. Supported regions: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
    Example: REGION = "eu-de"
  
-5. ZONE = "eu-de-2"
+5. ZONE_1 = "eu-de-1"
+   Availability zone for VSI. Supported zones: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
+   Example: ZONE = "eu-de-1"
+
+6. ZONE_2 = "eu-de-2"
    Availability zone for VSI. Supported zones: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
    Example: ZONE = "eu-de-2"
 
-6. DOMAIN_NAME = "example.com"
+7. DOMAIN_NAME = "example.com"
    The DOMAIN_NAME variable should contain at least one "." as a separator. It is a private domain and it is not reacheable to and from the outside world.
    The DOMAIN_NAME variable could be like a subdomain name. Example: staging.example.com
    Domain names can only use letters, numbers, and hyphens.
@@ -194,35 +198,35 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
    You can't use a domain name that is already in use.
    Domain names are not case sensitive.
 
-7. ASCS-VIRT-HOSTNAME = "sapascs"
+8. ASCS-VIRT-HOSTNAME = "sapascs"
    ASCS Virtual hostname
    Default =  "sap($your_sap_sid)ascs"
  
-8. ERS-VIRT-HOSTNAME =  "sapers"
+9. ERS-VIRT-HOSTNAME =  "sapers"
    ERS Virtual Hostname  
    Default =  "sap($your_sap_sid)ascs"
 
-9. ASE SYBASE-VIRT-HOSTNAME = "dbASE SYBASE"
+10. ASE SYBASE-VIRT-HOSTNAME = "dbASE SYBASE"
    ASE SYBASE Virtual Hostname
    Default = "db($your_ASE SYBASE_sid)ASE SYBASE"
  
-9. VPC = "ic4sap"
+11. VPC = "ic4sap"
    EXISTING VPC, previously created by the user in the same region as the VSI. The list of available VPCs: https://cloud.ibm.com/infrastructure/network/vpcs
    Example: VPC = "ic4sap"
 
-10. SECURITY_GROUP = "ic4sap-securitygroup"
+12. SECURITY_GROUP = "ic4sap-securitygroup"
     EXISTING Security group, previously created by the user in the same VPC. The list of available Security Groups: https://cloud.ibm.com/infrastructure/network/securityGroups
     Example: SECURITY_GROUP = "ic4sap-securitygroup"
 
-11. RESOURCE_GROUP = "wes-automation"
+13. RESOURCE_GROUP = "wes-automation"
     EXISTING Resource group, previously created by the user. The list of available Resource Groups: https://cloud.ibm.com/account/resource-groups
     Example: RESOURCE_GROUP = "wes-automation"
 
-12. SUBNET = "ic4sap-subnet"
+14. SUBNET = "ic4sap-subnet"
     EXISTING Subnet in the same region and zone as the VSI, previously created by the user. The list of available Subnets: https://cloud.ibm.com/infrastructure/network/subnets
     Example: SUBNET = "ic4sap-subnet"
 
-13. SSH_KEYS = [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
+15. SSH_KEYS = [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
     List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. The SSH Keys should be created for the same region as the VSI. The list of available SSH Keys UUIDs: https://cloud.ibm.com/infrastructure/compute/sshKeys
     Example: SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
 
@@ -245,110 +249,87 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
 ### DB VSI variables
 {: terraform}
 
-1. DB-HOSTNAME-1 = "ASE SYBASEdb-1"
-    ASE SYBASE Cluster VSI1 Hostname.
-    The Hostname for the DB VSI. The hostname should be up to 13 characters, as required by SAP
-    Default: DB-HOSTNAME-1 = "ASE SYBASEdb-$your_ASE SYBASE_sid-1"
+1. DB-HOSTNAME-1 = "sybdb-1"
+   ASE SYBASE Cluster VSI1 Hostname.
+   The hostname for the primary SYBASE DB VSI server. The hostname should be up to 13 characters, as required by SAP
+   Default: DB-HOSTNAME-1 = "ASE SYBASEdb-$your_ASE SYBASE_sid-1"
 
-2. DB-HOSTNAME-2 = "ASE SYBASEdb-2"
-    ASE SYBASE Cluster VSI2 Hostname.
-    The Hostname for the DB VSI. The hostname should be up to 13 characters, as required by SAP
-    Default: DB-HOSTNAME-2 = "ASE SYBASEdb-$your_ASE SYBASE_sid-2"
+2. DB-HOSTNAME-2 = " sybdb-2" 
+   ASE SYBASE Cluster VSI2 Hostname.
+   The hostname for the standby (companion) SYBASE DB VSI server. The hostname should be up to 13 characters, as required by SAP
+   Default: DB-HOSTNAME-2 = "ASE SYBASEdb-$your_ASE SYBASE_sid-2"
  
-3. DB-PROFILE = "mx2-16x128"
-    The DB VSI profile. Supported profiles for DB VSI: mx2-16x128. The list of available profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui
+3. DB-PROFILE = " bx2-4x16"
+   The DB VSI profile. Supported profiles for DB VSI: bx2-4x16. The list of available profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui
  
-4. DB-IMAGE = "ibm-redhat-8-4-amd64-sap-ASE SYBASE-4"
-    OS image for DB VSI. Supported OS images for DB VSIs: ibm-redhat-8-4-amd64-sap-ASE SYBASE-4
-    The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://launchpad.support.sap.com/#/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
-    Example: DB-IMAGE = "ibm-redhat-8-4-amd64-sap-ASE SYBASE-4" 
+4. DB-IMAGE = " ibm-redhat-8-6-amd64-sap-hana-4"
+   OS image for DB VSI. Supported OS images for DB VSIs: ibm-redhat-8-4-amd64-sap-hana-4
+   The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://launchpad.support.sap.com/#/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
+   Example: DB-IMAGE = "ibm-redhat-8-4-amd64-sap-hana-4"
 
 ### SAP APP VSI variables
 {: terraform}
 
 1. APP-HOSTNAME-1 = "sapapp-1"
-    SAP Cluster VSI1 Hostname.
-    The Hostname for the SAP APP VSI. The hostname should be up to 13 characters, as required by SAP
-     Default: APP-HOSTNAME-1 = "sapapp-$your_sap_sid-1"
+   SAP Cluster VSI1 Hostname.
+   The Hostname for the SAP APP VSI. The hostname should be up to 13 characters, as required by SAP
+   Default: APP-HOSTNAME-1 = "sapapp-$your_sap_sid-1"
 
 2. APP-HOSTNAME-2 = "sapapp-2"
-    SAP Cluster VSI2 Hostname.
-    The Hostname for the SAP APP VSI. The hostname should be up to 13 characters, as required by SAP
-    Default: APP-HOSTNAME-2 = "sapapp-$your_sap_sid-2"
+   SAP Cluster VSI2 Hostname.
+   The Hostname for the SAP APP VSI. The hostname should be up to 13 characters, as required by SAP
+   Default: APP-HOSTNAME-2 = "sapapp-$your_sap_sid-2"
 
 3. APP-PROFILE = "bx2-4x16"
-    The APP VSI profile. Supported profiles: bx2-4x16. The list of available profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui
+   The APP VSI profile. Supported profiles: bx2-4x16. The list of available profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui
 
-4. APP-IMAGE = "ibm-redhat-8-4-amd64-sap-ASE SYBASE-4"
-    OS image for SAP APP VSI. Supported OS images for APP VSIs: ibm-redhat-8-4-amd64-sap-ASE SYBASE-4.
-    The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://launchpad.support.sap.com/#/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
-    Example: APP-IMAGE = "ibm-redhat-8-4-amd64-sap-ASE SYBASE-4"
+4. APP-IMAGE = "ibm-redhat-8-4-amd64-sap-hana-4"
+   OS image for SAP APP VSI. Supported OS images for APP VSIs: ibm-redhat-8-4-amd64-sap-hana-4.
+   The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://launchpad.support.sap.com/#/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images 
+   Example: APP-IMAGE = "ibm-redhat-8-4-amd64-sap-hana-4"
 
-Customize your SAP system configuration. In `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md) file.
+Customize your SAP system configuration. In `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file.
 
 ## SAP system configuration
 {: terraform}
 
-1. ASE SYBASE_sid = "HDB"
-   AP ASE SYBASE system ID. Should follow the SAP rules for SID naming.
-   Obs. This is used as identification number across different HA name resources. Duplicates are not allowed.
-   Example: ASE SYBASE_sid = "HDB"
-
-2. ASE SYBASE_sysno = "00"
-   SAP ASE SYBASE instance number. Should follow the SAP rules for instance number naming.
-   Example: ASE SYBASE_sysno = "00"
-
-3. ASE SYBASE_system_usage = "custom"
-   System usage. Default: custom. Suported values: production, test, development, custom
-   Example: ASE SYBASE_system_usage = "custom"
-
-4. ASE SYBASE_components = "server"
-   SAP ASE SYBASE Components. Default: server. Supported values: all, client, es, ets, lcapps, server, smartda, streaming, rdsync, xs, studio, afl, sca, sop, eml, rme, rtl, trp
-   Example: ASE SYBASE_components = "server"
-   kit_sapASE SYBASE_file = "/storage/ASE SYBASEDB/51055299.ZIP"
-   SAP ASE SYBASE Installation kit path
-   Supported SAP ASE SYBASE versions on Red Hat 8.4 and Suse 15.3: ASE SYBASE 16 SP0+SP 5 Rev 57, kit file: 51055299.ZIP
-   Supported SAP ASE SYBASE versions on Red Hat 7.6: ASE SYBASE 16 SP0+SP 5 Rev 52, kit file: 51054623.ZIP
-   Example for Red Hat 7: kit_sapASE SYBASE_file = "/storage/ASE SYBASEDB/51054623.ZIP"
-   Example for Red Hat 8 or Suse 15: kit_sapASE SYBASE_file = "/storage/ASE SYBASEDB/51055299.ZIP"
-
-5. sap_sid = "NWD"
+1. sap_sid = "NWD"
    SAP System ID
    Obs. This is used as identification number across different HA name resources. Duplicates are not allowed.
 
-6. sap_ascs_instance_number = "00"
+2. sap_ascs_instance_number = "00"
    The central ABAP service instance number. Should follow the SAP rules for instance number naming.
    Example: sap_ascs_instance_number = "00"
 
-7. sap_ers_instance_number = "01"
+3. sap_ers_instance_number = "01"
    The enqueue replication server instance number. Should follow the SAP rules for instance number naming.
    Example: sap_ers_instance_number = "01"
 
-8. sap_ci_instance_number = "10"
+4. sap_ci_instance_number = "10"
    The primary application server instance number. Should follow the SAP rules for instance number naming.
    Example: sap_ci_instance_number = "10"
 
-9. sap_aas_instance_number = "20"
+5. sap_aas_instance_number = "20"
    The additional application server instance number. Should follow the SAP rules for instance number naming.
    Example: sap_aas_instance_number = "20"
 
-10. hdb_concurrent_jobs = "23"
+6. hdb_concurrent_jobs = "23"
    Number of concurrent jobs used to load and/or extract archives to ASE SYBASE Host
 
 ### SAP NetWeaver application kit paths
 {: terraform}
 
-1. kit_sapcar_file = "/storage/S4ASE SYBASE/SAPCAR_1010-70006178.EXE"
-2. kit_swpm_file = "/storage/S4ASE SYBASE/SWPM20SP13_1-80003424.SAR"
-3. kit_sapexe_file = "/storage/S4ASE SYBASE/SAPEXE_100-70005283.SAR"
-4. kit_sapexedb_file = "/storage/S4ASE SYBASE/SAPEXEDB_100-70005282.SAR"
-5. kit_igsexe_file = "/storage/S4ASE SYBASE/igsexe_1-70005417.sar"
-6. kit_igshelper_file = "/storage/S4ASE SYBASE/igshelper_17-10010245.sar"
-7. kit_saphotagent_file = "/storage/S4ASE SYBASE/SAPHOSTAGENT51_51-20009394.SAR"
-8. kit_hdbclient_file = "/storage/S4ASE SYBASE/IMDB_CLIENT20_009_28-80002082.SAR"
-9. kit_s4ASE SYBASE_export = "/storage/S4ASE SYBASE/export"
+1. KIT_SAPCAR_FILE = "/storage/NW75SYB/SAPCAR_1010-70006178.EXE"
+2. KIT_SWPM_FILE =  "/storage/NW75SYB/SWPM10SP38_0-20009701.SAR"
+3. KIT_SAPHOSTAGENT_FILE = "/storage/NW75SYB/SAPHOSTAGENT61_61-80004822.SAR"
+4. KIT_SAPEXE_FILE = "/storage/NW75SYB/KERNEL/754UC/SAPEXE_200-80007612.SAR"
+5. KIT_SAPEXEDB_FILE = "/storage/NW75SYB/KERNEL/754UC/SAPEXEDB_200-80007655.SAR"
+6. KIT_IGSEXE_FILE = "/storage/NW75SYB/KERNEL/754UC/igsexe_2-80007786.sar"
+7. KIT_IGSHELPER_FILE = "/storage/NW75SYB/igshelper_17-10010245.sar"
+8. KIT_ASE_FILE = "/storage/NW75SYB/51056521_1_16_0_04_04.ZIP"
+9. KIT_NWABAP_EXPORT_FILE = "/storage/NW75SYB/ABAPEXP/51050829_3.ZIP"
 
-4. Remember, you must manually decompress the `kit_export_dir`,`kit_db2_dir` and `kit_db2client_dir` files. Ansible decompresses the rest of the SAP kit files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md) file.
+4. Ansible decompresses the rest of the SAP kit files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file.
 5. Initialize the Terraform CLI.
 6. `terraform init`
 7. Create a terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
@@ -368,15 +349,14 @@ The VPC and components are created and you see output similar to the terraform p
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-catalog-tile}
 {: ui}
 
-Use these steps to configure the SAP HA SZ SAP NetWeaver on your existing VPC by using the catalog tile interface. The scripts can take 2 - 3 hours to complete.
+Use these steps to configure the SAP HA SAP NetWeaver on your existing VPC by using the catalog tile interface. The scripts can take 2 - 3 hours to complete.
 
-1. From the {{site.data.keyword.cloud_notm}} Catalog, select **SAP NetWeaver High Availability on Single Zone** tile. The tile opens the **Create** tab for SAP HA SZ S/4ASE SYBASE. For more information about this deployment, see the About tab or the readme file link.
-2. On the SAP HA SZ SAP NetWeaver page, configure your workspace:
+1. From the {{site.data.keyword.cloud_notm}} Catalog, select **SAP NetWeaver High Availability on Single Zone** tile. The tile opens the **Create** tab for SAP HA ASE SYBASE. For more information about this deployment, see the About tab or the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file link.
+2. On the SAP HA SAP NetWeaver page, configure your workspace:
     * Enter a name for the workspace or use the default.
     * Select the **Resource Group** to use to create resources. Use the Default or create a Resource Group.
     * Select a **Location** to create your Schematics workspace. The workspace location does not have to match the resource location.
-3. Enter the required deployment values, review the default input variables, and provide values that match your solution. These parameters are specific to your deployment. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/schematics/README.md).
-
+3. Enter the required deployment values, review the default input variables, and provide values that match your solution. These parameters are specific to your deployment. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md).
     |Parameter	|Description|
     |-----|-----|
     |APP-HOSTNAME-1	|APP VSI hostname-1|
@@ -401,7 +381,7 @@ Use these steps to configure the SAP HA SZ SAP NetWeaver on your existing VPC by
     |sap_main_password	|SAP main password or use a secret stored in Secrets Manager |
     |sap_sid	|SAP sid |
 
-    * Review and update the optional input variables. The Ansible scripts expect the SAP kits to be in the default locations listed. For more information, see the Readme file - Input Parameters.
+    * Review and update the optional input variables. The Ansible scripts expect the SAP kits to be in the default locations listed. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md).
 
     |Parameter	|Description|
     |-----|-----|
