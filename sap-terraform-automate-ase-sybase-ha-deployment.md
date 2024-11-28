@@ -19,12 +19,12 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Automating SAP workload SAP NetWeaver on ASE SYBASE HA deployment on IBM Cloud VPC with Terraform and Ansible 
+# Automating SAP workload SAP NetWeaver on ASE Sybase HA deployment on IBM Cloud VPC with Terraform and Ansible 
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-intro}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.cloud}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and other Intel&reg; technologies.
 
-You can use Terraform scripts to create a VPC and create 2 clustered layers, one for SAP NW(ABAP) and second for SAP ASE SYBASE in-memory database in a HA Single Zone or Multi Zone architecture on the bastion server. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The automation scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
+You can use Terraform scripts to create a VPC and create 2 clustered layers, one for SAP NetWeaver (ABAP) and the second for SAP ASE Sybase in-memory database in a HA Single Zone or Multi Zone architecture on the bastion server. Creating the bastion server is a prerequisite for all IBM SAP VPC automated solutions. The automation scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
 
 You have three deployment methods to choose from:
 
@@ -36,24 +36,24 @@ You have three deployment methods to choose from:
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-scripts}
 {: terraform}
 
-The terraform scripts included for deploying are:
+The terraform scripts that are included for deploying are:
 
 * One Power Placement group to include all the four VMs involved in this solution.
 * Four VSIs in an existing VPC with subnet and security group configurations. 
-    * Two for the ASE SYBASE database cluster instance 
+    * Two for the ASE Sybase database cluster instance 
     * Two for the SAP application cluster
-* Configuring three Application Load Balancers like ASE SYBASE DB and SAP ASCS/ERS.
-* Configuring one VPC DNS service used to map the ALB FQDN to the SAP ASCS/ERS and ASE SYBASE virtual hostnames.
+* Configuring three Application Load Balancers like ASE Sybase DB and SAP ASCS/ERS.
+* Configuring one VPC DNS service used to map the ALB FQDN to the SAP ASCS/ERS and ASE Sybase virtual hostnames.
 * Configuring seven file shares for VPC.
 
-The ansible scripts included are:
+The ansible scripts that are included are:
 
 * OS requirements for installation and configuration of SAP applications.
 * Cluster components installation.
-* Ansible scripts for SAP application cluster configuration and SAP ASE SYBASE cluster configuration.
-* ASE SYBASE installation
-* ASE SYBASE db backup
-* ASE SYBASE system replica configuration
+* Ansible scripts for SAP application cluster configuration and SAP ASE Sybase cluster configuration.
+* ASE Sybase installation
+* ASE Sybase db backup
+* ASE Sybase system replica configuration
 * ASCS and ERS instances installation
 * DB load
 * Primary and extra application servers installation
@@ -69,11 +69,11 @@ SAP NetWeaver is the core foundation of the SAP technology stacks and is the pla
 
 For more information about SAP system architectures on {{site.data.keyword.cloud}} VPC, see the infrastructure reference architectures for SAP for each supported database type. For example, [SAP NetWeaver 7.x on UNIX with ASE SYB on {{site.data.keyword.cloud}} VPC](https://cloud.ibm.com/docs/sap?topic=sap-sap-refarch-nw-sybase) is the dedicated reference architecture for this SAP solution.
 
-Manually deploying a VPC and installing a SAP system can be time-consuming. The terraform automation assures not only a much quicker implementation, but also a standardized and less error-prone deployment. Terraform and Ansible are used for automating the deployment processes.
+Manually deploying a VPC and installing an SAP system can be time-consuming. The terraform automation assures not only a quicker implementation, but also a standardized and less error-prone deployment. Terraform and Ansible are used for automating the deployment processes.
 
 The terraform scripts solution provides the automated deployment of a single host with SAP NetWeaver with ASE SYB on the Red Hat Enterprise Linux 8 and SUSE 15 for SAP Applications.
 
-The SAP installation media that is used for this deployment are the default media for SAP NetWeaver 7.5 with ASE SYB 16.0. The media are available at the SAP Support Portal under Installation and Upgrade area. You provide the installation media as an input parameter for Terraform.
+The SAP installation media that is used for this deployment are the default media for SAP NetWeaver 7.5 with ASE SYB 16.0. The media are available at the SAP Support Portal under the Installation and Upgrade area. You provide the installation media as an input parameter for Terraform.
 
 An ERP system is used for demand-oriented business resource planning. It is used to control processes and to link departments and functional areas in a meaningful way. Individual modules include applications for accounting, sales, production, and marketing. More complex tasks in customer or supply chain management can also be done by ERP software. As the successor to the core product SAP ECC, SAP NetWeaver was presented as the intelligent ERP system of the new generation. Thanks to modern technologies, the Software-as-a-Service (SaaS) version is designed to help companies standardize processes and make the leap to digitalization.
 
@@ -84,9 +84,9 @@ An ERP system is used for demand-oriented business resource planning. It is used
 The scripts work in two phases. The first phase automates creating the resources for the VPC provisioning process in an existing VPC created when you deployed the bastion VSI. The second phase creates the SAP architecture in a distributed environment. This phase creates the:
 
 * SAP HA SAP NetWeaver App cluster server on a distinct VSI as a single zone or multi zone VPC.
-* SAP ASE SYBASE cluster DB on a dedicated server type VSI as a single zone or multi zone VPC.
+* SAP ASE Sybase cluster DB on a dedicated server type VSI as a single zone or multi zone VPC.
 
-For more information about this architecture, see [SAP NetWeaver 7.x with SAP ASE SYBASE {{site.data.keyword.cloud}} VPC](https://cloud.ibm.com/docs/sap?topic=sap-sap-refarch-nw-hana&interface=ui).
+For more information about this architecture, see [SAP NetWeaver 7.x with SAP ASE Sybase {{site.data.keyword.cloud}} VPC](https://cloud.ibm.com/docs/sap?topic=sap-sap-refarch-nw-hana&interface=ui).
 
 During the first phase, the VPC is provisioned with these components:
 
@@ -99,17 +99,17 @@ During the first phase, the VPC is provisioned with these components:
 *	2 X virtual server instances with SAP certified storage and network configurations
 *	2 floating IP’s address that you use to access your VPC virtual server instance over the public network
 
-During the second phase, the Ansible Playbook is called and the SAP High availability architecture is installed for both dedicated VSIs SAP App VSI machine and dedicated SAP ASE SYBASE VSI box. The SAP architecture that is deployed is the SAP NETWEAVER release on pacemaker cluster HA dedicated SAP ASE SYBASE 16 SP0+VSI’s release as a distributed deployment model. For more information about this architecture, see [Automating SAP ASE SYBASE stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](https://cloud.ibm.com/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
+During the second phase, the Ansible Playbook is called and the SAP High availability architecture is installed for both dedicated VSIs SAP App VSI system and dedicated SAP ASE Sybase VSI box. The SAP architecture that is deployed is the SAP NetWeaver release on pacemaker cluster HA dedicated SAP ASE Sybase 16 SP0+VSI’s release as a distributed deployment model. For more information about this architecture, see [Automating SAP ASE Sybase stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](https://cloud.ibm.com/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
 
-## Highly available system for SAP ASE SYBASE database
+## Highly available system for SAP ASE Sybase database
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-database}
 {: terraform}
 
 ![Figure 1. SAP NetWeaver ASE Sybase HA on VPC distributed in two zones](images/sapnw_ase_syb_ha_on_vpc_singlezone.svg "SAP NetWeaver ASE Sybase HA on VPC distributed in two zones"){: caption="SAP NetWeaver ASE Sybase HA on VPC distributed in two zones" caption-side="bottom"}
 
-At the most basic level, a standard HA ASE SYBASE cluster in an active-passive configuration has two nodes: one is the primary node and the other is the standby node. The primary node is actively serving the active SAP instances (PAS and AAS), while the standby node is waiting to jump in if necessary.
+At the most basic level, a standard HA ASE Sybase cluster in an active-passive configuration has two nodes: one is the primary node and the other is the standby node. The primary node is actively serving the active SAP instances (PAS and AAS), while the standby node is waiting to jump in if necessary.
 
-The cluster is set with a virtual hostname IP. Hostname is mapped to the FQDN of the ASE SYBASE ALB through DNS, which is the same as SAP ASCS and ERS instances. App instances (PAS and AAS), are the details to be used on the SAP profiles to call that particular component. The cluster assigns that virtual IP to the active node and uses a heartbeat monitor to confirm the availability of the components. If the primary node stops responding, it triggers the automatic failover mechanism that calls the standby node to become the primary node. The ALB detects the change, redirects the traffic to the new active node, and assigns the virtual IP to it, restoring the component availability. After the failed node is fixed, it comes online as a standby node.
+The cluster is set with a virtual hostname IP. Hostname is mapped to the FQDN of the ASE Sybase ALB through DNS, which is the same as SAP ASCS and ERS instances. App instances (PAS and AAS), are the details to be used on the SAP profiles to call that particular component. The cluster assigns that virtual IP to the active node and uses a heartbeat monitor to confirm the availability of the components. If the primary node stops responding, it triggers the automatic failover mechanism that calls the standby node to become the primary node. The ALB detects the change, redirects the traffic to the new active node, and assigns the virtual IP to it, restoring the component availability. After the failed node is fixed, it comes online as a standby node.
 
 ## Terraform deployment overview
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-terraform-overview}
@@ -132,7 +132,7 @@ To run the Terraform scripts, you modify:
     * You can change the default SAP system configuration settings to match your solution.
     * You also specify the location where you downloaded the SAP kits.
 
-The {{site.data.keyword.cloud}} Provider Plug-in for Terraform on {{site.data.keyword.cloud}} uses these configuration files to install SAP NetWeaver High Availability on Single Zone or Multi Zone on the specified VPC in your {{site.data.keyword.cloud}} account.
+The {{site.data.keyword.cloud}} Provider plug-in for Terraform on {{site.data.keyword.cloud}} uses these configuration files to install SAP NetWeaver High Availability on Single Zone or Multi Zone on the specified VPC in your {{site.data.keyword.cloud}} account.
 
 ## SAP Kits
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-sap-kits}
@@ -160,7 +160,7 @@ Before you deploy SAP NetWeaver High Availability on Single Zone or Multi Zone:
 Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in and use Terraform to install SAP HA SAP NetWeaver on your existing VPC. The scripts can take 1 - 2 hours to complete.
 
 1. Access the bastion server cli.
-2. Clone the solution repository as below:
+2. Clone the solution repository as:
 
     ```sh
     git clone https://github.com/IBM-Cloud/sap-nwase-ha.git
@@ -173,7 +173,7 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
 
   For more options for profile, see [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles). 
   For more options for images, see [Images](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images). 
-  For descriptions of the variables, see [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file.
+  For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file.
 
 ### General VPC variables
 {: terraform}
@@ -191,44 +191,44 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
    Example: ZONE = "eu-de-2"
 
 7. DOMAIN_NAME = "example.com"
-   The DOMAIN_NAME variable should contain at least one "." as a separator. It is a private domain and it is not reacheable to and from the outside world.
-   The DOMAIN_NAME variable could be like a subdomain name. Example: staging.example.com
+   The DOMAIN_NAME variable should contain at least one "." as a separator. It is a private domain and it is not reachable to and from the outside world.
+   The DOMAIN_NAME variable might be like a subdomain name. Example: staging.example.com
    Domain names can only use letters, numbers, and hyphens.
    Hyphens cannot be used at the beginning or end of the domain name.
    You can't use a domain name that is already in use.
-   Domain names are not case sensitive.
+   Domain names are not case-sensitive.
 
 8. ASCS-VIRT-HOSTNAME = "sapascs"
    ASCS Virtual hostname
    Default =  "sap($your_sap_sid)ascs"
  
 9. ERS-VIRT-HOSTNAME =  "sapers"
-   ERS Virtual Hostname  
+   ERS Virtual hostname
    Default =  "sap($your_sap_sid)ascs"
 
-10. ASE SYBASE-VIRT-HOSTNAME = "dbASE SYBASE"
-   ASE SYBASE Virtual Hostname
-   Default = "db($your_ASE SYBASE_sid)ASE SYBASE"
+10. ASE SYBASE-VIRT-HOSTNAME = "dbASE Sybase"
+   ASE Sybase Virtual hostname
+   Default = "db($your_ASE SYBASE_sid)ASE Sybase"
  
 11. VPC = "ic4sap"
    EXISTING VPC, previously created by the user in the same region as the VSI. The list of available VPCs: https://cloud.ibm.com/infrastructure/network/vpcs
    Example: VPC = "ic4sap"
 
 12. SECURITY_GROUP = "ic4sap-securitygroup"
-    EXISTING Security group, previously created by the user in the same VPC. The list of available Security Groups: https://cloud.ibm.com/infrastructure/network/securityGroups
-    Example: SECURITY_GROUP = "ic4sap-securitygroup"
+   EXISTING Security group, previously created by the user in the same VPC. The list of available Security Groups: https://cloud.ibm.com/infrastructure/network/securityGroups
+   Example: SECURITY_GROUP = "ic4sap-securitygroup"
 
 13. RESOURCE_GROUP = "wes-automation"
-    EXISTING Resource group, previously created by the user. The list of available Resource Groups: https://cloud.ibm.com/account/resource-groups
-    Example: RESOURCE_GROUP = "wes-automation"
+   EXISTING Resource group, previously created by the user. The list of available Resource Groups: https://cloud.ibm.com/account/resource-groups
+   Example: RESOURCE_GROUP = "wes-automation"
 
 14. SUBNET = "ic4sap-subnet"
-    EXISTING Subnet in the same region and zone as the VSI, previously created by the user. The list of available Subnets: https://cloud.ibm.com/infrastructure/network/subnets
-    Example: SUBNET = "ic4sap-subnet"
+   EXISTING Subnet in the same region and zone as the VSI, previously created by the user. The list of available Subnets: https://cloud.ibm.com/infrastructure/network/subnets
+   Example: SUBNET = "ic4sap-subnet"
 
 15. SSH_KEYS = [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
-    List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. The SSH Keys should be created for the same region as the VSI. The list of available SSH Keys UUIDs: https://cloud.ibm.com/infrastructure/compute/sshKeys
-    Example: SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
+   List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. The SSH Keys should be created for the same region as the VSI. The list of available SSH Keys UUIDs: https://cloud.ibm.com/infrastructure/compute/sshKeys
+   Example: SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
 
 ### File share variables
 {: terraform}
@@ -250,19 +250,19 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
 {: terraform}
 
 1. DB-HOSTNAME-1 = "sybdb-1"
-   ASE SYBASE Cluster VSI1 Hostname.
-   The hostname for the primary SYBASE DB VSI server. The hostname should be up to 13 characters, as required by SAP
+   ASE Sybase Cluster VSI1 hostname.
+   The hostname for the primary Sybase DB VSI server. The hostname should be up to 13 characters, as required by SAP
    Default: DB-HOSTNAME-1 = "ASE SYBASEdb-$your_ASE SYBASE_sid-1"
 
-2. DB-HOSTNAME-2 = " sybdb-2" 
-   ASE SYBASE Cluster VSI2 Hostname.
-   The hostname for the standby (companion) SYBASE DB VSI server. The hostname should be up to 13 characters, as required by SAP
+2. DB-HOSTNAME-2 = "sybdb-2" 
+   ASE Sybase Cluster VSI2 hostname.
+   The hostname for the standby (companion) Sybase DB VSI server. The hostname should be up to 13 characters, as required by SAP
    Default: DB-HOSTNAME-2 = "ASE SYBASEdb-$your_ASE SYBASE_sid-2"
  
-3. DB-PROFILE = " bx2-4x16"
+3. DB-PROFILE = "bx2-4x16"
    The DB VSI profile. Supported profiles for DB VSI: bx2-4x16. The list of available profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui
  
-4. DB-IMAGE = " ibm-redhat-8-6-amd64-sap-hana-4"
+4. DB-IMAGE = "ibm-redhat-8-6-amd64-sap-hana-4"
    OS image for DB VSI. Supported OS images for DB VSIs: ibm-redhat-8-4-amd64-sap-hana-4
    The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://launchpad.support.sap.com/#/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
    Example: DB-IMAGE = "ibm-redhat-8-4-amd64-sap-hana-4"
@@ -271,13 +271,13 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
 {: terraform}
 
 1. APP-HOSTNAME-1 = "sapapp-1"
-   SAP Cluster VSI1 Hostname.
-   The Hostname for the SAP APP VSI. The hostname should be up to 13 characters, as required by SAP
+   SAP Cluster VSI1 hostname.
+   The hostname for the SAP APP VSI. The hostname should be up to 13 characters, as required by SAP
    Default: APP-HOSTNAME-1 = "sapapp-$your_sap_sid-1"
 
 2. APP-HOSTNAME-2 = "sapapp-2"
-   SAP Cluster VSI2 Hostname.
-   The Hostname for the SAP APP VSI. The hostname should be up to 13 characters, as required by SAP
+   SAP Cluster VSI2 hostname.
+   The hostname for the SAP APP VSI. The hostname should be up to 13 characters, as required by SAP
    Default: APP-HOSTNAME-2 = "sapapp-$your_sap_sid-2"
 
 3. APP-PROFILE = "bx2-4x16"
@@ -298,23 +298,23 @@ Customize your SAP system configuration. In `input.auto.tfvars` file, edit the S
    Obs. This is used as identification number across different HA name resources. Duplicates are not allowed.
 
 2. sap_ascs_instance_number = "00"
-   The central ABAP service instance number. Should follow the SAP rules for instance number naming.
+   The central ABAP service instance number. Should follow the SAP rules, for instance, number naming.
    Example: sap_ascs_instance_number = "00"
 
 3. sap_ers_instance_number = "01"
-   The enqueue replication server instance number. Should follow the SAP rules for instance number naming.
+   The enqueue replication server instance number. Should follow the SAP rules, for instance, number naming.
    Example: sap_ers_instance_number = "01"
 
 4. sap_ci_instance_number = "10"
-   The primary application server instance number. Should follow the SAP rules for instance number naming.
+   The primary application server instance number. Should follow the SAP rules, for instance, number naming.
    Example: sap_ci_instance_number = "10"
 
 5. sap_aas_instance_number = "20"
-   The additional application server instance number. Should follow the SAP rules for instance number naming.
+   The additional application server instance number. Should follow the SAP rules, for instance, number naming.
    Example: sap_aas_instance_number = "20"
 
 6. hdb_concurrent_jobs = "23"
-   Number of concurrent jobs used to load and/or extract archives to ASE SYBASE Host
+   Number of concurrent jobs used to load and/or extract archives to ASE Sybase Host
 
 ### SAP NetWeaver application kit paths
 {: terraform}
@@ -335,11 +335,11 @@ Customize your SAP system configuration. In `input.auto.tfvars` file, edit the S
 7. Create a terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
 8. `terraform plan --out plan1`
 
-You must enter a SAP main password and your API key.
+Enter an SAP main password and your API key.
 
-The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain !. It must not start with a digit or an underscore ( _ ).
+The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain! It must not start with a digit or an underscore ( _ ).
 
-9. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the `input.auto.tfvars` file to correct resources and run terraform plan again.
+9. Verify that the plan shows all the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the `input.auto.tfvars` file to correct resources and run terraform plan again.
 10. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 11. `terraform apply "plan1"`
 The VPC and components are created and you see output similar to the terraform plan output.
@@ -351,8 +351,8 @@ The VPC and components are created and you see output similar to the terraform p
 
 Use these steps to configure the SAP HA SAP NetWeaver on your existing VPC by using the catalog tile interface. The scripts can take 2 - 3 hours to complete.
 
-1. From the {{site.data.keyword.cloud_notm}} Catalog, select **SAP NetWeaver High Availability on Single Zone** tile. The tile opens the **Create** tab for SAP HA ASE SYBASE. For more information about this deployment, see the About tab or the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file link.
-2. On the SAP HA SAP NetWeaver page, configure your workspace:
+1. From the {{site.data.keyword.cloud_notm}} Catalog, select **SAP NetWeaver High Availability on Single Zone** tile. The tile opens the **Create** tab for SAP HA ASE Sybase. For more information about this deployment, see the About tab or the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file link.
+2. On the SAP HA NetWeaver page, configure your workspace:
     * Enter a name for the workspace or use the default.
     * Select the **Resource Group** to use to create resources. Use the Default or create a Resource Group.
     * Select a **Location** to create your Schematics workspace. The workspace location does not have to match the resource location.
@@ -361,7 +361,7 @@ Use these steps to configure the SAP HA SAP NetWeaver on your existing VPC by us
     |-----|-----|
     |APP-HOSTNAME-1	|APP VSI hostname-1|
     |APP-HOSTNAME-2	|APP VSI hostname-2|
-    |BASTION_FLOATING_IP	|Input the floating IP of the Bastion Server you created before you started this deployment. For more information, see [Automate SAP bastion server - SAP media storage](/docs/sap?topic=sap-sap-bastion-server).|
+    |BASTION_FLOATING_IP	|Input the floating IP of the Bastion Server that you created before you started this deployment. For more information, see [Automate SAP bastion server - SAP media storage](/docs/sap?topic=sap-sap-bastion-server).|
     |DB-HOSTNAME-1	|DB VSI hostname-1|
     |DB-HOSTNAME-2	|DB VSI hostname-2|
     |DOMAIN_NAME	|Private Domain Name|
@@ -391,7 +391,7 @@ Use these steps to configure the SAP HA SAP NetWeaver on your existing VPC by us
     |DB-IMAGE	|DB VSI OS image|
     |DB-PROFILE	|DB VSI profile|
     |ERS-VIRT-HOSTNAME	|ERS Virtual hostname|
-    |ASE SYBASE-VIRT-HOSTNAME	|ASE SYBASE Virtual hostname|
+    |ASE SYBASE-VIRT-HOSTNAME	|ASE Sybase Virtual hostname|
     |ASE SYBASE_sysno	|ASE SYBASE_sysno|
     |ASE SYBASE_system_usage	|ASE SYBASE_system_usage|
     |hdb_concurent_jobs	|hdb_concurent_jobs|
