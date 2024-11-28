@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-22"
+lastupdated: "2024-11-28"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -39,8 +39,6 @@ Review the general requirements, product documentation, support articles, and SA
 ## Prerequisites
 {: #ha-rhel-ensa-prerequisites}
 
-- The virtual server instances must meet the hardware and resource requirements of the SAP instances.
-   Follow the guidelines on instance types, storage, and memory sizing in the [Planning your deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
 - This information describes a setup that uses shareable storage volumes accessible on both cluster nodes.
    Certain file systems are created on shareable storage volumes so that they can be mounted on both cluster nodes.
    This setup applies to both instance directories.
@@ -455,6 +453,35 @@ mount | grep nfs
 ```
 {: pre}
 
+### Creating ASCS and ERS mount points on the other node
+{: #ha-rhel-ensa-create-mountpoints}
+
+Create the mount points for the instance file systems and adjust their ownership.
+
+On NODE1, run the following commands.
+
+```sh
+mkdir /usr/sap/${SID}/ERS${ERS_INSTNO}
+```
+{: pre}
+
+```sh
+chown ${sid}adm:sapsys /usr/sap/${SID}/ERS${ERS_INSTNO}
+```
+{: pre}
+
+On NODE2, run the following commands.
+
+```sh
+mkdir /usr/sap/${SID}/ASCS${ASCS_INSTNO}
+```
+{: pre}
+
+```sh
+chown ${sid}adm:sapsys /usr/sap/${SID}/ASCS${ASCS_INSTNO}
+```
+{: pre}
+
 ## Installing the ASCS and ERS instances
 {: #ha-rhel-ensa-install-sap-instances}
 
@@ -542,9 +569,9 @@ Example:
 ```
 {: screen}
 
-Now proceed to [Creating mount points for the instance file systems on the takeover node](#ha-rhel-ensa-create-mountpoints).
+Proceed to [Installing permanent SAP license keys](#ha-rhel-ensa-install-lic-key).
 
-#### Disabling systemd services of the ASCS and the ERS SAP instances
+#### Disabling systemd services of the ASCS and the ERS instances
 {: #ha-rhel-ensa-disable-systemd-services}
 
 On both nodes, disable the instance agent for the ASCS.
@@ -605,35 +632,6 @@ On both nodes, reload the `systemd` unit files.
 
 ```sh
 systemctl daemon-reload
-```
-{: pre}
-
-### Creating mount points for the instance file systems on the takeover node
-{: #ha-rhel-ensa-create-mountpoints}
-
-Create the mount points for the instance file systems and adjust their ownership.
-
-On NODE1, run the following commands.
-
-```sh
-mkdir /usr/sap/${SID}/ERS${ERS_INSTNO}
-```
-{: pre}
-
-```sh
-chown ${sid}adm:sapsys /usr/sap/${SID}/ERS${ERS_INSTNO}
-```
-{: pre}
-
-On NODE2, run the following commands.
-
-```sh
-mkdir /usr/sap/${SID}/ASCS${ASCS_INSTNO}
-```
-{: pre}
-
-```sh
-chown ${sid}adm:sapsys /usr/sap/${SID}/ASCS${ASCS_INSTNO}
 ```
 {: pre}
 
