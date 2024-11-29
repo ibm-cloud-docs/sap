@@ -25,7 +25,7 @@ subcollection: sap
 ## Profiles list
 {: #nw-iaas-intel-bm-list}
 
-The following is an overview of the SAP-certified profiles with Intel Bare Metal:
+The following is an overview of the SAP-certified profiles with Bare Metal Intel servers:
 
 | **Profile** | **CPU Cores** | **CPU Threads (aka. vCPU)** | **Memory (RAM GB)** | **SAPS** |
 | --- | --- | --- | --- | --- |
@@ -48,7 +48,9 @@ The following is an overview of the SAP-certified profiles with Intel Bare Metal
 | BI.S5.H2.3000 | 120 | 240 | 3 TB | 327.295 |
 | BI.S5.H2.4000 | 120 | 240 | 4 TB | 329.350 |
 {: caption="SAP NetWeaver Intel servers" caption-side="top"}
-The following is an overview of the SAP-certified profiles with Intel Bare Metal:
+
+
+The following is an overview of the SAP-certified profiles with Bare Metal AMD servers:
 
 | **Profile** | **CPU Cores** | **CPU Threads (aka. vCPU)** | **Memory (RAM GB)** | **SAPS** |
 | --- | --- | --- | --- | --- |
