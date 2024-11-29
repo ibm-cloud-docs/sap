@@ -19,7 +19,7 @@ subcollection: sap
 {:note: .note}
 {:tip: .tip}
 
-# Intel and AMD Bare Metal server certified profiles on Classic infrastructure for SAP NetWeaver
+# Intel Bare Metal server certified profiles on Classic infrastructure for SAP NetWeaver
 {: #nw-iaas-offerings-profiles-intel-bm}
 
 ## Profiles list for Intel servers
@@ -50,17 +50,6 @@ The following is an overview of the SAP-certified profiles with Bare Metal Intel
 {: caption="SAP NetWeaver Intel servers" caption-side="top"}
 
 
-## Profiles list for AMD servers
-{: #nw-iaas-amd-bm-list}
-
-The following is an overview of the SAP-certified profiles with Bare Metal AMD servers:
-
-| **Profile** | **CPU Cores** | **CPU Threads (aka. vCPU)** | **Memory (RAM GB)** | **SAPS** |
-| --- | --- | --- | --- | --- |
-| BI.S4A.NW2000 | 96 | 192 | 2 TB | 265,650 |
-| BI.S4A.NW4000 | 96 | 192 | 4 TB | 267,450 |
-{: caption="SAP NetWeaver AMD servers" caption-side="top"}
-
 See also [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external}.
 
 
@@ -72,7 +61,7 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP Ne
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
 | BI.S3.NW384 | BI | {{site.data.keyword.cloud_notm}} Infrastructure |
-| | S3 | Series 3 (CPU generation)<br/><ul><li>S3: Intel Skylake/Kaby Lake</li><li>S4: Intel Cascade Lake</li><li>S4A: AMD EPYC 7642 </li><li>S5: Intel Sapphire Rapids</li></ul> |
+| | S3 | Series 3 (CPU generation)<br/><ul><li>S3: Intel Skylake/Kaby Lake</li><li>S4: Intel Cascade Lake</li><li>S5: Intel Sapphire Rapids</li></ul> |
 | | NW | NetWeaver-certified server |
 | | H2 | HANA-(*) and NetWeaver-certified server, 2 sockets  |
 | | 384 | 384 GB RAM |
