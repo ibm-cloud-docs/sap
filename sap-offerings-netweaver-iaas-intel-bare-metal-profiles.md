@@ -22,7 +22,7 @@ subcollection: sap
 # Intel and AMD Bare Metal server certified profiles on Classic infrastructure for SAP NetWeaver
 {: #nw-iaas-offerings-profiles-intel-bm}
 
-## Profiles list
+## Profiles list for Intel servers
 {: #nw-iaas-intel-bm-list}
 
 The following is an overview of the SAP-certified profiles with Bare Metal Intel servers:
@@ -49,6 +49,9 @@ The following is an overview of the SAP-certified profiles with Bare Metal Intel
 | BI.S5.H2.4000 | 120 | 240 | 4 TB | 329.350 |
 {: caption="SAP NetWeaver Intel servers" caption-side="top"}
 
+
+## Profiles list for AMD servers
+{: #nw-iaas-amd-bm-list}
 
 The following is an overview of the SAP-certified profiles with Bare Metal AMD servers:
 
