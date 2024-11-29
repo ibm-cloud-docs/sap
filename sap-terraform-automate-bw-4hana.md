@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-04"
+lastupdated: "2024-11-08"
 
 subcollection: sap 
 
@@ -91,7 +91,7 @@ To run the scripts to deploy the SAP BW/4HANA release on dedicated SAP HANA 2.0 
     *  Enter the floating IP and subnet information from the Bastion server.
     *  By default, the VSI is configured with:
         * Red Hat Enterprise Linux® 8.x for SAP Applications (amd64) or Suse Enterprise Linux 15 for SAP Applications (amd64), 
-        * Atleast one SSH key that is configured to access as `root` user on SSH, 
+        * At least one SSH key that is configured to access as `root` user on SSH, 
         * Five storage volumes. 
 
         You can change the default settings to match your solution. 
@@ -301,32 +301,32 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
 
     ```
     #SAP HANA DB configuration
-    hana_sid = "BWH"
-    hana_sysno = "00"
-    hana_system_usage = "custom"
-    hana_components = "server"
+    HANA_SID = "BWH"
+    HANA_SYSNO = "00"
+    HANA_SYSTEM_USAGE = "custom"
+    HANA_COMPONENTS = "server"
 
     #SAP HANA Installation kit path
-    kit_saphana_file = "/storage/HANADB/51054623.ZIP"
+    KIT_SAPHANA_FILE = "/storage/HANADB/51054623.ZIP"
 
     #SAP system configuration
-    sap_sid = "BWH"
-    sap_ascs_instance_number = "01"
-    sap_ci_instance_number = "00"
+    SAP_SID = "BWH"
+    SAP_ASCS_INSTANCE_NUMBER = "01"
+    SAP_CI_INSTANCE_NUMBER = "00"
 
     # Number of concurrent jobs used to load and/or extract archives to HANA Host
-    hdb_concurrent_jobs = "6"
+    HDB_CONCURRENT_JOBS = "6"
 
     #SAP BW4HANA APP Installation kit path
-    kit_sapcar_file = "/storage/BW4HANA/SAPCAR_1010-70006178.EXE"
-    kit_swpm_file = "/storage/BW4HANA/SWPM20SP09_4-80003424.SAR"
-    kit_sapexe_file = "/storage/BW4HANA/SAPEXE_400-80004393.SAR"
-    kit_sapexedb_file = "/storage/BW4HANA/SAPEXEDB_400-80004392.SAR"
-    kit_igsexe_file = "/storage/BW4HANA/igsexe_13-80003187.sar"
-    kit_igshelper_file = "/storage/BW4HANA/igshelper_17-10010245.sar"
-    kit_saphotagent_file = "/storage/BW4HANA/SAPHOSTAGENT51_51-20009394.SAR"
-    kit_hdbclient_file = "/storage/BW4HANA/IMDB_CLIENT20_009_28-80002082.SAR"
-    kit_bw4hana_export = "/storage/BW4HANA/export"
+    KIT_SAPCAR_FILE = "/storage/BW4HANA/SAPCAR_1010-70006178.EXE"
+    KIT_SWPM_FILE = "/storage/BW4HANA/SWPM20SP09_4-80003424.SAR"
+    KIT_SAPEXE_FILE = "/storage/BW4HANA/SAPEXE_400-80004393.SAR"
+    KIT_SAPEXEDB_FILE = "/storage/BW4HANA/SAPEXEDB_400-80004392.SAR"
+    KIT_IGSEXE_FILE = "/storage/BW4HANA/igsexe_13-80003187.sar"
+    KIT_IGSHELPER_FILE = "/storage/BW4HANA/igshelper_17-10010245.sar"
+    KIT_SAPHOTAGENT_FILE = "/storage/BW4HANA/SAPHOSTAGENT51_51-20009394.SAR"
+    KIT_HDBCLIENT_FILE = "/storage/BW4HANA/IMDB_CLIENT20_009_28-80002082.SAR"
+    KIT_BW4HANA_EXPORT = "/storage/BW4HANA/export"
     ```
 
 5. Initialize the Terraform CLI. 

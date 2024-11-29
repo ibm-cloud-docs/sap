@@ -52,6 +52,8 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
 | --- | --- | --- | --- |
+| **Compute Optimized** | | | |
+| cx3d-metal-48x128 | 48 | 128 | 62,069|
 | **Balanced** | | | |
 | bx3d-metal-48x256 | 48 | 256 | 93.670 |
 | bx3d-metal-64x256 | 64 | 256 | 124.520 |
@@ -95,7 +97,7 @@ The Bare Metal Server profile names are contextual and sequential. See the follo
 | --- | --- | --- |
 | mx2d-metal-96x768 | m | *Memory Optimized* family |
 | | x | Intel x86_64 CPU architecture |
-| | 2 | Intel x86_64 Cascade Lake CPU  - *3: Intel x86_64 Sapphire Rapids CPU* |
+| | ? \n   2 \n   3 | The Intel generation for the underlying hardware \n   Cascade Lake \n   Sapphire Rapids |
 | | d | the optional 'd' in the name indicates that the server is equipped with one or more additional NVMe SSD storage devices |
 | | — | _spacer_ |
 | | metal | *metal* in the name indicates that this is a bare metal server |

@@ -193,10 +193,9 @@ toc:
                     - sap-terraform-automate-intro-nw-asesyb.md
                     - sap-terraform-automate-nw-asesyb.md
               - topicgroup:
-                  label: SAP NetWeaver(ABAP) on ASE SYBASE HA SZ deployment on IBM Cloud VPC
+                  label: SAP NetWeaver(ABAP) on ASE SYBASE HA deployment on IBM Cloud VPC
                   topics:
                     - sap-terraform-automate-ha-deployment.md
-                    - sap-terraform-automate-ase-sybase-ha-deployment.md
               - topicgroup:
                   label: SAP S/4HANA HA deployment on IBM Cloud VPC
                   topics:
