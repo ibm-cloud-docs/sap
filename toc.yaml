@@ -196,7 +196,6 @@ toc:
                   label: SAP NetWeaver(ABAP) on ASE SYBASE HA deployment on IBM Cloud VPC
                   topics:
                     - sap-terraform-automate-ha-deployment.md
-                    - sap-terraform-automate-ase-sybase-ha-deployment.md
               - topicgroup:
                   label: SAP S/4HANA HA deployment on IBM Cloud VPC
                   topics:
