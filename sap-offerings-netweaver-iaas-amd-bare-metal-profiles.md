@@ -34,7 +34,7 @@ The following is an overview of the SAP-certified profiles with AMD Bare Metal:
 | --- | --- | --- | --- | --- |
 | BI.S4A.NW2000 | 96 | 192 | 2 TB | 265,650 |
 | BI.S4A.NW4000 | 96 | 192 | 4 TB | 267,450 |
-{: caption="SAP NetWeaver servers AMD" caption-side="top"}
+{: caption="SAP NetWeaver AMD servers" caption-side="top"}
 
 See also [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external}.
 
@@ -47,7 +47,7 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP Ne
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
 | BI.S4A.NW2000 | BI | {{site.data.keyword.cloud_notm}} Infrastructure |
-| | S4A | Series 3 (processor generation)<br/><ul><li>S3 is Intel Skylake/Kaby Lake</li><li>S4 is Intel Cascade Lake</li><li>S4A is AMD 2nd Gen EPYC</li></ul> |
+| | S4A | Series 3 (processor generation)<br/><ul><li>S3: Intel Skylake/Kaby Lake</li><li>S4: Intel Cascade Lake</li><li>S4A: AMD 2nd Gen EPYC</li><li>S5: Intel Sapphire Rapids</li></ul> |
 | | NW | NetWeaver-certified server |
 | | 2000 | 2000 GB RAM |
-{: caption="Profile naming for SAP NetWeaver AMD" caption-side="top"}
+{: caption="Profile naming for SAP NetWeaver AMD servers" caption-side="top"}

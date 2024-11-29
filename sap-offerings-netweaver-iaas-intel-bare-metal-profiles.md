@@ -65,7 +65,7 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP Ne
 | | NW | NetWeaver-certified server |
 | | H2 | HANA-(*) and NetWeaver-certified server, 2 sockets  |
 | | 384 | 384 GB RAM |
-{: caption="Profile naming for SAP NetWeaver" caption-side="top"}
+{: caption="Profile naming for SAP NetWeaver Intel servers" caption-side="top"}
 
 (*) Only the servers that are listed in the [SAP Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28) are supported for HANA workloads.
 {: note}
