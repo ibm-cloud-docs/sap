@@ -53,18 +53,20 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
 | --- | --- | --- | --- |
 | **Compute Optimized** | | | |
-| cx3d-metal-48x128 | 48 | 128 | 62,069|
+| cx3d-metal-48x128 | 48 | 128 | 62,029|
+| cx3d-metal-64x128 | 64 | 128 | 63,950|
 | **Balanced** | | | |
-| bx3d-metal-48x256 | 48 | 256 | 93.670 |
-| bx3d-metal-64x256 | 64 | 256 | 124.520 |
-| bx3d-metal-192x1024 | 192 | 1.024 | 297.770 |
+| bx3d-metal-48x256 | 48 | 256 | 93,670 |
+| bx3d-metal-64x256 | 64 | 256 | 124,520 |
+| bx3d-metal-192x1024 | 192 | 1.024 | 297,770 |
 | **Memory Optimized** | | | |
-| mx3d-metal-64x512 | 64 | 512 | 128.750 |
-| mx3d-metal-96x1024 | 96 | 1.024 | 182.670 |
+| mx3d-metal-48x512 | 48 | 512 | 97,830 |
+| mx3d-metal-64x512 | 64 | 512 | 128,750 |
+| mx3d-metal-96x1024 | 96 | 1.024 | 182,670 |
 | **Very High Memory Optimized** | | | |
-| vx3d-metal-16x256 | 16 | 256 | 35.520 |
+| vx3d-metal-16x256 | 16 | 256 | 35,520 |
 | **Ultra High Memory Optimized** | | | |
-| ux3d-metal-16x512 | 16 | 512 | 34.320 |
+| ux3d-metal-16x512 | 16 | 512 | 34,320 |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-    side="bottom"}
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment]    (https://launchpad.support.sap.com/#/notes/2927211){: external}. 
