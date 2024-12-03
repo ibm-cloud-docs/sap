@@ -26,7 +26,7 @@ Your business and functional requirements determine the SAP solutions that are p
 
 Your requirements have an influence on how you size your server. You have a wide selection of SAP NetWeaver-based applications (which may use SAP HANA) to choose from, including SAP S/4HANA, SAP ERP Central Component (ECC), SAP BW/4HANA, SAP BW and many more solutions for different business operations.
 
-For a complete list of solutions, see [SAP NetWeaver installation guidance](https://help.sap.com/viewer/product/SAP_NETWEAVER/ALL/en-US){: external}. For information about supported operating systems and database platforms, see [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}. Search for Product Availability Matrix. An [SAP S-User ID](/docs/sap?topic=sap-necessary-credentials) is required.
+For a complete list of solutions, see [ABAP Platform and SAP NetWeaver](https://help.sap.com/docs/SAP_NETWEAVER){: external}. For information about supported operating systems and database platforms, see [SAP Product Availability Matrix (PAM)](https://userapps.support.sap.com/sap/support/pam){: external}. Search for Product Availability Matrix. An [SAP S-User ID](/docs/sap?topic=sap-necessary-credentials) is required.
 
 ## Determining your SAP applications
 {: #determine-apps}
@@ -72,12 +72,12 @@ If your organization is new to {{site.data.keyword.cloud_notm}}, read the follow
 * [Get started with {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/get-started){: external}
 * [Creating an {{site.data.keyword.cloud}} account](/docs/account?topic=account-account-getting-started)
 * [How to create an SAP S-user ID](https://www.youtube.com/watch?v=4wICiRTP8u0){: external} Note that only super administrators or S-users with the required authorization are allowed to create S-user IDs for your company's SAP Customer Number (SCN)
-* The [Guide Finder for SAP NetWeaver and ABAP Platform](https://help.sap.com/viewer/nwguidefinder){: external} to search for SAP NetWeaver-related documentation, including installation guides.
+* The [Guide Finder for SAP NetWeaver and ABAP Platform](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US){: external} to search for SAP NetWeaver-related documentation, including installation guides.
 * Applicable [installation guides](https://support.sap.com/en/my-support/software-downloads.html){: external}; requires an SAP S-user ID.
-* SAP release notes, which can be found in the application help of the relevant SAP product documentation on the [SAP Help Portal](https://help.sap.com/viewer/index){: external}; requires an SAP S-user ID.
-* [SAP HANA Help](https://help.sap.com/viewer/product/SAP_HANA_PLATFORM){: external}
-* [SAP NetWeaver Help](https://help.sap.com/viewer/product/SAP_NETWEAVER/ALL/en-US){: external}
-* [SAP HANA Installation Guide](https://www.sap.com/products/hana/technical.html){: external}
+* SAP release notes, which can be found in the application help of the relevant SAP product documentation on the [SAP Help Portal](https://help.sap.com/docs){: external}; requires an SAP S-user ID.
+* [SAP HANA Help](https://help.sap.com/docs/SAP_HANA_PLATFORM){: external}
+* [SAP NetWeaver Help](https://help.sap.com/docs/SAP_NETWEAVER){: external}
+* [SAP HANA Master Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/326373b251c14f30b6e7f2f5efd3f6e3.html){: external}
 * [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}; requires an SAP S-user ID.
 * [SAP Notes](https://support.sap.com/en/my-support/knowledge-base.html){: external}; requires an SAP S-user ID.
 * Third-party documentation
@@ -140,7 +140,7 @@ For more information, see [Creating a {{site.data.keyword.IBM_notm}} {{site.data
 ## Monitoring your system with SAP tools
 {: #monitoring}
 
-SAP system monitoring is available through the [SAP Host Agent](https://help.sap.com/viewer/3ce0859db2164fe19541dda577d29020/7.5.9/en-US/48c6f9627a004da5e10000000a421937.html){: external}, which provides monitoring functions that are similar to on-premises installations.
+SAP system monitoring is available through the [SAP Host Agent](https://help.sap.com/docs/SAP_NETWEAVER_750/3ce0859db2164fe19541dda577d29020/48c6f9627a004da5e10000000a421937.html){: external}, which provides monitoring functions that are similar to on-premises installations.
 
 ### Monitoring for IBM Cloud Intel Virtual Servers (Gen2), on VPC Infrastructure
 {: #monitoring-intel-vs-gen2}

@@ -288,7 +288,7 @@ The OS image that {{site.data.keyword.IBM}} provides has the parameters set to o
 ### Is there information on the ports and services that are used by SAP?
 {: #faq-sap-hana-ports-and-services}
 
-See [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports){: external} for detailed explanations of SAP ports and services
+See [TCP/IP Ports of All SAP Products](https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16/616a3c0b1cc748238de9c0341b15c63c.html){: external} for detailed explanations of SAP ports and services
 
 
 ### How can I optimize my SAP HANA performance?

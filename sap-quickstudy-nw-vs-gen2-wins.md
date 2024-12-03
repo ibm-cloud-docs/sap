@@ -327,7 +327,7 @@ SAP requires the installation of the {{site.data.keyword.cloud_notm}} Metrics Co
 You need an S-User ID and the Download Software authorization when you download the DVD images from the SAP Service Marketplace. To request an S-USer ID, see the [SAP Support Portal](https://support.sap.com/en/index.html).
 {: note}
 
-Depending on your target SAP application that you are going to install you need to gather information, which SAP images you will need to download. In this tutorial, we are choosing SAP NetWeaver ABAP on Windows using IBM Db2 for the SAP Database. Therefore we find in this guide  [SAP NetWeaver Installation Guide](https://help.sap.com/viewer/77e3a615f633437e9c4549891bb6bad7/CURRENT_VERSION/en-US){: external} all the needed information. SAP recommends to always search for the most recent versions.
+Depending on your target SAP application that you are going to install you need to gather information, which SAP images you will need to download. In this tutorial, we are choosing SAP NetWeaver ABAP on Windows using IBM Db2 for the SAP Database. Therefore we find in this guide  [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external} all the needed information. SAP recommends to always search for the most recent versions.
 
 Log in to the [SAP Service Marketplace](https://support.sap.com/swdc) and download the required DVD images to a local share drive and then transfer the images to your provisioned server. Alternative option, download the SAP Software Download Manager, install it on your target server and directly download the DVD images to the server. You might also consider an extra volume for keeping the SAP DVD images. For more information about the SAP Software Download Manager, see [SAP Software Download Center](https://support.sap.com/en/my-support/software-downloads.html){: external}.
 
@@ -342,7 +342,7 @@ SWPM is the component that guides you through the steps to successfully prepare 
 {: #install-sap-software-wins}
 {: step}
 
-Follow the instructions in the [SAP NetWeaver Installation Guide](https://help.sap.com/viewer/77e3a615f633437e9c4549891bb6bad7/CURRENT_VERSION/en-US){: external}. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2).
+Follow the instructions in the [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2).
 
 ![Figure 2. SAP Application instances](/images/quickstudy-intel-vs-gen2-win-SingleHostSAPDb2.png "SAP Application instances"){: caption="SAP Application instances" caption-side="bottom"}
 
@@ -367,7 +367,7 @@ Example values are e.g. depending on the instance numbers that you have chosen:
 | 40000-40099 | IGS |
 | 50000-50099 | sapstartsrv |
 
-In a production environment you will get more granular on the port numbers. For more information about ports, see [SAP ports](https://help.sap.com/viewer/ports){: external} and the respective documentation of your database vendor for details.
+In a production environment you will get more granular on the port numbers. For more information about ports, see [SAP ports](https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16/616a3c0b1cc748238de9c0341b15c63c.html){: external} and the respective documentation of your database vendor for details.
 {: note}
 
 If you run SAP GUI on your desktop, remember to add the ports that are required by your SAP application (example: ports 3200-3299, depending on your SAP NetWeaver instance number) to the security group.
@@ -376,7 +376,7 @@ If you run SAP GUI on your desktop, remember to add the ports that are required 
 ## Finding more information
 {: #find-information-wins}
 
-Leaving now the tutorial and finding all information that you need to install your specific SAP components and versions, visit the [SAP Help Portal](https://help.sap.com/viewer/index){: external} as a starting point.
+Leaving now the tutorial and finding all information that you need to install your specific SAP components and versions, visit the [SAP Help Portal](https://help.sap.com/docs/){: external} as a starting point.
 
 
 ### Relevant SAP Notes

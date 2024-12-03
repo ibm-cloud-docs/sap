@@ -104,13 +104,13 @@ In addition to these partitions, Bare Metal Servers for VPC have up to 8 NVMEs �
 
 To fulfill the KPIs defined for SAP HANA, each profile needs different storage volumes that are listed in detail in the following sections. These storage configurations are recommended. They are certified storage layouts that comply with **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. 
 
-If a specific memory sizing needs to be performed, customers are advised to follow [the instructions here](https://learning.sap.com/learning-journeys/installing-and-administering-sap-hana/performing-sap-hana-sizing_d8cbe155-8aaf-42a8-a6b5-fb4104f0cb83) and if it turns out that different logic volume sizes are required then in addition the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} must be considered. In that case, users must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/viewer/product/HANA_HW_CLOUD_TOOLS/latest/en-US){: external} to check compliance with SAP’s KPIs.
+If a specific memory sizing needs to be performed, customers are advised to follow [the instructions here](https://learning.sap.com/learning-journeys/installing-and-administering-sap-hana/performing-sap-hana-sizing) and if it turns out that different logic volume sizes are required then in addition the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} must be considered. In that case, users must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external} to check compliance with SAP’s KPIs.
 {: important}
 
 This holds true especially, if file shares are used for SAP HANA installations. They can be deployed and mounted in arbitrary ways to provide additional storage, for example for backups, as needed. For SAP HANA data and log files, however, they have to be evaluated. 
 {: note}
 
-In any case, [SAP's recommended file system layout](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.latest/en-US/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. 
+In any case, [SAP's recommended file system layout](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. 
 
 ### Bare Metal Servers for VPC - Storage Layouts
 {: #hana-iaas-intel-bm-vpc-mx2-profiles}

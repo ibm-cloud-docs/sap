@@ -177,7 +177,7 @@ After you attach the two data volumes, two new virtual disks will appear in the 
 
 Table 1 shows a basic layout of the file system to support an IBM Db2 installation. Generally, an IBM Db2 installation uses subdirectories that can be segmented into independent volumes.
 
-For example, `"/db2/<DBSID>"`, `"/db2/<DBSID>/log_dir"`, and several `"sapdata<n>"`, where the folder `"log_dir"` contains the online logs files of the database and the `"sapdata<n>"` contains the data itself. For example, see the Db2 documentation here: [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/viewer/ce9e270ad34949969c16d09d1b099a26/CURRENT_VERSION/en-US/713eb64f45c6448c8dbe8a51b85680ee.html){: external}.
+For example, `"/db2/<DBSID>"`, `"/db2/<DBSID>/log_dir"`, and several `"sapdata<n>"`, where the folder `"log_dir"` contains the online logs files of the database and the `"sapdata<n>"` contains the data itself. For example, see the Db2 documentation here: [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/docs/SLTOOLSET/ce9e270ad34949969c16d09d1b099a26/713eb64f45c6448c8dbe8a51b85680ee.html?version=CURRENT_VERSION){: external}.
 
 
 ### Sample storage configurations for SAP HANA
@@ -655,4 +655,4 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | | | ``lv<SID>sapdata4` | `/db2/<SID>/sapdata4` |
 {: caption="Sample storage layout for Db2 on Cloud" caption-side="top"}
 
-For more information, see [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/viewer/4fbd902c7c76410bb82c6311dd4dc94b/CURRENT_VERSION/en-US/713eb64f45c6448c8dbe8a51b85680ee.html){: external} and [SAP Note 1707361](https://me.sap.com/notes/1707361){: external}.
+For more information, see [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/docs/SLTOOLSET/4fbd902c7c76410bb82c6311dd4dc94b/713eb64f45c6448c8dbe8a51b85680ee.html?version=CURRENT_VERSION){: external} and [SAP Note 1707361](https://me.sap.com/notes/1707361){: external}.

@@ -40,12 +40,12 @@ Before you start deploying the MS SQL Server software, ensure that:
 ## Documentation of MS SQL Server for SAP
 {: #anydb-ms-sql-server-documentation}
 
-A good entry point into the documentation is the [SAP community page for MS SQL Server](https://community.sap.com/topics/sql-server)
-For a current overview of the combinations of MS SQL Server, SAP NetWeaver (or other SAP components), and operating systems - see the [Product Availability Matrix (PAM)](http://support.sap.com/pam).
+A good entry point into the documentation is the [SAP community page for MS SQL Server](https://pages.community.sap.com/topics/sql-server)
+For a current overview of the combinations of MS SQL Server, SAP NetWeaver (or other SAP components), and operating systems - see the [Product Availability Matrix (PAM)](https://userapps.support.sap.com/sap/support/pam).
 
 MS SQL Server database and SAP NetWeaver on Windows
- * [Installation of SAP Systems Based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 : MS SQL Server](https://help.sap.com/viewer/c22d9ecc82ca4ab591a91942fe5c0020/CURRENT_VERSION/en-US/9420dabb130e4ae1996b3f39e202cc6e.html)
- * [Installation of SAP Systems Based on the Application Server Java of SAP NetWeaver 7.5 and SAP Solution Manager 7.2 SR2 Java : MS SQL Server](https://help.sap.com/viewer/34ba60e8526d4110921c9c0fd05b4b6d/CURRENT_VERSION/en-US/9420dabb130e4ae1996b3f39e202cc6e.html)
+ * [Installation of SAP Systems Based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 : MS SQL Server](https://help.sap.com/docs/SLTOOLSET/c22d9ecc82ca4ab591a91942fe5c0020/9420dabb130e4ae1996b3f39e202cc6e.html?version=CURRENT_VERSION)
+ * [Installation of SAP Systems Based on the Application Server Java of SAP NetWeaver 7.5 and SAP Solution Manager 7.2 SR2 Java : MS SQL Server](https://help.sap.com/docs/SLTOOLSET/34ba60e8526d4110921c9c0fd05b4b6d/9420dabb130e4ae1996b3f39e202cc6e.html?version=CURRENT_VERSION)
 
 MS SQL Server licensing supported by SAP
  * [SAP Note 1491158 - Information About the Microsoft SQL Server License Scope](https://me.sap.com/notes/1491158)

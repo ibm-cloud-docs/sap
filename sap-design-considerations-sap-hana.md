@@ -82,8 +82,8 @@ Here is the summary of the Appliance and TDI deployment methods:
 {: caption="Appliance vs. TDI deployment methods" caption-side="top"}
 
 The following sub-sections describe the appliance deployment method for Standard Sizing type, and the TDI deployment method for Expert Sizing. Detailed documentation regarding the methods and types are shown in SAP documentation:
-- [SAP HANA Administration Guide for SAP HANA Platform](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/latest/en-US)
-- [SAP HANA Server Installation and Update Guide](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/latest/en-US)
+- [SAP HANA Administration Guide for SAP HANA Platform](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/330e5550b09d4f0f8b6cceb14a64cd22.html)
+- [SAP HANA Server Installation and Update Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/7eb0167eb35e4e2885415205b8383584.html)
 - [SAP About Benchmarks - Sizing Types - Expert Sizing](https://www.sap.com/about/benchmark/sizing.expert-sizing.html)
 - [Expert Sizing & Methods of Sizing Validation](https://www.sap.com/documents/2016/10/822c3247-927c-0010-82c7-eda71af511fa.html)
 - [Sizing Methods and Tools](https://www.sap.com/documents/2016/10/6222114a-8f7c-0010-82c7-eda71af511fa.html)
@@ -156,7 +156,7 @@ SAP and a cloud service provider agree to support the customer for a selected sc
 ## SAP HANA Deployment Types
 {: #hana-deployment-types}
 
-SAP HANA can be deployed in various layouts, with various configurations of abstraction and logical separation of database schemas. Different deployment types are designed for different use cases, and SAP defines those which are approved (with/without restrictions) for production SAP Systems and those which are not approved. See detailed information here on [SAP HANA Deployment Types - SAP HANA Server Installation and Update Guide](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/latest/en-US/6483b71787f2439c907bd99036559e72.html){: external} and a summary of this information:
+SAP HANA can be deployed in various layouts, with various configurations of abstraction and logical separation of database schemas. Different deployment types are designed for different use cases, and SAP defines those which are approved (with/without restrictions) for production SAP Systems and those which are not approved. See detailed information here on [SAP HANA Deployment Types - SAP HANA Server Installation and Update Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/6483b71787f2439c907bd99036559e72.html){: external} and a summary of this information:
 
 * Approved for production
     * Dedicated also known as. Single Application on One SAP HANA System (SCOS)
@@ -172,7 +172,7 @@ Multi-SID hosted with the same physical host, requires significant attention to 
 ## SAP HANA System Type
 {: #hana-system-type}
 
-System Types are listed by SAP on [SAP HANA System Types](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/latest/en-US/df16fa40b3dc4ed3b86e575ad6d1198d.html){: external} as:
+System Types are listed by SAP on [SAP HANA System Types](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/df16fa40b3dc4ed3b86e575ad6d1198d.html){: external} as:
 * Single-host system - one SAP HANA instance on one host server
 * Multi-node / distributed / scale-out cluster
 
@@ -216,17 +216,17 @@ Given these environment networks are different, configuring extra NIC throughput
 
 Data is distributed across the multiple SAP HANA nodes, which are hosting the single database.
 
-Follow the guidelines in [Sizing SAP HANA - SAP HANA Master Guide](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/latest/en-US/d4a122a7bb57101493e3f5ca08e6b039.html){: external} to determine the required total storage capacity size for your target SAP HANA system.
+Follow the guidelines in [Sizing SAP HANA - SAP HANA Master Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/d4a122a7bb57101493e3f5ca08e6b039.html){: external} to determine the required total storage capacity size for your target SAP HANA system.
 
 The SAP HANA shared volume, and each of the data and log volumes, must be accessible to all nodes (which may be easier to allow network storage access to all nodes within the Subnet used for storage connectivity). There are specific performance criteria that must be met by the attached Network File System (NFS) volumes:
 * `/hana/data/` and `/hana/log` volumes, individual volumes are required for each node with a minimum of 10 IOPS/GB
 * `/hana/shared` volume, required to be shared across all nodes with a minimum of 10 IOPS/GB and recommended to increment further to 12 IOPS/GB
 
 For Classic Infrastructure:
-* Read [SAP HANA on NetApp FAS Systems with NFS)](https://www.netapp.com/us/media/tr-4290.pdf){: external} to assist configuration of your SAP HANA multi-node system.
+* Read [SAP HANA on NetApp FAS Systems with NFS)](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_introduction.html){: external} to assist configuration of your SAP HANA multi-node system.
 * Use the following Network File System (NFS) mount options in `/etc/fstab` for each volume to mount - `rw,bg,hard,timeo=600,intr,noatime,vers=4,minorversion=1,lock,rsize=1048576,wsize=1048576`.
 
-After you mount all of your volumes to all the nodes, your multi-node servers are configured and ready to install the SAP HANA multi-node database. Follow the steps in the [SAP HANA Server Installation and Update Guide)](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/latest/en-US){: external} to install an SAP HANA database of your required version.
+After you mount all of your volumes to all the nodes, your multi-node servers are configured and ready to install the SAP HANA multi-node database. Follow the steps in the [SAP HANA Server Installation and Update Guide)](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/7eb0167eb35e4e2885415205b8383584.html){: external} to install an SAP HANA database of your required version.
 
 ## SAP HANA performance
 {: #hana-performance}
@@ -236,7 +236,7 @@ After an SAP HANA database server is operational, it is important to inspect the
 ### SAP HANA performance validation
 {: #hana-performance-validation}
 
-The [SAP HANA Hardware and Cloud Measurement Tools (HCMT)](https://help.sap.com/viewer/product/HANA_HW_CLOUD_TOOLS/latest/en-US){: external} replaces the previous _SAP HANA HW Configuration Check Tool (HWCCT)_. The HCMT binary executable is run before an SAP HANA installation (commonly), and performs a series of automated tests which analyses the system performance.
+The [SAP HANA Hardware and Cloud Measurement Tools (HCMT)](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external} replaces the previous _SAP HANA HW Configuration Check Tool (HWCCT)_. The HCMT binary executable is run before an SAP HANA installation (commonly), and performs a series of automated tests which analyses the system performance.
 
 The output of the HCMT execution, is a result archive file - `hcmtresult-[timestamp].zip`.
 
@@ -287,9 +287,8 @@ For more information on system replication, and network throughput and latency, 
 
 - [How To Perform System Replication for SAP HANA - Version 5.4 January 2018](https://www.sap.com/documents/2017/07/606a676e-c97c-0010-82c7-eda71af511fa.html){: external}
 - [Network Configuration for SAP HANA System Replication](https://www.sap.com/documents/2016/06/18079a1c-767c-0010-82c7-eda71af511fa.html){: external}
-- [SAP Help - SAP HANA System Replication - SAP HANA Administration Guide for SAP HANA Platform](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/latest/en-US/676844172c2442f0bf6c8b080db05ae7.html){: external}
-- [SAP Help - SAP HANA System Replicatio Guide](https://help.sap.com/viewer/4e9b18c116aa42fc84c7dbfd02111aba/latest/en-US){: external}
-- [Troubleshoot System Replication - SAP HANA Troubleshooting and Performance Analysis Guide](https://help.sap.com/viewer/bed8c14f9f024763b0777aa72b5436f6/latest/en-US/caca75c6f0cf4204af9d38ae0fe2d379.html){: external}
+- [SAP Help - SAP HANA System Replication Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/676844172c2442f0bf6c8b080db05ae7.html){: external}
+- [Troubleshoot System Replication - SAP HANA Troubleshooting and Performance Analysis Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/bed8c14f9f024763b0777aa72b5436f6/caca75c6f0cf4204af9d38ae0fe2d379.html){: external}
 - [SAP Note 1999880 - FAQ: SAP HANA System Replication](https://me.sap.com/notes/1999880){: external}
 - [SAP Note 2057595 - FAQ: SAP HANA High Availability](https://me.sap.com/notes/2057595){: external}
 

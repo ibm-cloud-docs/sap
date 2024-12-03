@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP NetWeaver, SAP HANA, SAP Application Performance Standard, SAPS, SAP Quick Sizer
 
@@ -132,9 +132,9 @@ Sizing SAP HANA correctly is key to the success of your project. It is a best pr
 
 Main memory is one of the most important resources to consider when you size an SAP HANA-certified appliance.
 
-The [*SAP HANA Master Guide*](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/latest/en-US){: external} provides a starting point for sizing-related topics.
+The [*SAP HANA Master Guide*](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/116743577e504d3291e9061fd6fe82bf.html){: external} provides a starting point for sizing-related topics.
 
-The [*Sizing SAP HANA - SAP HANA Master Guide*](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/latest/en-US/d4a122a7bb57101493e3f5ca08e6b039.html){: external} information within the guide provides guidance on how to size your SAP HANA system. It points to the different installation and migration scenarios for both greenfield installations and existing systems.
+The [*Sizing SAP HANA - SAP HANA Master Guide*](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/d4a122a7bb57101493e3f5ca08e6b039.html){: external} information within the guide provides guidance on how to size your SAP HANA system. It points to the different installation and migration scenarios for both greenfield installations and existing systems.
 
 This information includes a link to the SAP HANA version of the SAP Quick Sizer tool (an SAP S-user ID is required to access the tool). The page also lists the SAP Notes that are related to sizing your SAP HANA server.
 
@@ -143,7 +143,7 @@ This information includes a link to the SAP HANA version of the SAP Quick Sizer 
 
 For more information about sizing, see the following resources:
 
-* [Sizing SAP HANA - SAP HANA Master Guide](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/latest/en-US/d4a122a7bb57101493e3f5ca08e6b039.html){: external}
+* [Sizing SAP HANA - SAP HANA Master Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/d4a122a7bb57101493e3f5ca08e6b039.html){: external}
 * [SAP Quick Sizer](http://service.sap.com/quicksizer){: external}
 * [SAP Note 1736976 - Sizing Report for BW-on-HANA](https://service.sap.com/sap/support/notes/1736976){: external}
 * [SAP Note 1872170 - Suite on HANA memory sizes](https://service.sap.com/sap/support/notes/1872170){: external}

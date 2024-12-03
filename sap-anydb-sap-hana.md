@@ -59,7 +59,7 @@ You can find a complete list of all SAP HANA components and the corresponding SA
 
 SAP HANA hardware and software requirements are described in the SAP HANA Master Guide at: 
 
-* [SAP HANA Hardware and Software Requirements](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.01/en-US/d3d1cf20bb5710149b57fd794c827a4e.html) 
+* [SAP HANA Hardware and Software Requirements](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/d3d1cf20bb5710149b57fd794c827a4e.html)
 
 SAP HANA support on SAP-certified Cloud IaaS: 
 
@@ -67,19 +67,19 @@ SAP HANA support on SAP-certified Cloud IaaS:
 
 SAP HANA and SAP NetWeaver on UNIX/Linux: 
 
-* [Installation of SAP Systems Based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 on UNIX: SAP HANA Database](https://help.sap.com/viewer/910828cec5d14d6685da380aec1dc4ae/CURRENT_VERSION/en-US/9420dabb130e4ae1996b3f39e202cc6e.html) 
+* [Installation of SAP Systems Based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 on UNIX: SAP HANA Database](https://help.sap.com/docs/SLTOOLSET/910828cec5d14d6685da380aec1dc4ae/9420dabb130e4ae1996b3f39e202cc6e.html?version=CURRENT_VERSION) 
 
-* [Installation of SAP Systems Based on the Application Server Java of SAP NetWeaver 7.5 and SAP Solution Manager 7.2 SR2 Java on UNIX: SAP HANA Database](https://help.sap.com/viewer/3aa4caa3bd634a22bdc572d82d1311ec/CURRENT_VERSION/en-US/9420dabb130e4ae1996b3f39e202cc6e.html) 
+* [Installation of SAP Systems Based on the Application Server Java of SAP NetWeaver 7.5 and SAP Solution Manager 7.2 SR2 Java on UNIX: SAP HANA Database](https://help.sap.com/docs/SLTOOLSET/3aa4caa3bd634a22bdc572d82d1311ec/9420dabb130e4ae1996b3f39e202cc6e.html?version=CURRENT_VERSION) 
 
-* [Installation of SAP ABAP S/4HANA and BW/4HANA Systems on UNIX: SAP HANA 2.0 Database](https://help.sap.com/viewer/39c32e9783f6439e871410848f61544c/CURRENT_VERSION_SWPM20/en-US/1937febc57ad4d81a213fca9b3e031a5.html)
+* [Installation of SAP ABAP Systems on UNIX : SAP HANA 2.0 Database - Using Software Provisioning Manager 2.0Software Logistics Toolset 1.0, Current Version SWPM 2.0](https://help.sap.com/docs/SLTOOLSET/39c32e9783f6439e871410848f61544c/1937febc57ad4d81a213fca9b3e031a5.html?version=CURRENT_VERSION_SWPM20)
 
 HANA and SAP NetWeaver on Windows: 
 
-* [Installation of SAP Systems Based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 on Windows: SAP HANA Database](https://help.sap.com/viewer/2703bed525eb478c935bc312b3c3b0a6/CURRENT_VERSION/en-US/9420dabb130e4ae1996b3f39e202cc6e.html)
+* [Installation of SAP Systems Based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 on Windows: SAP HANA Database](https://help.sap.com/docs/SLTOOLSET/2703bed525eb478c935bc312b3c3b0a6/9420dabb130e4ae1996b3f39e202cc6e.html?version=CURRENT_VERSION)
 
-* [Installation of SAP Systems Based on the Application Server Java of SAP NetWeaver 7.5 and SAP Solution Manager 7.2 SR2 Java on Windows: SAP HANA Database](https://help.sap.com/viewer/14ccd8beec6f4651905783bc469bce5d/CURRENT_VERSION/en-US/9420dabb130e4ae1996b3f39e202cc6e.html)
+* [Installation of SAP Systems Based on the Application Server Java of SAP NetWeaver 7.5 and SAP Solution Manager 7.2 SR2 Java on Windows: SAP HANA Database](https://help.sap.com/docs/SLTOOLSET/14ccd8beec6f4651905783bc469bce5d/9420dabb130e4ae1996b3f39e202cc6e.html?version=CURRENT_VERSION)
 
-* [Installation of SAP ABAP S/4HANA and BW/4HANA Systems on Windows: SAP HANA 2.0 Database](https://help.sap.com/viewer/3741bfe0345f4892ae190ee7cfc53d4c/CURRENT_VERSION_SWPM20/en-US/1937febc57ad4d81a213fca9b3e031a5.html) 
+* [Installation of SAP ABAP Systems on Windows : SAP HANA 2.0 Database - Using Software Provisioning Manager 2.0](https://help.sap.com/docs/SLTOOLSET/3741bfe0345f4892ae190ee7cfc53d4c/1937febc57ad4d81a213fca9b3e031a5.html?version=CURRENT_VERSION_SWPM20) 
 
 ## SAP on SAP HANA using Intel Bare Metal 
 {: #anydb-hana-documentation-bm}

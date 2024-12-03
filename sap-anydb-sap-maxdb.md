@@ -39,14 +39,14 @@ Before you start deploying SAP MaxDB software, be sure to:
 ### Documentation of SAP MaxDB
 {: #anydb-sap-maxdb-documentation}
 
-A good entry point into the documentation is the [SAP community page for SAP MaxDB](https://community.sap.com/topics/maxdb){: external}.
+A good entry point into the documentation is the [SAP community page for SAP MaxDB](https://pages.community.sap.com/topics/maxdb){: external}.
 
 SAP MaxDB documentation:
-- [SAP Help Portal - SAP MaxDB](https://help.sap.com/viewer/product/SAP_MAXDB/latest/en-US){: external}
+- [SAP Help Portal - SAP MaxDB](https://help.sap.com/docs/SAP_MAXDB){: external}
 - [SAP Note 767598 - Available SAP MaxDB documentation](https://me.sap.com/notes/767598){: external}
 - [SAP Note 1020175 - FAQ: SAP MaxDB installation, upgrade, or applying a patch](https://me.sap.com/notes/1020175){: external}
 
-For a current overview of the combinations of SAP MaxDB, SAP NetWeaver (or other SAP components), and operating systems, see the [Product Availability Matrix (PAM)](http://support.sap.com/pam){: external}.
+For a current overview of the combinations of SAP MaxDB, SAP NetWeaver (or other SAP components), and operating systems, see the [Product Availability Matrix (PAM)](https://userapps.support.sap.com/sap/support/pam){: external}.
 
 ### SAP MaxDB using Intel Bare Metal
 {: #anydb-sap-maxdb-bare-metal}
