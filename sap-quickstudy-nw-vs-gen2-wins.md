@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-27"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -95,7 +95,7 @@ Use the following steps to create a virtual server instance.
 1. Click **Virtual server instances** > **New instance**.
 1. Enter a unique **Name** for the virtual server, for example, *sap-wdb*. The name that you enter becomes the hostname.
 
-    SAP hostnames must consist of a maximum of 13 alpha-numeric characters. See [SAP Note 611361](https://launchpad.support.sap.com/#/notes/611361){: external} for further details.
+    SAP hostnames must consist of a maximum of 13 alpha-numeric characters. See [SAP Note 611361](https://me.sap.com/notes/611361){: external} for further details.
     {: important}
 
 1. Select the **Virtual private cloud** in which to attach the VSI, for example, *sap-test-vpc*.
@@ -381,17 +381,17 @@ Leaving now the tutorial and finding all information that you need to install yo
 
 ### Relevant SAP Notes
 
-* [SAP Note 2384179 - SAP Systems on Windows Server 2016](https://launchpad.support.sap.com/#/notes/2384179){: external}.
-* [SAP Note 2979010 - Windows on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2979010){: external}.
+* [SAP Note 2384179 - SAP Systems on Windows Server 2016](https://me.sap.com/notes/2384179){: external}.
+* [SAP Note 2979010 - Windows on IBM Cloud (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2979010){: external}.
 
 #### Memory Management
 
-* [SAP Note 88416 - Zero administration memory management for the ABAP server](https://launchpad.support.sap.com/#/notes/88416){: external}.
-* [SAP Note 1518419 - Page file and virtual memory required by the SAP system](https://launchpad.support.sap.com/#/notes/1518419){: external}.
-* [SAP Note 2488097 - FAQ: Memory usage for the ABAP Server on Windows](https://launchpad.support.sap.com/#/notes/2488097){: external}.
+* [SAP Note 88416 - Zero administration memory management for the ABAP server](https://me.sap.com/notes/88416){: external}.
+* [SAP Note 1518419 - Page file and virtual memory required by the SAP system](https://me.sap.com/notes/1518419){: external}.
+* [SAP Note 2488097 - FAQ: Memory usage for the ABAP Server on Windows](https://me.sap.com/notes/2488097){: external}.
 
 #### Troubleshooting
 
-* [SAP Note 100972 - Windows bug check event (blue screen)](https://launchpad.support.sap.com/#/notes/100972){: external}.
-* [SAP Note 1559353 - How to capture user dumps on Windows](https://launchpad.support.sap.com/#/notes/1559353){: external}.
-* [SAP Note 2015747 - How to generate Windows crash dump files](https://launchpad.support.sap.com/#/notes/2015747){: external}.
+* [SAP Note 100972 - Windows bug check event (blue screen)](https://me.sap.com/notes/100972){: external}.
+* [SAP Note 1559353 - How to capture user dumps on Windows](https://me.sap.com/notes/1559353){: external}.
+* [SAP Note 2015747 - How to generate Windows crash dump files](https://me.sap.com/notes/2015747){: external}.

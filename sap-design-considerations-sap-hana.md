@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-28"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -162,11 +162,11 @@ SAP HANA can be deployed in various layouts, with various configurations of abst
     * Dedicated also known as. Single Application on One SAP HANA System (SCOS)
     * Multitenant Database Containers (MDC)
 * Approved for production (with restrictions)
-    * Virtualized Single Tenant - restrictions to the hypervisor; see [SAP Note 1788665 - SAP HANA Support for virtualized / partitioned (multi-tenant) environments](https://launchpad.support.sap.com/#/notes/1788665){: external}
-    * Multiple Applications on One SAP HANA System (MCOD) - supported only for approved applications; see [SAP Note 1661202 - Support multiple applications one SAP HANA database / tenant DB](https://launchpad.support.sap.com/#/notes/1661202){: external}
+    * Virtualized Single Tenant - restrictions to the hypervisor; see [SAP Note 1788665 - SAP HANA Support for virtualized / partitioned (multi-tenant) environments](https://me.sap.com/notes/1788665){: external}
+    * Multiple Applications on One SAP HANA System (MCOD) - supported only for approved applications; see [SAP Note 1661202 - Support multiple applications one SAP HANA database / tenant DB](https://me.sap.com/notes/1661202){: external}
     * Multiple SAP HANA Systems on One Host (MCOS)
 
-Multi-SID hosted with the same physical host, requires significant attention to detailed tasks related to system administration and performance management. For more information, see [SAP Note 1681092 - Multiple SAP HANA systems (SIDs) on the same underlying servers](https://launchpad.support.sap.com/#/notes/1681092){: external}
+Multi-SID hosted with the same physical host, requires significant attention to detailed tasks related to system administration and performance management. For more information, see [SAP Note 1681092 - Multiple SAP HANA systems (SIDs) on the same underlying servers](https://me.sap.com/notes/1681092){: external}
 {: note}
 
 ## SAP HANA System Type
@@ -242,7 +242,7 @@ The output of the HCMT execution, is a result archive file - `hcmtresult-[timest
 
 This HCMT result archive file is then uploaded to the [SAP HANA Hardware and Cloud Measurement Analysis (HCMA)](https://hotui-supportportal.dispatcher.hana.ondemand.com){: external} for detailed analysis.
 
-For information about downloading, installing, and configuring the HCMT tool, see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://launchpad.support.sap.com/#/notes/2493172){: external}.
+For information about downloading, installing, and configuring the HCMT tool, see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}.
 
 ### SAP HANA overheads impact on available memory
 {: #hana-performance-overhead-memory}
@@ -263,7 +263,7 @@ The example demonstrates the net capacity for SAP HANA when using 4TB Memory (DR
 | Net capacity available for SAP HANA data + temporary disk space | 3919 GB |
 {: caption="Example of SAP HANA net capacity" caption-side="top"}
 
-This is shown in more detail on [SAP Note 2296290 - New Sizing Report for SAP BW/4HANA](https://launchpad.support.sap.com/#/notes/2296290){: external} under attachment SAPBW4HANA_Sizing_V2.6.4.pdf
+This is shown in more detail on [SAP Note 2296290 - New Sizing Report for SAP BW/4HANA](https://me.sap.com/notes/2296290){: external} under attachment SAPBW4HANA_Sizing_V2.6.4.pdf
 
 ## SAP HANA High Availability and Disaster Recovery (HA/DR)
 {: #hana-ha}
@@ -290,8 +290,8 @@ For more information on system replication, and network throughput and latency, 
 - [SAP Help - SAP HANA System Replication - SAP HANA Administration Guide for SAP HANA Platform](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/latest/en-US/676844172c2442f0bf6c8b080db05ae7.html){: external}
 - [SAP Help - SAP HANA System Replicatio Guide](https://help.sap.com/viewer/4e9b18c116aa42fc84c7dbfd02111aba/latest/en-US){: external}
 - [Troubleshoot System Replication - SAP HANA Troubleshooting and Performance Analysis Guide](https://help.sap.com/viewer/bed8c14f9f024763b0777aa72b5436f6/latest/en-US/caca75c6f0cf4204af9d38ae0fe2d379.html){: external}
-- [SAP Note 1999880 - FAQ: SAP HANA System Replication](https://launchpad.support.sap.com/#/notes/1999880){: external}
-- [SAP Note 2057595 - FAQ: SAP HANA High Availability](https://launchpad.support.sap.com/#/notes/2057595){: external}
+- [SAP Note 1999880 - FAQ: SAP HANA System Replication](https://me.sap.com/notes/1999880){: external}
+- [SAP Note 2057595 - FAQ: SAP HANA High Availability](https://me.sap.com/notes/2057595){: external}
 
 For more information on setting up the HA cluster extensions of the OS, view the Linux vendor documentation.
 

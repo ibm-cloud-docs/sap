@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-12-03"
 
 keywords: SAP Monitoring, {{site.data.keyword.cloud_notm}}, SAP Workloads
 
@@ -33,7 +33,7 @@ Consider the following settings for the monitoring host.
 * The monitoring host must be deployed in the same region and zone as the monitored SAP system.
 * Make sure that you select the correct resource group that corresponds to your deployable architecture (DA).
 * You must deploy the `ibm-sles-15-5-amd64-sap-applications-<version>` image - SUSE Linux Enterprise Server 15 SP5 for SAP Applications (AMD64) - with the smallest available size of 2 cores.
-* Add your appropriate SSH keys as described in [Managing SSH keys](docs/vpc?topic=vpc-managing-ssh-keys&interface=ui){: external}.
+* Add your appropriate SSH keys as described in [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys&interface=ui){: external}.
 
 ## Verifying ACLs and security groups
 {: #mon-verifying-acls-and-security-groups}

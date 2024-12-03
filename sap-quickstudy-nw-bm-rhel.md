@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -91,7 +91,7 @@ The sample layouts might not be your preferred layout. The purpose of this guida
 | Public VLAN                      | tor01.fcr01a.851     |
 | Private Subnet                   | 10.114.63.64/26      |
 | Public Subnet                    | 158.85.65.224/28      |
-{: caption="32 GB network interface values" caption-side="top"}  
+{: caption="32 GB network interface values" caption-side="top"}
 
 3. Leave the default values for all other fields.
 4. Review your Order Summary.
@@ -401,7 +401,7 @@ External storage can be added to your provisioned server or servers. You can use
 7. Note the **Target Address** and iSCSI Qualified Name (**IQN**) for your server (iSCSI initiator), and the **username** and **password** for authorization with the iSCSI server. You need that information in the following steps.
 
     More provisioning information can be found under [Ordering Block Storage through the Console](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole).
-    {: tip}  
+    {: tip}
 
 Follow the steps in [Connecting to MPIO iSCSCI LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#mountingWindows) to make your storage accessible from your provisioned server.
 
@@ -556,7 +556,7 @@ Two more packages need to be installed:
 {: #prereq-compat-sap-c++}
 {: step}
 
-1. Follow [SAP Note 2195019)](https://launchpad.support.sap.com/#/notes/2195019){: external} and install package compat-sap-c++-7 and create a specific soft-link, which is required by the SAP binaries. Check the release-specific SAP Notes for the product you are installing to determine whether the library is required.
+1. Follow [SAP Note 2195019)](https://me.sap.com/notes/2195019){: external} and install package compat-sap-c++-7 and create a specific soft-link, which is required by the SAP binaries. Check the release-specific SAP Notes for the product you are installing to determine whether the library is required.
 ```
 [root@sdb192 ~]# yum install compat-sap-c++-7-7.2.1-2.e17_4.x86_64.rpm
 ....

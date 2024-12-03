@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, downloading SAP software, installing SAP software, SAP Download Manager
 
@@ -32,7 +32,7 @@ To perform a specific SAP installation, there are many different SAP software co
 - SAP's own compression format for Java called "Software Component Archive (SCA)"
 - Provided in ZIP or RAR (self-extracting EXE) compression formats
 
-The many various SAP software components to download can be downloaded individually by using a web browser, or these download items can be added to the [SAP Download Basket](https://launchpad.support.sap.com/#/downloadbasket){: external} to make it easier for downloading all files by using the [SAP Download Manager](https://support.sap.com/en/my-support/software-downloads.html){: external} (a Java GUI application).
+The many various SAP software components to download can be downloaded individually by using a web browser, or these download items can be added to the [SAP Download Basket](https://me.sap.com/downloadbasket){: external} to make it easier for downloading all files by using the [SAP Download Manager](https://support.sap.com/en/my-support/software-downloads.html){: external} (a Java GUI application).
 
 After the SAP software installation media downloads, follow the standard SAP installation procedure that is documented in the applicable [SAP installation guide](https://service.sap.com/instguides){: external} for your SAP version and components and the corresponding [SAP Notes](https://support.sap.com/en/my-support/knowledge-base.html){: external}. The installation guide and SAP Notes require an SAP S-user ID to view.
 
@@ -43,6 +43,6 @@ For IBM Power, you may want to install AIX Toolbox for Linux Applications for ea
 {: tip}
 
 For more help with SAP Download Manager, see:
-- [SAP Note 2272824 - How to Download SAP Solution Manager - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2272824)
-- [SAP Note 1371839 - How to install SAP Download Manager - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/1371839)
-- [SAP Note 2624390 - What is the current version of SAP Download Manager?](https://launchpad.support.sap.com/#/notes/2624390)
+- [SAP Note 2272824 - How to Download SAP Solution Manager - SAP ONE Support Launchpad](https://me.sap.com/notes/2272824)
+- [SAP Note 1371839 - How to install SAP Download Manager - SAP ONE Support Launchpad](https://me.sap.com/notes/1371839)
+- [SAP Note 2624390 - What is the current version of SAP Download Manager?](https://me.sap.com/notes/2624390)

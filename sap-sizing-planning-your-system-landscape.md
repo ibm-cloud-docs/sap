@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-28"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Landscape
 
@@ -37,7 +37,7 @@ One SAP system consists of one or more *SAP instances*, which are a group of pro
 
 Landscapes have several possible configurations, such as server (CPU, RAM) size and storage size, for all SAP solutions in the market. These solutions include SAP NetWeaver-based products. SAP NetWeaver-based products range from older solutions, such as SAP ECC and SAP BW (that use "AnyDB" vendors that are approved by SAP), to the new range of SAP solutions, such as SAP S/4HANA and SAP BW/4HANA (that use SAP HANA database). Beyond the enterprise resource planning (ERP) and enterprise data warehouse (EDW) examples, there are many available SAP products or add-ons for different industries and business types or operating geographies.
 
-SAP NetWeaver-based products are designed to run on SAP NetWeaver-certified hosts, and SAP HANA-based products are designed to run on SAP HANA-certified hosts. The certified operating systems and supported database systems for {{site.data.keyword.cloud_notm}} are listed in [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external}.
+SAP NetWeaver-based products are designed to run on SAP NetWeaver-certified hosts, and SAP HANA-based products are designed to run on SAP HANA-certified hosts. The certified operating systems and supported database systems for {{site.data.keyword.cloud_notm}} are listed in [SAP Note 2927211](https://me.sap.com/notes/2927211){: external}.
 
 More solutions are available from SAP that are not SAP NetWeaver-based and many third-party software options that might integrate with SAP can affect the planning of your system landscape. For example, SAP HANA can run as a database for an SAP NetWeaver stack-based solution or as a stand-alone entity depending on your usage scenario.
 
@@ -52,7 +52,7 @@ You want to be as detailed as possible when you determine the size of your serve
 * How will the database be used? Transactional (OLTP) or Analytical (OLAP)? Serving only the SAP Business Applications, or as part of your wider IT strategy extracting value from the advanced SAP HANA Components, which are available (such as predictive analytics or Cloud Foundry via XSA)
 * How do you intend to deploy the applications and databases? And to what level of resiliency (that is, HA/DR strategy)?
 
-If you plan to migrate an on-premises SAP installation into the {{site.data.keyword.IBM_notm}} Power Virtual Servers environment, make sure that you don't carry over existing performance issues. Run an up-to-date sizing report, and review a recent SAP Early Watch report of your SAP system. For more information, see [SAP EarlyWatch Alert](https://support.sap.com/en/offerings-programs/support-services/earlywatch-alert.html){: external} and [SAP Note 207223 - SAP EarlyWatch Alert Processed at SAP](https://launchpad.support.sap.com/#/notes/207223){: external}.
+If you plan to migrate an on-premises SAP installation into the {{site.data.keyword.IBM_notm}} Power Virtual Servers environment, make sure that you don't carry over existing performance issues. Run an up-to-date sizing report, and review a recent SAP Early Watch report of your SAP system. For more information, see [SAP EarlyWatch Alert](https://support.sap.com/en/offerings-programs/support-services/earlywatch-alert.html){: external} and [SAP Note 207223 - SAP EarlyWatch Alert Processed at SAP](https://me.sap.com/notes/207223){: external}.
 
 Each deployment of SAP HANA Database Server or SAP NetWeaver Application Server will have items to consider. These are included under each relevant section of this documentation.
 
@@ -117,7 +117,7 @@ To assist customers looking to combine performance for the database and flexibil
 
 Intel Bare Metal Servers from IBM Cloud in the IBM Cloud Classic Infrastructure environment may offer greater performance capabilities. Notably, this includes larger memory, local SSD storage in RAID arrays, access to IPMI, and more. Intel Virtual Servers (Gen2), on the other hand provide more flexibility.
 
-RDBMs on Intel Bare Metal Servers in the older IBM Cloud Classic Infrastructure environment that comply to [SAP Note 2414097](https://launchpad.support.sap.com/#/notes/2414097){: external}, are supported when connected to the SAP AS on Intel Virtual Server (Gen2) in the IBM Cloud VPC Infrastructure environment - when placed in the same location (that is, Datacenter / Availability Zone) and using an IBM Cloud Transit Gateway local routing.
+RDBMs on Intel Bare Metal Servers in the older IBM Cloud Classic Infrastructure environment that comply to [SAP Note 2414097](https://me.sap.com/notes/2414097){: external}, are supported when connected to the SAP AS on Intel Virtual Server (Gen2) in the IBM Cloud VPC Infrastructure environment - when placed in the same location (that is, Datacenter / Availability Zone) and using an IBM Cloud Transit Gateway local routing.
 
 ### Mapping CPUs derived from SAPS to an IBM Power Virtual Server
 {: #selecting-iaas-power}
@@ -150,7 +150,7 @@ The operating system metrics that the SAP Host Agent provides require the use of
 ### Monitoring for {{site.data.keyword.IBM_notm}} Power Virtual Servers
 {: #monitoring-power}
 
-For Infrastructure as a Service (IaaS) environments such as {{site.data.keyword.IBM_notm}} Power Virtual Servers, the operating system metrics that the SAP Host Agent provides were enhanced. Make sure that you have the prerequisite SAP Host Agent patch level installed. For a description of the new metrics and required SAP Host Agent patch level, see [SAP Note 2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://launchpad.support.sap.com/#/notes/2932766){: external}.
+For Infrastructure as a Service (IaaS) environments such as {{site.data.keyword.IBM_notm}} Power Virtual Servers, the operating system metrics that the SAP Host Agent provides were enhanced. Make sure that you have the prerequisite SAP Host Agent patch level installed. For a description of the new metrics and required SAP Host Agent patch level, see [SAP Note 2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://me.sap.com/notes/2932766){: external}.
 
 ## Support from IBM Cloud or SAP
 {: #support}

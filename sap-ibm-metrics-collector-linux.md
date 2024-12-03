@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, SAP HANA, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS
 
@@ -33,7 +33,7 @@ The IMCS collects performance-related data from {{site.data.keyword.vsi_is_full}
 ## Before you begin
 {: #before-you-begin-imcs}
 
-You need to successfully create an {{site.data.keyword.vpc_full}} and {{site.data.keyword.vsi_is_short}} by using the appropriate catalog image for SAP. Check [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211) to make sure that the selected operating system is supported by SAP. The Metrics Collector runs specifically on {{site.data.keyword.vsi_is_short}} to gather required SAP metrics. Figure 1 outlines the data sources that are used by {{site.data.keyword.IBM_notm}} Metrics Collector for SAP.
+You need to successfully create an {{site.data.keyword.vpc_full}} and {{site.data.keyword.vsi_is_short}} by using the appropriate catalog image for SAP. Check [SAP Note 2927211](https://me.sap.com/notes/2927211) to make sure that the selected operating system is supported by SAP. The Metrics Collector runs specifically on {{site.data.keyword.vsi_is_short}} to gather required SAP metrics. Figure 1 outlines the data sources that are used by {{site.data.keyword.IBM_notm}} Metrics Collector for SAP.
 
 ![Figure 1. Data sources for {{site.data.keyword.IBM_notm}} Metrics Collector for SAP](/images/imcs-data-sources.svg "Data sources for IBM Metrics Collector for SAP"){: caption="Data sources for {{site.data.keyword.IBM_notm}} Metrics Collector for SAP" caption-side="bottom"}
 
@@ -159,7 +159,7 @@ After the installation completes and the service is started, it can take time fo
       .
     </metrics>
    ```
-   {: screen}   
+   {: screen}
 
 You might experience a delay before your data is available.
 {: note}

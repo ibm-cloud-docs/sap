@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-27"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -43,23 +43,22 @@ A good entry point into the documentation is the [SAP community page for SAP Max
 
 SAP MaxDB documentation:
 - [SAP Help Portal - SAP MaxDB](https://help.sap.com/viewer/product/SAP_MAXDB/latest/en-US){: external}
-- [SAP Note 767598 - Available SAP MaxDB documentation](https://launchpad.support.sap.com/#/notes/767598){: external}
-- [SAP Note 1020175 - FAQ: SAP MaxDB installation, upgrade, or applying a patch](https://launchpad.support.sap.com/#/notes/1020175){: external}
+- [SAP Note 767598 - Available SAP MaxDB documentation](https://me.sap.com/notes/767598){: external}
+- [SAP Note 1020175 - FAQ: SAP MaxDB installation, upgrade, or applying a patch](https://me.sap.com/notes/1020175){: external}
 
 For a current overview of the combinations of SAP MaxDB, SAP NetWeaver (or other SAP components), and operating systems, see the [Product Availability Matrix (PAM)](http://support.sap.com/pam){: external}.
 
 ### SAP MaxDB using Intel Bare Metal
 {: #anydb-sap-maxdb-bare-metal}
 
-See [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external} for supported SAP MaxDB versions.
+See [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external} for supported SAP MaxDB versions.
 
 ### SAP MaxDB using Intel Virtual Servers
 {: #anydb-sap-maxdb-intel-vs-gen2}
 
-See [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported SAP MaxDB versions.
+See [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external} for supported SAP MaxDB versions.
 
 ### SAP MaxDB using IBM Power Virtual Servers)
 {: #anydb-sap-maxdb-power-vs}
 
-See [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported SAP MaxDB versions.
-
+See [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external} for supported SAP MaxDB versions.

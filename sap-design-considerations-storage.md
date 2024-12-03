@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-01-25"
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -621,7 +621,7 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | | | `lv<SID>oraclient` | `/oracle/client` |
 {: caption="Sample storage layout for Oracle" caption-side="top"}
 
-For more information, see [SAP Note 2172935](https://launchpad.support.sap.com/#/notes/2172935){: external}.
+For more information, see [SAP Note 2172935](https://me.sap.com/notes/2172935){: external}.
 
 
 ### Sample storage configuration for {{site.data.keyword.Db2_on_Cloud_short}} on IBM AIX that use the IBM Power Virtual Server
@@ -655,4 +655,4 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | | | ``lv<SID>sapdata4` | `/db2/<SID>/sapdata4` |
 {: caption="Sample storage layout for Db2 on Cloud" caption-side="top"}
 
-For more information, see [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/viewer/4fbd902c7c76410bb82c6311dd4dc94b/CURRENT_VERSION/en-US/713eb64f45c6448c8dbe8a51b85680ee.html){: external} and [SAP Note 1707361](https://launchpad.support.sap.com/#/notes/1707361){: external}.
+For more information, see [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/viewer/4fbd902c7c76410bb82c6311dd4dc94b/CURRENT_VERSION/en-US/713eb64f45c6448c8dbe8a51b85680ee.html){: external} and [SAP Note 1707361](https://me.sap.com/notes/1707361){: external}.

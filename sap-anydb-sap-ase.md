@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-27"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -46,8 +46,8 @@ SAP ASE documentation:
     - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE) Installation and Upgrade Guide for Linux&reg;](https://help.sap.com/viewer/23c3bb4a29be443ea887fa10871a30f8/latest/en-US){: external}
     - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE) Installation and Upgrade Guide for IBM AIX](https://help.sap.com/viewer/07e2d10774874e3bb4d991ef08d678e8/latest/en-US){: external}
     - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE) Installation and Upgrade Guide for Windows](https://help.sap.com/viewer/36031975851a4f82b1022a9df877280b/latest/en-US){: external}
-- [SAP Note 1748888 - Installing Systems Based on NW 7.3 and Higher: SAP ASE](https://launchpad.support.sap.com/#/notes/1748888){: external}
-- [SAP Note 2489781 - SAP ASE 16.0 SP03 Supported Operating Systems and Versions](https://launchpad.support.sap.com/#/notes/2489781){: external}
+- [SAP Note 1748888 - Installing Systems Based on NW 7.3 and Higher: SAP ASE](https://me.sap.com/notes/1748888){: external}
+- [SAP Note 2489781 - SAP ASE 16.0 SP03 Supported Operating Systems and Versions](https://me.sap.com/notes/2489781){: external}
 
 For a current overview of the combinations of SAP ASE, SAP NetWeaver (or other SAP components), and operating systems - see the [Product Availability Matrix (PAM)](http://support.sap.com/pam){: external}
 
@@ -62,7 +62,7 @@ SAP ASE and SAP NetWeaver **on Windows**:
 ### SAP ASE using Intel Virtual Servers
 {: #anydb-sap-ase-intel-vs-vpc}
 
-See [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external} for supported SAP ASE database versions.
+See [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external} for supported SAP ASE database versions.
 
 ### SAP ASE using IBM Power Virtual Servers
 {: #anydb-sap-ase-power-vs}
@@ -70,4 +70,4 @@ See [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC
 This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services.
 {: note}
 
-See [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external} for supported SAP ASE database versions on AIX running on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
+See [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external} for supported SAP ASE database versions on AIX running on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-22"
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -614,7 +614,7 @@ zypper install insserv
 Use the saptune tool to apply recommended operating system settings for SAP HANA or SAP NetWeaver on SUSE Linux® Enterprise Server. On IBM Power Systems Virtual Servers, the same SUSE Linux® Enterprise Server image is used for SAP NetWeaver and SAP HANA.
 
 The following workflow shows how you can use the saptune tool to apply the SAP solution to your server. For more information about saptune, see [SAP Note 1275776 - Linux: Preparing SLES for SAP
-environments](https://launchpad.support.sap.com/#/notes/1275776).
+environments](https://me.sap.com/notes/1275776).
 
 1. Verify that the package status is current.
 
@@ -753,9 +753,9 @@ ansible-playbook -i /root/inventory /root/sap-netweaver.yml
 
 
 For more information about running tasks, see the following documentation.
-* [SAP Note 2772999 "Red Hat Enterprise Linux 8.x: Installation and Configuration"](https://launchpad.support.sap.com/#/notes/2772999)
-* [SAP Note 2777782 "SAP HANA DB: Recommended OS Settings for RHEL8"](https://launchpad.support.sap.com/#/notes/2777782)
-* [SAP Note 2382421 "Optimizing the Network Configuration on HANA- and OS-Level"](https://launchpad.support.sap.com/#/notes/2382421)
+* [SAP Note 2772999 "Red Hat Enterprise Linux 8.x: Installation and Configuration"](https://me.sap.com/notes/2772999)
+* [SAP Note 2777782 "SAP HANA DB: Recommended OS Settings for RHEL8"](https://me.sap.com/notes/2777782)
+* [SAP Note 2382421 "Optimizing the Network Configuration on HANA- and OS-Level"](https://me.sap.com/notes/2382421)
 * [Red Hat Enterprise Linux System Roles for SAP](https://access.redhat.com/sites/default/files/attachments/rhel_system_roles_for_sap_1.pdf)
 
 #### Further Network Configurations on SLES
@@ -813,7 +813,7 @@ Check that the balance of CPU and memory placement is optimized for SAP HANA by 
 * Checks the nonuniform memory access (NUMA) layout according to SAP HANA rules. The script verifies that no cores without memory exist and that the memory distribution among the cores doesn't exceed a 50% margin. In the first case, the script generates an error; in the latter case, the script generates a warning.
 * Checks whether a Live Partition Mobility (LPM) operation occurred. After LPM, the NUMA layout might differ from the configuration at boot time. The script scans the system log for the last LPM. A warning is generated if an LPM operation occurred since the last system boot.
 
-1. Download the `chk_numa_lpm.py` script from the [SAP Note 2923962](https://launchpad.support.sap.com/#/notes/2923962). Then, run the `chk_numa_lpm.py` script on your newly provisioned {{site.data.keyword.powerSys_notm}} instance.
+1. Download the `chk_numa_lpm.py` script from the [SAP Note 2923962](https://me.sap.com/notes/2923962). Then, run the `chk_numa_lpm.py` script on your newly provisioned {{site.data.keyword.powerSys_notm}} instance.
 2. Run the script.
 
     ```python
@@ -836,7 +836,7 @@ Check that the balance of CPU and memory placement is optimized for SAP HANA by 
     ```
     {: pre}
 
-In this example, a warning is generated because two NUMA nodes with an equal amount of CPU and memory were created. For more information, see [SAP Note 2923962](https://launchpad.support.sap.com/#/notes/2923962).
+In this example, a warning is generated because two NUMA nodes with an equal amount of CPU and memory were created. For more information, see [SAP Note 2923962](https://me.sap.com/notes/2923962).
 
 ## Next Steps
 {: #power-vs-set-up-power-next_steps}

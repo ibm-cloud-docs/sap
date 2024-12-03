@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-20"
+lastupdated: "2024-12-03"
 
 subcollection: sap
 
@@ -143,7 +143,7 @@ Transit gateways provide flexibility by allowing you to add networks to local ga
 
 The inter-region latency dashboard provides the average network round-trip latency (round-trip time or RTT) for all pairs of regions in {{site.data.keyword.cloud}}. The dashboard shows a snapshot of inter-region RTT expressed in milliseconds. This snapshot is an average of multiple measurements over the previous 30 days. For each measurement, a pair of Linux virtual machines (of cx2-8x16 profile) is provisioned in the two corresponding regions in {{site.data.keyword.cloud_notm}}. VM-to-VM network connectivity is provided by the Transit Gateway. Netperf TCP RR test is used for measuring the VM-to-VM latency between regions.
 
-The results reported are measured. There are no performance guarantees implied by these dashboards. These statistics provide visibility into latency between all regions and zones to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance. These dashboards are not intended for use in troubleshooting. For more information, see [Network latency dashboards](docs/vpc?topic=vpc-network-latency-dashboard).
+The results reported are measured. There are no performance guarantees implied by these dashboards. These statistics provide visibility into latency between all regions and zones to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance. These dashboards are not intended for use in troubleshooting. For more information, see [Network latency dashboards](/docs/vpc?topic=vpc-network-latency-dashboard).
 
 Manually deploying a VPC and configuring a HANA db as standby database with Async HSR replication cross-regions for enabiling a DR on a cloud platform can be time-consuming. The Terraform automation assures not only a quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
 

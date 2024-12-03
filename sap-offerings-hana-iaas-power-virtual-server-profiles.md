@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-04-25"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Balanced, bh1, Compute Intensive, ch1, High Memory, mh1, Ultra Memory, umh, Small, ush1, Nonproduction, np1
 
@@ -148,7 +148,7 @@ Each profile must have at least two dedicated cores. For required storage perfor
 | umh-60x14400 | 60 | 480 | 14,400 | 15,970 | 360,000 | OLTP |
 {: caption="SAP HANA servers Ultra Memory profile family" caption-side="top"}
 
-Profile types that are marked with an `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median, and largest within each profile family. This action was taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. For more information, see [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}.
+Profile types that are marked with an `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but **are** certified for running SAP HANA production systems. The directory lists the smallest, median, and largest within each profile family. This action was taken by SAP to avoid too many records, as the scalability of IBM POWER hardware enables significantly more granular sizing. For more information, see [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://me.sap.com/notes/2947579){: external}.
 {: note}
 
 ## Understanding IBM Power Virtual Server profile names

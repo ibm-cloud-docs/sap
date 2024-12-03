@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -41,7 +41,7 @@ Your specific requirements determine the SAP solutions that are powered by the S
 Your enterprise IT organization can select from various operating systems from {{site.data.keyword.cloud}} for SAP portfolio. For more information about available operating systems, see the following links.
 
 - [OS for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-power)
-- [OS - Bring your own image and or license for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-byol)
+- [OS - Bring your own image and or license for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
 
 Depending on your scenarios, the following links provide helpful information.
 

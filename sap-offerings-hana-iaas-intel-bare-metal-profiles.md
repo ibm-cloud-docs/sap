@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2020, 2023
-lastupdated: "2020-06-30"
+years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -61,7 +61,7 @@ Please regard the supported operated systems mentioned in the footnotes.
 {: note}
 
 
-For more information see [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external}.
+For more information see [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}.
 
 A number of these Profiles are also available as "Boot-only" which have the same configuration but only the boot drives are inserted. This configuration lets you customize the Local SSD Storage and the attachment of either Network Block or File storage options.
 

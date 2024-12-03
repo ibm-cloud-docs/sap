@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -129,7 +129,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 {: caption="{{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} hosted on Intel Sapphire Rapids CPUs" caption-side="bottom"}
 
 
-For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}.
+For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}.
 
 
 ## Understanding Virtual Server profile names

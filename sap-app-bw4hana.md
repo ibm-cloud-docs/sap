@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -146,8 +146,8 @@ There are a few considerations to be mindful of when looking at the directories 
 {: caption="Examples of inferring benchmark results into sizing decisions" caption-side="top"}
 
 **Additional SAP Notes regarding SAP BW/4HANA and sizing for scale-out:**
-- [SAP Note 2296290 - New Sizing Report for SAP BW/4HANA](https://launchpad.support.sap.com/#/notes/2296290){: external}
-- [SAP Note 2347382 - SAP BW/4HANA – General Information (Installation, SAP HANA, security corrections…)](https://launchpad.support.sap.com/#/notes/2347382){: external}
-- [SAP Note 2561976 - SAPBWNews SAP BW/4HANA 1.0 SP 08](https://launchpad.support.sap.com/#/notes/2561976){: external}
-- [SAP Note 2908965 - SAPBWNews SAP BW/4HANA 2.0 SP 06](https://launchpad.support.sap.com/#/notes/0002908965){: external}
-- [SAP Note 2671297 - SAP BW on SAP HANA and SAP BW/4HANA in a SAP HANA, active/active read-enabled option environment](https://launchpad.support.sap.com/#/notes/2671297){: external}
+- [SAP Note 2296290 - New Sizing Report for SAP BW/4HANA](https://me.sap.com/notes/2296290){: external}
+- [SAP Note 2347382 - SAP BW/4HANA – General Information (Installation, SAP HANA, security corrections…)](https://me.sap.com/notes/2347382){: external}
+- [SAP Note 2561976 - SAPBWNews SAP BW/4HANA 1.0 SP 08](https://me.sap.com/notes/2561976){: external}
+- [SAP Note 2908965 - SAPBWNews SAP BW/4HANA 2.0 SP 06](https://me.sap.com/notes/0002908965){: external}
+- [SAP Note 2671297 - SAP BW on SAP HANA and SAP BW/4HANA in a SAP HANA, active/active read-enabled option environment](https://me.sap.com/notes/2671297){: external}

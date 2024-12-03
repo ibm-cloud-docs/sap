@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -40,7 +40,7 @@ For SAP applications the following virtual server configurations are supported. 
 | E980 | 6,000 | 750 |
 {: caption="{{site.data.keyword.IBM_notm}} Power Virtual Servers certified for SAP NetWeaver" caption-side="top"}
 
-For more information, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}
+For more information, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external}
 
 
 ## Profiles available on Hourly Consumption Billing

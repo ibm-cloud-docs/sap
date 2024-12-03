@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-05-25"
+  years: 2021, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -84,7 +84,7 @@ HANA and SAP NetWeaver on Windows:
 ## SAP on SAP HANA using Intel Bare Metal 
 {: #anydb-hana-documentation-bm}
 
-See [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097) for supported SAP HANA database versions. 
+See [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://me.sap.com/notes/2414097) for supported SAP HANA database versions. 
 
 A sample configuration is shown in: 
 
@@ -95,7 +95,7 @@ A sample configuration is shown in:
 ## SAP on SAP HANA using Intel Virtual Servers (Gen2) 
 {: #anydb-hana-documentation-bm}
 
-See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances](https://launchpad.support.sap.com/#/notes/2927211) for supported MSSQL database versions. 
+See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances](https://me.sap.com/notes/2927211) for supported MSSQL database versions. 
 
 A sample configuration is shown in: 
 

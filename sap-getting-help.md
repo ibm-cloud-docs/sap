@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, support, support case, premium support, advanced support, basic support, support page, help, SAP ONE Support
 
@@ -69,7 +69,7 @@ All performance-related issues need to be checked by {{site.data.keyword.IBM_not
 
 If the issue is operating system (OS) related, go the support portal of the distribution (AIX or Linux&reg;) to open a case.
 
-You can check whether the infrastructure is set up correctly by running a python script on Linux&reg;: `python chk_numa_lpm.py`. For more information, see [SAP Note 2923962 -  - Check SAP HANA NUMA Layout on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://launchpad.support.sap.com/#/notes/2923962).
+You can check whether the infrastructure is set up correctly by running a python script on Linux&reg;: `python chk_numa_lpm.py`. For more information, see [SAP Note 2923962 -  - Check SAP HANA NUMA Layout on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://me.sap.com/notes/2923962).
 {: tip}
 
 ### Requesting support for resources in the European Union
@@ -86,7 +86,7 @@ You can specify that you want EU support for your account if the following crite
 * You select the EU supported case level when you open the case.
 
 {{site.data.keyword.cloud_notm}} offerings hosted in the Frankfurt location must be supported by a team that is physically located in Europe.
-{: note}  
+{: note}
 
 Enabling the EU Support setting for your account applies to all future cases that you open for issues on any service or data center that is hosted in the EU region. However, if you add resources outside of an EU location, issues for those resources are not necessarily handled by a support team in Europe. Any cases that are opened before you enable the EU Supported setting aren not affected.
 
@@ -94,7 +94,7 @@ Enabling the EU Support setting for your account applies to all future cases tha
 ## SAP ONE Support
 {: #sap-one-support}
 
-You can also continue to create tickets through SAP Support that are related to your {{site.data.keyword.cloud_notm}} IaaS and SAP products. For more information, see [SAP Support](https://support.sap.com/en/index.html){: external} and [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://launchpad.support.sap.com/#/notes/2414820){: external}.
+You can also continue to create tickets through SAP Support that are related to your {{site.data.keyword.cloud_notm}} IaaS and SAP products. For more information, see [SAP Support](https://support.sap.com/en/index.html){: external} and [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://me.sap.com/notes/2414820){: external}.
 
 The [SAP ONE Support Launchpad](https://launchpad.support.sap.com){: external} provides access to task-driven support resources from SAP, available with live web chat or incidnt tickets, and the following features:
 - Knowledge Base for SAP Notes
@@ -115,11 +115,11 @@ All performance-related issues must be checked by [{{site.data.keyword.cloud_not
 Provide details and run the following commands to attach the output to the case:
 
 * For AIX:
-  * `perfsap` on [SAP Note 1170252](https://launchpad.support.sap.com/#/notes/1170252){: external}
+  * `perfsap` on [SAP Note 1170252](https://me.sap.com/notes/1170252){: external}
 * For Linux:
-  * `sapsysinfo` on [SAP Note 618104](https://launchpad.support.sap.com/#/notes/618104){: external}
-  * `supportconfig` on [SAP Note 1642802](https://launchpad.support.sap.com/#/notes/1642802){: external}
-  * and for SAP HANA also use `full-system-info-dump` on [SAP Note 1732157](https://launchpad.support.sap.com/#/notes/1732157){: external}
+  * `sapsysinfo` on [SAP Note 618104](https://me.sap.com/notes/618104){: external}
+  * `supportconfig` on [SAP Note 1642802](https://me.sap.com/notes/1642802){: external}
+  * and for SAP HANA also use `full-system-info-dump` on [SAP Note 1732157](https://me.sap.com/notes/1732157){: external}
 
 
 ## Stack Overflow

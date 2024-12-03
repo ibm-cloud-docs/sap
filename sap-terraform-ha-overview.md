@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-10-19"
+  years: 2022, 2024
+lastupdated: "2024-12-03"
 
 subcollection: sap
 
@@ -140,7 +140,7 @@ Each ALB sends traffic to the cluster node where the application (ASCS, ERS, HAN
 DNSaaS (DNS as a Service) is the management {{site.data.keyword.vpc_short}} DNS service of HA and FQDN (IPs) mechanism.
 {: note}
 
-The ALB has a default of 50 seconds for client and server timeout, so after 50 seconds of inactivity, the connections close. To support SAP connections through ALB and not lose connection after 50 seconds, you need to request a change this value to a minimum of 300 seconds (client-side idle connection = minimum 300s and server-side idle connection = minimum 300s). To request this change, open a support ticket. This is an account-wide change that affects all of the ALBs in your account. For more information, see [Connection timeouts](docs/vpc?topic=vpc-advanced-traffic-management#connection-timeouts).
+The ALB has a default of 50 seconds for client and server timeout, so after 50 seconds of inactivity, the connections close. To support SAP connections through ALB and not lose connection after 50 seconds, you need to request a change this value to a minimum of 300 seconds (client-side idle connection = minimum 300s and server-side idle connection = minimum 300s). To request this change, open a support ticket. This is an account-wide change that affects all of the ALBs in your account. For more information, see [Connection timeouts](/docs/vpc?topic=vpc-advanced-traffic-management#connection-timeouts).
 {: note}
 
 ### {{site.data.keyword.dns_short}} with VPC

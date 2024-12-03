@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -45,7 +45,7 @@ Your business and functional requirements determine the SAP solutions powered by
 - [Sample storage configurations on Classic Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-classic)
 
 Your enterprise IT organization can select from a variety of operating systems from the IBM Cloud for SAP portfolio. For more information:
-- [OS Bring your Own Image/License for IBM Cloud Intel Bare Metal](/docs/sap?topic=sap-compute-os-design-considerations#os-byol)
+- [OS Bring your Own Image/License for IBM Cloud Intel Bare Metal](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
 
 Depending on your scenarios, the following information may be also relevant:
 - [SAP NetWeaver - Configure high availability in Classic Infrastructure](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha-classic)

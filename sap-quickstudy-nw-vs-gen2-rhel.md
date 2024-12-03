@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-27"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -113,7 +113,7 @@ Use the following steps to create a virtual server instance.
 1. Click **Virtual server instances** > **New instance**.
 1. Enter a unique **Name** for the virtual server, for example, `sap-app-vsi`. The name that you enter becomes the hostname.
 
-    SAP hostnames must consist of a maximum of 13 alpha-numeric characters. See [SAP Note 611361](https://launchpad.support.sap.com/#/notes/611361){: external} for further details.
+    SAP hostnames must consist of a maximum of 13 alpha-numeric characters. See [SAP Note 611361](https://me.sap.com/notes/611361){: external} for further details.
     {: important}
 
 1. Select the **Virtual private cloud** in which to attach the virtual server instance, for example, `sap-test-inst`.
@@ -458,7 +458,7 @@ An SAP installation requires that certain prerequisites are met regarding the pa
     - `uuidd`: Maintains OS support for the creation of UUIDs
     - `csh`: C shell support for the OS
 
-1. Follow [SAP note 2195019](https://launchpad.support.sap.com/#/notes/2195019){: external} and install package `compat-sap-c++-7`. Create a specific soft-link, which is required by the SAP binary files.
+1. Follow [SAP note 2195019](https://me.sap.com/notes/2195019){: external} and install package `compat-sap-c++-7`. Create a specific soft-link, which is required by the SAP binary files.
    ```
    [root@sap-app-vsi ~]# yum install compat-sap-c++-7
    ...
@@ -518,5 +518,5 @@ After you download the installation media, follow the standard SAP installation 
 
 ### Relevant SAP Notes
 
-* [SAP Note 2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167){: external}.
-* [SAP Note 2923773 - Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773){: external}.
+* [SAP Note 2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://me.sap.com/notes/2002167){: external}.
+* [SAP Note 2923773 - Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773){: external}.

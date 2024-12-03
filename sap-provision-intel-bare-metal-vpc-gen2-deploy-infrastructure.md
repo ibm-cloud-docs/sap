@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-09"
+  years: 2022, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -88,11 +88,11 @@ Table 1 is a summary of the fields and values that are used to provision Bare Me
 | Field | Value |
 |-------|-------|
 | **Location** | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want to create your bare metal server. |
-| **Name** | Unique name for your bare metal server, which becomes the **hostname**. SAP hostnames must consist of a maximum of 13 alpha-numeric characters. For more information about SAP hostnames, see [SAP Notes 611361](https://launchpad.support.sap.com/#/notes/611361){: external} and [129997](https://launchpad.support.sap.com/#/notes/129997){: external}. |
+| **Name** | Unique name for your bare metal server, which becomes the **hostname**. SAP hostnames must consist of a maximum of 13 alpha-numeric characters. For more information about SAP hostnames, see [SAP Notes 611361](https://me.sap.com/notes/611361){: external} and [129997](https://launchpad.support.sap.com/#/notes/129997){: external}. |
 | **Resource group** | Use resource groups to organize your account resources for access control and billing purposes. |
 | | **Note:** The resource group can't be changed after the bare metal server is created. |
 | _Optional_: **Tags** | You can assign labels to your server so that you can easily filter resources in your resource list. |
-| **Operating System** | <ul><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-hana-...`**</li><li>Linux distribution for SAP NetWeaver workloads, select **Catalog image** > **`...-sap-applications...`**</li><li>Windows Server for SAP NetWeaver workloads, select Windows Server</li></ul>. Choose an operating system version that is supported by SAP as documented in [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external} |
+| **Operating System** | <ul><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-hana-...`**</li><li>Linux distribution for SAP NetWeaver workloads, select **Catalog image** > **`...-sap-applications...`**</li><li>Windows Server for SAP NetWeaver workloads, select Windows Server</li></ul>. Choose an operating system version that is supported by SAP as documented in [SAP Note 2927211](https://me.sap.com/notes/2927211){: external} |
 | **Profile** |  Select one of the profiles that are outlined in [Bare Metal Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc) or [Bare Metal Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm-vpc). |
 | **SSH Key** | Select an existing public SSH key or click **New SSH key** to add a new one. You must specify at least one SSH key. SSH keys are used to securely connect to a running instance. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
@@ -110,14 +110,14 @@ VLAN interfaces are strictly targeting advanced virtualization scenarios on top 
 {: note}
 
 To add a new network interface to your Bare metal server for VPC instance, complete the following steps:
-1.	In the Network interfaces section of the Instance details page, click **Create**. 
-2.	On the Create network interface page, the interface name defaults to an incremented number. If this is the first new interface after your primary interface, the default name is *eth1*. You can change the name if you want. 
-3.	Select a subnet from the subnets that are assigned to your existing network interfaces. 
-4.	Select the method for choosing an IP address for the new interface. Either select a dedicated or let {{site.data.keyword.cloud}} reserve it for you. 
-5.	Select the security group that you want to associate with the network interface. 
+1.	In the Network interfaces section of the Instance details page, click **Create**.
+2.	On the Create network interface page, the interface name defaults to an incremented number. If this is the first new interface after your primary interface, the default name is *eth1*. You can change the name if you want.
+3.	Select a subnet from the subnets that are assigned to your existing network interfaces.
+4.	Select the method for choosing an IP address for the new interface. Either select a dedicated or let {{site.data.keyword.cloud}} reserve it for you.
+5.	Select the security group that you want to associate with the network interface.
 6.	Choose, if you want to create a VLAN or a PCI interface. For a VLAN interface, a VLAN ID needs to be provided. Choose *PCI interface* in this case.
 7.	You can configure IPs as ‘floating’. For more information, see [Associating floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic) for more information on floating IPs.
-8.	Click **Create**. 
+8.	Click **Create**.
 
 More information is shown on VPC Infrastructure - [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
 

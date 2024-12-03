@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-3-23"
+  years: 2021, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -48,22 +48,22 @@ MS SQL Server database and SAP NetWeaver on Windows
  * [Installation of SAP Systems Based on the Application Server Java of SAP NetWeaver 7.5 and SAP Solution Manager 7.2 SR2 Java : MS SQL Server](https://help.sap.com/viewer/34ba60e8526d4110921c9c0fd05b4b6d/CURRENT_VERSION/en-US/9420dabb130e4ae1996b3f39e202cc6e.html)
 
 MS SQL Server licensing supported by SAP
- * [SAP Note 1491158 - Information About the Microsoft SQL Server License Scope](https://launchpad.support.sap.com/#/notes/1491158)
- * [SAP Note 398136 - Support Policy for Microsoft SQL Server](https://launchpad.support.sap.com/#/notes/398136)
+ * [SAP Note 1491158 - Information About the Microsoft SQL Server License Scope](https://me.sap.com/notes/1491158)
+ * [SAP Note 398136 - Support Policy for Microsoft SQL Server](https://me.sap.com/notes/398136)
 
 MS SQL Server release/support information
- * [SAP Note 2807743 - Release planning for Microsoft SQL Server 2019](https://launchpad.support.sap.com/#/notes/2807743)
- * [SAP Note 2779625 - Setting up Microsoft SQL Server 2019](https://launchpad.support.sap.com/#/notes/2779625)
- * [SAP Note 2492596 - Release planning for Microsoft SQL Server 2017](https://launchpad.support.sap.com/#/notes/2492596)
- * [SAP Note 2484674 - Setting up Microsoft SQL Server 2017](https://launchpad.support.sap.com/#/notes/2484674)
- * [SAP Note 2201059 - Release planning for Microsoft SQL Server 2016](https://launchpad.support.sap.com/#/notes/2201059)
- * [SAP Note 1177356 - MS SQL Server: End of Support for SAP Releases](https://launchpad.support.sap.com/#/notes/1177356)
- * [SAP Note 62988 - Service packs for MS SQL Server](https://launchpad.support.sap.com/#/notes/62988)
+ * [SAP Note 2807743 - Release planning for Microsoft SQL Server 2019](https://me.sap.com/notes/2807743)
+ * [SAP Note 2779625 - Setting up Microsoft SQL Server 2019](https://me.sap.com/notes/2779625)
+ * [SAP Note 2492596 - Release planning for Microsoft SQL Server 2017](https://me.sap.com/notes/2492596)
+ * [SAP Note 2484674 - Setting up Microsoft SQL Server 2017](https://me.sap.com/notes/2484674)
+ * [SAP Note 2201059 - Release planning for Microsoft SQL Server 2016](https://me.sap.com/notes/2201059)
+ * [SAP Note 1177356 - MS SQL Server: End of Support for SAP Releases](https://me.sap.com/notes/1177356)
+ * [SAP Note 62988 - Service packs for MS SQL Server](https://me.sap.com/notes/62988)
 
 ## SAP on MS SQL Server using Intel Bare Metal
 {: #anydb-ms-sql-server-bm}
 
-See [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://launchpad.support.sap.com/#/notes/2414097) for supported MSSQL database versions.
+See [SAP Note 2414097 - SAP Applications on IBM Cloud: Supported DB/OS and IBM Cloud Bare Metal Server Types](https://me.sap.com/notes/2414097) for supported MSSQL database versions.
 
 A sample configuration is shown in:
  * [Quick Study Tutorial - SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using Windows Server](https://cloud.ibm.com/docs/sap?topic=sap-quickstudy-bm-netweaver-wins)
@@ -71,7 +71,7 @@ A sample configuration is shown in:
 ##  SAP on MS SQL Server using Intel Virtual Servers (Gen2)
 {: #anydb-ms-sql-server-bm}
 
-See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances](https://launchpad.support.sap.com/#/notes/2927211) for supported MSSQL database versions.
+See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances](https://me.sap.com/notes/2927211) for supported MSSQL database versions.
 
 A sample configuration is shown in:
  * [SAP NetWeaver deployment to Intel Virtual Server (Gen2) on VPC Infrastructure that uses Windows Server](https://cloud.ibm.com/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-wins)
