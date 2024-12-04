@@ -241,6 +241,7 @@ toc:
             - sap-power-virtual-server-ha-rhel-hana-sr-multitier.md
             - sap-power-virtual-server-ha-rhel-hana-sr-multitarget.md
             - sap-power-virtual-server-ha-rhel-ensa.md
+            - sap-power-virtual-server-ha-rhel-ensa-mz.md
             - sap-power-virtual-server-ha-rhel-nfs.md
       - topicgroup:
           label: SAP Migration from on-premises to PowerVS
