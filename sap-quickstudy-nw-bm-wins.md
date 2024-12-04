@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -321,7 +321,7 @@ Another option is to download the [SAP Software Download Manager](https://suppor
 This example is for downloading the applicable SAP NetWeaver software. You may or might not be using SAP Netweaver 7.5.
 {: note}
 
-After you download the installation media, follow the standard SAP installation procedure that is documented in the SAP installation guide for your SAP version and components, and the corresponding SAP Notes. For more information, see [SAP Installation Guide](https://help.sap.com/viewer/nwguidefinder?gf-task=Install%20a%20new%20system&gf-nwrelease=SAP%20NetWeaver%207.5){: external} (search for the guides based on the Windows OS) and [SAP Notes](https://support.sap.com/en/index.html){: external}. SAP Notes requires an SAP S-user ID.
+After you download the installation media, follow the standard SAP installation procedure that is documented in the SAP installation guide for your SAP version and components, and the corresponding SAP Notes. For more information, see [SAP Installation Guide](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US){: external} (search for the guides based on the Windows OS) and [SAP Notes](https://support.sap.com/en/index.html){: external}. SAP Notes requires an SAP S-user ID.
 
 1. Open the root folder of your SWPM-DVD or of your installation DVD as Administrator, and run `sapinst`. The Welcome to SAP Installation page is displayed.
 2. Select **SAP NetWeaver 7.5** > **IBM DB2 for Linux, Unix, and Windows** > **SAP Systems** > **Application Server ABAP**.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-09"
+  years: 2022, 2024 
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -46,7 +46,7 @@ Therefore, your business and functional requirements determine the SAP solutions
 
 
 Your enterprise IT organization can select from various operating systems from the IBM Cloud for SAP portfolio. For more information:
-- [OS Bring your Own Image/License for VPC Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#os-byol)
+- [OS Bring your Own Image/License for VPC Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
 
 
 Depending on your scenarios, the following information might be also relevant:
@@ -68,4 +68,3 @@ Provisioning IBM Cloud Virtual Servers for SAP HANA and SAP NetWeaver:
 - [SAP ONE Support process](/docs/sap?topic=sap-help-support#sap-one-support)
 - [FAQ - IBM Cloud for SAP](/docs/sap?topic=sap-faq-ibm-cloud-for-sap)
 - [FAQ - Profile List with Benchmarks and Specifications](/docs/sap?topic=sap-faq-profile-specs)
-

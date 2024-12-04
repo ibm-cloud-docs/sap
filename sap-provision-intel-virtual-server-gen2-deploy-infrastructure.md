@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-27"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -97,7 +97,7 @@ Use the following steps to order your virtual server and necessary components. F
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
 1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Virtual server instances**.
 1. Click **Create**.
-1. Enter a unique **Name** for the virtual server, which becomes the **hostname**. SAP hostnames must consist of a maximum of 13 alpha-numeric characters. For more information about SAP hostnames, see [SAP Notes 611361](https://launchpad.support.sap.com/#/notes/611361){: external} and [129997](https://launchpad.support.sap.com/#/notes/129997){: external}.
+1. Enter a unique **Name** for the virtual server, which becomes the **hostname**. SAP hostnames must consist of a maximum of 13 alpha-numeric characters. For more information about SAP hostnames, see [SAP Notes 611361](https://me.sap.com/notes/611361){: external} and [129997](https://launchpad.support.sap.com/#/notes/129997){: external}.
 1. Choose a **Resource group**.
 
    The resource group can't be changed after the virtual server is created.
@@ -126,7 +126,7 @@ Table 1 is a summary of the fields and values that are used to provision {{site.
 | Virtual private cloud | Specify the VPC where you want to create your virtual server. |
 | Resource group | Use resource groups to organize your account resources for access control and billing purposes. |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want to create your virtual server. |
-| Operating System | <ul><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-hana-...`**</li><li>Linux distribution for SAP NetWeaver workloads, select **Catalog image** > **`...-sap-applications...`**</li><li>Windows Server for SAP NetWeaver workloads, select Windows Server</li></ul>. Choose an operating system version that is supported by SAP as documented in [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external} |
+| Operating System | <ul><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-hana-...`**</li><li>Linux distribution for SAP NetWeaver workloads, select **Catalog image** > **`...-sap-applications...`**</li><li>Windows Server for SAP NetWeaver workloads, select Windows Server</li></ul>. Choose an operating system version that is supported by SAP as documented in [SAP Note 2927211](https://me.sap.com/notes/2927211){: external} |
 | Profile |  Select one of the profiles outlined in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key before you can create the instance. SSH keys are used to securely connect to a running instance. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |

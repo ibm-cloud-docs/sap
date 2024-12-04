@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -69,9 +69,9 @@ Currently, Power System E980 is supported for SAP HANA.
 
 Currently, SAP Workloads on {{site.data.keyword.IBM_notm}} Power Virtual Servers are available in Washington, D.C., Dallas, London, and Frankfurt. The number of supported locations is planned to be extended.
 
-All SAP NetWeaver Application Server ABAP-based products and SAP NetWeaver Application Server Java-based products are supported on {{site.data.keyword.IBM_notm}} Power Virtual Servers. For SAP NetWeaver-based SAP products, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}.
+All SAP NetWeaver Application Server ABAP-based products and SAP NetWeaver Application Server Java-based products are supported on {{site.data.keyword.IBM_notm}} Power Virtual Servers. For SAP NetWeaver-based SAP products, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external}.
 
-All SAP HANA-based products are supported on {{site.data.keyword.IBM_notm}} Power Virtual Servers. For support requirements, see [SAP Note 2923984 - SAP on IBM Power Virtual Servers: Support prerequisites](https://launchpad.support.sap.com/#/notes/2923984){: external}.
+All SAP HANA-based products are supported on {{site.data.keyword.IBM_notm}} Power Virtual Servers. For support requirements, see [SAP Note 2923984 - SAP on IBM Power Virtual Servers: Support prerequisites](https://me.sap.com/notes/2923984){: external}.
 
 For all other software components or third-party products, contact [SAP Support](https://support.sap.com/en/index.html){: external}.
 
@@ -87,7 +87,7 @@ When you run SAP workloads on VMware, you have significant flexibility and the f
 
 Using VMware for SAP workloads on {{site.data.keyword.cloud_notm}} is certified, by using the "TDI" delivery model for which you would need to run validation checks to gain SAP Support.
 
-However, VMware SDDC is a Type 2 hypervisor and therefore does have a small overhead of CPU/RAM that is used for running ESXi on the Bare Metal server. This CPU/RAM overhead is then available for virtual machines to use. On average this overhead is 10%, and is expected by VMware-SAP in virtualized environments. Therefore, customers are encouraged to size correctly and test performance before you go live [SAP Note 2393917 - SAP HANA on VMware vSphere 6.5 and 6.7 in production](https://launchpad.support.sap.com/#/notes/0002393917).
+However, VMware SDDC is a Type 2 hypervisor and therefore does have a small overhead of CPU/RAM that is used for running ESXi on the Bare Metal server. This CPU/RAM overhead is then available for virtual machines to use. On average this overhead is 10%, and is expected by VMware-SAP in virtualized environments. Therefore, customers are encouraged to size correctly and test performance before you go live [SAP Note 2393917 - SAP HANA on VMware vSphere 6.5 and 6.7 in production](https://me.sap.com/notes/0002393917).
 
 Also, both VMware and SAP agree to the physical to virtual overhead of <10% on average, and provide:
 - The estimation of <10% average overhead with equation `"physical SAPS - 10%"` for virtualized SAPS to use when you size virtual machines
@@ -101,9 +101,9 @@ Sources:
 
 
 Several other SAP-defined rules must be followed to deploy SAP HANA in a VMware SDDC environment. For more information, see the following documentation:
-* [SAP Note 2161991 - VMware vSphere configuration guidelines](https://launchpad.support.sap.com/#/notes/2161991){: external}
-* [SAP Note 2393917 - SAP HANA on VMware vSphere 6.5 and 6.7 in production](https://launchpad.support.sap.com/#/notes/2393917){: external}
-* [SAP Note 2779240 - Workload-based sizing for virtualized environments](https://launchpad.support.sap.com/#/notes/2779240){: external}
+* [SAP Note 2161991 - VMware vSphere configuration guidelines](https://me.sap.com/notes/2161991){: external}
+* [SAP Note 2393917 - SAP HANA on VMware vSphere 6.5 and 6.7 in production](https://me.sap.com/notes/2393917){: external}
+* [SAP Note 2779240 - Workload-based sizing for virtualized environments](https://me.sap.com/notes/2779240){: external}
 * [SAP HANA Tailored Data Center Integration Frequently Asked Questions)](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external}
 
 
@@ -116,7 +116,7 @@ The {{site.data.keyword.ibm_cloud_sap}} portfolio provides various Operating Sys
 ### Operating Systems supported
 {: #os-supported}
 
-You need to consult [SAP Note 2414097](https://launchpad.support.sap.com/#/notes/2414097){: external} for a list of guest operating systems (OS) to deploy SAP HANA and SAP NetWeaver-based systems. An SAP S-user ID is required to access the SAP Note.
+You need to consult [SAP Note 2414097](https://me.sap.com/notes/2414097){: external} for a list of guest operating systems (OS) to deploy SAP HANA and SAP NetWeaver-based systems. An SAP S-user ID is required to access the SAP Note.
 
 For the Operating System, the SAP HANA certified servers are available with the following operating systems:
 * Red Hat Enterprise Linux for SAP HANA
@@ -130,7 +130,7 @@ For the Operating System, the SAP NetWeaver certified servers are available with
 * VMware vSphere hypervisor (ESXi) + created Guest OS with RHEL/SLES/WinS
 * Windows Server
 
-For SAP HANA release versions (including SPS and Revision and Patch numbers), support is only available for pre-defined and specific major.minor releases of an Operating System (for example, RHEL 7.6). This information is shown in [SAP 2235581 - SAP HANA: Supported Operating Systems](https://launchpad.support.sap.com/#/notes/2235581){: external}. An example is available in the SAP Note attachment `SAP_HANA_OS_Release_Support_Matrix.pdf`.
+For SAP HANA release versions (including SPS and Revision and Patch numbers), support is only available for pre-defined and specific major.minor releases of an Operating System (for example, RHEL 7.6). This information is shown in [SAP 2235581 - SAP HANA: Supported Operating Systems](https://me.sap.com/notes/2235581){: external}. An example is available in the SAP Note attachment `SAP_HANA_OS_Release_Support_Matrix.pdf`.
 
 For SAP NetWeaver release versions, support is available for each major release of an Operating System (for example, SLES 12) meaning each subsequent release is available for use (example: SLES 12 SPS4, SLES 12 SP5, and so on). This information is shown in the [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}.
 
@@ -149,7 +149,7 @@ Therefore, for OS images, you need to perform the following actions.
 ### OS for Virtual Servers on VPC Infrastructure
 {: #os-vs-vpc}
 
-For a list of operating systems and databases available for SAP NetWeaver-based system deployments, see [SAP Note 2927211](https://launchpad.support.sap.com/#/notes/2927211){: external}.
+For a list of operating systems and databases available for SAP NetWeaver-based system deployments, see [SAP Note 2927211](https://me.sap.com/notes/2927211){: external}.
 
 An SAP S-user ID is required to access the SAP Note.
 {: note}
@@ -157,9 +157,9 @@ An SAP S-user ID is required to access the SAP Note.
 ### OS for IBM Power Virtual Servers
 {: #os-power}
 
-For the Linux&reg; versions to deploy for SAP HANA, see [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}. An SAP S-user ID is required to access the SAP Note. The OS image is provided by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, and the licensing for Linux is covered through a "bring your own license" (BYOL) model.
+For the Linux&reg; versions to deploy for SAP HANA, see [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579){: external}. An SAP S-user ID is required to access the SAP Note. The OS image is provided by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, and the licensing for Linux is covered through a "bring your own license" (BYOL) model.
 
-For the version of IBM AIX or Linux on Power to deploy for SAP NetWeaver-based systems, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2855850){: external}. An SAP S-user ID is required to access the SAP Note. License fees for AIX are covered by your monthly billing rate.
+For the version of IBM AIX or Linux on Power to deploy for SAP NetWeaver-based systems, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external}. An SAP S-user ID is required to access the SAP Note. License fees for AIX are covered by your monthly billing rate.
 
 OS Packages update server with IBM Power Power Virtual Servers:
 * For SAP NetWeaver you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers.
@@ -212,7 +212,7 @@ Only the following operating systems are supported as guest Operating Systems fo
 You need to make sure that the SAP HANA Tailored Data Center Integration (TDI) Key Performance Indicators (KPIs) are met for every virtual machine on which SAP HANA is deployed.
 {: note}
 
-See [SAP Note 2414097)](https://launchpad.support.sap.com/#/notes/2414097){: external} for version details.
+See [SAP Note 2414097)](https://me.sap.com/notes/2414097){: external} for version details.
 
 Refer to [Installing VMware vSphere ESXi by using Remote Console and Virtual Media](/docs/vmware?topic=vmware-installing-vsphere-esxi#installing-vsphere-esxi) and other VMware.com documentation to install a Guest OS.
 

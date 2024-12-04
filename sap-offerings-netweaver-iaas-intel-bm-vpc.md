@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-12-09"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -69,7 +69,7 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 | ux3d-metal-16x512 | 16 | 512 | 34,320 |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-    side="bottom"}
 
-For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment]    (https://launchpad.support.sap.com/#/notes/2927211){: external}. 
+For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment]    (https://me.sap.com/notes/2927211){: external}. 
 
 ## Understanding Bare Metal Server profile names
 {: #nw-iaas-intel-bm-vpc-names}

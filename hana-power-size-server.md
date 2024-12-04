@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-07-26"
+  years: 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP HANA, SAP Application Performance Standard, SAPS, SAP Quick Sizer
 
@@ -42,7 +42,7 @@ While the sizing method might be considered conservative, consider the fact that
 ## Choosing a Power Systems Virtual Server
 {: #choose_server}
 
-After you determine your SAP applications and the SAPS numbers are calculated through the SAP Quick Sizer, or based on your current landscape, you are ready to choose a server. Currently, e980 is the only supported server type. The list of supported server types will be extended in [SAP Note 2855850](https://launchpad.support.sap.com/#/notes/2855850).
+After you determine your SAP applications and the SAPS numbers are calculated through the SAP Quick Sizer, or based on your current landscape, you are ready to choose a server. Currently, e980 is the only supported server type. The list of supported server types will be extended in [SAP Note 2855850](https://me.sap.com/notes/2855850).
 
 ## Mapping CPUs derived from SAPS to instance profiles in a Power Systems Virtual Servers environment
 {: #mapping-cpus}

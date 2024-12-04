@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-28"
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -63,7 +63,7 @@ Please, regard the supported operated systems that are mentioned in the footnote
 {: note}
 
 
-For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211){: external}.
+For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}.
 
 
 ## Understanding Virtual Server profile names
@@ -133,13 +133,13 @@ For an overview of all available storage profiles, see [VPC Block Storage Profil
 
 To fulfill the KPIs defined by SAP HANA, each profile needs different storage volumes that are listed in details in the following sections. **These configurations are mandatory storage configurations, not sample storage configurations**, because they are the tested and certified storage layouts that comply with **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. It is highly recommended to stick to these specific specifications.
 
-Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when they order different storage sizes and types. Then, they must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://launchpad.support.sap.com/#/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/viewer/product/HANA_HW_CLOUD_TOOLS/latest/en-US){: external}. 
+Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when they order different storage sizes and types. Then, they must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}. 
 {: important}
 
 For all of the following layouts consider that the volume names might differ - we assume that the naming follows the sequence of ordering the storage, that is, 1st order -> `vdd`, 2nd order -> `vde`, and so on. **All block storage volumes** must be ordered with the predefined profile of **10 IOPS/GB** (high performance). One exception might be /hana/shared partition where 5 IOPS/GB (medium performance) are sufficient - but ONLY IF you assigned a dedicated volume for this partition. For all profiles optional: one appropriately sized block storage volume or several equally sized volumes that are gathered to a volume group, with the predefined profile of 5 IOPS/GB (medium performance) attached to the Virtual Server for backups.
 {: note}
 
-[SAP's recommended file system layout](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.latest/en-US/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. 
+[SAP's recommended file system layout](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. 
 
 ### mx2-* profiles - Storage Layouts
 {: #hana-iaas-intel-vs-vpc-mx2-profiles}
@@ -469,4 +469,4 @@ SAP HANA in scale-out configuration requires a shared volume for its `/hana/shar
 
 You cannot follow NetApp's recommendation regarding `rsize` and `wsize` option, these parameters are limited to 65536 by the file share implementation.
 
-To fulfill SAP's requirements about storage layout and through-put and latency KPIs, see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they must comply with the TDI performance KPIs (see [SAP Note 2613646](https://launchpad.support.sap.com/#/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external} and also ensure SAP's support for it. {{site.data.keyword.cloud_notm}} recommends 10 IOPS per GB or Custom profile file shares for meeting SAP's KPIs. 
+To fulfill SAP's requirements about storage layout and through-put and latency KPIs, see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they must comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external} and also ensure SAP's support for it. {{site.data.keyword.cloud_notm}} recommends 10 IOPS per GB or Custom profile file shares for meeting SAP's KPIs. 

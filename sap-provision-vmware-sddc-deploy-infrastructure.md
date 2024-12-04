@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -127,9 +127,9 @@ Selecting VMware-NSX during provisioning can change the ordering process.
 ### Provisioning with VMware vSAN
 {: #vmware-sddc-provision-vsan}
 
-VMware vSAN for SAP NetWeaver and SAP AnyDB is not permitted. The description in [SAP Note 2161991 - VMware vSphere configuration guidelines](https://launchpad.support.sap.com/#/notes/2161991){: external} is for SAP-certified Infrastructure in traditional on-premises data centers.
+VMware vSAN for SAP NetWeaver and SAP AnyDB is not permitted. The description in [SAP Note 2161991 - VMware vSphere configuration guidelines](https://me.sap.com/notes/2161991){: external} is for SAP-certified Infrastructure in traditional on-premises data centers.
 
-VMware vSAN for SAP HANA is not permitted. The description in [SAP Note 2718982 - SAP HANA on VMware vSphere and vSAN](https://launchpad.support.sap.com/#/notes/2718982){: external} is for SAP-certified Infrastructure that uses SAP HANA hyper-converged infrastructure (HCI) certified hardware configurations in traditional on-premises data centers.
+VMware vSAN for SAP HANA is not permitted. The description in [SAP Note 2718982 - SAP HANA on VMware vSphere and vSAN](https://me.sap.com/notes/2718982){: external} is for SAP-certified Infrastructure that uses SAP HANA hyper-converged infrastructure (HCI) certified hardware configurations in traditional on-premises data centers.
 
 
 ## Adding Network Storage

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -133,13 +133,13 @@ During SAP Sizing, decision making, and Infrastructure selection, SAP S/4HANA is
 
 It is important to note that if you are using SAP HANA in scale-out deployment the transaction throughput of the system might be affected.
 
-[SAP Note 2428711 - S/4HANA Scale-Out Sizing](https://launchpad.support.sap.com/#/notes/2428711){: external} limits an SAP HANA scale-out to up to four nodes in total. This limit applies to S/4HANA deployments on {{site.data.keyword.cloud_notm}} to prevent our customers from experiencing transactional throughput issues. {{site.data.keyword.ibm_cloud_sap}} does not actively publish those specifications.
+[SAP Note 2428711 - S/4HANA Scale-Out Sizing](https://me.sap.com/notes/2428711){: external} limits an SAP HANA scale-out to up to four nodes in total. This limit applies to S/4HANA deployments on {{site.data.keyword.cloud_notm}} to prevent our customers from experiencing transactional throughput issues. {{site.data.keyword.ibm_cloud_sap}} does not actively publish those specifications.
 
 Instead, we advise customers who have exceptionally large SAP HANA requirements for running an SAP S/4HANA production instance (particularly those requirements over 14-18TB of DRAM) to discuss their requirements with IBM-SAP. Discussions with {{site.data.keyword.IBM_notm}} and SAP worldwide technical experts can provide more accurate advice on the business problem and identify alternative paths forward.
 
 Alternates can include, the creation of a Hybrid Cloud model with the use of the available high-performance scale-up options in traditional datacenter deployments.
 
-An example of Hybrid Cloud used with SAP S/4HANA when exceeding 14-18TB of DRAM, would be the use of {{site.data.keyword.IBM_notm}} Power9 hardware provided by {{site.data.keyword.IBM_notm}} Power Systems, deployed into Traditional On-Premises datacenters. The maximum **IBM Power9 hardware can support 28TB of DRAM for SAP HANA 2.0 scale-up**. These complementary offerings are already succesfully running many customers SAP workloads at these largest memory footprints, through a close partnership and engineering discussions with SAP, therefore may suit the business needs for such exceptional scale-up requirements. For more information regarding SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems, see [SAP Note 2188482 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems: Allowed Hardware](https://launchpad.support.sap.com/#/notes/2188482){: external}.
+An example of Hybrid Cloud used with SAP S/4HANA when exceeding 14-18TB of DRAM, would be the use of {{site.data.keyword.IBM_notm}} Power9 hardware provided by {{site.data.keyword.IBM_notm}} Power Systems, deployed into Traditional On-Premises datacenters. The maximum **IBM Power9 hardware can support 28TB of DRAM for SAP HANA 2.0 scale-up**. These complementary offerings are already succesfully running many customers SAP workloads at these largest memory footprints, through a close partnership and engineering discussions with SAP, therefore may suit the business needs for such exceptional scale-up requirements. For more information regarding SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems, see [SAP Note 2188482 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems: Allowed Hardware](https://me.sap.com/notes/2188482){: external}.
 
 ## SAP NetWeaver considerations
 {: #s4hana-netweaver}

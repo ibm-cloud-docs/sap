@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020-2024
-lastupdated: "2024-11-28"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -50,7 +50,7 @@ The following is an overview of the SAP-certified profiles with Bare Metal Intel
 {: caption="SAP NetWeaver Intel servers" caption-side="top"}
 
 
-See also [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097){: external}.
+See also [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}.
 
 
 ## Understanding Bare Metal profile names

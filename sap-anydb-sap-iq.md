@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -42,6 +42,6 @@ Before you start deploying the SAP IQ software:
 A good entry point into the documentation is the [SAP Community Wiki for SAP IQ](https://wiki.scn.sap.com/wiki/display/SYBIQ/IQ){: external}.
 
 SAP IQ documentation:
-- [SAP Help Portal - SAP IQ](https://help.sap.com/viewer/product/SAP_IQ){: external}
+- [SAP Help Portal - SAP IQ](https://help.sap.com/docs/SAP_IQ){: external}
 
-For a current overview of the combinations of SAP IQ, SAP NetWeaver (or other SAP components), and operating systems, see the [Product Availability Matrix (PAM)](http://support.sap.com/pam){: external}.
+For a current overview of the combinations of SAP IQ, SAP NetWeaver (or other SAP components), and operating systems, see the [Product Availability Matrix (PAM)](https://userapps.support.sap.com/sap/support/pam){: external}.

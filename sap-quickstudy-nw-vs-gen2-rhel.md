@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-27"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -113,7 +113,7 @@ Use the following steps to create a virtual server instance.
 1. Click **Virtual server instances** > **New instance**.
 1. Enter a unique **Name** for the virtual server, for example, `sap-app-vsi`. The name that you enter becomes the hostname.
 
-    SAP hostnames must consist of a maximum of 13 alpha-numeric characters. See [SAP Note 611361](https://launchpad.support.sap.com/#/notes/611361){: external} for further details.
+    SAP hostnames must consist of a maximum of 13 alpha-numeric characters. See [SAP Note 611361](https://me.sap.com/notes/611361){: external} for further details.
     {: important}
 
 1. Select the **Virtual private cloud** in which to attach the virtual server instance, for example, `sap-test-inst`.
@@ -458,7 +458,7 @@ An SAP installation requires that certain prerequisites are met regarding the pa
     - `uuidd`: Maintains OS support for the creation of UUIDs
     - `csh`: C shell support for the OS
 
-1. Follow [SAP note 2195019](https://launchpad.support.sap.com/#/notes/2195019){: external} and install package `compat-sap-c++-7`. Create a specific soft-link, which is required by the SAP binary files.
+1. Follow [SAP note 2195019](https://me.sap.com/notes/2195019){: external} and install package `compat-sap-c++-7`. Create a specific soft-link, which is required by the SAP binary files.
    ```
    [root@sap-app-vsi ~]# yum install compat-sap-c++-7
    ...
@@ -505,7 +505,7 @@ Depending on your network bandwidth and latency, you might need to run the SAP S
 [root@sap-app-vsi ~]# ssh -L 4237:localhost:4237 <your virtual server IP>
 ```
 
--L option for local tunnels and connecting your browser to that localhost port, instead of the remote IP. Remember to add the ports that are required by your SAP application (example: ports 3200-3299, depending on your SAP NetWeaver instance number) to the security group. For more information about ports, see [SAP ports](https://help.sap.com/viewer/ports){: external} for details.
+-L option for local tunnels and connecting your browser to that localhost port, instead of the remote IP. Remember to add the ports that are required by your SAP application (example: ports 3200-3299, depending on your SAP NetWeaver instance number) to the security group. For more information about ports, see [SAP ports](https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16/616a3c0b1cc748238de9c0341b15c63c.html){: external} for details.
 
 ![Figure 14. All security groups for VPC](/images/quickstudy-intel-vs-gen2-image5.png "All security groups for VPC"){: caption="All security groups for VPC" caption-side="bottom"}
 
@@ -513,10 +513,10 @@ Depending on your network bandwidth and latency, you might need to run the SAP S
 {: #install-sap-software}
 {: step}
 
-After you download the installation media, follow the standard SAP installation procedure that is documented in the [SAP installation guides](https://help.sap.com/viewer/index){: external} for your SAP version and components. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2).
+After you download the installation media, follow the standard SAP installation procedure that is documented in the [SAP installation guides](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US){: external} for your SAP version and components. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2).
 
 
 ### Relevant SAP Notes
 
-* [SAP Note 2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167){: external}.
-* [SAP Note 2923773 - Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773){: external}.
+* [SAP Note 2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://me.sap.com/notes/2002167){: external}.
+* [SAP Note 2923773 - Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773){: external}.

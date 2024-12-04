@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2023-06-27"
+  years: 2022, 2024
+lastupdated: "2024-12-03"
 
 subcollection: sap
 
@@ -15,7 +15,7 @@ subcollection: sap
 {:note: .note}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{:tip: .tip} 
+{:tip: .tip}
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
@@ -24,7 +24,7 @@ subcollection: sap
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
 
-You can use Terraform scripts to create either: 
+You can use Terraform scripts to create either:
 *   A single-tier VPC and create the SAP and ASE SYB infrastructure on the VPC within the same host (VSI).
 *   A 3-tier (distributed) system and create the SAP and ASE SYB infrastructure on the separate hosts (VSIs).
 
@@ -84,7 +84,7 @@ Before you use the scripts in the Bastion cli or {{site.data.keyword.bpshort}}:
 
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 * Create a Bastion server to store the SAP kits (if not created already). For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the readme file. 
+* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the readme file.
 * [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 * [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 * Terraform should already be installed on the bastion server that you deployed. For more information, see Bastion server for SAP deployment. {: terraform}
@@ -157,11 +157,11 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
     ```
 
-4.	Specify your VPC variables, for standard or distributed deployment. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [standard readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-ase-syb-standard/blob/main/README.md) or [distributed readme](https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed/blob/main/README.md) file. 
+4.	Specify your VPC variables, for standard or distributed deployment. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [standard readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-ase-syb-standard/blob/main/README.md) or [distributed readme](https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed/blob/main/README.md) file.
 
     For standard deployment:
     ```terraform
-    #Infra VPC variables for standard deployment 
+    #Infra VPC variables for standard deployment
 	ZONE			= "eu-de-2"
 	VPC			= "sap"
 	SECURITYGROUP		= "sap-securitygroup"
@@ -174,7 +174,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
     For distributed deployment:
     ```terraform
-    #Infra VPC variables for distributed deployment 
+    #Infra VPC variables for distributed deployment
 	ZONE			= "eu-de-2"
 	VPC			= "sap"
 	SECURITYGROUP		= "sap-securitygroup"
@@ -189,11 +189,11 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 	SSH_KEYS		= [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a" , "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]
     ```
 
-5.	Customize your SAP system configuration, standard or distributed. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the readme file. 
+5.	Customize your SAP system configuration, standard or distributed. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the readme file.
 
     For standard deployment:
     ```terraform
-    #SAP system configuration for standard deployment 
+    #SAP system configuration for standard deployment
     sap_sid	= "NWD"
     sap_ci_instance_number = "00"
     sap_ascs_instance_number = "01"
@@ -212,7 +212,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
     For distributed deployment
     ```terraform
-    #SAP system configuration for distributed deployment 
+    #SAP system configuration for distributed deployment
     sap_sid  = "NWD"
     sap_ci_instance_number = "00"
     sap_ascs_instance_number = "01"
@@ -229,7 +229,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
     kit_export_dir = "/storage/NW75SYB/EXP"
     ```
 
-6.	Remember, you must manually decompress the `kit_export_dir` file. Ansible decompresses the rest of the SAP kit files. For more information, see the readme file. 
+6.	Remember, you must manually decompress the `kit_export_dir` file. Ansible decompresses the rest of the SAP kit files. For more information, see the readme file.
 
 7.	Initialize the Terraform CLI.
     `terraform init`
@@ -249,7 +249,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 	```teraform
 	terraform apply "plan1"
 	```
-	
+
 	The virtual private cloud and components are created and you see output similar to the `terraform plan` output.
 
 11.	Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
@@ -266,9 +266,9 @@ Use these steps to configure the SAP NetWeaver 7.x with Db2 3-tier on your exist
 2. Click **Create workspace**.
 3. On the Specify template page:
     * Enter the GitHub URL for the code that you plan to deploy.
-    * Select the **Terraform version** that is listed in the readme file. 
+    * Select the **Terraform version** that is listed in the readme file.
     * Click **Next**.
-4. On the **Workspace details** page: 
+4. On the **Workspace details** page:
     * Enter a name for the workspace.
     * Select a Resource group.
     * Select a **Location** for your workspace. The workspace location does not have to match the resource location.
@@ -294,7 +294,7 @@ Use these steps to configure the SAP NetWeaver 7.x with Db2 3-tier on your exist
     * Minimal recommended disk sizes
     * SAP main password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point.
     * Click **Save changes**.
-    
+
     For a more detailed description of each of the parameters, check the GitHub repo Readme file, chapter “Input parameter file”. Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API, and SSH private keys (they are marked as “sensitive” in the Readme file in the “Input parameter file”).
 7. On the workspace **Settings** page, click **Generate plan**. Wait for the plan to complete.
 8. Click **View log** to review the log files of your Terraform execution plan.
@@ -318,17 +318,17 @@ For more information about using Terraform for creating only a VPC for SAP, with
 
 SAP One Support Notes that apply to this document:
 
-*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://launchpad.support.sap.com/#/notes/84855)
-*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2923773 - Linux&reg; on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP License](https://launchpad.support.sap.com/#/notes/2923773)
-*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
-*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://launchpad.support.sap.com/#/notes/2369910)
-*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://launchpad.support.sap.com/#/notes/171380)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855)
+*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
+*	[SAP Note 2923773 - Linux&reg; on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773)
+*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097)
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910)
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
 
 This document is referenced by:
 
-*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://launchpad.support.sap.com/#/notes/2927211)
-*	[SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://launchpad.support.sap.com/#/notes/2588225)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://launchpad.support.sap.com/#/notes/1380654)
-*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://launchpad.support.sap.com/#/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
+*	[SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
+*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097)

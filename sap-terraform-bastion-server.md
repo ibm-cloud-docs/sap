@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-04"
+lastupdated: "2024-12-03"
 
 subcollection: sap
 
@@ -98,8 +98,8 @@ The automation script will generate on the bastion server an ovpn profile file f
 |SUBNET	|The name of the Subnet. View the list of available Subnets on the {{site.data.keyword.cloud_notm}} Console [Subnets] (https://cloud.ibm.com/infrastructure/network/subnets) page.|
 |SECURITYGROUP	| The name of the Security Group. View the list of available Security Groups on the {{site.data.keyword.cloud_notm}} Console [Security groups for VPC page](https://cloud.ibm.com/infrastructure/network/securityGroups).|
 |HOSTNAME	|The hostname for the VSI. The hostname must have up to 13 characters.|
-|PROFILE	|The profile used for the VSI. For more information about profiles, see [Instance profiles](docs/vpc?topic=vpc-profiles&interface=ui). Default value: "bx2-2x8".|
-|IMAGE	|The OS image used for the VSI. For more information about available images, see [Virtual server images](docs/vpc?topic=vpc-about-images). Default value: ibm-redhat-8-4-minimal-amd64-1.|
+|PROFILE	|The profile used for the VSI. For more information about profiles, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui). Default value: "bx2-2x8".|
+|IMAGE	|The OS image used for the VSI. For more information about available images, see [Virtual server images](/docs/vpc?topic=vpc-about-images). Default value: ibm-redhat-8-4-minimal-amd64-1.|
 |SSH_KEYS	|List of SSH Key IDs that are allowed to SSH as `root` to the VSI. This can contain one or more IDs. View the list of available SSH Keys on the {{site.data.keyword.cloud_notm}} Console [SSH keys for VPC](https://cloud.ibm.com/infrastructure/compute/sshKeys) page. Sample input (use your own SSH IDs from {{site.data.keyword.cloud_notm}}): [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]|
 |VOL1 [ number ]	|The size for the disk in GB to be attached to the BASTION VSI as storage for the SAP deployment kits. The mount point for the new volume is: "/storage". Default value: 100 GB.|
 |VPN_CREATE	 | Specifies if you want a VPN solution to be added to your bastion setup. If 'yes' a VPN solution will be automatically deployed for you, allowing you access to the private ip addressing space of your VPC.|

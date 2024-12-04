@@ -26,19 +26,19 @@ subcollection: sap
 ## Before you begin
 {: #bm-optane-before-you-set-up-infrastructure}
 
-Determine the amount of memory that you need for your application. 
+Determine the amount of memory that you need for your application.
 
 ## Step 1: Provision your server
 {: #bm-optane-order-server}
 
-Order your Bare Metal SAP HANA server using the steps in [Deploying your infrastructure](/docs/sap?topic=sap-bm-set-up-infrastructure). Select the profile for the amount of PMem that you need for your application. 
+Order your Bare Metal SAP HANA server using the steps in [Deploying your infrastructure](/docs/sap?topic=sap-bm-set-up-infrastructure). Select the profile for the amount of PMem that you need for your application.
 
 ## Step 2: Post-Provisioning Intel Optane PMem
 {: #bm-optane-post-provisioning}
 
 After you order your Bare Metal server and the server is provisioned, you complete the provisioning by creating namespaces for your system.
 
-PMem on Bare Metal supports the App Dir mode. In App Dir mode, PMem and DRAM DIMMs act as independent memory resources that are directly accessed by the applications. 
+PMem on Bare Metal supports the App Dir mode. In App Dir mode, PMem and DRAM DIMMs act as independent memory resources that are directly accessed by the applications.
 
 The App Dir mode uses regions, and namespaces to represent persistent memory devices in an interleaved set. A region represents the physical persistent memory devices. A region is made up of one or more namespaces. A namespace represents a unit of storage that can be used for input/output (I/O).
 
@@ -46,7 +46,7 @@ Regions are created as part of the provisioning process. You must create the nam
 
 For more information about regions and namespaces, see [Intel Optane Persistent Memory and SAP HANA Platform Configuration](https://www.sap.com/documents/2019/05/7a278c36-507d-0010-87a3-c30de2ffd8ff.html).
 
-1. Log in to the Bare Metal server as **root**. 
+1. Log in to the Bare Metal server as **root**.
 
 1. Download the current version of the zypper (for SLES) or yum (for RHEL).
 
@@ -55,7 +55,7 @@ For more information about regions and namespaces, see [Intel Optane Persistent 
 
         $ **zypper in ndctl**
 
-            Refreshing service 
+            Refreshing service
             'SMT-https_susesapsmtamr_service_networklayer_com'.
             Loading repository data...
             Reading installed packages...
@@ -67,16 +67,16 @@ For more information about regions and namespaces, see [Intel Optane Persistent 
 
         $ **yum install ndctl**
 
-            Refreshing service 
+            Refreshing service
             'SMT-https_susesapsmtamr_service_networklayer_com'.
             Loading repository data...
             Reading installed packages...
             Resolving package dependencies...
 
 1.  List the available regions for your system:
-    
+
       $ **ndctl list -R -v**
-      
+
           [
           {
               "dev":"region1",
@@ -100,10 +100,10 @@ For more information about regions and namespaces, see [Intel Optane Persistent 
               "iset_id":9195364489516887244,
               "persistence_domain":"memory_controller"
           }
-      
 
-1. Create a namespace for each of your regions.  
-    
+
+1. Create a namespace for each of your regions.
+
       $ **ndctl create-namespace -r region0**
 
           {
@@ -116,8 +116,8 @@ For more information about regions and namespaces, see [Intel Optane Persistent 
           "align":2097152,
           "blockdev":"pmem0"
           }
-    
-    Repeat this command for region1 
+
+    Repeat this command for region1
 
 1. Create an xfs on-top of the PMem devices:
 
@@ -139,9 +139,9 @@ For more information about regions and namespaces, see [Intel Optane Persistent 
 1. Mount the file system that you created by adding the following lines to ``/etc/fstab``:
 
    /dev/pmem0 /hana/pmem/nvmem0 xfs dax 0 0
-   
+
    /dev/pmem1 /hana/pmem/nvmem1 xfs dax 0 0
-  
+
 
 1. Create the path to the device.
 
@@ -150,7 +150,7 @@ For more information about regions and namespaces, see [Intel Optane Persistent 
     $ **mkdir -p /hana/pmem/nvmem1**
 
     $ **mount -a**
-  
+
 
 1. Verify the devices.
 
@@ -158,4 +158,3 @@ For more information about regions and namespaces, see [Intel Optane Persistent 
 
         /dev/pmem0      1.5T  1.6G  1.5T   1% /hana/pmem/nvmem0
         /dev/pmem1      1.5T  1.6G  1.5T   1% /hana/pmem/nvmem1
-  

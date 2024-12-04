@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -144,7 +144,7 @@ Fibre Channel is only required for {{site.data.keyword.IBM_notm}} {{site.data.ke
 
 The following are specific configuration items that you need consideration when planning your SAP landscape, by using your existing on-premises SAP support systems in combination with {{site.data.keyword.ibm_cloud_sap}} portfolio to create a Hybrid Cloud setup:
 
-*	[SAP Transport Management System (STMS also known as. TMS)](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/latest/en-US/44b4a0137acc11d1899e0000e829fbbd.html){: external}. Configure STMS based on Transport Groups to prevent file sharing across data centers.
+*	[SAP Transport Management System (STMS also known as. TMS)](https://help.sap.com/docs/r/4a368c163b08418890a406d413933ba7/latest/en-US/44b4a0137acc11d1899e0000e829fbbd.html){: external}. Configure STMS based on Transport Groups to prevent file sharing across data centers.
 *	[SAProuter](https://support.sap.com/en/tools/connectivity-tools/saprouter.html){: external}. Provides access to SAP Online Service System (OSS). Use your on-premises SAProuter to access the OSS. This SAProuter can be used through further SAProuter hops if IP-based routing is not allowed between your {{site.data.keyword.cloud_notm}}-based systems and your on-premises SAProuter. Alternatively, you might consider setting up another SAProuter that is based on one {{site.data.keyword.cloud_notm}}-based server with a public IP and connect it to the SAP OSS system through the internet.
 *	[SAP Solution Manager](https://support.sap.com/en/alm/solution-manager.html){: external}. Access to the SAP Solution Manager has different connectivity requirements between an SAP Solution Manager and its managed systems. The differences depend on your usage scenario. These scenarios require an understanding of the required network connectivity.
 * If you are deploying public gateways or floating IPs, you need to look into the details of Network Address Translation (NAT) and the behavior of SAP applications. Refer to the [SAP document on NAT](https://wiki.scn.sap.com/wiki/display/ABAPConn/NAT+and+RFC){: external} to consider potential issues on the application layer, especially in the SAP Remote Function Calls (RFCs).
@@ -196,7 +196,7 @@ In particular, for VPC Infrastructure the Availability Zones are geographically 
 ## Networking Ports security considerations
 {: #network-security-ports}
 
-The following information is a brief summary of [SAP Help Portal - TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports){: external}, which provides an example of the considerations that are required for the security of your SAP Systems and entire IT infrastructure landscape on {{site.data.keyword.cloud_notm}}.
+The following information is a brief summary of [SAP Help Portal - TCP/IP Ports of All SAP Products](https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16/616a3c0b1cc748238de9c0341b15c63c.html){: external}, which provides an example of the considerations that are required for the security of your SAP Systems and entire IT infrastructure landscape on {{site.data.keyword.cloud_notm}}.
 
 Depending on the SAP Technical Applications used and the business scenarios being addressed, different hosts will need ports to be opened. Typically, to meet this requirement, the Firewall Port Groups are combined with Firewall Rules. You can also use individual Firewall Rules per host, although is often becomes unmanageable.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP NetWeaver, BYOL, bring your own license, SAP certified, SAP License, SAP license key, saplikey, OEM, ASL, SAP OEM
 
@@ -35,7 +35,7 @@ It is recommended to check the license type of your Database Server for your SAP
 ## SAP AnyDB - Bring your own IBM Db2 license
 {: #byol-anydb-ibmdb2}
 
-If you purchased your SAP and {{site.data.keyword.IBM_notm}} Db2 (for Linux, UNIX, Windows also known as LUW) licenses as part of an original equipment manufacturer (OEM) application-specific licensing (ASL) agreement, you can download and apply license files from the [SAP Support Portal)](https://support.sap.com/en/index.html){: external}; click **Download Software**. For more information, see [SAP Note 816773 - DB6: Installing the Application-Specific Db2 License from SAP](https://launchpad.support.sap.com/#/notes/816773){: external}.
+If you purchased your SAP and {{site.data.keyword.IBM_notm}} Db2 (for Linux, UNIX, Windows also known as LUW) licenses as part of an original equipment manufacturer (OEM) application-specific licensing (ASL) agreement, you can download and apply license files from the [SAP Support Portal)](https://support.sap.com/en/index.html){: external}; click **Download Software**. For more information, see [SAP Note 816773 - DB6: Installing the Application-Specific Db2 License from SAP](https://me.sap.com/notes/816773){: external}.
 
 However, if you purchased {{site.data.keyword.IBM_notm}} Db2 from {{site.data.keyword.IBM_notm}} or an {{site.data.keyword.IBM_notm}} Business Partner, you must use the license files that are provided by your vendor instead.
 
@@ -72,4 +72,4 @@ SAP changed the mechanism for licensing when an {{site.data.keyword.IBM_notm}} {
 
 The hardware key is no longer based on the hardware ID, but on the partition UUID of the logical partition (LPAR). The partition UUID is persisted by the platform across restarts, reconfigurations, OS reinstalls, and partition migrations, making it independent of the hardware that is running the virtual servers.
 
-When you request an SAP software license, be sure to use the `HARDWARE KEY` that was generated with an SAP kernel that has the minimum level that is required for running on {{site.data.keyword.cloud_notm}}. The minimum SAP Kernel patch level of the kernel is found in [SAP Note 2879336](https://launchpad.support.sap.com/#/notes/2879336){: external}. Otherwise, your SAP software license becomes invalid as soon as your virtual server is moved to different hardware in the {{site.data.keyword.cloud}}.
+When you request an SAP software license, be sure to use the `HARDWARE KEY` that was generated with an SAP kernel that has the minimum level that is required for running on {{site.data.keyword.cloud_notm}}. The minimum SAP Kernel patch level of the kernel is found in [SAP Note 2879336](https://me.sap.com/notes/2879336){: external}. Otherwise, your SAP software license becomes invalid as soon as your virtual server is moved to different hardware in the {{site.data.keyword.cloud}}.
