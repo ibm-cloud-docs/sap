@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -329,7 +329,7 @@ You need an S-User ID and the Download Software authorization when you download 
 
 Depending on your target SAP application that you are going to install you need to gather information, which SAP images you will need to download. In this tutorial, we are choosing SAP NetWeaver ABAP on Windows using IBM Db2 for the SAP Database. Therefore we find in this guide  [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external} all the needed information. SAP recommends to always search for the most recent versions.
 
-Log in to the [SAP Service Marketplace](https://support.sap.com/swdc) and download the required DVD images to a local share drive and then transfer the images to your provisioned server. Alternative option, download the SAP Software Download Manager, install it on your target server and directly download the DVD images to the server. You might also consider an extra volume for keeping the SAP DVD images. For more information about the SAP Software Download Manager, see [SAP Software Download Center](https://support.sap.com/en/my-support/software-downloads.html){: external}.
+Log in to SAP for Me [Download Software](https://me.sap.com/softwarecenter) and download the required digital versatile discs (DVDs) to a local share drive and then transfer the DVDs to your provisioned server. Alternative option, download the SAP Software Download Manager, install it on your target server and directly download the DVD images to the server. For more information about the SAP Software Download Manager, see [SAP Download Manager](https://support.sap.com/en/my-support/software-downloads.html#section_995042677){: external}.
 
 ### Preparing for SAP’s Software Provisioning Manager (SWPM)
 {: #prepare-swpm-wins}

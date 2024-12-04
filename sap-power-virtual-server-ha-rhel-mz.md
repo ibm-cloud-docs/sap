@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-11-22"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -19,7 +19,7 @@ The virtual server instances run in different zones in a multizone region.
 The setup uses the *powervs-subnet* cluster resource agent to manage the service IP address of an application in a multizone region implementation.
 The resource agent supports only the use of different zones in the same multizone region.
 Deployment across multiple regions is not supported.
-See [Multizone regions (MZR)](https://cloud.ibm.com/docs/overview?topic=overview-locations#table-mzr){: external} and [IBM Cloud regions](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-ibm-cloud-reg){: external} for more information about multizone regions and available locations.
+See [Multizone regions (MZR)](/docs/overview?topic=overview-locations#table-mzr){: external} and [IBM Cloud regions](/docs/power-iaas?topic=power-iaas-ibm-cloud-reg){: external} for more information about multizone regions and available locations.
 
 The information describes how to transform the individual virtual server instances into a cluster.
 {: shortdesc}

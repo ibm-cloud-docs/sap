@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -88,7 +88,7 @@ Table 1 is a summary of the fields and values that are used to provision Bare Me
 | Field | Value |
 |-------|-------|
 | **Location** | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want to create your bare metal server. |
-| **Name** | Unique name for your bare metal server, which becomes the **hostname**. SAP hostnames must consist of a maximum of 13 alpha-numeric characters. For more information about SAP hostnames, see [SAP Notes 611361](https://me.sap.com/notes/611361){: external} and [129997](https://launchpad.support.sap.com/#/notes/129997){: external}. |
+| **Name** | Unique name for your bare metal server, which becomes the **hostname**. SAP hostnames must consist of a maximum of 13 alpha-numeric characters. For more information about SAP hostnames, see [SAP Notes 611361](https://me.sap.com/notes/611361){: external} and [129997](https://me.sap.com//#/notes/129997){: external}. |
 | **Resource group** | Use resource groups to organize your account resources for access control and billing purposes. |
 | | **Note:** The resource group can't be changed after the bare metal server is created. |
 | _Optional_: **Tags** | You can assign labels to your server so that you can easily filter resources in your resource list. |

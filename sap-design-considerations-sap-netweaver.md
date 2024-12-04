@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-28"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -50,7 +50,7 @@ When you create a high-availability environment for SAP Netweaver, spit each of 
 ## High-availability configuration for SAP NetWeaver
 {: #netweaver-ha}
 
-The {{site.data.keyword.cloud_notm}} environment does not support any preconfigured high-availability (HA) scenarios. However, you can configure HA scenarios based on the HA extension for the operating system you choose. You add the HA extension by adding the required hardware and the required software components to your landscapes. If you require additional software licenses, access to different software repositories, or both contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) to help you with setting up any additional requirements.
+The {{site.data.keyword.cloud_notm}} environment does not support any preconfigured high-availability (HA) scenarios. However, you can configure HA scenarios based on the HA extension for the operating system you choose. You add the HA extension by adding the required hardware and the required software components to your landscapes. If you require additional software licenses, access to different software repositories, or both contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) to help you with setting up any additional requirements.
 
 This configuration information applies to HA software for SAP NetWeaver and to the HA software for the relational database management system (RDBMS) you choose. For example, the replication portion of your high-availability and disaster-recovery mechanisms for your RDBMS. Setup procedures do not differ from any setup procedures in an on-premises environment and require the same hardware and software configuration steps.
 
@@ -136,4 +136,4 @@ This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Syste
 The {{site.data.keyword.cloud}} environment does not support any pre-configured high-availability (HA) scenarios for SAP. However, you can configure HA scenarios based on the HA extension for the operating system you choose.
 {: shortdesc}
 
-You add the HA extension by adding the required hardware and the required software components to your landscapes. If you require more software licenses, access to different software repositories, or both, contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) to help you with setting up any additional requirements. In general, setup procedures do not differ from any setup procedures in an on-premises environment and require the same hardware and software configuration steps. For specific instructions on how to set up HA for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, see [High Availability and Disaster Recover options in {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-ha-dr).
+You add the HA extension by adding the required hardware and the required software components to your landscapes. If you require more software licenses, access to different software repositories, or both, contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) to help you with setting up any additional requirements. In general, setup procedures do not differ from any setup procedures in an on-premises environment and require the same hardware and software configuration steps. For specific instructions on how to set up HA for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, see [High Availability and Disaster Recover options in {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-ha-dr).

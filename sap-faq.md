@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -86,9 +86,9 @@ This table shows a brief list of services and the Business Partner types who can
 {: caption="Services and Business Partner Types" caption-side="top"}
 
 For example, some of the services that are available in partnership between {{site.data.keyword.cloud_notm}} and IBM Services include:
-- [GSI and IBM Services: SAP Consulting & Implementation Services](https://www.ibm.com/services/sap){: external}
+- [GSI and IBM Services: SAP Consulting & Implementation Services](https://www.ibm.com/consulting/sap){: external}
 - [AMS and IBM Services: SAP Application Management and Development Solutions](https://www.ibm.com/blogs/services/2019/05/08/unlocking-the-value-of-sap-applications-in-the-digital-cloud/){: external}
-- [MSP and IBM Services: Managed Applications for SAP](https://www.ibm.com/cloud/sap/managed){: external}
+- [MSP and IBM Services: Managed Applications for SAP](https://www.ibm.com/cloud/sap){: external}
 
 
 ### Do I need IBM Db2 to run SAP NetWeaver on {{site.data.keyword.cloud_notm}}?
@@ -98,7 +98,7 @@ Multiple SAP AnyDB options and SAP HANA are available for use with SAP NetWeaver
 
 Check [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external} regularly and also reference the [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external} for details.
 
-For more information about IBM Db2, see [SAP Note 2927211](https://me.sap.com/notes/2927211){: external} and **SAP on IBM Db2 for Linux&reg;, UNIX, and Windows (LUW)** on the [SAP Community page](https://community.sap.com/topics/db2-for-linux-unix-windows){: external}.
+For more information about IBM Db2, see [SAP Note 2927211](https://me.sap.com/notes/2927211){: external} and **SAP on IBM Db2 for Linux&reg;, UNIX, and Windows (LUW)** on the [SAP Community page](https://pages.community.sap.com/topics/db2-for-linux-unix-windows){: external}.
 
 Pay close attention to the provided operating systems in the SAP Note because different sets of service packs are required by your database.
 {: note}

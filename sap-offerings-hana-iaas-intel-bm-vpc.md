@@ -2,7 +2,7 @@
 
 copyright:
 years: 2023, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -47,7 +47,7 @@ SLES 12 SP5, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5, SLES 15 SP6
 (\*\*): SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
 
 
-For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}. 
+For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}.
 
 For SAP HANA deployments that use {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC, only single-node deployments are supported. Multi-node / scale-out is not currently supported.
 {: important}
@@ -80,7 +80,7 @@ The bare metal server profile names are contextual and sequential. See the follo
 | --- | --- | --- |
 | mx2d-metal-96x768 | m | *Memory Optimized* family |
 | | x | Intel x86_64 CPU Architecture |
-| | 2 | The generation for the underlying hardware | 
+| | 2 | The generation for the underlying hardware |
 | | d | the optional 'd' in the name indicates that the server is equipped with one or more SSD storage devices |
 | | — | _spacer_ |
 | | metal | *metal* in the name indicates that this is a bare metal server |
@@ -102,15 +102,15 @@ When the bare metal server profiles for SAP HANA are initially provisioned, the 
 
 In addition to these partitions, Bare Metal Servers for VPC have up to 8 NVMEs – depending on their RAM size – which need to be configured after the server deployment.
 
-To fulfill the KPIs defined for SAP HANA, each profile needs different storage volumes that are listed in detail in the following sections. These storage configurations are recommended. They are certified storage layouts that comply with **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. 
+To fulfill the KPIs defined for SAP HANA, each profile needs different storage volumes that are listed in detail in the following sections. These storage configurations are recommended. They are certified storage layouts that comply with **SAP HANA Tailored Data Center Integration** (TDI) Phase 5.
 
 If a specific memory sizing needs to be performed, customers are advised to follow [the instructions here](https://learning.sap.com/learning-journeys/installing-and-administering-sap-hana/performing-sap-hana-sizing) and if it turns out that different logic volume sizes are required then in addition the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} must be considered. In that case, users must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external} to check compliance with SAP’s KPIs.
 {: important}
 
-This holds true especially, if file shares are used for SAP HANA installations. They can be deployed and mounted in arbitrary ways to provide additional storage, for example for backups, as needed. For SAP HANA data and log files, however, they have to be evaluated. 
+This holds true especially, if file shares are used for SAP HANA installations. They can be deployed and mounted in arbitrary ways to provide additional storage, for example for backups, as needed. For SAP HANA data and log files, however, they have to be evaluated.
 {: note}
 
-In any case, [SAP's recommended file system layout](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. 
+In any case, [SAP's recommended file system layout](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment.
 
 ### Bare Metal Servers for VPC - Storage Layouts
 {: #hana-iaas-intel-bm-vpc-mx2-profiles}
@@ -160,7 +160,7 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
     ```
     [root@mx2d-metal-96x768 ~]# yum install lvm2
     ```
-    This command applies to RHEL, on SLES use ‘zypper install’ instead. 
+    This command applies to RHEL, on SLES use ‘zypper install’ instead.
 
 2. Create the volume groups.
 
@@ -196,7 +196,7 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
     [root@mx2d-metal-96x768 ~]# mkfs.xfs -L HANA_DATA -K /dev/mapper/vg1-hana_data_lv
     ```
 
-6. Add the following lines to `/etc/fstab` and create the required directory paths with mkdir. 
+6. Add the following lines to `/etc/fstab` and create the required directory paths with mkdir.
 
     ```
     LABEL=HANA_SHARED /hana/shared xfs defaults 0 0
@@ -217,7 +217,7 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
     ```
     [root@ux2d-metal-224x6144 ~]# yum install lvm2
     ```
-    This command applies to RHEL, on SLES use ‘zypper install’ instead. 
+    This command applies to RHEL, on SLES use ‘zypper install’ instead.
 
 2. Create the volume group.
 
@@ -246,7 +246,7 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
     [root@ux2d-metal-224x6144 ~]# mkfs.xfs -L HANA_DATA -K /dev/mapper/vg0-hana_data_lv
     ```
 
-6. Add the following lines to `/etc/fstab` and create the required directory paths with mkdir. 
+6. Add the following lines to `/etc/fstab` and create the required directory paths with mkdir.
 
     ```
     LABEL=HANA_SHARED /hana/shared xfs defaults 0 0
@@ -257,4 +257,4 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
 
 
 
-Check [SAP Note 2777782](https://me.sap.com/notes/2777782) for RHEL and [SAP Note 2684254](https://launchpad.support.sap.com/#/notes/2684254) for SLES to adapt your OS configuration settings according to the requirements for SAP HANA.
+Check [SAP Note 2777782](https://me.sap.com/notes/2777782) for RHEL and [SAP Note 2684254](https://me.sap.com//#/notes/2684254) for SLES to adapt your OS configuration settings according to the requirements for SAP HANA.

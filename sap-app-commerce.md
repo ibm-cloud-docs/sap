@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -43,7 +43,7 @@ This solution involves an installation of the SAP Commerce software onto Cloud I
 
 For a typical development environment of SAP Commerce, it is straightforward (compared to other SAP software) to shut down the instantiation/s and reduce costs outside of business hours through less Cloud resource consumption; however, depending on the implementation the time to start again can be significant. This decision is required by the project team, and might not be suitable if a worldwide development team is in-place.
 
-More information is available on [cxwiki.sap.com](https://cxwiki.sap.com) and [sap.com/cxworks](https://www.sap.com/cxworks).
+More information is available on [SAP Commerce](https://help.sap.com/docs/SAP_COMMERCE) help portal.
 
 {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are not available for SAP Commerce.
 {: note}

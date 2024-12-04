@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -34,7 +34,7 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
 1. Click **Create resource** > **Compute** > **Infrastructure** > **Bare Metal Server** > **Continue**.
 1. Enter the number of servers you are ordering in the **Quantity** field.
-1. Enter a **Hostname**, which is a permanent or temporary name for your servers. SAP Hostnames must consist of a maximum of 13 alpha-numeric characters. See [SAP Notes 611361](https://me.sap.com/611361){: external} and [129997](https://launchpad.support.sap.com/#/129997){: external} for more SAP Hostname details. Click **Information** for formatting specifics.
+1. Enter a **Hostname**, which is a permanent or temporary name for your servers. SAP Hostnames must consist of a maximum of 13 alpha-numeric characters. See [SAP Notes 611361](https://me.sap.com/611361){: external} and [129997](https://me.sap.com//#/129997){: external} for more SAP Hostname details. Click **Information** for formatting specifics.
 1. Enter a **Domain**, which is the identification string that defines administrative control within the internet. Click **Information** for formatting specifics.
 1. **Billing** defaults to **Monthly**. Some select SAP-certified servers are offered with 1- or 3-year contract.
 1. The data centers displayed under **Location** depend on product availability within a particular data center. Select your data center.

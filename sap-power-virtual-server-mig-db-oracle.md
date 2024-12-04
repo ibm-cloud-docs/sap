@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, backup, restore
 
@@ -35,8 +35,8 @@ The following procedures assume availability of sufficient network connectivity 
 A discussion of alternative procedures by using the optional mobile or container solutions such as *Seagate Lyve Mobile Solution* in combination with IBM Cloud Object Storage or *IBM Aspera Connect* to transfer On-Premises backups/database files to IBM PowerVS infrastructure is interspersed.  Links to detailed information about this service may be found in the IBM Cloud online documentation or in the folling links.
 
 * [Seagate Lyve Mobile Solution](https://www.seagate.com/de/de/manuals/lyve-mobile-cloud-service/import-to-ibm-cloud/){: external}
-* [Getting started with IBM Cloud Object Storage](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external}
-* [IBM Aspera Connect](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-aspera){: external}
+* [Getting started with IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external}
+* [IBM Aspera Connect](/docs/cloud-object-storage?topic=cloud-object-storage-aspera){: external}
 
 Task steps that are required will vary per implementation. Refer to cited Oracle documentation for details regarding the execution of specific commands.
 
@@ -149,7 +149,7 @@ This document assumes that :
 
 Documentation of a mksysb procedure might be found at:
 
-* [Restoring AIX](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-restoring-aix-mksysb-image){: external}
+* [Restoring AIX](/docs/power-iaas?topic=power-iaas-restoring-aix-mksysb-image){: external}
 
 
 ### Preparation

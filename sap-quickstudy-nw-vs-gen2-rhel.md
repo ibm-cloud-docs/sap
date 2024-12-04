@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -490,7 +490,7 @@ SAP requires the installation of the {{site.data.keyword.cloud_notm}} Metrics Co
 {: #download-sap-software}
 {: step}
 
-Log in to the SAP Service Marketplace (https://support.sap.com/swdc) and download the required digital versatile discs (DVDs) to a local share drive and then transfer the DVDs to your provisioned server. Alternative option, download the SAP Software Download Manager, install it on your target server and directly download the DVD images to the server. For more information about the SAP Software Download Manager, see [http://service.sap.com](http://service.sap.com/){: external}.
+Log in to SAP for Me [Download Software](https://me.sap.com/softwarecenter) and download the required digital versatile discs (DVDs) to a local share drive and then transfer the DVDs to your provisioned server. Alternative option, download the SAP Software Download Manager, install it on your target server and directly download the DVD images to the server. For more information about the SAP Software Download Manager, see [SAP Download Manager](https://support.sap.com/en/my-support/software-downloads.html#section_995042677){: external}.
 
 You need an S-User ID and the Download Software authorization when you download the DVDs from the SAP Service Marketplace. To request an S-USer ID, see the [SAP Support Portal](https://support.sap.com/en/index.html).
 {: note}

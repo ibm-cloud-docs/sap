@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -51,12 +51,12 @@ For example:
 
 With any SAP HANA certified profile that is listed as Appliance, storage is already provided or must be attached precisely as described.
 
-When you provision more storage for an SAP HANA instance, you must adhere to mandatory TDI storage requirements. For more information, see [SAP TDI (SAP HANA Tailored Data Center Integration) & IBM Power](http://www-03.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/WP102347).
+When you provision more storage for an SAP HANA instance, you must adhere to mandatory TDI storage requirements. For more information, see [IBM System Storage Architecture and Configuration Guide for SAP HANA TDI v2.31.pdf](https://www.ibm.com/support/pages/system/files/inline-files/IBM%20System%20Storage%20Architecture%20and%20Configuration%20Guide%20for%20SAP%20HANA%20TDI%20v2.31.pdf).
 
 The requirements include multiple volumes that are assigned to the DATA and LOG LVMs, with the striping and multipath enhancements increase I/O performance. For more information, see the following documents:
-- [SAP TDI Advisory](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html){: external}
+- [SAP HANA Tailored Data Center Integration (TDI) Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external}
 - [SAP HANA Tailored Data Center Integration FAQ (Updated May 2020)](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external}
-- For file system sizes, see [SAP HANA Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html?infl=9e705342-b66e-49d2-9023-c7aa7ef6f6af){: external}
+- For file system sizes, see [SAP HANA Storage Requirements](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html){: external}
 
 
 ## Storage performance considerations
@@ -183,7 +183,7 @@ For example, `"/db2/<DBSID>"`, `"/db2/<DBSID>/log_dir"`, and several `"sapdata<n
 ### Sample storage configurations for SAP HANA
 {: #hana-vs-storage-config}
 
-Further information about [storage specifications for Virtual Server](/docs/sap?topic=sap-hana-iaas-intel-vs-vpc-storage-specs) are available, the below shows only the configuration steps required.
+Further information about [storage specifications for Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-storage-specs) are available, the below shows only the configuration steps required.
 
 #### mx2-8x64, mx2-16x128 and mx2-32x256 profiles
 {: #hana-iaas-mx2-16x128-32x256-configure}
@@ -319,12 +319,12 @@ When you create new storage volumes, keep the following points in mind:
 - When you finish provisioning new volumes, you can toggle bootable and sharing switches.
 - Make volumes that belong to different OS file systems unique sizes. Otherwise, it is difficult to identify the storage volumes within the operating system.
 
-  
+
 
 ### Storage Guidelines for SAP HANA based on Flexible IOPS
 {: #sap-fiops-config}
 
-See [Storage tiers](/docs/power-iaas?topic=power-iaas-about-virtual-server#storage-tiers) to learn more about flexible IOPS.
+See [Benefits of flexible IOPS](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#IOPS-benefits) to learn more about flexible IOPS.
 {: note}
 
 The storage tier and capacity that is recommended for deployment of SAP S/4HANA on Power Virtual Server is described in this topic. These recommendations are based on the best practices and to meet the minimum performance criteria defined by HCMT.
@@ -332,12 +332,12 @@ The storage tier and capacity that is recommended for deployment of SAP S/4HANA 
 
 **Recommendation for SAP HANA DB size 128 GB - 768 GB**
 * Use 4 volumes of Fixed 5,000 IOPS storage for storing log files. Log files are usually up to 512 GB and need the high performance
-* Use 4 volumes of Tier 0 storage for data file system 
+* Use 4 volumes of Tier 0 storage for data file system
 * Use 1 volume of Tier 3 storage for shared file system.
 
 **Recommendations for SAP HANA DB size 960 GB - 22.5 TB**
 * Use 4 volumes of Tier 0 storage for storing log files. Log files are usually up to 512 GB and need the high performance
-* Use 4 volumes of Tier 3 storage for data file system 
+* Use 4 volumes of Tier 3 storage for data file system
 * Use 1 volume of Tier 3 storage for shared file system.
 
 An additional Capacity of 150 GB per compute instance for the Operating System + /usr/sap on Tier 3 Storage profile is recommended. For boot volume Tier 3 is sufficient.
@@ -355,9 +355,9 @@ The tables below shows the mapping of minimum IOPS and its storage tier mapping 
 | Certified profile | Volume (GB) | Minimum IOPS | Log-storage tier|
 |-------------------|-------------|--------------|-----------------|
 | ush1-4x128 |	 4 x 16 GB | 	20,000	| Fixed 5,000 IOPS |
-| ush1-4x256 |	 4 x 32 GB | 	20,000	| Fixed 5,000 IOPS |	
-| ush1-4x384 |	 4 x 48 GB | 	20,000	| Fixed 5,000 IOPS |		
-| ush1-4x512 |	 4 x 64 GB | 	20,000	| Fixed 5,000 IOPS |		
+| ush1-4x256 |	 4 x 32 GB | 	20,000	| Fixed 5,000 IOPS |
+| ush1-4x384 |	 4 x 48 GB | 	20,000	| Fixed 5,000 IOPS |
+| ush1-4x512 |	 4 x 64 GB | 	20,000	| Fixed 5,000 IOPS |
 | ush1-4x768 |	 4 x 96 GB | 	20,000	| Fixed 5,000 IOPS |
 |	umh-4x960	  |	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
 |	umh-6x1440	|	4 x 128 GB 	|    	12,800  	|	 Tier 0     	 |
@@ -418,10 +418,10 @@ The tables below shows the mapping of minimum IOPS and its storage tier mapping 
 
 | Certified profile | Volume (GB) | Minimum IOPS | Data-storage tier|
 |-------------------|-------------|--------------|-----------------|
-| ush1-4x128 |	 4 x 77 GB | 	7,500	| Tier 0 |   
-| ush1-4x256 |	 4 x 77 GB | 	7,500	| Tier 0 |	
-| ush1-4x384 |	 4 x 115 GB | 	7,500	| Tier 0 |		
-| ush1-4x512 |	 4 x 154 GB | 	7,500	| Tier 0 |		
+| ush1-4x128 |	 4 x 77 GB | 	7,500	| Tier 0 |
+| ush1-4x256 |	 4 x 77 GB | 	7,500	| Tier 0 |
+| ush1-4x384 |	 4 x 115 GB | 	7,500	| Tier 0 |
+| ush1-4x512 |	 4 x 154 GB | 	7,500	| Tier 0 |
 | ush1-4x768 |	 4 x 230 GB | 	7,500	| Tier 0 |
 |	umh-4x960	|	4 x 722 GB	|    	7,500	|	 Tier 3     	   |
 |	umh-6x1440	|	4 x 720 GB	|    	7,500	|	 Tier 3     	 |
@@ -554,8 +554,8 @@ Fixed 5000 IOPS is limited to 200 GB of storage.
 
 Sample pricing calculation when you need a storage of 1 GB
 | Storage Required = 1 GB | Calculation | $Price/Month | IOPS Performance |
-|-------------------------|-------------|--------------|------------------| 
-| Tier 0  	   | 	 1 GB x $.24  	 | 	 $0.240	 | 	 25 IOPS  | 
+|-------------------------|-------------|--------------|------------------|
+| Tier 0  	   | 	 1 GB x $.24  	 | 	 $0.240	 | 	 25 IOPS  |
 | Fixed 5,000 IOPS  | 	 1 GB x $.288 	 | 	 $0.288	 | 	 5,000 IOPS|
 {: class="simple-table"}
 {: caption="Sample pricing when the storage required is 1 GB" caption-side="top"}
@@ -563,11 +563,11 @@ Sample pricing calculation when you need a storage of 1 GB
 
 Sample pricing calculation when you need a storage of 100 GB
 | Storage Required = 100 GB | Calculation | $Price/Month | IOPS Performance |
-|-------------------------|-------------|--------------|------------------| 
-| Tier 0  	   | 	 100 GB x $.24  	 | 	 $24 	 | 	 2,500 IOPS  | 
+|-------------------------|-------------|--------------|------------------|
+| Tier 0  	   | 	 100 GB x $.24  	 | 	 $24 	 | 	 2,500 IOPS  |
 | Fixed 5,000 IOPS  | 	 100 GB x $.288 	 | 	 $29 	 | 	 5,000 IOPS|
 {: class="simple-table"}
-{: caption="Sample pricing when the storage required is 100 GB" caption-side="top"} 
+{: caption="Sample pricing when the storage required is 100 GB" caption-side="top"}
 
 
 

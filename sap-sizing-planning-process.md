@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP NetWeaver, SAP HANA, SAP Application Performance Standard, SAPS, SAP Quick Sizer
 
@@ -144,14 +144,14 @@ This information includes a link to the SAP HANA version of the SAP Quick Sizer 
 For more information about sizing, see the following resources:
 
 * [Sizing SAP HANA - SAP HANA Master Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/d4a122a7bb57101493e3f5ca08e6b039.html){: external}
-* [SAP Quick Sizer](http://service.sap.com/quicksizer){: external}
-* [SAP Note 1736976 - Sizing Report for BW-on-HANA](https://service.sap.com/sap/support/notes/1736976){: external}
-* [SAP Note 1872170 - Suite on HANA memory sizes](https://service.sap.com/sap/support/notes/1872170){: external}
+* [Quick Sizer](https://www.sap.com/about/benchmark/sizing.quick-sizer.html#quick-sizer){: external}
+* [SAP Note 1736976 - Sizing Report for BW-on-HANA](https://me.sap.com/notes/1736976){: external}
+* [SAP Note 1872170 - Suite on HANA memory sizes](https://me.sap.com/notes/1872170){: external}
 * [SAP Note 1793345 - Sizing for SAP Suite on HANA](http://service.sap.com/sap/support/notes/1793345){: external}
-* [SAP Note 1514966 - SAP HANA: Sizing SAP HANA](https://service.sap.com/sap/support/notes/1514966){: external}
+* [SAP Note 1514966 - SAP HANA: Sizing SAP HANA](https://me.sap.com/notes/1514966){: external}
 * [SAP Certified and Supported SAP HANA Hardware](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN){: external}
-* [SAP Note 2055470 - SAP HANA on Power Planning and Installation Specifics - Central Note](https://service.sap.com/sap/support/notes/2055470){: external}
-* [SAP HANA TDI - Storage Requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html){: external}
+* [SAP Note 2055470 - SAP HANA on Power Planning and Installation Specifics - Central Note](https://me.sap.com/notes/2055470){: external}
+* [SAP HANA Storage Requirements](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html){: external}
 * [SAP Certified Enterprise Storage Hardware for SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=storage){: external}
 
 ## SAP applications effect on sizing

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Sybase
 
@@ -69,7 +69,7 @@ A jumphost is used to access, manage, and administer SAP virtual server instance
 ### Standard system
 {: #sap-refarch-nw-sybase-standard}
 
-In a standard system, all main instances run on a single virtual server instance within a private subnet. [about virtual servers for VPC](https://cloud.ibm.com/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-virtual-private-cloud). The virtual server instance has these components:
+In a standard system, all main instances run on a single virtual server instance within a private subnet. [about virtual servers for VPC](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-virtual-private-cloud). The virtual server instance has these components:
 
 ![Figure 2. Standard installation](images/refarch-sap-syb-std-only.svg "SAP NetWeaver 7.x SYB standard installation with AAS"){: caption="SAP NetWeaver 7.x SYB standard installation with AAS" caption-side="bottom"}
 

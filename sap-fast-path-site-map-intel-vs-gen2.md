@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -35,7 +35,7 @@ An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute,
 
 
 Certified Infrastructure-as-a-Service for SAP HANA database server is available in many variations, each with different capabilities and sizes to fit many different SAP workload scenarios. For more information:
-- [Infrastructure certified for SAP - IBM Intel Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-intel-vs)
+- [Infrastructure certified for SAP - IBM Intel Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-intel-vson-vpc)
 
 
 The following is an overview of the SAP-certified profiles with IBM Power Virtual Servers for SAP HANA and SAP NetWeaver. For more information:
@@ -54,8 +54,6 @@ Your enterprise IT organization can select from a variety of operating systems f
 - [OS Bring your Own Image/License for VPC Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
 
 
-Depending on your scenarios, the following information may be also relevant:
-- [SAP to VPC Infrastructure Migration Acceleration Program](/docs/sap?topic=sap-cloud-migration-acceleration-program)
 
 
 ## Tutorials

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -122,7 +122,7 @@ As the {{site.data.keyword.IBM_notm}} Power Virtual Servers are IaaS once provis
     * PowerVM Host CPU Binding (dedicated or shared)
 
 
-For more explanation information about {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, see [{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://www.ibm.com/cloud/power-virtual-server){: external} on ibm.com and [{{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/power-iaas?topic=power-iaas-about-virtual-server){: external} on {{site.data.keyword.cloud_notm}} Docs.
+For more explanation information about {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, see [{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://www.ibm.com/products/power-virtual-server){: external} on ibm.com and [{{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/power-iaas?topic=power-iaas-about-virtual-server){: external} on {{site.data.keyword.cloud_notm}} Docs.
 
 If you'd like to compare your current environment's performance to what's available through the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the [{{site.data.keyword.IBM_notm}} Power Systems performance report](https://www.ibm.com/downloads/cas/K90RQOW8){: new_window}{: external}. For a more condensed comparison, see [{{site.data.keyword.IBM_notm}} Power Systems CPW performance data comparison](https://www.itechsol.com/wp-content/uploads/2018/07/IBM-Power-Systems-CPW-Performance-Data-Comparison-P7-vs-P8-vs-P9-rev3-July-2018.pdf){: new_window}{: external}.
 {: tip}
@@ -169,7 +169,7 @@ Depending on the SAP workload, supported processor options are restricted. For m
 
 See [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579){: external} for SAP HANA support on {{site.data.keyword.IBM_notm}} Power Virtual Servers.
 
-SAP HANA workloads that use {{site.data.keyword.IBM_notm}} Power Virtual Servers run on IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/it-infrastructure/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the data sheet below:
+SAP HANA workloads that use {{site.data.keyword.IBM_notm}} Power Virtual Servers run on IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the data sheet below:
 
 **Data sheet:**
 - [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/cas/VX0AM0EP){: external}
@@ -182,7 +182,7 @@ For further information, see [hardware specifications for {{site.data.keyword.IB
 
 See [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external} for SAP NetWeaver support on {{site.data.keyword.IBM_notm}} Power Virtual Servers.
 
-SAP NetWeaver and SAP AnyDB workloads that use {{site.data.keyword.IBM_notm}} Power Virtual Servers are run on IBM Power System S922 and IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/it-infrastructure/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the following data sheets:
+SAP NetWeaver and SAP AnyDB workloads that use {{site.data.keyword.IBM_notm}} Power Virtual Servers are run on IBM Power System S922 and IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the following data sheets:
 
 **Data sheets:**
 * [IBM Power System S922 (9009-22A)](https://www.ibm.com/downloads/cas/KQ4BOJ3N){: external}

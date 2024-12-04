@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -64,7 +64,7 @@ The following steps summarize the setup of VPC and subnets, which is detailed fu
     A subnet cannot be resized after it has been created.
     {: important}
 
-1. Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet.  
+1. Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet.
 
     You can also attach the public gateway after you create the subnet.
     {: tip}
@@ -97,7 +97,7 @@ Use the following steps to order your virtual server and necessary components. F
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
 1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Virtual server instances**.
 1. Click **Create**.
-1. Enter a unique **Name** for the virtual server, which becomes the **hostname**. SAP hostnames must consist of a maximum of 13 alpha-numeric characters. For more information about SAP hostnames, see [SAP Notes 611361](https://me.sap.com/notes/611361){: external} and [129997](https://launchpad.support.sap.com/#/notes/129997){: external}.
+1. Enter a unique **Name** for the virtual server, which becomes the **hostname**. SAP hostnames must consist of a maximum of 13 alpha-numeric characters. For more information about SAP hostnames, see [SAP Notes 611361](https://me.sap.com/notes/611361){: external} and [129997](https://me.sap.com//#/notes/129997){: external}.
 1. Choose a **Resource group**.
 
    The resource group can't be changed after the virtual server is created.

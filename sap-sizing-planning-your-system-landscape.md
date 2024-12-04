@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Landscape
 
@@ -85,7 +85,7 @@ If your organization is new to {{site.data.keyword.cloud_notm}}, read the follow
 ## Selecting your SAP-certified infrastructure
 {: #selecting-iaas}
 
-This expands on the introduction [Comparing the different SAP-certified IaaS offerings](/docs/sap?topic=sap-overview#iaas-offerings-compare-summary), which summarises the benefits of each different Infrastructure option.
+This expands on the introduction [Comparing the different SAP-certified IaaS offerings](/docs/sap?topic=sap-overview-sap-offerings-overview#iaas-offerings-compare-summary), which summarises the benefits of each different Infrastructure option.
 
 You are ready to define the number of host servers and size of those hosts after:
 - the business has defined their requirements

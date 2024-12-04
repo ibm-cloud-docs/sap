@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -39,7 +39,7 @@ Before you start deploying the SAP IQ software:
 ### Documentation of SAP IQ
 {: #anydb-sap-iq-documentation}
 
-A good entry point into the documentation is the [SAP Community Wiki for SAP IQ](https://wiki.scn.sap.com/wiki/display/SYBIQ/IQ){: external}.
+A good entry point into the documentation is the [Support Content SAP IQ](https://help.sap.com/docs/SUPPORT_CONTENT/sybiq/3362973828.html){: external}.
 
 SAP IQ documentation:
 - [SAP Help Portal - SAP IQ](https://help.sap.com/docs/SAP_IQ){: external}

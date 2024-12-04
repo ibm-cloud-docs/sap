@@ -55,7 +55,7 @@ You can choose from multiple data centers globally.
 
 Each data center with IBM Power Infrastructure uses a separate enterprise-grade network which is connected using {{site.data.keyword.cloud_notm}} Direct Link to the {{site.data.keyword.cloud_notm}} global private network, making data transfers faster and more efficient anywhere in the world.
 
-For more information about {{site.data.keyword.cloud_notm}} availability zones / data centers and points of presence (PoPs) where IBM Power Infrastructure can be connected to, see the [global regions and availability zones / data centers map](https://www.ibm.com/cloud/data-centers/#datacentermap){: external}.
+For more information about {{site.data.keyword.cloud_notm}} availability zones / data centers and points of presence (PoPs) where IBM Power Infrastructure can be connected to, see the [global regions and availability zones / data centers map](https://www.ibm.com/cloud/data-centers){: external}.
 
 
 ## Networking
@@ -132,9 +132,9 @@ After you configure {{site.data.keyword.dlc_short}}, you must configure routing 
 
 {{site.data.keyword.dlc_short}} is also used for closer integration into your backbone infrastructure, for more information, see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access).
 
-For more explanation information about {{site.data.keyword.IBM_notm}} Power Systems Infrastructure, see [IBM Power Virtual Servers](https://www.ibm.com/cloud/power-virtual-server){: external}.
+For more explanation information about {{site.data.keyword.IBM_notm}} Power Systems Infrastructure, see [IBM Power Virtual Servers](https://www.ibm.com/products/power-virtual-server){: external}.
 
-Have your networking department contact the IBM Power Virtual Servers Support Team, handled by using [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) after you determine the layout of your landscape and the connectivity that is required on the SAP application layer.
+Have your networking department contact the IBM Power Virtual Servers Support Team, handled by using [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) after you determine the layout of your landscape and the connectivity that is required on the SAP application layer.
 {: note}
 
 
@@ -152,11 +152,11 @@ Block Storage is provided with your {{site.data.keyword.IBM_notm}} {{site.data.k
 
 All Block Storage is selected based on capacity (GB), currently the performance (IOPS) measurement cannot be fine-tuned.
 
-Block Storage for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s is powered underneath by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/it-infrastructure/storage){: external} connected through the Fibre Channel protocol.
+Block Storage for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s is powered underneath by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol.
 
 For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-about-virtual-server#hardware-specifications).
 
-Contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
+Contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
 
 
 ## Compute

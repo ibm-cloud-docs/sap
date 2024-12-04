@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-12-04"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -73,7 +73,7 @@ The new URL looks like the following example.
     {: screen}
 
 1. For a list of all private ingestion endpoints per region, refer to the IBM Cloud documentation that is described in
-[Collecting metrics by using Prometheus remote write](https://cloud.ibm.com/docs/monitoring?topic=monitoring-prometheus_remote_write#prometheus_remote_write_endpoints){: external}.
+[Collecting metrics by using Prometheus remote write](/docs/monitoring?topic=monitoring-prometheus_remote_write#prometheus_remote_write_endpoints){: external}.
 
 ## Next steps
 {: mon-creating-instance-next-steps}

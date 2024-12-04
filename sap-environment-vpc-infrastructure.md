@@ -42,7 +42,7 @@ For more information, see [Managing VPC Infrastructure (IAM)](/docs/vpc?topic=vp
 
 With availability zones across North and South America, Europe, Asia, and Australia, you can provision cloud resources where (and when) you need them. Many regions are available globally, with multiple availability zones in each region. Each availability zone is connected to the {{site.data.keyword.cloud_notm}} global private network, making data transfers faster and more efficient anywhere in the world.
 
-For more information about {{site.data.keyword.cloud_notm}} availability zones, data centers, and Points of Presence (PoPs), see the [global regions, availability zones, and data centers map](https://www.ibm.com/cloud/data-centers/#datacentermap){: external}.
+For more information about {{site.data.keyword.cloud_notm}} availability zones, data centers, and Points of Presence (PoPs), see the [global regions, availability zones, and data centers map](https://www.ibm.com/cloud/data-centers){: external}.
 
 ## Compute Resources
 {: #vpc-env-compute}
@@ -106,7 +106,7 @@ For more information, see [About Networking for VPC](/docs/vpc?topic=vpc-about-n
 Extra requirements exist in Classic Infrastructure networking to enable the _Transit Gateway_, be sure to review documentation before you change your Classic Infrastructure or VPC Infrastructure networking topology and configuration.
 {: important}
 
-It is advised that your networking department contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) after determining the layout of your landscape and the connectivity that is required on the SAP application layer.
+It is advised that your networking department contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) after determining the layout of your landscape and the connectivity that is required on the SAP application layer.
 {: note}
 
 ### Networking protection
@@ -145,7 +145,7 @@ IOPS values are measured based on 16 KB block size with a 50-50 read/write mix. 
 
 Storage volumes differ in performance, depending on their IOPS tier. You can select among 3, 5, and 10 IOPS/GB (see [Tiered IOPS profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers)). You can also select a [custom size](/docs/vpc?topic=vpc-block-storage-profiles#custom) (in GB and IOPS) that is based on the size of the storage.
 
-If you need more than the initially provisioned storage in your server, you can attach extra volumes to a it later. Contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
+If you need more than the initially provisioned storage in your server, you can attach extra volumes to a it later. Contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
 
 ### Shared Storage
 {: #vpc-env-shared-storage}
