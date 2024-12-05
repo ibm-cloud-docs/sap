@@ -32,7 +32,7 @@ Our {{site.data.keyword.ibm_cloud_sap}} offerings are designed based on over 50+
 
 IBM and SAP multi-decade alliance is why IBM was selected as one of SAP’s strategic infrastructure providers for hybrid cloud. Support for SAP's suite of products is available through the highly scalable, open, and security-rich {{site.data.keyword.cloud_notm}}. With this partnership, SAP applications can expand to major markets; this expansion is made possible by more than 60 {{site.data.keyword.cloud_notm}} data centers worldwide.
 
-{{site.data.keyword.ibm_cloud_sap}} was [launched in late 2014](https://news.sap.com/2014/10/ibm-and-sap-partner-enterprise-cloud-adoption/){: external}, with our SAP HANA certified Bare Metals as a strategic partner with SAP HANA Enterprise Cloud (HEC). Our SAP HANA certified Bare Metals were first released as Infrastructure-as-a-Service in early 2017, the first Cloud Service Provider to provide high-performance Bare Metal IaaS for SAP HANA and SAP NetWeaver.
+{{site.data.keyword.ibm_cloud_sap}} was launched in late 2014, with our SAP HANA certified Bare Metals as a strategic partner with SAP HANA Enterprise Cloud (HEC). Our SAP HANA certified Bare Metals were first released as Infrastructure-as-a-Service in early 2017, the first Cloud Service Provider to provide high-performance Bare Metal IaaS for SAP HANA and SAP NetWeaver.
 
 Using various configurations of the SAP Technical Applications, you can confidently run SAP Business Applications such as:
 - SAP S/4HANA
@@ -173,7 +173,6 @@ These solutions from SAP Patners may not apply to all SAP software or all Infras
 
 | SAP Partner | Solution name | Solution description |
 | --- | --- | --- |
-| Actifio | [Actifio Go for SAP HANA](https://www.actifio.com/solutions/application/sap){: external} | Block-based backups for SAP HANA |
 | Veeam | [Veeam Backup & Replication for SAP HANA](https://www.veeam.com/backup-sap-hana-plugin.html){: external} | Backint backups from SAP HANA |
 | F5 | [F5 BigIP for SAP NetWeaver](https://www.f5.com/partners/technology-alliances/sap){: external} | Load balancing and traffic management for SAP |
 {: caption="Overview of SAP Partner solutions" caption-side="top"}

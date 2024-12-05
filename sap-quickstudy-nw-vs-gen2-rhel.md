@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -60,7 +60,7 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 {{site.data.keyword.cloud}} compute resources are kept in a global region within a VPC. Use the following steps to create a VPC and its subnet.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
-1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs** and click **New virtual private cloud** > **Create VPC for Gen 2**.
+1. Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs** and click **New virtual private cloud** > **Create VPC for Gen 2**.
 
 ![Figure 2. Creating a VPC](/images/quickstudy-intel-vs-gen2-image6.png "Creating a VPC"){: caption="Creating a VPC" caption-side="bottom"}
 
@@ -284,7 +284,7 @@ To segregate network traffic, as SAP recommends, deploy a second subnet. One net
 
 Use Figure 11 as your guide to create a new subnet named `sap-test-net2`.
 
-Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **Subnets** and click **New subnet**.
+Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **Subnets** and click **New subnet**.
 
 ![Figure 11. Create a subnet](/images/quickstudy-intel-vs-gen2-image2.png "Create a subnet"){: caption="Create a subnet" caption-side="bottom"}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -63,7 +63,7 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 {{site.data.keyword.cloud}} compute resources are kept in a global region within a VPC. Use the following steps to create a VPC and its subnet.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
-1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
+1. Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
 1. Click **Create**.
 1. Enter a unique **Name** for the VPC, for example, *sap-test-vpc*.
 1. Select a **Resource group**. Use resource groups to organize your account resources for access control and billing purposes. **Leave the value default**.
@@ -204,7 +204,7 @@ To quickly access the deployed instance, you can assign a _Floating IP_ to your 
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 1. Click the name of the Windows VSI - *sap-wdb*.
-1. On the Instance details page, find the **Network interfaces** section.  
+1. On the Instance details page, find the **Network interfaces** section.
 1. By default, the first interface is named *eth0*.
 1. Click the pencil icon to edit the primary network interface.
 1. On the **Edit network interface** page, locate the **Floating IP address** field. You can select **Reserve a new floating IP** or you can select an existing floating IP address.
@@ -222,11 +222,11 @@ In this tutorial, we simplify the process and use sample VSI profiles, volume an
 {: important}
 
 Depending on the database vendor you should consult their specific documentation, recommendations and best practises how to setup the file systems. You may start here.
-* [IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2) 
-* [SAP MaxDB](/docs/sap?topic=sap-anydb-ibm-maxdb) 
-* [SAP ASE](/docs/sap?topic=sap-anydb-ase) 
+* [IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2)
+* [SAP MaxDB](/docs/sap?topic=sap-anydb-sap-maxdb)
+* [SAP ASE](/docs/sap?topic=sap-anydb-sap-ase)
 
-We let `sapinst`, the SAP installation programm, care about the user management, the disk partitioning as well as folder and subfolder creations that are required for the SAP application and the RDBMS. 
+We let `sapinst`, the SAP installation programm, care about the user management, the disk partitioning as well as folder and subfolder creations that are required for the SAP application and the RDBMS.
 
 
 ### Logging in to your Windows VSI
@@ -273,7 +273,7 @@ Both VSIs have one extra attached volume and a _Floating IP_. A smaller volume i
 
 
 
-![Figure 4. Virtual server instances](/images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Virtual server instances" caption-side="bottom"} 
+![Figure 4. Virtual server instances](/images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Virtual server instances" caption-side="bottom"}
 
 ![Figure 5. Block storage volumes for VPC](/images/quickstudy-intel-vs-gen2-image15.png "Block storage volumes for VPC"){: caption="Block storage volumes for VPC" caption-side="bottom"}
 

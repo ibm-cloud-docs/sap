@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, backup, restore, Db2, IBM Db2, HADR
 
@@ -65,7 +65,7 @@ Set the following environment variables according to your needs.
    ```
    {: pre}
 
-   The command syntax for defining environment variables depends on the shell type. 
+   The command syntax for defining environment variables depends on the shell type.
    Default shell type for Db2 and SAP administrator users `db2<sid>` and `<sid>adm` is the C shell.
    When using the same shell, you can copy the command examples and paste them into your session environment.
 
@@ -121,7 +121,7 @@ Set the following environment variables according to your needs.
    ```
    {: pre}
 
-   This backup directory needs enough space to store the compressed backup files. Determine the current IBM Db2 database size by calling the `GET_DBSIZE_INFO` procedure. For more information, see the [GET_DBSIZE_INFO procedure](/docs/en/db2/11.5?topic=views-get-dbsize-info-database-size-capacity){: external}.
+   This backup directory needs enough space to store the compressed backup files. Determine the current IBM Db2 database size by calling the `GET_DBSIZE_INFO` procedure. For more information, see the [GET_DBSIZE_INFO procedure](https://www.ibm.com/docs/en/db2/11.5?topic=views-get-dbsize-info-database-size-capacity){: external}.
    {: tip}
 
 ### Shutting down the SAP application and deactivating the database on the source server
@@ -550,14 +550,14 @@ The same commands are required on the target server as noted in [Restoring the d
    mkdir -p $BACKUPDIR
    ```
    {: pre}
-   
+
    and transfer the ownership of the backup directory to the Db2 administrator:
 
    ```sh
    chown $DB2ADM $BACKUPDIR
    ```
    {: pre}
-   
+
    This backup directory needs enough space to store the compressed backup files. Determine the current IBM Db2 database size by calling the `GET_DBSIZE_INFO` procedure. For more information, see [GET_DBSIZE_INFO procedure](https://www.ibm.com/docs/en/db2/11.5?topic=views-get-dbsize-info-database-size-capacity){: external}.
    {: tip}
 

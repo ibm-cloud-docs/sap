@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -69,7 +69,7 @@ All the operating systems and distributions that are supported by {{site.data.ke
 
 * [Building High Availability for SAP NetWeaver and SAP HANA on Linux](https://support.sap.com/content/dam/SAAP/SAP_Activate/AGS_70.pdf){: external} is an SAP best-practice document and provides an in-depth technical description with a strong focus on SAP HANA.
 
-* [SAP NetWeaver High Availability and Business Continuity in Virtual Environments with VMware and Hyper-V on Microsoft Windows](https://archive.sap.com/documents/docs/DOC-44415){: external} covers the virtualization aspects if you’re planning to implement HA on virtualized servers.
+* [SAP NetWeaver High Availability and Business Continuity in Virtual Environments with VMware and Hyper-V on Microsoft Windows](https://help.sap.com/docs/SUPPORT_CONTENT/virtualization/3362185766.html){: external} covers the virtualization aspects if you’re planning to implement HA on virtualized servers.
 
 For more high-availability products certified by SAP partners for high-availability scenarios, see [High Availability Partner Information](https://wiki.scn.sap.com/wiki/display/SI/High+Availability+Partner+Information){: external}.
 

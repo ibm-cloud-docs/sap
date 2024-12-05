@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -36,7 +36,7 @@ Before you can create a virtual server, you must create a VPC.
 The following steps summarize the setup of VPC and subnets, which is detailed further in the [Create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 
 
-1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
+1. Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
 1. Click **Create**.
 1. Enter a unique **Name** for the VPC.
 2. Select a **Resource group**. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup) and [What makes a good resource group strategy?](/docs/account?topic=account-account_setup#resource-group-strategy).
@@ -76,7 +76,7 @@ The following steps summarize the setup of VPC and subnets, which is detailed fu
 
 If you disabled _Default address prefixes_, which hid the _New subnet for VPC_ section on the VPC ordering page, you need to manually define your subnets before provisioning your {{site.data.keyword.vsi_is_short}}. Use the following steps to set up your subnets if you didn't do so when you set up your VPC.
 
-1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Subnets** > **New Subnet**.
+1. Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Subnets** > **New Subnet**.
 1. Enter a unique **Name** and select the **Virtual private cloud** that it's to be associated with.
 1. Select a **Resource group**.
 1. Select **Location**. The location consists of a region and zone. If you're manually creating the initial subnet, versus creating it when you created your VPC, the region (location) that you select is used as the region of the VPC. All additional resources that you in this VPC are created in the selected region.
@@ -95,7 +95,7 @@ Before you can create a virtual server, you must create the VPC and you must cre
 Use the following steps to order your virtual server and necessary components. For more information about creating a virtual server, see [Creating virtual server instances by using the {{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
-1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Virtual server instances**.
+1. Click **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Virtual server instances**.
 1. Click **Create**.
 1. Enter a unique **Name** for the virtual server, which becomes the **hostname**. SAP hostnames must consist of a maximum of 13 alpha-numeric characters. For more information about SAP hostnames, see [SAP Notes 611361](https://me.sap.com/notes/611361){: external} and [129997](https://me.sap.com//#/notes/129997){: external}.
 1. Choose a **Resource group**.
@@ -141,7 +141,7 @@ Table 1 is a summary of the fields and values that are used to provision {{site.
 {: #vs-adding-vpc-block-storage}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
-1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg)** > **VPC Infrastructure** > **Block storage volumes** > **New Volume**.
+1. Click **Menu icon ![Menu icon](../icons/icon_hamburger.svg)** > **VPC Infrastructure** > **Block storage volumes** > **New Volume**.
 1. Enter a unique **Name**.
 1. Choose a **Resource group**.
 
@@ -155,7 +155,7 @@ Table 1 is a summary of the fields and values that are used to provision {{site.
    By default all block storage for VPC volumes use IBM-managed encryption. However, [new capabilities are available for customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
    {: note}
 
-1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg)** > **VPC Infrastructure** > **Virtual server instances**.
+1. Click **Menu icon ![Menu icon](../icons/icon_hamburger.svg)** > **VPC Infrastructure** > **Virtual server instances**.
 1. Select the virtual server to which you want the new block storage to be attached.
 1. Click **Attach volume**.
 1. Select the new block storage volume and click **Attach**.

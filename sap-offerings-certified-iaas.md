@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -45,18 +45,6 @@ These servers are provisioned with your choice of operating system (OS) image th
 Because customization is controlled on bare metal servers, fast provisioning times of in the range 1 - 4 hours are obtainable with worldwide availability. For larger systems (greater 4 TB DRAM), there is a longer validation period for checking the hardware components (particularly RAM), but the machines are usually available within 24 hours.
 
 For more information about Bare Metal servers on Classic Infrastructure, see [{{site.data.keyword.cloud_notm}} Bare Metal Servers](https://www.ibm.com/cloud/bare-metal-servers){: external} on ibm.com and [{{site.data.keyword.cloud_notm}} Bare Metal Servers for Classic - server options](/docs/bare-metal?topic=bare-metal-about-bm){: external} on {{site.data.keyword.cloud_notm}} Docs.
-
-
-## Intel Bare Metal servers on Classic Infrastructure with Intel Optane DC Persistent Memory
-{: #hana-iaas-intel-bm-optane}
-
-Resource: [Intel Optane SSD](/docs/bare-metal?topic=bare-metal-ordering-ssd)
-
-In addition, the {{site.data.keyword.cloud_notm}} Bare Metal Servers are also available with Intel&reg; Optane DC Persistent Memory, which is engineered for high-performance SAP production environments with ultra-high memory requirements and tuned by SAP to increase performance of SAP HANA 2.0 (SPS 03 and higher). Due to the design of Intel Optane DC PMEM, which uses dense storage format factor in DIMM slots with direct CPU access, the new storage medium has ultra low latency read/write and enables:
-- Improved SAP HANA Dynamic Tiering with improved cost-efficiency and without reducing performance
-- Reduced business downtime and improved RTO KPIs by moving the SAP HANA main data column store to Intel Optane DC Persistent Memory, with all data immediately accessible after planned or unplanned maintenance windows.
-
-
 
 ## Intel Virtual Servers on VPC Infrastructure
 {: #iaas-intel-vson-vpc}
@@ -122,7 +110,7 @@ As the {{site.data.keyword.IBM_notm}} Power Virtual Servers are IaaS once provis
     * PowerVM Host CPU Binding (dedicated or shared)
 
 
-For more explanation information about {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, see [{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://www.ibm.com/products/power-virtual-server){: external} on ibm.com and [{{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/power-iaas?topic=power-iaas-about-virtual-server){: external} on {{site.data.keyword.cloud_notm}} Docs.
+For more explanation information about {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, see [{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://www.ibm.com/products/power-virtual-server){: external} on ibm.com and [{{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/power-iaas?topic=power-iaas-getting-started){: external} on {{site.data.keyword.cloud_notm}} Docs.
 
 If you'd like to compare your current environment's performance to what's available through the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the [{{site.data.keyword.IBM_notm}} Power Systems performance report](https://www.ibm.com/downloads/cas/K90RQOW8){: new_window}{: external}. For a more condensed comparison, see [{{site.data.keyword.IBM_notm}} Power Systems CPW performance data comparison](https://www.itechsol.com/wp-content/uploads/2018/07/IBM-Power-Systems-CPW-Performance-Data-Comparison-P7-vs-P8-vs-P9-rev3-July-2018.pdf){: new_window}{: external}.
 {: tip}
@@ -174,7 +162,7 @@ SAP HANA workloads that use {{site.data.keyword.IBM_notm}} Power Virtual Servers
 **Data sheet:**
 - [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/cas/VX0AM0EP){: external}
 
-For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-about-virtual-server#hardware-specifications).
+For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications).
 
 
 ### SAP NetWeaver and IBM Power Virtual Server
@@ -188,7 +176,7 @@ SAP NetWeaver and SAP AnyDB workloads that use {{site.data.keyword.IBM_notm}} Po
 * [IBM Power System S922 (9009-22A)](https://www.ibm.com/downloads/cas/KQ4BOJ3N){: external}
 * [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/cas/VX0AM0EP){: external}
 
-For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-about-virtual-server#hardware-specifications).
+For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications).
 
 
 ## VMware Software-Defined Data Center

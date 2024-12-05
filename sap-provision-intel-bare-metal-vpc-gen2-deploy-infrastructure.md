@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -33,7 +33,7 @@ Use the following information to deploy and set up SAP HANA and/or SAP NetWeaver
 The following steps summarize the setup of VPC and subnets, which is detailed further in the [Create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 
 
-1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
+1. Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
 1. Click **Create**.
 1. Select a **Location** for the VPC. The location consists of a *Geography* and a *Region*.
 1. Enter a unique **Name** for the VPC.
@@ -54,7 +54,7 @@ The following steps summarize the setup of VPC and subnets, which is detailed fu
 
 If you disabled _Default address prefixes_, which hid the _Subnets_ section on the VPC ordering page, you need to manually define your subnets before you provision your bare metal server. Use the following steps to set up your subnets if you didn't do so when you set up your VPC.
 
-1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Subnets** > **New Subnet**.
+1. Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Subnets** > **New Subnet**.
 1. Select a **Location** for the subnet. The location consists of a *Geography*, a *Region*, and a *Zone*.
 1. Enter a unique **Name**
 1. Select a **Resource group**.
@@ -76,7 +76,7 @@ Before you can create a bare metal server, you must create the VPC, and you must
 Use the following steps to order your bare metal server and necessary components. For more information about creating a bare metal server, see [Creating a bare metal server by using the UI](/docs/vpc?topic=vpc-creating-bare-metal-servers#creating-using-ui).
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
-1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Compute > Bare metal servers**.
+1. Click **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Compute > Bare metal servers**.
 1. Select the *Region* and click **Create**.
 1. Enter the information that is in Table 1.
 1. Review the configuration **Summary** and then click **Create bare metal server**.

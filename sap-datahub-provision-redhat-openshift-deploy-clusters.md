@@ -62,7 +62,7 @@ For additional information on the fields, see [Creating a classic standard clust
 
 The instructions for implementing SAP Data Hub on the {{site.data.keyword.openshiftshort}} cluster follow [SAP Data Hub 2 on OpenShift Container Platform 3](https://access.redhat.com/articles/3630111){: external}, which lays out the [jump host's requirements](https://access.redhat.com/articles/3630111#jump-server-requirements){: external}. You can either use a suitable jump server that is connected to the {{site.data.keyword.openshiftshort}} cluster in {{site.data.keyword.cloud_notm}}, or you can use the following steps to create an {{site.data.keyword.virtualmachineslong}} instance to serve as your jump host.
 
-1. Once you've confirmed that the {{site.data.keyword.openshiftshort}} cluster is building, select the **Menu icon ![Menu icon](../../icons/icon_hamburger.svg)** > **Classic Infrastructure** > **Device List**.
+1. Once you've confirmed that the {{site.data.keyword.openshiftshort}} cluster is building, select the **Menu icon ![Menu icon](../icons/icon_hamburger.svg)** > **Classic Infrastructure** > **Device List**.
 1. Click **Order devices +** -
 1. Select **Virtual Servers for Classic**.
 1. Leave the default values for **Type of virtual server**, **Quantity**, and **Billing**.
@@ -196,7 +196,7 @@ Use the following commands to download and install the CLIs you use to configure
     ibmcloud dev version 2.4.0
     ```
     {: screen}
-    
+
 1. Verify kubectl.
 
     ```

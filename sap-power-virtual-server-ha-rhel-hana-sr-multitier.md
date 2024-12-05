@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -78,7 +78,7 @@ pcs resource update SAPHana_${SID}_${INSTNO} AUTOMATED_REGISTER=false
    {: note}
 
 1. To add the connections to your transit gateway to establish network connectivity between your IBM {{site.data.keyword.powerSys_notm}}, open [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left and click **Interconnectivity**.
+1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg) on the upper left and click **Interconnectivity**.
 1. Click **Transit Gateway** on the left navigation pane.
 1. Select the name of your transit gateway.
 

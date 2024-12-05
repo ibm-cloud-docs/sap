@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -48,7 +48,7 @@ Review the following prerequisites.
    * {{site.data.keyword.cos_short}} HMAC access key
    * {{site.data.keyword.cos_short}} HMAC secret access key
 
-   For more information about configuring API access in IBM Cloud Object Storage [Getting started with IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage) and [Service credentials](/docs/cloud-object-storage?topic=cloud-object-storage-service-credentia).
+   For more information about configuring API access in IBM Cloud Object Storage [Getting started with IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage) and [Service credentials](/docs/cloud-object-storage?topic=cloud-object-storage-service-credentials).
 
 4. Choose a Linux operating system for your deployments. We recommend that you use the same OS release for all the hosts in the environment. When you use the same operating system version and release, it simplifies the operations management of the whole landscape. In this tutorial, Linux is used on all management components that run in your landscape. SAP solutions can run on Linux or on AIX.
 5. Read [OS for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-power) to learn about supported operating systems for SAP workloads on {{site.data.keyword.powerSysShort}}.
