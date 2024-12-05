@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-10-28"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -19,7 +19,7 @@ A Red Hat Customer Portal ID is required to access Knowledge Base articles and a
 ## General requirements
 {: #ha-rhel-refs-requirements}
 
-- An [IBM Cloud](https://cloud.ibm.com/docs/account?topic=account-account-getting-started){: external} account
+- An [IBM Cloud](/docs/account?topic=account-account-getting-started){: external} account
 - An [SAP for Me](https://me.sap.com/home/product){: external} account
 - A [Red Hat Customer Portal](https://access.redhat.com/){: external} account
 

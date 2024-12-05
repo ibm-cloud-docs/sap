@@ -43,7 +43,7 @@ For more information, see [Managing {{site.data.keyword.IBM_notm}} {{site.data.k
 
 With data centers across North and South America, Europe, Asia, and Australia, you can provision cloud resources where (and when) you need them. You can choose from many regions globally, and each region has multiple data centers. Each data center is connected to the {{site.data.keyword.cloud_notm}} global private network, making data transfers faster and more efficient anywhere in the world.
 
-For more information about {{site.data.keyword.cloud_notm}} availability zones, data centers, and points of presence (PoPs), see the [global regions and availability zones and data centers map](https://www.ibm.com/cloud/data-centers/#datacentermap){: external}.
+For more information about {{site.data.keyword.cloud_notm}} availability zones, data centers, and points of presence (PoPs), see the [global regions and availability zones and data centers map](https://www.ibm.com/cloud/data-centers){: external}.
 
 ## Networking
 {: #classic-env-networking}
@@ -107,7 +107,7 @@ When multiple network interfaces are used, two performance increases are possibl
 - Traffic segregation using two networks, then isolating high volumes of traffic to a specific network which avoids a single network becoming a bottleneck. For example, a network for storage I/O only
 
 By default, your server has a Primary Public IP address and Primary Private IP address. If you want your server to be private, you can turn off the public interface by either:
-* Ordering your server as private-only 
+* Ordering your server as private-only
 * Using the console or the OS after the server is provisioned
 
 Alternatively, the server can be attached to a public VLAN and private VLAN that is associated with a Gateway Appliance. In this arrangement, the server has a DMZ with a public network facing VLAN and private network facing VLAN.
@@ -163,7 +163,7 @@ Access to the resources on the {{site.data.keyword.cloud_notm}} Classic Infrastr
 
 These connectivity options can provide you with a higher bandwidth, which help you in transferring larger amounts of data into an {{site.data.keyword.cloud_notm}} data center.
 
-It is advised that your networking department contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) after you determine the layout of your landscape and the connectivity that is required on the SAP application layer.
+It is advised that your networking department contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) after you determine the layout of your landscape and the connectivity that is required on the SAP application layer.
 {: note}
 
 
@@ -190,7 +190,7 @@ IOPS are measured based on 16 KB block size with a 50/50 read/write mix. To achi
 
 Storage volumes differ in performance, depending on their IOPS tier (see [Tiered IOPS profiles](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-block-storage-profiles-gen1#tiers-gen1) or selecting a [custom size](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-block-storage-profiles-gen1#custom-gen1) (in GB and IOPS) that is based on the size of the storage.
 
-If you need more than the initially provisioned storage in your virtual server, you can attach extra volumes to a virtual server later. Contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
+If you need more than the initially provisioned storage in your virtual server, you can attach extra volumes to a virtual server later. Contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
 
 For more information, see [Getting started with {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-getting-started#getting-started) and [Getting started with {{site.data.keyword.filestorage_full_notm}}](/docs/FileStorage?topic=FileStorage-getting-started#getting-started).
 

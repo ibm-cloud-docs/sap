@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -66,14 +66,14 @@ It is often a business preference to Bring-your-own Subnet/CIDR/IP address range
 
 When using VPC Infrastructure, it is possible to define and use your own subnet. See [VPC - Bring your own subnet](/docs/vpc?topic=vpc-configuring-address-prefixes).
 
-This changes depending on whether [RFC 1918](https://tools.ietf.org/html/rfc1918){: external} IANA reserved IPv4 private network address spaces are in use, because any IP Address within these ranges is considered non-routable. These addresses are not unique on the Internet as they could be used by any private network without any coordination with IANA or an Internet registry, so these addresses are only unique within a private network. These IPv4 private network address spaces are:
+This changes depending on whether [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918){: external} IANA reserved IPv4 private network address spaces are in use, because any IP Address within these ranges is considered non-routable. These addresses are not unique on the Internet as they could be used by any private network without any coordination with IANA or an Internet registry, so these addresses are only unique within a private network. These IPv4 private network address spaces are:
 - Class A - 10.0.0.0/8
 - Class B - 172.16.0.0/12
 - Class C - 192.168.0.0/16
 
-If you use a bring-your-own subnet range **which is** defined under [RFC 1918](https://tools.ietf.org/html/rfc1918){: external} IANA reserved IPv4 private network address spaces, then connectivity to an existing internal network is possible when using any VPC functions (for example, Public Gateway or Floating IPs).
+If you use a bring-your-own subnet range **which is** defined under [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918){: external} IANA reserved IPv4 private network address spaces, then connectivity to an existing internal network is possible when using any VPC functions (for example, Public Gateway or Floating IPs).
 
-It is not supported to use a bring-your-own subnet range **not** defined under [RFC 1918](https://tools.ietf.org/html/rfc1918){: external} IANA reserved IPv4 private network address spaces because this would not permit connectivity to an existing internal network when used with a Public Gateway (PGW) and Floating IPs.
+It is not supported to use a bring-your-own subnet range **not** defined under [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918){: external} IANA reserved IPv4 private network address spaces because this would not permit connectivity to an existing internal network when used with a Public Gateway (PGW) and Floating IPs.
 
 #### Classic Infrastructure with VMware
 {: #network-connectivity-byo-classic-vmware}
@@ -121,10 +121,10 @@ However, in the simplest scenario there might be one private network for all pur
 Depending on your operating system, SAP workload, and network connectivity, you might need to configure access to many more SAP and non-SAP systems. The following is a list of various management systems that your SAP workloads might require to operate:
 
 * OS packages update server, with the different subscription channels of the OS packages for SAP HANA and SAP NetWeaver.
-    * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers. To avoid a common issue that occurs when you use the AIX NIM service handler, see [Using the NIM service handler](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-nim_service_handler).
+    * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers. To avoid a common issue that occurs when you use the AIX NIM service handler, see [Using the NIM service handler](/docs/sap?topic=sap-quickstudy-nw-power-vs-aix#nim_service_handler).
 * Software and patches download server. When the software is downloaded onto the server, you can use various protocols to transfer the files such as SCP or SFTP to transfer the software to the target server for installation.
 * Time server (NTP), using NTP on {{site.data.keyword.cloud_notm}} private backbone, public internet NTP or private NTP host.
-    * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, see [Configuring the NTP client](/docs/sap?topic=sap-power-vs-sles-hana#power-vs-sles-hana-ntp_time_server) (Linux) or [Configuring the NTP client](/docs/sap?topic=sap-power-vs-aix-nw#power-vs-aix-nw-ntp_time_server_netweaver) (AIX).
+    * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, see [Configuring the NTP client](/docs/sap?topic=sap-quickstudy-hana-power-vs-sles#ntp_time_server_hana) (Linux) or [Configuring the NTP client](/docs/sap?topic=sap-quickstudy-nw-power-vs-aix#ntp_time_server_netweaver) (AIX).
 * Gateway (and Proxy) and Firewall hosts
 * Bastion/Jump host. Enables secured pass-through to your Cloud resources from public internet or other network access; often this uses tightly secured SSH on a non-default port.
 * Jump host that is enabled with VNC or RDP. Enables GUI access to a target machine (if GUI and VNC or RDP is installed on the target).
@@ -147,7 +147,7 @@ The following are specific configuration items that you need consideration when 
 *	[SAP Transport Management System (STMS also known as. TMS)](https://help.sap.com/docs/r/4a368c163b08418890a406d413933ba7/latest/en-US/44b4a0137acc11d1899e0000e829fbbd.html){: external}. Configure STMS based on Transport Groups to prevent file sharing across data centers.
 *	[SAProuter](https://support.sap.com/en/tools/connectivity-tools/saprouter.html){: external}. Provides access to SAP Online Service System (OSS). Use your on-premises SAProuter to access the OSS. This SAProuter can be used through further SAProuter hops if IP-based routing is not allowed between your {{site.data.keyword.cloud_notm}}-based systems and your on-premises SAProuter. Alternatively, you might consider setting up another SAProuter that is based on one {{site.data.keyword.cloud_notm}}-based server with a public IP and connect it to the SAP OSS system through the internet.
 *	[SAP Solution Manager](https://support.sap.com/en/alm/solution-manager.html){: external}. Access to the SAP Solution Manager has different connectivity requirements between an SAP Solution Manager and its managed systems. The differences depend on your usage scenario. These scenarios require an understanding of the required network connectivity.
-* If you are deploying public gateways or floating IPs, you need to look into the details of Network Address Translation (NAT) and the behavior of SAP applications. Refer to the [SAP document on NAT](https://wiki.scn.sap.com/wiki/display/ABAPConn/NAT+and+RFC){: external} to consider potential issues on the application layer, especially in the SAP Remote Function Calls (RFCs).
+* If you are deploying public gateways or floating IPs, you need to look into the details of Network Address Translation (NAT) and the behavior of SAP applications. Refer to the [SAP document on NAT](https://help.sap.com/docs/SUPPORT_CONTENT/abapconn/3354079934.html){: external} to consider potential issues on the application layer, especially in the SAP Remote Function Calls (RFCs).
 
 ## Networking consumption considerations
 {: #network-consumption}

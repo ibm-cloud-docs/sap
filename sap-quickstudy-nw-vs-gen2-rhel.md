@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -60,7 +60,7 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 {{site.data.keyword.cloud}} compute resources are kept in a global region within a VPC. Use the following steps to create a VPC and its subnet.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
-1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs** and click **New virtual private cloud** > **Create VPC for Gen 2**.
+1. Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs** and click **New virtual private cloud** > **Create VPC for Gen 2**.
 
 ![Figure 2. Creating a VPC](/images/quickstudy-intel-vs-gen2-image6.png "Creating a VPC"){: caption="Creating a VPC" caption-side="bottom"}
 
@@ -284,7 +284,7 @@ To segregate network traffic, as SAP recommends, deploy a second subnet. One net
 
 Use Figure 11 as your guide to create a new subnet named `sap-test-net2`.
 
-Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **Subnets** and click **New subnet**.
+Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **Subnets** and click **New subnet**.
 
 ![Figure 11. Create a subnet](/images/quickstudy-intel-vs-gen2-image2.png "Create a subnet"){: caption="Create a subnet" caption-side="bottom"}
 
@@ -490,7 +490,7 @@ SAP requires the installation of the {{site.data.keyword.cloud_notm}} Metrics Co
 {: #download-sap-software}
 {: step}
 
-Log in to the SAP Service Marketplace (https://support.sap.com/swdc) and download the required digital versatile discs (DVDs) to a local share drive and then transfer the DVDs to your provisioned server. Alternative option, download the SAP Software Download Manager, install it on your target server and directly download the DVD images to the server. For more information about the SAP Software Download Manager, see [http://service.sap.com](http://service.sap.com/){: external}.
+Log in to SAP for Me [Download Software](https://me.sap.com/softwarecenter) and download the required digital versatile discs (DVDs) to a local share drive and then transfer the DVDs to your provisioned server. Alternative option, download the SAP Software Download Manager, install it on your target server and directly download the DVD images to the server. For more information about the SAP Software Download Manager, see [SAP Download Manager](https://support.sap.com/en/my-support/software-downloads.html#section_995042677){: external}.
 
 You need an S-User ID and the Download Software authorization when you download the DVDs from the SAP Service Marketplace. To request an S-USer ID, see the [SAP Support Portal](https://support.sap.com/en/index.html).
 {: note}

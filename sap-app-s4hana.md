@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -32,7 +32,7 @@ SAP S/4HANA is a major release of ERP software from SAP designed to run with the
 
 SAP S/4HANA acts as the "Digital Core" for large enterprises with upgraded UX, business workflows, and technology upgrades, to enable as many extensions as possible using Cloud Native technologies.
 
-For more information, see [SAP S/4HANA](https://www.sap.com/products/s4hana-erp.html){: external}
+For more information, see [SAP S/4HANA](https://www.sap.com/products/erp/s4hana.html){: external}
 
 {{site.data.keyword.ibm_cloud_sap}} infrastructure options are certified to SAP NetWeaver application server and SAP HANA database server, which run the SAP S/4HANA business application.
 
@@ -54,7 +54,7 @@ Within each of the software operational models, multiple software deployment opt
   - SAP S/4HANA Public Cloud **Essentials (ES)** Edition, _SaaS provided by SAP along with SAP Partner subcontractors_
   - SAP S/4HANA Private Cloud, _SaaS extension of SAP HANA Enterprise Cloud (HEC) provided by SAP along with SAP Partner subcontractors_
 
-More information on the variants of SAP S/4HANA software is available from SAP. A concise explanation on the variants of SAP S/4HANA is available from SAP America, see [SAP Community Blogs - Product Information - SAP S/4HANA Cloud Deployment Options (June 17, 2019)](https://blogs.sap.com/2019/06/17/sap-s4hana-cloud-hosting-options){: external}.
+More information on the variants of SAP S/4HANA software is available from SAP. A concise explanation on the variants of SAP S/4HANA is available from SAP America, see [SAP Community Blogs - Product Information - SAP S/4HANA Cloud Deployment Options (June 17, 2019)](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-sap/sap-s-4hana-cloud-deployment-options/ba-p/13406848){: external}.
 
 Regarding SAP S/4HANA, the {{site.data.keyword.ibm_cloud_sap}} portfolio documentation refers to SAP HANA and SAP NetWeaver installations as using SAP-certified Cloud Infrastructure-as-a-Service options for running SAP S/4HANA "AnyPremise" deployment to Cloud IaaS. All further descriptions in the following sections refer to SAP S/4HANA "AnyPremise".
 {: note}
@@ -117,7 +117,7 @@ After you decide on the Cloud Tenancy model that meets your business and IT risk
 * Output of your [SAP Sizing activities](/docs/sap?topic=sap-sizing#sizing-methodology)
 * Benchmark metric "SAPS", which demonstrates the total transactional throughput of the Infrastructure
 
-More information that compares different Infrastructure types is in [Comparing the different SAP-certified IaaS offerings](/docs/sap?topic=sap-overview#iaas-offerings-compare-summary){: external} with more detail under [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings/docs/sap?topic=sap-iaas-offerings){: external}. All SAPS benchmarks are listed for each Profile under each Infrastructure type that is offered in the {{site.data.keyword.ibm_cloud_sap}} portfolio.
+More information that compares different Infrastructure types is in [Comparing the different SAP-certified IaaS offerings](/docs/sap?topic=sap-overview-sap-offerings-overview#iaas-offerings-compare-summary){: external} with more detail under [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings){: external}. All SAPS benchmarks are listed for each Profile under each Infrastructure type that is offered in the {{site.data.keyword.ibm_cloud_sap}} portfolio.
 
 ## SAP HANA considerations
 {: #s4hana-hana}

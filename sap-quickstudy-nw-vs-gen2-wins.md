@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -63,7 +63,7 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 {{site.data.keyword.cloud}} compute resources are kept in a global region within a VPC. Use the following steps to create a VPC and its subnet.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
-1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
+1. Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
 1. Click **Create**.
 1. Enter a unique **Name** for the VPC, for example, *sap-test-vpc*.
 1. Select a **Resource group**. Use resource groups to organize your account resources for access control and billing purposes. **Leave the value default**.
@@ -204,7 +204,7 @@ To quickly access the deployed instance, you can assign a _Floating IP_ to your 
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 1. Click the name of the Windows VSI - *sap-wdb*.
-1. On the Instance details page, find the **Network interfaces** section.  
+1. On the Instance details page, find the **Network interfaces** section.
 1. By default, the first interface is named *eth0*.
 1. Click the pencil icon to edit the primary network interface.
 1. On the **Edit network interface** page, locate the **Floating IP address** field. You can select **Reserve a new floating IP** or you can select an existing floating IP address.
@@ -222,11 +222,11 @@ In this tutorial, we simplify the process and use sample VSI profiles, volume an
 {: important}
 
 Depending on the database vendor you should consult their specific documentation, recommendations and best practises how to setup the file systems. You may start here.
-* [IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2) 
-* [SAP MaxDB](/docs/sap?topic=sap-anydb-ibm-maxdb) 
-* [SAP ASE](/docs/sap?topic=sap-anydb-ase) 
+* [IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2)
+* [SAP MaxDB](/docs/sap?topic=sap-anydb-sap-maxdb)
+* [SAP ASE](/docs/sap?topic=sap-anydb-sap-ase)
 
-We let `sapinst`, the SAP installation programm, care about the user management, the disk partitioning as well as folder and subfolder creations that are required for the SAP application and the RDBMS. 
+We let `sapinst`, the SAP installation programm, care about the user management, the disk partitioning as well as folder and subfolder creations that are required for the SAP application and the RDBMS.
 
 
 ### Logging in to your Windows VSI
@@ -273,7 +273,7 @@ Both VSIs have one extra attached volume and a _Floating IP_. A smaller volume i
 
 
 
-![Figure 4. Virtual server instances](/images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Virtual server instances" caption-side="bottom"} 
+![Figure 4. Virtual server instances](/images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Virtual server instances" caption-side="bottom"}
 
 ![Figure 5. Block storage volumes for VPC](/images/quickstudy-intel-vs-gen2-image15.png "Block storage volumes for VPC"){: caption="Block storage volumes for VPC" caption-side="bottom"}
 
@@ -329,7 +329,7 @@ You need an S-User ID and the Download Software authorization when you download 
 
 Depending on your target SAP application that you are going to install you need to gather information, which SAP images you will need to download. In this tutorial, we are choosing SAP NetWeaver ABAP on Windows using IBM Db2 for the SAP Database. Therefore we find in this guide  [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external} all the needed information. SAP recommends to always search for the most recent versions.
 
-Log in to the [SAP Service Marketplace](https://support.sap.com/swdc) and download the required DVD images to a local share drive and then transfer the images to your provisioned server. Alternative option, download the SAP Software Download Manager, install it on your target server and directly download the DVD images to the server. You might also consider an extra volume for keeping the SAP DVD images. For more information about the SAP Software Download Manager, see [SAP Software Download Center](https://support.sap.com/en/my-support/software-downloads.html){: external}.
+Log in to SAP for Me [Download Software](https://me.sap.com/softwarecenter) and download the required digital versatile discs (DVDs) to a local share drive and then transfer the DVDs to your provisioned server. Alternative option, download the SAP Software Download Manager, install it on your target server and directly download the DVD images to the server. For more information about the SAP Software Download Manager, see [SAP Download Manager](https://support.sap.com/en/my-support/software-downloads.html#section_995042677){: external}.
 
 ### Preparing for SAP’s Software Provisioning Manager (SWPM)
 {: #prepare-swpm-wins}

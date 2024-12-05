@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Balanced, bh1, Compute Intensive, ch1, High Memory, mh1, Ultra Memory, umh, Small, ush1, Nonproduction, np1
 
@@ -50,11 +50,11 @@ The following section provides an overview of the SAP-certified profiles with {{
 ## Custom
 {: #custom}
 
-{{site.data.keyword.IBM_notm}} Power Virtual Servers are available with fully adjustable CPU Cores and Memory (RAM GiB). When you create a virtual server instance, you can define a custom size of the {{site.data.keyword.IBM_notm}} Power Virtual Server profile to use for nonproduction SAP HANA instances, in accordance with existing SAP HANA for {{site.data.keyword.IBM_notm}} Power Systems best practices and guidance from SAP. 
+{{site.data.keyword.IBM_notm}} Power Virtual Servers are available with fully adjustable CPU Cores and Memory (RAM GiB). When you create a virtual server instance, you can define a custom size of the {{site.data.keyword.IBM_notm}} Power Virtual Server profile to use for nonproduction SAP HANA instances, in accordance with existing SAP HANA for {{site.data.keyword.IBM_notm}} Power Systems best practices and guidance from SAP.
 
 Custom profiles are for nonproduct development for testing or development use only. These profiles aren't intended for production deployments and aren't supported or certified for SAP production. You cannot use this profile to go from a nonproduction environment to a production environment.
 
-Each profile must have at least two dedicated cores. For required storage performance you should follow [Storage Guidelines for SAP HANA](/docs/sap?topic=sap-storage-design-considerations#sap-fiops-config). For more information about storage, see the **What is a Power Systems Virtual Server?** [storage tiers section](/docs/power-iaas?topic=power-iaas-about-virtual-server#storage-tiers).
+Each profile must have at least two dedicated cores. For required storage performance you should follow [Storage Guidelines for SAP HANA](/docs/sap?topic=sap-storage-design-considerations#sap-fiops-config). For more information about storage, see the **What is a Power Systems Virtual Server?** [storage tiers section](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#storage-tiers).
 
 ## Small
 {: #small}
@@ -175,7 +175,7 @@ The Virtual Server profile names are contextual and sequential. The following ta
 {: caption="Profile naming scheme for SAP HANA" caption-side="top"}
 
 
-| Directory | Purpose | 
+| Directory | Purpose |
 | --- | --- |
 | root volume | 100 GiB fixed |
 | /usr/sap | 52 GiB required in the test system |

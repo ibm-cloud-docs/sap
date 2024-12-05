@@ -16,15 +16,15 @@ Documentation repository for everything in the IBM Cloud for SAP portfolio.
 ----
 
 **Replaces the following original documentation:**
-- https://github.ibm.com/cloud-docs/sap-b1 :white_check_mark: 
-- https://github.ibm.com/cloud-docs/sap-data-hub :white_check_mark: 
-- https://github.ibm.com/cloud-docs/sap-hana :white_check_mark: 
-- https://github.ibm.com/cloud-docs/sap-hana-power :white_check_mark: 
-- https://github.ibm.com/cloud-docs/sap-iaas-offering :white_check_mark: 
-- https://github.ibm.com/cloud-docs/sap-netweaver :white_check_mark: 
-- https://github.ibm.com/cloud-docs/sap-netweaver-ms-qrg :white_check_mark: 
-- https://github.ibm.com/cloud-docs/sap-netweaver-power :white_check_mark: 
-- https://github.ibm.com/cloud-docs/sap-netweaver-rhel-qrg :white_check_mark: 
-- https://github.ibm.com/cloud-docs/sap-reference-architecture :white_check_mark: 
-- https://github.ibm.com/cloud-docs/sap-vpc :white_check_mark: 
-- https://github.ibm.com/cloud-docs/sap-vpc-hana :white_check_mark: 
+- https://github.ibm.com/cloud-docs/sap-b1 :white_check_mark:
+- https://github.ibm.com/cloud-docs/sap-data-hub :white_check_mark:
+- https://github.ibm.com/cloud-docs/sap-hana :white_check_mark:
+- https://github.ibm.com/cloud-docs/sap-hana-power :white_check_mark:
+- https://github.ibm.com/cloud-docs/sap-iaas-offering :white_check_mark:
+- https://github.ibm.com/cloud-docs/sap-netweaver :white_check_mark:
+- https://github.ibm.com/cloud-docs/sap-netweaver-ms-qrg :white_check_mark:
+- https://github.ibm.com/cloud-docs/sap-netweaver-power :white_check_mark:
+- https://github.ibm.com/cloud-docs/sap-netweaver-rhel-qrg :white_check_mark:
+- https://github.ibm.com/cloud-docs/sap-reference-architecture :white_check_mark:
+- https://github.ibm.com/cloud-docs/sap-vpc :white_check_mark:
+- https://github.ibm.com/cloud-docs/sap-vpc-hana :white_check_mark:

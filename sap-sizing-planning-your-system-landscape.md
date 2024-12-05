@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Landscape
 
@@ -85,7 +85,7 @@ If your organization is new to {{site.data.keyword.cloud_notm}}, read the follow
 ## Selecting your SAP-certified infrastructure
 {: #selecting-iaas}
 
-This expands on the introduction [Comparing the different SAP-certified IaaS offerings](/docs/sap?topic=sap-overview#iaas-offerings-compare-summary), which summarises the benefits of each different Infrastructure option.
+This expands on the introduction [Comparing the different SAP-certified IaaS offerings](/docs/sap?topic=sap-overview-sap-offerings-overview#iaas-offerings-compare-summary), which summarises the benefits of each different Infrastructure option.
 
 You are ready to define the number of host servers and size of those hosts after:
 - the business has defined their requirements
@@ -98,15 +98,15 @@ Often your first filter of the infrastructure options is minimum SAPS, which has
 Full details of the Profiles available for each Infrastructure option available through {{site.data.keyword.cloud_notm}}, were provided in the previous topic group, which lists all the IaaS Offerings available for either SAP HANA or SAP NetWeaver (and SAP AnyDB):
 
 - SAP HANA profiles
-    - [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-intel-bm)
-    - [Intel Virtual Server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc)
-    - [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-power-vs)
-    - [VMware SDDC certified profiles for SAP HANA](/docs/sap/?topic=sap-hana-iaas-offerings-profiles-vmware)
+    - [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm)
+    - [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc)
+    - [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
+    - [VMware SDDC certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vmware)
 - SAP NetWeaver profiles
-    - [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-intel-bm)
-    - [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
-    - [IBM Power Virtual Server certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-power-vs)
-    - [VMware SDDC certified profiles for SAP NetWeaver](/docs/sap/?topic=sap-nw-iaas-offerings-profiles-vmware)
+    - [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm)
+    - [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
+    - [IBM Power Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)
+    - [VMware SDDC certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vmware)
 
 ### Distributing your SAP Landscape on IBM Cloud Bare Metal and Virtual Servers
 {: #distributing-the-landscape}
@@ -135,7 +135,7 @@ To find SAP certified profiles for Cloud IaaS, see [SAP Certified and Supported 
 
 To find SAP certified {{site.data.keyword.IBM_notm}} Power Systems Hardware, see [SAP Certified and Supported SAP HANA Hardware Directory - {{site.data.keyword.IBM_notm}} Power Systems](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=power){: external}.
 
-For more information, see [Creating a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server). For information about the pricing difference between CPU types, see [Pricing for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers on {{site.data.keyword.cloud}}](/docs/power-iaas?topic=power-iaas-pricing-virtual-server). For a description of the technical differences between dedicated, shared capped, and shared uncapped CPUs, see [this FAQ](/docs/power-iaas?topic=power-iaas-power-iaas-faqs#processor).
+For more information, see [Creating a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server). For information about the pricing difference between CPU types, see [Pricing for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers on {{site.data.keyword.cloud}}](/docs/power-iaas?topic=power-iaas-pricing-virtual-server-on-cloud). For a description of the technical differences between dedicated, shared capped, and shared uncapped CPUs, see [this FAQ](/docs/power-iaas?topic=power-iaas-powervs-faqs#processor).
 
 ## Monitoring your system with SAP tools
 {: #monitoring}

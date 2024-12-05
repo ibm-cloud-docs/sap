@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, support, support case, premium support, advanced support, basic support, support page, help, SAP ONE Support
 
@@ -33,7 +33,7 @@ Which support option depends on the level of support (and urgency), and whether 
 
 Options include:
 - {{site.data.keyword.cloud_notm}} Support Case, using the [{{site.data.keyword.cloud_notm}} Support Center](https://cloud.ibm.com/unifiedsupport/supportcenter)
-- SAP support incident, using the [SAP ONE Support Launchpad](https://launchpad.support.sap.com/)
+- SAP support incident, using the [SAP for Me](https://me.sap.com)
 - {{site.data.keyword.cloud_notm}} Docs
 
 For previous users of {{site.data.keyword.cloud_notm}} Classic Infrastructure (formerly Softlayer), please be aware these Support Cases were previously termed Support Tickets.
@@ -47,7 +47,7 @@ For previous users of {{site.data.keyword.cloud_notm}} Classic Infrastructure (f
 
 Each {{site.data.keyword.cloud_notm}} account automatically comes with customer support at no cost and covers most cases which are placed each day; this is the Basic level of support.
 
-The types of available and response time of support, depends on the support level of the account. Your support plan also determines the severity level that you can assign to support cases. For more information, see [Basic, Advanced, and Premium Support plans](/docs/get-support?topic=get-support-support-plans).
+The types of available and response time of support, depends on the support level of the account. Your support plan also determines the severity level that you can assign to support cases. For more information, see [Basic, Advanced, and Premium Support plans](/docs/account?topic=account-support-plans).
 
 You can change your current support plan at any time by contacting {{site.data.keyword.cloud_notm}} sales expert.
 
@@ -81,7 +81,7 @@ Global teams provide support at the discretion of the EU support team. Global te
 
 You can specify that you want EU support for your account if the following criteria are true:
 
-* The EU Supported setting is enabled for your account by the primary user or account owner. For more information, see [Enabling the EU Supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported).
+* The EU Supported setting is enabled for your account by the primary user or account owner. For more information, see [Enabling the EU Supported setting](/docs/account?topic=account-eu-supported).
 * Your resources are in the appropriate European data center. For more information, see [Data centers](/docs/overview?topic=overview-locations#data-centers).
 * You select the EU supported case level when you open the case.
 
@@ -96,7 +96,7 @@ Enabling the EU Support setting for your account applies to all future cases tha
 
 You can also continue to create tickets through SAP Support that are related to your {{site.data.keyword.cloud_notm}} IaaS and SAP products. For more information, see [SAP Support](https://support.sap.com/en/index.html){: external} and [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://me.sap.com/notes/2414820){: external}.
 
-The [SAP ONE Support Launchpad](https://launchpad.support.sap.com){: external} provides access to task-driven support resources from SAP, available with live web chat or incidnt tickets, and the following features:
+The [SAP for Me](https://me.sap.com){: external} provides access to task-driven support resources from SAP, available with live web chat or incidnt tickets, and the following features:
 - Knowledge Base for SAP Notes
 - Incidents for connection with SAP Product Support teams
 - Software Downloads

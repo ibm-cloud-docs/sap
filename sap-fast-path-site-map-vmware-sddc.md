@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -54,8 +54,6 @@ Your enterprise IT organization can select from a variety of operating systems f
 - [OS Bring your Own Image/License for VMware SDDC](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
 
 
-Depending on your scenarios, the following information may be also relevant:
-- [SAP to VMware SDDC Migration Acceleration Program](/docs/sap?topic=sap-cloud-migration-acceleration-program)
 
 
 ## How To

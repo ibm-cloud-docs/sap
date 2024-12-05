@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-28"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -12,128 +12,165 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-
 # SAP NetWeaver design considerations
 {: #netweaver-design-considerations}
 
-It is important to carefully consider the design your SAP stack configuration, deployment, and database.
+It is important to carefully consider the configuration, deployment, and design of your SAP solution stack.
 
-With an SAP NetWeaver system, you have two deployment options:
-    * Central system, which is a single-host installation (two-tier)
-    * Distributed system, which is a multi-host installation (three-tier or multitier); this is required to achieve high-availability redundancy
+SAP NetWeaver-based systems can be deployed in two ways:
+- A central system, which is a single-host installation (two-tier)
+- A distributed system, which is a multi-host installation (three-tier); this option might be chosen for system scalability
 
-This initial deployment option decision to distribute your workload to different servers or keep the workload on one server for simplicity, has many other decisions which are taken to support the business requirements for the SAP Business Application.
+You can choose to distribute the workload across multiple servers or keep the workload on one server for simplicity, depending on your business requirements.
 
-While the deployment option impacts how SAP NetWeaver application server will operate, there are many other options which influence your server choice.
-
-## SAP System Tiering approaches
+## SAP system architecture models
 {: #network-topology-system-tiering}
 
-The SAP System Tiering approach defines the logical architecture of the SAP System or Systems.
+The architecture of SAP NetWeaver-based systems is based on a multitier client/server design that consists of three main layers: the presentation layer (user front-end), the application layer, and the database layer.
 
-At a high level, SAP System Tiering has numerous different approaches:
-- A two-tier logical architecture SAP System refers to Client and that uses one host for Application and Database.
-- A three-tier logical architecture SAP System refers to Client, Application (host 1), and Database (host 2).
-- A multitier logical architecture SAP System refers to any permeation of Client, Application, and Database where HA and DR create further separation of components to create redundancy
+Two commonly architecture models are used for deploying SAP NetWeaver-based solutions.
+- A two-tier architecture model refers to a separate presentation layer and an application and database layer.
+   Both the application and the database are installed together on a single host.
+- In the three-tier architecture model, the presentation, application, and database layers are installed on separate hosts.
+   The three-tier architecture configuration is highly scalable.
+   Multiple servers can be installed for the application layer, and in an SAP HANA scale-out implementation even for the database layer.
 
-For SAP NetWeaver (ABAP runtime) that uses two-tier or three-tier, the following components run on a single host:
-- Central Services (ASCS) = Message (MS), Enqueue (EN)
-- Primary Application Server (PAS) also known as Central Instance (CI) = ICM, Gateway (GW), ABAP Dispatcher (DI/WP)
-- Application Servers (AS) = ABAP Dispatcher (DI/WP)
+SAP NetWeaver Application Server ABAP systems consist of the following components, which can run on a single host or distributed across multiple hosts.
+- ABAP Central Services (ASCS), which includes an ABAP message server and a Standalone Enqueue Server
+- Primary Application Server (PAS), which includes an ABAP dispatcher process and ABAP work processes
+- Additional Application Servers (AAS)
 
-When you create a high-availability environment for SAP Netweaver, spit each of these components out across different hosts:
-- Central Services (ASCS) = Message (MS), Enqueue (EN)
-- Primary Application Server (PAS) also known as Central Instance (CI) = ICM, Gateway (GW), ABAP Dispatcher (DI/WP)
-- Enqueue Replication Server Instance (ERS) = Enqueue (EN) with Replication Table (of the ASCS EN Lock Table)
-- Additional Application Servers (AAS) = ABAP Dispatcher (DI/WP)
+Since SAP NetWeaver release 7.5, the term PAS refers to the SAP application server that is installed first for the system.
+The architecture of the PAS and the other application servers is the same (see [SAP Note 2360614 - Primary Application Server (PAS) Instance Directory renamed as of SAP Netweaver 7.50](https://me.sap.com/notes/2360614){: external}).
+In previous releases, the ASCS services were integrated into the PAS instance and such instances were commonly referred to as the Central Instance.
+{: note}
 
-## High-availability configuration for SAP NetWeaver
+To create a high availability environment for SAP NetWeaver-based systems, distribute each of these components on separate hosts.
+- Database server
+- ABAP Central Services (ASCS)
+- Enqueue Replication Server (ERS), which provides extra protection for the ASCS lock table
+- PAS
+- AAS
+
+## Configuring high availability for SAP NetWeaver
 {: #netweaver-ha}
 
-The {{site.data.keyword.cloud_notm}} environment does not support any preconfigured high-availability (HA) scenarios. However, you can configure HA scenarios based on the HA extension for the operating system you choose. You add the HA extension by adding the required hardware and the required software components to your landscapes. If you require additional software licenses, access to different software repositories, or both contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) to help you with setting up any additional requirements.
+{{site.data.keyword.cloud_notm}} provides automation for implementing selected high availability scenarios for SAP NetWeaver-based or S/4HANA deployments in {{site.data.keyword.cloud_notm}} VPC.
 
-This configuration information applies to HA software for SAP NetWeaver and to the HA software for the relational database management system (RDBMS) you choose. For example, the replication portion of your high-availability and disaster-recovery mechanisms for your RDBMS. Setup procedures do not differ from any setup procedures in an on-premises environment and require the same hardware and software configuration steps.
+For details on available scenarios with automated deployment in {{site.data.keyword.cloud_notm}} VPC, see the following information.
+- [SAP S/4HANA HA deployment on IBM Cloud VPC](/docs/sap?topic=sap-automate-sap-ha-deployment-overview).
 
-### Overview of SAP NetWeaver high-availability configurations
+
+
+Other high availability scenarios that aren't covered by the existing automation can be implemented based on the high availability solution available for your chosen operating system.
+
+For a high availability configuration, you need to add extra hardware and software components to your landscape.
+
+If you require extra software licenses, access to different software repositories, or both, contact [{{site.data.keyword.cloud_notm}} support](/docs/account?topic=account-using-avatar#getting-support) for assistance.
+
+This configuration information applies to both the high availability software for SAP NetWeaver and the high availability software for your chosen relational database management system (RDBMS).
+The setup procedures are no different from the setup procedures in an on-premises environment and require similar hardware and software configuration steps.
+
+### Overview of SAP NetWeaver high availability configurations
 {: #netweaver-ha-overview-configs}
 
-Numerous documents provide in-depth help on planning and installing an HA environment for SAP services. The documents include information on failover, replication, scale-out, and disaster recovery (DR). References to specific documents are provided where appropriate.
+A number of documents provide in-depth help on planning and installing an HA environment for SAP services.
+The documents include information on failover, replication, scale-out, and disaster recovery (DR).
+References to specific documents are provided where appropriate.
 
-All the operating systems and distributions that are supported by {{site.data.keyword.cloud_notm}} for an SAP deployment (Windows Server, RHEL, and SLES) come with high-availability software and specific extensions. The supported OS and distributions are described in these documents:
+All operating systems and distributions that are supported by {{site.data.keyword.cloud_notm}} for an SAP solution deployment (Windows Server, Red Hat Enterprise Linux, and SUSE Linux Enterprise Server) come with high availability software and specific extensions.
+The supported operating systems and distributions are described in these documents:
 
-* [New Failover Clustering Improvements in Windows Server 2012 and Its Benefits for SAP NetWeaver High Availability](https://blogs.sap.com/2013/10/16/new-failover-clustering-improvements-in-windows-server-2012-and-its-benefits-for-sap-netweaver-high-availability/){: external} provides a description based on Microsoft Windows Server Failover Clustering (WFSC) on the Windows OS with SAP NetWeaver.
+- [New Failover Clustering Improvements in Windows Server 2012 and Its Benefits for SAP NetWeaver High Availability](https://blogs.sap.com/2013/10/16/new-failover-clustering-improvements-in-windows-server-2012-and-its-benefits-for-sap-netweaver-high-availability/){: external} provides a description based on Microsoft Windows Server Failover Clustering (WFSC) for SAP NetWeaver implementations.
+- The following documents provide guidance on deploying SAP NetWeaver in a high availability Linux environment.
+   - [Supported High Availability Solutions by SLES for SAP Applications](https://documentation.suse.com/sles-sap/sap-ha-support/html/sap-ha-support/article-sap-ha-support.html){: external}
+   - [Red Hat HA Solutions for SAP HANA, S/4HANA and NetWeaver based SAP Applications](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index){: external}
+   - [Building High Availability for SAP NetWeaver and SAP HANA on Linux](https://support.sap.com/content/dam/SAAP/SAP_Activate/AGS_70.pdf){: external} is an SAP best practice document and provides a detailed technical description with a strong focus on SAP HANA.
 
-* Two references for guidance on deploying SAP NetWeaver in a Linux-based HA environment with Linux&reg; Pacemaker are:
-    * SUSE SAP NetWeaver High Availability Cluster 7.40 Setup Guide
-    * Deploying Highly Available SAP NetWeaver-based Servers Using Red Hat Enterprise Linux HA add-on with Pacemaker
 
-* [Building High Availability for SAP NetWeaver and SAP HANA on Linux](https://support.sap.com/content/dam/SAAP/SAP_Activate/AGS_70.pdf){: external} is an SAP best-practice document and provides an in-depth technical description with a strong focus on SAP HANA.
+For more high availability products certified by SAP partners under the SAP Application Server High Availability Interface Certification Program, see [SAP High Availability - Certified HA-Interface Partners](https://help.sap.com/docs/SUPPORT_CONTENT/si/3362959202.html){: external}
 
-* [SAP NetWeaver High Availability and Business Continuity in Virtual Environments with VMware and Hyper-V on Microsoft Windows](https://archive.sap.com/documents/docs/DOC-44415){: external} covers the virtualization aspects if you’re planning to implement HA on virtualized servers.
+For databases other than SAP HANA, refer to the documentation for your database for more information on high availability and disaster recovery configurations.
 
-For more high-availability products certified by SAP partners for high-availability scenarios, see [High Availability Partner Information](https://wiki.scn.sap.com/wiki/display/SI/High+Availability+Partner+Information){: external}.
+Shared access to one of these storage elements is required to support the failover of high availability systems:
+- Network File System (NFS); _on-premises deployments can also use Common Internet File System (CIFS) storage_
+- iSCSI-based storage
 
-For non-HANA SAP databases, more information on HA fail-over and DR configurations, is available in your database documentation.
+Local storage that is combined with a replication method is required to support DR system failover.
 
-Supporting HA system failover usually requires shared access to either:
-* Network File System (NFS) protocol and filesystem; _in on-premises deployments may also use Common Internet File System (CIFS) storage_
-* iSCSI-based logical unique number storage (LUNS)
+As with on-premises installations, consider the performance and latency requirements of the database product as part of your deployment planning.
 
-Supporting DR system failover usually requires Local storage that is combined with a replication method.
-
-As with on-premises installations, check the performance and latency requirements of the database product when you plan your deployment.
-
-### Configure high availability in Classic Infrastructure
+### Configuring high availability in Classic Infrastructure
 {: #netweaver-ha-classic}
 
-The {{site.data.keyword.cloud}} environment does not support any pre-configured high-availability (HA) scenarios for SAP. However, you can configure HA scenarios based on the HA extension for the operating system you choose.
-{: shortdesc}
+The {{site.data.keyword.cloud_notm}} environment does not offer pre-configured high availability deployments for SAP solutions.
+However, you can configure high availability scenarios based on the high availability solution that is available for your chosen operating system.
 
-[HA and storage fencing considerations](#netweaver-ha-storage-fencing) and [HA and network considerations](#netweaver-ha-network) provide lists of things that you need to consider during your deployment. Apart from the considerations outlined here, installing SAP NetWeaver and its database system in an HA environment doesn’t differ from other on-premises installations.
+See [High availability and fencing considerations](#netweaver-ha-fencing) and [High availability and network considerations](#netweaver-ha-network) for lists of things that you need to consider for your deployment.
+Apart from these considerations, configuring high availability for SAP NetWeaver and its database doesn't differ from other on-premises installations.
 
-#### HA and storage fencing (that is, Quorum-based) considerations
-{: #netweaver-ha-storage-fencing}
+#### High availability and fencing considerations
+{: #netweaver-ha-fencing}
 
-Cluster environments typically use IPMI-based components for the “fencing of cluster nodes” to ensure a quorum. Due to enterprise security in the {{site.data.keyword.cloud_notm}} Classic Infrastructure environment, network-based access to remote management devices through the Intelligent Platform Management Interface (IPMI) isn’t available. Although IPMI is still used to manage the physical device if necessary.
+To protect the integrity of shared resources in a high availability cluster, a fencing mechanism is required to isolate failing cluster nodes.
+Intel processor-based clusters often use an Intelligent Platform Management Interface (IPMI) feature for fencing.
+Due to the enterprise security implementation in the {{site.data.keyword.cloud_notm}} Classic Infrastructure environment, network-based access to remote management devices by using IPMI isn't available.
 
-In the absence of an IPMI-enabled device, shared storage devices are used.
+In the absence of an IPMI-enabled device, fencing mechanisms based on shared storage devices are used.
+In an {{site.data.keyword.cloud_notm}} environment, shared storage devices are typically implemented by providing an iSCSI LUN to your servers.
 
-In an {{site.data.keyword.cloud_notm}} environment, shared storage devices are implemented by deploying an iSCSI LUN to your servers as a quorum device.
+For example, a File Share Witness (FSW) can be used on a Microsoft Windows cluster.
+See [Managing quorum and witnesses](https://learn.microsoft.com/en-us/windows-server/failover-clustering/manage-cluster-quorum){: external} for information on configuring and managing quorum in Windows Server based deployments.
 
-For example, a File Share Witness (FSW) on a Microsoft Cluster, and for storage-based death (SDB) for Linux Pacemaker's Stonith.
-* Click [here](http://www.linux-ha.org/wiki/Cluster_Concepts){: external} for more information on Linux High Availability Cluster Concepts.
-* Click [here](https://docs.microsoft.com/en-us/windows-server/failover-clustering/manage-cluster-quorum){: external} for more information on configuring and managing quorum servers for Windows Server 2012 and Windows Server 2012 R2.
+Linux-based clusters can use an SBD (Storage-Based Death or STONIT Block Device) based implementation for fencing.
+For more information on cluster fencing and SBD, see [Pacemaker Explained - Fencing](https://clusterlabs.org/projects/pacemaker/doc/2.1/Pacemaker_Explained/singlehtml/index.html#document-fencing){: external} and [Using SBD With Pacemaker](https://projects.clusterlabs.org/w/fencing/using_sbd_with_pacemaker/){: external}.
 
-{{site.data.keyword.cloud_notm}} Block Storage has built-in HA capabilities, so a single shared iSCSI LUN does not introduce a Single Point Of Failure (SPOF) because your network layout is redundant. However, the specifics of your cluster product might require multiple quorum devices.
+{{site.data.keyword.cloud_notm}} block storage has built-in high availability features.
+A single shared iSCSI LUN does not introduce a single point of failure (SPOF) as the network layout is redundant.
+However, a specific cluster solution might require more than one shared device.
 
-#### HA and network considerations
+#### High availability and network considerations
 {: #netweaver-ha-network}
 
 An {{site.data.keyword.cloud_notm}} Classic Infrastructure environment-based installation comes with one of the following network configurations:
-* Private network
-* Public network
-* Public and private networks
-* Two private networks (on special request, dependent on the server type and physical hardware components configuration)
+- Private network
+- Public network
+- Public and private networks
+- Two private networks (on special request, depending on server type and physical hardware components configuration)
 
-Like on-premises installations, extra network adapters can be ordered depending on the physical restrictions of the hardware. The restriction is the same for on-premises installations, how many NIC cards can fit into the Bare Metal.
+As with on-premises installations, extra network adapters can be ordered depending on the physical restrictions of the hardware.
+The restriction is the same as for on-premises installations, which is the number of NIC cards that can fit into the server.
 
-Ordering redundant network adapters during hardware deployments helps prevent single point of failures (SPOF) across your network topology.
+When deploying server hardware, avoid single points of failure in your network topology by ordering redundant network adapters.
 
-Redundant adapters for Bare Metals are set up in a failover configuration with Link Aggregation Control Protocol (LACP). For Linux, the setup uses bonding interfaces, and teaming adapters are used for Microsoft Windows. This creates a logical interface for redundancy and increased bandwidth.
+Redundant adapters for bare metal servers are set up in a failover configuration by using Link Aggregation Control Protocol (LACP).
+Bonding interfaces are used for Linux and teaming adapters are used for Microsoft Windows.
+These setups provide a logical interface for redundancy and increased bandwidth.
 
-When using IBM Cloud for VMware Solutions, redundant adapters for VMware are set up by the VMware vSphere Distributed Switch (VDS) using either [VDS on NSX-V](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-nsx-v-design#nsx-v-design-distr-switch) or [VDS on NSX-T](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-nsx-t-design#nsx-t-design-distr-switch), in accordance with current VMware best practices for SDDC. While subject to change, redundancy is configured by setting every Distributed Switch with the [Route Based on Originating Virtual Port](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-959E1CFE-2AE4-4A67-B4D4-2D2E13765715.html) load balancing algorithm, with all contained Port Groups using Teaming across 2 uplinks (Active: 0,1). When using IBM Bare Metal with VMware vSphere for a manual installation using vSwitch, LACP bonding of the physical NIC adapters could be used. This configuration choice depends on the need for increased throughput (e.g. bonding) versus redundant stability (e.g. load balancing with teaming).
+When you deploy IBM Cloud for VMware Solutions, redundant adapters for VMware are set up using an NSX-T distributed switch.
+This is in line with current VMware best practices for the _Software-Defined Data Center_ (see [VMware NSX-T design](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-nsx-t-design)).
+Although subject to change, redundancy is configured by setting each _Distributed Switch_ to use the [Route Based on Originating Virtual Port](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-959E1CFE-2AE4-4A67-B4D4-2D2E13765715.html) load balancing algorithm.
+All included port groups use teaming over 2 uplinks (active: 0,1).
 
-The NIC adapters are connected to redundant switches on, so no additional SPOFs are introduced. The redundant infrastructure can be used by the ordered VLANs.
+If you are deploying VMware vSphere on IBM Bare Metal in a manual installation that uses vSwitch, you can use LACP bonding of the physical NIC adapters.
+This configuration choice depends on the need for increased throughput (for example bonding) versus redundant stability (for example load balancing with teaming).
 
-For some network requirements, such as DR setup replication scenarios, you must check the location of the connected devices and any new network requirements specific to the software/application in question. In some cases, the {{site.data.keyword.cloud_notm}} Classic Infrastructure's File or Block Storage with snapshot backups might fulfill your requirements. Check with {{site.data.keyword.cloud_notm}} Support to determine which solution works best for your business needs.
+The NIC adapters are connected to redundant switches, so no additional single point of failures is introduced.
+The redundant infrastructure can be used by the ordered VLANs.
 
-### Configure high availability for IBM Power Infrastructure
+For some network requirements, such as disaster recovery replication scenarios, you need to consider the location of the connected devices and any new network requirements specific to the scenario.
+Sometimes, the {{site.data.keyword.cloud_notm}} Classic Infrastructure's file or block storage with snapshot backups might fulfill your requirements.
+Check with {{site.data.keyword.cloud_notm}} Support to determine which solution is best for your business needs.
+
+### Configuring high availability in {{site.data.keyword.cloud_notm}} VPC
+{: #netweaver-ha-vpc}
+
+Review the documentation on automated high availability deployment at [SAP S/4HANA HA deployment on IBM Cloud VPC](/docs/sap?topic=sap-automate-sap-ha-deployment-overview).
+
+For scenarios that are not covered by automation, or where the available automation doesn't fit, you can always implement a high availability solution manually.
+In this case, the same information applies as in [Configuring high availability in Classic Infrastructure](#netweaver-ha-classic).
+
+### Configuring high availability for IBM {{site.data.keyword.powerSys_notm}}
 {: #netweaver-ha-power}
 
-This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services.
-{: note}
-
-The {{site.data.keyword.cloud}} environment does not support any pre-configured high-availability (HA) scenarios for SAP. However, you can configure HA scenarios based on the HA extension for the operating system you choose.
-{: shortdesc}
-
-You add the HA extension by adding the required hardware and the required software components to your landscapes. If you require more software licenses, access to different software repositories, or both, contact [{{site.data.keyword.cloud_notm}} Support](/docs/get-support?topic=get-support-using-avatar#getting-support) to help you with setting up any additional requirements. In general, setup procedures do not differ from any setup procedures in an on-premises environment and require the same hardware and software configuration steps. For specific instructions on how to set up HA for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, see [High Availability and Disaster Recover options in {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-ha-dr).
+To implement high availability scenarios for SAP applications on IBM {{site.data.keyword.powerSys_notm}}, see [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview){: external}.

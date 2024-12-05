@@ -35,12 +35,12 @@ SAP Data Intelligence allows you to connect a wide range of systems and componen
 To be sure the connections between systems and components meet the requirements, we strongly recommend to combine planning of the SAP Data Intelligence network layout with planning the systems you want to connect. Planning both aspects jointly ensures that network communication is possible for the required protocols (i.e. required firewall rules, DMZ setups, and so on).
 
 For an enhanced security, we recommend using:
-*  Properly encrypted communication for all channels, in particular leveraging transport layer security (TLS). 
-*  A common certificate authority (CA) that can be imported as a trusted source in the various components. 
+*  Properly encrypted communication for all channels, in particular leveraging transport layer security (TLS).
+*  A common certificate authority (CA) that can be imported as a trusted source in the various components.
 
 For more information, see the [Administration Guide for SAP Data Intelligence](https://help.sap.com/viewer/b13b5722c8ff4bf9bb097251310031d0/latest/en-US/884ffcd587784ed2a311b2c19feb8410.html){: external}.
 
-For productive setups, we recommend preparing the required SSL certificates using the preferred tools. For non-productive setups, note that the SAP Data Intelligence installer can generate self-signed certificates. 
+For productive setups, we recommend preparing the required SSL certificates using the preferred tools. For non-productive setups, note that the SAP Data Intelligence installer can generate self-signed certificates.
 
 ## Red Hat OpenShift Cluster Storage
 {: #rhos-di-storage}
@@ -51,7 +51,7 @@ SAP Data Intelligence requires access to persistent storage that is attached to 
 {: #rhos-di-prereq}
 
 To be able to access the required installation binaries and authorizations to install SAP Data Intelligence
-* You need an SAP S-user ID and Download Authorization for login to the [SAP ONE Support Launchpad](https://launchpad.support.sap.com){: external}.
+* You need an SAP S-user ID and Download Authorization for login to the [SAP for Me](https://me.sap.com){: external}.
 * You need a Red Hat account for login to the [Red Hat Registry Service Accounts](https://access.redhat.com/terms-based-registry/){: external}.
 
 ### Next Step

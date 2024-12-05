@@ -24,7 +24,7 @@ subcollection: sap
 
 The {{site.data.keyword.cloud_notm}} account requires a unique log-in ID, which is an {{site.data.keyword.IBM_notm}}id.
 
-An {{site.data.keyword.cloud_notm}} account is set up by using the [{{site.data.keyword.cloud_notm}} console](/docs/sap?topic=overview-ui) where:
+An {{site.data.keyword.cloud_notm}} account is set up by using the [{{site.data.keyword.cloud_notm}} console](/docs/overview?topic=overview-ui) where:
 - Identity and Access Management (IAM) is used for adding new users to the account and controlling the access privileges (API Keys, Access Groups, Roles, and Authorizations) for those users, for example which users can provision resources
 - Billing and Usage is used to monitor and forecast consumption costs, review billing invoices, and control payments (including any discounts or promotions)
 - Account resources structure, which is used in tandem with IAM to control how your workloads are organized and run (for example, Resource Groups, custom Dashboards). This includes advanced features that determine how your IBM Cloud account functions such as EU Support, HIPAA Support, private network Cloud services endpoints, and routing (that is, VRF) and other items

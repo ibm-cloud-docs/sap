@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -44,7 +44,7 @@ Before you start deploying the {{site.data.keyword.IBM_notm}} Db2 software, ensu
 ### Documentation of IBM Db2 for SAP
 {: #anydb-ibm-db2-documentation}
 
-A good place to start is the [SAP community page for IBM Db2](https://community.sap.com/topics/db2-for-linux-unix-windows){: external}.
+A good place to start is the [SAP community page for IBM Db2](https://pages.community.sap.com/topics/db2-for-linux-unix-windows){: external}.
 
 {{site.data.keyword.IBM_notm}} Db2 support on SAP-certified Cloud IaaS:
 - [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.5.0/com.ibm.db2.luw.licensing.doc/doc/r_suprt_db2_pblik_clouds.html){: external}
@@ -56,13 +56,13 @@ A good place to start is the [SAP community page for IBM Db2](https://community.
 - [General IBM Db2 prerequisites on UNIX and Linux&reg;](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.server.doc/doc/c0059823.html){: external}
 
 {{site.data.keyword.IBM_notm}} Db2 and SAP NetWeaver on UNIX/Linux:
-- [Installation of SAP Systems based on the Application Server **ABAP** of SAP NetWeaver 7.1 to 7.52 on UNIX: IBM Db2 LUW](https://help.sap.com/viewer/ce9e270ad34949969c16d09d1b099a26/CURRENT_VERSION/en-US){: external}
-- [Installation of SAP Systems based on the Application Server **Java** of SAP NetWeaver 7.1 to 7.5 on UNIX: IBM Db2 LUW](https://help.sap.com/viewer/e85af73ba3324e29834015d03d8eea84/CURRENT_VERSION/en-US){: external}
+- [Installation of SAP Systems based on the Application Server **ABAP** of SAP NetWeaver 7.1 to 7.52 on UNIX: IBM Db2 LUW](https://help.sap.com/docs/SLTOOLSET/ce9e270ad34949969c16d09d1b099a26/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}
+- [Installation of SAP Systems based on the Application Server **Java** of SAP NetWeaver 7.1 to 7.5 on UNIX: IBM Db2 LUW](https://help.sap.com/docs/SLTOOLSET/e85af73ba3324e29834015d03d8eea84/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}
 - [SAP Note 1707361 - Inst. Systems based on NW 7.1 and Higher: UNIX Db2 for LUW](https://me.sap.com/notes/1707361){: external}
 
 {{site.data.keyword.IBM_notm}} Db2 and SAP NetWeaver on Windows:
-- [Installation of SAP Systems based on the Application Server **ABAP** of SAP NetWeaver 7.1 to 7.52 on Windows: IBM Db2 LUW](https://help.sap.com/viewer/77e3a615f633437e9c4549891bb6bad7/CURRENT_VERSION/en-US){: external}
-- [Installation of SAP Systems based on the Application Server **Java** of SAP NetWeaver 7.1 to 7.5 on Windows: IBM Db2 LUW](https://help.sap.com/viewer/d65d4f66e8c34555ad9541734f9cd5b0/CURRENT_VERSION/en-US){: external}
+- [Installation of SAP Systems based on the Application Server **ABAP** of SAP NetWeaver 7.1 to 7.52 on Windows: IBM Db2 LUW](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}
+- [Installation of SAP Systems based on the Application Server **Java** of SAP NetWeaver 7.1 to 7.5 on Windows: IBM Db2 LUW](https://help.sap.com/docs/SLTOOLSET/d65d4f66e8c34555ad9541734f9cd5b0/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}
 - [SAP Note 1707362 - Inst. Systems based on NW 7.1 and Higher: Windows Db2 LUW](https://me.sap.com/notes/1707362){: external}
 
 In the {{site.data.keyword.IBM_notm}} Knowledge Center for Db2, the documentation links provided refer to specific pages on an {{site.data.keyword.IBM_notm}} Db2 version. You can switch to the correct version by clicking the "Change version or product" in the upper left area of the {{site.data.keyword.IBM_notm}} Knowledge Center.
@@ -106,7 +106,7 @@ When you use {{site.data.keyword.IBM_notm}} Db2 columnar organized tables, also 
 The following information describes the File Systems that are required for {{site.data.keyword.IBM_notm}} Db2 with SAP NetWeaver:
 
 - [Recommended file system types for Db2](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/r0056470.html){: external}
-- [Required file systems for {{site.data.keyword.IBM_notm}} Db2 with SAP NetWeaver ABAP (example is for Unix/Linux)](https://help.sap.com/viewer/ce9e270ad34949969c16d09d1b099a26/CURRENT_VERSION/en-US/713eb64f45c6448c8dbe8a51b85680ee.html){: external}
+- [Required file systems for {{site.data.keyword.IBM_notm}} Db2 with SAP NetWeaver ABAP (example is for Unix/Linux)](https://help.sap.com/docs/SLTOOLSET/ce9e270ad34949969c16d09d1b099a26/713eb64f45c6448c8dbe8a51b85680ee.html?version=CURRENT_VERSION){: external}
 
 ### SWPM and IBM Db2 port conflict
 {: #anydb-ibm-db2-infrastructure-swpm-port}
@@ -135,4 +135,4 @@ ads-c           5913/tcp                # Automatic Dependent Surveillance
 ### SAP Business Warehouse with IBM Db2
 {: #anydb-ibm-db2-app-bw}
 
-When Using SAP Business Warehouse with the DB2 Database Partitioning Feature, a stable and fast network connections need to be established between all hosts in the Db2 DPF cluster. For details, check the following Information: [SAP Business Warehouse on {{site.data.keyword.IBM_notm}} Db2 for Linux, UNIX, and Windows 10.5 and Higher: Administration Tasks](https://help.sap.com/viewer/db6_bw/c289a552d161224fe10000000a445394.html){: external}.
+When Using SAP Business Warehouse with the DB2 Database Partitioning Feature, a stable and fast network connections need to be established between all hosts in the Db2 DPF cluster. For details, check the following Information: [SAP Business Warehouse on {{site.data.keyword.IBM_notm}} Db2 for Linux, UNIX, and Windows 10.5 and Higher: Administration Tasks](https://help.sap.com/docs/DB6/4c49a344277943ad91358094fdaf9765/c289a552d161224fe10000000a445394.html?language=en-US){: external}.

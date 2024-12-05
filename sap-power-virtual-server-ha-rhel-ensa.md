@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-28"
+lastupdated: "2024-12-05"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -61,7 +61,6 @@ Review the general requirements, product documentation, support articles, and SA
 
    [Configuring an Active-Passive NFS Server in a Red Hat High Availability Cluster](/docs/sap?topic=sap-ha-rhel-nfs) describes the implementation of an active-passive NFS server in a RHEL HA Add-On cluster with Red Hat Enterprise Linux 8 by using virtual server instances in {{site.data.keyword.powerSys_notm}}.
    The RHEL HA Add-On cluster for the active-passive NFS server must be deployed in a single {{site.data.keyword.powerSys_notm}} workspace.
-- Ensure that all SAP installation media is available.
 
 ## Preparing nodes to install ASCS and ERS instances
 {: #ha-rhel-ensa-prepare-nodes}

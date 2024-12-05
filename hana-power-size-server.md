@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP HANA, SAP Application Performance Standard, SAPS, SAP Quick Sizer
 
@@ -47,10 +47,10 @@ After you determine your SAP applications and the SAPS numbers are calculated th
 ## Mapping CPUs derived from SAPS to instance profiles in a Power Systems Virtual Servers environment
 {: #mapping-cpus}
 
-The SAPS results from the sizing, and the choice of the server results in the number of CPUs and memory size that are required to support your workload. The number of CPUs and memory are grouped into instance profiles that are certified for the SAP HANA workload. To find certified profiles, see [Find Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html){: external}.
+The SAPS results from the sizing, and the choice of the server results in the number of CPUs and memory size that are required to support your workload. The number of CPUs and memory are grouped into instance profiles that are certified for the SAP HANA workload. To find certified profiles, see [Find Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas){: external}.
 
-* [Click here](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=IBM%20Cloud){: external} to find certified profiles for {{site.data.keyword.cloud}}.
-* [Click here](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/power-systems.html){: external} to find certified profiles for {{site.data.keyword.IBM}} {{site.data.keyword.powerSys_notm}}s. 
+* [Click here](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external} to find certified profiles for {{site.data.keyword.cloud}}.
+* [Click here](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28;v:ca270;v:60ed2297-5cdd-4387-89c2-b0d3651d1206){: external} to find certified profiles for {{site.data.keyword.IBM}} {{site.data.keyword.powerSys_notm}}s.
 
 When you create a {{site.data.keyword.powerSys_notm}} by using the {{site.data.keyword.cloud}} console, you select an instance profile with a predefined number of CPUs and memory size that suits your workload. While your data must fit into the instance memory, choosing an instance profile with more CPUs improves performance. Instances are structured with a standardized naming convention as follows: `AAA-BBxCCCC`
 
@@ -59,10 +59,10 @@ Where:
 `AAA` = One of the following profile types that are associated with the required Service Level Agreements (SLAs):
 
 * `np1` = Non-product development for testing or development use only. Not intended for production deployments; not supported or certified by SAP production.
-* `umh` = Ultra Memory HANA for OLTP using 240:1 memory:core ratios  
-* `mh1` = High Memory for OLAP using 180:1 memory:core ratios  
-* `bh1` = Balanced for OLAP using 100:1 memory:core ratios  
-* `ch1` = Compute Intensive for OLAP using 50:1 memory:core ratios  
+* `umh` = Ultra Memory HANA for OLTP using 240:1 memory:core ratios
+* `mh1` = High Memory for OLAP using 180:1 memory:core ratios
+* `bh1` = Balanced for OLAP using 100:1 memory:core ratios
+* `ch1` = Compute Intensive for OLAP using 50:1 memory:core ratios
 
 `BB` = The number of CPU cores
 
@@ -79,16 +79,16 @@ If you are planning to migrate an existing SAP system from any source to your {{
 
 For more information about sizing, see the following resources:
 
-* [Sizing SAP HANA Portal](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/en-US/d4a122a7bb57101493e3f5ca08e6b039.html){: external}
-* [SAP Quick Sizer](http://service.sap.com/quicksizer){: external}
-* [SAP Note 1736976 - Sizing Report for BW-on-HANA](https://service.sap.com/sap/support/notes/1736976){: external}
-* [SAP Note 1872170 - Suite on HANA memory sizing](https://service.sap.com/sap/support/notes/1872170){: external}
+* [Sizing SAP HANA](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/d4a122a7bb57101493e3f5ca08e6b039.html){: external}
+* [Quick Sizer](https://www.sap.com/about/benchmark/sizing.quick-sizer.html#quick-sizer){: external}
+* [SAP Note 1736976 - Sizing Report for BW-on-HANA](https://me.sap.com/notes/1736976){: external}
+* [SAP Note 1872170 - Suite on HANA memory sizing](https://me.sap.com/notes/1872170){: external}
 * [SAP Note 1793345 - Sizing for SAP Suite on HANA](http://service.sap.com/sap/support/notes/1793345){: external}
-* [SAP Note 1514966 - SAP HANA: Sizing SAP HANA](https://service.sap.com/sap/support/notes/1514966){: external}
+* [SAP Note 1514966 - SAP HANA: Sizing SAP HANA](https://me.sap.com/notes/1514966){: external}
 * [SAP Certified and Supported SAP HANA Hardware](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/index.html){: external}
-* [SAP Note 2055470 - SAP HANA on POWER Planning and Installation Specifics - Central Note](https://service.sap.com/sap/support/notes/2055470){: external}
-* [SAP HANA TDI - Storage Requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html){: external}
-* [SAP Certified Enterprise Storage Hardware for SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/enterprise-storage.html){: external}
+* [SAP Note 2055470 - SAP HANA on POWER Planning and Installation Specifics - Central Note](https://me.sap.com/notes/2055470){: external}
+* [SAP HANA Storage Requirements](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html){: external}
+* [SAP Certified Enterprise Storage Hardware for SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=storage){: external}
 
 
 ## Next Steps

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -140,7 +140,7 @@ Where `netweaver_pvs_mgmt_ip` is the virtual server instance IP address in the m
 ## Deploying an SAP HANA {{site.data.keyword.powerSys_notm}}
 {: #power-vs-set-up-power-hana-instance}
 
-To deploy {{site.data.keyword.powerSys_notm}} instance for SAP HANA, go to your [workspace for {{site.data.keyword.powerSys_notm}}](/docs/sap?1).
+To deploy {{site.data.keyword.powerSys_notm}} instance for SAP HANA, go to your [workspace for {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces).
 
 1. In the **General** section, make the following selections:
    | Field | Details |

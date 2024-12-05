@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-05"
 
 subcollection: sap
 
@@ -50,7 +50,7 @@ SAP NetWeaver has two distinct aspects, ABAP and Java. Many applications that ar
 
 Technical interfaces are available for applications that are built on the SAP NetWeaver AS ABAP and AS Java to run on SAP HANA and AnyDB. However, specific development enablement is normally required for each application to ensure that it runs optimally on the SAP HANA. SAP Business Suite applications (ERP, CRM, SCM, and other applications), SAP Business Warehouse (BW), and other SAP NetWeaver-based applications were modified to run on SAP HANA and have many advantages. Also, various components and complimentary applications that are built on SAP NetWeaver can also run on SAP HANA or AnyDB by using the provided SAP NetWeaver DB interfaces.
 
-The SAP HANA as primary persistence for SAP NetWeaver-based applications scenario has one restriction: 
+The SAP HANA as primary persistence for SAP NetWeaver-based applications scenario has one restriction:
 SAP NetWeaver ABAP and Java application servers must run on separate hardware servers from the SAP HANA hardware.
 
 ## What is created
@@ -61,7 +61,7 @@ The scripts automate the virtual infrastructure resources, provisioning the proc
 
 During the first phase of [Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server), the following virtual infrastructure resources based on the components from the existing VPC created by the bastion server are:
 *  1 VPC where the virtual server instance is provisioned.
-*  1 security group. The rules for this security group are: 
+*  1 security group. The rules for this security group are:
     *  Allow inbound DNS traffic (port 53).
     *  Allow inbound SSH traffic (TCP port 22).
     *  Allow all outbound traffic from the virtual server instance.
@@ -161,7 +161,7 @@ Before you use the scripts in the bastion cli:
 
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 * If you have not already, create a Bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file. 
+* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file.
 * [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 * [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 * Terraform should already be installed on the bastion server that you deployed. For more information, see [Bastion server for SAP deployment](/docs/sap?topic=sap-sap-bastion-server).
@@ -208,7 +208,7 @@ Use these steps to configure the SAP AAS NetWeaver (ABAP) on HANA on your existi
    *  **Create from the CLI** to get the CLI command. With this command you can trigger the deployment from the CLI.
    * **Work with code** to embed the code into other terraform deployments.
    * **Deploy with {{site.data.keyword.cloud_notm}} {{site.data.keyword.bpshort}}** to trigger the deployment process directly.
-5. Select **Deploy with IBM Cloud {{site.data.keyword.bpshort}}**. 
+5. Select **Deploy with IBM Cloud {{site.data.keyword.bpshort}}**.
 6. Add the input parameters for this installation. There are 3 categories of parameters:
     * **Workspace** - These parameters define the workspace that is automatically created in {{site.data.keyword.bpshort}}:
       * Enter a name for the workspace or use the default name.
@@ -219,7 +219,7 @@ Use these steps to configure the SAP AAS NetWeaver (ABAP) on HANA on your existi
     |Parameter	|Description|
     |-----|-----|
     |BASTION_FLOATING_IP	|Required only for Schematics Deployments. The Floating IP from the Bastion Server.|
-    |HOSTNAME	|The hostname for the VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check [SAP Note 611361: Hostnames of SAP ABAP Platform servers](https://accounts.sap.com/saml2/idp/sso)|
+    |HOSTNAME	|The hostname for the VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check [SAP Note 611361: Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361)|
     |REGION	|The cloud region to deploy the solution. The regions and zones for VPC are listed [here](/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in IBM Cloud Schematics [here](https://cloud.ibm.com/docs/schematics?topic=schematics-locations). Sample value: eu-de.|
     |RESOURCE_GROUP	|The name of an existing Resource Group for VSIs and Volumes resources. Default value: "Default". The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups).|
     |SECURITY_GROUP	|The name of an existing Security group. The list of security groups is available [here](https://cloud.ibm.com/infrastructure/network/securityGroups). |
@@ -244,7 +244,7 @@ Use these steps to configure the SAP AAS NetWeaver (ABAP) on HANA on your existi
     |-----|-----|
     |ID_RSA_FILE_PATH	|The file path for private_ssh_key is automatically generated by default. If it is changed, it must contain the relative path from Git repo folders. Default value: "ansible/id_rsa".|
     |IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
-    |PROFILE	|The profile used for the VSI. A list of profiles is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check [SAP Note 2927211: SAP Applications on IBM Virtual Private Cloud](https://accounts.sap.com/saml2/idp/sso).|
+    |PROFILE	|The profile used for the VSI. A list of profiles is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check [SAP Note 2927211: SAP Applications on IBM Virtual Private Cloud](https://me.sap.com/notes/2927211).|
     |VOL1	|Volume 1 Size - The size for the disks in GB that are to be attached to the VSI and used by SAP.|
     |VOL2	|Volume 2 Size - The size for the disks in GB that are to be attached to the VSI and used by SAP.|
     |kit_sapcar_file	|Path to the sapcar binary, as downloaded from SAP Support Portal.|
@@ -266,16 +266,16 @@ The script takes 1 - 2 hours to complete.
 1. Access the bastion server cli.
 2. Clone the solution repository and change to the folder.
 
-    ASE SYB 16 
+    ASE SYB 16
     Clone the solution repository from https://github.com/IBM-Cloud/sap-aas-abap-ase-syb and cd to the sap-aas-abap-ase-syb/cli folder.
-    
+
     ```shell
     git clone https://github.com/IBM-Cloud/sap-aas-abap-ase-syb
     cd sap-aas-abap-ase-syb/cli/
 
     ```
 
-    SAP HANA 2.0: 
+    SAP HANA 2.0:
     Clone the solution repository from https://github.com/IBM-Cloud/sap-abap-hana-aas and cd to the sap-abap-hana-aas folder.
 
     ```shell
@@ -283,7 +283,7 @@ The script takes 1 - 2 hours to complete.
     cd sap-abap-hana-aas/
     ```
 
-3. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your region, zone, networking component names, hostname for the AAS VSI,profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file. 
+3. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your region, zone, networking component names, hostname for the AAS VSI,profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file.
 
     The VSI OS images that are supported for this solution for Netweaver Additional Application Server are:
 
@@ -326,7 +326,7 @@ The script takes 1 - 2 hours to complete.
     IMAGE = "ibm-redhat-8-6-amd64-sap-applications-2"
     ```
 
-4. Customize your SAP system configuration. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file. 
+4. Customize your SAP system configuration. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file.
 
     ```terraform
     # SAP system configuration - for ASE SYB
@@ -360,7 +360,7 @@ The script takes 1 - 2 hours to complete.
     kit_hdbclient_file = "/storage/NW75HDB/IMDB_CLIENT20_009_28-80002082.SAR"
     ```
 
-    Ansible decompresses the rest of the SAP kit files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file. 
+    Ansible decompresses the rest of the SAP kit files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file.
 
 5. Initialize the Terraform CLI.
 
@@ -381,8 +381,8 @@ The script takes 1 - 2 hours to complete.
     ```terraform
     terraform apply "plan1"
     ```
- 
- The virtual private cloud and components are created and you see output similar to the `terraform plan` output.  
+
+ The virtual private cloud and components are created and you see output similar to the `terraform plan` output.
 
 9. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, downloading SAP software, installing SAP software, SAP Download Manager
 
@@ -23,7 +23,7 @@ subcollection: sap
 
 SAP software installation media must be obtained from SAP directly, and requires valid license agreements with SAP in order to access these files.
 
-All downloads of SAP software installation media are handled through the [SAP Support Portal](https://support.sap.com/en/index.html){: external} and the [SAP ONE Support Launchpad](https://launchpad.support.sap.com/). This was formerly called the SAP Marketplace (SMP) and may still be referred as this in some SAP documentation.
+All downloads of SAP software installation media are handled through the [SAP Support Portal](https://support.sap.com/en/index.html){: external} and the [SAP for Me](https://me.sap.com). This was formerly called the SAP Marketplace (SMP) and may still be referred as this in some SAP documentation.
 
 Downloads can be performed directly to a target server (when outbound internet connectivity is permitted), or could be downloaded to an administrator laptop and uploaded to an {{site.data.keyword.cloud_notm}} storage option (such as {{site.data.keyword.cloud}} Object Storage).
 

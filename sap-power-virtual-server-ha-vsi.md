@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -60,15 +60,15 @@ Make sure that the IP address you want to reserve is within the CIDR range of th
 
 If your {{site.data.keyword.powerSys_notm}} *workspace* is enabled for *Power Edge Router* (PER), you already have network communication with parts of the IBM Cloud network.
 The PER solution creates a direct connection to the IBM Cloud Multi Protocol Label Switching (MPLS) backbone, making it easier for different parts of the IBM network to communicate with each other.
-For more information, see [Getting started with the Power Edge Router](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-per).
+For more information, see [Getting started with the Power Edge Router](/docs/power-iaas?topic=power-iaas-per).
 
 Otherwise, create {{site.data.keyword.cloud}} connections to connect your {{site.data.keyword.powerSys_notm}} instances to other {{site.data.keyword.cloud_notm}} resources within your account.
 {{site.data.keyword.cloud_notm}} connections are not required to configure a Red Hat High Availability cluster in {{site.data.keyword.powerSys_notm}}.
 They might be required for integration scenarios with the {{site.data.keyword.cloud_notm}} Classic network and Virtual Private Cloud (VPC) infrastructures.
-For more information, see [IBM {{site.data.keyword.powerSys_notm}} Cloud Connections](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-cloud-connections){: external}.
+For more information, see [IBM {{site.data.keyword.powerSys_notm}} Cloud Connections](/docs/power-iaas?topic=power-iaas-cloud-connections){: external}.
 
 Use IBM Transit Gateway to connect your {{site.data.keyword.powerSys_notm}} to {{site.data.keyword.cloud_notm}} classic and Virtual Private Cloud (VPC) infrastructures outside your account or region.
-For more information about integrating the on-premises network and {{site.data.keyword.powerSys_notm}}, see [Network architecture diagrams](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-network-architecture-diagrams){: external}.
+For more information about integrating the on-premises network and {{site.data.keyword.powerSys_notm}}, see [Network architecture diagrams](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams){: external}.
 
 ### Creating an SSH key
 {: #ha-vsi-create-ssh-key}
@@ -80,7 +80,7 @@ During deployment of the virtual server instance, specify one or more keys from 
 These keys are added to the `authorized_keys` file of the root user, and allow you to securely log in to the virtual server instance by using your private key.
 
 
-For more information, see [Generating an SSH key](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-create-vm#ssh-setup){: external}.
+For more information, see [Generating an SSH key](/docs/power-iaas?topic=power-iaas-create-vm#ssh-setup){: external}.
 
 The preferred choice is the *ed25519* key type.
 It offers both security and performance advantages.
@@ -101,7 +101,7 @@ Use the following steps to select a boot image.
 
 You can choose from several types of stock images that are already prepared for {{site.data.keyword.powerSys_notm}}.
 Images are available in the *IBM Provided Subscription* and *Client Provided Subscription* sections of the {{site.data.keyword.powerSys_notm}} provisioning page.
-For more information, see [Full Linux® subscription for IBM {{site.data.keyword.powerSys_notm}} (Off-premises)](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-set-full-Linux){: external}.
+For more information, see [Full Linux® subscription for IBM {{site.data.keyword.powerSys_notm}} (Off-premises)](/docs/power-iaas?topic=power-iaas-set-full-Linux){: external}.
 
 If you want to import a custom Linux image, you must first upload the image to the {{site.data.keyword.cloud_notm}} Object Storage in OVA format.
 
@@ -136,7 +136,7 @@ Complete the following steps to create the virtual server instances that you wan
    When you deploy multiple instances, the storage volumes that are created are shared by all instances.
    Certain high availability cluster scenarios require shared volumes.
    In these cases, create the shared volumes later.
-   For SAP HANA, see [Storage configuration for SAP HANA](https://cloud.ibm.com/docs/sap?topic=sap-storage-design-considerations#storage-config-hana){: external}.
+   For SAP HANA, see [Storage configuration for SAP HANA](/docs/sap?topic=sap-storage-design-considerations#storage-config-hana){: external}.
    These volumes must be created later for the individual server instances after their deployment is complete.
    {: important}
 
@@ -154,7 +154,7 @@ For a multizone region deployment, repeat the same steps to create the second vi
 {: #ha-vsi-prepare-sap-install}
 
 If you deployed a virtual server instance from a stock image, you need to perform extra configuration tasks before you can install SAP software.
-For more information, see [Configuring a {{site.data.keyword.powerSys_notm}} instance](https://cloud.ibm.com/docs/sap?topic=sap-power-vs-set-up-power-instances#power-vs-set-up-power-basic-os-config).
+For more information, see [Configuring a {{site.data.keyword.powerSys_notm}} instance](/docs/sap?topic=sap-power-vs-set-up-power-instances#power-vs-set-up-power-basic-os-config).
 
 ## Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}
 {: #ha-vsi-create-service-id}

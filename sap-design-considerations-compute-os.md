@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -94,10 +94,10 @@ Also, both VMware and SAP agree to the physical to virtual overhead of <10% on a
 - The estimation of `"between 0.5% and 3%"` subtracted from total available physical RAM. Although, _"the actual RAM overhead can be defined only after the VMs are configured"_
 
 Sources:
-- [Page 120-121, Architecture Guidelines and Best Practices for Deployments of SAP HANA on VMware vSphere Architecture and Technical Considerations Guide](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/whitepaper/sap_hana_on_vmware_vsphere_best_practices_guide-white-paper.pdf){: external}
-- [Page 19, The Winding Road to Virtual SAP HANA Application Workload Guidance Design for SAP S/4HANA on VMware vSphere 6.5](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmw-vsphere-virtual-saphana-application-workload-guidance-design.pdf){: external}
+- [Page 120-121, Architecture Guidelines and Best Practices for Deployments of SAP HANA on VMware vSphere Architecture and Technical Considerations Guide](https://www.vmware.com/docs/sap_hana_on_vmware_vsphere_best_practices_guide-white-paper){: external}
+- [Page 19, The Winding Road to Virtual SAP HANA Application Workload Guidance Design for SAP S/4HANA on VMware vSphere 6.5]( https://www.vmware.com/docs/vmw-vsphere-virtual-saphana-application-workload-guidance-design){: external}
 - Only for half-socket VMs and sharing of NUMA Node between two VMs. Keep in mind that `"additional performance impact"` and a `"sizing buffer of at least 15%"` of the CPU (SAPS) is recommended.
-[SAP Community Wiki - SAP HANA on VMware vSphere](https://wiki.scn.sap.com/wiki/display/VIRTUALIZATION/SAP+HANA+on+VMware+vSphere){: external}
+[SAP Community Wiki - SAP HANA on VMware vSphere](https://help.sap.com/docs/SUPPORT_CONTENT/virtualization/3362185751.html){: external}
 
 
 Several other SAP-defined rules must be followed to deploy SAP HANA in a VMware SDDC environment. For more information, see the following documentation:
@@ -225,7 +225,7 @@ When you have your own operating system image and license, it can be used with {
 | Infrastructure | BYOS | SAP workloads support |
 | -- | -- | -- |
 | Intel {{site.data.keyword.baremetal_short}} on Classic Infrastructure | OS BYOL and custom image (BYOS) by using the ["no OS" option during provisioning](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os) | SAP HANA by using TDI deployment  \n SAP NetWeaver AS |
-| Intel Virtual Servers (Gen2) on VPC Infrastructure | OS BYOL and Custom image (BYOS) by using [Importing and managing custom images](/docs/vpc?topic=vpc-managing-images) | SAP HANA by using TDI deployment  \n SAP NetWeaver AS |
+| Intel Virtual Servers (Gen2) on VPC Infrastructure | OS BYOL and Custom image (BYOS) by using [Importing and managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui) | SAP HANA by using TDI deployment  \n SAP NetWeaver AS |
 | {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} in the IBM Power Infrastructure environment | Linux OS BYOL and Custom Image (BYOS) by using [Linux within the Power Virtual Server - Capturing and importing a SLES image](/docs/power-iaas?topic=power-iaas-using-linux#preparing-linux-image) | Not supported for SAP HANA or SAP NetWeaver workloads, available for non-SAP workloads |
 | {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} in the IBM Power Infrastructure environment | Unix OS BYOL and Custom Image (BYOS) by using [Importing a boot image for IBM AIX or IBM i](/docs/power-iaas?topic=power-iaas-importing-boot-image#console-import-image) | SAP NetWeaver AS |
 | VMware SDDC on IBM Cloud |  OS BYOL and custom image (BYOS) by using standard Virtual Machine Guest OS guidance from VMware documentation | Supported according to SAP-VMware guidance |

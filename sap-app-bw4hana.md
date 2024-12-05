@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-04"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -28,7 +28,7 @@ SAP BW/4HANA is the leading enterprise data warehouse (EDW) software, which is d
 
 SAP BW/4HANA is a major release of EDW software from SAP designed to use the analytical capabilities of the SAP HANA database exclusively. Previous major releases of EDW from SAP were known as SAP BW, which might use various relational database vendors. SAP BW/4HANA acts as the insights engine for large enterprises with upgraded UX, data integration, and technologies upgrades to enable real-time decision making and digital business processes.
 
-For more information, see [SAP BW/4HANA](https://www.sap.com/products/bw4hana-data-warehousing.html){: external}.
+For more information, see [SAP BW/4HANA](https://www.sap.com/products/technology-platform/bw4hana-data-warehousing.html){: external}.
 
 {{site.data.keyword.ibm_cloud_sap}} infrastructure options are certified to SAP NetWeaver application server and SAP HANA database server, which run the SAP BW/4HANA business application.
 
@@ -61,8 +61,8 @@ There are additional SAP analytics solutions, each with different software deplo
 - SAP Data Intelligence 3.x, using Kubernetes _`(released in 2019 to replace SAP Data Hub 2.x)`_
 
 More information on the variants of SAP analytics solutions is available from SAP:
-- [SAP.com - Business Analytics Tools and Solutions](https://www.sap.com/products/analytics.html){: external}
-- [SAP Community Blogs - Technical Articles - SAP (HANA) Cheat Sheet](https://blogs.sap.com/2020/05/09/sap-hana-cheat-sheet){: external}
+- [SAP.com - Business Analytics Tools and Solutions](https://www.sap.com/products/technology-platform/analytics.html){: external}
+- [SAP Community Blogs - Technical Articles - SAP (HANA) Cheat Sheet](https://community.sap.com/t5/technology-blogs-by-sap/sap-hana-cheat-sheet/ba-p/13437403){: external}
 
 Regarding SAP BW/4HANA, the {{site.data.keyword.ibm_cloud_sap}} portfolio documentation refers to SAP HANA and SAP NetWeaver installations as using SAP-certified Cloud Infrastructure-as-a-Service options for running SAP BW/4HANA deployment to Cloud IaaS.
 {: note}
@@ -79,11 +79,9 @@ The project implementation and maintenance/support of SAP BW/4HANA selects from 
   - An Application Management Services provider (AMS) for SAP
   - A Managed Services Provider (MSP) for SAP
 
-A list of all SAP Partners is maintained on the [SAP Partner Finder tool](https://www.sap.com/partner/find/search-tool.html){: external}. The list has more information about SAP Partners, including:
+A list of all SAP Partners is maintained on the [SAP Partner Finder tool](https://partnerfinder.sap.com){: external}. The list has more information about SAP Partners, including:
 * Partnership category (for example, Consulting & Implementation Services)
 * Partnership level (for example, Platinum, Gold, Silver)
-
-Awards for these SAP Partners are shown on the [SAP Partners information page](https://www.sap.com/partner/find.html){: external}.
 
 These choices particularly affect how your SAP BW/4HANA on Cloud IaaS is deployed, operated, and maintained. For example, a GSI has exceeding depth of experience in implementation, functional configuration, and development - with the flexibility to create a bespoke solution for the business requirements. However, the GSI has less experience in maintenance. Conversely, an MSP has more restrictions on the implementation to ensure more successful maintenance.
 
@@ -111,7 +109,7 @@ After you decide on the Cloud Tenancy model that meets your business and IT risk
 * Output of your [SAP sizing activities](/docs/sap?topic=sap-sizing#sizing-methodology)
 * Benchmark metric "SAPS", which demonstrates the total transactional throughput of the infrastructure
 
-More information that compares different infrastructure types is in [Comparing the different SAP-certified IaaS offerings](/docs/sap?topic=sap-overview#iaas-offerings-compare-summary) with more detail under [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings). All SAPS benchmarks are listed for each profile under each infrastructure type that is offered in the {{site.data.keyword.ibm_cloud_sap}} portfolio.
+More information that compares different infrastructure types is in [Comparing the different SAP-certified IaaS offerings](/docs/sap?topic=sap-overview-sap-offerings-overview#iaas-offerings-compare-summary) with more detail under [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings). All SAPS benchmarks are listed for each profile under each infrastructure type that is offered in the {{site.data.keyword.ibm_cloud_sap}} portfolio.
 
 ## SAP HANA considerations
 {: #bw4hana-hana}

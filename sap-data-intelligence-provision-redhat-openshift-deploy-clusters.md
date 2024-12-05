@@ -29,7 +29,7 @@ This topic takes you through the steps for creating the {{site.data.keyword.open
 ## Before you begin
 {: #rhos-di-before-you-begin}
 
-When you create the {{site.data.keyword.openshiftshort}} cluster, it is important that the flavor meets SAP's sizing recommendations and your expected workload characteristics, as well as the expected data volumes. The following implementation scenario is based on [Minimum Sizing for SAP Data Intelligence](https://help.sap.com/viewer/835f1e8d0dde4954ba0f451a9d4b5f10/latest/en-US/d771891d749d425ba92603ec9b0084a8.html){: external} and therefore is appropriate for a very basic test environment, only. When planning to setup and deploy a production cluster you must carefully consult the [Sizing Guide for SAP Data Intelligence]( https://help.sap.com/viewer/835f1e8d0dde4954ba0f451a9d4b5f10/latest/en-US/633d429ff69441ae81fe57d912397903.html){: external} and adapt the flavors that will meet your specific needs. Before creating your cluster, please refer to the most recent SAP documentation, like [Installation](https://help.sap.com/viewer/a8d90a56d61a49718ebcb5f65014bbe7/latest/en-US/9f866d8ef9a94c30947f12e73eaf0dd9.html){: external} and [Administration Guide](https://help.sap.com/viewer/b13b5722c8ff4bf9bb097251310031d0/latest/en-US/884ffcd587784ed2a311b2c19feb8410.html){: external}. You may find more related information in [SAP's Community page](https://community.sap.com/topics/data-intelligence){: external}.
+When you create the {{site.data.keyword.openshiftshort}} cluster, it is important that the flavor meets SAP's sizing recommendations and your expected workload characteristics, as well as the expected data volumes. The following implementation scenario is based on [Minimum Sizing for SAP Data Intelligence](https://help.sap.com/viewer/835f1e8d0dde4954ba0f451a9d4b5f10/latest/en-US/d771891d749d425ba92603ec9b0084a8.html){: external} and therefore is appropriate for a very basic test environment, only. When planning to setup and deploy a production cluster you must carefully consult the [Sizing Guide for SAP Data Intelligence](https://help.sap.com/viewer/835f1e8d0dde4954ba0f451a9d4b5f10/latest/en-US/633d429ff69441ae81fe57d912397903.html){: external} and adapt the flavors that will meet your specific needs. Before creating your cluster, please refer to the most recent SAP documentation, like [Installation](https://help.sap.com/viewer/a8d90a56d61a49718ebcb5f65014bbe7/latest/en-US/9f866d8ef9a94c30947f12e73eaf0dd9.html){: external} and [Administration Guide](https://help.sap.com/viewer/b13b5722c8ff4bf9bb097251310031d0/latest/en-US/884ffcd587784ed2a311b2c19feb8410.html){: external}. You may find more related information in [SAP's Community page](https://community.sap.com/topics/data-intelligence){: external}.
 
 Please check that your {{site.data.keyword.cloud_notm}} account is eligible to create clusters. For more information and the steps to set up your account, see [Prepare to create clusters at the account level](/docs/openshift?topic=openshift-clusters#cluster_prepare){: external}.
 
@@ -140,7 +140,7 @@ Use the following commands to download and install the CLIs you use to configure
     ```
     {: pre}
 
- 
+
     Download the stable version {{site.data.keyword.openshiftshort}} 4.8.x CLI.
 
     ```
@@ -220,8 +220,8 @@ Use the following commands to download and install the CLIs you use to configure
     sudo dnf install podman-docker       # press 'y' when prompted
     ```
     {: pre}
-    
-    Docker daemon is no longer available on Red Hat 8. 
+
+    Docker daemon is no longer available on Red Hat 8.
     {: note}
 
 1. Verify the Docker CLI emulator.
@@ -255,11 +255,11 @@ Use the following commands to download and install the CLIs you use to configure
     ```
     ibmcloud login [--sso]        # select the appropriate region, e.g. us-south
     ```
-    
+
 1. Create the API key file.
 
     Create an [{{site.data.keyword.cloud_notm}} API key file](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_api_keys){: external}. The command is:
-    
+
     ```
     ibmcloud iam api-key-create <APIKeyName> -d <description> --file <APIKeyFilename>
     ```
@@ -309,7 +309,7 @@ Use the following commands to download and install the CLIs you use to configure
 
     ```
     $ ibmcloud cr login
-    
+
     $ ibmcloud cr namespace-add sap_di_cr
     ```
 
@@ -345,7 +345,7 @@ After logging in to the jump host you **must complete the following steps** befo
     ibmcloud oc cluster config --admin --cluster sap-di32-cluster
     ```
     {: pre}
-    
+
 1. Logout of {{site.data.keyword.cloud_notm}}.
 
     ```
