@@ -85,7 +85,7 @@ For deployment of SAP applications in cloud-based environments, SAP provides the
 In the RHA, the sample project names (i.e. namespaces) are `sdi`, `sdi-observer` and `sap-slcbridge`. Following these naming conventions of the Red Hat    article, create the related projects as follows.
 
 1. Create the projects
-    
+
     ```
     $ oc new-project sdi-observer
     $ oc new-project sap-slcbridge
@@ -101,7 +101,7 @@ In the RHA, the sample project names (i.e. namespaces) are `sdi`, `sdi-observer`
 The projects' namespaces and {{site.data.keyword.registryshort_notm}} names used in the following steps are the same as those used in previous steps.
 {: note}
 
-    
+
 1. SDI Observer needs a secret with credentials for `registry.redhat.io`
 
    Follow the section [4.2.1. Prerequisites for Connected OpenShift Cluster](https://access.redhat.com/articles/5100521#sdi-observer-prereq-online){: external} in the RHA and save your `rht-registry-secret.yaml` in the ~/sap/install directory. This yaml file will be required to automatically set the respective parameters below.
@@ -115,7 +115,7 @@ The projects' namespaces and {{site.data.keyword.registryshort_notm}} names used
     curl -O https://raw.githubusercontent.com/redhat-sap/sap-data-intelligence/master/observer/run-observer-template.sh
     ```
     {: pre}
-    
+
 1. Edit the downloaded script file in your favorite editor; especially, mind the following parameters:
     ```
     FLAVOUR=ubi-build
@@ -125,28 +125,28 @@ The projects' namespaces and {{site.data.keyword.registryshort_notm}} names used
     SLCB_NAMESPACE=sap-slcbridge
     SDI_NODE_SELECTOR="node-role.kubernetes.io/sdi="
     ```
-    
+
 1. Save the script.
-    
+
 1. Deploy the SAP Data Intelligence Observer in the `sdi` namespace - i.e. run the script using bash.
 
     ```
     bash ./run-observer-template.sh
     ```
     {: pre}
-    
+
     In chapter [4.3 Managing SDI Observer](https://access.redhat.com/articles/5100521#sdi-observer-manage){: external} of the RHA you will learn how you can review and update SDI Observer's current configuration.
 
 1. Get information about Red Hat's SDI node-configurator
 
 The worker nodes need be configured to grant proper execution of SAP Data Intelligence - see also the documentation at [Red Hat's SDI Node Configurator](https://github.com/redhat-sap/sap-data-intelligence/tree/master/node-configurator){: external} on GitHub.
- 
+
 1. First set security context constraints to the sdi-node-configurator service account:
     ```
     oc adm policy add-scc-to-user -n sdi-observer privileged -z sdi-node-configurator
     ```
     {: pre}
-    
+
  1. Copy the template from GitHub:
     ```
     curl -O https://raw.githubusercontent.com/redhat-sap/sap-data-intelligence/master/node-configurator/ocp-template.json
@@ -174,7 +174,7 @@ Review [Getting started with {{site.data.keyword.cloud_notm}} {{site.data.keywor
 ### Provisioning {{site.data.keyword.cos_short}}
 {: #rhos-di-provision-storage}
 
-Use the steps in [Provision storage](/docs/services/cloud-object-storage/basics?topic=cloud-object-storage-provision){: external} to provision your {{site.data.keyword.cos_short}}.
+Use the steps in [Provision storage](/docs/cloud-object-storage/basics?topic=cloud-object-storage-provision){: external} to provision your {{site.data.keyword.cos_short}}.
 
 The service instance name for the following example is `sdi_cos_k8`. Choose a name that fits your needs when creating your service instance.
 {: note}
@@ -200,7 +200,7 @@ The service instance name for the following example is `sdi_cos_k8`. Choose a na
 #### Creating the service instance and credentials for accessing the bucket
 {: #rhos-di-create-serv-inst-cred}
 
-1. Follow the steps under [Service credentials](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials){: external} to create the service credentials for accessing the bucket that is handed over to the SAP Data Intelligence installation script. Make sure that you select the **Writer** role and click **Include HMAC Credential**.
+1. Follow the steps under [Service credentials](/docs/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials){: external} to create the service credentials for accessing the bucket that is handed over to the SAP Data Intelligence installation script. Make sure that you select the **Writer** role and click **Include HMAC Credential**.
 
     The credential name in this example is `sdiOScred`. Choose a name that fits your needs when creating your service credentials.
     {: note}
@@ -379,7 +379,7 @@ Now, select the link in the tools column which will launch SAP Intelligence inst
 | Cluster Name:	| sap-di32-cluster |
 | S-User Name: | Sxxxxxxxx |
 | S-User Password: | xxxxxxxx |
- 
+
 The installation and the initialization of all pods may take a while to complete.
 {: note}
 

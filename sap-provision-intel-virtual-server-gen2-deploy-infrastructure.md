@@ -219,6 +219,6 @@ More information is shown on [VPC Infrastructure - Managing network interfaces](
 ### Bring your own OS product license
 {: #vs-os-byol}
 
-When you have your own operating system license, you can install it on your virtual server based on the vendor's instructions. For more information about custom images, see [Importing and managing custom images](/docs/vpc?topic=vpc-managing-images).
+When you have your own operating system license, you can install it on your virtual server based on the vendor's instructions. For more information about custom images, see [Importing and managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui).
 
 Please consider, the OS chosen must be certified for SAP and have access to the necessary OS Packages for SAP.

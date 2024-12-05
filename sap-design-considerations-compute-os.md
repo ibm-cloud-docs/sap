@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -225,7 +225,7 @@ When you have your own operating system image and license, it can be used with {
 | Infrastructure | BYOS | SAP workloads support |
 | -- | -- | -- |
 | Intel {{site.data.keyword.baremetal_short}} on Classic Infrastructure | OS BYOL and custom image (BYOS) by using the ["no OS" option during provisioning](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os) | SAP HANA by using TDI deployment  \n SAP NetWeaver AS |
-| Intel Virtual Servers (Gen2) on VPC Infrastructure | OS BYOL and Custom image (BYOS) by using [Importing and managing custom images](/docs/vpc?topic=vpc-managing-images) | SAP HANA by using TDI deployment  \n SAP NetWeaver AS |
+| Intel Virtual Servers (Gen2) on VPC Infrastructure | OS BYOL and Custom image (BYOS) by using [Importing and managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui) | SAP HANA by using TDI deployment  \n SAP NetWeaver AS |
 | {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} in the IBM Power Infrastructure environment | Linux OS BYOL and Custom Image (BYOS) by using [Linux within the Power Virtual Server - Capturing and importing a SLES image](/docs/power-iaas?topic=power-iaas-using-linux#preparing-linux-image) | Not supported for SAP HANA or SAP NetWeaver workloads, available for non-SAP workloads |
 | {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} in the IBM Power Infrastructure environment | Unix OS BYOL and Custom Image (BYOS) by using [Importing a boot image for IBM AIX or IBM i](/docs/power-iaas?topic=power-iaas-importing-boot-image#console-import-image) | SAP NetWeaver AS |
 | VMware SDDC on IBM Cloud |  OS BYOL and custom image (BYOS) by using standard Virtual Machine Guest OS guidance from VMware documentation | Supported according to SAP-VMware guidance |

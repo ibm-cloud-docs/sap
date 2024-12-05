@@ -48,7 +48,7 @@ You can securely connect to your infrastructure in multiple ways by using variou
     * Local routing, connect VPCs in same region
     * Global routing, connect VPCs across regions
     * Classic Infrastructure routing, connect to VLANs on Classic Infrastructure network
-    * Cross-account connection (also known as account-to-account routing), connect VPCs across multiple {{site.data.keyword.cloud_notm}} accounts. See [Adding a cross-account connection (VPC only)](/docs/transit-gateway?topic=transit-gateway-edit-gateway#adding-cross-account-connections)
+    * Cross-account connection (also known as account-to-account routing), connect VPCs across multiple {{site.data.keyword.cloud_notm}} accounts. See [Adding a cross-account connection (VPC only)](/docs/transit-gateway?topic=transit-gateway-adding-cross-account-connections&interface=ui)
 
 
 ## Connectivity options within the {{site.data.keyword.cloud_notm}} Classic Infrastructure network
@@ -87,7 +87,7 @@ To connect to a virtual server on VPC through a secure IPsec tunnel, a VPN Gatew
 
 Network back-bone infrastructure of a customer site can be directly connected to {{site.data.keyword.cloud_notm}}, by using {{site.data.keyword.cloud_notm}} Direct Link. On-premises resources can be connected to multiple VPCs, and VPC can provide Bring-your-own-IP or other custom IP ranges.
 
-Technical requirements and restrictions exist in the availability of {{site.data.keyword.cloud_notm}} Direct Link in different regions. A detailed description of {{site.data.keyword.cloud_notm}} Direct Link can be found in [Getting started with {{site.data.keyword.cloud}} Direct Link](/docs/dl/getting-started?topic=dl-get-started-with-ibm-cloud-dl).
+Technical requirements and restrictions exist in the availability of {{site.data.keyword.cloud_notm}} Direct Link in different regions. A detailed description of {{site.data.keyword.cloud_notm}} Direct Link can be found in [Getting started with {{site.data.keyword.cloud}} Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl).
 {: note}
 
 ### Accessing the classic infrastructure

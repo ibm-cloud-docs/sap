@@ -146,7 +146,7 @@ For **shared** processors, you choose the number of CPUs that the new server is 
 
 For **dedicated** processors, the number of dedicated CPUs should correspond to the number of CPUs that were the result of your sizing.
 
-For more information about shared and dedicated processors, see [Assigning the appropriate processor entitled capacity](https://www.ibm.com/support/pages/assigning-appropriate-processor-entitled-capacity) and [Power Virtual Servers processor types](/docs/power-iaas?topic=power-iaas-power-iaas-faqs#processor).
+For more information about shared and dedicated processors, see [Assigning the appropriate processor entitled capacity](https://www.ibm.com/support/pages/assigning-appropriate-processor-entitled-capacity) and [Power Virtual Servers processor types](/docs/power-iaas?topic=power-iaas-powervs-faqs#processor).
 
 Depending on the SAP workload, supported processor options are restricted. For more information, see [SAP Note 2855850](https://me.sap.com/notes/2855850){: external}.
 {: note}
@@ -162,7 +162,7 @@ SAP HANA workloads that use {{site.data.keyword.IBM_notm}} Power Virtual Servers
 **Data sheet:**
 - [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/cas/VX0AM0EP){: external}
 
-For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications).
+For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications-on-cloud).
 
 
 ### SAP NetWeaver and IBM Power Virtual Server
@@ -176,7 +176,7 @@ SAP NetWeaver and SAP AnyDB workloads that use {{site.data.keyword.IBM_notm}} Po
 * [IBM Power System S922 (9009-22A)](https://www.ibm.com/downloads/cas/KQ4BOJ3N){: external}
 * [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/cas/VX0AM0EP){: external}
 
-For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications).
+For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications-on-cloud).
 
 
 ## VMware Software-Defined Data Center
