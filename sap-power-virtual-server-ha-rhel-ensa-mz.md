@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-05"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -52,8 +52,6 @@ Review the general requirements, product documentation, support articles, and SA
 - The subnets and the virtual IP addresses for the *ASCS* and *ERS* instances must not exist in the {{site.data.keyword.powerSys_notm}} workspaces.
    They are configured as cluster resources.
    However, you must add the virtual IP addresses and virtual hostnames for the *ASCS* and *ERS* instances to the Domain Name Service (DNS) and to the `/etc/hosts` file on all cluster nodes.
-
-- Ensure that all SAP installation media is available.
 
 ## Preparing nodes to install ASCS and ERS instances
 {: #ha-rhel-ensa-mz-prepare-nodes}
