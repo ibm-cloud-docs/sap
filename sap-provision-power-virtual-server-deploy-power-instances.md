@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -140,7 +140,7 @@ Where `netweaver_pvs_mgmt_ip` is the virtual server instance IP address in the m
 ## Deploying an SAP HANA {{site.data.keyword.powerSys_notm}}
 {: #power-vs-set-up-power-hana-instance}
 
-To deploy {{site.data.keyword.powerSys_notm}} instance for SAP HANA, go to your [workspace for {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces).
+To deploy {{site.data.keyword.powerSys_notm}} instance for SAP HANA, go to your [workspace for {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/power/workspaces){: external}.
 
 1. In the **General** section, make the following selections:
    | Field | Details |
@@ -614,7 +614,7 @@ zypper install insserv
 Use the saptune tool to apply recommended operating system settings for SAP HANA or SAP NetWeaver on SUSE Linux® Enterprise Server. On IBM Power Systems Virtual Servers, the same SUSE Linux® Enterprise Server image is used for SAP NetWeaver and SAP HANA.
 
 The following workflow shows how you can use the saptune tool to apply the SAP solution to your server. For more information about saptune, see [SAP Note 1275776 - Linux: Preparing SLES for SAP
-environments](https://me.sap.com/notes/1275776).
+environments](https://me.sap.com/notes/1275776){: external}.
 
 1. Verify that the package status is current.
 
@@ -695,7 +695,7 @@ environments](https://me.sap.com/notes/1275776).
 
 RHEL System Roles for SAP are a collection of roles that are run by ansible to help you configure a RHEL system for the installation of SAP HANA or SAP NetWeaver. Ansible files for SAP configuration are distributed and updated directly by Red Hat, so the executed tasks and required parameters might vary depending on the version of `rhel-system-roles-sap` package. The RHEL image that is provided by IBM includes the ansible execution engine, SAP-related system roles, and the ansible execution files. If you have the most recent updates, you might get updated SAP-related system roles.
 
-Beginning with `rhel-system-roles-sap-3.2.0-1.el8_4`, the role names changed. And files `/root/sap-preconfigure.yml`, `/root/sap-netweaver.yml` and `/root/sap-hana.yml` in the OS images with RHEL 8.1 and RHEL 8.4 must be adapted. For more information, see [following Red Hat article](https://access.redhat.com/articles/4488731).
+Beginning with `rhel-system-roles-sap-3.2.0-1.el8_4`, the role names changed. And files `/root/sap-preconfigure.yml`, `/root/sap-netweaver.yml` and `/root/sap-hana.yml` in the OS images with RHEL 8.1 and RHEL 8.4 must be adapted. For more information, see [following Red Hat article](https://access.redhat.com/articles/4488731){: external}.
 {: note}
 
 |Previous role name         |New role name             |
@@ -753,10 +753,10 @@ ansible-playbook -i /root/inventory /root/sap-netweaver.yml
 
 
 For more information about running tasks, see the following documentation.
-* [SAP Note 2772999 "Red Hat Enterprise Linux 8.x: Installation and Configuration"](https://me.sap.com/notes/2772999)
-* [SAP Note 2777782 "SAP HANA DB: Recommended OS Settings for RHEL8"](https://me.sap.com/notes/2777782)
-* [SAP Note 2382421 "Optimizing the Network Configuration on HANA- and OS-Level"](https://me.sap.com/notes/2382421)
-* [Red Hat Enterprise Linux System Roles for SAP](https://access.redhat.com/sites/default/files/attachments/rhel_system_roles_for_sap_1.pdf)
+* [SAP Note 2772999 "Red Hat Enterprise Linux 8.x: Installation and Configuration"](https://me.sap.com/notes/2772999){: external}
+* [SAP Note 2777782 "SAP HANA DB: Recommended OS Settings for RHEL8"](https://me.sap.com/notes/2777782){: external}
+* [SAP Note 2382421 "Optimizing the Network Configuration on HANA- and OS-Level"](https://me.sap.com/notes/2382421){: external}
+* [Red Hat Enterprise Linux System Roles for SAP](https://access.redhat.com/sites/default/files/attachments/rhel_system_roles_for_sap_1.pdf){: external}
 
 #### Further Network Configurations on SLES
 {: #power-vs-network-configurations-sles}
@@ -813,7 +813,7 @@ Check that the balance of CPU and memory placement is optimized for SAP HANA by 
 * Checks the nonuniform memory access (NUMA) layout according to SAP HANA rules. The script verifies that no cores without memory exist and that the memory distribution among the cores doesn't exceed a 50% margin. In the first case, the script generates an error; in the latter case, the script generates a warning.
 * Checks whether a Live Partition Mobility (LPM) operation occurred. After LPM, the NUMA layout might differ from the configuration at boot time. The script scans the system log for the last LPM. A warning is generated if an LPM operation occurred since the last system boot.
 
-1. Download the `chk_numa_lpm.py` script from the [SAP Note 2923962](https://me.sap.com/notes/2923962). Then, run the `chk_numa_lpm.py` script on your newly provisioned {{site.data.keyword.powerSys_notm}} instance.
+1. Download the `chk_numa_lpm.py` script from the [SAP Note 2923962](https://me.sap.com/notes/2923962){: external}. Then, run the `chk_numa_lpm.py` script on your newly provisioned {{site.data.keyword.powerSys_notm}} instance.
 2. Run the script.
 
     ```python
@@ -836,7 +836,7 @@ Check that the balance of CPU and memory placement is optimized for SAP HANA by 
     ```
     {: pre}
 
-In this example, a warning is generated because two NUMA nodes with an equal amount of CPU and memory were created. For more information, see [SAP Note 2923962](https://me.sap.com/notes/2923962).
+In this example, a warning is generated because two NUMA nodes with an equal amount of CPU and memory were created. For more information, see [SAP Note 2923962](https://me.sap.com/notes/2923962){: external}.
 
 ## Next Steps
 {: #power-vs-set-up-power-next_steps}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, downloading SAP software, installing SAP software, SAP Download Manager
 
@@ -43,6 +43,6 @@ For IBM Power, you may want to install AIX Toolbox for Linux Applications for ea
 {: tip}
 
 For more help with SAP Download Manager, see:
-- [SAP Note 2272824 - How to Download SAP Solution Manager - SAP ONE Support Launchpad](https://me.sap.com/notes/2272824)
-- [SAP Note 1371839 - How to install SAP Download Manager - SAP ONE Support Launchpad](https://me.sap.com/notes/1371839)
-- [SAP Note 2624390 - What is the current version of SAP Download Manager?](https://me.sap.com/notes/2624390)
+- [SAP Note 2272824 - How to Download SAP Solution Manager - SAP ONE Support Launchpad](https://me.sap.com/notes/2272824){: external}
+- [SAP Note 1371839 - How to install SAP Download Manager - SAP ONE Support Launchpad](https://me.sap.com/notes/1371839){: external}
+- [SAP Note 2624390 - What is the current version of SAP Download Manager?](https://me.sap.com/notes/2624390){: external}

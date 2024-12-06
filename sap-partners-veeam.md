@@ -27,7 +27,7 @@ subcollection: sap
 This document is out of date, it is being updated for Veeam 10.x and replaced in November-2020 with new content.
 {: deprecated}
 
-Veeam Backup & Replication can be provisioned and deployed from the {{site.data.keyword.cloud_notm}} catalog to provide protection for SAP HANA workloads on certified {{site.data.keyword.ibm_cloud_sap}} infrastructure. Veeam performs SAP HANA `Backint`-based backup and restore of databases and logs, and is lisited on the [SAP Certified Solutions Directory](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions).
+Veeam Backup & Replication can be provisioned and deployed from the {{site.data.keyword.cloud_notm}} catalog to provide protection for SAP HANA workloads on certified {{site.data.keyword.ibm_cloud_sap}} infrastructure. Veeam performs SAP HANA `Backint`-based backup and restore of databases and logs, and is lisited on the [SAP Certified Solutions Directory](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions){: external}.
 {: shortdesc}
 
 ## Veeam overview and considerations
@@ -42,7 +42,7 @@ Veeam Plug-in, which acts as a go-between for SAP HANA and Veeam Backup reposito
 {{site.data.keyword.cloud_notm}} Classic {{site.data.keyword.virtualmachinesshort}} are used for the sample deployment.
 {: note}
 
-Veeam Plug-in connects to the Veeam Backup & Replication server and creates a backup job. Once a backup job is requested, Veeam Plug-in starts a Veeam Transport Agent on the SAP HANA server and on the backup repository, which transports data to the backup repository. For more information, see [How Veeam Plug-in for SAP HANA Works](https://helpcenter.veeam.com/docs/backup/plugins/sap_hana_plugin.html?ver=95u4).
+Veeam Plug-in connects to the Veeam Backup & Replication server and creates a backup job. Once a backup job is requested, Veeam Plug-in starts a Veeam Transport Agent on the SAP HANA server and on the backup repository, which transports data to the backup repository. For more information, see [How Veeam Plug-in for SAP HANA Works](https://helpcenter.veeam.com/docs/backup/plugins/sap_hana_plugin.html?ver=95u4){: external}.
 
 At this time, Veeam is able to provision with {{site.data.keyword.cloud}} for VMware Solutions Dedicated only.
 
@@ -80,7 +80,7 @@ The efficiency that it performs these operations is impacted by available resour
 
 * **Storage**. {{site.data.keyword.IBM_notm}} {{site.data.keyword.blockstorageshort}} Endurance block storage with LUN's from 1 TB to 2 TB, 0.25 IOPS/GB performance level is recommended for hosting the Veeam backup repository. You are encouraged to thoroughly test other performance levels before selecting the performance storage level for your production Veeam repository.
 
-    [The Restore Point Simulator](https://rps.dewin.me/) can be used to help estimate your Veeam backup storage needs.
+    [The Restore Point Simulator](https://rps.dewin.me/){: external} can be used to help estimate your Veeam backup storage needs.
 
 * **Throughput**. For the initial full backup, Veeam ignores empty or deleted VM storage blocks. For example, if a VM has been allocated 1 TB of storage, thin or thick provisioned, and only consumes 450 G, Veeam only processes 450 G for that VM. For ongoing incremental backups, Veeam only processes VM data blocks changed since the last backup.
 
@@ -89,6 +89,6 @@ The efficiency that it performs these operations is impacted by available resour
 ### Veeam Reference material
 {: #veeam-references}
 
-* [Veeam Backup & Replication Evaluator's Guide for VMware vSphere](https://helpcenter.veeam.com/evaluation/backup/vsphere/en/getting_started.html)
-* [Veeam Support Knowledge Base](https://www.veeam.com/kb_search_results.html)
-* [Veeam Backup & Replication Best Practices](https://bp.veeam.expert/)
+* [Veeam Backup & Replication Evaluator's Guide for VMware vSphere](https://helpcenter.veeam.com/evaluation/backup/vsphere/en/getting_started.html){: external}
+* [Veeam Support Knowledge Base](https://www.veeam.com/kb_search_results.html){: external}
+* [Veeam Backup & Replication Best Practices](https://bp.veeam.expert/){: external}

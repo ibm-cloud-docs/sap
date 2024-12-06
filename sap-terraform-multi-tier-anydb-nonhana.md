@@ -2,7 +2,7 @@
 
 copyright:
 years: 2023, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap
 
@@ -30,7 +30,7 @@ To create resources with Terraform, you use Terraform configuration files that d
 ## Script files
 {: #terraform-multi-tier-vpc-sap-files}
 
-The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-infra-anydb-distributed](https://github.com/IBM-Cloud/sap-infra-anydb-distributed). 
+The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-infra-anydb-distributed](https://github.com/IBM-Cloud/sap-infra-anydb-distributed){: external}. 
 
 For 2-tier and 3-tier VPC for SAP, you modify the ``input.auto.tfvars`` file to customize the resources for your solution. You specify zones, resource names, and SSH keys.
 
@@ -92,7 +92,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
     `mkdir myproject && cd myproject`
 
-2.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main/cli) to the project folder that you created in the Terraform installation directory.
+2.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main/cli){: external} to the project folder that you created in the Terraform installation directory.
 
 3.	Edit the ``input.auto.tfvars`` file to customize your solution. Modify the file to specify your VPC name, subnet, security group, hostname, profile, image, SSH keys, and disk sizes. You must modify:
 
@@ -136,15 +136,15 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
     |-----------|-----------|
     |REGION	   |The cloud region where the solution is deployed. The regions and zones for VPC are listed [here](/docs/containers?topic=containers-regions-and-zones#zones-vpc).|
     |ZONE	    |The cloud zone where the solution is deployed.	|
-    |VPC  |The name of the VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs).|
-    |SECURITYGROUP	    |The name of the Security Group. The list of Security Groups is available [here](https://cloud.ibm.com/infrastructure/network/subnets)|
-    |SUBNET	     |The name of the Subnet. The list of Subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets)|
+    |VPC  |The name of the VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs){: external}.|
+    |SECURITYGROUP	    |The name of the Security Group. The list of Security Groups is available [here](https://cloud.ibm.com/infrastructure/network/subnets){: external}|
+    |SUBNET	     |The name of the Subnet. The list of Subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets){: external}|
     |DB_PROFILE	     |The profile used for the VSI. A list of profiles is available here.|
     |APP_PROFILE     |The profile used for the VSI. A list of profiles is available here.|
-    |DB_IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
-    |APP_IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
-    |SSH_KEYS	   |List of SSH Keys IDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys).|
-    |[DB/APP]_HOSTNAME	|The hostname for the VSI. The hostname must have up to 13 characters as required by SAP. For more information about rules regarding hostnames for SAP systems, see [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/%20611361).|
+    |DB_IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images){: external}.|
+    |APP_IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images){: external}.|
+    |SSH_KEYS	   |List of SSH Keys IDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys){: external}.|
+    |[DB/APP]_HOSTNAME	|The hostname for the VSI. The hostname must have up to 13 characters as required by SAP. For more information about rules regarding hostnames for SAP systems, see [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/%20611361){: external}.|
     {: caption}
 
 

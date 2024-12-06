@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -82,11 +82,11 @@ Here is the summary of the Appliance and TDI deployment methods:
 {: caption="Appliance vs. TDI deployment methods" caption-side="top"}
 
 The following sub-sections describe the appliance deployment method for Standard Sizing type, and the TDI deployment method for Expert Sizing. Detailed documentation regarding the methods and types are shown in SAP documentation:
-- [SAP HANA Administration Guide for SAP HANA Platform](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/330e5550b09d4f0f8b6cceb14a64cd22.html)
-- [SAP HANA Server Installation and Update Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/7eb0167eb35e4e2885415205b8383584.html)
-- [SAP About Benchmarks - Sizing Types - Expert Sizing](https://www.sap.com/about/benchmark/sizing.expert-sizing.html)
-- [Expert Sizing & Methods of Sizing Validation](https://www.sap.com/documents/2016/10/822c3247-927c-0010-82c7-eda71af511fa.html)
-- [Sizing Methods and Tools](https://www.sap.com/documents/2016/10/6222114a-8f7c-0010-82c7-eda71af511fa.html)
+- [SAP HANA Administration Guide for SAP HANA Platform](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/330e5550b09d4f0f8b6cceb14a64cd22.html){: external}
+- [SAP HANA Server Installation and Update Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/7eb0167eb35e4e2885415205b8383584.html){: external}
+- [SAP About Benchmarks - Sizing Types - Expert Sizing](https://www.sap.com/about/benchmark/sizing.expert-sizing.html){: external}
+- [Expert Sizing & Methods of Sizing Validation](https://www.sap.com/documents/2016/10/822c3247-927c-0010-82c7-eda71af511fa.html){: external}
+- [Sizing Methods and Tools](https://www.sap.com/documents/2016/10/6222114a-8f7c-0010-82c7-eda71af511fa.html){: external}
 
 ### Appliance deployment method for Standard sizing type
 {: #hana-delivery-models-appliance}

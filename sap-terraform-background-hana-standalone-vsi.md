@@ -23,7 +23,7 @@ subcollection: sap
 ## {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) introduction
 {: #sap-hana-vpc-intro}
 
-{{site.data.keyword.cloud}} VPC offers the possibility to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public) infrastructure. A VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+{{site.data.keyword.cloud}} VPC offers the possibility to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public){: external} infrastructure. A VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 {: shortdesc}
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building with multiple families living inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium. No one else has the key, and no one can enter the space without your permission.
@@ -40,9 +40,9 @@ The IBM public cloud is an open, security-rich, and enterprise-ready public clou
 ## SAP HANA defined 
 {: #sap-hana-defined}
 
-SAP HANA (High-performance Analytic Appliance) is a multi-model database that stores data in its memory instead of keeping it on a disk. This arrangement results in data processing that magnitudes faster than processing of disk-based data systems, allowing for advanced, real-time [analytics](https://www.ibm.com/analytics/business-analytics).
+SAP HANA (High-performance Analytic Appliance) is a multi-model database that stores data in its memory instead of keeping it on a disk. This arrangement results in data processing that magnitudes faster than processing of disk-based data systems, allowing for advanced, real-time [analytics](https://www.ibm.com/analytics/business-analytics){: external}.
 
-Serving as a platform for enterprise resource planning (ERP) software and other business applications, SAP HANA can be placed on premises, in the cloud, or both, in a [hybrid cloud](https://www.research.ibm.com/hybrid-cloud/?lnk=leadspace) system. For more information, see [SAP HANA on {{site.data.keyword.cloud_notm}}](https://www.ibm.com/topics/sap-hana).
+Serving as a platform for enterprise resource planning (ERP) software and other business applications, SAP HANA can be placed on premises, in the cloud, or both, in a [hybrid cloud](https://www.research.ibm.com/hybrid-cloud/?lnk=leadspace) system. For more information, see [SAP HANA on {{site.data.keyword.cloud_notm}}](https://www.ibm.com/topics/sap-hana){: external}.
 
 The number of hosts in an SAP HANA system landscape determines the SAP HANA system type. 
 

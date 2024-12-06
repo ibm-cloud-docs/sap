@@ -30,7 +30,7 @@ To create resources with Terraform, you use Terraform configuration files that d
 ## Script files
 {: #terraform-single-tier-vpc-sap-files}
 
-The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli). 
+The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli){: external}. 
 
 For single-tier virtual private cloud on SAP, you modify the ``input.auto.tfvars`` file to customize the resources for your solution. You specify zones, resource names, and SSH keys.
 
@@ -78,7 +78,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
     `mkdir myproject && cd myproject`
 
-3.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli) to the project folder that you created in the Terraform installation directory.
+3.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main/cli){: external} to the project folder that you created in the Terraform installation directory.
   
 4.	Edit the ``input.auto.tfvars`` file to customize your solution. Modify the file to specify your zone, VPC component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images).
 

@@ -27,7 +27,7 @@ You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. 
 ## {{site.data.keyword.cloud_notm}} VPC introduction
 {: #intro-aas-hana-anydb-cloud-vpc}
 
-A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public) infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building and multiple families live inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium; no one else has the key, and no one can enter the space without your permission.
 
@@ -40,7 +40,7 @@ With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to m
 
 SAP NetWeaver is the core foundation of the SAP technology stack and is the platform that is used for ABAP and Java applications. The SAP system can be installed and configured in {{site.data.keyword.cloud_notm}} for various system and database types.
 
-For more information about SAP system architectures on {{site.data.keyword.cloud_notm}} VPC, see the infrastructure reference architectures for SAP for each supported database type. The reference architecture section for SAP solutions running on IBM Cloud can be found [here](https://cloud.ibm.com/docs/sap?topic=sap-refarch-hana-scaleup).
+For more information about SAP system architectures on {{site.data.keyword.cloud_notm}} VPC, see the infrastructure reference architectures for SAP for each supported database type. The reference architecture section for SAP solutions running on IBM Cloud can be found [here](https://cloud.ibm.com/docs/sap?topic=sap-refarch-hana-scaleup){: external}.
 
 ## SAP Project Value Guide – Additional Application Server (AAS) to HANA
 {: #intro-aas-hana-anydb-cloud-value-guide}
@@ -49,7 +49,7 @@ SAP projects vary widely in scope and budget, but none are considered trivial. W
 
 In many SAP project scenarios, the deployment of an SAP system is often a key and repeated task. This project value guide covers the automated deployment of {{site.data.keyword.cloud_notm}} VPC and Additional Application Server (AAS) to HANA. We will also discuss on [SAP NetWeaver of HANA database](/docs/sap?topic=sap-intro-automate-deploy-vpc-terraform-ansible&interface=ui) and [Backing up the HANA database IBM Cloud Object Storage](/docs/sap?topic=sap-sap-automate-intro-hana-db-backup-cos&interface=ui) in their respective sections.
 
-After your HANA DB and SAP NetWeaver application server are up and running, you may want additional SAP application servers deployed to increase workload capacity. With this automation, deploying infrastructure, performing SAP software installation, and joining the existing SAP system in less than twenty minutes is possible. For more information, go to [VPC with Additional Application Server ABAP on Linux for SAP HANA](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-sap-vpc-automation-hana-nw-abap-aas-51f5ccbc-23fe-42d0-a17c-7a90b73da835-global).
+After your HANA DB and SAP NetWeaver application server are up and running, you may want additional SAP application servers deployed to increase workload capacity. With this automation, deploying infrastructure, performing SAP software installation, and joining the existing SAP system in less than twenty minutes is possible. For more information, go to [VPC with Additional Application Server ABAP on Linux for SAP HANA](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-sap-vpc-automation-hana-nw-abap-aas-51f5ccbc-23fe-42d0-a17c-7a90b73da835-global){: external}.
 
  ![Figure 1. Additional Application Server (AAS) to SAP instance and HANA instance](images/sap_value_guide_aas.svg "Additional Application Server (AAS) to SAP instance and HANA instance"){: caption="Additional Application Server (AAS) to SAP instance and HANA instance" caption-side="bottom"}
 
@@ -76,9 +76,9 @@ The SAP installation media that are used for this deployment are the default med
 ## Ansible for SAP installation
 {: #intro-aas-hana-anydb-sap-ansible}
 
-Ansible is an automation tool for the deployment of several IT tasks. Ansible is used for automating the installation of an SAP NetWeaver with HANA or AnyDB. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html).
+Ansible is an automation tool for the deployment of several IT tasks. Ansible is used for automating the installation of an SAP NetWeaver with HANA or AnyDB. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html){: external}.
 
-The deployment is done by using the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on the [Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html).
+The deployment is done by using the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on the [Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html){: external}.
 
 The Ansible playbook is called directly by the Terraform script. The script starts with Terraform specific steps for creating the VPC, and continues automatically with the Ansible specific steps to install the SAP system.
 

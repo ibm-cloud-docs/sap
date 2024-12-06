@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap
 
@@ -39,7 +39,7 @@ With {{site.data.keyword.vpc_short}}, you can use the UI, CLI, and API to manual
 ## SAP products architecture on IBM Cloud VPC
 {: #automate-sap-ha-products-architecture-vpc}
 
-A [Virtual Private Cloud (VPC)](https://www.ibm.com/cloud/learn/vpc?mhsrc=ibmsearch_a&mhq=VPC){: external} contains one of the most secure and reliable cloud environments for SAP applications within your own VPC with its included virtual server instances. This represents an Infrastructure as a Service (IaaS) within {{site.data.keyword.cloud_notm}} that offers all of the benefits of isolated, secure, and flexible virtual cloud infrastructure from IBM. In comparison, the {{site.data.keyword.cloud_notm}} classic infrastructure virtual servers offering uses virtual instances with native and VLAN networking to communicate to each other within a data center; however, the instances are restricted in one well-working pod by using subnet and VLAN networking as a gap scale up of virtual resources should rely between the pods. What’s new with {{site.data.keyword.vpc_short}} is a network orchestrator layer concept that eliminates the pod boundaries and restrictions, so this new concept handles all the networking for every virtual instance running within VPC across regions and zones.
+A [Virtual Private Cloud (VPC)](https://www.ibm.com/cloud/learn/vpc?mhsrc=ibmsearch_a&mhq=VPC){: external} contains one of the most secure and reliable cloud environments for SAP applications within your own VPC with its included virtual server instances. This represents an Infrastructure as a Service (IaaS){: external} within {{site.data.keyword.cloud_notm}} that offers all of the benefits of isolated, secure, and flexible virtual cloud infrastructure from IBM. In comparison, the {{site.data.keyword.cloud_notm}} classic infrastructure virtual servers offering uses virtual instances with native and VLAN networking to communicate to each other within a data center; however, the instances are restricted in one well-working pod by using subnet and VLAN networking as a gap scale up of virtual resources should rely between the pods. What’s new with {{site.data.keyword.vpc_short}} is a network orchestrator layer concept that eliminates the pod boundaries and restrictions, so this new concept handles all the networking for every virtual instance running within VPC across regions and zones.
 
 ## Highly available system for SAP NetWeaver on {{site.data.keyword.cloud_notm}} VPC
 {: #automate-sap-ha-system-nw}
@@ -168,7 +168,7 @@ The DNS service maps the FQDN of each ALB to the virtual hostnames of the ASCS, 
 ### Network latency between VPC Zones and Regions
 {: #automate-sap-ha-network-latency}
 
-For network latency between VPC zones and regions, see the [VPC Network latency dashboards](https://cloud.ibm.com/docs/vpc?topic=vpc-network-latency-dashboard) topic and run your own measurement according with SAP note "500235 - Network Diagnosis with NIPING" to perform a latency check using SAP tool niping.
+For network latency between VPC zones and regions, see the [VPC Network latency dashboards](https://cloud.ibm.com/docs/vpc?topic=vpc-network-latency-dashboard){: external} topic and run your own measurement according with SAP note "500235 - Network Diagnosis with NIPING" to perform a latency check using SAP tool niping.
 
 The results reported are as measured. There are no performance guarantees implied by these measurement. These statistics provide visibility into latency between all regions and zones to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance.
 

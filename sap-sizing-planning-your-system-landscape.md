@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Landscape
 
@@ -26,7 +26,7 @@ Your business and functional requirements determine the SAP solutions that are p
 
 Your requirements have an influence on how you size your server. You have a wide selection of SAP NetWeaver-based applications (which may use SAP HANA) to choose from, including SAP S/4HANA, SAP ERP Central Component (ECC), SAP BW/4HANA, SAP BW and many more solutions for different business operations.
 
-For a complete list of solutions, see [ABAP Platform and SAP NetWeaver](https://help.sap.com/docs/SAP_NETWEAVER){: external}. For information about supported operating systems and database platforms, see [SAP Product Availability Matrix (PAM)](https://userapps.support.sap.com/sap/support/pam){: external}. Search for Product Availability Matrix. An [SAP S-User ID](/docs/sap?topic=sap-necessary-credentials) is required.
+For a complete list of solutions, see [ABAP Platform and SAP NetWeaver](https://help.sap.com/docs/SAP_NETWEAVER){: external}. For information about supported operating systems and database platforms, see [SAP Product Availability Matrix (PAM)](https://userapps.support.sap.com/sap/support/pam){: external}. Search for Product Availability Matrix. An [SAP S-User ID](/docs/sap?topic=sap-necessary-credentials){: external} is required.
 
 ## Determining your SAP applications
 {: #determine-apps}
@@ -58,7 +58,7 @@ Each deployment of SAP HANA Database Server or SAP NetWeaver Application Server 
 
 For further information regarding SAP Landscapes, guidance has been released by {{site.data.keyword.IBM_notm}} Power Systems, which provide excellent detailed agnostic information and guidance regarding SAP Landscapes components and setup (which applies to running SAP on any infrastructure, on-premises data centers or Cloud IaaS):
 * [SAP on {{site.data.keyword.IBM_notm}} Power Systems Best Practices Guide](https://www-03.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/WP102618){: external} (click the link in the middle of the page)
-* [{{site.data.keyword.IBM_notm}} Power Systems Virtualization Operation Management for SAP Applications](http://www.redbooks.ibm.com/abstracts/redp5579.html?Open){: external}
+* [{{site.data.keyword.IBM_notm}} Power Systems Virtualization Operation Management for SAP Applications](https://www.redbooks.ibm.com/abstracts/redp5579.html?Open){: external}
 * [SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems and IBM System Storage - Guides](http://www-03.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/WP102502){: external}
 
 ## Reviewing any relevant SAP and {{site.data.keyword.cloud_notm}} documentation

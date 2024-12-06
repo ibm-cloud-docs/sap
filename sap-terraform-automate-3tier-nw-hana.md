@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap
 
@@ -130,7 +130,7 @@ Before you use the scripts:
 *  If you have not created already, create a deployment server (bastion server) to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 *  Log in to your previously created deployment server and verify that Terraform and Ansible are installed.
 *  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. 
-    Ansible decompresses all of the files. For more information, see the [Java README file](https://github.com/IBM-Cloud/sap-netweaver-java-hana) or the [ABAP README file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana).
+    Ansible decompresses all of the files. For more information, see the [Java README file](https://github.com/IBM-Cloud/sap-netweaver-java-hana) or the [ABAP README file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana){: external}.
 *  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
@@ -143,8 +143,8 @@ Before you deploy SAP NetWeaver ABAP or Java stack on HANA db:
 *  Set up your account to access the VPC. Make sure that your account is upgraded to a [paid account](/docs/account?topic=account-upgrading-account).
 *  If you have not already, create a deployment server (bastion server) to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server). You need the Floating IP from your deployment server (bastion server) for deployment.
 *  Download the SAP kits from the SAP Portal to your deployment server (bastion server). Make note of the download locations. Ansible decompresses all of the archive kits and needs the paths. For more information, see the Readme file for:
-    * ABAP: [Schematics](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md#21-executing-the-deployment-of-sap-netweaver-on-hana-db-stack-in-gui-schematics), [Terraform](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md#22-executing-the-deployment-of-sap-netweaver-on-hana-db-stack-in-cli), or the [Catalog Tile](https://cloud.ibm.com/catalog/661d79e6-7859-4578-847f-7b377215cf67/architecture/deploy-arch-ibm-sap-vpc-automation-hana-nw-abap-c0fc9daf-791b-42d2-9fe3-406f267b89ac)
-    * JAVA: [Schematics](https://github.com/IBM-Cloud/sap-netweaver-java-hana/blob/main/README.md#11-executing-the-deployment-of-three-tier-sap-java-hana-stack-in-gui-schematics) and [Terraform](https://github.com/IBM-Cloud/sap-netweaver-java-hana/blob/main/README.md#12-executing-the-deployment-of-three-tier-sap-java-hana-stack-in-cli)
+    * ABAP: [Schematics](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md#21-executing-the-deployment-of-sap-netweaver-on-hana-db-stack-in-gui-schematics), [Terraform](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md#22-executing-the-deployment-of-sap-netweaver-on-hana-db-stack-in-cli), or the [Catalog Tile](https://cloud.ibm.com/catalog/661d79e6-7859-4578-847f-7b377215cf67/architecture/deploy-arch-ibm-sap-vpc-automation-hana-nw-abap-c0fc9daf-791b-42d2-9fe3-406f267b89ac){: external}
+    * JAVA: [Schematics](https://github.com/IBM-Cloud/sap-netweaver-java-hana/blob/main/README.md#11-executing-the-deployment-of-three-tier-sap-java-hana-stack-in-gui-schematics) and [Terraform](https://github.com/IBM-Cloud/sap-netweaver-java-hana/blob/main/README.md#12-executing-the-deployment-of-three-tier-sap-java-hana-stack-in-cli){: external}
 *  [Create or retrieve an IBM Cloud API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 *  Optional - (Catalog Tile) create secrets for your credentials and passwords by using the [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui).
@@ -169,7 +169,7 @@ Use these steps to configure the NetWeaver ABAP or Java stack on your existing V
 5.	Select **Create** to create your workspace.
 6.	On the workspace settings page, in the Input variables section, review the default input variables and provide values that match your solution.
 
-    For a more detailed description of each of the parameters, check the GitHub repo [Java Readme](https://github.com/IBM-Cloud/sap-netweaver-java-hana/blob/main/schematics/README.md) or [ABAP Readme](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md) file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the Readme file, under “Input parameter file”.
+    For a more detailed description of each of the parameters, check the GitHub repo [Java Readme](https://github.com/IBM-Cloud/sap-netweaver-java-hana/blob/main/schematics/README.md) or [ABAP Readme](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md){: external} file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the Readme file, under “Input parameter file”.
 
 7.	On the workspace settings page, click **Generate plan**. Wait for the plan to complete.
 8.	Click **View log** to review the log files of your Terraform execution plan.
@@ -182,7 +182,7 @@ Use these steps to configure the NetWeaver ABAP or Java stack on your existing V
 
 Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existing VPC by using the catalog tile interface. The scripts can take 2 - 3 hours to complete.
 
-1. From the {{site.data.keyword.cloud_notm}} Catalog menu, select the **VPC for SAP HANA NetWeaver ABAP** on Deployable Architecture tile. For more information about this deployment, see the [Readme](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md) file.
+1. From the {{site.data.keyword.cloud_notm}} Catalog menu, select the **VPC for SAP HANA NetWeaver ABAP** on Deployable Architecture tile. For more information about this deployment, see the [Readme](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md){: external} file.
 2. Select the latest version.
 3. Select **Standard** variation.
 4. Click **Review deployment options**:
@@ -195,26 +195,26 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
       * Enter a name for the workspace or use default name.
       * The Resource Group used to create resources. Use default or create a Resource Group.
       * Select a location to create your {{site.data.keyword.bpshort}} workspace. The workspace location need not match the resource location.
-    * **Required input variables** - Review the default input variables and provide values that match your solution. These parameters are specific to your deployment. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md).
+    * **Required input variables** - Review the default input variables and provide values that match your solution. These parameters are specific to your deployment. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md){: external}.
 
       |Parameter	|Description|
       |-----|-----|
       |APP_HOSTNAME	|The hostname for the SAP Application VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check SAP Note 611361: "Hostnames of SAP ABAP  Platform servers".|
       |DB_HOSTNAME	|The Hostname for HANA VSI. The hostname should be up to 13 characters as required  by SAP. For more information on the rules regarding hostnames for SAP systems, check SAP Note 611361: "Hostnames of SAP ABAP Platform servers".|
       |BASTION_FLOATING_IP	|Input the FLOATING IP from the Bastion Server.|
-      |REGION	|The cloud region where to deploy the solution. The regions and zones for VPC are listed [here](https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in IBM Cloud Schematics [here](https://cloud.ibm.com/docs/schematics?topic=schematics-locations). |
-      |RESOURCE_GROUP	|The name of an EXISTING Resource Group for VSIs and Volumes resources. The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups).|
-      |SECURITY_GROUP	|The name of an EXISTING Security group. The list of Security Groups is available [here](https://cloud.ibm.com/infrastructure/network/securityGroups).|
-      |SSH_KEYS	|List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys).|
-      |SUBNET	|The name of an EXISTING Subnet. The list of Subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets). |
-      |VPC	|The name of an EXISTING VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs).|
+      |REGION	|The cloud region where to deploy the solution. The regions and zones for VPC are listed [here](https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in IBM Cloud Schematics [here](https://cloud.ibm.com/docs/schematics?topic=schematics-locations){: external}. |
+      |RESOURCE_GROUP	|The name of an EXISTING Resource Group for VSIs and Volumes resources. The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups){: external}.|
+      |SECURITY_GROUP	|The name of an EXISTING Security group. The list of Security Groups is available [here](https://cloud.ibm.com/infrastructure/network/securityGroups){: external}.|
+      |SSH_KEYS	|List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys){: external}.|
+      |SUBNET	|The name of an EXISTING Subnet. The list of Subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets){: external}. |
+      |VPC	|The name of an EXISTING VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs){: external}.|
       |ZONE	|The cloud zone where to deploy the solution.
       |HANA_MAIN_PASSWORD	|Common password for all users that are created during the installation. A list of images is available here. |
       |IBMCLOUD_API_KEY	|IBM Cloud API key (Sensitive* value).|
       |PRIVATE_SSH_KEY	|Input your id_rsa private key pair content in OpenSSH format (Sensitive* value). This private key should be used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.|
       |SAP_MAIN_PASSWORD	|Common password for all users that are created during the installation. See Obs* section. |
     
-   * **Optional input variables** - Review and update the optional parameters. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md).
+   * **Optional input variables** - Review and update the optional parameters. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md){: external}.
 
       |Parameter	|Description|
       |-----|-----|
@@ -235,7 +235,7 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
       |KIT_SAPCAR_FILE	|Path to the sapcar binary, as downloaded from SAP Support Portal.|
       |KIT_SAPEXE_FILE	|Path to the SAP Kernel OS archive (SAR), as downloaded from SAP Support Portal.|
       |KIT_SAPEXEDB_FILE	|Path to the SAP Kernel DB archive (SAR), as downloaded from SAP Support Portal.|
-      |KIT_SAPHANA_FILE	|Path to the SAP HANA ZIP file. See [Obs* section](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md). As downloaded from SAP Support Portal.|
+      |KIT_SAPHANA_FILE	|Path to the SAP HANA ZIP file. See [Obs* section](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md){: external}. As downloaded from SAP Support Portal.|
       |KIT_SAPHOSTAGENT_FILE	|Path to the SAP Host Agent archive (SAR), as downloaded from SAP Support Portal.|
       |KIT_SWPM_FILE	|Path to SWPM archive (SAR), as downloaded from SAP Support Portal.|
       |SAP_ASCS_INSTANCE_NUMBER	|Technical identifier for the internal processes of ASCS.|
@@ -272,7 +272,7 @@ Use these steps to create the VPC resources and install the SAP architecture. Th
     $ cd sap-netweaver-abap-hana
     ```
 
-3.	Define your existing VPC variables. Modify the `input.auto.tfvars` file to specify your zone, VPC component names, profile, and image. The file is preset with the minimal recommended disk sizes. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [Java README file](https://github.com/IBM-Cloud/sap-netweaver-java-hana) or the [ABAP README file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana).
+3.	Define your existing VPC variables. Modify the `input.auto.tfvars` file to specify your zone, VPC component names, profile, and image. The file is preset with the minimal recommended disk sizes. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [Java README file](https://github.com/IBM-Cloud/sap-netweaver-java-hana) or the [ABAP README file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana){: external}.
 
     For Java, the following variable values should be modified:
     *  REGION - Region for the VSI. See the Readme file.
@@ -340,7 +340,7 @@ Use these steps to create the VPC resources and install the SAP architecture. Th
     
     The hostname must have up to 13 characters as required by SAP. For more information about the rules that apply to hostnames for SAP systems, see SAP Note 611361 - Hostnames of SAP ABAP Platform servers
 
-4. Customize your SAP system configuration. Modify the ``input.auto.tfvars`` file to specify SAP system configuration and enter the location of the downloaded SAP Kits. For descriptions of the variables, see the [Java README file](https://github.com/IBM-Cloud/sap-netweaver-java-hana) or the [ABAP README file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana). 
+4. Customize your SAP system configuration. Modify the ``input.auto.tfvars`` file to specify SAP system configuration and enter the location of the downloaded SAP Kits. For descriptions of the variables, see the [Java README file](https://github.com/IBM-Cloud/sap-netweaver-java-hana) or the [ABAP README file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana){: external}. 
   
     For Java:
 
@@ -442,19 +442,19 @@ For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [T
 For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier virtual private cloud for SAP by using Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
 
 SAP One Support Notes that apply to this document:
-*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855)
-*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP license](https://me.sap.com/notes/2923773)
-*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
-*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910)
-*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855){: external}
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP license](https://me.sap.com/notes/2923773){: external}
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910){: external}
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 
 This document is referenced by:
-*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
-*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
 
 This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
 years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -45,7 +45,7 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 | [BI.S4.H2.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1103){: external} | 56 | 112 | 3072 GB | 135,127 | OLAP/OLTP (\*\*) |
 | [BI.S4.H4.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1117){: external} | 112 | 224 | 3072 GB | 285,970 | OLAP/OLTP (\*\*) |
 | [BI.S4.H4.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1113){: external} | 112 | 224 | 6144 GB | 285,970 | OLAP/OLTP (\*\*) |
-| [BI.S4.H8.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1121){: external} | 224 | 448 | 6144 GB | 550,670 | OLAP/OLTP (\*\*) | 
+| [BI.S4.H8.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1121){: external} | 224 | 448 | 6144 GB | 550,670 | OLAP/OLTP (\*\*) |
 | [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1129){: external} | 224 | 448 | 12288 GB | 550,670 | OLAP/OLTP (\*\*) |
 {: caption="SAP HANA servers" caption-side="top"}
 
@@ -478,7 +478,7 @@ You can share storage areas for `/hana/shared` with `/hana/log` or `/hana/data` 
 
 For non-production use, you can use one storage area for `/hana/shared`, `/hana/log`, and `/hana/data`.
 
-These minimums are for either _Endurance_ or _Performance_ options available with {{site.data.keyword.filestorage_full_notm}}: 
+These minimums are for either _Endurance_ or _Performance_ options available with {{site.data.keyword.filestorage_full_notm}}:
 - Endurance storage is a predefined IOPS per GB of storage, for example, 0.25 up to 10 IOPS per GB.
 - Performance storage has different ranges of IOPS per GB, depending on the total size of the storage device. This option is more customizable.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap
 
@@ -16,7 +16,7 @@ subcollection: sap
 {:important: .important}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{:tip: .tip} 
+{:tip: .tip}
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
@@ -34,7 +34,7 @@ You have three deployment methods to choose from:
 *   Catalog tile user interfaced from the {{site.data.keyword.cloud_notm}} catalog.
 *   {{site.data.keyword.cloud_notm}} {{site.data.keyword.bpshort}} user interface accessed from the menu on your cloud dashboard.
 
-## SAP solution implemented 
+## SAP solution implemented
 {: #automate-s4hana-ha-sz-implemented}
 
 SAP S/4HANA is an ERP system from SAP's ERP software product line. The software is based on the innovative SAP HANA database technology and was started as the fourth product generation in 2015. Users can choose between the SAP S/4HANA Cloud and on-premises solution.
@@ -61,9 +61,9 @@ It is recommended to read the guidelines from the readme file when deploying thi
 
 For more information about this architecture, see [SAP NetWeaver 7.x with SAP HANA {{site.data.keyword.cloud_notm}} VPC](/docs/sap?topic=sap-sap-refarch-nw-hana&interface=ui).
 
-During the first phase, the following resources are provisioned in the VPC: 
+During the first phase, the following resources are provisioned in the VPC:
 *    1 Power Placement group for all 4 virtual machines created by this solution
-*    4 VSIs, with Subnet and Security Group configurations 
+*    4 VSIs, with Subnet and Security Group configurations
 *    3 Application Load Balancers for HANA DB and SAP ASCS/ERS
 *    1 VPC DNS service used to map the ALB FQDN to the SAP ASCS/ERS and HANA virtual hostnames
 *    7 file shares for VPC
@@ -117,7 +117,7 @@ It is your responsibility to download the necessary SAP and DB kits to your Depl
 {: #automate-s4hana-ha-terraform-deployment}
 {: terraform}
 
-The automation scripts from the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) can be executed by running the Terraform scripts in CLI, from the bastion server (deployment server). 
+The automation scripts from the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) can be executed by running the Terraform scripts in CLI, from the bastion server (deployment server).
 
 Edit the input parameter file `input.auto.tfvars`, and modify the variables to match your solution:
 *    VPC - An existing VPC name
@@ -139,7 +139,7 @@ Edit the input parameter file `input.auto.tfvars`, and modify the variables to m
 {: #automate-s4hana-ha-schematics-deployment}
 {: ui}
 
-{{site.data.keyword.bpshort}} user interface is used on the {{site.data.keyword.cloud_notm}}. Enter the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) for SAP S/4HANA High Availability on single zone {{site.data.keyword.bpshort}}.
+{{site.data.keyword.bpshort}} user interface is used on the {{site.data.keyword.cloud_notm}}. Enter the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha){: external} for SAP S/4HANA High Availability on single zone {{site.data.keyword.bpshort}}.
 
 When you run the scripts with the {{site.data.keyword.bpshort}} interface, you:
 
@@ -177,10 +177,10 @@ If client issues are identified with SAP software, then SAP support assists the 
 
 Before you deploy SAP S/4HANA High Availability on Single Zone or Multi Zone:
 
-* The automation for this deployment requires {{site.data.keyword.cloud_notm}} File Storage for VPC to complete successfully. {{site.data.keyword.cloud_notm}} File Storage for VPC is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative to get access. For more information, see [{{site.data.keyword.cloud_notm}} File Storage for VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-file-storage-vpc-about).
+* The automation for this deployment requires {{site.data.keyword.cloud_notm}} File Storage for VPC to complete successfully. {{site.data.keyword.cloud_notm}} File Storage for VPC is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative to get access. For more information, see [{{site.data.keyword.cloud_notm}} File Storage for VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-file-storage-vpc-about){: external}.
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 * If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the Readme file in the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) and on the About page for the catalog tile.
+* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the Readme file in the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha){: external} and on the About page for the catalog tile.
 * [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 * [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 * (Optional - catalog tile) create secrets for your credentials and passwords by using the [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui). {: ui}
@@ -190,7 +190,7 @@ Before you deploy SAP S/4HANA High Availability on Single Zone or Multi Zone:
 {: terraform}
 
 Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-in and use Terraform to install **SAP HA SZ or MZ S/4HANA** on your existing VPC. The scripts can take upto 4 hours to complete.
-The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://github.com/IBM-Cloud/sap-s4hana-ha) for recommended kits versions.
+The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://github.com/IBM-Cloud/sap-s4hana-ha){: external} for recommended kits versions.
 
 1. Access the bastion server CLI.
 2. Clone the solution repository from `https://github.com/IBM-Cloud/sap-s4hana-ha` and `cd` to the `sap-s4hana-ha` folder.
@@ -249,12 +249,12 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     # Example: SUBNET = "ic4sap-subnet_1"
 
     ZONE_2 = ""
-    # Availability zone for DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs, in the same VPC. Supported zones: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc. 
+    # Availability zone for DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs, in the same VPC. Supported zones: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc.
     # If the same value as for ZONE_1 is used, and the value for SUBNET_1 is the same with the value for SUBNET_2, the deployment will be done in a single zone. If the values for ZONE_1, SUBNET_1 are different than the ones for ZONE_2, SUBNET_2 then an SAP Multizone deployment will be done.
     # Example: ZONE = "eu-de-2"
 
     SUBNET_2 = ""
-    # The name of an EXISTING Subnet, in the same VPC, ZONE_2, where DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs will be created. The list of Subnets is available here: https://cloud.ibm.com/infrastructure/network/subnets. 
+    # The name of an EXISTING Subnet, in the same VPC, ZONE_2, where DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs will be created. The list of Subnets is available here: https://cloud.ibm.com/infrastructure/network/subnets.
     # If the same value as for SUBNET_1 is used, and the value for ZONE_1 is the same with the value for ZONE_2, the deployment will be done in a single zone. If the values for ZONE_1, SUBNET_1 are different than the ones for ZONE_2, SUBNET_2 then it an SAP Multizone deployment will be done.
     # Example: SUBNET = "ic4sap-subnet_2"
 
@@ -310,25 +310,25 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     DB_PROFILE = "mx2-16x128"
     # The instance profile used for the HANA VSI. The list of certified profiles for HANA VSIs: https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc
     # Details about all x86 instance profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles).
-    # For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check [SAP Note 2927211: SAP Applications on IBM Virtual Private Cloud](https://me.sap.com/notes/2927211) 
+    # For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check [SAP Note 2927211: SAP Applications on IBM Virtual Private Cloud](https://me.sap.com/notes/2927211){: external}
     # Default value: "mx2-16x128"
 
     DB_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-6"
     # OS image for DB VSI. OS images validated for DB VSIs: ibm-redhat-8-6-amd64-sap-hana-6, ibm-redhat-8-4-amd64-sap-hana-10
     # The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://me.sap.com/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
-    # Example: DB_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-10" 
+    # Example: DB_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-10"
 
     ##########################################################
     # SAP APP VSI variables:
     ##########################################################
 
     APP_HOSTNAME_1 = "sapapp-1"
-    # APP VSI HOSTNAME 1 in SAP APP Cluster. The hostname should be up to 13 characters. 
+    # APP VSI HOSTNAME 1 in SAP APP Cluster. The hostname should be up to 13 characters.
     # Default value: "sapapp-1"
     # When the default value is used, the virtual hostname will automatically be changed based on <SAP_SID> to "sapapp-<sap_sid>-1"
 
     APP_HOSTNAME_2 = "sapapp-2"
-    # APP VSI HOSTNAME 2 in SAP APP Cluster. The hostname should be up to 13 characters. 
+    # APP VSI HOSTNAME 2 in SAP APP Cluster. The hostname should be up to 13 characters.
     # Default value: "sapapp-2"
     # When the default value is used, the virtual hostname will automatically be changed based on <SAP_SID> to "sapapp-<sap_sid>-2"
 
@@ -338,7 +338,7 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     APP_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-6"
     # OS image for SAP APP VSI. OS images validated for APP VSIs: ibm-redhat-8-6-amd64-sap-hana-6, ibm-redhat-8-4-amd64-sap-hana-10.
     # The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://me.sap.com/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
-    # Example: APP_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-10" 
+    # Example: APP_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-10"
     ```
 
 4. Customize your SAP system configuration. In the same `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme file](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md){: external}.
@@ -456,13 +456,13 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     ```
     You will be asked for the following sensitive variables as a destroy confirmation phase:
     `'IBMCLOUD_API_KEY', 'SAP_MAIN_PASSWORD' HANA_MAIN_PASSWORD, and 'HA_PASSWORD'`.
-    
+
 
 ## Deploying SAP S/4HANA High Availability on Single zone or Multi zone with the catalog tile interface
 {: #automate-deploy-s4hana-ha-catalog-tile}
 {: ui}
 
-Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by using the catalog tile interface. The available supported S/4HANA versions are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-sz-ha-0f327e46-f7de-4ce5-bb19-78a779022689-global/readme/terraform/terraform/b8780183-8a8e-4341-8978-33af09603f54-global) file for recommended kits versions. The scripts can take 2 - 3 hours to complete. 
+Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by using the catalog tile interface. The available supported S/4HANA versions are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-sz-ha-0f327e46-f7de-4ce5-bb19-78a779022689-global/readme/terraform/terraform/b8780183-8a8e-4341-8978-33af09603f54-global){: external} file for recommended kits versions. The scripts can take 2 - 3 hours to complete.
 
 1.	From the {{site.data.keyword.cloud_notm}} catalog, select the SAP S/4HANA High Availability tile. The tile opens the Create tab for SAP HA S/4HANA. For more information about this deployment, see the About tab or the readme file link.
 2.	On the SAP HA S/4HANA page, configure your workspace:
@@ -470,7 +470,7 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
     *   Select the **Resource Group** to use to create resources. Use the Default or create a Resource Group.
     *   Select a **Location** to create your {{site.data.keyword.bpshort}} workspace. The workspace location does not have to match the resource location.
 
-3.	Enter the required deployment values, review the default input variables, and provide values that match your solution. These parameters are specific to your deployment. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-s4hana-ha/blob/main/README.md#16-general-input-variables).
+3.	Enter the required deployment values, review the default input variables, and provide values that match your solution. These parameters are specific to your deployment. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-s4hana-ha/blob/main/README.md#16-general-input-variables){: external}.
 
     |Parameter	|  Description  |
     |-----|-----|
@@ -496,7 +496,7 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
     |SAP_MAIN_PASSWORD	|SAP main password or use a secret that is stored in Secrets Manager.|
     |SAP_SID  |SAP sid|
 
-4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-s4hana-ha/blob/main/README.md#16-general-input-variables).
+4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-s4hana-ha/blob/main/README.md#16-general-input-variables){: external}.
 
     |Parameter	|Description|
     |-----|-------|
@@ -541,12 +541,12 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
 {: #automate-s4hana-ha-deploy-schematics}
 {: ui}
 
-Use these steps to configure the SAP S/4HANA High Availability on Single Zone on your existing VPC by using the {{site.data.keyword.bpshort}} interface. The scripts can take 2 - 3 hours to complete. The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-sz-ha-0f327e46-f7de-4ce5-bb19-78a779022689-global/readme/terraform/terraform/b8780183-8a8e-4341-8978-33af09603f54-global) for recommended kits versions.
+Use these steps to configure the SAP S/4HANA High Availability on Single Zone on your existing VPC by using the {{site.data.keyword.bpshort}} interface. The scripts can take 2 - 3 hours to complete. The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-sz-ha-0f327e46-f7de-4ce5-bb19-78a779022689-global/readme/terraform/terraform/b8780183-8a8e-4341-8978-33af09603f54-global){: external} for recommended kits versions.
 
 1.	From the {{site.data.keyword.cloud_notm}} menu, select **{{site.data.keyword.bpshort}}**.
 2.	Click **Create workspace**.
 3.	On the **Specify template** page:
-    *   Enter the [GitHub repository URL](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) that contains the {{site.data.keyword.bpshort}} code for this offering.
+    *   Enter the [GitHub repository URL](https://github.com/IBM-Cloud/sap-s4hana-sz-ha){: external} that contains the {{site.data.keyword.bpshort}} code for this offering.
     *   Select the **Terraform version**.
     *   Click **Next**.
 4.	On the **Workspace details** page:
@@ -581,17 +581,17 @@ For more information about using Terraform for creating only a VPC for SAP, with
 
 Following are the SAP One Support Notes, that apply to this document:
 
-* [SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855)
-* [SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-* [SAP Note 2923773 - Linux&reg; on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP license](https://me.sap.com/notes/2923773)
-* [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097)
-* [SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910)
-* [SAP Note 171380 - Released IBM hardware (Intel&reg; processors) and IBM cloud services offers](https://me.sap.com/notes/171380)
-* [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
+* [SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855){: external}
+* [SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+* [SAP Note 2923773 - Linux&reg; on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP license](https://me.sap.com/notes/2923773){: external}
+* [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
+* [SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910){: external}
+* [SAP Note 171380 - Released IBM hardware (Intel&reg; processors) and IBM cloud services offers](https://me.sap.com/notes/171380){: external}
+* [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 
 This document is referenced by:
 
-* [SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-* [SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
-* [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
-* [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097)
+* [SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+* [SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
+* [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
+* [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}

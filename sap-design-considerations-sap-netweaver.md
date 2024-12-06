@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -148,8 +148,8 @@ Bonding interfaces are used for Linux and teaming adapters are used for Microsof
 These setups provide a logical interface for redundancy and increased bandwidth.
 
 When you deploy IBM Cloud for VMware Solutions, redundant adapters for VMware are set up using an NSX-T distributed switch.
-This is in line with current VMware best practices for the _Software-Defined Data Center_ (see [VMware NSX-T design](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-nsx-t-design)).
-Although subject to change, redundancy is configured by setting each _Distributed Switch_ to use the [Route Based on Originating Virtual Port](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-959E1CFE-2AE4-4A67-B4D4-2D2E13765715.html) load balancing algorithm.
+This is in line with current VMware best practices for the _Software-Defined Data Center_ (see [VMware NSX-T design](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-nsx-t-design)){: external}.
+Although subject to change, redundancy is configured by setting each _Distributed Switch_ to use the [Route Based on Originating Virtual Port](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-959E1CFE-2AE4-4A67-B4D4-2D2E13765715.html){: external} load balancing algorithm.
 All included port groups use teaming over 2 uplinks (active: 0,1).
 
 If you are deploying VMware vSphere on IBM Bare Metal in a manual installation that uses vSwitch, you can use LACP bonding of the physical NIC adapters.

@@ -35,7 +35,7 @@ Network and storage configuration, disaster recovery, high availability, backups
 ## The 'Must-Reads' before you start deploying
 {: #bm-optane-must-reads}
 
-To ensure that your first deployment is a success, review the information in Provisioning SAP HANA and SAP NetWeaver [Planning your deployment](https://test.cloud.ibm.com/docs/sap?topic=sap-bm-planning-items#bm-must-reads)
+To ensure that your first deployment is a success, review the information in Provisioning SAP HANA and SAP NetWeaver [Planning your deployment](https://test.cloud.ibm.com/docs/sap?topic=sap-bm-planning-items#bm-must-reads){: external}
 
 ### Other useful documents
 {: #bm-optane-other-useful-docs}
@@ -44,5 +44,3 @@ See the respective topics in the **_Get Started_** section for the following inf
 * [SAP HANA design considerations for High Availability and Disaster Recovery (HA/DR)](/docs/sap?topic=sap-hana-design-considerations#hana-ha)
 * [SAP HANA backups - Storage impacts on Recovery Time Objective (RTO)](/docs/sap?topic=sap-storage-design-considerations#storage-performance-backup-rto)
 * [SAP NetWeaver design considerations for High Availability configuration](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha)
-
-

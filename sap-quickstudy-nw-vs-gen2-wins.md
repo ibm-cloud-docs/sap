@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -246,7 +246,7 @@ You can access the newly created VSI with Windows Remote Desktop. Enter the *Flo
 1. Check the values and click **Finish**
 1. After the volume has been prepared and formatted, you can find the new disk in the Windows Explorer
 
-(+) [About partition styles - GPT and MBR.](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr)
+(+) [About partition styles - GPT and MBR.](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){: external}
 
 ### Specifying the page file
 
@@ -324,7 +324,7 @@ SAP requires the installation of the {{site.data.keyword.cloud_notm}} Metrics Co
 {: #download-sap-software-wins}
 {: step}
 
-You need an S-User ID and the Download Software authorization when you download the DVD images from the SAP Service Marketplace. To request an S-USer ID, see the [SAP Support Portal](https://support.sap.com/en/index.html).
+You need an S-User ID and the Download Software authorization when you download the DVD images from the SAP Service Marketplace. To request an S-USer ID, see the [SAP Support Portal](https://support.sap.com/en/index.html){: external}.
 {: note}
 
 Depending on your target SAP application that you are going to install you need to gather information, which SAP images you will need to download. In this tutorial, we are choosing SAP NetWeaver ABAP on Windows using IBM Db2 for the SAP Database. Therefore we find in this guide  [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external} all the needed information. SAP recommends to always search for the most recent versions.
@@ -342,7 +342,7 @@ SWPM is the component that guides you through the steps to successfully prepare 
 {: #install-sap-software-wins}
 {: step}
 
-Follow the instructions in the [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2).
+Follow the instructions in the [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2){: external}.
 
 ![Figure 2. SAP Application instances](/images/quickstudy-intel-vs-gen2-win-SingleHostSAPDb2.png "SAP Application instances"){: caption="SAP Application instances" caption-side="bottom"}
 

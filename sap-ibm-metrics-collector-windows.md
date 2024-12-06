@@ -135,7 +135,7 @@ After the installation completes and the service is started, it can take time fo
       .
     </metrics>
    ```
-     {: screen}   
+     {: screen}
 
 You might experience a delay before your data is available.
 {:note}

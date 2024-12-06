@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -146,7 +146,7 @@ For **shared** processors, you choose the number of CPUs that the new server is 
 
 For **dedicated** processors, the number of dedicated CPUs should correspond to the number of CPUs that were the result of your sizing.
 
-For more information about shared and dedicated processors, see [Assigning the appropriate processor entitled capacity](https://www.ibm.com/support/pages/assigning-appropriate-processor-entitled-capacity) and [Power Virtual Servers processor types](/docs/power-iaas?topic=power-iaas-powervs-faqs#processor).
+For more information about shared and dedicated processors, see [Assigning the appropriate processor entitled capacity](https://www.ibm.com/support/pages/assigning-appropriate-processor-entitled-capacity) and [Power Virtual Servers processor types](/docs/power-iaas?topic=power-iaas-powervs-faqs#processor){: external}.
 
 Depending on the SAP workload, supported processor options are restricted. For more information, see [SAP Note 2855850](https://me.sap.com/notes/2855850){: external}.
 {: note}
@@ -204,9 +204,9 @@ IBM treats your data with the same safeguards as our own, the security is built 
 
 {{site.data.keyword.cloud_notm}} is designed for organizations who are building a cloud environment, which is security-rich, open, hybrid Cloud (i.e., on-premises data center workloads) and multi-cloud. Deployments to {{site.data.keyword.cloud_notm}} include many secure and regulated workloads, by using our extensive {{site.data.keyword.cloud_notm}} compliance programs with clear delineation of roles and responsibilities.
 
-[{{site.data.keyword.cloud_notm}} compliance programs](https://www.ibm.com/cloud/compliance) provide compliance and trust certifications, which reaffirm IBM's commitment to protection of customer data and applications. These compliance programs are for regulations, standards, and frameworks across Global, Government, Industry, and Regional.
+[{{site.data.keyword.cloud_notm}} compliance programs](https://www.ibm.com/cloud/compliance){: external} provide compliance and trust certifications, which reaffirm IBM's commitment to protection of customer data and applications. These compliance programs are for regulations, standards, and frameworks across Global, Government, Industry, and Regional.
 
-More supplementary information to the {{site.data.keyword.cloud_notm}} compliance programs is available on [{{site.data.keyword.cloud_notm}} service offering descriptions and terms](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument) which contain links to individual **"Data Processing and Protection data sheets"** for {{site.data.keyword.cloud_notm}} offerings.
+More supplementary information to the {{site.data.keyword.cloud_notm}} compliance programs is available on [{{site.data.keyword.cloud_notm}} service offering descriptions and terms](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: external} which contain links to individual **"Data Processing and Protection data sheets"** for {{site.data.keyword.cloud_notm}} offerings.
 
 Each {{site.data.keyword.ibm_cloud_sap}} offering uses different infrastructure configurations and approaches to providing the service and will therefore be certified independent of each other. These certifications can be checked on the previous links or clarified by contacting {{site.data.keyword.cloud_notm}} or your IBM representative. Following is a small extract from the full list of recognized compliance, certifications, attestations, or reports available across the various {{site.data.keyword.ibm_cloud_sap}} offerings:
 

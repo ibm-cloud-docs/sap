@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap
 
@@ -54,7 +54,7 @@ The Disaster Recovery Protection is configured and enabled and a SAP HANA second
 {: #automate-hana-db-crossregion-dr-script-files}
 {: terraform}
 
-The configuration and script files are available in [SAP HANA DR GitHub repository](https://github.com/IBM-Cloud/sap-hana-dr).
+The configuration and script files are available in [SAP HANA DR GitHub repository](https://github.com/IBM-Cloud/sap-hana-dr){: external}.
 
 ## Terraform interface
 {: #automate-hana-db-crossregion-dr-interface}
@@ -85,10 +85,10 @@ You can change the default SAP system configuration settings to match your solut
 {: #automate-hana-db-crossregion-dr-schematics}
 {: ui}
 
-The configuration and script files are provided in [GitHub](https://github.com/IBM-Cloud/sap-hana-dr) repository. When the Schematics interface is used, the following information should be provided:
+The configuration and script files are provided in [GitHub](https://github.com/IBM-Cloud/sap-hana-dr){: external} repository. When the Schematics interface is used, the following information should be provided:
 
 * the workspace information.
-* the [GitHub URL](https://github.com/IBM-Cloud/sap-hana-dr) of the solution.
+* the [GitHub URL](https://github.com/IBM-Cloud/sap-hana-dr){: external} of the solution.
 * the values for the parameters in the Schematics interface; they are the same as the parameters from `input.auto.tfvars` file, which are used in CLI.
 
 ## Support
@@ -116,8 +116,8 @@ Before you use the scripts:
 
 * A Deployment Server (Bastion Server) must exist in the same VPC as the primary SAP HANA system. For more information about how to create the Deployment Server (Bastion Server) and its corresponding VPC, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 * Terraform should be already installed on the deployment server (bastion server) that you deployed. For more information, see the [Bastion server for SAP deployment](/docs/sap?topic=sap-sap-bastion-server).{: terraform}
-* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md) file.{: terraform}
-* [Create or retrieve an IBM Cloud API key](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the create or retrieve your SSH key ID.{: terraform}
+* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file.{: terraform}
+* [Create or retrieve an IBM Cloud API key](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key){: external}. The API key is used to authenticate with the create or retrieve your SSH key ID.{: terraform}
 * Log in to the {{site.data.keyword.cloud_notm}} platform to determine your permissions for {{site.data.keyword.cloud_notm}} services.{: terraform}
 * A pair of SSH keys must be generated for the connection to the VSIs. The public key must be uploaded in {{site.data.keyword.cloud_notm}} and manually added on SAP HANA primary system VSI in `/root/.ssh/authorized_keys`.
 * A deployed non-HA SAP HANA primary system, on a VSI, must exist in a different region than the one chose for SAP HANA secondary system (built on one of the following OS: SUSE Linux Enterprise Server 15 SP 4 for SAP, SUSE Linux Enterprise Server 15 SP 3 for SAP, Red Hat Enterprise Linux 8.6 for SAP or Red Hat Enterprise Linux 8.4 for SAP) in an {{site.data.keyword.cloud_notm}} Gen2 VPC, on a single host (with or without HA).
@@ -141,7 +141,7 @@ The script takes 40 minutes to complete after a fresh install of SAP HANA primar
 
     `cd sap-hana-dr`
 
-4. Modify the `input.auto.tfvars` file to specify the information for the infrastructure resources and SAP. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md) file. The VSI OS images that are validated for this solution are:
+4. Modify the `input.auto.tfvars` file to specify the information for the infrastructure resources and SAP. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md){: external} file. The VSI OS images that are validated for this solution are:
     * SUSE Linux Enterprise Server 15 SP 4 for SAP
     * SUSE Linux Enterprise Server 15 SP 3 for SAP
     * Red Hat Enterprise Linux 8.6 for SAP or
@@ -199,7 +199,7 @@ The script takes 40 minutes to complete after a fresh install of SAP HANA primar
     DB_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-6"
     ```
 
-5. Customize your SAP system configuration. Edit the same `input.auto.tfvars` file by specifying the values for the SAP system configuration variables that are passed to the Ansible playbooks. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md) file.
+5. Customize your SAP system configuration. Edit the same `input.auto.tfvars` file by specifying the values for the SAP system configuration variables that are passed to the Ansible playbooks. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md){: external} file.
 
     ```terraform
     ##########################################################
@@ -237,8 +237,8 @@ Follow these steps to enable cross-region DR protection for a non-HA SAP HANA Sy
 1. From the {{site.data.keyword.cloud_notm}} menu, select **{{site.data.keyword.bpshort}}**.
 2. Click **Create workspace**.
 3. On the **Specify template** page:
-    *   Enter the [GitHub URL](https://github.com/IBM-Cloud/sap-hana-dr) for the github repository that contains the {{site.data.keyword.bpshort}} code for this offering.
-    *   Select the **Terraform version** that is listed in the [Readme](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md) file.
+    *   Enter the [GitHub URL](https://github.com/IBM-Cloud/sap-hana-dr){: external} for the github repository that contains the {{site.data.keyword.bpshort}} code for this offering.
+    *   Select the **Terraform version** that is listed in the [Readme](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md){: external} file.
     *   Click **Next**.
 4. On the **Workspace details** page:
     *   Enter a name for the workspace.
@@ -285,7 +285,7 @@ Follow these steps to enable cross-region DR protection for a non-HA SAP HANA Sy
     |HANA_MAIN_PASSWORD	|HANA system master password (Sensitive* value). |
     |KIT_SAPHANA_FILE	|SAP HANA installation kit path.|
 
-    For more detailed description of each parameters, check the GitHub repo [Readme](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md) file, chapter “Input parameter file”. Also, ensure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the readme file, under the Input parameter file.
+    For more detailed description of each parameters, check the GitHub repo [Readme](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md){: external} file, chapter “Input parameter file”. Also, ensure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the readme file, under the Input parameter file.
     Save each parameter that you modify.
 
 7. On the workspace settings page, click **Generate plan**. Wait for the plan to complete.
@@ -308,20 +308,20 @@ For more information about using the Terraform for creating only a VPC for SAP, 
 
 SAP One Support Notes that apply to this document:
 
-*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855)
-*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2923773 - Linux&reg; on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773)
-*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097)
-*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910)
-*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855){: external}
+*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2923773 - Linux&reg; on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773){: external}
+*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910){: external}
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 
 This document is referenced by:
 
-*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
-*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
+*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
 
 This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
 {: note}

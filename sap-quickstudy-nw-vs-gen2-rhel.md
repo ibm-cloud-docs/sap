@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -492,7 +492,7 @@ SAP requires the installation of the {{site.data.keyword.cloud_notm}} Metrics Co
 
 Log in to SAP for Me [Download Software](https://me.sap.com/softwarecenter) and download the required digital versatile discs (DVDs) to a local share drive and then transfer the DVDs to your provisioned server. Alternative option, download the SAP Software Download Manager, install it on your target server and directly download the DVD images to the server. For more information about the SAP Software Download Manager, see [SAP Download Manager](https://support.sap.com/en/my-support/software-downloads.html#section_995042677){: external}.
 
-You need an S-User ID and the Download Software authorization when you download the DVDs from the SAP Service Marketplace. To request an S-USer ID, see the [SAP Support Portal](https://support.sap.com/en/index.html).
+You need an S-User ID and the Download Software authorization when you download the DVDs from the SAP Service Marketplace. To request an S-USer ID, see the [SAP Support Portal](https://support.sap.com/en/index.html){: external}.
 {: note}
 
 ### Preparing for SAP’s Software Provisioning Manager (SWPM)
@@ -513,7 +513,7 @@ Depending on your network bandwidth and latency, you might need to run the SAP S
 {: #install-sap-software}
 {: step}
 
-After you download the installation media, follow the standard SAP installation procedure that is documented in the [SAP installation guides](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US){: external} for your SAP version and components. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2).
+After you download the installation media, follow the standard SAP installation procedure that is documented in the [SAP installation guides](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US){: external} for your SAP version and components. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2){: external}.
 
 
 ### Relevant SAP Notes

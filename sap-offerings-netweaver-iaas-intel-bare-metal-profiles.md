@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -29,15 +29,15 @@ The following is an overview of the SAP-certified profiles with Bare Metal Intel
 
 | **Profile** | **CPU Cores** | **CPU Threads (aka. vCPU)** | **Memory (RAM GB)** | **SAPS** |
 | --- | --- | --- | --- | --- |
-| [BI.S3.NW32](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=1041&itemId=10831) | 4 | 8 | 32 GB | 11,970 |
-| [BI.S3.NW64](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=1043&itemId=10831) | 4 | 8 | 64 GB | 12,750 |
-| [BI.S3.NW192](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=989&itemId=10437) | 36 | 72 | 192 GB | 78,850 |
-| [BI.S3.NW384](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=987&itemId=10437) | 36 | 72 | 384 GB | 79,430 |
-| [BI.S3.NW768](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=985&itemId=10437) | 36 | 72 | 768 GB | 79,630 |
-| [BI.S4.NW192](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2640&itemId=13285) | 32 | 64 | 192 GB | 82,470 |
-| [BI.S4.NW384](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2642&itemId=13285) | 32 | 64 | 384 GB | 85,130 |
+| [BI.S3.NW32](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=1041&itemId=10831){: external} | 4 | 8 | 32 GB | 11,970 |
+| [BI.S3.NW64](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=1043&itemId=10831){: external} | 4 | 8 | 64 GB | 12,750 |
+| [BI.S3.NW192](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=989&itemId=10437){: external} | 36 | 72 | 192 GB | 78,850 |
+| [BI.S3.NW384](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=987&itemId=10437){: external} | 36 | 72 | 384 GB | 79,430 |
+| [BI.S3.NW768](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=985&itemId=10437){: external} | 36 | 72 | 768 GB | 79,630 |
+| [BI.S4.NW192](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2640&itemId=13285){: external} | 32 | 64 | 192 GB | 82,470 |
+| [BI.S4.NW384](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2642&itemId=13285){: external} | 32 | 64 | 384 GB | 85,130 |
 | BI.S4.NW384_v3 | 16 | 32 | 384 GB | 60,420 |
-| [BI.S4.NW768](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2644&itemId=13289) | 40 | 80 | 768 GB | 112,830 |
+| [BI.S4.NW768](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=8451&packageId=2644&itemId=13289){: external} | 40 | 80 | 768 GB | 112,830 |
 | BI.S4.NW768_v2 | 48 | 96 | 768 GB | 124,620 |
 | BI.S4.NW768_v3 | 16 | 32 | 768 GB |  60,420 |
 | BI.S4.NW1500 | 56 | 112 | 1.5 TB | 147,220 |
@@ -67,7 +67,7 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP Ne
 | | 384 | 384 GB RAM |
 {: caption="Profile naming for SAP NetWeaver Intel servers" caption-side="top"}
 
-(*) Only the servers that are listed in the [SAP Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28) are supported for HANA workloads.
+(*) Only the servers that are listed in the [SAP Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external} are supported for HANA workloads.
 {: note}
 
 ## Profiles available on Hourly Consumption Billing

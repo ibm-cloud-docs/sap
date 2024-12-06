@@ -2,7 +2,7 @@
 
 copyright:
 years: 2023, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -257,4 +257,4 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
 
 
 
-Check [SAP Note 2777782](https://me.sap.com/notes/2777782) for RHEL and [SAP Note 2684254](https://me.sap.com//#/notes/2684254) for SLES to adapt your OS configuration settings according to the requirements for SAP HANA.
+Check [SAP Note 2777782](https://me.sap.com/notes/2777782){: external} for RHEL and [SAP Note 2684254](https://me.sap.com//#/notes/2684254){: external} for SLES to adapt your OS configuration settings according to the requirements for SAP HANA.

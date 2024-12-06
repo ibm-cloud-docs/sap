@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap 
 
@@ -65,7 +65,7 @@ For each {{site.data.keyword.cloud_notm}} region, IBM allocates temporary storag
 {: #bw4hana-automation-schematics}
 {: ui}
 
-You use the Schematics interface to deploy your infrastructure with the scripts in the [GitHub repository](https://github.com/ibm-cloud/sap-bw4hana/tree/main/schematics). When you run the scripts with the Schematics interface, you:
+You use the Schematics interface to deploy your infrastructure with the scripts in the [GitHub repository](https://github.com/ibm-cloud/sap-bw4hana/tree/main/schematics){: external}. When you run the scripts with the Schematics interface, you:
 
 * Enter the URL for the GitHub repository for the Terraform files
 * Modify the parameters in the Schematics interface. They are the same parameters as the `input.auto.tfvars` file that you use when you are running the Terraform scripts in the CLI.
@@ -83,7 +83,7 @@ When you use the Catalog Tile for deployment, you:
 {: #automate-bw4hana-terraform-ansible-terraform}
 {: terraform}
 
-You use the Bastion server CLI to run the Terraform scripts that are located in the [GitHub repository](https://github.com/IBM-Cloud/sap-bw4hana/tree/main/cli).
+You use the Bastion server CLI to run the Terraform scripts that are located in the [GitHub repository](https://github.com/IBM-Cloud/sap-bw4hana/tree/main/cli){: external}.
 
 To run the scripts to deploy the SAP BW/4HANA release on dedicated SAP HANA 2.0 BOX VSI, you need to:
 
@@ -210,7 +210,7 @@ Use these steps to configure the SAP BW/4HANA on your existing VPC by using the 
 
 Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete. 
 
-1.	From the IBM Cloud menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
+1.	From the IBM Cloud menu, select [Schematics](https://cloud.ibm.com/schematics/overview){: external}.
 2.	Click **Create workspace**.
 3.  On the **Specify template** page:
     * Enter the URL for the Schematics interface. 
@@ -369,17 +369,17 @@ For more information about using Terraform for creating only a VPC for SAP, with
 
 SAP One Support Notes that apply to this document:
 
-*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855)
-*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773)
-*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
-*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910)
-*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855){: external}
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773){: external}
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910){: external}
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 
 This document is referenced by:
 
-*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
-*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}

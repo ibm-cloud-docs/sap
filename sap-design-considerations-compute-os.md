@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -87,7 +87,7 @@ When you run SAP workloads on VMware, you have significant flexibility and the f
 
 Using VMware for SAP workloads on {{site.data.keyword.cloud_notm}} is certified, by using the "TDI" delivery model for which you would need to run validation checks to gain SAP Support.
 
-However, VMware SDDC is a Type 2 hypervisor and therefore does have a small overhead of CPU/RAM that is used for running ESXi on the Bare Metal server. This CPU/RAM overhead is then available for virtual machines to use. On average this overhead is 10%, and is expected by VMware-SAP in virtualized environments. Therefore, customers are encouraged to size correctly and test performance before you go live [SAP Note 2393917 - SAP HANA on VMware vSphere 6.5 and 6.7 in production](https://me.sap.com/notes/0002393917).
+However, VMware SDDC is a Type 2 hypervisor and therefore does have a small overhead of CPU/RAM that is used for running ESXi on the Bare Metal server. This CPU/RAM overhead is then available for virtual machines to use. On average this overhead is 10%, and is expected by VMware-SAP in virtualized environments. Therefore, customers are encouraged to size correctly and test performance before you go live [SAP Note 2393917 - SAP HANA on VMware vSphere 6.5 and 6.7 in production](https://me.sap.com/notes/0002393917){: external}.
 
 Also, both VMware and SAP agree to the physical to virtual overhead of <10% on average, and provide:
 - The estimation of <10% average overhead with equation `"physical SAPS - 10%"` for virtualized SAPS to use when you size virtual machines

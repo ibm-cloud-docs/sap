@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap
 
@@ -70,7 +70,7 @@ It is your responsibility to download the necessary SAP and DB kits to your Depl
 {: #automate-s4hana-terraform-ansible-terraform}
 {: terraform}
 
-You can use the Bastion server CLI to run the Terraform scripts that are located in the [GitHub repository for SAP S/4HANA for Terraform](https://github.com/ibm-cloud/sap-s4hana).
+You can use the Bastion server CLI to run the Terraform scripts that are located in the [GitHub repository for SAP S/4HANA for Terraform](https://github.com/ibm-cloud/sap-s4hana){: external}.
 
 To run the scripts to deploy the SAP S/4HANA release on dedicated SAP HANA 2.0 BOX VSI, you need to:
 
@@ -92,7 +92,7 @@ The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.da
 {: #s4hana-automation-schematics}
 {: ui}
 
-You use the Schematics user interface on {{site.data.keyword.cloud}} and enter the [GitHub repository for S/4HANA Schematics](https://github.com/ibm-cloud/sap-s4hana).
+You use the Schematics user interface on {{site.data.keyword.cloud}} and enter the [GitHub repository for S/4HANA Schematics](https://github.com/ibm-cloud/sap-s4hana){: external}.
 
 When you run the scripts with the Schematics interface, you:
 
@@ -142,7 +142,7 @@ Before you deploy SAP S/4HANA:
 {: #s4hana-automation-procedure-terraform}
 {: terraform}
 
-Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing VPC. The scripts can take 2 - 3 hours to complete. The scripts can take 1 - 2 hours to complete. The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://github.com/IBM-Cloud/sap-s4hana) for recommended kits versions.
+Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing VPC. The scripts can take 2 - 3 hours to complete. The scripts can take 1 - 2 hours to complete. The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://github.com/IBM-Cloud/sap-s4hana){: external} for recommended kits versions.
 
 1.	Log in to the Deployment Server by using `ssh`.
 2.	Clone the repository and change the path to the sap-s4hana folder.
@@ -264,14 +264,14 @@ If you need to remove your S/4HANA system, go to your project folder and run the
 {: #s4hana-automation-procedure-catalog-ui}
 {: ui}
 
-Use these steps to configure the SAP S/4HANA on your existing VPC by using the Catalog Tile interface. The available supported S/4HANA versions are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/dc5f4da1-ff39-45b9-b78b-2123936bc21f-global) file for recommended kits versions. The scripts can take 1 - 2 hours to complete. 
+Use these steps to configure the SAP S/4HANA on your existing VPC by using the Catalog Tile interface. The available supported S/4HANA versions are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/dc5f4da1-ff39-45b9-b78b-2123936bc21f-global){: external} file for recommended kits versions. The scripts can take 1 - 2 hours to complete. 
 
 1.	From the {{site.data.keyword.cloud_notm}} Catalog, select the **SAP S/4HANA** tile. The Tile opens the Create tab for SAP S/4HANA. For more information about this deployment, see the About tab or the Readme file link.
 2.	On the SAP S/4HANA page, configure your workspace:
     * Enter a name for the workspace or use the default.
     * The Resource Group to use to create resources. Use the Default or create a Resource Group.
     * Select a **Location** to create your Schematics workspace. The workspace location does not have to match the resource location.
-3.  Enter the required deployment values, review the default input variables, and provide values that match your solution. These parameters are specific to your deployment.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/7265035e-c57d-41f4-b804-4e495ad4c4b7-global).
+3.  Enter the required deployment values, review the default input variables, and provide values that match your solution. These parameters are specific to your deployment.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/7265035e-c57d-41f4-b804-4e495ad4c4b7-global){: external}.
 
     |Parameter	|Description|
     |-----|-----|
@@ -288,7 +288,7 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
     |PRIVATE_SSH_KEY	|Input id_rsa private key content or use a secret stored in Secrets Manager|
     |SAP_MAIN_PASSWORD	|SAP main password or use a secret that is stored in Secrets Manager |
 
-4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/7265035e-c57d-41f4-b804-4e495ad4c4b7-global).
+4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/7265035e-c57d-41f4-b804-4e495ad4c4b7-global){: external}.
 
     |Parameter	|Description|
     |-----|-----|
@@ -327,9 +327,9 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
 {: #s4hana-automation-procedure-schematics-ui}
 {: ui}
 
-Use these steps to configure the SAP S/4HANA on your existing VPC by using the Schematics interface. The scripts can take 1 - 2 hours to complete. The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/dc5f4da1-ff39-45b9-b78b-2123936bc21f-global) for recommended kits versions.
+Use these steps to configure the SAP S/4HANA on your existing VPC by using the Schematics interface. The scripts can take 1 - 2 hours to complete. The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For more information, see the [readme](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/dc5f4da1-ff39-45b9-b78b-2123936bc21f-global){: external} for recommended kits versions.
 
-1.	From the IBM Cloud menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
+1.	From the IBM Cloud menu, select [Schematics](https://cloud.ibm.com/schematics/overview){: external}.
 2.	Click **Create workspace**.
 3.  On the **Specify template** page:
     * Enter the URL for the Schematics interface. 
@@ -375,20 +375,20 @@ For more information about using Terraform for creating only a VPC for SAP, with
 
 SAP One Support Notes that apply to this document:
 
-*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855)
-*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773)
-*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
-*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910)
-*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855){: external}
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773){: external}
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910){: external}
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 
 This document is referenced by:
 
-*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
-*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
 
 This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
 {: note}

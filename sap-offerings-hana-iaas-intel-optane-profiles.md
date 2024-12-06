@@ -29,8 +29,8 @@ subcollection: sap
 
 The following table is an overview of the SAP-certified profiles for Intel Optane PMem on Bare Metal servers:
 
-| **Profile** | **Cores** | **Speed** | **RAM** | **Storage** | **SAP HANA Processing Type** |  
-|-----------|-------------|---------------|----|----|-----| 
+| **Profile** | **Cores** | **Speed** | **RAM** | **Storage** | **SAP HANA Processing Type** |
+|-----------|-------------|---------------|----|----|-----|
 |1:1 DRAM:PMem |
 |[BI.S4.H2.1.5TB RAM + 1.5TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2636&presetId=1174){: external}|56|2.70 GHx|1536 GB|12 Drives|OLAP/OLTP (\*)|
 |[BI.S4.H4.3TB RAM + 3TB Persistent Memory](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=15706&packageId=2676&presetId=1250){: external}|112|2.70 GHz|3072 GB|12 Drives|OLAP/OLTP (\*)|
@@ -71,7 +71,7 @@ The following Bare Metal servers are available on **Hourly** Consumption Billing
 ## Bare Metal profile names
 {: #hana-iaas-intel-bm-names-pmem}
 
-The Bare Metal profile names are contextual and sequential. For more information, see [Understanding Bare Metal profile names](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-names) 
+The Bare Metal profile names are contextual and sequential. For more information, see [Understanding Bare Metal profile names](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-names)
 
 ## Storage specifications
 {: #hana-iaas-intel-optane-storage-specs-optane}
