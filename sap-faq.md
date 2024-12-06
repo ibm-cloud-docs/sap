@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -59,7 +59,7 @@ Production SAP systems **and** development and testing (dev/test) SAP systems ar
 ### Can I download the SAP software installation media and distributions directly from {{site.data.keyword.cloud_notm}}?
 {: #faq-download-sap-installation-media}
 
-All SAP software installation media is available from SAP directly, at [sap.com](https://support.sap.com/en/my-support/software-downloads.html). The single distribution point ensures the governance of licensing, compliance, and export control.
+All SAP software installation media is available from SAP directly, at [sap.com](https://support.sap.com/en/my-support/software-downloads.html){: external}. The single distribution point ensures the governance of licensing, compliance, and export control.
 
 Each customer needs to generate an SAP Software Download Center basket (optionally created through SAP Maintenance Planner) and download the software to their target server.
 
@@ -316,9 +316,9 @@ See [SAP Note 2779331 - HANA services use large SWAP memory](https://me.sap.com/
 Most versions of SAP NetWeaver Application Server (ABAP or Java) from 7.0 or higher are supported across the {{site.data.keyword.ibm_cloud_sap}} portfolio.
 
 For a full updated list of SAP NetWeaver versions and SAP Kernel Patch Levels supported for the various IaaS options, see the following SAP Notes:
-- [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
-- [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-- [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850)
+- [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
+- [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+- [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external}
 
 ## Full list of SAP Notes for the {{site.data.keyword.ibm_cloud_sap}} portfolio
 {: #faq-ibm-cloud-for-sap-portfolio-snotes}
@@ -326,39 +326,39 @@ For a full updated list of SAP NetWeaver versions and SAP Kernel Patch Levels su
 ### SAP Notes that are related to {{site.data.keyword.cloud_notm}} Classic Infrastructure
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-classic}
 
-- [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://me.sap.com/notes/2414820)
-- [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
-- [SAP Note 2279688 - SAP on IBM Cloud: Support for SAP BusinessObjects](https://me.sap.com/notes/2279688)
-- [SAP Note 2686169 - Prerequisites for installing SAP Data Hub 2](https://me.sap.com/notes/2686169)
+- [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://me.sap.com/notes/2414820){: external}
+- [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
+- [SAP Note 2279688 - SAP on IBM Cloud: Support for SAP BusinessObjects](https://me.sap.com/notes/2279688){: external}
+- [SAP Note 2686169 - Prerequisites for installing SAP Data Hub 2](https://me.sap.com/notes/2686169){: external}
 
 ### SAP Notes that are related to {{site.data.keyword.cloud_notm}} VPC Infrastructure
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-vpc}
 
-- [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://me.sap.com/notes/2414820)
-- [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
+- [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://me.sap.com/notes/2414820){: external}
+- [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
 
 
 ### SAP Notes that are related to IBM Power Infrastructure connected to {{site.data.keyword.cloud_notm}}
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-power}
 
-- [SAP Note 2923984 - SAP on IBM Power Virtual Servers: Support prerequisites](https://me.sap.com/notes/2923984)
-- [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579)
-- [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850)
-- [SAP Note 2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://me.sap.com/notes/2932766)
+- [SAP Note 2923984 - SAP on IBM Power Virtual Servers: Support prerequisites](https://me.sap.com/notes/2923984){: external}
+- [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579){: external}
+- [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external}
+- [SAP Note 2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://me.sap.com/notes/2932766){: external}
 
 
 ### SAP Notes that are related to any Public Cloud or Virtualized Environments
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-csp}
 
-- [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
-- [SAP Note 1122387 - Linux: SAP Support in virtualized environments](http://me.sap.com/notes/1122387)
-- [SAP Note 1409608 - Virtualization on Windows](http://me.sap.com/notes/1409608)
-- [SAP Note 1409604 - Virtualization on Windows: Enhanced Monitoring](http://me.sap.com/notes/1409604)
-- [SAP Note 2134316 - Can SAP ASE run in a cloud environment?](https://me.sap.com/notes/2134316)
-- [SAP Note 2923773 - Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773)
+- [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
+- [SAP Note 1122387 - Linux: SAP Support in virtualized environments](https://me.sap.com/notes/1122387){: external}
+- [SAP Note 1409608 - Virtualization on Windows](https://me.sap.com/notes/1409608){: external}
+- [SAP Note 1409604 - Virtualization on Windows: Enhanced Monitoring](https://me.sap.com/notes/1409604){: external}
+- [SAP Note 2134316 - Can SAP ASE run in a cloud environment?](https://me.sap.com/notes/2134316){: external}
+- [SAP Note 2923773 - Linux on IBM Cloud (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773){: external}
 
 
 ### SAP Notes generic for {{site.data.keyword.cloud_notm}}
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-generic}
 
-- [SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
+- [SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}

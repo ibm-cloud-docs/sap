@@ -78,7 +78,7 @@ The project's namespace and {{site.data.keyword.registryshort_notm}} names used 
 
 For production environments, storage for the SAP Vora Checkpoint must be set up. Follow these instructions to set up {{site.data.keyword.cloud_notm}} {{site.data.keyword.cos_full_notm}} and to define the parameters that will be handed over to the installation dialog.
 
-For test and evaluation environments, you may skip this topic and go directly to the [Manual Installation using an installation script (manual)](https://access.redhat.com/articles/3630111#manual){: external} instructions, and the instructions for [running the installation script](/docs/sap?topic=sap-rhos-datahub) for the {{site.data.keyword.cloud_notm}} specific parameters.
+For test and evaluation environments, you may skip this topic and go directly to the [Manual Installation using an installation script (manual)](https://access.redhat.com/articles/3630111#manual){: external} instructions, and the instructions for [running the installation script](/docs/sap?topic=sap-rhos-datahub){: external} for the {{site.data.keyword.cloud_notm}} specific parameters.
 
 ### Before you begin
 {: #rhos-before-you-begin-set-up-checkpoint-storage}
@@ -185,7 +185,7 @@ The command line parameters provide {{site.data.keyword.cloud_notm}} specific in
  The default domain for {{site.data.keyword.openshiftlong}} clusters on {{site.data.keyword.cloud_notm}} is `<region>.containers.cloud.ibm.com`. You can see your region with the command `oc project`.
  {: note}
 
-For more information about command-line parameters, see [Command-Line Parameters of the SAP Data Hub Installer](https://help.sap.com/viewer/e66c399612e84a83a8abe97c0eeb443a/2.7.latest/en-US/fe5f71216f0e465c929e93ecd48e5a14.html){. external}.
+For more information about command-line parameters, see [Command-Line Parameters of the SAP Data Hub Installer](https://help.sap.com/viewer/e66c399612e84a83a8abe97c0eeb443a/2.7.latest/en-US/fe5f71216f0e465c929e93ecd48e5a14.html){: external}.
 
 ### SAP Data Hub installation
 {: #rhos-run-install-sh-manually}

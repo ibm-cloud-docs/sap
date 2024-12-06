@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -51,7 +51,6 @@ Depending on your scenarios, the following information may be also relevant:
 - [SAP NetWeaver - Configure high availability in Classic Infrastructure](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha-classic)
 - [SAP on IBM Db2 using Intel Bare Metal](/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-bare-metal)
 - [SAP MaxDB using Intel Bare Metal](/docs/sap?topic=sap-anydb-sap-maxdb#anydb-sap-maxdb-bare-metal)
-
 
 ## Tutorials
 {: #fast-path-intel-bm-tutorials}

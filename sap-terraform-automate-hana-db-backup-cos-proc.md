@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap
 
@@ -41,7 +41,7 @@ You can store the SAP HANA db backup into the Cloud Object Storage.
 ## What is created
 {: #sap-hana-db-backup-cos-created}
 
-This automation solution is designed for the implementation of SAP HANA Backup solution that uses Backint and [{{site.data.keyword.cloud_notm}} Object Storage](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage). It is based on SAP note "2935898 - Install and Configure SAP HANA Backint Agent for Amazon S3".
+This automation solution is designed for the implementation of SAP HANA Backup solution that uses Backint and [{{site.data.keyword.cloud_notm}} Object Storage](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external}. It is based on SAP note "2935898 - Install and Configure SAP HANA Backint Agent for Amazon S3".
 
 The minimum version of SAP HANA Backint Agent for Amazon S3 to be used for {{site.data.keyword.cloud_notm}} Object Storage is 1.2.17. SAP HANA Backint Agent for Amazon S3 requires Python 3.7 including SSL support. The Python package delivered as part of the SAP HANA 2 installation does not include SSL support. Python 3.7 with SSL support is installed in /usr/local/bin directory, if it is not previously installed. SAP HANA Backint Agent for Amazon S3 is installed in the `/hana/shared/< SID >/backint_agent` directory.
 
@@ -59,13 +59,13 @@ All data backup, log backup, and catalog backup files are saved in the same dedi
 {: terraform}
 
 The configuration and script files are available in GitHub.
-[GitHub repository for Terraform - HANA backup Cloud Object Storage](https://github.com/IBM-Cloud/sap-hana-backup-cos)
+[GitHub repository for Terraform - HANA backup Cloud Object Storage](https://github.com/IBM-Cloud/sap-hana-backup-cos){: external}
 
 ## Schematics deployment
 {: #sap-hana-db-backup-cos-schematics}
 {: ui}
 
-The configuration and script files are provided in [GitHub](https://github.com/IBM-Cloud/sap-hana-backup-cos).
+The configuration and script files are provided in [GitHub](https://github.com/IBM-Cloud/sap-hana-backup-cos){: external}.
 When the {{site.data.keyword.bpshort}} interface is used, the following information should be provided:
 
 * the workspace information.
@@ -145,8 +145,8 @@ Use these steps to configure the SAP HANA Backup for COS by using the {{site.dat
 1.	From the {{site.data.keyword.cloud_notm}} menu, select **{{site.data.keyword.bpshort}}**.
 2.	Click **Create workspace**.
 3.	On the **Specify template** page:
-    *   Enter the [URL](https://github.com/IBM-Cloud/sap-hana-backup-cos) for the github repository that contains the {{site.data.keyword.bpshort}} code for this offering.
-    *   Select the **Terraform version** that is listed in the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md) file.
+    *   Enter the [URL](https://github.com/IBM-Cloud/sap-hana-backup-cos){: external} for the github repository that contains the {{site.data.keyword.bpshort}} code for this offering.
+    *   Select the **Terraform version** that is listed in the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file.
     *   Click **Next**.
 4.	On the **Workspace details** page:
     *   Enter a name for the workspace.
@@ -156,7 +156,7 @@ Use these steps to configure the SAP HANA Backup for COS by using the {{site.dat
 5.	Select **Create** to create your workspace.
 6.	On the workspace settings page, in the input variables section, review the default input variables and provide values that match your solution.
 
-    For a more detailed description of each of the parameters, check the GitHub repo [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md) file, chapter “Input parameter file”. Also, ensure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the readme file, under Input parameter file.
+    For a more detailed description of each of the parameters, check the GitHub repo [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file, chapter “Input parameter file”. Also, ensure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the readme file, under Input parameter file.
     Save each parameter that you modify.
 
 7.	On the workspace settings page, click **Generate plan**. Wait for the plan to complete.
@@ -170,7 +170,7 @@ Use these steps to configure the SAP HANA Backup for COS by using the {{site.dat
 
 Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existing VPC by using the catalog tile interface. The script takes 2 - 3 hours to complete.
 
-1. From the {{site.data.keyword.cloud_notm}} Catalog menu, select **Cloud Object Storage on VPC for SAP HANA Backup** on Deployable Architecture tile. For more information about this deployment, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md) file.
+1. From the {{site.data.keyword.cloud_notm}} Catalog menu, select **Cloud Object Storage on VPC for SAP HANA Backup** on Deployable Architecture tile. For more information about this deployment, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file.
 2. Select the latest version.
 3. Select the **Standard** variation.
 4. Click **Review deployment options**:
@@ -183,7 +183,7 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
       * Enter a name for the workspace or use default name.
       * The Resource Group used to create resources. Use default or create a Resource Group.
       * Select a location to create your {{site.data.keyword.bpshort}} workspace. The workspace location need not match the resource location.
-    * **Required input variables** - Review the default input variables and provide values that match your solution. These parameters are specific to your deployment. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md).
+    * **Required input variables** - Review the default input variables and provide values that match your solution. These parameters are specific to your deployment. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md){: external}.
 
     |Parameter	|Description|
     |-----|-----|
@@ -198,14 +198,14 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
     |HA_CLUSTER	|Choose if High Availability is configured for HANA Database. Accepted values: yes/no. For the value "no" it is required that only the "DB_HOSTNAME_1" variable to be filled in. For the value "yes" it is required that both next variables to be filled in: DB_HOSTNAME_1, DB_HOSTNAME_2.|
     |IBM_CLOUD_API_KEY	|{{site.data.keyword.cloud_notm}} API key (Sensitive* value).
     |LIFECYCLE_POLICY	|The number of retention days for HANA database backup and transaction log backup. |
-    |REGION	|The cloud region where HANA VSI was deployed. The COS is created in the same region as HANA VSI. The regions and zones for VPC are listed [here](https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in {{site.data.keyword.cloud_notm}} Schematics [here](https://cloud.ibm.com/docs/schematics?topic=schematics-locations).|
-    |RESOURCE_GROUP	|The name of an existing Resource Group for VSIs and Volumes resources. The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups).|
-    |SECURITY_GROUP	|The name of an existing Security group. The list of Security Groups is available [here](https://cloud.ibm.com/infrastructure/network/securityGroups).|
-    |SUBNET	|The name of an existing subnet. The list of subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets). |
-    |VPC	|The name of an existin VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs).|
+    |REGION	|The cloud region where HANA VSI was deployed. The COS is created in the same region as HANA VSI. The regions and zones for VPC are listed [here](https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in {{site.data.keyword.cloud_notm}} Schematics [here](https://cloud.ibm.com/docs/schematics?topic=schematics-locations){: external}.|
+    |RESOURCE_GROUP	|The name of an existing Resource Group for VSIs and Volumes resources. The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups){: external}.|
+    |SECURITY_GROUP	|The name of an existing Security group. The list of Security Groups is available [here](https://cloud.ibm.com/infrastructure/network/securityGroups){: external}.|
+    |SUBNET	|The name of an existing subnet. The list of subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets){: external}. |
+    |VPC	|The name of an existin VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs){: external}.|
     |private_ssh_key	|Input your id_rsa private key pair content in OpenSSH format (Sensitive* value). This private key must be used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.|
 
-    * **Optional input variables** - Review and update the optional parameters. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md).
+    * **Optional input variables** - Review and update the optional parameters. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md){: external}.
 
     |Parameter	|Description|
     |-----|-----|
@@ -222,13 +222,13 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
 
 You need the following to get started with {{site.data.keyword.cloud_notm}} Object Storage:
 
-*	Go to [{{site.data.keyword.cloud_notm}} Platform account](https://cloud.ibm.com/).
-*	Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](https://cloud.ibm.com/docs/account?topic=account-accountfaqs#changeacct).
-*	Create a deployment server (bastion server) to store the SAP kits. For more information, see the [Automate SAP bastion server - SAP media storage repository](https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server)
-*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md) file.
-*	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the create or retrieve your SSH key ID. 
+*	Go to [{{site.data.keyword.cloud_notm}} Platform account](https://cloud.ibm.com/){: external}.
+*	Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](https://cloud.ibm.com/docs/account?topic=account-accountfaqs#changeacct){: external}.
+*	Create a deployment server (bastion server) to store the SAP kits. For more information, see the [Automate SAP bastion server - SAP media storage repository](https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}
+*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file.
+*	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key){: external}. The API key is used to authenticate with the create or retrieve your SSH key ID. 
 *	Log in to the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
-*	Terraform should be already installed on the deployment server (bastion server) that you deployed. For more information, see the [Bastion server for SAP deployment](https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server).
+*	Terraform should be already installed on the deployment server (bastion server) that you deployed. For more information, see the [Bastion server for SAP deployment](https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}.
 *	Before using "HANA db backup to Cloud Object Storage" automation module the HANA database instance(s) should be installed on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
 *	Ensure you have the same password for all your HANA db system users before you run this automation module for HANA backup in Cloud Object Storage.
 
@@ -249,7 +249,7 @@ The scripts take 1-2 hours to complete. A full backup of System DB and Tenant DB
     cd sap-hana-backup-cos
     ```
 
-3.	Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC and component names. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md) file.
+3.	Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC and component names. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file.
     The VSI OS images that are validated for the automation solution "HANA db backup to Cloud Object Storage" are:
     *	SUSE Linux Enterprise Server 15 SP 4 for SAP
     *	SUSE Linux Enterprise Server 15 SP 3 for SAP, 
@@ -278,7 +278,7 @@ The scripts take 1-2 hours to complete. A full backup of System DB and Tenant DB
     DB_HOSTNAME_2    = ""
     ```
 
-4.	Customize your SAP system configuration. In the same `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md) file.
+4.	Customize your SAP system configuration. In the same `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file.
 
     ```terraform
     # SAP HANA backup configuration
@@ -359,20 +359,20 @@ For more information about using the Terraform for creating only a VPC for SAP, 
 
 SAP One Support Notes that apply to this document:
 
-*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855)
-*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2923773 - Linux&reg; on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773)
-*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097)
-*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910)
-*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855){: external}
+*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2923773 - Linux&reg; on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773){: external}
+*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910){: external}
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 
 This document is referenced by:
 
-*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
-*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
+*	[SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
 
 This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
 {: note}

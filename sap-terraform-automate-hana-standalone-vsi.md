@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap
 
@@ -44,9 +44,9 @@ You have two deployment methods to choose from:
 {: #terraform-sap-hana-vsi-prerequisites}
 {: terraform}
 
-A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server), should exist in the same VPC, same region, and have the same subnet and security group that is configured for the SAP system VSIs.
+A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}, should exist in the same VPC, same region, and have the same subnet and security group that is configured for the SAP system VSIs.
 
-Required IAM permissions for deploying SAP HANA on Bare Metal: Bare Metal Console Administrator role to access the ESXi Direct Console User Interface (DCUI) and Bare Metal Advanced Network Operator role to modify IP spoofing and infrastructure NAT configuration on network interfaces. For more information, see [Planning for Bare Metal Servers on VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-planning-for-bare-metal-servers).
+Required IAM permissions for deploying SAP HANA on Bare Metal: Bare Metal Console Administrator role to access the ESXi Direct Console User Interface (DCUI) and Bare Metal Advanced Network Operator role to modify IP spoofing and infrastructure NAT configuration on network interfaces. For more information, see [Planning for Bare Metal Servers on VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-planning-for-bare-metal-servers){: external}.
 
 ## What is created
 {: #terraform-sap-hana-vsi-created}
@@ -80,9 +80,9 @@ When you provision {{site.data.keyword.cloud}} virtual server instances for SAP 
 ### x86-64 bare metal server profiles
 {: x86-64-bare-metal-server-profiles}
 
-{{site.data.keyword.cloud_notm}} Bare Metal Servers on VPC Infrastructure are dedicated bare metal servers that provide enhanced networking and connectivity through [Virtual Private Cloud (VPC)](https://www.ibm.com/topics/vpc?_gl=1*164pqfh*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.80093343.964139216.1686574517-1543717111.1671726228) capabilities. For more information on bare metal servers, see [IBM Cloud Bare Metal Servers](https://www.ibm.com/products/bare-metal-servers?_gl=1*164pqfh*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.80093343.964139216.1686574517-1543717111.1671726228).
+{{site.data.keyword.cloud_notm}} Bare Metal Servers on VPC Infrastructure are dedicated bare metal servers that provide enhanced networking and connectivity through [Virtual Private Cloud (VPC)](https://www.ibm.com/topics/vpc?_gl=1*164pqfh*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.80093343.964139216.1686574517-1543717111.1671726228) capabilities. For more information on bare metal servers, see [IBM Cloud Bare Metal Servers](https://www.ibm.com/products/bare-metal-servers?_gl=1*164pqfh*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.80093343.964139216.1686574517-1543717111.1671726228){: external}.
 
-The bare metal servers on VPC are available as an integrated part of [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud?_gl=1*opgtue*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.55889827.964139216.1686574517-1543717111.1671726228). For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui) on {{site.data.keyword.cloud}}.
+The bare metal servers on VPC are available as an integrated part of [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud?_gl=1*opgtue*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.55889827.964139216.1686574517-1543717111.1671726228). For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui){: external} on {{site.data.keyword.cloud}}.
  
 When you provision an {{site.data.keyword.cloud}} bare metal server for SAP HANA on VPC, you can select from four families of certified profiles:
 * Balanced
@@ -108,7 +108,7 @@ The provided SSH keys are used to access the SAP HANA server via SSH, as a root 
 ## Script files
 {: #terraform-sap-hana-vsi-files}
 
-The deployment automation script files are available in the [GitHub repository](https://github.com/IBM-Cloud/sap-hana-db).
+The deployment automation script files are available in the [GitHub repository](https://github.com/IBM-Cloud/sap-hana-db){: external}.
 
 The scripts use the information that you provide for an existing VPC and deploy SAP HANA DB on a VSI or on a Bare Metal Server.
 
@@ -134,10 +134,10 @@ Though the materials provided herein are not supported by the IBM Service organi
 ## Before you begin
 {: #automate-hana-standalone-vsi-before}
 
-If you don't have a deployment server (bastion server) in the same VPC, create a deployment server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server).
+If you don't have a deployment server (bastion server) in the same VPC, create a deployment server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}.
 
 *	Log in to your Deployment Server and verify that Terraform and Ansible are installed. 
-*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file.
+*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md){: external} file.
 *  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 *  Required IAM permissions for deploying SAP HANA on Bare Metal: Bare Metal Console Administrator role to access the ESXi Direct Console User Interface (DCUI) and Bare Metal Advanced Network Operator role to modify IP spoofing and infrastructure NAT configuration on network interfaces, see: https://cloud.ibm.com/docs/vpc?topic=vpc-planning-for-bare-metal-servers.
@@ -155,12 +155,12 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 	$ cd sap-hana-db
     ```
 
-3.	Customize the VPC variables according to your existing VPC data. Modify the `input.auto.tfvars` file to specify your options. You need a 40-digit SSH key ID for the deployment. Additional SSH key IDs are optional. For more information related to SAP HANA certified profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc). For more options about images, see [Images](https://test.cloud.ibm.com/docs/vpc?topic=vpc-about-images).
+3.	Customize the VPC variables according to your existing VPC data. Modify the `input.auto.tfvars` file to specify your options. You need a 40-digit SSH key ID for the deployment. Additional SSH key IDs are optional. For more information related to SAP HANA certified profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc). For more options about images, see [Images](https://test.cloud.ibm.com/docs/vpc?topic=vpc-about-images){: external}.
 
     The following input variable values must be provided:
 
-    * REGION - Region for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file.
-    * ZONE - Zone for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file.
+    * REGION - Region for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md){: external} file.
+    * ZONE - Zone for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md){: external} file.
     * VPC - The name of an existing VPC in the specified region.
     * SECURITY_GROUP - The name of an existing Security group in the same VPC.
     * RESOURCE_GROUP - The name of an existing Resource group, previously created by the user.
@@ -168,8 +168,8 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     * SSH_KEYS - A list of SSH keys UUIDs allowed to connect through SSH to the SAP HANA server.
     * ID_RSA_FILE_PATH - existing id_rsa private key file path in OpenSSH format with 0600 permissions.
     * HANA_SERVER_TYPE – The type of SAP HANA server: "virtual" server instance or "bare metal" server.
-    * DB_HOSTNAME - The hostname of the SAP HANA server, up to 13 characters. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file.
-    * DB_PROFILE – The server certified profile to be used for SAP HANA. See the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file.
+    * DB_HOSTNAME - The hostname of the SAP HANA server, up to 13 characters. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md){: external} file.
+    * DB_PROFILE – The server certified profile to be used for SAP HANA. See the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md){: external} file.
     * ATR_NAME – The name of an existing Activity Tracker in the same region as the SAP HANA server.
 
     ``` terraform
@@ -304,11 +304,11 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 
 Use these steps to configure the SAP HANA DB single VSI on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete.
 
-1. From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
+1. From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview){: external}.
 2. Click **Create workspace**.
 3. On the **Specify template** page:
     * Enter the GitHub URL for the code you plan to deploy.
-    * Select the **Terraform version** that is listed in the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file.
+    * Select the **Terraform version** that is listed in the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md){: external} file.
     * Click **Next**.
 4. On the **Workspace details** page:
     * Enter a name for the workspace.
@@ -342,7 +342,7 @@ Use these steps to configure the SAP HANA DB single VSI on your existing VPC by 
     * Number of SAP HANA concurrent jobs.
     * Click **Save** changes.
 
-    For a more detailed description of the parameters, check the GitHub repo [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file, chapter [General Input Variables](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md#15-general-input-variables). Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, IBM Cloud API, the SSH private key and SAP HANA password (they are marked as “sensitive” in the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file in the [General Input Variables](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md#15-general-input-variables)).
+    For a more detailed description of the parameters, check the GitHub repo [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file, chapter [General Input Variables](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md#15-general-input-variables). Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, IBM Cloud API, the SSH private key and SAP HANA password (they are marked as “sensitive” in the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md) file in the [General Input Variables](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md#15-general-input-variables)){: external}.
 
 7. On the workspace **Settings** page, click **Generate** plan. Wait for the plan to complete.
 8. Click **View log** to review the log files of your Terraform execution plan.
@@ -361,23 +361,23 @@ If you need to remove the resources created with the automation for your SAP sol
 ## Related information
 {: #automate-hana-standalone-vsi-related}
 
-For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on IBM Cloud getting started tutorial](https://test.cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on IBM Cloud getting started tutorial](https://test.cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
 
-For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier VPC for SAP on IBM Cloud® VPC with Terraform](https://test.cloud.ibm.com/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
+For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier VPC for SAP on IBM Cloud® VPC with Terraform](https://test.cloud.ibm.com/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap){: external}.
 
 SAP One Support Notes that apply to this document:
 
-*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855)
-*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP license](https://me.sap.com/notes/2923773)
-*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
-*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910)
-*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855){: external}
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP license](https://me.sap.com/notes/2923773){: external}
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910){: external}
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 
 This document is referenced by:
 
-*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
-*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}

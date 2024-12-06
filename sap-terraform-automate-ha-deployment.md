@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap 
 
@@ -27,7 +27,7 @@ You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. 
 ## IBM Cloud VPC introduction
 {: #automate-ha-deployment-on-vpc-intro}
 
-VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public) infrastructure. VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private and secure place on the public cloud.
+VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public){: external} infrastructure. VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private and secure place on the public cloud.
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building and multiple families live inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium; no one else has the key, and no one can enter the space without your permission.
 
@@ -40,7 +40,7 @@ Use the following information to understand a simple use-case for planning, crea
 ## SAP products architecture on {{site.data.keyword.cloud_notm}} VPC
 {: #automate-ha-deployment-on-vpc-architecture}
 
-A [Virtual Private Cloud (VPC)](https://www.ibm.com/cloud/learn/vpc?mhsrc=ibmsearch_a&mhq=VPC){: external} contains one of the most secure and reliable cloud environments for SAP applications within your own VPC with virtual server instances. This represents an Infrastructure-as-a-Service (IaaS) within {{site.data.keyword.cloud_notm}} that offers all the benefits of isolated, secure, and flexible virtual cloud infrastructure from IBM. In comparison, the {{site.data.keyword.cloud_notm}} classic infrastructure virtual servers offering uses virtual instances with native and VLAN networking to communicate with each other within a data center; however, the instances are restricted in one well-working pod by using subnet and VLAN networking as a gap scale up of virtual resources should rely between the pods. The {{site.data.keyword.vpc_short}} network orchestrator layer concept eliminates the pod boundaries and restrictions, so this new concept handles all the networking for every virtual instance running within VPC across regions and zones.
+A [Virtual Private Cloud (VPC)](https://www.ibm.com/cloud/learn/vpc?mhsrc=ibmsearch_a&mhq=VPC){: external} contains one of the most secure and reliable cloud environments for SAP applications within your own VPC with virtual server instances. This represents an Infrastructure-as-a-Service (IaaS){: external} within {{site.data.keyword.cloud_notm}} that offers all the benefits of isolated, secure, and flexible virtual cloud infrastructure from IBM. In comparison, the {{site.data.keyword.cloud_notm}} classic infrastructure virtual servers offering uses virtual instances with native and VLAN networking to communicate with each other within a data center; however, the instances are restricted in one well-working pod by using subnet and VLAN networking as a gap scale up of virtual resources should rely between the pods. The {{site.data.keyword.vpc_short}} network orchestrator layer concept eliminates the pod boundaries and restrictions, so this new concept handles all the networking for every virtual instance running within VPC across regions and zones.
 
 ## Highly available system for SAP NetWeaver on {{site.data.keyword.cloud_notm}} VPC
 {: #automate-ha-deployment-on-vpc-system-nw}

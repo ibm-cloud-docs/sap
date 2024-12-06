@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP NetWeaver, SAP HANA, SAP Application Performance Standard, SAPS, SAP Quick Sizer
 
@@ -147,7 +147,7 @@ For more information about sizing, see the following resources:
 * [Quick Sizer](https://www.sap.com/about/benchmark/sizing.quick-sizer.html#quick-sizer){: external}
 * [SAP Note 1736976 - Sizing Report for BW-on-HANA](https://me.sap.com/notes/1736976){: external}
 * [SAP Note 1872170 - Suite on HANA memory sizes](https://me.sap.com/notes/1872170){: external}
-* [SAP Note 1793345 - Sizing for SAP Suite on HANA](http://service.sap.com/sap/support/notes/1793345){: external}
+* [SAP Note 1793345 - Sizing for SAP Suite on HANA](https://me.sap.com/notes/1793345){: external}
 * [SAP Note 1514966 - SAP HANA: Sizing SAP HANA](https://me.sap.com/notes/1514966){: external}
 * [SAP Certified and Supported SAP HANA Hardware](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN){: external}
 * [SAP Note 2055470 - SAP HANA on Power Planning and Installation Specifics - Central Note](https://me.sap.com/notes/2055470){: external}

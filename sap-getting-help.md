@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, support, support case, premium support, advanced support, basic support, support page, help, SAP ONE Support
 
@@ -32,8 +32,8 @@ If you experience problems with {{site.data.keyword.cloud_notm}}, you have sever
 Which support option depends on the level of support (and urgency), and whether the problem is with the Offering or running SAP Workloads using the Offering.
 
 Options include:
-- {{site.data.keyword.cloud_notm}} Support Case, using the [{{site.data.keyword.cloud_notm}} Support Center](https://cloud.ibm.com/unifiedsupport/supportcenter)
-- SAP support incident, using the [SAP for Me](https://me.sap.com)
+- {{site.data.keyword.cloud_notm}} Support Case, using the [{{site.data.keyword.cloud_notm}} Support Center](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}
+- SAP support incident, using the [SAP for Me](https://me.sap.com){: external}
 - {{site.data.keyword.cloud_notm}} Docs
 
 For previous users of {{site.data.keyword.cloud_notm}} Classic Infrastructure (formerly Softlayer), please be aware these Support Cases were previously termed Support Tickets.
@@ -51,9 +51,9 @@ The types of available and response time of support, depends on the support leve
 
 You can change your current support plan at any time by contacting {{site.data.keyword.cloud_notm}} sales expert.
 
-For full information about opening an {{site.data.keyword.cloud_notm}} Support case, or about support levels and ticket severities, see [{{site.data.keyword.cloud_notm}} Support documentation](/docs/get-support).
+For full information about opening an {{site.data.keyword.cloud_notm}} Support case, or about support levels and ticket severities, see [{{site.data.keyword.cloud_notm}} Support documentation](/docs/account?topic=account-gettinghelp).
 
-If you need support but are unable to log in to your account, start a chat by going to the [{{site.data.keyword.cloud_notm}} Support](https://www.ibm.com/cloud/support) page and clicking **Let's talk**.
+If you need support but are unable to log in to your account, start a chat by going to the [{{site.data.keyword.cloud_notm}} Support](https://www.ibm.com/cloud/support){: external} page and clicking **Let's talk**.
 {: tip}
 
 
@@ -69,7 +69,7 @@ All performance-related issues need to be checked by {{site.data.keyword.IBM_not
 
 If the issue is operating system (OS) related, go the support portal of the distribution (AIX or Linux&reg;) to open a case.
 
-You can check whether the infrastructure is set up correctly by running a python script on Linux&reg;: `python chk_numa_lpm.py`. For more information, see [SAP Note 2923962 -  - Check SAP HANA NUMA Layout on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://me.sap.com/notes/2923962).
+You can check whether the infrastructure is set up correctly by running a python script on Linux&reg;: `python chk_numa_lpm.py`. For more information, see [SAP Note 2923962 -  - Check SAP HANA NUMA Layout on {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](https://me.sap.com/notes/2923962){: external}.
 {: tip}
 
 ### Requesting support for resources in the European Union
@@ -110,7 +110,7 @@ The [SAP for Me](https://me.sap.com){: external} provides access to task-driven 
 
 If the issue is related to IBM Power and SAP, open a case by going to [support.sap.com](https://support.sap.com/en/index.html){: external} and click **Report an Incident**.
 
-All performance-related issues must be checked by [{{site.data.keyword.cloud_notm}} Customer Support](/docs/get-support) first to rule out any infrastructure-related issues before a case on the software stack is opened.
+All performance-related issues must be checked by [{{site.data.keyword.cloud_notm}} Customer Support](/docs/account?topic=account-gettinghelp) first to rule out any infrastructure-related issues before a case on the software stack is opened.
 
 Provide details and run the following commands to attach the output to the case:
 

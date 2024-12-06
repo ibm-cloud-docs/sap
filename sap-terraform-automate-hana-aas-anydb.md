@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-06"
 
 subcollection: sap
 
@@ -125,7 +125,7 @@ The scripts call the Ansible Playbooks to install the SAP architecture.
 
 The configuration and script files are provided on GitHub. Each supported interface for the SAP solution installation has its own folder in the GitHub repository:
 
-*   [GitHub repository for Terraform – AAS HANA](https://github.com/IBM-Cloud/sap-abap-hana-aas)
+*   [GitHub repository for Terraform – AAS HANA](https://github.com/IBM-Cloud/sap-abap-hana-aas){: external}
 
 ## Terraform interface
 {: #automate-hana-aas-anydb-terraform-interface}
@@ -161,7 +161,7 @@ Before you use the scripts in the bastion cli:
 
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 * If you have not already, create a Bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file.
+* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme){: external} file.
 * [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 * [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 * Terraform should already be installed on the bastion server that you deployed. For more information, see [Bastion server for SAP deployment](/docs/sap?topic=sap-sap-bastion-server).
@@ -188,7 +188,7 @@ Use these steps to configure the SAP Additional Application Server (AAS) NetWeav
 5. Select **Create** to create your workspace.
 6. On the workspace settings page, in the input variables section, review the default input variables and provide values that match your solution.
 
-    For a more detailed description of each parameter, check the GitHub repo [AAS HANA readme](https://github.com/IBM-Cloud/sap-abap-hana-aas) file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the readme file, under “Input parameter file”.
+    For a more detailed description of each parameter, check the GitHub repo [AAS HANA readme](https://github.com/IBM-Cloud/sap-abap-hana-aas){: external} file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the readme file, under “Input parameter file”.
 7. On the workspace settings page, click **Generate plan**. Wait for the plan to complete.
 8. Click **View log** to review the log files of your terraform execution plan.
 9. Apply your Terraform template by clicking **Apply plan**.
@@ -214,18 +214,18 @@ Use these steps to configure the SAP AAS NetWeaver (ABAP) on HANA on your existi
       * Enter a name for the workspace or use the default name.
       * The Resource Group used to create resources. Use default or create a Resource Group.
       * Select a location to create your {{site.data.keyword.bpshort}} workspace. The workspace location need not match the resource location.
-    * **Required input variables** - Review the default input variables and provide values that match your solution. These parameters are specific to your deployment. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-abap-hana-aas/blob/main/README.md).
+    * **Required input variables** - Review the default input variables and provide values that match your solution. These parameters are specific to your deployment. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-abap-hana-aas/blob/main/README.md){: external}.
 
     |Parameter	|Description|
     |-----|-----|
     |BASTION_FLOATING_IP	|Required only for Schematics Deployments. The Floating IP from the Bastion Server.|
-    |HOSTNAME	|The hostname for the VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check [SAP Note 611361: Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361)|
-    |REGION	|The cloud region to deploy the solution. The regions and zones for VPC are listed [here](/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in IBM Cloud Schematics [here](https://cloud.ibm.com/docs/schematics?topic=schematics-locations). Sample value: eu-de.|
-    |RESOURCE_GROUP	|The name of an existing Resource Group for VSIs and Volumes resources. Default value: "Default". The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups).|
-    |SECURITY_GROUP	|The name of an existing Security group. The list of security groups is available [here](https://cloud.ibm.com/infrastructure/network/securityGroups). |
-    |SSH_KEYS	|The list of SSH Keys UUIDs that are allowed to SSH as root to the VSI can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys). Sample input (use your own SSH UUIDs from IBM Cloud): ["r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e"]|
-    |SUBNET	|The name of an existing subnet. The list of subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets).|
-    |VPC	|The name of an existing VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs).|
+    |HOSTNAME	|The hostname for the VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check [SAP Note 611361: Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}|
+    |REGION	|The cloud region to deploy the solution. The regions and zones for VPC are listed [here](/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in IBM Cloud Schematics [here](https://cloud.ibm.com/docs/schematics?topic=schematics-locations){: external}. Sample value: eu-de.|
+    |RESOURCE_GROUP	|The name of an existing Resource Group for VSIs and Volumes resources. Default value: "Default". The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups){: external}.|
+    |SECURITY_GROUP	|The name of an existing Security group. The list of security groups is available [here](https://cloud.ibm.com/infrastructure/network/securityGroups){: external}. |
+    |SSH_KEYS	|The list of SSH Keys UUIDs that are allowed to SSH as root to the VSI can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys). Sample input (use your own SSH UUIDs from IBM Cloud){: external}: ["r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e"]|
+    |SUBNET	|The name of an existing subnet. The list of subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets){: external}.|
+    |VPC	|The name of an existing VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs){: external}.|
     |ZONE	|The cloud zone where to deploy the solution. Sample value: eu-de-2.|
     |ibmcloud_api_key	|IBM Cloud API key (Sensitive* value).|
     |private_ssh_key	|Required only for Schematics Deployments - Input your id_rsa private key pair content in OpenSSH format (Sensitive* value). This private key should be used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.|
@@ -238,13 +238,13 @@ Use these steps to configure the SAP AAS NetWeaver (ABAP) on HANA on your existi
     |sap_sid	|The SAP system ID identifies the entire SAP system.|
     |sap_main_password	|Common password for all users that are created during the installation (See Obs*).|
 
-   * **Optional variables** - Review and update the optional input variables. The Ansible scripts expect the SAP kits to be in the default locations listed. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-abap-hana-aas/blob/main/README.md).
+   * **Optional variables** - Review and update the optional input variables. The Ansible scripts expect the SAP kits to be in the default locations listed. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-abap-hana-aas/blob/main/README.md){: external}.
 
     |Parameter	|Description|
     |-----|-----|
     |ID_RSA_FILE_PATH	|The file path for private_ssh_key is automatically generated by default. If it is changed, it must contain the relative path from Git repo folders. Default value: "ansible/id_rsa".|
-    |IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images).|
-    |PROFILE	|The profile used for the VSI. A list of profiles is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check [SAP Note 2927211: SAP Applications on IBM Virtual Private Cloud](https://me.sap.com/notes/2927211).|
+    |IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images){: external}.|
+    |PROFILE	|The profile used for the VSI. A list of profiles is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). For more information about supported DB/OS and IBM Gen 2 Virtual Server Instances (VSI), check [SAP Note 2927211: SAP Applications on IBM Virtual Private Cloud](https://me.sap.com/notes/2927211){: external}.|
     |VOL1	|Volume 1 Size - The size for the disks in GB that are to be attached to the VSI and used by SAP.|
     |VOL2	|Volume 2 Size - The size for the disks in GB that are to be attached to the VSI and used by SAP.|
     |kit_sapcar_file	|Path to the sapcar binary, as downloaded from SAP Support Portal.|
@@ -283,7 +283,7 @@ The script takes 1 - 2 hours to complete.
     cd sap-abap-hana-aas/
     ```
 
-3. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your region, zone, networking component names, hostname for the AAS VSI,profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file.
+3. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your region, zone, networking component names, hostname for the AAS VSI,profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme){: external} file.
 
     The VSI OS images that are supported for this solution for Netweaver Additional Application Server are:
 
@@ -326,7 +326,7 @@ The script takes 1 - 2 hours to complete.
     IMAGE = "ibm-redhat-8-6-amd64-sap-applications-2"
     ```
 
-4. Customize your SAP system configuration. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file.
+4. Customize your SAP system configuration. In the same file, input.auto.tfvars, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme){: external} file.
 
     ```terraform
     # SAP system configuration - for ASE SYB
@@ -360,7 +360,7 @@ The script takes 1 - 2 hours to complete.
     kit_hdbclient_file = "/storage/NW75HDB/IMDB_CLIENT20_009_28-80002082.SAR"
     ```
 
-    Ansible decompresses the rest of the SAP kit files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme) file.
+    Ansible decompresses the rest of the SAP kit files. For more information, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme){: external} file.
 
 5. Initialize the Terraform CLI.
 
@@ -384,7 +384,7 @@ The script takes 1 - 2 hours to complete.
 
  The virtual private cloud and components are created and you see output similar to the `terraform plan` output.
 
-9. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm).
+9. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm){: external}.
 
 ## Next steps
 {: #automate-hana-aas-anydb-next}
@@ -405,17 +405,17 @@ For more information about using Terraform for creating only a VPC for SAP, with
 
 SAP One Support Notes that apply to this document:
 
-* [SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855)
-* [SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-* [SAP Note 2923773 - Linux&reg; on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP license](https://me.sap.com/notes/2923773)
-* [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097)
-* [SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910)
-* [SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380)
-* [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
+* [SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855){: external}
+* [SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+* [SAP Note 2923773 - Linux&reg; on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP license](https://me.sap.com/notes/2923773){: external}
+* [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
+* [SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910){: external}
+* [SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380){: external}
+* [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 
 This document is referenced by:
 
-* [SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-* [SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
-* [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
-* [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097)
+* [SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+* [SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
+* [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
+* [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}

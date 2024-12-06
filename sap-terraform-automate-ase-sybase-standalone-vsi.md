@@ -2,7 +2,7 @@
 
 copyright:
 years: 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap
 
@@ -49,7 +49,7 @@ You have two deployment methods to choose from:
 {: #terraform-sap-ase-sybase-vsi-prerequisites}
 {: terraform}
 
-A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server), must exist in the same VPC and same region. This should have the same subnet and security group that is configured for the SAP system VSI.
+A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}, must exist in the same VPC and same region. This should have the same subnet and security group that is configured for the SAP system VSI.
 
 ## What is created
 {: #terraform-sap-ase-sybase-vsi-created}
@@ -68,8 +68,8 @@ There are {{site.data.keyword.cloud_notm}} VPC SAP certified server profiles whe
 During provisioning IBM Cloud® Virtual Servers for Virtual Private Cloud, you can select from the following families of profiles:
 
 * Compute Optimized
-* Balanced 
-* Memory Optimized 
+* Balanced
+* Memory Optimized
 * Very High Memory Optimized
 * Ultra High Memory Optimized
 
@@ -94,7 +94,7 @@ The provided SSH keys are used to access the VSI through SSH, as a root user.
 ## Script files
 {: #terraform-sap-ase-sybase-vsi-files}
 
-The configuration and script files are available in the [GitHub repository](https://github.com/IBM-Cloud/sap-ase-db).
+The configuration and script files are available in the [GitHub repository](https://github.com/IBM-Cloud/sap-ase-db){: external}.
 
 The `input.auto.tfvars` file allows the customization of the input parameters.
 
@@ -113,17 +113,17 @@ When you are using the Schematics interface for the deployment, you need to:
 ## Support
 {: #terraform-sap-ase-sybase-vsi-support}
 
-There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system. 
+There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
 Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
 ## Before you begin
 {: #automate-ase-sybase-standalone-vsi-before}
 
-If you don't have a deployment server (bastion server) in the same VPC, create a deployment server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server).
+If you don't have a deployment server (bastion server) in the same VPC, create a deployment server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}.
 
-*	Log in to your Deployment Server and verify that Terraform and Ansible are installed. 
-*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
+*	Log in to your Deployment Server and verify that Terraform and Ansible are installed.
+*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md){: external} file.
 *  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
@@ -136,7 +136,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 
     ```shell
 	$ git clone https://github.com/IBM-Cloud/sap-ase-db.git
-    	
+
 	$ cd sap-ase-db
     ```
 
@@ -144,26 +144,26 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 
     The following input variable values must be provided:
 
-    * REGION - Region for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
-    * ZONE - Zone for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
+    * REGION - Region for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md){: external} file.
+    * ZONE - Zone for SAP HANA server. See the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md){: external} file.
     * VPC - The name of an existing VPC in the specified region.
     * SECURITY_GROUP - The name of an existing security group in the same VPC.
     * RESOURCE_GROUP - The name of an existing resource group, previously created by the user.
     * SUBNET - The name of an existing subnet in the same region and zone as the VSI.
     * SSH_KEYS - A list of SSH keys UUIDs allowed to connect through SSH to the VSIs.
     * ID_RSA_FILE_PATH - existing `id_rsa` private key file path in OpenSSH format with 0600 permissions.
-    * DB_HOSTNAME - The hostname of the SAP HANA server, up to 13 characters. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
+    * DB_HOSTNAME - The hostname of the SAP HANA server, up to 13 characters. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md){: external} file.
 
     ``` terraform
     ######################################################
     # General & Default VPC variables for CLI deployment
     ######################################################
 
-    REGION = "eu-de"  
+    REGION = "eu-de"
     # Region for the VSI. Supported regions: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
     # Example: REGION = "eu-de"
 
-    ZONE = "eu-de-1"    
+    ZONE = "eu-de-1"
     #   Availability zone for VSI. Supported zones: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
     # Example: ZONE = "eu-de-1"
 
@@ -213,7 +213,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     # The DB VSI profile. Supported profiles for DB VSI: bx2-4x16. The list of available profiles: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui
 
     DB_IMAGE = "ibm-redhat-8-6-amd64-sap-applications-6"
-    # OS image for DB VSI. Supported OS images for DB VSIs: ibm-redhat-8-6-amd64-sap-applications-6, ibm-redhat-8-4-amd64-sap-applications-10, ibm-sles-15-4-amd64-sap-applications-8, ibm-sles-15-3-amd64-sap-applications-11. 
+    # OS image for DB VSI. Supported OS images for DB VSIs: ibm-redhat-8-6-amd64-sap-applications-6, ibm-redhat-8-4-amd64-sap-applications-10, ibm-sles-15-4-amd64-sap-applications-8, ibm-sles-15-3-amd64-sap-applications-11.
     # The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://me.sap.com/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
     # Example: DB-IMAGE = "ibm-sles-15-4-amd64-sap-applications-8"
     ```
@@ -263,11 +263,11 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 
 Follow the steps to deploy the SAP ASE Sybase database on a single VSI in your existing VPC by using the Schematics User Interface. The scripts can take 1 - 2 hours to complete.
 
-1. From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview).
+1. From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview){: external}.
 2. Click **Create workspace**.
 3. On the **Specify template** page:
     * Enter the GitHub URL for the code that you plan to deploy.
-    * Select the **Terraform version** that is listed in the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md) file.
+    * Select the **Terraform version** that is listed in the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md){: external} file.
     * Click **Next**.
 4. On the **Workspace details** page:
     * Enter a name for the workspace.
@@ -313,23 +313,23 @@ If you need to remove the resources created with the automation for your SAP sol
 ## Related information
 {: #automate-ase-sybase-standalone-vsi-related}
 
-For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on IBM Cloud getting started tutorial](https://test.cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on IBM Cloud getting started tutorial](https://test.cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
 
-For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier VPC for SAP on IBM Cloud® VPC with Terraform](https://test.cloud.ibm.com/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
+For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier VPC for SAP on IBM Cloud® VPC with Terraform](https://test.cloud.ibm.com/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap){: external}.
 
 SAP One Support Notes that apply to this document:
 
-*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855)
-*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP license](https://me.sap.com/notes/2923773)
-*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
-*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910)
-*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
+*	[SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855){: external}
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2923773 - Linux&reg; on IBM Cloud (IaaS): Adaption of your SAP license](https://me.sap.com/notes/2923773){: external}
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
+*	[SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910){: external}
+*	[SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 
 This document is referenced by:
 
-*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211)
-*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
-*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654)
-*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097)
+*	[SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
+*	[SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
+*	[SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
+*	[SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}

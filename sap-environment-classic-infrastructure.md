@@ -28,12 +28,12 @@ An Infrastructure-as-a-Service (IaaS) environment consists of many components. T
 ## Deployment and management
 {: #classic-env-deployment-and-management}
 
-{{site.data.keyword.cloud_notm}} Classic Infrastructure offerings (such as {{site.data.keyword.baremetal_short}}) are deployed through the [{{site.data.keyword.cloud_notm}} Classic Infrastructure console](https://cloud.ibm.com/classic).
+{{site.data.keyword.cloud_notm}} Classic Infrastructure offerings (such as {{site.data.keyword.baremetal_short}}) are deployed through the [{{site.data.keyword.cloud_notm}} Classic Infrastructure console](https://cloud.ibm.com/classic){: external}.
 
 Alternatively, deployments can be made and managed by using:
 - {{site.data.keyword.cloud_notm}} CLI
 - {{site.data.keyword.cloud_notm}} Classic Infrastructure API (Softlayer API) calls that use an {{site.data.keyword.cloud_notm}} Classic Infrastructure API key
-- [Terraform Provider for {{site.data.keyword.cloud_notm}}](/docs/terraform) that uses an {{site.data.keyword.cloud_notm}} Classic Infrastructure API key
+- [Terraform Provider for {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform) that uses an {{site.data.keyword.cloud_notm}} Classic Infrastructure API key
 
 For more information, see [Managing {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s (IAM)](/docs/power-iaas?topic=power-iaas-managing-resources-and-users).
 

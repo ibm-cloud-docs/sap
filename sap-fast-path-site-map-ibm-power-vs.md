@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -49,7 +49,6 @@ Depending on your scenarios, the following links provide helpful information.
 - [SAP on IBM Db2 by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-power-vs)
 - [SAP MaxDB by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-maxdb#anydb-sap-maxdb-power-vs)
 - [SAP ASE by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-ase#anydb-sap-ase-power-vs)
-
 
 
 

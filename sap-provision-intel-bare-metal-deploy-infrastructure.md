@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -81,7 +81,7 @@ You cannot change the local storage when you have selected an SAP HANA appliance
 [Getting started with Block Storage](/docs/BlockStorage?topic=BlockStorage-getting-started) and [Getting started with File Storage](/docs/FileStorage?topic=FileStorage-getting-started) provides you with provisioning considerations, how to submit your order (if you didn't order when you originally provisioned your server), and connecting to and managing your new storage.
 
 Use the following links to learn more about {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_full_notm}}:
-* [Learn about {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/topics/block-storage)
+* [Learn about {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/topics/block-storage){: external}
 * [Learn about {{site.data.keyword.filestorage_full_notm}}](/docs/FileStorage)
 
 Provisioning steps can be found under

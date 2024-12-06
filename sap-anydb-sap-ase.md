@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -56,8 +56,8 @@ SAP ASE and SAP NetWeaver **on UNIX/Linux**:
 - [Installation of SAP Systems Based on the Application Server **Java** of SAP NetWeaver 7.3 to 7.5 on UNIX/Linux: SAP Adaptive Server Enterprise](https://help.sap.com/docs/SLTOOLSET/01f04921ac57452983980fe83a3ce10d/0889d5d70cf24c3a82d7cda898ec3545.html?version=CURRENT_VERSION){: external}
 
 SAP ASE and SAP NetWeaver **on Windows**:
-- [Installation of SAP Systems Based on the Application Server **ABAP** of SAP NetWeaver 7.3 to 7.52 on Windows: SAP Adaptive Server Enterprise](https://help.sap.com/docs/SLTOOLSET/b0c437ae5d1a4c70847bb55973923352/0889d5d70cf24c3a82d7cda898ec3545.html?version=CURRENT_VERSION)
-- [Installation of SAP Systems Based on the Application Server **Java** of SAP NetWeaver 7.3 to 7.5 on Windows: SAP Adaptive Server Enterprise](https://help.sap.com/docs/SLTOOLSET/2b04bc65d45544bb8ba67c258d4fb2e2/0889d5d70cf24c3a82d7cda898ec3545.html?version=CURRENT_VERSION)
+- [Installation of SAP Systems Based on the Application Server **ABAP** of SAP NetWeaver 7.3 to 7.52 on Windows: SAP Adaptive Server Enterprise](https://help.sap.com/docs/SLTOOLSET/b0c437ae5d1a4c70847bb55973923352/0889d5d70cf24c3a82d7cda898ec3545.html?version=CURRENT_VERSION){: external}
+- [Installation of SAP Systems Based on the Application Server **Java** of SAP NetWeaver 7.3 to 7.5 on Windows: SAP Adaptive Server Enterprise](https://help.sap.com/docs/SLTOOLSET/2b04bc65d45544bb8ba67c258d4fb2e2/0889d5d70cf24c3a82d7cda898ec3545.html?version=CURRENT_VERSION){: external}
 
 ### SAP ASE using Intel Virtual Servers
 {: #anydb-sap-ase-intel-vs-vpc}

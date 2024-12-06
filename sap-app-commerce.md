@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -38,12 +38,12 @@ Therefore, deployments of SAP Commerce are available in different variants; we d
 Within the {{site.data.keyword.ibm_cloud_sap}} portfolio, infrastructure is supported for **_SAP Commerce "on-premises edition" on Cloud IaaS_**.
 
 This solution involves an installation of the SAP Commerce software onto Cloud IaaS, according to SAP installation and best practice guidance:
-- [Installation and Upgrading SAP Commerce](https://help.sap.com/docs/SAP_COMMERCE/a74589c3a81a4a95bf51d87258c0ab15/8bf5a611866910149242e1a3a41eb9af.html)
-- [SAP Commerce Architecture](https://help.sap.com/docs/SAP_COMMERCE/b490bb4e85bc42a7aa09d513d0bcb18e/8b5588d8866910149d4eb5f99c75b6b4.html)
+- [Installation and Upgrading SAP Commerce](https://help.sap.com/docs/SAP_COMMERCE/a74589c3a81a4a95bf51d87258c0ab15/8bf5a611866910149242e1a3a41eb9af.html){: external}
+- [SAP Commerce Architecture](https://help.sap.com/docs/SAP_COMMERCE/b490bb4e85bc42a7aa09d513d0bcb18e/8b5588d8866910149d4eb5f99c75b6b4.html){: external}
 
 For a typical development environment of SAP Commerce, it is straightforward (compared to other SAP software) to shut down the instantiation/s and reduce costs outside of business hours through less Cloud resource consumption; however, depending on the implementation the time to start again can be significant. This decision is required by the project team, and might not be suitable if a worldwide development team is in-place.
 
-More information is available on [SAP Commerce](https://help.sap.com/docs/SAP_COMMERCE) help portal.
+More information is available on [SAP Commerce](https://help.sap.com/docs/SAP_COMMERCE){: external} help portal.
 
 {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are not available for SAP Commerce.
 {: note}

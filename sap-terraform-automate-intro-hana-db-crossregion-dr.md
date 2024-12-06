@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-06"
 
 subcollection: sap
 
@@ -39,7 +39,7 @@ With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to m
 
 SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for ABAP and Java applications. The SAP system can be installed and configured in {{site.data.keyword.cloud_notm}} for various system and database types.
 
-For more information about SAP system architectures on {{site.data.keyword.cloud_notm}} VPC, see the infrastructure reference architectures for SAP for each supported database type. For example, [SAP NetWeaver 7.x on UNIX with HANA on {{site.data.keyword.cloud_notm}} VPC](https://cloud.ibm.com/docs/sap?topic=sap-sap-refarch-nw-hana&interface=terraform) is the dedicated reference architecture for this SAP solution.
+For more information about SAP system architectures on {{site.data.keyword.cloud_notm}} VPC, see the infrastructure reference architectures for SAP for each supported database type. For example, [SAP NetWeaver 7.x on UNIX with HANA on {{site.data.keyword.cloud_notm}} VPC](https://cloud.ibm.com/docs/sap?topic=sap-sap-refarch-nw-hana&interface=terraform){: external} is the dedicated reference architecture for this SAP solution.
 
 ## Where to run the scripts
 {: #sap-hana-db-dr-where-scripts}
@@ -57,7 +57,7 @@ The scripts run from your Deployment Server because the Deployment Server has Te
 
 * A full database backup should be performed on the primary system for the system database and all tenant databases.
 
-The IBM Cloud OS images used to validate this automation are mentioned in the [Readme file](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md).
+The IBM Cloud OS images used to validate this automation are mentioned in the [Readme file](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md){: external}.
 
 To save costs, the Deployment Server (Bastion Server), with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on IBM Cloud VPC cloud. Or, you can keep the Deployment Server (Bastion Server) and use it as a jump host for that specific region and future deployments.
 

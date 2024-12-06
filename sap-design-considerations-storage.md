@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -51,7 +51,7 @@ For example:
 
 With any SAP HANA certified profile that is listed as Appliance, storage is already provided or must be attached precisely as described.
 
-When you provision more storage for an SAP HANA instance, you must adhere to mandatory TDI storage requirements. For more information, see [IBM System Storage Architecture and Configuration Guide for SAP HANA TDI v2.31.pdf](https://www.ibm.com/support/pages/system/files/inline-files/IBM%20System%20Storage%20Architecture%20and%20Configuration%20Guide%20for%20SAP%20HANA%20TDI%20v2.31.pdf).
+When you provision more storage for an SAP HANA instance, you must adhere to mandatory TDI storage requirements. For more information, see [IBM System Storage Architecture and Configuration Guide for SAP HANA TDI v2.31.pdf](https://www.ibm.com/support/pages/system/files/inline-files/IBM%20System%20Storage%20Architecture%20and%20Configuration%20Guide%20for%20SAP%20HANA%20TDI%20v2.31.pdf){: external}.
 
 The requirements include multiple volumes that are assigned to the DATA and LOG LVMs, with the striping and multipath enhancements increase I/O performance. For more information, see the following documents:
 - [SAP HANA Tailored Data Center Integration (TDI) Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external}
@@ -89,7 +89,7 @@ Using VMware for SAP workloads on {{site.data.keyword.cloud_notm}} is certified.
 
 For VMware clusters, where SAP workloads are run across multiple VMware vSphere hypervisor nodes, storage must be shared across these hypervisor nodes.
 
-VMware is available to work with Block storage or File storage from {{site.data.keyword.cloud_notm}}. To help you select Block storage or File storage for running SAP on VMware, see [VMware Technical Paper on Storage Protocol Comparison](https://vmware.com/techpapers/2012/storage-protocol-comparison-10276.html).
+VMware is available to work with Block storage or File storage from {{site.data.keyword.cloud_notm}}. To help you select Block storage or File storage for running SAP on VMware, see [VMware Technical Paper on Storage Protocol Comparison](https://vmware.com/techpapers/2012/storage-protocol-comparison-10276.html){: external}.
 
 When you are using Network Block or File storage, do not expect that certification performance benchmarks to remain the same. Particularly after factoring in the hypervisor overheads as described in [Compute Profiles of SAP-certified VMware on Classic Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#compute-power).
 

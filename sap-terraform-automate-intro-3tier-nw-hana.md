@@ -29,7 +29,7 @@ You can use Terraform scripts to create a single-tier VPC and create the SAP and
 ## {{site.data.keyword.cloud_notm}} VPC introduction
 {: #intro-automate-deploy-vpc-terraform-ansible-vpc}
 
-A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public) infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building and multiple families live inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium; no one else has the key, and no one can enter the space without your permission.
 
@@ -42,7 +42,7 @@ With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to m
 
 SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for ABAP and Java applications. The SAP system can be installed and configured in {{site.data.keyword.cloud_notm}} for various system and database types.
 
-For more information about SAP system architectures on {{site.data.keyword.cloud_notm}} VPC, see the infrastructure reference architectures for SAP for each supported database type. The reference architecture section for SAP solutions running on IBM Cloud can be found [here](https://cloud.ibm.com/docs/sap?topic=sap-refarch-hana-scaleup).
+For more information about SAP system architectures on {{site.data.keyword.cloud_notm}} VPC, see the infrastructure reference architectures for SAP for each supported database type. The reference architecture section for SAP solutions running on IBM Cloud can be found [here](https://cloud.ibm.com/docs/sap?topic=sap-refarch-hana-scaleup){: external}.
 
 Manually deploying a VPC and installing an SAP system can be time-consuming. The Terraform automation assures not only a much quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
 
@@ -79,16 +79,16 @@ Prerequisites to deploy the automation:
 * Obtain the SAP NetWeaver (ABAP) with SAP HANA installation software from SAP.
 * Deploy the bastion (SAP install kit) server.
 
-The automation deploys SAP certified infrastructure and the application/database software in one step. The installation process follows the SAP Master Installation Guides. For more information, go to [VPC for SAP HANA NetWeaver ABAP](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-sap-vpc-automation-hana-nw-abap-c0fc9daf-791b-42d2-9fe3-406f267b89ac-global).
+The automation deploys SAP certified infrastructure and the application/database software in one step. The installation process follows the SAP Master Installation Guides. For more information, go to [VPC for SAP HANA NetWeaver ABAP](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-sap-vpc-automation-hana-nw-abap-c0fc9daf-791b-42d2-9fe3-406f267b89ac-global){: external}.
 
  ![Figure 1. SAP NetWeaver with HANA landscape deployment](images/sap_value_guide_netweaver.svg "SAP NetWeaver with HANA landscape deployment"){: caption="SAP NetWeaver with HANA landscape deployment" caption-side="bottom"}
 
 ## Ansible for SAP installation
 {: #intro-automate-deploy-vpc-terraform-ansible-sap-install}
 
-Ansible is an automation tool for the deployment of several IT tasks. Ansible is used for automating the installation of an SAP NetWeaver with HANA or AnyDB. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html).
+Ansible is an automation tool for the deployment of several IT tasks. Ansible is used for automating the installation of an SAP NetWeaver with HANA or AnyDB. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html){: external}.
 
-The deployment is done by using the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on the [Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html).
+The deployment is done by using the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on the [Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html){: external}.
 
 The Ansible playbook is called directly by the Terraform script. The script starts with Terraform specific steps for creating the VPC, and continues automatically with the Ansible specific steps to install the SAP system.
 
