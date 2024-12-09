@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -34,7 +34,7 @@ The following diagram shows deployed SAP on PowerVS infrastructure components.
 ## Deploying a separate private network for SAP systems
 {: #power-vs-set-up-power-sap-network}
 
-For each SAP system that you create, a separate private network that is used to communicate between virtual server instances is needed. This network is tuned for maximum performance. To create separate private network for the SAP system, use the following steps.
+For each SAP system that you deploy, create a separate private network for communication between the virtual server instances. This network is tuned for maximum performance. To create separate private network for the SAP system, use the following steps.
 
 1. In the workspace for {{site.data.keyword.powerSys_notm}}, create a private network for SAP system as described [here](/docs/power-iaas?topic=power-iaas-configuring-subnet).
 2. Attach created network to both IBM Cloud Connections.
