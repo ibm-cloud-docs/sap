@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -150,7 +150,7 @@ To be able to connect to the Windows VSI from your client, you need the *Adminis
 
 ### Install CLI
 
-Before you can use the CLI to retrieve the *Administrator* password, you must [install the IBM Cloud CLI](/docs/cli?topic=cli-getting-started) and [the VPC CLI plug-in](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+Before you can use the CLI to retrieve the *Administrator* password, you must [install the IBM Cloud CLI](/docs/cli?topic=cli-getting-started) and [the VPC CLI plug-in](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup &interface=cli).
 
 ### Connect to {{site.data.keyword.cloud_notm}} with the CLI
 
@@ -246,7 +246,7 @@ You can access the newly created VSI with Windows Remote Desktop. Enter the *Flo
 1. Check the values and click **Finish**
 1. After the volume has been prepared and formatted, you can find the new disk in the Windows Explorer
 
-(+) [About partition styles - GPT and MBR.](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){: external}
+(+) [About partition styles - GPT and MBR.](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){: external}
 
 ### Specifying the page file
 

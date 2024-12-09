@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -95,7 +95,7 @@ Also, both VMware and SAP agree to the physical to virtual overhead of <10% on a
 
 Sources:
 - [Page 120-121, Architecture Guidelines and Best Practices for Deployments of SAP HANA on VMware vSphere Architecture and Technical Considerations Guide](https://www.vmware.com/docs/sap_hana_on_vmware_vsphere_best_practices_guide-white-paper){: external}
-- [Page 19, The Winding Road to Virtual SAP HANA Application Workload Guidance Design for SAP S/4HANA on VMware vSphere 6.5]( https://www.vmware.com/docs/vmw-vsphere-virtual-saphana-application-workload-guidance-design){: external}
+- [Page 19, The Winding Road to Virtual SAP HANA Application Workload Guidance Design for SAP S/4HANA on VMware vSphere 6.5](https://www.vmware.com/docs/vmw-vsphere-virtual-saphana-application-workload-guidance-design){: external}
 - Only for half-socket VMs and sharing of NUMA Node between two VMs. Keep in mind that `"additional performance impact"` and a `"sizing buffer of at least 15%"` of the CPU (SAPS) is recommended.
 [SAP Community Wiki - SAP HANA on VMware vSphere](https://help.sap.com/docs/SUPPORT_CONTENT/virtualization/3362185751.html){: external}
 

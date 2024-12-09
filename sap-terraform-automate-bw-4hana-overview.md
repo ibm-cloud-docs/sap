@@ -4,7 +4,7 @@ copyright:
   years: 2022
 lastupdated: "2022-12-05"
 
-subcollection: sap 
+subcollection: sap
 
 ---
 
@@ -28,7 +28,7 @@ You can use Terraform scripts to create a single-tier VPC and create the SAP and
 ## {{site.data.keyword.cloud}} VPC introduction
 {: #sap-automate-bw-4hana-vpc-intro}
 
-A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building and multiple families live inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium; no one else has the key, and no one can enter the space without your permission.
 
@@ -36,7 +36,7 @@ A VPC’s logical isolation is implemented by using virtual network functions an
 
 With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to manually provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including virtual servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about more VPC overviews and VPC tutorials. For more information about VPC, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started).
 
-## SAP solution implemented 
+## SAP solution implemented
 {: #sap-bw4hana-automation-solution}
 
 SAP BW/4HANA is a packaged data warehouse based on SAP HANA. As the on-premises data warehouse layer of SAP’s Business Technology Platform, SAP BW/4HANA can be used to consolidate data across the enterprise to get a consistent, agreed-upon view of your data.
@@ -61,7 +61,7 @@ The Ansible playbook is called directly by the Terraform script. The script star
 ## Where to run the scripts
 {: #sap-bw-4hana-run-scripts}
 
-The recommended way to run the scripts is from your deployment (bastion) server because the deployment (bastion) server has Terraform and Ansible already installed. If you want to run the scripts from your local workstation, you need to install Terraform and Ansible locally. 
+The recommended way to run the scripts is from your deployment (bastion) server because the deployment (bastion) server has Terraform and Ansible already installed. If you want to run the scripts from your local workstation, you need to install Terraform and Ansible locally.
 
 For both the deployment (bastion) server and local workstation, you must download the SAP kits to the temporary storage assigned to you on the deployment (bastion) server. Ansible installs the kits for you. You specify the location of the kits in the configuration files.
 
@@ -72,7 +72,7 @@ Before you deploy any of the SAP automated solutions on {{site.data.keyword.clou
 
 After bastion VPC deployment is complete, you must download the SAP kits to the temporary storage assigned to you on the bastion server. Ansible installs the kits for you. You specify the location of the kits in the configuration files.
 
-To save costs, the bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on {{site.data.keyword.cloud_notm}} VPC. Or, you can keep the bastion server and use it as a jump host for that specific region. 
+To save costs, the bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on {{site.data.keyword.cloud_notm}} VPC. Or, you can keep the bastion server and use it as a jump host for that specific region.
 {: note}
 
 This automation is offered at no cost; however, the provisioned infrastructure comes at cost.

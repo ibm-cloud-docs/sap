@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
 subcollection: sap
 
@@ -16,7 +16,7 @@ subcollection: sap
 {:important: .important}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{:tip: .tip} 
+{:tip: .tip}
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
@@ -164,7 +164,7 @@ Use these steps to configure the SAP HANA Backup for COS by using the {{site.dat
 9.	Apply your Terraform template by clicking **Apply plan**.
 10.  Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
 
-## Deploying SAP HANA Backup to IBM Cloud Object Storage on VPC via the Deployable Architecture tile 
+## Deploying SAP HANA Backup to IBM Cloud Object Storage on VPC via the Deployable Architecture tile
 {: #sap-hana-db-backup-arch-tile-procedure}
 {: ui}
 
@@ -226,7 +226,7 @@ You need the following to get started with {{site.data.keyword.cloud_notm}} Obje
 *	Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](https://cloud.ibm.com/docs/account?topic=account-accountfaqs#changeacct){: external}.
 *	Create a deployment server (bastion server) to store the SAP kits. For more information, see the [Automate SAP bastion server - SAP media storage repository](https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file.
-*	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key){: external}. The API key is used to authenticate with the create or retrieve your SSH key ID. 
+*	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key&interface=ui){: external}. The API key is used to authenticate with the create or retrieve your SSH key ID.
 *	Log in to the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *	Terraform should be already installed on the deployment server (bastion server) that you deployed. For more information, see the [Bastion server for SAP deployment](https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}.
 *	Before using "HANA db backup to Cloud Object Storage" automation module the HANA database instance(s) should be installed on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
@@ -252,11 +252,11 @@ The scripts take 1-2 hours to complete. A full backup of System DB and Tenant DB
 3.	Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC and component names. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file.
     The VSI OS images that are validated for the automation solution "HANA db backup to Cloud Object Storage" are:
     *	SUSE Linux Enterprise Server 15 SP 4 for SAP
-    *	SUSE Linux Enterprise Server 15 SP 3 for SAP, 
-    *	Red Hat Enterprise Linux 8.6 for SAP or 
+    *	SUSE Linux Enterprise Server 15 SP 3 for SAP,
+    *	Red Hat Enterprise Linux 8.6 for SAP or
     *	Red Hat Enterprise Linux 8.4 for SAP
 
-    Note: Any of the above OS distributions and versions can be used for the prior deployment of the host(s) for the HANA db (with or without HA) in an IBM Cloud Gen2 VPC. This HANA backup solution was implemented and tested on the following OS images available in {{site.data.keyword.cloud_notm}}: ibm-sles-15-4-amd64-sap-hana-3, ibm-sles-15-3-amd64-sap-hana-3, ibm-redhat-8-6-amd64-sap-hana-2, ibm-redhat-8-4-amd64-sap-hana-2. 
+    Note: Any of the above OS distributions and versions can be used for the prior deployment of the host(s) for the HANA db (with or without HA) in an IBM Cloud Gen2 VPC. This HANA backup solution was implemented and tested on the following OS images available in {{site.data.keyword.cloud_notm}}: ibm-sles-15-4-amd64-sap-hana-3, ibm-sles-15-3-amd64-sap-hana-3, ibm-redhat-8-6-amd64-sap-hana-2, ibm-redhat-8-4-amd64-sap-hana-2.
 
     ```terraform
     # Infra VPC variables
@@ -294,7 +294,7 @@ The scripts take 1-2 hours to complete. A full backup of System DB and Tenant DB
     CREATE_HDBBACKINT_SCRIPT ="/storage/hana_backup_kit_files/create_hdbbackint.py"
     ```
 
-5.	Initialize the Terraform CLI. 
+5.	Initialize the Terraform CLI.
 
     ```sh
     terraform init

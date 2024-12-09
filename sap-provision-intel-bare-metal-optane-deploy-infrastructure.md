@@ -44,7 +44,7 @@ The App Dir mode uses regions, and namespaces to represent persistent memory dev
 
 Regions are created as part of the provisioning process. You must create the namespaces, create mount points, and mount the PMem devices.
 
-For more information about regions and namespaces, see [Intel Optane Persistent Memory and SAP HANA Platform Configuration](https://www.sap.com/documents/2019/05/7a278c36-507d-0010-87a3-c30de2ffd8ff.html){: external}.
+
 
 1. Log in to the Bare Metal server as **root**.
 

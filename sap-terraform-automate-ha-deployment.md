@@ -2,9 +2,9 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
-subcollection: sap 
+subcollection: sap
 
 ---
 
@@ -27,13 +27,13 @@ You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. 
 ## IBM Cloud VPC introduction
 {: #automate-ha-deployment-on-vpc-intro}
 
-VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public){: external} infrastructure. VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private and secure place on the public cloud.
+VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private and secure place on the public cloud.
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building and multiple families live inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium; no one else has the key, and no one can enter the space without your permission.
 
 VPC’s logical isolation is implemented by using virtual network functions and security features that give the enterprise customer granular control over which IP addresses or applications can access particular resources. It is analogous to the “friends-only” or “public/private” controls on social media accounts used to restrict who can or can’t see your otherwise public posts.
 
-With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to manually provision virtual server instances for VPC with high network performance. VPC infrastructure contains various Infrastructure-as-a-Service (IaaS) offerings including virtual servers for VPC. 
+With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to manually provision virtual server instances for VPC with high network performance. VPC infrastructure contains various Infrastructure-as-a-Service (IaaS) offerings including virtual servers for VPC.
 
 Use the following information to understand a simple use-case for planning, creating, and configuring resources for your VPC, and learn more about VPC overviews and VPC tutorials. For more information about the VPC, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started).
 
@@ -184,18 +184,18 @@ The SAP ASE server that takes over the workload is called a secondary companion,
 
 When a system fails over, clients that are connected to the primary companion and use the failover property automatically reestablish their network connections to the secondary companion. You must tune your operating system to successfully manage both servers during fail over. See your operating system documentation for information about configuring your system for high availability. An SAP ASE configured for failover in an active-active setup can be shut down using the shutdown command only after you have suspended SAP ASE from the companion configuration, at both the server level and the platform level.
 
-The always-on option in a High Availability and Disaster Recovery (HADR) system consists of two SAP ASE servers: 
+The always-on option in a High Availability and Disaster Recovery (HADR) system consists of two SAP ASE servers:
 * Primary on which all transaction processing takes place.
 * Warm standby (referred to as a "standby server" in DR mode, and as a "companion" in HA mode) for the primary server, and contains copies of designated databases from the primary server.
 
 The HADR feature that is shipped with SAP ASE version 16.0 SP02 supports only a single-companion server.
 {: note}
 
-Some high-availability solutions (for example, the SAP Adaptive Server Enterprise Cluster Edition) share or use common resources between nodes. However, the HADR system is a "shared nothing" configuration, each node has separate resources including disks. 
+Some high-availability solutions (for example, the SAP Adaptive Server Enterprise Cluster Edition) share or use common resources between nodes. However, the HADR system is a "shared nothing" configuration, each node has separate resources including disks.
 
 In an HADR system, servers are separate entities and data is replicated from the primary server to the companion server. If the primary server fails, a companion server is promoted to the role of primary server either manually or automatically. Once the promotion is complete, clients can reconnect to the new primary server, and see all committed data, including data that was committed on the previous primary server.
 
-Servers can be separated geographically, which makes an HADR system capable of withstanding the loss of an entire computing facility. 
+Servers can be separated geographically, which makes an HADR system capable of withstanding the loss of an entire computing facility.
 
 The HADR system includes an embedded SAP Replication Server, which synchronizes the databases between the primary and companion servers. SAP ASE uses the Replication Management Agent (RMA) to communicate with Replication Server and SAP Replication Server uses Open Client connectivity to communicate with the companion SAP ASE.
 {: note}
@@ -208,7 +208,7 @@ The HADR system supports asynchronous replication between the primary and standb
 
 The most fundamental service that is offered by the HADR system is the failover; planned or unplanned from the primary to the companion server, which allows maintenance activity to occur on the old primary server, while applications continue on the new primary.
 
-The HADR system provides protection in the event of a disaster. If the primary server is lost, the companion server can be used as a replacement. Client applications can switch to the companion server, and the companion server is quickly available for users. If the SAP Replication Server was in synchronous mode before the failure of the primary server, the Fault Manager automatically initiates failover with zero data loss. 
+The HADR system provides protection in the event of a disaster. If the primary server is lost, the companion server can be used as a replacement. Client applications can switch to the companion server, and the companion server is quickly available for users. If the SAP Replication Server was in synchronous mode before the failure of the primary server, the Fault Manager automatically initiates failover with zero data loss.
 
 ### Fault Manager installation on the SAP ASCS node
 {: #automate-ha-deployment-on-vpc-fault-install-sap-ascs}
@@ -225,10 +225,10 @@ Connection attempts to the companion server without the necessary privileges are
 
 The SAP ASE HADR option installs the below components:
 
-* SAP ASE 
+* SAP ASE
 * SAP Replication Server
-* Replication Management Agent (RMA) 
-* SAP Host Agent 
+* Replication Management Agent (RMA)
+* SAP Host Agent
 * Fault Manager
 * SAP ASE Cockpit
 

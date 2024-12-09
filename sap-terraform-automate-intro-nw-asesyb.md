@@ -15,11 +15,11 @@ subcollection: sap
 {:note: .note}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{:tip: .tip} 
+{:tip: .tip}
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Introduction to SAP NetWeaver and ASE SYB DB 2-tier and 3-tier on {{site.data.keyword.cloud_notm}} VPC 
+# Introduction to SAP NetWeaver and ASE SYB DB 2-tier and 3-tier on {{site.data.keyword.cloud_notm}} VPC
 {: #intro-automate-nw-asesyb-terraform-ansible}
 
 You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. The VPC provisioned includes virtual server instances with high network performance. The VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers. After the VPC is provisioned, the scripts use the Ansible Playbook to install the SAP system. IBM Cloud VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
@@ -27,7 +27,7 @@ You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. 
 ## {{site.data.keyword.cloud_notm}} VPC introduction
 {: #intro-nw-asesyb-cloud-vpc}
 
-A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building and multiple families live inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium; no one else has the key, and no one can enter the space without your permission.
 
@@ -63,7 +63,7 @@ Additionally, you can install one or more dialog instances. For more information
 
 Manually deploying a VPC and installing an SAP system can be time-consuming. The Terraform automation assures not only a much quicker implementation, but also a standardized and less error-prone deployment. Terraform and Ansible are used for automating the deployment processes.
 
-### Distributed deployment 
+### Distributed deployment
 {: #intro-dist-depl}
 
 In a distributed system, every instance can run on a separate host (VSI).
@@ -75,7 +75,7 @@ Instances installed in a distributed hosts architecture include:
 Additionally, you can install one or more dialog instances. For more information, see SAP NW with SYB reference architecture section [Architectural design on IBM Cloud VPC on Unix](/docs/sap?topic=sap-sap-refarch-nw-sybase).
 
 The Terraform scripts solution provides the automated deployment of a:
-* Distributed host for SAP NetWeaver App instance and a 
+* Distributed host for SAP NetWeaver App instance and a
 * Second host with an ASE SYB database instance on the Red Hat Enterprise Linux 8 and SUSE 15 for SAP Applications.
 
 The SAP installation media that are used for this deployment are the default media for SAP NetWeaver 7.5 with ASE SYB ASE SYB v16. The media are available at the SAP Support Portal under INSTALLATION AND UPGRADE area. You provide the installation media as an input parameter for Terraform.

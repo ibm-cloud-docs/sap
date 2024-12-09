@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -89,7 +89,7 @@ A list of all SAP Partners is maintained on the [SAP Partner Finder tool](https:
 * Partnership category (for example, Consulting & Implementation Services)
 * Partnership level (for example, Platinum, Gold, Silver)
 
-Awards for these SAP Partners are shown on the [SAP Partners information page](https://www.sap.com/partner/find.html){: external}.
+Awards for these SAP Partners are shown on the [SAP Partners information page](https://partnerfinder.sap.com/){: external}.
 
 These choices particularly affect how your SAP S/4HANA "AnyPremise" Edition on Cloud IaaS is deployed, operated, and maintained. For example, a GSI has exceeding depth of experience in implementation, functional configuration and development - with the flexibility to create a bespoke solution for the business requirements. However, the GSI has less experience in maintenance. Conversely, an MSP has more restrictions on the implementation to ensure more successful maintenance.
 

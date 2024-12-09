@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -121,10 +121,10 @@ However, in the simplest scenario there might be one private network for all pur
 Depending on your operating system, SAP workload, and network connectivity, you might need to configure access to many more SAP and non-SAP systems. The following is a list of various management systems that your SAP workloads might require to operate:
 
 * OS packages update server, with the different subscription channels of the OS packages for SAP HANA and SAP NetWeaver.
-    * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers. To avoid a common issue that occurs when you use the AIX NIM service handler, see [Using the NIM service handler](/docs/sap?topic=sap-quickstudy-nw-power-vs-aix#nim_service_handler).
+    * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers.
+    
 * Software and patches download server. When the software is downloaded onto the server, you can use various protocols to transfer the files such as SCP or SFTP to transfer the software to the target server for installation.
 * Time server (NTP), using NTP on {{site.data.keyword.cloud_notm}} private backbone, public internet NTP or private NTP host.
-    * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, see [Configuring the NTP client](/docs/sap?topic=sap-quickstudy-hana-power-vs-sles#ntp_time_server_hana) (Linux) or [Configuring the NTP client](/docs/sap?topic=sap-quickstudy-nw-power-vs-aix#ntp_time_server_netweaver) (AIX).
 * Gateway (and Proxy) and Firewall hosts
 * Bastion/Jump host. Enables secured pass-through to your Cloud resources from public internet or other network access; often this uses tightly secured SSH on a non-default port.
 * Jump host that is enabled with VNC or RDP. Enables GUI access to a target machine (if GUI and VNC or RDP is installed on the target).

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
-subcollection: sap 
+subcollection: sap
 
 ---
 
@@ -19,7 +19,7 @@ subcollection: sap
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
-# Deploying SAP BW/4HANA on 3-tier {{site.data.keyword.cloud}} VPC (Terraform and Ansible)  
+# Deploying SAP BW/4HANA on 3-tier {{site.data.keyword.cloud}} VPC (Terraform and Ansible)
 {: #bw4hana-automation-on-vpc}
 
 ## Single-host SAP HANA system
@@ -39,7 +39,7 @@ The scripts work in two phases. The first phase automates the resources for the 
 During the first phase, the VPC is provisioned in an existing VSI created when you deployed the bastion VSI:
 
 * 1 VPC where the virtual server instances are provisioned.
-* 1 security group. The rules for this security group allow: 
+* 1 security group. The rules for this security group allow:
     * Inbound DNS (port 53) and
     * Inbound SSH (TCP port 22) connections to your virtual server instance.
     * All outbound traffic from the virtual server instance.
@@ -87,16 +87,16 @@ You use the Bastion server CLI to run the Terraform scripts that are located in 
 
 To run the scripts to deploy the SAP BW/4HANA release on dedicated SAP HANA 2.0 BOX VSI, you need to:
 
-*	The `input.auto.tfvars` file to customize the resources for your solution. 
+*	The `input.auto.tfvars` file to customize the resources for your solution.
     *  Enter the floating IP and subnet information from the Bastion server.
     *  By default, the VSI is configured with:
-        * Red Hat Enterprise Linux® 8.x for SAP Applications (amd64) or Suse Enterprise Linux 15 for SAP Applications (amd64), 
-        * At least one SSH key that is configured to access as `root` user on SSH, 
-        * Five storage volumes. 
+        * Red Hat Enterprise Linux® 8.x for SAP Applications (amd64) or Suse Enterprise Linux 15 for SAP Applications (amd64),
+        * At least one SSH key that is configured to access as `root` user on SSH,
+        * Five storage volumes.
 
-        You can change the default settings to match your solution. 
+        You can change the default settings to match your solution.
 
-    *  You can change the default SAP system configuration settings to match your solution. 
+    *  You can change the default SAP system configuration settings to match your solution.
     *  You also specify the location where you downloaded the SAP kits.
 
 The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account.
@@ -136,8 +136,8 @@ The virtual server instance is configured with:
 
 *	Set up your account to access the VPC. Make sure that your account is upgraded to a [paid account](/docs/account?topic=account-upgrading-account).
 *   If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the readme file. 
-*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
+*	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the readme file.
+*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key&interface=ui). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
 During configuration you can specify an existing VPC to use, instead of creating a new VPC.
@@ -148,7 +148,7 @@ For the detailed steps about using Terraform to create only a VPC for SAP, see [
 {: #bwhana-automation-procedure-schematics-ui}
 {: ui}
 
-Use these steps to configure the SAP BW/4HANA on your existing VPC by using the Catalog Tile interface. The scripts can take 1 - 2 hours to complete. 
+Use these steps to configure the SAP BW/4HANA on your existing VPC by using the Catalog Tile interface. The scripts can take 1 - 2 hours to complete.
 
 1.	From the {{site.data.keyword.cloud_notm}} Catalog, select the **SAP BW/4HANA** tile. The tile opens the Create tab for SAP BW/4HANA. For more information about this deployment, see the About tab or the Readme file link.
 2.	On the SAP BW/4HANA page, configure your workspace:
@@ -201,21 +201,21 @@ Use these steps to configure the SAP BW/4HANA on your existing VPC by using the 
     |SAP_CI_INSTANCE_NUMBER	|Technical identifier for internal processes of CI|
     |SAP_SID	|The SAP system ID identifies the entire SAP system|
 
-5.	Accept the license agreement. 
+5.	Accept the license agreement.
 6.  Select **Install**. The deployment starts and you are directed to the Schematics page that displays the script log files for you to monitor the deployment progress.
 
 ## Procedure for Schematics interface
 {: #bw4hana-automation-schematics-procedure}
 {: ui}
 
-Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete. 
+Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete.
 
 1.	From the IBM Cloud menu, select [Schematics](https://cloud.ibm.com/schematics/overview){: external}.
 2.	Click **Create workspace**.
 3.  On the **Specify template** page:
-    * Enter the URL for the Schematics interface. 
+    * Enter the URL for the Schematics interface.
     * Select the **Terraform version**.
-    * Click **Next**.  
+    * Click **Next**.
 4.  On the **Workspace details** page:
     * Enter a name for the workspace.
     * Select a **Resource group**.
@@ -241,7 +241,7 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
      * Image
      * Minimal recommended disk sizes
      * SAP HANA main password - This password must be 8 - 14 characters, upper and lowercase letters, a number, and a special character.
-     * SAP main password - This password must be 10 - 14 characters, upper and lowercase letters, a number, and a special character that is not an exclamation point. 
+     * SAP main password - This password must be 10 - 14 characters, upper and lowercase letters, a number, and a special character that is not an exclamation point.
      * Click **Save changes**.
 
      For a more detailed description of each of the parameters, check the GitHub repo readme file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". these paramters are marked as “sensitive” in the readme file, under “Input parameter file”.
@@ -258,18 +258,18 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
 1.	Log in to the Deployment Server by using `ssh`.
 2.	Clone the terraform and ansbile folders and readme file from https://github.com/IBM-Cloud/sap-bw4hana/tree/main
 
-    
+
 	    $ git clone https://github.com/IBM-Cloud/sap-bw4hana.git
-    	
+
 	    $ cd sap-bw4hana/
 
 3.	Edit the input parameter file, `input.auto.tfvars`, and modify the variables to match your solution. The file is preset with the minimal recommended disk sizes. For using an existing VPC, you must modify:
 
-    * VPC - An existing VPC name. By defulat, the scripts expect an existing VPC name.  
+    * VPC - An existing VPC name. By defulat, the scripts expect an existing VPC name.
     * SECURITYGROUP - change `ic4sap` to the VPC name.
     * SUBNET - change `ic4sap` to the VPC name.
-    * DB_HOSTNAME - enter a hostname up to 13 characters. For more information, see the readme file. 
-    * APP_HOSTNAME - enter a hostname up to 13 characters. For more information, see the readme file. 
+    * DB_HOSTNAME - enter a hostname up to 13 characters. For more information, see the readme file.
+    * APP_HOSTNAME - enter a hostname up to 13 characters. For more information, see the readme file.
 
     Replace the SSH keys in the file with your SSH key 40-digit ID.
 
@@ -284,7 +284,7 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
 
     # SAP Database VSI variables:
     DB_HOSTNAME     = "sapbw4db"
-    DB_PROFILE      = "mx2-16x128" 
+    DB_PROFILE      = "mx2-16x128"
     DB_IMAGE        = "ibm-redhat-7-6-amd64-sap-hana-1" # For any manual change in the terraform code, you have to make sure that you use a certified image based on the SAP Note: 2927211.
 
     # SAP APPs VSI variables:
@@ -297,7 +297,7 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
     The hostname must have up to 13 characters as required by SAP. For more information about the rules that apply to hostnames for SAP systems, see SAP Note 611361 - Hostnames of SAP ABAP Platform servers
     {: note}
 
-4.	In the same file (`input.auto.tfvars`), edit the SAP system configuration variables that are passed to the Ansible automated deployment. 
+4.	In the same file (`input.auto.tfvars`), edit the SAP system configuration variables that are passed to the Ansible automated deployment.
 
     ```
     #SAP HANA DB configuration
@@ -329,7 +329,7 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
     KIT_BW4HANA_EXPORT = "/storage/BW4HANA/export"
     ```
 
-5. Initialize the Terraform CLI. 
+5. Initialize the Terraform CLI.
 
     ``terraform init``
 
@@ -337,10 +337,10 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
 
     ``terraform plan``
 
-    You must enter an SAP HANA main password and an SAP main password. 
+    You must enter an SAP HANA main password and an SAP main password.
 
-    The SAP HANA main password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can contain only the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ). 
-    
+    The SAP HANA main password must consist of at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can contain only the following characters: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ).
+
     The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can only contain the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain `!`. It must not start with a digit or an underscore ( _ ).
 
 7. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
@@ -350,13 +350,13 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
 
     ``terraform apply``
 
-     The virtual private cloud and components are created and you see output similar to the `terraform plan` output.  
+     The virtual private cloud and components are created and you see output similar to the `terraform plan` output.
 
 ## Next steps
 {: #bw4-automation-next-steps}
 {: terraform}
 
-If you need to rename your resources after they are created, modify the ``input.auto.tfvars`` file to change the names and run ``terraform plan`` and ``terraform apply`` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results. 
+If you need to rename your resources after they are created, modify the ``input.auto.tfvars`` file to change the names and run ``terraform plan`` and ``terraform apply`` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
 
 If you need to remove your VPC, go to your project folder and run ``terraform destroy``.
 

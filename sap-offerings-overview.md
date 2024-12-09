@@ -173,7 +173,7 @@ These solutions from SAP Patners may not apply to all SAP software or all Infras
 
 | SAP Partner | Solution name | Solution description |
 | --- | --- | --- |
-| Veeam | [Veeam Backup & Replication for SAP HANA](https://www.veeam.com/backup-sap-hana-plugin.html){: external} | Backint backups from SAP HANA |
+| Veeam | [Veeam Backup & Replication for SAP HANA](https://www.veeam.com/products/applications/sap-hana-backup-recovery.html){: external} | Backint backups from SAP HANA |
 | F5 | [F5 BigIP for SAP NetWeaver](https://www.f5.com/partners/technology-alliances/sap){: external} | Load balancing and traffic management for SAP |
 {: caption="Overview of SAP Partner solutions" caption-side="top"}
 

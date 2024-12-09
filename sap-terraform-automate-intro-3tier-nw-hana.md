@@ -15,7 +15,7 @@ subcollection: sap
 {:note: .note}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{:tip: .tip} 
+{:tip: .tip}
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
@@ -29,7 +29,7 @@ You can use Terraform scripts to create a single-tier VPC and create the SAP and
 ## {{site.data.keyword.cloud_notm}} VPC introduction
 {: #intro-automate-deploy-vpc-terraform-ansible-vpc}
 
-A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building and multiple families live inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium; no one else has the key, and no one can enter the space without your permission.
 
@@ -37,12 +37,12 @@ A VPC’s logical isolation is implemented by using virtual network functions an
 
 With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to manually provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about more VPC overviews and VPC tutorials. For more information about VPC, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started).
 
-## SAP solution implemented 
+## SAP solution implemented
 {: #intro-automate-deploy-vpc-terraform-ansible-solution}
 
 SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for ABAP and Java applications. The SAP system can be installed and configured in {{site.data.keyword.cloud_notm}} for various system and database types.
 
-For more information about SAP system architectures on {{site.data.keyword.cloud_notm}} VPC, see the infrastructure reference architectures for SAP for each supported database type. The reference architecture section for SAP solutions running on IBM Cloud can be found [here](https://cloud.ibm.com/docs/sap?topic=sap-refarch-hana-scaleup){: external}.
+
 
 Manually deploying a VPC and installing an SAP system can be time-consuming. The Terraform automation assures not only a much quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
 
@@ -75,7 +75,7 @@ This deployment automation delivers two VSIs along with storage and secure netwo
 
 Prerequisites to deploy the automation:
 
-* Follow the [instructional documentation](/docs/sap?topic=sap-create-terraform-3tier-nw-hana-vpc-ansible&interface=ui). 
+* Follow the [instructional documentation](/docs/sap?topic=sap-create-terraform-3tier-nw-hana-vpc-ansible&interface=ui).
 * Obtain the SAP NetWeaver (ABAP) with SAP HANA installation software from SAP.
 * Deploy the bastion (SAP install kit) server.
 
