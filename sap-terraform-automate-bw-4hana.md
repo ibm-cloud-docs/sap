@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-09"
+lastupdated: "2024-12-11"
 
 subcollection: sap
 
@@ -53,8 +53,8 @@ During the second phase, the Ansible Playbook is called and the SAP architecture
 
 The configuration and script files are provided in GitHub. There are two repositories for each SAP solution:
 
-* Using the bastion server CLI to run the Terraform scripts - [GitHub repository](https://github.com/IBM-Cloud/sap-bw4hana/tree/main/cli){: external}
-* Using Schematics user interface on {{site.data.keyword.cloud_notm}} - [GitHub repository](https://github.com/ibm-cloud/sap-bw4hana/tree/main/schematics){: external}
+* Using the bastion server CLI to run the Terraform scripts - [GitHub repository](https://github.com/IBM-Cloud/sap-bw4hana/tree/main){: external}
+* Using Schematics user interface on {{site.data.keyword.cloud_notm}} - [GitHub repository](https://github.com/ibm-cloud/sap-bw4hana/tree/main){: external}
 
 ## SAP Kits
 {: #bw4hana-automation-sap-kits}
@@ -65,7 +65,7 @@ For each {{site.data.keyword.cloud_notm}} region, IBM allocates temporary storag
 {: #bw4hana-automation-schematics}
 {: ui}
 
-You use the Schematics interface to deploy your infrastructure with the scripts in the [GitHub repository](https://github.com/ibm-cloud/sap-bw4hana/tree/main/schematics){: external}. When you run the scripts with the Schematics interface, you:
+You use the Schematics interface to deploy your infrastructure with the scripts in the [GitHub repository](https://github.com/ibm-cloud/sap-bw4hana/tree/main){: external}. When you run the scripts with the Schematics interface, you:
 
 * Enter the URL for the GitHub repository for the Terraform files
 * Modify the parameters in the Schematics interface. They are the same parameters as the `input.auto.tfvars` file that you use when you are running the Terraform scripts in the CLI.
@@ -83,7 +83,7 @@ When you use the Catalog Tile for deployment, you:
 {: #automate-bw4hana-terraform-ansible-terraform}
 {: terraform}
 
-You use the Bastion server CLI to run the Terraform scripts that are located in the [GitHub repository](https://github.com/IBM-Cloud/sap-bw4hana/tree/main/cli){: external}.
+You use the Bastion server CLI to run the Terraform scripts that are located in the [GitHub repository](https://github.com/IBM-Cloud/sap-bw4hana/tree/main){: external}.
 
 To run the scripts to deploy the SAP BW/4HANA release on dedicated SAP HANA 2.0 BOX VSI, you need to:
 

@@ -33,7 +33,7 @@ An Infrastructure-as-a-Service (IaaS) environment consists of many components - 
 Alternatively, deployments can be made and managed by using:
 - {{site.data.keyword.cloud_notm}} CLI
 - {{site.data.keyword.cloud_notm}} VPC Infrastructure API calls that use an {{site.data.keyword.cloud_notm}} API key
-- [Terraform Provider for {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=terraform-getting-started) by using an {{site.data.keyword.cloud_notm}} API key
+- [Terraform Provider for {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started) by using an {{site.data.keyword.cloud_notm}} API key
 
 For more information, see [Managing VPC Infrastructure (IAM)](/docs/vpc?topic=vpc-iam-getting-started).
 

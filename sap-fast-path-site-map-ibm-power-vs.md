@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-11"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -88,8 +88,8 @@ For more information about SAP hybrid cloud migration scenarios for SAP on IBM {
 
 Use the following links if you need more help.
 
-- [Requesting support for SAP-certified IBM Power Virtual Servers](/docs/sap?topic=sap-help-support#ibm-power-support-case)
-- [SAP ONE Support process for IBM Power](/docs/sap?topic=sap-help-support#sap-one-support-ibm-power)
+- [Requesting support for SAP-certified IBM Power Virtual Servers](/docs/sap?topic=sap-help-support)
+- [SAP ONE Support process for IBM Power](/docs/sap?topic=sap-help-support)
 - [FAQ - SAP-certified IBM Power Virtual Servers](/docs/sap?topic=sap-faq-ibm-cloud-for-sap#faq-sap-certified-power-vsi)
 - [FAQ - Profile List with Benchmarks and Specifications](/docs/sap?topic=sap-faq-profile-specs)
 

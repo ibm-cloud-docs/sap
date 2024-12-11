@@ -80,7 +80,7 @@ Connectivity is available to the {{site.data.keyword.IBM_notm}} Power Systems In
 ### Networking VLANs and Subnets
 {: #power-env-networking-vlans-subnets}
 
-The following information is a summary of [Configuring connectivity to Power Systems Virtual Server](/docs/power-iaas?topic=power-iaas-configuring-power) and [ Configuring and adding a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet).
+The following information is a summary of [Getting started with the Power Edge Router](/docs/power-iaas?topic=power-iaas-per) and [ Configuring and adding a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet).
 
 The Virtual LAN (VLAN) on the {{site.data.keyword.IBM_notm}} Power Systems Infrastructure network, provides an enterprise-grade private network with full isolation and security. Each VLAN is Public or Private, and is assigned to a specific data center for a specific {{site.data.keyword.cloud_notm}} Account.
 

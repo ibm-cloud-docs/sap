@@ -294,7 +294,7 @@ You have created an {{site.data.keyword.openshiftshort}} cluster and prepared th
 ## Choosing the Dynamic Storage Provisioner
 {: #rhos-configure-dynamic-storage-provider}
 
-Dynamic volume provisioning allows storage volumes to be created on-demand. {{site.data.keyword.cloud_notm}} provides several [storage classes](/docs/openshift?topic=openshift-storage_planning) that can be used as storage providers.
+Dynamic volume provisioning allows storage volumes to be created on-demand. {{site.data.keyword.cloud_notm}} provides several [storage classes](/docs/openshift?topic=openshift-storage-plan) that can be used as storage providers.
 {: shortdesc}
 
 Use the steps below to define the default {{site.data.keyword.cloud_notm}} storage class.

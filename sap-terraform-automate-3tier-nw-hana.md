@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-09"
+lastupdated: "2024-12-11"
 
 subcollection: sap
 
@@ -169,7 +169,7 @@ Use these steps to configure the NetWeaver ABAP or Java stack on your existing V
 5.	Select **Create** to create your workspace.
 6.	On the workspace settings page, in the Input variables section, review the default input variables and provide values that match your solution.
 
-    For a more detailed description of each of the parameters, check the GitHub repo [Java Readme](https://github.com/IBM-Cloud/sap-netweaver-java-hana/blob/main/schematics/README.md) or [ABAP Readme](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md){: external} file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the Readme file, under “Input parameter file”.
+    For a more detailed description of each of the parameters, check the GitHub repo [Java Readme](https://github.com/IBM-Cloud/sap-netweaver-java-hana/blob/main/README.md) or [ABAP Readme](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md){: external} file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the Readme file, under “Input parameter file”.
 
 7.	On the workspace settings page, click **Generate plan**. Wait for the plan to complete.
 8.	Click **View log** to review the log files of your Terraform execution plan.

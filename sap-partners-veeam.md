@@ -87,6 +87,6 @@ The efficiency that it performs these operations is impacted by available resour
 ### Veeam Reference material
 {: #veeam-references}
 
-* [Veeam Backup & Replication Evaluator's Guide for VMware vSphere](https://helpcenter.veeam.com/evaluation/backup/vsphere/en/getting_started.html){: external}
+* [Veeam Backup & Replication Quick Start Guide for VMware vSphere](https://helpcenter.veeam.com/docs/backup/qsg_vsphere/getting_started.html?ver=120){: external}
 * [Veeam Support Knowledge Base](https://www.veeam.com/kb_search_results.html){: external}
 * [Veeam Backup & Replication Best Practices](https://bp.veeam.com/vbr){: external}

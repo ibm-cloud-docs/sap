@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-09"
+lastupdated: "2024-12-11"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -182,7 +182,7 @@ ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand="ssh
 ## Creating an SAP HANA {{site.data.keyword.powerSys_notm}} storage volume
 {: #power-vs-set-up-power-hana-volumes}
 
-Modify the created {{site.data.keyword.powerSys_notm}} instance for SAP HANA and attach extra storage volumes as described in [Modifying volume network](/docs/power-iaas?topic=power-iaas-modifying-server#modifying-volume-network).
+Modify the created {{site.data.keyword.powerSys_notm}} instance for SAP HANA and attach extra storage volumes as described in [Managing your storage volumes](/docs/power-iaas?topic=power-iaas-modifying-instance#modifying-volume-network).
 Attach the following volumes:
 
 * A storage volume for SAP HANA shared file system. Volume size must be MIN (1 x RAM; 1 TB). Storage tier "Tier 3" is sufficient. 'Shareable' switch can stay 'off'.
@@ -695,7 +695,7 @@ environments](https://me.sap.com/notes/1275776){: external}.
 
 RHEL System Roles for SAP are a collection of roles that are run by ansible to help you configure a RHEL system for the installation of SAP HANA or SAP NetWeaver. Ansible files for SAP configuration are distributed and updated directly by Red Hat, so the executed tasks and required parameters might vary depending on the version of `rhel-system-roles-sap` package. The RHEL image that is provided by IBM includes the ansible execution engine, SAP-related system roles, and the ansible execution files. If you have the most recent updates, you might get updated SAP-related system roles.
 
-Beginning with `rhel-system-roles-sap-3.2.0-1.el8_4`, the role names changed. And files `/root/sap-preconfigure.yml`, `/root/sap-netweaver.yml` and `/root/sap-hana.yml` in the OS images with RHEL 8.1 and RHEL 8.4 must be adapted. For more information, see [following Red Hat article](https://access.redhat.com/articles/4488731){: external}.
+Beginning with `rhel-system-roles-sap-3.2.0-1.el8_4`, the role names changed. And files `/root/sap-preconfigure.yml`, `/root/sap-netweaver.yml` and `/root/sap-hana.yml` in the OS images with RHEL 8.1 and RHEL 8.4 must be adapted. For more information, see [following Red Hat article](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html-single/red_hat_enterprise_linux_system_roles_for_sap/index){: external}.
 {: note}
 
 |Previous role name         |New role name             |

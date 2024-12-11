@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-12-09"
+lastupdated: "2024-12-11"
 
 subcollection: sap
 
@@ -45,7 +45,7 @@ The scripts call the Ansible Playbook to install the SAP architecture.
 
 The configuration and script files are provided on GitHub. Each supported interface for the SAP solution installation has its own folder in the GitHub repository:
 
-*  Using the Schematics user interface on {{site.data.keyword.cloud}} - [GitHub repository for IBM Schematics](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/schematics){: external}.
+*  Using the Schematics user interface on {{site.data.keyword.cloud}} - [GitHub repository for IBM Schematics](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main){: external}.
 
 ## Terraform deployment
 {: #sap-terraform-nw-db2-terraform}

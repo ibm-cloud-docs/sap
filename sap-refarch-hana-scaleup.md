@@ -162,7 +162,7 @@ Each tier uses a different strategy to provide disaster recovery protection.
 ##### User management
 {: #security-user-management}
 
-SAP has its own Users Management Engine (UME) to control role-based access and authorization with the SAP application. For more information, see [SAP HANA Security - An Overview](https://archive.sap.com/documents/docs/DOC-62943){: external}. From a user management perspective, it's not relevant if your SAP systems run on-premises {{site.data.keyword.cloud_notm}}. Exceptions to that rule are mentioned under [Jump box server](#jump_box).
+SAP has its own Users Management Engine (UME) to control role-based access and authorization with the SAP application. For more information, see [SAP HANA Security Guide for SAP HANA Platform](https://help.sap.com/docs/SAP_HANA_PLATFORM/b3ee5778bc2e4a089d3299b82ec762a7/c3d9889e3c9843bdb834e9eb56f1b041.html){: external}. From a user management perspective, it's not relevant if your SAP systems run on-premises {{site.data.keyword.cloud_notm}}. Exceptions to that rule are mentioned under [Jump box server](#jump_box).
 
 ##### Network security
 {: #security-network-security}
