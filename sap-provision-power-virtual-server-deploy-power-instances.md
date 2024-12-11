@@ -17,6 +17,7 @@ subcollection: sap
 
 
 
+
 When architecture for SAP that runs on {{site.data.keyword.powerSysFull}} is deployed, you get the following features.
 
 * Separate private network for SAP system.
