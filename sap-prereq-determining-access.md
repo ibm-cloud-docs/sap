@@ -65,7 +65,6 @@ You can securely connect to your infrastructure in multiple ways by using variou
 
 Within the Classic Infrastructure network, there are many Gateway Appliance and Firewalls to help prevent unwanted traffic from hitting your server, help reduce your attack vulnerability, and let your server resource be dedicated for its use. Based on your specific performance and feature requirements, you can choose one of the following options:
 - Shared firewall (multiple options, see [Getting Started Hardware Shared Firewall](/docs/hardware-firewall-shared?topic=hardware-firewall-shared-getting-started)),
-- Dedicated firewall (multiple options, see [Getting Started Hardware Dedicated Firewall](/docs/hardware-firewall-dedicated?topic=hardware-firewall-dedicated-getting-started)),
 - [Fortinet FortiGate security appliance](/docs/fortigate-10g?topic=fortigate-10g-getting-started).
 
 

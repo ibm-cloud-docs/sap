@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-09"
+lastupdated: "2024-12-12"
 
 subcollection: sap
 
@@ -121,11 +121,11 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
 
 1. To complete this procedure, you need a general understanding of {{site.data.keyword.cloud_notm}} VPC and VSIs. To run the example in {{site.data.keyword.cloud_notm}} Schematics, you need an {{site.data.keyword.cloud_notm}} account. The deployed resources are chargeable.
 
-2. [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key&interface=ui). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
+2. [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 
 3. Be sure that you have the [required {{site.data.keyword.cloud_notm}} IAM permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources) to create and work with VPC infrastructure and you are [assigned the correct permissions](/docs/schematics?topic=schematics-access) to create the workspace and deploy resources.
 
-4. [Generate an SSH key](/docs/vpc?topic=vpc-ssh-keys). The SSH key is required to access the provisioned VPC virtual server instances through the bastion host. After you create your SSH key, make sure to [upload this SSH key to your {{site.data.keyword.cloud_notm}} account](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-managing-ssh-keys#managing-ssh-keys-with-ibm-cloud-console) in the VPC region and resource group where you want to deploy the bastion server.
+4. [Generate an SSH key](/docs/vpc?topic=vpc-ssh-keys). The SSH key is required to access the provisioned VPC virtual server instances through the bastion host. After you create your SSH key, make sure to [upload this SSH key to your {{site.data.keyword.cloud_notm}} account](/docs/vpc?topic=vpc-ssh-keys&interface=ui#import-ssh-keys-ui) in the VPC region and resource group where you want to deploy the bastion server.
 
 5. Verify that you can access the URL used for this solution [Automation script for SAP solutions using a BASTION & STORAGE setup deployment through Terraform and IBM Schematics](https://github.com/IBM-Cloud/sap-bastion-setup){: external}.
 

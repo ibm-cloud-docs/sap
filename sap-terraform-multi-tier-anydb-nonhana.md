@@ -2,7 +2,7 @@
 
 copyright:
 years: 2023, 2024
-lastupdated: "2024-12-09"
+lastupdated: "2024-12-12"
 
 subcollection: sap
 
@@ -79,7 +79,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 
     Do not do any {{site.data.keyword.cloud_notm}} Provider Plug-in configuration because those files are provided for you.
 
-2.  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key&interface=ui). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
+2.  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
 
 3.  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
@@ -92,7 +92,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
     `mkdir myproject && cd myproject`
 
-2.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main/cli](https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main/cli){: external} to the project folder that you created in the Terraform installation directory.
+2.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main](https://github.com/IBM-Cloud/sap-infra-anydb-distributed/tree/main){: external} to the project folder that you created in the Terraform installation directory.
 
 3.	Edit the ``input.auto.tfvars`` file to customize your solution. Modify the file to specify your VPC name, subnet, security group, hostname, profile, image, SSH keys, and disk sizes. You must modify:
 

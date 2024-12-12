@@ -188,7 +188,7 @@ All {{site.data.keyword.cloud_notm}} {{site.data.keyword.blockstorageshort}} or 
 
 IOPS are measured based on 16 KB block size with a 50/50 read/write mix. To achieve a maximum I/O throughput, it's advisable to look at the tier and custom profiles available for storage and find the optimal combination of size and IOPS.
 
-Storage volumes differ in performance, depending on their IOPS tier (see [Tiered IOPS profiles](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-block-storage-profiles-gen1#tiers-gen1) or selecting a [custom size](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-block-storage-profiles-gen1#custom-gen1) (in GB and IOPS) that is based on the size of the storage.
+
 
 If you need more than the initially provisioned storage in your virtual server, you can attach extra volumes to a virtual server later. Contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
 

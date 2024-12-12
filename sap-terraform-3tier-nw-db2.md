@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-12"
 
 subcollection: sap
 
@@ -44,7 +44,7 @@ The scripts call the Ansible Playbook to install the SAP architecture.
 
 The configuration and script files are provided on GitHub. Each supported interface for the SAP solution installation has its own folder in the GitHub repository:
 
-* Using the {{site.data.keyword.bpshort}} user interface on {{site.data.keyword.cloud_notm}} - [GitHub repository for IBM {{site.data.keyword.bpshort}}](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed/tree/main/schematics){: external}.
+* Using the {{site.data.keyword.bpshort}} user interface on {{site.data.keyword.cloud_notm}} - [GitHub repository for IBM {{site.data.keyword.bpshort}}](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed/tree/main){: external}.
 
 ## Schematics deployment
 {: #sap-terraform-3tier-nw-db2-schematics}
@@ -108,9 +108,9 @@ Use these steps to configure the SAP NetWeaver 7.x with Db2 3-tier on your exist
 2. Click **Create workspace**.
 3. On the **Specify template** page:
     * Enter the GitHub URL for the code you plan to deploy.
-    * Select the **Terraform version** that is listed in the README file. 
+    * Select the **Terraform version** that is listed in the README file.
     * Click **Next**.
-4. On the **Workspace details** page: 
+4. On the **Workspace details** page:
     * Enter a name for the workspace.
     * Select a **Resource group**.
     * Select a **Location** for your workspace. The workspace location does not have to match the resource location.
@@ -135,10 +135,10 @@ Use these steps to configure the SAP NetWeaver 7.x with Db2 3-tier on your exist
     * Image
     * Minimal recommended disk sizes
     * SAP main password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point.
-    * Click **Save changes**.   
-    
+    * Click **Save changes**.
+
     For a more detailed description of each of the parameters, check the GitHub repo README file, chapter “Input parameter file”. Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API, and SSH private keys (they are marked as “sensitive” in the README file in the “Input parameter file”).
-7. On the workspace **Settings** page, click **Generate plan**. Wait for the plan to complate. 
+7. On the workspace **Settings** page, click **Generate plan**. Wait for the plan to complate.
 8. Click **View log** to review the log files of your Terraform execution plan.
 9. Apply your Terraform template by clicking **Apply plan**.
 10. Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
