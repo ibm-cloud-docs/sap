@@ -114,7 +114,7 @@ The cluster is set with a virtual hostname IP. Hostname is mapped to the FQDN of
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-terraform-overview}
 {: terraform}
 
-You use Terraform on the bastion server CLI to download and run the scripts that are located [here](https://github.com/IBM-Cloud/sap-s4hana-sz-ha){: external}.
+You use Terraform on the bastion server CLI to download and run the scripts that are located [here](https://github.com/IBM-Cloud/sap-nwase-ha/tree/main){: external}.
 
 To run the Terraform scripts, you modify:
 
