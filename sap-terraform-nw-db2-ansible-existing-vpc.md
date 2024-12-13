@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-11"
 
 subcollection: sap
 
@@ -25,7 +25,7 @@ subcollection: sap
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel Xeon CPUs and additional Intel technologies.
 {: shortdesc}
 
-You can use Terraform scripts to create a single-tier VPC and create the SAP and Db2 infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC. 
+You can use Terraform scripts to create a single-tier VPC and create the SAP and Db2 infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC.
 
 You have three deployment methods to choose from:
 
@@ -36,16 +36,16 @@ You have three deployment methods to choose from:
 ## What is created
 {: #sap-terraform-nw-db2-existing-vpc-components}
 
-The scripts use the information that you provide for an existing VPC and deploy NW7.X with Db2. For more information about this architecture, see [SAP NetWeaver 7.x on UNIX with Db2 on {{site.data.keyword.cloud}} VPC](/docs/sap?topic=sap-sap-refarch-nw-db2). You specify the information for the VPC to use in the `input.auto.tfvars` file. 
+The scripts use the information that you provide for an existing VPC and deploy NW7.X with Db2. For more information about this architecture, see [SAP NetWeaver 7.x on UNIX with Db2 on {{site.data.keyword.cloud}} VPC](/docs/sap?topic=sap-sap-refarch-nw-db2). You specify the information for the VPC to use in the `input.auto.tfvars` file.
 
-The scripts call the Ansible Playbook to install the SAP architecture. 
+The scripts call the Ansible Playbook to install the SAP architecture.
 
 ## Script files
 {: #terraform-nw-db2-existing-vpc-files}
 
 The configuration and script files are provided on GitHub. Each supported interface for the SAP solution installation has its own folder in the GitHub repository:
 
-*  Using the Schematics user interface on {{site.data.keyword.cloud}} - [GitHub repository for IBM Schematics](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main/schematics){: external}.
+*  Using the Schematics user interface on {{site.data.keyword.cloud}} - [GitHub repository for IBM Schematics](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main){: external}.
 
 ## Terraform deployment
 {: #sap-terraform-nw-db2-terraform}
@@ -64,12 +64,12 @@ To run the Terraform scripts, you modify:
         *   HostName
         *   Profile
         *   Image
-        *   Up to two SSH keys  
-  
-    *   You can change the default SAP system configuration settings to match your solution. 
+        *   Up to two SSH keys
+
+    *   You can change the default SAP system configuration settings to match your solution.
     *   You also specify the location where you downloaded the SAP kits.
-    
-The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to install NW7.X with Db2 on the specified VPC in your {{site.data.keyword.cloud_notm}} account. 
+
+The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to install NW7.X with Db2 on the specified VPC in your {{site.data.keyword.cloud_notm}} account.
 
 ## Schematics deployment
 {: #sap-terraform-nw-db2-schematics}
@@ -77,9 +77,9 @@ The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.da
 
 When you run the scripts with the Schematics interface, you:
 
-*   Enter Workspace information.  
+*   Enter Workspace information.
 *   Enter the GitHub path.
-*   Modify the parameters in the Schematics interface. They are the same parameters as the `input.auto.tfvars` file that you use with the cli. 
+*   Modify the parameters in the Schematics interface. They are the same parameters as the `input.auto.tfvars` file that you use with the cli.
 
 ## Catalog Tile deployment
 {: #nw-db2-abap-automation-catalog-tile}
@@ -88,13 +88,13 @@ When you run the scripts with the Schematics interface, you:
 When you use the Catalog Tile for deployment, you:
 
 *   Select the **SAP NetWeaver (ABAP stack) with Db2 standard system** tile from the catalog
-*   Enter information for your workspace. The Catalog Tile creates a Schematics workspace for you. 
-*   Modify the parameters for your bastion server, personal credential information, and other parameters specific to your solution.  
+*   Enter information for your workspace. The Catalog Tile creates a Schematics workspace for you.
+*   Modify the parameters for your bastion server, personal credential information, and other parameters specific to your solution.
 
 
 ## Support - Terraform and Schematics
 {: #terraform-nw-db2-support-existing-vpc}
- 
+
 There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
 Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, re-adapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
@@ -102,7 +102,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 ## Support - Catalog Tile
 {: #terraform-nw-db2-support-catalog-existing-vpc}
 {: ui}
- 
+
 The Catalog Tile offering is {{site.data.keyword.cloud_notm}} supported. For more information, see [Getting help and support from IBM Cloud or SAP](/docs/sap?topic=sap-help-support&interface=ui).
 
 If client issues are identified with SAP software, then SAP Support will assist client. Please follow the recommendations of SAP Note 90835, which describes the SAP Incident Escalation Procedure. This SAP Note (and others) is found at https://support.sap.com/en/index.html
@@ -112,13 +112,13 @@ If client issues are identified with SAP software, then SAP Support will assist 
 
 Before you use the scripts in the Bastion cli or Schematics:
 
-*  Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct). 
+*  Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 
-*  If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server). You need the floating IP from your bastion server for deployment. 
+*  If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server). You need the floating IP from your bastion server for deployment.
 
-*  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the readme file, in the respective GitHub repository for Schematics and Terraform and on the About page for the Catalog Tile.  
+*  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the readme file, in the respective GitHub repository for Schematics and Terraform and on the About page for the Catalog Tile.
 
-*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
+*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key&interface=ui). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
@@ -138,7 +138,7 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
 
     ```sh
     $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard.git
-    $ cd sap-netweaver-abap-db2-standard 
+    $ cd sap-netweaver-abap-db2-standard
     ```
 
 3.	Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme){: external}.
@@ -159,7 +159,7 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
 
 4.  Customize your SAP system configuration. In the same file, `input.auto.tfvars`, edit the SAP system configuration variables that are passed to the Ansible automated deployment.
 
-    For descriptions of the variables, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme){: external}. 
+    For descriptions of the variables, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme){: external}.
 
     ```terraform
     ##SAP system configuration
@@ -180,16 +180,16 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
     kit_db2client_dir = "/storage/NW75DB2/51055140"
     ```
 
-    Remember, you must manually decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the SAP kit files. For more information, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme){: external}. 
+    Remember, you must manually decompress the `kit_export_dir`, `kit_db2_dir`, and `kit_db2client_dir` files. Ansible decompresses the rest of the SAP kit files. For more information, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme){: external}.
     {: note}
 
-5.  Initialize the Terraform CLI. 
+5.  Initialize the Terraform CLI.
 
     ```terraform
      terraform init
      ```
 
-6.  Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.      
+6.  Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
 
     ```terraform
      terraform plan --out plan1
@@ -206,7 +206,7 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
          terraform apply "plan1"
          ```
 
-        The virtual private cloud and components are created and you see output similar to the `terraform plan` output.  
+        The virtual private cloud and components are created and you see output similar to the `terraform plan` output.
 
 9. Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
@@ -217,7 +217,7 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
 {: #create-vpc-catalog-tile-ui}
 {: ui}
 
-Use these steps to configure the SAP NetWeaver 7.X with Db2 on your existing VPC by using the Catalog Tile user interface. The scripts can take 1 - 2 hours to complete. 
+Use these steps to configure the SAP NetWeaver 7.X with Db2 on your existing VPC by using the Catalog Tile user interface. The scripts can take 1 - 2 hours to complete.
 
 
 1.	From the {{site.data.keyword.cloud_notm}} Catalog, select the **SAP NetWeaver (ABAP stack) with Db2 standard system** tile. The Tile opens the Create tab for AP NetWeaver (ABAP stack) with Db2 standard system. For more information about this deployment, see the About tab or the Readme file link.
@@ -268,14 +268,14 @@ Use these steps to configure the SAP NetWeaver 7.X with Db2 on your existing VPC
 {: #create-vpc-schematics-ui}
 {: ui}
 
-Use these steps to configure the SAP NetWeaver 7.X with Db2 on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete. 
+Use these steps to configure the SAP NetWeaver 7.X with Db2 on your existing VPC by using the Schematics user interface. The scripts can take 1 - 2 hours to complete.
 
 1.	From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview){: external}.
 2.	Click **Create workspace**.
 3.  On the **Specify template** page:
-    * Enter the GitHub URL with the code you plan to deploy. 
+    * Enter the GitHub URL with the code you plan to deploy.
     * Select the **Terraform version** that is listed in the readme file.
-    * Click **Next**.  
+    * Click **Next**.
 4.  On the **Workspace details** page:
     * Enter a name for the workspace.
     * Select a **Resource group**.
@@ -300,7 +300,7 @@ Use these steps to configure the SAP NetWeaver 7.X with Db2 on your existing VPC
      * Profile
      * Image
      * Minimal recommended disk sizes
-     * SAP main password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point. 
+     * SAP main password - must be at least 10 characters, upper and lowercase letters, a number, and a special character, not an exclamation point.
      * Click **Save changes**.
 
      For a more detailed description of each of the parameters, check the GitHub repo readme file, chapter “Input parameter file”. Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API, and ssh private keys (they are marked as “sensitive” in the readme file, under “Input parameter file”)
@@ -314,11 +314,11 @@ Use these steps to configure the SAP NetWeaver 7.X with Db2 on your existing VPC
 {: #next-steps-terraform}
 {: terraform}
 
-If you need to rename your resources after they are created, modify the ``input.auto.tfvars`` file to change the names and run ``terraform plan`` and ``terraform apply`` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results. 
+If you need to rename your resources after they are created, modify the ``input.auto.tfvars`` file to change the names and run ``terraform plan`` and ``terraform apply`` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
 
 If you need to remove the SAP NetWeaver 7.X and Db2 installation, go to your project folder and run ``terraform destroy``. The `terraform destroy` command does not remove the VPC in this scenario because the VPC was not created with the Terraform scripts.
 
-## Related information 
+## Related information
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on {{site.data.keyword.cloud_notm}} getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 

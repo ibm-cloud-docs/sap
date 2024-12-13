@@ -57,7 +57,7 @@ You can securely connect to your infrastructure in multiple ways by using variou
 * **Classic SSL VPN**, basic SSL Tunnel with user/password to various PoP or Data centers, which is built in to {{site.data.keyword.cloud}} Classic Infrastructure, enabled per user account and is a good option for administrators during initial stages of deployments to {{site.data.keyword.cloud_notm}}. It is not for bulk users due to bandwidth caps.
 * **Classic IPSecVPN**, service from the {{site.data.keyword.cloud_notm}} catalog, which can be provisioned and has advanced configuration options available for the IPsec Tunnel
 * **{{site.data.keyword.cloud}} Direct Link for Classic Infrastructure**, the most robust connection available in varying types from your internal network to {{site.data.keyword.cloud_notm}}'s Availability Zones (also known as data centers) that use Network Service Providers, Point of Presence (PoP), or directly between the data center colocation Room (also called a Meet Me Room). This option is available up to 10 Gbps network throughput as a Routed OSI Layer-2/3 connection, and is designed for enterprise workload connections. `Note: If you are using VPC Infrastructure, this option is not necessary as {{site.data.keyword.cloud}} Direct Link 2.0 can also connect to Classic Infrastructure`
-    * More information on [Direct Link 1.0](/docs/direct-link){: external}. To find from a specified site location to IBM Cloud and which network service providers are available, use [Cloud Pathfinder for IBM Cloud](https://ibm.find.cloud){: external} (powered by [Cloudscene](https://https://cloudscene.com/){: external})
+    * More information on [Direct Link 1.0](/docs/direct-link){: external}. To find from a specified site location to IBM Cloud and which network service providers are available, use [Cloud Pathfinder for IBM Cloud](https://ibm.find.cloud){: external} (powered by [Cloudscene](https://cloudscene.com/){: external})
 
 
 
@@ -65,7 +65,6 @@ You can securely connect to your infrastructure in multiple ways by using variou
 
 Within the Classic Infrastructure network, there are many Gateway Appliance and Firewalls to help prevent unwanted traffic from hitting your server, help reduce your attack vulnerability, and let your server resource be dedicated for its use. Based on your specific performance and feature requirements, you can choose one of the following options:
 - Shared firewall (multiple options, see [Getting Started Hardware Shared Firewall](/docs/hardware-firewall-shared?topic=hardware-firewall-shared-getting-started)),
-- Dedicated firewall (multiple options, see [Getting Started Hardware Dedicated Firewall](/docs/hardware-firewall-dedicated?topic=hardware-firewall-dedicated-getting-started)),
 - [Fortinet FortiGate security appliance](/docs/fortigate-10g?topic=fortigate-10g-getting-started).
 
 

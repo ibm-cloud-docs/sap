@@ -80,7 +80,7 @@ Connectivity is available to the {{site.data.keyword.IBM_notm}} Power Systems In
 ### Networking VLANs and Subnets
 {: #power-env-networking-vlans-subnets}
 
-The following information is a summary of [Configuring connectivity to Power Systems Virtual Server](/docs/power-iaas?topic=power-iaas-configuring-power) and [ Configuring and adding a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet).
+The following information is a summary of [Getting started with the Power Edge Router](/docs/power-iaas?topic=power-iaas-per) and [ Configuring and adding a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet).
 
 The Virtual LAN (VLAN) on the {{site.data.keyword.IBM_notm}} Power Systems Infrastructure network, provides an enterprise-grade private network with full isolation and security. Each VLAN is Public or Private, and is assigned to a specific data center for a specific {{site.data.keyword.cloud_notm}} Account.
 
@@ -126,9 +126,6 @@ If you need to connect to your virtual server through the public internet, in ot
 - {{site.data.keyword.IBM_notm}} Power Systems Infrastructure bridged to {{site.data.keyword.cloud_notm}} VPC Infrastructure
 - {{site.data.keyword.IBM_notm}} Power Systems Infrastructure bridged to on-premises data centers by using IBM Direct Link
 
-{{site.data.keyword.dlc_full_notm}} must be used to connect your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s with your {{site.data.keyword.cloud_notm}} Classic Infrastructure and VPC Infrastructure resources.
-
-After you configure {{site.data.keyword.dlc_short}}, you must configure routing on your virtual server instance. For more information, see [Adding routes on your instance for the jump server](/docs/sap?topic=sap-quickstudy-nw-power-vs-aix#adding_routes-aix).
 
 {{site.data.keyword.dlc_short}} is also used for closer integration into your backbone infrastructure, for more information, see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access).
 

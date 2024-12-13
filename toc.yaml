@@ -44,7 +44,6 @@ toc:
             label: Infrastructure profiles for SAP HANA database servers
             topics:
               - sap-offerings-hana-iaas-intel-bare-metal-profiles.md
-              - sap-offerings-hana-iaas-intel-optane-profiles.md
               - sap-offerings-hana-iaas-intel-virtual-server-gen2-profiles.md
               - sap-offerings-hana-iaas-power-virtual-server-profiles.md
               - sap-offerings-hana-iaas-vmware-sddc-profiles.md
@@ -63,7 +62,6 @@ toc:
             topics:
               - sap-sizing-planning-process.md
               - sap-sizing-planning-your-system-landscape.md
-              - hana-power-size-server.md
               - sap-prereq-determining-access.md
               - sap-prereq-software.md
               - sap-prereq-byol.md

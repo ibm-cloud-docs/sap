@@ -2,7 +2,7 @@
 
 copyright:
 years: 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
 subcollection: sap
 
@@ -124,7 +124,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 
 *	Log in to your Deployment Server and verify that Terraform and Ansible are installed.
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md){: external} file.
-*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
+*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key&interface=ui). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
 ## Procedure

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-03"
+lastupdated: "2024-12-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -133,13 +133,13 @@ For an overview of all available storage profiles, see [VPC Block Storage Profil
 
 To fulfill the KPIs defined by SAP HANA, each profile needs different storage volumes that are listed in details in the following sections. **These configurations are mandatory storage configurations, not sample storage configurations**, because they are the tested and certified storage layouts that comply with **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. It is highly recommended to stick to these specific specifications.
 
-Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when they order different storage sizes and types. Then, they must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}. 
+Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when they order different storage sizes and types. Then, they must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}.
 {: important}
 
 For all of the following layouts consider that the volume names might differ - we assume that the naming follows the sequence of ordering the storage, that is, 1st order -> `vdd`, 2nd order -> `vde`, and so on. **All block storage volumes** must be ordered with the predefined profile of **10 IOPS/GB** (high performance). One exception might be /hana/shared partition where 5 IOPS/GB (medium performance) are sufficient - but ONLY IF you assigned a dedicated volume for this partition. For all profiles optional: one appropriately sized block storage volume or several equally sized volumes that are gathered to a volume group, with the predefined profile of 5 IOPS/GB (medium performance) attached to the Virtual Server for backups.
 {: note}
 
-[SAP's recommended file system layout](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment. 
+[SAP's recommended file system layout](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/4c24d332a37b4a3caad3e634f9900a45.html){: external} must be available for SAP HANA deployment.
 
 ### mx2-* profiles - Storage Layouts
 {: #hana-iaas-intel-vs-vpc-mx2-profiles}
@@ -251,7 +251,7 @@ For each profile, consider the specified volume sizes in table 6 and always make
 
     ```shell
     [root@vx2d-16x224 ~]# mkfs.xfs -L HANA_SHARED /dev/mapper/hana_vg-hana_shared_lv
-    [root@vx2d-16x224 ~]# mkfs.xfs -L HANA_LOG /dev/mapper/hana_vg-hana_log_lv 
+    [root@vx2d-16x224 ~]# mkfs.xfs -L HANA_LOG /dev/mapper/hana_vg-hana_log_lv
     [root@vx2d-16x224 ~]# mkfs.xfs -L HANA_DATA /dev/mapper/hana_vg-hana_data_lv
 
     [root@vx2d-16x224 ~]# mkdir -p /hana/shared
@@ -278,7 +278,7 @@ For each profile, consider the specified volume sizes in table 6 and always make
     [root@vx2d-44x616 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-ux2-setup-small).
 
 
 #### vx2d-144x2016 and vx2d-176x2464
@@ -300,7 +300,7 @@ For each profile, consider the specified volume sizes in table 6 and always make
     [root@vx2d-144x2016 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-ux2-setup-small).
 
 
 ### ux2d-* profiles - Storage Layouts
@@ -385,14 +385,14 @@ For each profile, consider the specific volume sizes in table 7 and always make 
     ```shell
     [root@ux2d-8x224 ~]# lvcreate -L 224G -n hana_shared_lv hana_vg
     ## or lvcreate -L 448G -n hana_shared_lv hana_vg
-    
+
     [root@ux2d-8x224 ~]# lvcreate -L 224G -n hana_log_lv hana_vg
     ## or lvcreate -L 448G -n hana_log_lv hana_vg
-    
+
     [root@ux2d-8x224 ~]# lvcreate -l 100%VG -n hana_data_lv hana_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-ux2-setup-small).
 
 
 #### ux2d-36x1008 and ux2d-48x1344
@@ -414,7 +414,7 @@ For each profile, consider the specific volume sizes in table 7 and always make 
     [root@ux2d-36x1008 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-ux2-setup-small).
 
 
 #### ux2d-72x2016, ux2d-100x2800, and ux2d-200x5600
@@ -436,12 +436,12 @@ For each profile, consider the specific volume sizes in table 7 and always make 
     [root@ux2d-72x2016 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#vx2d-16x224).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-ux2-setup-small).
 
 ### Storage for SAP HANA - multi-node
 {: #hana-iaas-intel-vs-vpc-vx2-storage-multi}
 
-In an SAP HANA scale-out (multi-node) configuration, storage needs to be accessible from different nodes at the same time, and needs to be able to failover from one node to the other. 
+In an SAP HANA scale-out (multi-node) configuration, storage needs to be accessible from different nodes at the same time, and needs to be able to failover from one node to the other.
 
 Thus, for SAP HANA scale-out configurations, file shares need to be deployed, and local block storage is out of scope for the SAP HANA installation. Those file shares require so-called `mount targets` to be created to allow access to the file shares from dedicated subnets. {{site.data.keyword.cloud_notm}} recommends using the primary subnet for storage access because routes will not require any changes to access the storage servers for the file shares, if the mount target is defined on this subnet. Two additional subnets are required for SAP HANA inter-node (internal) communication, and for client access.
 
@@ -452,21 +452,21 @@ SAP HANA in scale-out configuration requires a shared volume for its `/hana/shar
     ```plaintext
     fsf-tok0551b-fz.adn.networklayer.com:/903586db_f968_4bf7_bbd5_0926fb7a26ce /hana/shared/BHB nfs      sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
     ```
-    
+
 1. `/hana/data`
-   
+
     ```plaintext
     fsf-tok0551a-fz.adn.networklayer.com:/2b33d3df_9081_47c2_910a_a29356716d51/BHB/mnt00001 /hana/data/BHB/mnt00001 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
-    fsf-tok0551b-fz.adn.networklayer.com:/ec39996c_346a_4815_a74f_4048382e6ecc/BHB/mnt00002   /hana/data/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0 
+    fsf-tok0551b-fz.adn.networklayer.com:/ec39996c_346a_4815_a74f_4048382e6ecc/BHB/mnt00002   /hana/data/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
     ```
 
 1. `/hana/log`
-   
+
     ```plaintext
-    fsf-tok0551b-fz.adn.networklayer.com:/7bdee46e_b95f_4ff7_89b8_5273e8f9199d/BHB/mnt00001  /hana/log/BHB/mnt00001 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0 
-    fsf-tok0551b-fz.adn.networklayer.com:/2bca0419_3aef_40ca_b38f_8b9717c93905/BHB/mnt00002  /hana/log/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0 
+    fsf-tok0551b-fz.adn.networklayer.com:/7bdee46e_b95f_4ff7_89b8_5273e8f9199d/BHB/mnt00001  /hana/log/BHB/mnt00001 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
+    fsf-tok0551b-fz.adn.networklayer.com:/2bca0419_3aef_40ca_b38f_8b9717c93905/BHB/mnt00002  /hana/log/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
     ```
 
 You cannot follow NetApp's recommendation regarding `rsize` and `wsize` option, these parameters are limited to 65536 by the file share implementation.
 
-To fulfill SAP's requirements about storage layout and through-put and latency KPIs, see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they must comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external} and also ensure SAP's support for it. {{site.data.keyword.cloud_notm}} recommends 10 IOPS per GB or Custom profile file shares for meeting SAP's KPIs. 
+To fulfill SAP's requirements about storage layout and through-put and latency KPIs, see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they must comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external} and also ensure SAP's support for it. {{site.data.keyword.cloud_notm}} recommends 10 IOPS per GB or Custom profile file shares for meeting SAP's KPIs.

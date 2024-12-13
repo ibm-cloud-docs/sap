@@ -23,7 +23,7 @@ subcollection: sap
 ## {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) introduction
 {: #sap-hana-vpc-intro}
 
-{{site.data.keyword.cloud}} VPC offers the possibility to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public){: external} infrastructure. A VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+{{site.data.keyword.cloud}} VPC offers the possibility to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. A VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 {: shortdesc}
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building with multiple families living inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium. No one else has the key, and no one can enter the space without your permission.
@@ -37,14 +37,14 @@ With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to q
 
 The IBM public cloud is an open, security-rich, and enterprise-ready public cloud for business. This design makes it easier for global enterprises to modernize and build new business applications in the cloud to meet the evolving needs of the business and its customers. {{site.data.keyword.cloud_notm}} offerings include a broader portfolio of SAP-certified infrastructure, ranging from bare metal, VMware, VPC, and IBM Power® Systems Virtual Server products.
 
-## SAP HANA defined 
+## SAP HANA defined
 {: #sap-hana-defined}
 
 SAP HANA (High-performance Analytic Appliance) is a multi-model database that stores data in its memory instead of keeping it on a disk. This arrangement results in data processing that magnitudes faster than processing of disk-based data systems, allowing for advanced, real-time [analytics](https://www.ibm.com/analytics/business-analytics){: external}.
 
 Serving as a platform for enterprise resource planning (ERP) software and other business applications, SAP HANA can be placed on premises, in the cloud, or both, in a [hybrid cloud](https://www.research.ibm.com/hybrid-cloud/?lnk=leadspace) system. For more information, see [SAP HANA on {{site.data.keyword.cloud_notm}}](https://www.ibm.com/topics/sap-hana){: external}.
 
-The number of hosts in an SAP HANA system landscape determines the SAP HANA system type. 
+The number of hosts in an SAP HANA system landscape determines the SAP HANA system type.
 
 An SAP HANA system can be configured as either:
 
@@ -54,7 +54,7 @@ An SAP HANA system can be configured as either:
 ## Single-host SAP HANA system
 {: #sap-hana-single-host}
 
-A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components: 
+A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components:
 
  ![Figure 1. SAP NetWeaver 7.x SAP HANA single-host installation on bare metal and x86 VSIs](images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA single-host installation on bare metal and x86 VSIs"){: caption="SAP NetWeaver 7.x SAP HANA single-host installation on bare metal and x86 VSIs" caption-side="bottom"}
 
@@ -90,11 +90,11 @@ This automation is offered at no cost; however, the provisioned infrastructure c
 ## Ansible for SAP installation
 {: #sap-hana-ansible-for-install}
 
-Ansible is an automation tool for the deployment of several IT tasks. This solution performs the automated deployment of SAP HANA 2.0 DB on several validated OS platforms: 
+Ansible is an automation tool for the deployment of several IT tasks. This solution performs the automated deployment of SAP HANA 2.0 DB on several validated OS platforms:
 * SUSE Linux Enterprise Server 15 SP 4 for SAP
 * SUSE Linux Enterprise Server 15 SP 3 for SAP
 * Red Hat Enterprise Linux 8.6 for SAP
-* Red Hat Enterprise Linux 8.4 for SAP in an existing {{site.data.keyword.cloud_notm}} Gen2 VPC on stand-alone SAP HANA box VSI. 
+* Red Hat Enterprise Linux 8.4 for SAP in an existing {{site.data.keyword.cloud_notm}} Gen2 VPC on stand-alone SAP HANA box VSI.
 
 For more information about Ansible, see the documentation available on the Ansible page.
 

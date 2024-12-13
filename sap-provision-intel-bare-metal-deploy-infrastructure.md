@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-11"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -34,7 +34,7 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
 1. Click **Create resource** > **Compute** > **Infrastructure** > **Bare Metal Server** > **Continue**.
 1. Enter the number of servers you are ordering in the **Quantity** field.
-1. Enter a **Hostname**, which is a permanent or temporary name for your servers. SAP Hostnames must consist of a maximum of 13 alpha-numeric characters. See [SAP Notes 611361](https://me.sap.com/611361){: external} and [129997](https://me.sap.com//#/129997){: external} for more SAP Hostname details. Click **Information** for formatting specifics.
+1. Enter a **Hostname**, which is a permanent or temporary name for your servers. SAP Hostnames must consist of a maximum of 13 alpha-numeric characters. See [SAP Notes 611361](https://me.sap.com/notes/611361){: external} and [129997](https://me.sap.com//#/129997){: external} for more SAP Hostname details. Click **Information** for formatting specifics.
 1. Enter a **Domain**, which is the identification string that defines administrative control within the internet. Click **Information** for formatting specifics.
 1. **Billing** defaults to **Monthly**. Some select SAP-certified servers are offered with 1- or 3-year contract.
 1. The data centers displayed under **Location** depend on product availability within a particular data center. Select your data center.
@@ -48,8 +48,7 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 
 1. Select your **Image** from either Red Hat or SUSE to run SAP HANA, or Red Hat, SUSE or Microsoft Windows to run SAP NetWeaver; and select the specific operating system, or VMware hypervisor for your server, if you have selected a server with the (VMware) option.
 
-    If you are using SAP Business One, you need to select one of the [servers](/docs/sap?topic=sap-b1#b1-iaas) that supports it and SUSE 12 SP4 or SUSE 15 SP1 as your image.
-    {: note}
+
 
 If you are bringing your own license (BYOL) for your operating system, select **Other** > **No OS**. For more information, see [Bring your own license](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os).
 {: note}

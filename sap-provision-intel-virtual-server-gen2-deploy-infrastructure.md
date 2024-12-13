@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-11"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -161,7 +161,7 @@ Table 1 is a summary of the fields and values that are used to provision {{site.
 1. Select the new block storage volume and click **Attach**.
 1. Log in to the virtual server over SSH, and perform the necessary activities for the block storage, such as add file system partitions, file systems, and mount points.
 
-   See here more information about [using attached block storage](/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume).
+   See here more information about [Attaching a Block Storage for VPC volume](/docs/vpc?topic=vpc-attaching-block-storage).
    {: note}
 
 

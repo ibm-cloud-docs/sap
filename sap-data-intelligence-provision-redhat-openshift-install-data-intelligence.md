@@ -174,7 +174,7 @@ Review [Getting started with {{site.data.keyword.cloud_notm}} {{site.data.keywor
 ### Provisioning {{site.data.keyword.cos_short}}
 {: #rhos-di-provision-storage}
 
-Use the steps in [Provision storage](/docs/cloud-object-storage/basics?topic=cloud-object-storage-provision){: external} to provision your {{site.data.keyword.cos_short}}.
+Use the steps in [Provision storage](/docs/cloud-object-storage?topic=cloud-object-storage-provision){: external} to provision your {{site.data.keyword.cos_short}}.
 
 The service instance name for the following example is `sdi_cos_k8`. Choose a name that fits your needs when creating your service instance.
 {: note}
@@ -200,7 +200,7 @@ The service instance name for the following example is `sdi_cos_k8`. Choose a na
 #### Creating the service instance and credentials for accessing the bucket
 {: #rhos-di-create-serv-inst-cred}
 
-1. Follow the steps under [Service credentials](/docs/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials){: external} to create the service credentials for accessing the bucket that is handed over to the SAP Data Intelligence installation script. Make sure that you select the **Writer** role and click **Include HMAC Credential**.
+1. Follow the steps under [Service credentials](/docs/cloud-object-storage?topic=cloud-object-storage-service-credentials){: external} to create the service credentials for accessing the bucket that is handed over to the SAP Data Intelligence installation script. Make sure that you select the **Writer** role and click **Include HMAC Credential**.
 
     The credential name in this example is `sdiOScred`. Choose a name that fits your needs when creating your service credentials.
     {: note}

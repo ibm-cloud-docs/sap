@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -44,7 +44,7 @@ These servers are provisioned with your choice of operating system (OS) image th
 
 Because customization is controlled on bare metal servers, fast provisioning times of in the range 1 - 4 hours are obtainable with worldwide availability. For larger systems (greater 4 TB DRAM), there is a longer validation period for checking the hardware components (particularly RAM), but the machines are usually available within 24 hours.
 
-For more information about Bare Metal servers on Classic Infrastructure, see [{{site.data.keyword.cloud_notm}} Bare Metal Servers](https://www.ibm.com/cloud/bare-metal-servers){: external} on ibm.com and [{{site.data.keyword.cloud_notm}} Bare Metal Servers for Classic - server options](/docs/bare-metal?topic=bare-metal-about-bm){: external} on {{site.data.keyword.cloud_notm}} Docs.
+For more information about Bare Metal servers on Classic Infrastructure, see [{{site.data.keyword.cloud_notm}} Bare Metal Servers](https://www.ibm.com/products/bare-metal-servers){: external} on ibm.com and [{{site.data.keyword.cloud_notm}} Bare Metal Servers for Classic - server options](/docs/bare-metal?topic=bare-metal-about-bm){: external} on {{site.data.keyword.cloud_notm}} Docs.
 
 ## Intel Virtual Servers on VPC Infrastructure
 {: #iaas-intel-vson-vpc}
@@ -60,7 +60,7 @@ These servers are provisioned with your choice of operating system (OS) image th
 {{site.data.keyword.vpc_short}} Infrastructure is available for:
 * Intel Virtual Servers, based on the latest hardware designs with large improvements across networking performance (up to 80 Gbps), provision times (5x faster), and a flexible selection of extra features
 
-For more information about Virtual Servers on VPC Infrastructure, see [What is {{site.data.keyword.vpc_short}}?](https://www.ibm.com/cloud/learn/vpc){: external} and [{{site.data.keyword.cloud_notm}} Virtual Server for VPC](https://www.ibm.com/cloud/virtual-servers){: external} on ibm.com and [{{site.data.keyword.cloud_notm}} Intel Virtual Servers on VPC Infrastructure](/docs/vpc?topic=vpc-about-advanced-virtual-servers){: external} on {{site.data.keyword.cloud_notm}} Docs.
+For more information about Virtual Servers on VPC Infrastructure, see [What is {{site.data.keyword.vpc_short}}?](https://www.ibm.com/cloud/learn/vpc){: external} and [{{site.data.keyword.cloud_notm}} Virtual Server for VPC](https://www.ibm.com/products/virtual-servers){: external} on ibm.com and [{{site.data.keyword.cloud_notm}} Intel Virtual Servers on VPC Infrastructure](/docs/vpc?topic=vpc-about-advanced-virtual-servers){: external} on {{site.data.keyword.cloud_notm}} Docs.
 
 
 
@@ -77,7 +77,7 @@ These servers are provisioned with your choice of operating system (OS) image th
 
 Because customization is controlled on bare metal servers, fast provisioning times of in the range 1 - 4 hours are obtainable with worldwide availability. For larger systems (greater 3 TB DRAM), there is a longer validation period for checking the hardware components (particularly RAM), but the machines are usually available within 24 hours.
 
-For more information about Bare Metal servers on VPC Infrastructure, see [Deploy {{site.data.keyword.cloud_notm}} Bare Metal Servers on VPC Infrastructure](https://www.ibm.com/cloud/bare-metal-servers/vpc){: external} on ibm.com and [About Bare Metal Servers for VPC](/docs/vpc?topic=vpc-about-bare-metal-servers){: external} on {{site.data.keyword.cloud_notm}} Docs.
+For more information about Bare Metal servers on VPC Infrastructure, see [Deploy {{site.data.keyword.cloud_notm}} Bare Metal Servers on VPC Infrastructure](https://www.ibm.com/products/bare-metal-servers/vpc){: external} on ibm.com and [About Bare Metal Servers for VPC](/docs/vpc?topic=vpc-about-bare-metal-servers){: external} on {{site.data.keyword.cloud_notm}} Docs.
 
 
 ## IBM Power Virtual Server
@@ -112,8 +112,7 @@ As the {{site.data.keyword.IBM_notm}} Power Virtual Servers are IaaS once provis
 
 For more explanation information about {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, see [{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://www.ibm.com/products/power-virtual-server){: external} on ibm.com and [{{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/power-iaas?topic=power-iaas-getting-started){: external} on {{site.data.keyword.cloud_notm}} Docs.
 
-If you'd like to compare your current environment's performance to what's available through the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the [{{site.data.keyword.IBM_notm}} Power Systems performance report](https://www.ibm.com/downloads/cas/K90RQOW8){: new_window}{: external}. For a more condensed comparison, see [{{site.data.keyword.IBM_notm}} Power Systems CPW performance data comparison](https://www.itechsol.com/wp-content/uploads/2018/07/IBM-Power-Systems-CPW-Performance-Data-Comparison-P7-vs-P8-vs-P9-rev3-July-2018.pdf){: new_window}{: external}.
-{: tip}
+
 
 
 ### Constructs for provisioning IBM Power Virtual Servers

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
 subcollection: sap
 
@@ -33,7 +33,7 @@ Terraform on {{site.data.keyword.cloud}} enables predictable and consistent prov
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Getting started with Terraform on {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 
-To create resources with Terraform, you can use Terraform configuration files that describe the {{site.data.keyword.cloud_notm}} resources that you need and how you want to configure them. Based on your configuration, Terraform creates an execution plan and describes the actions that need to be run to create the resources. You can review the execution plan, change it, or run the plan. 
+To create resources with Terraform, you can use Terraform configuration files that describe the {{site.data.keyword.cloud_notm}} resources that you need and how you want to configure them. Based on your configuration, Terraform creates an execution plan and describes the actions that need to be run to create the resources. You can review the execution plan, change it, or run the plan.
 
 You have two deployment methods to choose from:
 
@@ -83,7 +83,7 @@ When you provision {{site.data.keyword.cloud}} virtual server instances for SAP 
 {{site.data.keyword.cloud_notm}} Bare Metal Servers on VPC Infrastructure are dedicated bare metal servers that provide enhanced networking and connectivity through [Virtual Private Cloud (VPC)](https://www.ibm.com/topics/vpc?_gl=1*164pqfh*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.80093343.964139216.1686574517-1543717111.1671726228) capabilities. For more information on bare metal servers, see [IBM Cloud Bare Metal Servers](https://www.ibm.com/products/bare-metal-servers?_gl=1*164pqfh*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.80093343.964139216.1686574517-1543717111.1671726228){: external}.
 
 The bare metal servers on VPC are available as an integrated part of [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud?_gl=1*opgtue*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.55889827.964139216.1686574517-1543717111.1671726228). For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui){: external} on {{site.data.keyword.cloud}}.
- 
+
 When you provision an {{site.data.keyword.cloud}} bare metal server for SAP HANA on VPC, you can select from four families of certified profiles:
 * Balanced
 * Compute Optimized
@@ -127,7 +127,7 @@ When you use the Schematics interface to deploy SAP HANA, you need to provide th
 ## Support
 {: #terraform-sap-hana-vsi-support}
 
-There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system. 
+There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
 Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
@@ -136,9 +136,9 @@ Though the materials provided herein are not supported by the IBM Service organi
 
 If you don't have a deployment server (bastion server) in the same VPC, create a deployment server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}.
 
-*	Log in to your Deployment Server and verify that Terraform and Ansible are installed. 
+*	Log in to your Deployment Server and verify that Terraform and Ansible are installed.
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md){: external} file.
-*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
+*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key&interface=ui). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 *  Required IAM permissions for deploying SAP HANA on Bare Metal: Bare Metal Console Administrator role to access the ESXi Direct Console User Interface (DCUI) and Bare Metal Advanced Network Operator role to modify IP spoofing and infrastructure NAT configuration on network interfaces, see: https://cloud.ibm.com/docs/vpc?topic=vpc-planning-for-bare-metal-servers.
 
@@ -151,7 +151,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 
     ```shell
 	$ git clone https://github.com/IBM-Cloud/sap-hana-db.git
-    	
+
 	$ cd sap-hana-db
     ```
 
@@ -226,12 +226,12 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     # Example: DB_HOSTNAME = "icp4sapdb"
 
     DB_PROFILE = ""
-    # The profile used for SAP HANA Server. 
+    # The profile used for SAP HANA Server.
     # The list of certified profiles for SAP HANA Virtual Servers is available here: https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc
-    # The list of certified profiles for SAP HANA Bare Metal Servers is available here: https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc. 
+    # The list of certified profiles for SAP HANA Bare Metal Servers is available here: https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc.
     # Details about all x86 instance profiles are available here: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles.
-    # Example of Virtual Server Instance profile for SAP HANA: DB_PROFILE ="mx2-16x128". 
-    # Example of Bare Metal profile for SAP HANA: DB_PROFILE = "bx2d-metal-96x384". 
+    # Example of Virtual Server Instance profile for SAP HANA: DB_PROFILE ="mx2-16x128".
+    # Example of Bare Metal profile for SAP HANA: DB_PROFILE = "bx2d-metal-96x384".
     # For more information about supported DB/OS and IBM VPC, check SAP Note 2927211: "SAP Applications on IBM Virtual Private Cloud".
 
     DB_IMAGE = "ibm-redhat-8-6-amd64-sap-hana-5"
@@ -279,8 +279,8 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     HDB_CONCURRENT_JOBS = "23"
     # Number of concurrent jobs used to load and/or extract archives to HANA Host
     ```
-  
-5. Initialize the Terraform CLI. 
+
+5. Initialize the Terraform CLI.
 
     ``terraform init``
 

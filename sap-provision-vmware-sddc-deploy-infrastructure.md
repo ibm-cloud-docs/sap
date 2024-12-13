@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-12"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -42,7 +42,8 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 
 Because ordering {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated creates an Overlay Network that is managed by VMware NSX, there are several prerequisites for a VMware SDDC.
 
-Complete the following tasks before your initial provisioning. Additional information and detailed steps for these tasks can be found in [Setting up your environment for your first order of IBM Cloud for VMware](/docs/vmwaresolutions?topic=vmwaresolutions-completing_checklist) and [Requirements for the IBM Cloud Classic Infrastructure account when you use IBM Cloud for VMware](/docs/vmwaresolutions?topic=vmwaresolutions-cloud-infra-acct-req).
+Complete the following tasks before your initial provisioning. Additional information and detailed steps for these tasks can be found in [Setting up your environment for your first order of IBM Cloud for VMware](/docs/vmwaresolutions?topic=vmwaresolutions-completing_checklist)
+.
 
 1. [Create an IBM Cloud Classic Infrastructure API key](/docs/account?topic=account-classic_keys#create-classic-infrastructure-key). This task coordinates the infrastructure setup for the VMware SDDC (such as VLAN, Subnet, Bare Metal). If you request administrator access is requested, use the steps in [Locating an IAM account administrator](/docs/vmwaresolutions?topic=vmwaresolutions-iam_verify_permissions) and [verify/update your user permissions](/docs/vmwaresolutions?topic=vmwaresolutions-cloud-infra-acct-req).
 
@@ -61,7 +62,7 @@ Complete the following tasks before your initial provisioning. Additional inform
 ## Provisioning your VMware Software-Defined Datacenter
 {: #vmware-sddc-provision}
 
-The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an {{site.data.keyword.IBM_notm}}id. Use the following steps to order your {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated. Additional information can be found under [Ordering IBM Cloud for VMware Dedicated, vCenter Server instance and vSphere clusters](/docs/vmwaresolutions?topic=vmwaresolutions-vc_orderinginstance).
+The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an {{site.data.keyword.IBM_notm}}id. Use the following steps to order your {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated. Additional information can be found under [Ordering IBM Cloud for VMware Dedicated, vCenter Server instance and vSphere clusters](/docs/vmwaresolutions?topic=vmwaresolutions-vc_orderinginstance-req).
 
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
@@ -72,13 +73,12 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 1. The default instance configuration is set to **(New configuration)**. This option applies to SAP certification. Do not select on any of the other configurations.
 1. Enter the instance name of the IBM Cloud for VMware Solutions Dedicated deployment (which shows in the IBM Cloud console)
 1. Select a resource group within the IBM Cloud account
-1. `For NSX-V only:` This is the initial cluster name of the clusters across the vSphere nodes. This option only applies to NSX-V and will be unavailable when NSX-T is selected in the following steps.
 1. Select the VMware vSphere version (e.g. VMware vSphere 6.7u3). This option does impact which SAP-certified infrastructure is available.
 1. Select **NSX-T** as the VMware NSX networking solution. This choice can be NSX-V, see note below about the differences in ordering when selecting NSX-V instead.
 1. Select the instance type:
    * Click **Primary instance** to deploy a single instance in the environment.
    * Click **Secondary instance** if you have previously deployed a VMware SDDC within IBM Cloud, and are connecting to an existing (primary) instance that uses vCenter Platform Services Controller (PSC). This option requires the existing vCenter Server Administrator credentials._
-1. Complete the license settings (supplied by IBM Cloud or BYOL) for the VMware software components. See more details on the detailed documention referred in the previous section.
+1. Complete the license settings (supplied by IBM Cloud or BYOL) for the VMware software components. See more details on the detailed documentation referred in the previous section.
 1. `For NSX-T only:` **Management cluster**
    - Specify a name for the separated cluster
    - Specify a data center
@@ -138,13 +138,10 @@ VMware vSAN for SAP HANA is not permitted. The description in [SAP Note 2718982 
 {{site.data.keyword.filestorage_full_notm}} is ordered during your provisioning, and you can add more storage after.
 {: shortdesc}
 
-Refer to the following documents on adding or removing data stores attached to the VMware Cluster by using NFS:
-- [Adding NFS storage to vCenter Server instances](/docs/vmwaresolutions?topic=vmwaresolutions-vc_addingremovingservers#section-adding-nfs-storage-to-vcenter-server-instances)
-- [Removing NFS storage from vCenter Server instances](/docs/vmwaresolutions?topic=vmwaresolutions-vc_addingremovingservers#vc_addingremovingservers-removing-nfs-storage)
+
 
 More information on NFS for VMware is shown on the following documents:
 - [Attached storage performance - Attached storage infrastructure design of IBM Cloud for VMware Solutions Dedicated](/docs/vmwaresolutions?topic=vmwaresolutions-storage-infra-design#storage-infra-design-perf)
-- [NFS storage - Storage Settings](/docs/vmwaresolutions?topic=vmwaresolutions-vc_orderinginstance#vc_orderinginstance-nfs-storage)
 
 To expand and contract the storage capacity and performanc of individual mount points, see the following documents:
 - [Expanding File Share Capacity - IBM Cloud Classic Infrastructure File Storage](/docs/FileStorage?topic=FileStorage-expandCapacity)

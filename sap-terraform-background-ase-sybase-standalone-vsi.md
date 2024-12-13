@@ -24,7 +24,7 @@ subcollection: sap
 {: #sap-ase-sybase-vpc-intro}
 
 SAP Adaptive Server Enterprise (SAP ASE) is a high-performance relational database management system for mission-critical, data-intensive environments optimized for SAP Business Suite applications.
-{{site.data.keyword.cloud}} VPC offers the possibility to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains several Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public){: external} infrastructure. A VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants. This helps creating a private and secure place on the public cloud.
+{{site.data.keyword.cloud}} VPC offers the possibility to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains several Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. A VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants. This helps creating a private and secure place on the public cloud.
 {: shortdesc}
 
 Imagine that a cloud providers infrastructure is a residential apartment building with multiple families living inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium. No one else has the key, and no one can enter the space without your permission.
@@ -38,7 +38,7 @@ With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to q
 
 The IBM public cloud is an open, security-rich, and enterprise-ready public cloud for business. This design makes it easier for global enterprises to modernize and build new business applications in the cloud to meet the requirements of the business and its customers. {{site.data.keyword.cloud_notm}} offerings include a broader portfolio of SAP-certified infrastructure, ranging from bare metal, VMware, VPC, and IBM Power® Systems Virtual Server products.
 
-## SAP ASE Sybase defined 
+## SAP ASE Sybase defined
 {: #sap-ase-sybase-defined}
 
 SAP ASE is based on a client/server model, communicating with its clients over the network through the Tabular Data Stream™ (TDS) protocol. Each client process runs on one system and communicate with a database server on the same or a different system. SAP ASE runs as an application for the operating system. The hardware that the operating system runs on is open to SAP ASE, which identifies only the operating systems user interfaces. To enhance the performance on multiprocessor systems, configure multiple processes (engines).

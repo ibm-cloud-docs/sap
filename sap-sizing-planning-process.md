@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP NetWeaver, SAP HANA, SAP Application Performance Standard, SAPS, SAP Quick Sizer
 
@@ -112,7 +112,7 @@ Use the information about your current workload (the CPUs and RAM used) and get 
 ## Using the SAP Quick Sizer
 {: #sizing-quicksizer}
 
-The [SAP Quick Sizer](https://service.sap.com/quicksizer){: external} is a web-based tool that is provided by SAP; it is available to all customers and business partners of SAP. Sizing information is input directly into the tool. The tool sizes SAP HANA or SAP NetWeaver servers.
+The [SAP Quick Sizer](https://www.sap.com/about/benchmark/sizing.quick-sizer.html#quick-sizer){: external} is a web-based tool that is provided by SAP; it is available to all customers and business partners of SAP. Sizing information is input directly into the tool. The tool sizes SAP HANA or SAP NetWeaver servers.
 
 You need an SAP S-user ID to use the Quick Sizer.
 {: note}
@@ -172,11 +172,6 @@ Beyond the topic group "Sizing and Planning SAP Workloads", there are individual
     - [SAP S/4HANA](/docs/sap?topic=sap-s4hana)
     - [SAP BW/4HANA](/docs/sap?topic=sap-bw4hana)
     - [SAP Commerce](/docs/sap?topic=sap-commerce)
-    - [SAP Business One (B1)](/docs/sap?topic=sap-b1)
-    - [SAP Data Hub 2.x](/docs/sap?topic=sap-data-hub)
-
-- **SAP Technical Applications**
-    - [SAP Content Server](/docs/sap?topic=sap-content-server)
 
 - **SAP AnyDB databases**
     - [AnyDB - IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2)

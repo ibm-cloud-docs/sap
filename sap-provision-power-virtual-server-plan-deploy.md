@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -85,7 +85,7 @@ Review the following prerequisites.
 9. You need an overview about the ports that must be opened for communication between SAP workloads that run on IBM Power Systems Virtual Servers (such as SAP NetWeaver or SAP HANA), in VPC (such as SAP Web Dispatcher, SAP Solution Manager) and outside of the environment (such as clients in public internet or in on-premises environment).
 10. Determine the size parameters for each SAP workload that you plan to deploy. The most important parameters are memory size (especially for SAP HANA) and the number of SAPs. Most of the other configurations can be derived from these two key metrics.
 
-For more information, see [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing) and see [SAP Sizing](https://service.sap.com/quicksizer){: external}.
+For more information, see [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing) and see [SAP Sizing](https://www.sap.com/about/benchmark/sizing.quick-sizer.html#quick-sizer){: external}.
 
 For deployment of each Power VS instance, you must be aware of following sizing parameters:
 

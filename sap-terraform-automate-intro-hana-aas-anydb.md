@@ -15,9 +15,9 @@ subcollection: sap
 {:note: .note}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{:tip: .tip} 
+{:tip: .tip}
 {:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"} 
+{:terraform: .ph data-hd-interface="terraform"}
 
 # Introduction to {{site.data.keyword.cloud_notm}} VPC and Additional Application Server (AAS) to HANA and AnyDB
 {: #intro-automate-aas-hana-anydb-terraform-ansible}
@@ -27,7 +27,7 @@ You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. 
 ## {{site.data.keyword.cloud_notm}} VPC introduction
 {: #intro-aas-hana-anydb-cloud-vpc}
 
-A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud/public){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building and multiple families live inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium; no one else has the key, and no one can enter the space without your permission.
 
@@ -40,7 +40,7 @@ With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to m
 
 SAP NetWeaver is the core foundation of the SAP technology stack and is the platform that is used for ABAP and Java applications. The SAP system can be installed and configured in {{site.data.keyword.cloud_notm}} for various system and database types.
 
-For more information about SAP system architectures on {{site.data.keyword.cloud_notm}} VPC, see the infrastructure reference architectures for SAP for each supported database type. The reference architecture section for SAP solutions running on IBM Cloud can be found [here](https://cloud.ibm.com/docs/sap?topic=sap-refarch-hana-scaleup){: external}.
+
 
 ## SAP Project Value Guide – Additional Application Server (AAS) to HANA
 {: #intro-aas-hana-anydb-cloud-value-guide}

@@ -105,12 +105,12 @@ Use the following commands to download and install the CLIs you use to configure
 
 1. Download and install the {{site.data.keyword.openshiftshort}} 3.11 CLI oc.
 
-    Click [here](http://mirror.openshift.com/pub/openshift-v3/clients){: external} for the repository of all oc versions. If you are not sure which version to select, navigate to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/kubernetes/clusters?platformType=openshift){: external} and look at the **Version** details for the {{site.data.keyword.openshiftshort}} cluster you created. For example, 3.11.232, which matches the current version.
+    Click [here](https://mirror.openshift.com/pub/openshift-v3/clients/){: external} for the repository of all oc versions. If you are not sure which version to select, navigate to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/kubernetes/clusters?platformType=openshift){: external} and look at the **Version** details for the {{site.data.keyword.openshiftshort}} cluster you created. For example, 3.11.232, which matches the current version.
 
     Download the appropriate version.
 
     ```
-    wget http://mirror.openshift.com/pub/openshift-v3/clients/3.11.232/linux/oc.tar.gz
+    wget https://mirror.openshift.com/pub/openshift-v3/clients/3.11.232/linux/oc.tar.gz
     ```
     {: pre}
 
@@ -234,7 +234,7 @@ Use the following commands to download and install the CLIs you use to configure
     ```
     {: pre}
 
-    a. If you're logging in to {{site.data.keyword.cloud_notm}} for the first time, create an [{{site.data.keyword.cloud_notm}} API key file](/docs/account?topic=account-userapikey#create_user_key).
+    a. If you're logging in to {{site.data.keyword.cloud_notm}} for the first time, create an [{{site.data.keyword.cloud_notm}} API key file](/docs/account?topic=account-userapikey#create_user_key&interface=ui).
 
     The command is `ibmcloud iam api-key-create <APIKeyName> -d <description> --file <APIKeyFilename>`.
     The API key file <APIKeyFilename> will be stored in your current directory.
@@ -294,7 +294,7 @@ You have created an {{site.data.keyword.openshiftshort}} cluster and prepared th
 ## Choosing the Dynamic Storage Provisioner
 {: #rhos-configure-dynamic-storage-provider}
 
-Dynamic volume provisioning allows storage volumes to be created on-demand. {{site.data.keyword.cloud_notm}} provides several [storage classes](/docs/openshift?topic=openshift-storage_planning) that can be used as storage providers.
+Dynamic volume provisioning allows storage volumes to be created on-demand. {{site.data.keyword.cloud_notm}} provides several [storage classes](/docs/openshift?topic=openshift-storage-plan) that can be used as storage providers.
 {: shortdesc}
 
 Use the steps below to define the default {{site.data.keyword.cloud_notm}} storage class.

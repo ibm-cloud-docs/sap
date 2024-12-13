@@ -11,7 +11,7 @@ Documentation repository for everything in the IBM Cloud for SAP portfolio.
 
 - Published site (from publish branch): [cloud.ibm.com/docs/sap](https://cloud.ibm.com/docs/sap){: external}
 - Test site (from draft branch): [test.cloud.ibm.com/docs/sap](https://test.cloud.ibm.com/docs/sap){: external}
-- Feedback from published site (via Usabilla): [SAP filter on github.ibm.com/Bluemix/Documentation-content/issues](https://github.ibm.com/Bluemix/Documentation-content/issues?q=is%3Aissue+label%3Asap){: external}
+
 
 ----
 
