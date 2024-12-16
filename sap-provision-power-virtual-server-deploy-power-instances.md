@@ -49,8 +49,8 @@ The available subscription alternatives are:
 * **IBM provided subscription**, where {{site.data.keyword.cloud}} provides a full subscription to IBM stock OS images, such as RHEL and SLES, Linux&reg; for SAP applications (RHEL and SLES for SAP workloads), AIX, and IBM i.
 
 * **Client supplied subscription**, where you use your own subscription with IBM stock OS images or custom images.
-* This feature is called "Bring Your Own Licence" (BYOL).
-* Custom images are imported by users as boot images into {{site.data.keyword.powerSys_notm}}.
+   This feature is called "Bring Your Own Licence" (BYOL).
+   Custom images are imported by users as boot images into {{site.data.keyword.powerSys_notm}}.
    Therefore, if you plan to use your own subscription, select the OS image that has a suffix of -BYOL under the "Client supplied subscription" when deploying Power Virtual Server instances in the step [Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP HANA](#power-vs-set-up-power-hana-instance).
 
 For deploying and setting up the {{site.data.keyword.powerSys_notm}} instances for SAP applications, we focus on the **IBM provided subscription** for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) images.
@@ -807,19 +807,23 @@ In the `/etc/sysconfig/network-scripts` directory, check that the `ifcfg-env0`, 
 
 In the `/etc/sysconfig/network` directory, check the content of the files such as `ifcfg-eth0`, `ifcfg-eth1`, etc.
 
-### NUMA layout
+### Checking the NUMA layout
 {: #power-vs-numa-layout}
 
 Check that the CPU and memory placement is optimized for SAP HANA by running the `chk_numa_lpm.py` script. 
 The `chk_numa_lpm.py` script performs the following actions.
 
-* Checks the nonuniform memory access (NUMA) layout according to SAP HANA rules. The script verifies that there are no cores without memory and that the memory distribution between the cores doesn't exceed a margin of 50%. In the first case, the script generates an error; in the second case, the script generates a warning.
+* Checks the nonuniform memory access (NUMA) layout according to SAP HANA rules.
+   The script verifies that there are no cores without memory and that the memory distribution between the cores doesn't exceed a margin of 50%.
+   In the first case, the script generates an error; in the second case, the script generates a warning.
+* Checks if a Live Partition Mobility (LPM) operation has been performed.
+   After LPM, the NUMA layout might be different from the configuration at boot time.
+   The script searches the system log for the last LPM operation.
+   A warning is generated if there has been an LPM operation since the last system boot.
 
-* Checks if a Live Partition Mobility (LPM) operation has been performed. After LPM, the NUMA layout might be different from the configuration at boot time. The script searches the system log for the last LPM operation. A warning is generated if there has been an LPM operation since the last system boot.
-
-1. Download the `chk_numa_lpm.py` script from the [SAP Note 2923962](https://me.sap.com/notes/2923962){: external}. Then, run the `chk_numa_lpm.py` script on your {{site.data.keyword.powerSys_notm}} instance.
-
-1. Set executable permissions:
+1. Check the information in [SAP Note 2923962](https://me.sap.com/notes/2923962){: external}.
+1. Download the `chk_numa_lpm.py` script that is attached to this SAP Note and copy it to your {{site.data.keyword.powerSys_notm}} instance.
+1. Set executable permissions for the script:
 
     ```sh
     chmod +x ./chk_numa_lpm.py
@@ -833,9 +837,6 @@ The `chk_numa_lpm.py` script performs the following actions.
     ./chk_numa_lpm.py
     ```
     {: pre}
-
-After running the script, a warning could be generated because two NUMA nodes with an equal amount of CPU and memory were created. 
-For more information, see [SAP Note 2923962](https://me.sap.com/notes/2923962){: external}.
 
 ## Next Steps
 {: #power-vs-set-up-power-next_steps}
