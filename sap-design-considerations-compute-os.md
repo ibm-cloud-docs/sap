@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-09"
+lastupdated: "2024-12-16"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -190,6 +190,7 @@ OS Packages update server with IBM Power Power Virtual Servers:
 | AIX 7.1 | 7100-05-05 or later |
 | AIX 7.2 | 7200-04-01 or later |
 {: caption="Operating systems for IBM Power virtual servers on SAP NetWeaver" caption-side="bottom"}
+
 
 
 Update on new SAP HANA large t-shirt profiles feature
