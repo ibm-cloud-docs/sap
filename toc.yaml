@@ -285,7 +285,6 @@ toc:
             topics:
               - sap-faq.md
               - sap-faq-moving-sap-workloads.md
-              - sap-faq-profile-specs.md
         - link:
             label: Documentation Changelog
             href: https://github.com/ibm-cloud-docs/sap/commits/
