@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-16"
+lastupdated: "2024-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -167,31 +167,33 @@ OS Packages update server with IBM Power Power Virtual Servers:
 
 | Operating system for SAP HANA | Operating system image (Bring your own license) | Operating system image (IBM subscription) |
 |---------|---------|---------|
-| Red Hat Enterprise Linux (RHEL) 8.4 | Linux-RHEL-SAP-8-4| RHEL8-SP4-SAP |
-| Red Hat Enterprise Linux (RHEL) 8.6 | Linux-RHEL-SAP-8-6| RHEL8-SP6-SAP |
-| Red Hat Enterprise Linux (RHEL) 8.8 | Linux-RHEL-SAP-8-8| RHEL8-SP8-SAP |
-| Red Hat Enterprise Linux (RHEL) 9.2 | Linux-RHEL-SAP-9-2| RHEL9-SP2-SAP |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | Linux-SUSE-SAP-15-2 | SLES15-SP2-SAP |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | Linux-SUSE-SAP-15-3 | SLES15-SP3-SAP |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | Linux-SUSE-SAP-15-4 | SLES15-SP4-SAP |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | Linux-SUSE-SAP-15-5 | SLES15-SP5-SAP |
+| Red Hat Enterprise Linux (RHEL) 8.4 | RHEL8-SP4-SAP-BYOL| RHEL8-SP4-SAP |
+| Red Hat Enterprise Linux (RHEL) 8.6 | RHEL8-SP6-SAP-BYOL| RHEL8-SP6-SAP |
+| Red Hat Enterprise Linux (RHEL) 8.8 | RHEL8-SP8-SAP-BYOL| RHEL8-SP8-SAP |
+| Red Hat Enterprise Linux (RHEL) 8.10 | RHEL8-SP10-SAP-BYOL| RHEL8-SP10-SAP |
+| Red Hat Enterprise Linux (RHEL) 9.2 | RHEL9-SP2-SAP-BYOL| RHEL9-SP2-SAP |
+| Red Hat Enterprise Linux (RHEL) 9.4 | RHEL9-SP4-SAP-BYOL| RHEL9-SP4-SAP |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | SLES15-SP2-SAP-BYOL | SLES15-SP2-SAP |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | SLES15-SP3-SAP-BYOL | SLES15-SP3-SAP |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | SLES15-SP4-SAP-BYOL | SLES15-SP4-SAP |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | SLES15-SP5-SAP-BYOL  | SLES15-SP5-SAP |
 {: caption="Operating systems for IBM Power virtual servers on SAP HANA" caption-side="bottom"}
 
 | Operating system for SAP NetWeaver | Operating system image (Bring your own license) | Operating system image (IBM subscription) |
 |---------|---------|---------|
-| Red Hat Enterprise Linux (RHEL) 8.4 | Linux-RHEL-SAP-8-4| RHEL8-SP4-SAP-NETWEAVER |
-| Red Hat Enterprise Linux (RHEL) 8.6 | Linux-RHEL-SAP-8-6| RHEL8-SP6-SAP-NETWEAVER |
-| Red Hat Enterprise Linux (RHEL) 8.8 | Linux-RHEL-SAP-8-8| RHEL8-SP8-SAP-NETWEAVER |
-| Red Hat Enterprise Linux (RHEL) 9.2 | Linux-RHEL-SAP-9-2| RHEL9-SP2-SAP-NETWEAVER |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | Linux-SUSE-SAP-15-2 | SLES15-SP2-SAP-NETWEAVER |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | Linux-SUSE-SAP-15-3 | SLES15-SP3-SAP-NETWEAVER |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | Linux-SUSE-SAP-15-4 | SLES15-SP4-SAP-NETWEAVER |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | Linux-SUSE-SAP-15-5 | SLES15-SP5-SAP-NETWEAVER |
-| AIX 7.1 | 7100-05-05 or later |
-| AIX 7.2 | 7200-04-01 or later |
+| Red Hat Enterprise Linux (RHEL) 8.4 | RHEL8-SP4-SAP-NETWEAVER-BYOL | RHEL8-SP4-SAP-NETWEAVER |
+| Red Hat Enterprise Linux (RHEL) 8.6 | RHEL8-SP6-SAP-NETWEAVER-BYOL | RHEL8-SP6-SAP-NETWEAVER |
+| Red Hat Enterprise Linux (RHEL) 8.8 | RHEL8-SP8-SAP-NETWEAVER-BYOL | RHEL8-SP8-SAP-NETWEAVER |
+| Red Hat Enterprise Linux (RHEL) 8.10 | RHEL8-SP10-SAP-NETWEAVER-BYOL | RHEL8-SP10-SAP-NETWEAVER |
+| Red Hat Enterprise Linux (RHEL) 9.2 | RHEL9-SP2-SAP-NETWEAVER-BYOL | RHEL9-SP2-SAP-NETWEAVER |
+| Red Hat Enterprise Linux (RHEL) 9.4 | RHEL9-SP4-SAP-NETWEAVER-BYOL | RHEL9-SP4-SAP-NETWEAVER |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | SLES15-SP2-SAP-NETWEAVER-BYOL | SLES15-SP2-SAP-NETWEAVER |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | SLES15-SP3-SAP-NETWEAVER-BYOL | SLES15-SP3-SAP-NETWEAVER |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | SLES15-SP4-SAP-NETWEAVER-BYOL | SLES15-SP4-SAP-NETWEAVER |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | SLES15-SP5-SAP-NETWEAVER-BYOL | SLES15-SP5-SAP-NETWEAVER |
+| AIX 7.2 | 7200-05-08 or later |
+| AIX 7.3 | 7300-02-01 or later |
 {: caption="Operating systems for IBM Power virtual servers on SAP NetWeaver" caption-side="bottom"}
-
-
 
 Update on new SAP HANA large t-shirt profiles feature
 IBM supports SLES15 SP4 for SAP and RHEL8.6 for SAP OS images with all other features on all t-shirt profiles with fewer than 64 cores. These SLES15 SP4 for SAP and RHEL8.6 for SAP OS images while they are updating to support the larger t-shirt profiles. Until further notice, use the larger t-shirt profiles with the SLES15 SP3 for SAP OS image or the RHEL8.4 for SAP OS image.
