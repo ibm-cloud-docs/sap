@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -37,7 +37,6 @@ This FAQ provides answers for the following:
 
 Due to their length on specific topics, there are separate FAQs for:
 - [Moving SAP Workloads](/docs/sap?topic=sap-faq-moving-sap-workloads)
-- [Profile List with Benchmarks and Specifications](/docs/sap?topic=sap-faq-profile-specs)
 
 ## {{site.data.keyword.ibm_cloud_sap}} portfolio questions
 {: #faq-ibm-cloud-for-sap-portfolio}
@@ -253,7 +252,7 @@ When you finish making adjustments and defined at least the minimum required amo
 ### Is scale-out supported for SAP HANA?
 {: #faq-sap-hana-scale-out}
 
-Yes. For OLTP (i.e. SAP S/4HANA) see [SAP S/4HANA - Scale-up/Scale-out](/docs/sap?topic=sap-s4hana#s4hana-hana-scaling), and for OLAP (i.e. BW/4HANA) see [SAP BW/4HANA - Scale-up/Scale-out](/docs/sap?topic=sap-bw4hana#bw4hana-hana-scaling). Alternatively view the latest top specific available in the summary table on [FAQ of Profile List with Benchmarks and Specifications](/docs/sap?topic=sap-faq-profile-specs#faq-profile-specs-maximums).
+Yes. For OLTP (i.e. SAP S/4HANA) see [SAP S/4HANA - Scale-up/Scale-out](/docs/sap?topic=sap-s4hana#s4hana-hana-scaling), and for OLAP (i.e. BW/4HANA) see [SAP BW/4HANA - Scale-up/Scale-out](/docs/sap?topic=sap-bw4hana#bw4hana-hana-scaling).
 
 ### How do I back up my SAP HANA-certified servers?
 {: #faq-sap-hana-backup}
