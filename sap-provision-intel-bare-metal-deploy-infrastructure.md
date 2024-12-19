@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-11"
+lastupdated: "2024-12-19"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -40,7 +40,9 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 1. The data centers displayed under **Location** depend on product availability within a particular data center. Select your data center.
 1. Click **All servers** > **SAP certified**. SAP HANA-certified servers are identified with an **.H** under CPU Model and SAP NetWeaver-certified are identified with an **.NW**.
 
-1. Select the appropriate SAP HANA-certified and SAP NetWeaver-certified server for your workload from the URLs in [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm), [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm), or [Intel Bare Metal server with Intel Optane DC Persistent Memory certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-optane).
+1. Select the appropriate SAP HANA-certified and SAP NetWeaver-certified server for your workload from the URLs in [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm),
+or 
+[Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm).
 
 1. **Server**, **RAM**, and your private storage option default based on your server selection and cannot be changed. {{site.data.keyword.IBM_notm}} {{site.data.keyword.blockstorageshort}} for {{site.data.keyword.cloud_notm}} or {{site.data.keyword.filestorage_full_notm}} are ordered after you have ordered your server.
 
