@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-19"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -70,4 +70,3 @@ Provisioning VMware SDDC for SAP HANA and SAP NetWeaver:
 - [Requesting support for SAP-certified VMware SDDC](/docs/sap?topic=sap-help-support#ibm-cloud-support-case)
 - [SAP ONE Support process](/docs/sap?topic=sap-help-support#sap-one-support)
 - [FAQ - IBM Cloud for SAP](/docs/sap?topic=sap-faq-ibm-cloud-for-sap)
-- [FAQ - Profile List with Benchmarks and Specifications](/docs/sap?topic=sap-faq-profile-specs)
