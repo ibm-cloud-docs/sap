@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2024-10-03"
+  years: 2024, 2025
+lastupdated: "2025-01-08"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 
@@ -32,7 +32,7 @@ If issues exist, it might be one of the following issues.
 * Excessive page memory dumps were detected, which can indicate page corruptions.
 * Alerts that are displayed during an SAP HANA Mini Check.
 
- Incorrectly performing any data migration or replication action can result in data loss and application inconsistencies. Make sure that you read and understand the associated SAP Notes and correction notes before you perform any related task. {{site.data.keyword.cloud}} is not liabil for any data loss or application integrity.
+ Incorrectly performing any data migration or replication action can result in data loss and application inconsistencies. Make sure that you read and understand the associated SAP Notes and correction notes before you perform any related task. {{site.data.keyword.cloud}} is not liable for any data loss or application integrity.
 {: important}
 
 The following sections contain SAP-advised pre-steps to help make sure that the source database is in a consistent state.
@@ -49,7 +49,7 @@ Use the following SAP Notes to assist you.
 
 * [SAP Note 2116157 - FAQ: SAP HANA Consistency Checks and Corruptions](https://me.sap.com/notes/2116157){: external}
 * [SAP Note 2272121 - How To: Analyzing Physical Corruptions with the SAP HANA Persistence Diagnosis Tool](https://me.sap.com/notes/2272121){: external}
-* [SAP Note 2380176 - FAQ: SAP HANA Database Trace](https://me.sap.com/notes/2272121){: external}
+* [SAP Note 2380176 - FAQ: SAP HANA Database Trace](https://me.sap.com/notes/2380176){: external}
 
 #### Checking the database trace files
 {: #sapmig-db-hana-pre-steps-source-health-trace}
