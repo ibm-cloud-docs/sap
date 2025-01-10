@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-06"
+  years: 2020, 2025
+lastupdated: "2025-01-10"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Landscape
 
@@ -151,6 +151,8 @@ The operating system metrics that the SAP Host Agent provides require the use of
 {: #monitoring-power}
 
 For Infrastructure as a Service (IaaS) environments such as {{site.data.keyword.IBM_notm}} Power Virtual Servers, the operating system metrics that the SAP Host Agent provides were enhanced. Make sure that you have the prerequisite SAP Host Agent patch level installed. For a description of the new metrics and required SAP Host Agent patch level, see [SAP Note 2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://me.sap.com/notes/2932766){: external}.
+
+
 
 ## Support from IBM Cloud or SAP
 {: #support}
