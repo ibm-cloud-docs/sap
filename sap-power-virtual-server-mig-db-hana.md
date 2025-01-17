@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-01-08"
+lastupdated: "2025-01-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 
@@ -544,25 +544,6 @@ Enter selected action index [4]: `1`
 {: screen}
 
 Enter `1` and press `<enter>` key to install a new system.
-
-Output continues with the following example.
-
-```text
-SAP HANA Database version '2.00.061.00.1644229038' will be installed.
-
-Select additional components for installation:
-
-Index | Components | Description
---------------------------------------------------------------------------------
-1     | all        | All components
-2     | server     | No additional components
-3     | client     | Install SAP HANA Database Client version 2.11.20.1644165757
-
-Enter comma-separated list of the selected indices [3]: `1`
-```
-{: screen}
-
-Enter `1` and press `<enter>` to install all SAP HANA components.
 
 Output continues with the following example.
 
