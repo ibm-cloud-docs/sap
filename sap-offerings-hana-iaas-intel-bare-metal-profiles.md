@@ -77,8 +77,8 @@ The Bare Metal profile names are contextual and sequential.  This example uses a
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
-| BI.S4.H2.1500 | BI | Bluemix Infrastructure (former name of {{site.data.keyword.cloud_notm}}) |
-| | S4 | Series 4 (processor generation)<br/><ul><li>S2 is Intel Broadwell</li><li>S3 is Intel Skylake or Kaby Lake</li><li>S4 is Intel Cascade Lake</li></ul> |
+| BI.S4.H2.1500 | BI | {{site.data.keyword.cloud_notm}} Infrastructure |
+| | S4 | Series 4 (CPU generation)<br/><ul><li>S3: Intel Skylake/Kaby Lake</li><li>S4 is Intel Cascade Lake</li><li>S5: Intel Sapphire Rapids</li></ul> |
 | | H | HANA-certified server |
 | | 2 | 2-socket server |
 | | 1500 | 1500 GB RAM |
@@ -457,6 +457,31 @@ Link to Profile: [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastru
 | RAID1-B | `/dev/sdb` |   |  |
 |   | `/dev/sdb1` | `/hana/shared` | 1024 |
 |   | `/dev/sdb2` | `/hana/data` | _remaining capacity_ |
+
+
+### BI.S5.H2.1000 Appliance
+{: #hana-iaas-intel-bm-s5-h2-1000gb}
+
+Link to Profile: [BI.S5.H2.1000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?packageId=3158&presetId=1474){: external}
+
+
+#### Physical Disk and RAID Configuration
+{: #hana-iaas-intel-bm-s5-h2-1000gb-physical}
+
+By default, a boot volume is attached to the instance, mapped to `/dev/nvme0n1`. The default boot volume size is 480 GB which is composed of two 480 GB SSDs in RAID1 for redundancy. 
+In addition this server has 5 x 3.2 TB sized NVMe local storage mapped to `/dev/nvme#n1`, # being the disk number 1 to 5.
+
+#### Disk mount points and Partitions
+{: #hana-iaas-intel-bm-s4-h4-6000gb-logical}
+
+| Partition | Name | Size (GB) |
+| --- | --- | --- |
+| `/dev/nvme0n1p2` | `/boot` | 10 |
+| `/dev/nvme0n1p3` | `/` | 150 |
+| `/dev/nvme0n1p5` | `/usr/sap` | 137 |
+| `/dev/nvme3n1` | `/hana/log` | 1,000 |
+| `/dev/nvme2n1` | `/hana/shared` | 3,000 |
+| `/dev/nvme4n1` | `/hana/data` | 3,000 |
 
 
 ## Boot-only servers
