@@ -472,7 +472,7 @@ By default, a boot volume is attached to the instance, mapped to `/dev/nvme0n1`.
 In addition this server has 5 x 3.2 TB sized NVMe local storage mapped to `/dev/nvme#n1`, # being the disk number 1 to 5.
 
 #### Disk mount points and Partitions
-{: #hana-iaas-intel-bm-s4-h4-6000gb-logical}
+{: #hana-iaas-intel-bm-s5-h2-1000gb-logical}
 
 | Partition | Name | Size (GB) |
 | --- | --- | --- |
@@ -482,6 +482,32 @@ In addition this server has 5 x 3.2 TB sized NVMe local storage mapped to `/dev/
 | `/dev/nvme3n1` | `/hana/log` | 1,000 |
 | `/dev/nvme2n1` | `/hana/shared` | 3,000 |
 | `/dev/nvme4n1` | `/hana/data` | 3,000 |
+
+
+
+### BI.S5.H2.2001 Appliance
+{: #hana-iaas-intel-bm-s5-h2-2001gb}
+
+Link to Profile: [BI.S5.H2.2001 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?packageId=3158&presetId=1472){: external}
+
+
+#### Physical Disk and RAID Configuration
+{: #hana-iaas-intel-bm-s5-h2-2001gb-physical}
+
+By default, a boot volume is attached to the instance, mapped to `/dev/nvme0n1`. The default boot volume size is 480 GB which is composed of two 480 GB SSDs in RAID1 for redundancy. 
+In addition this server has 7 x 3.2 TB sized NVMe local storage mapped to `/dev/nvme#n1`, # being the disk number 1 to 7.
+
+#### Disk mount points and Partitions
+{: #hana-iaas-intel-bm-s5-h2-2001gb-logical}
+
+| Partition | Name | Size (GB) |
+| --- | --- | --- |
+| `/dev/nvme0n1p2` | `/boot` | 10 |
+| `/dev/nvme0n1p3` | `/` | 150 |
+| `/dev/nvme1n1` | `/usr/sap` | 3,000 |
+| `/dev/nvme5n1` | `/hana/log` | 3,000 |
+| `/dev/nvme4n1` | `/hana/shared` | 3,000 |
+| `/dev/mapper/hana_data_vg-hana_data_lv` | `/hana/data` | 5,900 |
 
 
 ## Boot-only servers
