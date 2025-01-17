@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2020, 2024
-lastupdated: "2024-12-06"
+years: 2020, 2025
+lastupdated: "2025-01-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -47,6 +47,8 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 | [BI.S4.H4.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1113){: external} | 112 | 224 | 6144 GB | 285,970 | OLAP/OLTP (\*\*) |
 | [BI.S4.H8.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1121){: external} | 224 | 448 | 6144 GB | 550,670 | OLAP/OLTP (\*\*) |
 | [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1129){: external} | 224 | 448 | 12288 GB | 550,670 | OLAP/OLTP (\*\*) |
+| BI.S5.H2.1000 Appliance | 96 | 192 | 1 TB | 297.370 | OLAP/OLTP (<sup>1</sup>) |
+| BI.S5.H2.2001 Appliance | 96 | 192 | 2 TB | 297.370 | OLAP/OLTP (<sup>1</sup>) |
 {: caption="SAP HANA servers" caption-side="top"}
 
 (\*): RHEL 7.4 for SAP Solutions, RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions<br/>
@@ -56,6 +58,9 @@ SLES 12 SP2, SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 1
 SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
 (\*\*\*): SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
+
+(<sup>1</sup>): RHEL 8.10 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions <br/>
+SLES 15, SLES 15 SP1 , SLES 15 SP2, SLES 15 SP3, SLES 15 SP4 
 
 Please regard the supported operated systems mentioned in the footnotes.
 {: note}
