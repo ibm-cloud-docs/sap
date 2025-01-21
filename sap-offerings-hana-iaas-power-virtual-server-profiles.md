@@ -23,7 +23,7 @@ The following table illustrates an example of an SAP HANA certified instance pro
 | Profile name | Naming convention component | description |
 | ------------ | --------------------------- | ----------- |
 | sh2-33x1900 | sh2 | Profiles with the prefix *sh2* support HANA database sizes up to 1900 GiB. |
-| | \- | *separator* |
+| | *-* | *separator* |
 | | 33 | 33 physical CPU Cores |
 | | x | *separator* |
 | | 1900 | 1900 GiB RAM |
