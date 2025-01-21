@@ -13,15 +13,16 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 # SAP HANA certified instances on IBM Power Virtual Server
-{: #nw-iaas-offerings-profiles-power-vs}
+{: #sap-hana-iaas-offerings-profiles-power-vs}
 
-When you plan to provision SAP HANA on IBM Power Virtual Servers, you can select one of the existing certified profiles.  A profile is a combination of instance attributes, such as the number of physical CPU cores and the amount of RAM. The attributes define the size and performance capabilities of the virtual server instance that is provisioned. 
+Provision SAP HANA on IBM Power Virtual Servers by selecting one of the certified profiles. A profile defines instance attributes, such as physical CPU cores and RAM, which determine the size and performance capabilities of the virtual server instance.
 
-SAP HANA profile names are contextual and sequential. The following table uses one SAP HANA certified instance profile as an example:
+SAP HANA profile names follow a contextual and sequential naming convention.
+The following table illustrates an example of an SAP HANA certified instance profile:
 
-| Profile name | Naming convention component | What it means |
+| Profile name | Naming convention component | description |
 | --- | --- | --- |
-| sh2-33x1900 | sh2 | Profiles with sh2 prefix support HANA database sizes up to 1900 GiB. |
+| sh2-33x1900 | sh2 | Profiles with the prefix *sh2* support HANA database sizes up to 1900 GiB. |
 | | - | _spacer_ |
 | | 33 | 33 physical CPU Cores |
 | | x | _spacer_ |
@@ -29,27 +30,27 @@ SAP HANA profile names are contextual and sequential. The following table uses o
 {: caption="Profile naming scheme for SAP HANA" caption-side="top"}
 
 ## Profile families for Power10 server generation
+{: #sap-hana-iaas-offerings-profiles-power10-families}
 
-SAP HANA profiles for Power10 server generation are supported in SMT4 or SMT8 mode. SMT is the abbreviation for simultaneous-multithreading in IBM Power, that permits execution of multiple independent threads in one core on a physical CPU. 
+SAP HANA profiles for Power10 servers operate in SMT4 or SMT8 mode. Simultaneous Multithreading (SMT) on IBM Power enables multiple independent threads to execute within a single physical CPU core.
+1. In SMT4 mode, four parallel threads run per physical CPU core, resulting in four logical CPUs per core.
+2. In SMT8 mode, eight parallel threads run per physical CPU core, resulting in eight logical CPUs per core.
 
-1. In SMT4-mode per single physical CPU core four parallel threads are executed, the operating system runs with four virtual CPUs per each physical CPU core. 
-2. In SMT8-mode per single physical CPU core eight parallel threads are executed, the operating system runs with eight virtual CPUs per each physical CPU core.
-
-The following profile families for IBM Power10 server generation are available.
+The following table lists available profile families for IBM Power10 processor-based servers:
 
 | Families | Description |
 | -------- | ----------- |
-| [Profiles with sr2 prefix](#sr2profiles) | Profiles with sr2 prefix are custom profiles that support selection of any combination of physical CPU cores and memory. Combinations that are certified by SAP for productive usage are documented in [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} and in [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;v:60ed2297-5cdd-4387-89c2-b0d3651d1206&sort=Latest%20Certification&sortDesc=true&id=s:2837). Custom profiles may be deployed through CLI or API only. |
-| [Profiles with sh2 prefix](#sh2profiles) | Profiles with sh2 prefix support HANA database sizes up to 1900 GiB. |
+| [Profiles with sr2 prefix](#sr2profiles) | Profiles with the prefix *sr2* are custom profiles that support selection of any combination of physical CPU cores and memory. Combinations that are certified by SAP for productive usage are documented in [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} and in [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;v:60ed2297-5cdd-4387-89c2-b0d3651d1206&sort=Latest%20Certification&sortDesc=true&id=s:2837). Custom profiles may be deployed through CLI or API only. |
+| [Profiles with sh2 prefix](#sh2profiles) | Profiles with the prefix *sh2* support HANA database sizes up to 1900 GiB. |
 {: caption="Table 1. Profile families for Power10 server generation" caption-side="top"}
 
-## Certified profiles with sr2 prefix
+## Certified profiles with the prefix sr2
 (: #sr2profiles)
 
-The newest information about certified SAP HANA profiles is documented in [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}.
+Refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} for up-to-date information on certified SAP HANA profiles.
 {: note}
 
-The following SAP HANA profiles with "sr2" prefix are supported in SMT4 mode.
+The following SAP HANA profiles with the prefix *sr2* are supported in SMT4 mode:
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
 | -- | -- | -- | -- | -- | --|
@@ -68,7 +69,7 @@ sr2-80x12288 | 80 | 320 | 12,288 | 480,000 | OLTP scale-up, OLAP scale-up |
 sr2-80x14400 | 80 | 320 | 14,400 | 480,000 | OLTP scale-up, OLAP scale-up |
 {: caption="Certified profiles with sh2 prefix in SMT4 mode" caption-side="top"}
 
-The following SAP HANA profiles with "sr2" prefix on IBM Cloud PowerVS are supported in SMT8 mode.
+The following SAP HANA profiles with the prefix *sr2* on IBM Cloud PowerVS are supported in SMT8 mode:
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
 | -- | -- |  -- | -- | -- | --|
@@ -81,13 +82,12 @@ sr2-87x7600 | 87 | 696 | 7,600 | 661,200 | OLTP scale-up, OLAP scale-up |
 sr2-165x30500 | 165 | 1,320 | 30,500 | 1,254,000 | OLTP scale-up, OLTP scale-out (up to 3 nodes), OLAP scale-up |
 {: caption="Certified profiles with sh2 prefix in SMT8 mode" caption-side="top"}
 
-## Certified profiles with sh2 prefix
+## Certified profiles with the prefix sh2
 (: #sh2profiles)
 
-Newest information about certified SAP HANA profiles is documented in [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}.
-{: note}
+Refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} for up-to-date information on certified SAP HANA profiles.{: note}
 
-The following SAP HANA profiles with "sh2" prefix are supported in SMT4 mode.
+The following SAP HANA profiles with the prefix *sh2* are supported in SMT4 mode:
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
 | -- | -- | -- | -- | -- | --|
@@ -115,7 +115,7 @@ sh2-25x1000 | 25 | 100 | 1,000 | 150,000 | OLTP scale-up, OLAP scale-up |
 sh2-25x1500 | 25 | 100 | 1,500 | 150,000 | OLTP scale-up, OLAP scale-up |
 {: caption="Certified profiles with sh2 prefix in SMT4 mode" caption-side="top"}
 
-The following SAP HANA profiles with "sh2" prefix on IBM Cloud PowerVS are supported in SMT8 mode.
+The following SAP HANA profiles with the prefix *sh2* on IBM Cloud PowerVS are supported in SMT8 mode:
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
 | -- | -- |  -- | -- | -- | --|
@@ -126,30 +126,31 @@ sh2-25x1900 | 33 | 200 | 1,900 | 190,000 | OLTP scale-up, OLAP scale-up |
 {: caption="Certified profiles with sh2 prefix in SMT8 mode" caption-side="top"}
 
 ## Profile families for Power9 server generation
+{: #sap-hana-iaas-offerings-profiles-power9-families}
 
-SAP HANA profiles for Power9 server generation are supported in SMT8 mode. SMT is the abbreviation for simultaneous-multithreading in IBM Power, that permits execution of multiple independent threads in one core on a physical CPU. In SMT8-mode per single physical CPU core eight parallel threads are executed, the operating system runs with eight virtual CPUs per each physical CPU core.
+SAP HANA profiles for the Power9 server generation support SMT8 mode. Simultaneous multithreading (SMT) in IBM Power allows multiple independent threads to run on a single physical CPU core. In SMT8 mode, each physical CPU core runs eight parallel threads, enabling the operating system to operate with eight logical CPUs per physical CPU core.
 
-The following profile families for the IBM Power9 server generation are available.
+The following profile families are available for IBM Power9 processor-based servers.
 
 | Families | Description |
 | -------- | ----------- |
-| [Profiles with cnp prefix](#cnpprofiles) | Profiles with cnp prefix are custom profiles for testing or development use only. These profiles are not intended for production deployments and are not supported or certified for SAP production. Each profile must have at least two physical CPU cores. |
-| [Profiles with ush1 prefix](#ush1profiles) | Profiles with ush prefix are small profiles and are best for balanced workloads that require less CPU and storage consumption. |
-| [Profiles with bh1 prefix](#bh1profiles) | Profiles with bh1 prefix are balanced profiles and are best for midsize databases and common cloud applications with moderate traffic. |
-| [Profiles with ch1 prefix](#ch1profiles)  | Profiles with ch1 prefix are compute Intensive profiles and are best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
-| [Profiles with mh1 prefix](#mh1profiles) | Profiles with mh1 prefix are Very High Memory profiles and are best for server OLAP databases, such as SAP NetWeaver. |
-| [Profiles with umh prefix](#umhprofiles) | Profiles with umh prefix are Ultra Memory profiles that offer the highest vCPU to memory ratios to serve in-memory OLTP databases, such as SAP. |
+| [Profiles with cnp prefix](#cnpprofiles) | Profiles with the prefix *cnp* are custom profiles for test or development use only. These profiles are not intended for production use and are not supported or certified for SAP production. Each profile must have minimum of two physical CPU cores. |
+| [Profiles with ush1 prefix](#ush1profiles) | Profiles with the prefix *ush* are small profiles and are best suited for balanced workloads that require less CPU and storage consumption. |
+| [Profiles with bh1 prefix](#bh1profiles) | Profiles with the prefix *bh1* are balanced profiles and are best suited for midsize databases and common cloud applications with moderate traffic. |
+| [Profiles with ch1 prefix](#ch1profiles)  | Profiles with the prefix *ch1* are compute intensive profiles and are best suited for moderate to high web traffic workloads. Compute profiles are best suited for cpu-intensive workloads, such as heavy web traffic, production batch processing, and front-end web servers. |
+| [Profiles with mh1 prefix](#mh1profiles) | Profiles with the prefix *mh1* are very high memory profiles and are best suited for server OLAP databases, such as SAP NetWeaver. |
+| [Profiles with umh prefix](#umhprofiles) | Profiles with the prefix *umh* are ultra memory profiles that provide the highest vCPU-to-memory ratios for serving in-memory OLTP databases, such as SAP HANA. |
 
-## Certified profiles with cnp prefix
+## Certified profiles with the prefix cnp
 {: #cnpprofiles}
 
-{{site.data.keyword.IBM_notm}} IBM Power Virtual Servers are available with fully adjustable CPU Cores and Memory (RAM GiB). When you create a virtual server instance, you can define a custom size of the {{site.data.keyword.IBM_notm}} Power Virtual Server profile to use for nonproduction SAP HANA instances, in accordance with existing SAP HANA for {{site.data.keyword.IBM_notm}} Power Systems best practices and guidance from SAP. 
+{{site.data.keyword.IBM_notm}} IBM Power Virtual Servers provide fully customizable CPU cores and memory (RAM in GiB). Configure a virtual server instance by specifying a custom size for the IBM Power Virtual Server profile, following SAP HANA for IBM Power Systems best practices and SAP’s guidance for non-production SAP HANA instances.
 
-Custom profiles are for nonproduct development for testing or development use only. These profiles aren't intended for production deployments and aren't supported or certified for SAP production. You cannot use this profile to go from a nonproduction environment to a production environment.
+Custom profiles are designed exclusively for non-production development or testing purposes. These profiles are not intended, supported, or certified for SAP production environments and cannot be used to move from a non-production environment to a production environment.
 
-Each profile must have at least two dedicated cores. For required storage performance you should follow [Storage Guidelines for SAP HANA](/docs/sap?topic=sap-storage-design-considerations#sap-fiops-config). For more information about storage, see the **What is a Power Systems Virtual Server?** [storage tiers section](/docs/power-iaas?topic=power-iaas-about-virtual-server#storage-tiers).
+Each profile requires a minimum of two dedicated cores. For storage performance requirements, refer to the [Storage Guidelines for SAP HANA](/docs/sap?topic=sap-storage-design-considerations#sap-fiops-config). For additional details on storage, refer to the [storage tiers section](/docs/power-iaas?topic=power-iaas-about-virtual-server#storage-tiers) section in the **What is a Power Systems Virtual Server?** documentation.
 
-## Certified profiles with ush1 prefix
+## Certified profiles with the prefix ush1
 {: #ush1profiles}
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
@@ -161,7 +162,7 @@ Each profile must have at least two dedicated cores. For required storage perfor
 | ush1-4x768 | 4 | 32 | 768 | 24,000 | OLAP/OLTP |
 {: caption="Certified profiles with ush1 prefix" caption-side="top"}
 
-## Certified profiles with bh1 prefix
+## Certified profiles with the prefix bh1
 {: #bh1profiles}
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
@@ -183,7 +184,7 @@ Each profile must have at least two dedicated cores. For required storage perfor
 {: caption="Certified profiles with bh1 prefix" caption-side="top"}
 
 
-## Certified profiles with ch1 prefix
+## Certified profiles with the prefix ch1
 {: #ch1profiles}
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
@@ -196,7 +197,7 @@ Each profile must have at least two dedicated cores. For required storage perfor
 | ch1-140x7000 | 140 | 1,120 | 7,000 | 840,000 | OLAP |
 {: caption="Certified profiles with ch1 prefix" caption-side="top"}
 
-## Certified profiles with mh1 prefix
+## Certified profiles with the prefix mh1
 {: #mh1profiles}
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
@@ -220,7 +221,7 @@ Each profile must have at least two dedicated cores. For required storage perfor
 | mh1-125x22500 | 125 | 1,000  | 22,500 | 750,000 | OLAP |
 {: caption="Certified profiles with mh1 prefix" caption-side="top"}
 
-## Certified profiles with umh prefix
+## Certified profiles with the prefix umh
 {: #umhprofiles}
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
@@ -241,5 +242,4 @@ Each profile must have at least two dedicated cores. For required storage perfor
 | umh-60x14400 | 60 | 480 | 14,400 | 360,000 | OLTP |
 {: caption="Certified profiles with umh prefix" caption-side="top"}
 
-Profile types that are marked with an `*` asterisk, are _not_ listed on the SAP HANA Hardware Directory by SAP but they **are** certified for running SAP HANA production systems. The directory lists the smallest, median, and largest within each profile family. This action was taken by SAP to avoid too many records, as the scalability of IBM Power hardware enables significantly more granular sizing. For more information, see [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}.
-{: note}
+Profile types marked with an asterisk `*` are not listed in the SAP HANA Hardware Directory by SAP but are certified for SAP HANA production systems. The directory includes only the smallest, median, and largest sizes within each profile family. SAP implemented this approach to reduce the number of entries, as IBM Power hardware supports highly granular sizing. For more details, refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}.{: note}
