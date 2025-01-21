@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2020, 2024
-lastupdated: "2024-12-06"
+years: 2020, 2025
+lastupdated: "2025-01-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -47,6 +47,8 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 | [BI.S4.H4.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1113){: external} | 112 | 224 | 6144 GB | 285,970 | OLAP/OLTP (\*\*) |
 | [BI.S4.H8.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1121){: external} | 224 | 448 | 6144 GB | 550,670 | OLAP/OLTP (\*\*) |
 | [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1129){: external} | 224 | 448 | 12288 GB | 550,670 | OLAP/OLTP (\*\*) |
+| BI.S5.H2.1000 Appliance | 96 | 192 | 1 TB | 297.370 | OLAP/OLTP (<sup>1</sup>) |
+| BI.S5.H2.2001 Appliance | 96 | 192 | 2 TB | 297.370 | OLAP/OLTP (<sup>1</sup>) |
 {: caption="SAP HANA servers" caption-side="top"}
 
 (\*): RHEL 7.4 for SAP Solutions, RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions<br/>
@@ -56,6 +58,9 @@ SLES 12 SP2, SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 1
 SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
 (\*\*\*): SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
+
+(<sup>1</sup>): RHEL 8.10 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions <br/>
+SLES 15, SLES 15 SP1 , SLES 15 SP2, SLES 15 SP3, SLES 15 SP4 
 
 Please regard the supported operated systems mentioned in the footnotes.
 {: note}
@@ -72,8 +77,8 @@ The Bare Metal profile names are contextual and sequential.  This example uses a
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
-| BI.S4.H2.1500 | BI | Bluemix Infrastructure (former name of {{site.data.keyword.cloud_notm}}) |
-| | S4 | Series 4 (processor generation)<br/><ul><li>S2 is Intel Broadwell</li><li>S3 is Intel Skylake or Kaby Lake</li><li>S4 is Intel Cascade Lake</li></ul> |
+| BI.S4.H2.1500 | BI | {{site.data.keyword.cloud_notm}} Infrastructure |
+| | S4 | Series 4 (CPU generation)<br/><ul><li>S3: Intel Skylake/Kaby Lake</li><li>S4 is Intel Cascade Lake</li><li>S5: Intel Sapphire Rapids</li></ul> |
 | | H | HANA-certified server |
 | | 2 | 2-socket server |
 | | 1500 | 1500 GB RAM |
@@ -452,6 +457,57 @@ Link to Profile: [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastru
 | RAID1-B | `/dev/sdb` |   |  |
 |   | `/dev/sdb1` | `/hana/shared` | 1024 |
 |   | `/dev/sdb2` | `/hana/data` | _remaining capacity_ |
+
+
+### BI.S5.H2.1000 Appliance
+{: #hana-iaas-intel-bm-s5-h2-1000gb}
+
+Link to Profile: [BI.S5.H2.1000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?packageId=3158&presetId=1474){: external}
+
+
+#### Physical Disk and RAID Configuration
+{: #hana-iaas-intel-bm-s5-h2-1000gb-physical}
+
+By default, a boot volume is attached to the instance, mapped to `/dev/nvme0n1`. The default boot volume size is 480 GB which is composed of two 480 GB SSDs in RAID1 for redundancy. 
+In addition this server has 5 x 3.2 TB sized NVMe local storage mapped to `/dev/nvme#n1`, # being the disk number 1 to 5.
+
+#### Disk mount points and Partitions
+{: #hana-iaas-intel-bm-s5-h2-1000gb-logical}
+
+| Partition | Name | Size (GB) |
+| --- | --- | --- |
+| `/dev/nvme0n1p2` | `/boot` | 10 |
+| `/dev/nvme0n1p3` | `/` | 150 |
+| `/dev/nvme0n1p5` | `/usr/sap` | 137 |
+| `/dev/nvme3n1` | `/hana/log` | 1,000 |
+| `/dev/nvme2n1` | `/hana/shared` | 3,000 |
+| `/dev/nvme4n1` | `/hana/data` | 3,000 |
+
+
+
+### BI.S5.H2.2001 Appliance
+{: #hana-iaas-intel-bm-s5-h2-2001gb}
+
+Link to Profile: [BI.S5.H2.2001 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?packageId=3158&presetId=1472){: external}
+
+
+#### Physical Disk and RAID Configuration
+{: #hana-iaas-intel-bm-s5-h2-2001gb-physical}
+
+By default, a boot volume is attached to the instance, mapped to `/dev/nvme0n1`. The default boot volume size is 480 GB which is composed of two 480 GB SSDs in RAID1 for redundancy. 
+In addition this server has 7 x 3.2 TB sized NVMe local storage mapped to `/dev/nvme#n1`, # being the disk number 1 to 7.
+
+#### Disk mount points and Partitions
+{: #hana-iaas-intel-bm-s5-h2-2001gb-logical}
+
+| Partition | Name | Size (GB) |
+| --- | --- | --- |
+| `/dev/nvme0n1p2` | `/boot` | 10 |
+| `/dev/nvme0n1p3` | `/` | 150 |
+| `/dev/nvme1n1` | `/usr/sap` | 3,000 |
+| `/dev/nvme5n1` | `/hana/log` | 3,000 |
+| `/dev/nvme4n1` | `/hana/shared` | 3,000 |
+| `/dev/mapper/hana_data_vg-hana_data_lv` | `/hana/data` | 5,900 |
 
 
 ## Boot-only servers

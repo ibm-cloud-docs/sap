@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-20"
+  years: 2020, 2025
+lastupdated: "2025-01-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -42,6 +42,8 @@ The following is an overview of the SAP-certified profiles with Bare Metal Intel
 | BI.S4.NW768_v3 | 16 | 32 | 768 GB |  60,420 |
 | BI.S4.NW1500 | 56 | 112 | 1.5 TB | 147,220 |
 | BI.S4.NW3000 | 56 | 112 | 3 TB | 135,127 |
+| BI.S5.H2.1000 | 96 | 192 | 1 TB | 297.370 |
+| BI.S5.H2.2001 | 96 | 192 | 2 TB | 297.370 |
 {: caption="SAP NetWeaver Intel servers" caption-side="top"}
 
 

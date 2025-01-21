@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2024-12-04"
+  years: 2024, 2025
+lastupdated: "2025-01-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, backup, restore
 
@@ -30,9 +30,10 @@ In this documentation, the generic term *Discovery* indicates that the customers
 ### Scope and Coverage
 {: #sapmig-db-oracle-scope-coverage}
 
-The following procedures assume availability of sufficient network connectivity to support data transfer and/or data replication as required.
+All following procedures require network connectivity between the source and the target system, and a sufficient network bandwidth for the data transfer and/or data replication.
 
-A discussion of alternative procedures by using the optional mobile or container solutions such as *Seagate Lyve Mobile Solution* in combination with IBM Cloud Object Storage or *IBM Aspera Connect* to transfer On-Premises backups/database files to IBM PowerVS infrastructure is interspersed.  Links to detailed information about this service may be found in the IBM Cloud online documentation or in the folling links.
+
+A discussion of alternative procedures by using the optional mobile or container solutions such as *Seagate Lyve Mobile Solution* in combination with IBM Cloud Object Storage or *IBM Aspera Connect* to transfer On-Premises backups/database files to IBM PowerVS infrastructure is interspersed.  Links to detailed information about this service may be found in the IBM Cloud online documentation or in the following links.
 
 * [Seagate Lyve Mobile Solution](https://www.seagate.com/de/de/manuals/lyve-mobile-cloud-service/import-to-ibm-cloud/){: external}
 * [Getting started with IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external}
@@ -76,7 +77,8 @@ This document assumes that a detailed discovery has been previously collected:
 #### Migration Options Covered By this Document.
 {: #sapmig-db-oracle-discovery-options}
 
-The following flowchart illustrates the two options that are currently covered by this document:
+The following flowchart illustrates the three options covered by this document:
+
 
 * *Option 1*: Consistent RMAN backup from source, with generated files to be used by the RMAN Duplicate Database procedure to restore to IBM PowerVS.
 * *Option 2*: Inconsistent RMAN backup + archived redo logs (or level 0 + incremental backups) from source, with backup files to be used by the RMAN Restore/Recover Database procedure to restore to IBM PowerVS.
@@ -155,7 +157,7 @@ Documentation of a mksysb procedure might be found at:
 ### Preparation
 {: #sapmig-db-oracle-preparation-source}
 
-Discovery has confirmed or identified the following preperation steps.
+Discovery has confirmed or identified the following preparation steps.
 
 #### Documentation of the current Source Database Sizing
 {: #sapmig-db-oracle-prep-sizing}
@@ -388,9 +390,15 @@ Login as the `oracle` user and execute the following commands to create the targ
 
 If the directory does not exist the rman script fails. Also if using an NFS mount, you need to make sure that the `oracle` user has the correct permissions in the definition file `exports` on the NFS server. The `oracle` user requires read and write (`rw`) permissions. Preferably using NFS is not advisable for the RMAN backup process. Using JFS2 or a locally mounted filesystem achieve better results.
 
-The following two commands create the backup target location and set `ORACLE_SID` to the SID, please replace the term `<SID>` with the correct value for your system:
+The following two commands create the backup target location and set the environment variable `ORACLE_SID` to the `<SID>`.
+Replace the term `<SID>` with the correct value for your system:
+
 ```sh
 mkdir -p /backup/rman/<sid>_option1
+```
+{: pre}
+
+```
 setenv ORACLE_SID <SID>
 ```
 {: pre}
@@ -402,7 +410,7 @@ You can of course use any target location as long as the oracle user can write t
 
 The RMAN script is used to perform the backup option 1. The commands used in this script are discussed after the script. Copy and paste the script and make the necessary adjustments for your environment.
 
-*`option1_backup.rman` script*
+All rman settings and commands are contained in the  `option1_backup.rman`  script file:
 ```sql
 connect target /
 SHUTDOWN IMMEDIATE
@@ -431,7 +439,7 @@ RMAN backs up data to the configured default device for the type of backup reque
 
 The following are the main components of the rman script used:
 
-*Database Shutdown and Start in Mount Mode*
+##### Database Shutdown and Start in Mount Mode
 The database must be cleanly shut down and then started in “mount mode” for the offline backup option 1.
 To ensure that the backup is consistent, the database must not be open.
 Database shutdown + mount mode is accomplished by these two lines:
@@ -442,7 +450,7 @@ STARTUP MOUNT
 ```
 {: codesection}
 
-*Backup Control File*
+##### Backup Control File
 The database control file contains the RMAN catalog that is required to restore the backup pieces into a functioning database.
 
 This command includes the control file into the backup:
@@ -452,7 +460,7 @@ BACKUP AS compressed BACKUPSET section size 6000M DEVICE TYPE DISK DATABASE TAG 
 ```
 Note that the `CONFIGURE CHANNEL DEVICE TYPE DISK` and `CONFIGURE CONTROLFILE AUTOBACKUP FORMAT` for `DEVICE TYPE DISK` commands in the previous mentioned script include the backup file system location!
 
-*Backup Parallelism*
+##### Backup Parallelism
 Set disk device parallelism - likely to speed up the backup and to reduce the backup window. The optimal parallelism is dependent on several factors:
 * Availability of CPU resources to run that many concurrent backup processes. With the selected compression and encryption each RMAN process typically uses all CPU cycles of a logical processor, assuming the storage subsystem can provide the data fast enough.
 * Capability of storage subsystem to support the RMAN data file read and the write to backup location I/O throughput.
@@ -464,14 +472,14 @@ CONFIGURE DEVICE TYPE DISK PARALLELISM 8 BACKUP TYPE TO BACKUPSET;
 ```
 {: codesection}
 
-*Backup Compression*
+##### Backup Compression
 Set backup file compression. However HIGH has been tested in the script, however MEDIUM is advised. HIGH could be an option under certain circumstances. The use of 'MEDIUM' and 'HIGH' requires the Oracle Advanced Compression license!
 * **Tested**
     `CONFIGURE COMPRESSION ALGORITHM 'HIGH' ;`
 * **Advised preventing license cost increase**
     `CONFIGURE COMPRESSION ALGORITHM 'MEDIUM' ;`
 
-*Backup encryption*
+##### Backup encryption
 Set backup encryption on and modify the algorithm if desired (the default is AES128) and specify the encryption password to be used. Unless you are working with a TDE-encrypted database, every RMAN session requires the setting of the encryption and decryption password; otherwise, the session fails with a "wallet not open" error:
 
 ```sql
@@ -481,10 +489,11 @@ SET ENCRYPTION ON IDENTIFIED BY passw0rd ONLY ;
 ```
 {: codesection}
 
-*Backup*
+##### Backup
 The final command then triggers the actual backup of the database to disk. The backup uses the RMAN-specific backup sets. Each RMAN process reads up to 6000M of consecutive data from a data file as a backup piece, compress and encrypt that data and then write it to the destination file system.
 
-Of course the last action is to alter the database to open. It is advisable to create a specific tag (including the `ORACLE_SID <SID>` just for identification purposes). The goal of the section size is to limit the size of a backup piece so that a potentially required retransmit of a failed file transfer to the destination environment is manageable. The use of a TAG is recommended as it simplifies the management of multiple backups in an RMAN catalog:
+The last action is to alter the database to open. Create a specific tag, including the `ORACLE_SID <SID>` , for identification purposes. Set the `section size` to limit the size of a backup part to improve potentially required retransmits in case of a failed file transfer to the destination environment. Using a TAG is recommended as it simplifies the management of multiple backups in an RMAN catalog:
+
 
 ```sql
 BACKUP AS compressed BACKUPSET section size 6000M DEVICE TYPE DISK DATABASE TAG <SID>_100K_INITV3 include current controlfile ;
@@ -492,8 +501,9 @@ alter database open;
 ```
 {: codesection}
 
-*Backup Validation and Cross Check*
-Backup Validation and Cross Check When backup is complete, still within RMAN, you can use some of the commands listed after this to validate and cross-check results.
+##### Backup Validation and Cross Check
+When the backup is complete, use some of the RMAN commands listed below to validate and cross-check the results.
+
 
 On the RMAN prompt, use these commands:
 
@@ -516,7 +526,7 @@ Explanation of commands:
 * `VALIDATE BACKUPSET 3;` - Validate a specific backupset.
 * `CROSSCHECK BACKUP;` - Synchronize the physical reality of backups and copies with their logical records in the RMAN repository.
 
-*Create PFILE*
+##### Create PFILE
 Create a plain text database parameter file (PFILE) from the binary server parameter file (SPFILE) as follows.
 The database remains in mounted mode. Remember to use your `<SID>` in the command.
 
@@ -603,7 +613,7 @@ The key command to start the full (level 0) backup in this script is:
 Commands that are used in this script are discussed further into this procedure after the script.
 Remember to replace the `<sid/SID>` entries to match your directory structure and system value:
 
-*`option2_backup_full.rman` script*
+All rman settings and commands for a full backup are contained in the  `option2_backup_full.rman`  script file:
 ```sql
 connect target /
 CONFIGURE CHANNEL DEVICE TYPE DISK FORMAT '/backup/rman/<sid>_option2/lev0_%d_%U';
@@ -759,7 +769,7 @@ The second SQL command seen in the following image is forcing Oracle to write to
 
 ![Figure 3. Incremental time stamp](/images/sap-power-virtual-server-mig-db-oracle-timestamp_incremental_1.png "Image showing Incremental time stamp"){: caption="Incremental time stamp" caption-side="bottom"}
 
-Execute the final incremantal backup via RMAN.
+Execute the final incremental backup via RMAN.
 
 
 ##### Validate and Cross-Check Backups
