@@ -13,7 +13,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 # SAP HANA certified instances on IBM Power Virtual Server
-{: #sap-hana-iaas-offerings-profiles-power-vs}
+{: #hana-iaas-offerings-profiles-power-vs}
 
 Provision SAP HANA on IBM Power Virtual Servers by selecting one of the certified profiles. A profile defines instance attributes, such as physical CPU cores and RAM, which determine the size and performance capabilities of the virtual server instance.
 
@@ -21,11 +21,11 @@ SAP HANA profile names follow a contextual and sequential naming convention.
 The following table illustrates an example of an SAP HANA certified instance profile:
 
 | Profile name | Naming convention component | description |
-| --- | --- | --- |
+| ------------ | --------------------------- | ----------- |
 | sh2-33x1900 | sh2 | Profiles with the prefix *sh2* support HANA database sizes up to 1900 GiB. |
-| | \- | _separator_ |
+| | \- | *separator* |
 | | 33 | 33 physical CPU Cores |
-| | x | _separator_ |
+| | x | *separator* |
 | | 1900 | 1900 GiB RAM |
 {: caption="Profile naming scheme for SAP HANA" caption-side="top"}
 
@@ -57,33 +57,33 @@ Refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Vi
 The following SAP HANA profiles with the prefix *sr2* are supported in SMT4 mode:
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
-| -- | -- | -- | -- | -- | --|
-sr2-12x950 | 12 | 48 | 950 | 72,000 | OLTP scale-up, OLAP scale-up |
-sr2-12x1450 | 12 | 48 | 1,450 | 72,000 | OLTP scale-up, OLAP scale-up |
-sr2-14x512 | 14 | 56 | 512 | 84,000 | OLTP scale-up |
-sr2-14x740 | 14 | 56 | 740 | 84,000 | OLTP scale-up, OLAP scale-up |
-sr2-22x2950 | 22 | 88 | 2,950 | 132,000 | OLTP scale-up, OLAP scale-up |
-sr2-24x1024 | 24 | 96 | 1,024 | 144,000 | OLTP scale-up, OLAP scale-up |
-sr2-24x1536 | 24 | 96 | 1,536 | 144,000 | OLTP scale-up, OLAP scale-up |
-sr2-35x4450 | 35 | 140 | 4,450 | 210,000 | OLTP scale-up, OLAP scale-up |
-sr2-40x3072 | 40 | 160 | 3,072 | 240,000 | OLTP scale-up, OLAP scale-up |
-sr2-64x6144 | 64 | 256 | 6,144 | 384,000 | OLTP scale-up, OLAP scale-up |
-sr2-80x9216 | 80 | 320 | 9,216 | 480,000 | OLTP scale-up, OLAP scale-up |
-sr2-80x12288 | 80 | 320 | 12,288 | 480,000 | OLTP scale-up, OLAP scale-up |
-sr2-80x14400 | 80 | 320 | 14,400 | 480,000 | OLTP scale-up, OLAP scale-up |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | ----------------- |
+| sr2-12x950 | 12 | 48 | 950 | 72,000 | OLTP scale-up, OLAP scale-up |
+| sr2-12x1450 | 12 | 48 | 1,450 | 72,000 | OLTP scale-up, OLAP scale-up |
+| sr2-14x512 | 14 | 56 | 512 | 84,000 | OLTP scale-up |
+| sr2-14x740 | 14 | 56 | 740 | 84,000 | OLTP scale-up, OLAP scale-up |
+| sr2-22x2950 | 22 | 88 | 2,950 | 132,000 | OLTP scale-up, OLAP scale-up |
+| sr2-24x1024 | 24 | 96 | 1,024 | 144,000 | OLTP scale-up, OLAP scale-up |
+| sr2-24x1536 | 24 | 96 | 1,536 | 144,000 | OLTP scale-up, OLAP scale-up |
+| sr2-35x4450 | 35 | 140 | 4,450 | 210,000 | OLTP scale-up, OLAP scale-up |
+| sr2-40x3072 | 40 | 160 | 3,072 | 240,000 | OLTP scale-up, OLAP scale-up |
+| sr2-64x6144 | 64 | 256 | 6,144 | 384,000 | OLTP scale-up, OLAP scale-up |
+| sr2-80x9216 | 80 | 320 | 9,216 | 480,000 | OLTP scale-up, OLAP scale-up |
+| sr2-80x12288 | 80 | 320 | 12,288 | 480,000 | OLTP scale-up, OLAP scale-up |
+| sr2-80x14400 | 80 | 320 | 14,400 | 480,000 | OLTP scale-up, OLAP scale-up |
 {: caption="Certified profiles with sh2 prefix in SMT4 mode" caption-side="top"}
 
 The following SAP HANA profiles with the prefix *sr2* on IBM Cloud PowerVS are supported in SMT8 mode:
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
-| -- | -- |  -- | -- | -- | --|
-sr2-35x3000 | 35 | 280 | 3,000 | 266,000 | OLTP scale-up, OLAP scale-up |
-sr2-35x3900 | 35 | 280 | 3,900 | 266,000 | OLTP scale-up, OLAP scale-up |
-sr2-80x6144 | 80 | 640 | 6,144 | 608,000 | OLTP scale-up, OLAP scale-up |
-sr2-87x6000 | 87 | 696 | 6,000 | 661,200 | OLTP scale-up, OLAP scale-up |
-sr2-87x7000 | 87 | 696 | 7,000 | 661,200 | OLTP scale-up, OLAP scale-up |
-sr2-87x7600 | 87 | 696 | 7,600 | 661,200 | OLTP scale-up, OLAP scale-up |
-sr2-165x30500 | 165 | 1,320 | 30,500 | 1,254,000 | OLTP scale-up, OLTP scale-out (up to 3 nodes), OLAP scale-up |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | ----------------- |
+| sr2-35x3000 | 35 | 280 | 3,000 | 266,000 | OLTP scale-up, OLAP scale-up |
+| sr2-35x3900 | 35 | 280 | 3,900 | 266,000 | OLTP scale-up, OLAP scale-up |
+| sr2-80x6144 | 80 | 640 | 6,144 | 608,000 | OLTP scale-up, OLAP scale-up |
+| sr2-87x6000 | 87 | 696 | 6,000 | 661,200 | OLTP scale-up, OLAP scale-up |
+| sr2-87x7000 | 87 | 696 | 7,000 | 661,200 | OLTP scale-up, OLAP scale-up |
+| sr2-87x7600 | 87 | 696 | 7,600 | 661,200 | OLTP scale-up, OLAP scale-up |
+| sr2-165x30500 | 165 | 1,320 | 30,500 | 1,254,000 | OLTP scale-up, OLTP scale-out (up to 3 nodes), OLAP scale-up |
 {: caption="Certified profiles with sh2 prefix in SMT8 mode" caption-side="top"}
 
 ## Certified profiles with the prefix sh2
@@ -94,39 +94,39 @@ Refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Vi
 The following SAP HANA profiles with the prefix *sh2* are supported in SMT4 mode:
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
-| -- | -- | -- | -- | -- | --|
-sh2-4x256 | 4 | 16 | 256 | 24,000 | OLTP scale-up |
-sh2-4x384 | 4 | 16 | 384 | 24,000 | OLTP scale-up |
-sh2-4x512 | 4 | 16 | 512 | 24,000 | OLTP scale-up |
-sh2-4x768  | 4 | 16 | 768 | 24,000 | OLTP scale-up |
-sh2-4x1000 | 4 | 16 | 1,000 | 24,000 | OLTP scale-up |
-sh2-4x1500 | 4 | 16 | 1,500 | 24,000 | OLTP scale-up |
-sh2-7x256 | 7 | 28 | 256 | 42,000 | OLTP scale-up |
-sh2-7x384 | 7 | 28 | 384 | 42,000 | OLTP scale-up |
-sh2-7x512 | 7 | 28 | 512 | 42,000 | OLTP scale-up |
-sh2-7x768 | 7 | 28 | 768 | 42,000 | OLTP scale-up |
-sh2-7x1000 | 7 | 28 | 1,000 | 42,000 | OLTP scale-up |
-sh2-7x1500 | 7 | 28 | 1,500 | 42,000 | OLTP scale-up |
-sh2-12x256 | 12 | 48 | 256 | 42,000 | OLTP scale-up |
-sh2-12x384 | 12 | 48 | 384 | 42,000 | OLTP scale-up |
-sh2-12x512 | 12 | 48 | 512 | 42,000 | OLTP scale-up |
-sh2-12x768 | 12 | 48 | 768 | 42,000 | OLTP scale-up, OLAP scale-up |
-sh2-12x1000 | 12 | 48 | 1,000 | 42,000 | OLTP scale-up, OLAP scale-up |
-sh2-12x1500 | 12 | 48 | 1,500 | 42,000 | OLTP scale-up, OLAP scale-up |
-sh2-16x1000 | 16 | 64 | 1,000 | 96,000 | OLTP scale-up, OLAP scale-up |
-sh2-16x1500 | 16 | 64 | 1,500 | 96,000 | OLTP scale-up, OLAP scale-up |
-sh2-25x1000 | 25 | 100 | 1,000 | 150,000 | OLTP scale-up, OLAP scale-up |
-sh2-25x1500 | 25 | 100 | 1,500 | 150,000 | OLTP scale-up, OLAP scale-up |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | ----------------- |
+| sh2-4x256 | 4 | 16 | 256 | 24,000 | OLTP scale-up |
+| sh2-4x384 | 4 | 16 | 384 | 24,000 | OLTP scale-up |
+| sh2-4x512 | 4 | 16 | 512 | 24,000 | OLTP scale-up |
+| sh2-4x768  | 4 | 16 | 768 | 24,000 | OLTP scale-up |
+| sh2-4x1000 | 4 | 16 | 1,000 | 24,000 | OLTP scale-up |
+| sh2-4x1500 | 4 | 16 | 1,500 | 24,000 | OLTP scale-up |
+| sh2-7x256 | 7 | 28 | 256 | 42,000 | OLTP scale-up |
+| sh2-7x384 | 7 | 28 | 384 | 42,000 | OLTP scale-up |
+| sh2-7x512 | 7 | 28 | 512 | 42,000 | OLTP scale-up |
+| sh2-7x768 | 7 | 28 | 768 | 42,000 | OLTP scale-up |
+| sh2-7x1000 | 7 | 28 | 1,000 | 42,000 | OLTP scale-up |
+| sh2-7x1500 | 7 | 28 | 1,500 | 42,000 | OLTP scale-up |
+| sh2-12x256 | 12 | 48 | 256 | 42,000 | OLTP scale-up |
+| sh2-12x384 | 12 | 48 | 384 | 42,000 | OLTP scale-up |
+| sh2-12x512 | 12 | 48 | 512 | 42,000 | OLTP scale-up |
+| sh2-12x768 | 12 | 48 | 768 | 42,000 | OLTP scale-up, OLAP scale-up |
+| sh2-12x1000 | 12 | 48 | 1,000 | 42,000 | OLTP scale-up, OLAP scale-up |
+| sh2-12x1500 | 12 | 48 | 1,500 | 42,000 | OLTP scale-up, OLAP scale-up |
+| sh2-16x1000 | 16 | 64 | 1,000 | 96,000 | OLTP scale-up, OLAP scale-up |
+| sh2-16x1500 | 16 | 64 | 1,500 | 96,000 | OLTP scale-up, OLAP scale-up |
+| sh2-25x1000 | 25 | 100 | 1,000 | 150,000 | OLTP scale-up, OLAP scale-up |
+| sh2-25x1500 | 25 | 100 | 1,500 | 150,000 | OLTP scale-up, OLAP scale-up |
 {: caption="Certified profiles with sh2 prefix in SMT4 mode" caption-side="top"}
 
 The following SAP HANA profiles with the prefix *sh2* on IBM Cloud PowerVS are supported in SMT8 mode:
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
-| -- | -- |  -- | -- | -- | --|
-sh2-8x1900 | 8 | 64 | 1900 | 60,800 | OLTP scale-up |
-sh2-16x1900 | 16 | 128 | 1,900 | 121,600 | OLTP scale-up, OLAP scale-up |
-sh2-25x1900 | 25 | 200 | 1,900 | 190,000 | OLTP scale-up, OLAP scale-up |
-sh2-25x1900 | 33 | 200 | 1,900 | 190,000 | OLTP scale-up, OLAP scale-up |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | ----------------- |
+| sh2-8x1900 | 8 | 64 | 1900 | 60,800 | OLTP scale-up |
+| sh2-16x1900 | 16 | 128 | 1,900 | 121,600 | OLTP scale-up, OLAP scale-up |
+| sh2-25x1900 | 25 | 200 | 1,900 | 190,000 | OLTP scale-up, OLAP scale-up |
+| sh2-25x1900 | 33 | 200 | 1,900 | 190,000 | OLTP scale-up, OLAP scale-up |
 {: caption="Certified profiles with sh2 prefix in SMT8 mode" caption-side="top"}
 
 ## Profile families for Power9 server generation
@@ -162,7 +162,7 @@ Each profile requires a minimum of two dedicated cores. For storage performance 
 {: #ush1profiles}
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
-| -- | -- | -- | -- | -- | --|
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | ----------------- |
 | ush1-4x128 | 4 | 32 | 128 | 24,000 | OLAP/OLTP |
 | ush1-4x256 | 4 | 32 | 256 | 24,000 | OLAP/OLTP |
 | ush1-4x384 | 4 | 32 | 384 | 24,000 | OLAP/OLTP |
@@ -174,7 +174,7 @@ Each profile requires a minimum of two dedicated cores. For storage performance 
 {: #bh1profiles}
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
-| -- | -- | -- | -- | -- | -- |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | ----------------- |
 | bh1-16x1600 | 16 | 128 | 1,600 | 96,000 | OLAP/OLTP |
 | bh1-20x2000 | 20 | 160 | 2,000 | 120,000 | OLAP * |
 | bh1-22x2200 | 22 | 178 | 2,200 | 132,000 | OLAP * |
@@ -196,7 +196,7 @@ Each profile requires a minimum of two dedicated cores. For storage performance 
 {: #ch1profiles}
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
-| -- | -- | -- | -- | -- | -- |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | ----------------- |
 | ch1-60x3000 | 60 | 480 | 3,000 | 360,000 | OLAP |
 | ch1-70x3500 | 70 | 560 | 3,500 | 420,000 | OLAP * |
 | ch1-80x4000 | 80 | 640 | 4,000 | 480,000 | OLAP * |
@@ -209,7 +209,7 @@ Each profile requires a minimum of two dedicated cores. For storage performance 
 {: #mh1profiles}
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
-| -- | -- | -- | -- | -- | -- |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | ----------------- |
 | mh1-8x1440 | 8 | 64 | 1,440 | 48,000 | OLAP |
 | mh1-10x1800 | 10 | 80 | 1,800 | 60,000 | OLAP |
 | mh1-12x2160 | 12 | 96 | 2,160 | 72,000 | OLAP * |
@@ -233,7 +233,7 @@ Each profile requires a minimum of two dedicated cores. For storage performance 
 {: #umhprofiles}
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
-| -- | -- | -- | -- | -- | -- |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | ----------------- |
 | umh-4x960 | 4 | 32 | 960 | 24,000 | OLTP |
 | umh-6x1440 | 6 | 48 | 1,440 | 36,000 | OLTP * |
 | umh-8x1920 | 8 | 64 | 1,920 | 48,000 | OLTP * |
