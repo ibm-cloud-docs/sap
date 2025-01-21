@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-17"
+  years: 2020, 2025
+lastupdated: "2025-01-21"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -68,6 +68,8 @@ You have two compute options for SAP workloads: Power System E980 and Power Syst
 Currently, Power System E980 is supported for SAP HANA.
 
 Currently, SAP Workloads on {{site.data.keyword.IBM_notm}} Power Virtual Servers are available in Washington, D.C., Dallas, London, and Frankfurt. The number of supported locations is planned to be extended.
+
+
 
 All SAP NetWeaver Application Server ABAP-based products and SAP NetWeaver Application Server Java-based products are supported on {{site.data.keyword.IBM_notm}} Power Virtual Servers. For SAP NetWeaver-based SAP products, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external}.
 
