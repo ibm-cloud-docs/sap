@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-01-22"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -63,13 +63,12 @@ Some {{site.data.keyword.ibm_cloud_sap}} Bare Metal profiles do allow alteration
 This offering is complementary from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
-You have two compute options for SAP workloads: Power System E980 and Power System S922. Both can run SAP NetWeaver application servers on AIX or Linux&reg;, or SAP database servers with IBM Db2 or Oracle on AIX. SAP HANA runs E980 on Linux.
+The [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings) compute options provide different variations of capabilities and sizing for SAP workloads.
+SAP HANA database servers and SAP NetWeaver applications run on {{site.data.keyword.IBM_notm}} Power Systems using [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
+For more information, see [SAP HANA and IBM Power Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs-hana), [SAP NetWeaver and IBM Power Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs-netweaver), and [SAP NetWeaver certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs).
 
-Currently, Power System E980 is supported for SAP HANA.
-
-Currently, SAP Workloads on {{site.data.keyword.IBM_notm}} Power Virtual Servers are available in Washington, D.C., Dallas, London, and Frankfurt. The number of supported locations is planned to be extended.
-
-
+The {{site.data.keyword.cloud_notm}} SAP-certified Infrastructure-as-a-Service (IaaS) offerings are available on {{site.data.keyword.cloud_notm}} in many {{site.data.keyword.IBM_notm}} data centers around the world.
+See the current data centers in [IBM Cloud regions](/docs/power-iaas?topic=power-iaas-ibm-cloud-reg).
 
 All SAP NetWeaver Application Server ABAP-based products and SAP NetWeaver Application Server Java-based products are supported on {{site.data.keyword.IBM_notm}} Power Virtual Servers. For SAP NetWeaver-based SAP products, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external}.
 
