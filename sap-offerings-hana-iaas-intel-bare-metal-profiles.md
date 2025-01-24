@@ -2,7 +2,7 @@
 
 copyright:
 years: 2020, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-01-24"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -47,8 +47,9 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 | [BI.S4.H4.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1113){: external} | 112 | 224 | 6144 GB | 285,970 | OLAP/OLTP (\*\*) |
 | [BI.S4.H8.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1121){: external} | 224 | 448 | 6144 GB | 550,670 | OLAP/OLTP (\*\*) |
 | [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1129){: external} | 224 | 448 | 12288 GB | 550,670 | OLAP/OLTP (\*\*) |
-| BI.S5.H2.1000 Appliance | 96 | 192 | 1 TB | 297.370 | OLAP/OLTP (<sup>1</sup>) |
-| BI.S5.H2.2001 Appliance | 96 | 192 | 2 TB | 297.370 | OLAP/OLTP (<sup>1</sup>) |
+| BI.S5.H2.1000 Appliance | 96 | 192 | 1 TB | 297.370 | OLAP/OLTP (^1^) |
+| BI.S5.H2.2001 Appliance | 96 | 192 | 2 TB | 297.370 | OLAP/OLTP (^1^) |
+
 {: caption="SAP HANA servers" caption-side="top"}
 
 (\*): RHEL 7.4 for SAP Solutions, RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions<br/>
@@ -59,7 +60,7 @@ SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 1
 
 (\*\*\*): SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
-(<sup>1</sup>): RHEL 8.10 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions <br/>
+(^1^): RHEL 8.10 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions <br/>
 SLES 15, SLES 15 SP1 , SLES 15 SP2, SLES 15 SP3, SLES 15 SP4 
 
 Please regard the supported operated systems mentioned in the footnotes.
@@ -441,7 +442,7 @@ Link to Profile: [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastru
 | RAID | Components | Drives | Array | Total Capacity |
 | --- | --- | --- | --- | --- |
 | RAID 1 | 2x 960 GB SSD SED |`hdd0, hdd1` | RAID1-A | 960 GB |
-| RAID 10 | 8x 3.8 TB SSD SED | `hdd2, hdd3, hdd4, hdd5, hdd6, hdd7, hdd8, hdd9` | RAID2-A | 15.2 TB |
+| RAID 10 | 8x 3.8 TB SSD SED | `hdd2, hdd3, hdd4, hdd5, hdd6, hdd7, hdd8, hdd9` | RAID1-B | 15.2 TB |
 | Global hot spare | 1x 3.8 TB SSD SED | `hdd10` |  |  |
 
 #### Disk mount points and Partitions
@@ -474,6 +475,9 @@ In addition this server has 5 x 3.2 TB sized NVMe local storage mapped to `/dev/
 #### Disk mount points and Partitions
 {: #hana-iaas-intel-bm-s5-h2-1000gb-logical}
 
+
+
+
 | Partition | Name | Size (GB) |
 | --- | --- | --- |
 | `/dev/nvme0n1p2` | `/boot` | 10 |
@@ -482,7 +486,6 @@ In addition this server has 5 x 3.2 TB sized NVMe local storage mapped to `/dev/
 | `/dev/nvme3n1` | `/hana/log` | 1,000 |
 | `/dev/nvme2n1` | `/hana/shared` | 3,000 |
 | `/dev/nvme4n1` | `/hana/data` | 3,000 |
-
 
 
 ### BI.S5.H2.2001 Appliance
