@@ -2,28 +2,25 @@
 
 copyright:
    years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, NFS, File Storage Share, Network Load Balancer
 
 subcollection: sap
 
 content-type: tutorial
-services: vpc, transit-gateway, power-iaas, sap # Only if the tutorial includes multiple services. If it only uses your service, don't specify. DO NOT set any platform subcollections.
-account-plan: paid # Set `lite` if tutorial can be completed by using only Lite plan services; Set `paid` if the tutorial requires a pay-go or subscription versions of plans for the service
-completion-time: 2h # Estimated time to complete the steps in this tutorial. Minute values are supported up to 90 minutes. Whole hours are also supported; for example: 2h
+services: vpc, transit-gateway, power-iaas, sap
+account-plan: paid
+completion-time: 2h
 
 ---
-
 {{site.data.keyword.attribute-definition-list}}
-
-
-
 
 # Access VPC File Storage from IBM {{site.data.keyword.powerSys_notm}} instances
 {: #ha-nlb-rt-nfs-intro}
-{: toc-content-type="tutorial"} 
-{: toc-completion-time="2h"} 
+{: toc-content-type="tutorial"}
+{: toc-services="vpc, transit-gateway, power-iaas, sap"}
+{: toc-completion-time="2h"}
 
 This tutorial may incur costs. Use the [Cost Estimator](/estimator) to generate a cost estimate based on your projected usage.
 {: tip}
@@ -51,8 +48,7 @@ The network load balancer (NLB) with routing mode has two IP addresses (Active/S
 When a failover occurs, the route mode updates all routing rules that are created for the VPC with a `next_hop` of the previous standby IP.
 Both active and standby IP are used during the lifetime of the NLB with route mode.
 
-![Architectural diagram](images/sap-power-virtual-server-ha-nlb-rt-nfs.svg)
-{: figure caption="A diagram that shows the architecture to access VPC file storage."}
+![Architectural diagram](images/sap-power-virtual-server-ha-nlb-rt-nfs.svg){: figure caption="A diagram that shows the architecture to access VPC file storage."}
 
 ## Before you begin
 {: #ha-nlb-rt-nfs-prereqs}
@@ -63,8 +59,8 @@ Both active and standby IP are used during the lifetime of the NLB with route mo
 - Create a Transit Gateway, and attach the VPC subnet and the IBM {{site.data.keyword.powerSys_notm}} workspace to the Transit Gateway.
 
 - Check for user permissions.
-Be sure that your user account has sufficient permissions to create and manage VPC resources.
-See [Granting user permissions for VPC resources](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources) for VPC.
+   Be sure that your user account has sufficient permissions to create and manage VPC resources.
+   See [Granting user permissions for VPC resources](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources) for VPC.
 
 - Check or create an SSH key to connect to the virtual servers instances.
  If you don't have an SSH key, see [the instructions](/docs/vpc?topic=vpc-ssh-keys) for creating a key for VPC.
@@ -180,7 +176,7 @@ To support routing mode, you must first create a service-to-service authenticati
 4. Select the type **Private**.
 5. Toggle the **Routing mode** to **On** to create a network load balancer with routing mode.
 4. Click **Create pool** to create a back-end pool.
-  Set the parameters with the following values and click **Create** when done.
+   Set the parameters with the following values and click **Create** when done.
    - **Name**:  `nfs-server-fwd-pool`
    - **Protocol**: `TCP`
    - **Session stickiness**: `None`
