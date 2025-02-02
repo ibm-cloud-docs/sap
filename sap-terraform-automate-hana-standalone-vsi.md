@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-09"
+  years: 2023, 2025
+lastupdated: "2025-02-02"
 
 subcollection: sap
 
@@ -80,7 +80,7 @@ When you provision {{site.data.keyword.cloud}} virtual server instances for SAP 
 ### x86-64 bare metal server profiles
 {: x86-64-bare-metal-server-profiles}
 
-{{site.data.keyword.cloud_notm}} Bare Metal Servers on VPC Infrastructure are dedicated bare metal servers that provide enhanced networking and connectivity through [Virtual Private Cloud (VPC)](https://www.ibm.com/topics/vpc?_gl=1*164pqfh*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.80093343.964139216.1686574517-1543717111.1671726228) capabilities. For more information on bare metal servers, see [IBM Cloud Bare Metal Servers](https://www.ibm.com/products/bare-metal-servers?_gl=1*164pqfh*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.80093343.964139216.1686574517-1543717111.1671726228){: external}.
+{{site.data.keyword.cloud_notm}} Bare Metal Servers on VPC Infrastructure are dedicated bare metal servers that provide enhanced networking and connectivity through [Virtual Private Cloud (VPC)](https://www.ibm.com/think/topics/vpc) capabilities. For more information on bare metal servers, see [IBM Cloud Bare Metal Servers](https://www.ibm.com/products/bare-metal-servers?_gl=1*164pqfh*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.80093343.964139216.1686574517-1543717111.1671726228){: external}.
 
 The bare metal servers on VPC are available as an integrated part of [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud?_gl=1*opgtue*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.55889827.964139216.1686574517-1543717111.1671726228). For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui){: external} on {{site.data.keyword.cloud}}.
 
@@ -138,7 +138,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 
 *	Log in to your Deployment Server and verify that Terraform and Ansible are installed.
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md){: external} file.
-*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key&interface=ui). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
+*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 *  Required IAM permissions for deploying SAP HANA on Bare Metal: Bare Metal Console Administrator role to access the ESXi Direct Console User Interface (DCUI) and Bare Metal Advanced Network Operator role to modify IP spoofing and infrastructure NAT configuration on network interfaces, see: https://cloud.ibm.com/docs/vpc?topic=vpc-planning-for-bare-metal-servers.
 
@@ -150,12 +150,12 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 2.	Clone the GitHub repository from https://github.com/IBM-Cloud/sap-hana-db and go to the **sap-hana-db** folder.
 
     ```shell
-	$ git clone https://github.com/IBM-Cloud/sap-hana-db.git
+	git clone https://github.com/IBM-Cloud/sap-hana-db.git
 
-	$ cd sap-hana-db
+	cd sap-hana-db
     ```
 
-3.	Customize the VPC variables according to your existing VPC data. Modify the `input.auto.tfvars` file to specify your options. You need a 40-digit SSH key ID for the deployment. Additional SSH key IDs are optional. For more information related to SAP HANA certified profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc). For more options about images, see [Images](https://test.cloud.ibm.com/docs/vpc?topic=vpc-about-images){: external}.
+3.	Customize the VPC variables according to your existing VPC data. Modify the `input.auto.tfvars` file to specify your options. You need a 40-digit SSH key ID for the deployment. Additional SSH key IDs are optional. For more information related to SAP HANA certified profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc). For more options about images, see [Images](/docs/vpc?topic=vpc-about-images){: external}.
 
     The following input variable values must be provided:
 
@@ -361,7 +361,7 @@ If you need to remove the resources created with the automation for your SAP sol
 ## Related information
 {: #automate-hana-standalone-vsi-related}
 
-For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on IBM Cloud getting started tutorial](https://test.cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
+For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on IBM Cloud getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
 
 For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier VPC for SAP on IBM Cloud® VPC with Terraform](https://test.cloud.ibm.com/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap){: external}.
 

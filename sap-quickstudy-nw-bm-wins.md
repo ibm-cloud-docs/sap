@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-05"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -246,7 +246,7 @@ If you are installing a three-tier setup, you need to prepare the network setup.
 
 The network setup of the deployed servers that are outlined in Figure 1 is found under Network Connections in Microsoft Windows. In the sample setup, `10.17.139.35` is the private IP of the database server that is found under Network Connections - Private Network-Teamed, and is one of the IP ranges from RFC 1597. You can determine the IP of the application server, too, and add both IPs to both servers' `host files` under `C:\Windows\System32\drivers\etc`.
 
-In the {{site.data.keyword.cloud}} console, you can find the private IP of the database server under Menu icon ![Menu icon](../icons/icon.hamburger.svg) > Resource List > Devices. Select the applicable device and the IP address is displayed in the respective column.
+In the {{site.data.keyword.cloud}} console, you can find the private IP of the database server under Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource List > Devices. Select the applicable device and the IP address is displayed in the respective column.
 
 
 ## Adding external storage to your server
@@ -263,7 +263,7 @@ External storage can be added to your provisioned server, or servers. You can us
 {: step}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external} with your unique credentials.
-2. Expand the Menu icon ![Menu icon](../icons/icon.hamburger.svg) and select **Classic Infrastructure**.
+2. Expand the Menu icon ![Menu icon](../icons/icon_hamburger.svg) and select **Classic Infrastructure**.
 3. Select **Storage** > **Block Storage** > **Order Block Storage**.
 4. Select the specifics for your storage needs. Table 1 contains recommended values, including 10 IOPS/GB for a demanding database workload.
 

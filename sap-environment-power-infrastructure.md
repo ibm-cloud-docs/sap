@@ -36,7 +36,7 @@ An Infrastructure-as-a-Service (IaaS) environment consists of many components - 
 
 These {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are physically located with low-latency connectivity to the {{site.data.keyword.cloud_notm}} Classic Infrastructure or VPC Infrastructure. In the data centers, the {{site.data.keyword.powerSys_notm}}s are separated from the rest of the {{site.data.keyword.cloud_notm}} servers with separate networks and direct-attached storage. This infrastructure design enables {{site.data.keyword.powerSys_notm}}s to maintain key enterprise software certification and support as its architecture is identical to certified on-premises infrastructure. The internal networks are fenced but have connectivity options to the rest of environments and services on {{site.data.keyword.cloud_notm}}.
 
-{{site.data.keyword.IBM_notm}} Power Systems Infrastructure offerings (such as {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}) are deployed using the [IBM Power Infrastructure console available through {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/services/power-systems-virtual-server){: external}.
+{{site.data.keyword.IBM_notm}} Power Systems Infrastructure offerings (such as {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}) are deployed using the [IBM Power Infrastructure console available through {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/power/overview){: external}.
 
 Alternatively, you can create and manage deployments with any of the following methods:
 - IBM Power Infrastructure plug-in for {{site.data.keyword.cloud_notm}} CLI
@@ -80,7 +80,7 @@ Connectivity is available to the {{site.data.keyword.IBM_notm}} Power Systems In
 ### Networking VLANs and Subnets
 {: #power-env-networking-vlans-subnets}
 
-The following information is a summary of [Getting started with the Power Edge Router](/docs/power-iaas?topic=power-iaas-per) and [ Configuring and adding a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet).
+The following information is a summary of [Getting started with the Power Edge Router](/docs/power-iaas?topic=power-iaas-per) and [Configuring and adding a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet).
 
 The Virtual LAN (VLAN) on the {{site.data.keyword.IBM_notm}} Power Systems Infrastructure network, provides an enterprise-grade private network with full isolation and security. Each VLAN is Public or Private, and is assigned to a specific data center for a specific {{site.data.keyword.cloud_notm}} Account.
 

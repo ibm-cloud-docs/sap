@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-06"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -81,7 +81,7 @@ References to specific documents are provided where appropriate.
 All operating systems and distributions that are supported by {{site.data.keyword.cloud_notm}} for an SAP solution deployment (Windows Server, Red Hat Enterprise Linux, and SUSE Linux Enterprise Server) come with high availability software and specific extensions.
 The supported operating systems and distributions are described in these documents:
 
-- [New Failover Clustering Improvements in Windows Server 2012 and Its Benefits for SAP NetWeaver High Availability](https://blogs.sap.com/2013/10/16/new-failover-clustering-improvements-in-windows-server-2012-and-its-benefits-for-sap-netweaver-high-availability/){: external} provides a description based on Microsoft Windows Server Failover Clustering (WFSC) for SAP NetWeaver implementations.
+- [New Failover Clustering Improvements in Windows Server 2012 and Its Benefits for SAP NetWeaver High Availability](https://community.sap.com/t5/technology-blogs-by-sap/new-failover-clustering-improvements-in-windows-server-2012-and-its/ba-p/13023326){: external} provides a description based on Microsoft Windows Server Failover Clustering (WFSC) for SAP NetWeaver implementations.
 - The following documents provide guidance on deploying SAP NetWeaver in a high availability Linux environment.
    - [Supported High Availability Solutions by SLES for SAP Applications](https://documentation.suse.com/sles-sap/sap-ha-support/html/sap-ha-support/article-sap-ha-support.html){: external}
    - [Red Hat HA Solutions for SAP HANA, S/4HANA and NetWeaver based SAP Applications](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index){: external}

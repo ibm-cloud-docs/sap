@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-06"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -66,14 +66,14 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 
 1. Enter a unique **Name** for the VPC, for example, *sap-test-inst*.
 1. Keep the default **Resource group**. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). For this example, you can use the default value.
-1. _Optional: Tags_. Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+1. *Optional: Tags*. Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 1. Keep the **Default security group** settings, which allow inbound SSH and ping traffic to virtual server instances in this VPC.
-1. _Optional: Classic access_. Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
+1. *Optional: Classic access*. Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
     You can enable a VPC for classic access only while you are creating it. In addition, you can have only one classic access VPC in your account at any time.
     {: important}
 
-1. _Optional: Default address prefixes_. Disable this option if you don't want to assign default subnet address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own subnet address prefixes. If you do disable this option, the **New subnet for VPC** section will be hidden, and will require manual definition after the VPC is created. Leave the default value.
+1. *Optional: Default address prefixes*. Disable this option if you don't want to assign default subnet address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own subnet address prefixes. If you do disable this option, the **New subnet for VPC** section will be hidden, and will require manual definition after the VPC is created. Leave the default value.
 
     If you want to create the subnet and your own subnet address prefixes later, become familiar with important details of VPC networking. For more information, see [About networking for VPC](/docs/vpc?topic=vpc-about-networking-for-vpc) and [Designing an addressing plan for a VPC](/docs/vpc?topic=vpc-vpc-addressing-plan-design).
     {: note}
@@ -94,7 +94,7 @@ You use security groups to restrict access to and from IP ranges, protocols, and
     A subnet cannot be resized after it is created.
     {: important}
 
-1. Keep the default value for **Subnet access control list**. A new default ACL is created that you can configure later following these steps in: [Configuring the ACL](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl).
+1. Keep the default value for **Subnet access control list**. A new default ACL is created that you can configure later following these steps in: [Configuring the ACL](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl-ct).
 
 1. Attach a public gateway to the subnet if you want to allow all attached resources to communicate with resources on the public internet. However, keep in mind, that public gateways are for 'outbound traffic', 'inbound traffic' would require a **Floating IP**. [See Preparing the virtual server instance for your workload](#prepare-virtual-server).
 
@@ -118,7 +118,7 @@ Use the following steps to create a virtual server instance.
 
 1. Select the **Virtual private cloud** in which to attach the virtual server instance, for example, `sap-test-inst`.
 1. Keep the **Resource group** default.
-1. _Optional: Tags_. Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+1. *Optional: Tags*. Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 1. The **Location** in which you created your subnets is already selected. The location consists of a region and a zone.
 1. Select **Catalog image** > **`ibm-redhat-7-6-amd64-sap-applications-1`** as the OS image.
 
@@ -142,11 +142,11 @@ Otherwise, follow these steps.
 1. Enter a unique **Name**, for example, *sap-ssh-key*.
 1. Keep the default **Resource group**.
 1. The **Region** in which you created your subnets is already selected.
-1. _Optional: Tags_. Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+1. *Optional: Tags*. Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 2. Paste the **Public key**, that you created according to [the guidelines mentioned in Securing Access](#quickstudy-vs-gen2-netweaver-rhel-secure-access).
 3. Click **Add SSH key**.
 
-4. _Optional:_ **User data**, leave blank.
+4. *Optional:* **User data**, leave blank.
 
 ### Attaching a block storage volume
 {: #attach-block}
@@ -171,7 +171,7 @@ To have file system space available beyond what is required by the operating sys
 {: #prepare-virtual-server}
 {: step}
 
-{{site.data.keyword.virtualmachineslong}} are accessed through IPsec connections into your VPC. Configuring IPsec-based access to virtual server instances is beyond the scope of this guidance. For simplicity, and to quickly access the deployed instance, you can assign a _Floating IP_ to your virtual server instance. This IP is assigned to a gateway that forwards ports and protocols according to the defined security groups.
+{{site.data.keyword.virtualmachineslong}} are accessed through IPsec connections into your VPC. Configuring IPsec-based access to virtual server instances is beyond the scope of this guidance. For simplicity, and to quickly access the deployed instance, you can assign a *Floating IP* to your virtual server instance. This IP is assigned to a gateway that forwards ports and protocols according to the defined security groups.
 
 ![Figure 6. Floating IP](/images/quickstudy-intel-vs-gen2-image12.png "Floating IP"){: caption="Floating IP" caption-side="bottom"}
 
@@ -272,7 +272,7 @@ A more complex scenario involves installing two virtual servers. One server is t
 
 ![Figure 9. Block storage volumes for VPC](/images/quickstudy-intel-vs-gen2-image15.png "Block storage volumes for VPC"){: caption="Block storage volumes for VPC" caption-side="bottom"}
 
-Both virtual servers have one extra attached volume and a _Floating IP_. A smaller volume is attached to `sap-app-vsi`, which is the application server. `sap-app2-vsi` has a slightly larger volume to host the RDBMS and the SAP Central Services (ASCS) instance. A second volume is needed on `sap-app2-vsi` to host the SAP NetWeaver stack. Create another volume from the Block storage volumes for VPC page and name it `sap-app2-vol2`. Attach `sap-app2-vol2` to our virtual server by selecting its details screen.
+Both virtual servers have one extra attached volume and a *Floating IP*. A smaller volume is attached to `sap-app-vsi`, which is the application server. `sap-app2-vsi` has a slightly larger volume to host the RDBMS and the SAP Central Services (ASCS) instance. A second volume is needed on `sap-app2-vsi` to host the SAP NetWeaver stack. Create another volume from the Block storage volumes for VPC page and name it `sap-app2-vol2`. Attach `sap-app2-vol2` to our virtual server by selecting its details screen.
 
 ![Figure 10. Block storage volumes for VPC](/images/quickstudy-intel-vs-gen2-image16.png "Block storage volumes for VPC"){: caption="Block storage volumes for VPC" caption-side="bottom"}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-17"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -86,7 +86,7 @@ This table shows a brief list of services and the Business Partner types who can
 
 For example, some of the services that are available in partnership between {{site.data.keyword.cloud_notm}} and IBM Services include:
 - [GSI and IBM Services: SAP Consulting & Implementation Services](https://www.ibm.com/consulting/sap){: external}
-- [AMS and IBM Services: SAP Application Management and Development Solutions](https://www.ibm.com/blogs/services/2019/05/08/unlocking-the-value-of-sap-applications-in-the-digital-cloud/){: external}
+- AMS and IBM Services: SAP Application Management and Development Solutions
 - [MSP and IBM Services: Managed Applications for SAP](https://www.ibm.com/cloud/sap){: external}
 
 
@@ -211,7 +211,7 @@ The smit fast path is missing because the AIO server setting is automatically up
 ### With an Oracle install, how do I activate the iocp device when it's "Defined"?
 {: #faq-oracle-iocp-activation}
 
-Use the smit menu with fast path command `smitty iocp`. Select **Change/Show Characteristics of I/O Completion Ports** and set the state to be configured at system restart to *Available*. This setting ensures that the device is available even after a system restart.
+Use the smit menu with fast path command `smitty iocp`. Select **Change/Show Characteristics of I/O Completion Ports** and set the state to be configured at system restart to _Available_. This setting ensures that the device is available even after a system restart.
 
 If you use the `mkdev -l iocp0` command on the command line, the devíce is available only when the system is rebooted, and the device shows as **Defined** again. To ensure that this device is activated after a system restart, add the `-P` flag so the ODM is updated: `mkdev -l iocp0 -P`
 {: note}

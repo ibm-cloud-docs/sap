@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-13"
+  years: 2023, 2025
+lastupdated: "2025-02-02"
 
 subcollection: sap
 
@@ -40,7 +40,7 @@ Use the following information to understand a simple use-case for planning, crea
 ## SAP products architecture on {{site.data.keyword.cloud_notm}} VPC
 {: #automate-ha-deployment-on-vpc-architecture}
 
-A [Virtual Private Cloud (VPC)](https://www.ibm.com/cloud/learn/vpc?mhsrc=ibmsearch_a&mhq=VPC){: external} contains one of the most secure and reliable cloud environments for SAP applications within your own VPC with virtual server instances. This represents an Infrastructure-as-a-Service (IaaS){: external} within {{site.data.keyword.cloud_notm}} that offers all the benefits of isolated, secure, and flexible virtual cloud infrastructure from IBM. In comparison, the {{site.data.keyword.cloud_notm}} classic infrastructure virtual servers offering uses virtual instances with native and VLAN networking to communicate with each other within a data center; however, the instances are restricted in one well-working pod by using subnet and VLAN networking as a gap scale up of virtual resources should rely between the pods. The {{site.data.keyword.vpc_short}} network orchestrator layer concept eliminates the pod boundaries and restrictions, so this new concept handles all the networking for every virtual instance running within VPC across regions and zones.
+A [Virtual Private Cloud (VPC)](https://www.ibm.com/think/topics/vpc){: external} contains one of the most secure and reliable cloud environments for SAP applications within your own VPC with virtual server instances. This represents an Infrastructure-as-a-Service (IaaS){: external} within {{site.data.keyword.cloud_notm}} that offers all the benefits of isolated, secure, and flexible virtual cloud infrastructure from IBM. In comparison, the {{site.data.keyword.cloud_notm}} classic infrastructure virtual servers offering uses virtual instances with native and VLAN networking to communicate with each other within a data center; however, the instances are restricted in one well-working pod by using subnet and VLAN networking as a gap scale up of virtual resources should rely between the pods. The {{site.data.keyword.vpc_short}} network orchestrator layer concept eliminates the pod boundaries and restrictions, so this new concept handles all the networking for every virtual instance running within VPC across regions and zones.
 
 ## Highly available system for SAP NetWeaver on {{site.data.keyword.cloud_notm}} VPC
 {: #automate-ha-deployment-on-vpc-system-nw}
@@ -126,7 +126,7 @@ In this scenario, three ALBs are used, one for each Single Point of Failure (SPO
 ### Private application load balancer
 {: #automate-ha-deployment-on-vpc-private-application-load-balancer}
 
-A [private application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui#private-load-balancer) is accessible through your private subnets that you configured to create the load balancer.
+A [private application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui) is accessible through your private subnets that you configured to create the load balancer.
 
 Similar to a public application load balancer, your private application load balancer service instance is assigned an FQDN; however, this domain name is registered with one or more private IP addresses.
 

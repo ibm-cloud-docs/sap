@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-19"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -130,7 +130,7 @@ For more information about SAP on SUSE Linux, see the following table.
 | [SAP Note 2578899 - SUSE Linux Enterprise Server 15: Installation Note](https://me.sap.com/notes/2578899){: external}| SLES 15 installation note |
 | [SAP Note 2790462 - HANA Server connection is not available or timed out after you upgrade to SUSE 15 from SUSE 12](https://me.sap.com/notes/2790462){: external}| Known issue when you upgrade from 12 to 15      |
 | [SAP Note 1275776 - Linux: Preparing SLES for SAP environments](https://me.sap.com/notes/1275776){: external}                                                | Preparing SLES for SAP environments           |
-| [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap){: external}                                                                  | A useful collection of SUSE documentation     |
+| [SUSE Best Practices Library](https://documentation.suse.com/sbp/sap-15/){: external}                                                                  | A useful collection of SUSE documentation     |
 | [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/){: external}                                                                             | IBM and SUSE                                  |
 {: caption="Operating systems – SUSE Linux&reg;" caption-side="top"}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-06"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, downloading SAP software, installing SAP software, SAP Download Manager
 
@@ -34,7 +34,7 @@ To perform a specific SAP installation, there are many different SAP software co
 
 The many various SAP software components to download can be downloaded individually by using a web browser, or these download items can be added to the [SAP Download Basket](https://me.sap.com/downloadbasket){: external} to make it easier for downloading all files by using the [SAP Download Manager](https://support.sap.com/en/my-support/software-downloads.html){: external} (a Java GUI application).
 
-After the SAP software installation media downloads, follow the standard SAP installation procedure that is documented in the applicable [SAP installation guide](https://service.sap.com/instguides){: external} for your SAP version and components and the corresponding [SAP Notes](https://support.sap.com/en/my-support/knowledge-base.html){: external}. The installation guide and SAP Notes require an SAP S-user ID to view.
+After the SAP software installation media downloads, follow the standard SAP installation procedure that is documented in the applicable [SAP installation guide](https://help.sap.com/docs/){: external} for your SAP version and components and the corresponding [SAP Notes](https://support.sap.com/en/my-support/knowledge-base.html){: external}. The installation guide and SAP Notes require an SAP S-user ID to view.
 
 It is important to remember that any SAP software installation will require some OS configuration; some of this information is available under the [Compute and OS Design Considerations](/docs/sap?topic=sap-compute-os-design-considerations) section. This OS configuration can be done before or after the SAP software installation media downloads have completed.
 

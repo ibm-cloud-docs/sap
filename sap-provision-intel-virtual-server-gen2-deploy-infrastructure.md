@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-11"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -184,7 +184,7 @@ Every virtual server profile has a maximum network bandwidth of 2 Gbps per vCPU,
 
 For example, if you choose a profile with 16 vCPU, the network cap for the profile is 32 Gbps. If you have just one network interface, the maximum network performance is 16 Gbps due to the network interface cap. You need to attach two network interfaces (16 Gbps each) to reach the profile cap of 32 Gbps.
 
-For more information, see [VPC - Network performance notes for profiles](/docs/vpc?topic=vpc-profiles#network-perf-notes-for-profiles).
+For more information, see [VPC - Network performance notes for profiles](/docs/vpc?topic=vpc-profiles&interface=ui#bandwidth-allocation).
 
 
 ### Multiple network interfaces

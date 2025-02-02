@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-09"
+  years: 2023, 2025
+lastupdated: "2025-02-02"
 
 subcollection: sap
 
@@ -134,7 +134,7 @@ Before you deploy SAP S/4HANA:
 *	If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server). You need the floating IP from your bastion server for deployment.
 
 *	Download the SAP kits from the SAP Portal to your bastion Server. Make note of the download locations. Ansible decompresses all of the archive kits and needs the paths. For more information, see the Readme file in the GitHub repository and on the About page for the catalog tile.
-*	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key&interface=ui). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
+*	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *	[Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 * (Optional - Catalog Tile) create secrets for your credentials and passwords by using the [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui). {: ui}
 
@@ -148,9 +148,9 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 2.	Clone the repository and change the path to the sap-s4hana folder.
 
     ```
-	$ git clone https://github.com/IBM-Cloud/sap-s4hana.git
+	git clone https://github.com/IBM-Cloud/sap-s4hana.git
 
-	$ cd sap-s4hana
+	cd sap-s4hana
     ```
 
 3.	Edit the input parameter file `input.auto.tfvars`, and modify the variables to match your solution. The file is preset with the minimal recommended disk sizes. For using an existing VPC, you must modify:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -156,7 +156,7 @@ The following profile families are available for IBM Power9 processor-based serv
 
 Custom profiles are designed exclusively for non-production development or testing purposes. These profiles are not intended, supported, or certified for SAP production environments and cannot be used to move from a non-production environment to a production environment.
 
-Each profile requires a minimum of two dedicated cores. For storage performance requirements, refer to the [Storage Guidelines for SAP HANA](/docs/sap?topic=sap-storage-design-considerations#sap-fiops-config). For additional details on storage, refer to the [storage tiers section](/docs/power-iaas?topic=power-iaas-about-virtual-server#storage-tiers) section in the **What is a Power Systems Virtual Server?** documentation.
+Each profile requires a minimum of two dedicated cores. For storage performance requirements, refer to the [Storage Guidelines for SAP HANA](/docs/sap?topic=sap-storage-design-considerations#sap-fiops-config). For additional details on storage, refer to the [storage tiers section](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#storage-tiers) section in the **What is a Power Systems Virtual Server?** documentation.
 
 ## Certified profiles with the prefix ush1
 {: #ush1profiles}

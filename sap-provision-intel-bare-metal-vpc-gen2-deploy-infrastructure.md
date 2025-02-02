@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-05"
+  years: 2022, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -38,27 +38,27 @@ The following steps summarize the setup of VPC and subnets, which is detailed fu
 1. Select a **Location** for the VPC. The location consists of a *Geography* and a *Region*.
 1. Enter a unique **Name** for the VPC.
 1. Select a **Resource group**. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup) and [What makes a good resource group strategy?](/docs/account?topic=account-account_setup#resource-group-strategy).
-1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+1. *Optional:* Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 1. Select whether the **Default security group** allows inbound SSH and ping traffic to bare metal server instances in this VPC. You can modify the default security group later.
-1. _Optional: Classic access_. Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
+1. *Optional: Classic access*. Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
     You can enable only a VPC for classic access when it is created. You cannot update a VPC to add or remove classic access. In addition, you can have only one classic access VPC in your account at any time.
     {: important}
 
-1. _Optional: Default address prefixes_. Disable this option if you don't want to assign default subnet address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own subnet address prefixes. If you do disable this option, the **Subnets** section will be hidden, and will require manual definition after the VPC is created. Leave the option enabled.
+1. *Optional: Default address prefixes*. Disable this option if you don't want to assign default subnet address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own subnet address prefixes. If you do disable this option, the **Subnets** section will be hidden, and will require manual definition after the VPC is created. Leave the option enabled.
 1. **Subnets**. You can keep the default subnets for each zone in the selected location or can delete one or more of them and/or create a new subnet. Leave the default subnets.
 1. Review the configuration **Summary** and then click **Create virtual private cloud**.
 
 ### Manually defining your subnets
 {: #bm-vpc-manually-defining-vpc-subnets}
 
-If you disabled _Default address prefixes_, which hid the _Subnets_ section on the VPC ordering page, you need to manually define your subnets before you provision your bare metal server. Use the following steps to set up your subnets if you didn't do so when you set up your VPC.
+If you disabled *Default address prefixes*, which hid the *Subnets* section on the VPC ordering page, you need to manually define your subnets before you provision your bare metal server. Use the following steps to set up your subnets if you didn't do so when you set up your VPC.
 
 1. Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Subnets** > **New Subnet**.
 1. Select a **Location** for the subnet. The location consists of a *Geography*, a *Region*, and a *Zone*.
 1. Enter a unique **Name**
 1. Select a **Resource group**.
-1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+1. *Optional:* Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 1. Select the **Virtual private cloud** that the subnet is to be associated with.
 1. Leave all other values default.
 
@@ -73,7 +73,7 @@ If you disabled _Default address prefixes_, which hid the _Subnets_ section on t
 Before you can create a bare metal server, you must create the VPC, and you must create an **SSH key** that you add to the server instance during its creation. For more information, see [SSH keys with bare metal servers](/docs/vpc?topic=vpc-ssh-keys). You can either create the VPC and SSH key before you follow the steps, or you can click the related links within the *Create bare metal server UI* to do the same.
 {: note}
 
-Use the following steps to order your bare metal server and necessary components. For more information about creating a bare metal server, see [Creating a bare metal server by using the UI](/docs/vpc?topic=vpc-creating-bare-metal-servers#creating-using-ui).
+Use the following steps to order your bare metal server and necessary components. For more information about creating a bare metal server, see [Creating a bare metal server by using the UI](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui#creating-bare-metal-ui).
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
 1. Click **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Compute > Bare metal servers**.
@@ -91,12 +91,12 @@ Table 1 is a summary of the fields and values that are used to provision Bare Me
 | **Name** | Unique name for your bare metal server, which becomes the **hostname**. SAP hostnames must consist of a maximum of 13 alpha-numeric characters. For more information about SAP hostnames, see [SAP Notes 611361](https://me.sap.com/notes/611361){: external} and [129997](https://me.sap.com//#/notes/129997){: external}. |
 | **Resource group** | Use resource groups to organize your account resources for access control and billing purposes. |
 | | **Note:** The resource group can't be changed after the bare metal server is created. |
-| _Optional_: **Tags** | You can assign labels to your server so that you can easily filter resources in your resource list. |
+| *Optional*: **Tags** | You can assign labels to your server so that you can easily filter resources in your resource list. |
 | **Operating System** | <ul><li>Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-hana-...`**</li><li>Linux distribution for SAP NetWeaver workloads, select **Catalog image** > **`...-sap-applications...`**</li><li>Windows Server for SAP NetWeaver workloads, select Windows Server</li></ul>. Choose an operating system version that is supported by SAP as documented in [SAP Note 2927211](https://me.sap.com/notes/2927211){: external} |
 | **Profile** |  Select one of the profiles that are outlined in [Bare Metal Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc) or [Bare Metal Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm-vpc). |
 | **SSH Key** | Select an existing public SSH key or click **New SSH key** to add a new one. You must specify at least one SSH key. SSH keys are used to securely connect to a running instance. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-| _Optional_: **User data** | You can add user data to automatically complete common configuration tasks or run scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
+| *Optional*: **User data** | You can add user data to automatically complete common configuration tasks or run scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
 | **Virtual private cloud** | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
 | **Network interfaces** | Assign networking options to connect into the {{site.data.keyword.cloud_notm}} VPC. You can create and assign multiple up to 8 PCI network interfaces and 128 VLAN interfaces on top of network interfaces. |
 {: caption="Bare metal server provisioning selections" caption-side="top"}
@@ -116,7 +116,7 @@ To add a new network interface to your Bare metal server for VPC instance, compl
 4.	Select the method for choosing an IP address for the new interface. Either select a dedicated or let {{site.data.keyword.cloud}} reserve it for you.
 5.	Select the security group that you want to associate with the network interface.
 6.	Choose, if you want to create a VLAN or a PCI interface. For a VLAN interface, a VLAN ID needs to be provided. Choose *PCI interface* in this case.
-7.	You can configure IPs as ‘floating’. For more information, see [Associating floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic) for more information on floating IPs.
+7.	You can configure IPs as ‘floating’. For more information, see [Associating floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#bare-metal-add-fips-to-nic) for more information on floating IPs.
 8.	Click **Create**.
 
 More information is shown on VPC Infrastructure - [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).

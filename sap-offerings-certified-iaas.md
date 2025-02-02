@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-12-09"
+  years: 2021, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -60,7 +60,7 @@ These servers are provisioned with your choice of operating system (OS) image th
 {{site.data.keyword.vpc_short}} Infrastructure is available for:
 * Intel Virtual Servers, based on the latest hardware designs with large improvements across networking performance (up to 80 Gbps), provision times (5x faster), and a flexible selection of extra features
 
-For more information about Virtual Servers on VPC Infrastructure, see [What is {{site.data.keyword.vpc_short}}?](https://www.ibm.com/cloud/learn/vpc){: external} and [{{site.data.keyword.cloud_notm}} Virtual Server for VPC](https://www.ibm.com/products/virtual-servers){: external} on ibm.com and [{{site.data.keyword.cloud_notm}} Intel Virtual Servers on VPC Infrastructure](/docs/vpc?topic=vpc-about-advanced-virtual-servers){: external} on {{site.data.keyword.cloud_notm}} Docs.
+For more information about Virtual Servers on VPC Infrastructure, see [What is {{site.data.keyword.vpc_short}}?](https://www.ibm.com/think/topics/vpc){: external} and [{{site.data.keyword.cloud_notm}} Virtual Server for VPC](https://www.ibm.com/products/virtual-servers){: external} on ibm.com and [{{site.data.keyword.cloud_notm}} Intel Virtual Servers on VPC Infrastructure](/docs/vpc?topic=vpc-about-advanced-virtual-servers){: external} on {{site.data.keyword.cloud_notm}} Docs.
 
 
 
@@ -159,7 +159,7 @@ See [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.co
 SAP HANA workloads that use {{site.data.keyword.IBM_notm}} Power Virtual Servers run on IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the data sheet below:
 
 **Data sheet:**
-- [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/cas/VX0AM0EP){: external}
+- [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/documents/us-en/10a99803f42fd831){: external}
 
 For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications-on-cloud).
 
@@ -172,8 +172,8 @@ See [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://m
 SAP NetWeaver and SAP AnyDB workloads that use {{site.data.keyword.IBM_notm}} Power Virtual Servers are run on IBM Power System S922 and IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the following data sheets:
 
 **Data sheets:**
-* [IBM Power System S922 (9009-22A)](https://www.ibm.com/downloads/cas/KQ4BOJ3N){: external}
-* [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/cas/VX0AM0EP){: external}
+* [IBM Power System S922 (9009-22A)](https://www.ibm.com/downloads/documents/us-en/107a02e959c8f4e8){: external}
+* [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/documents/us-en/10a99803f42fd831){: external}
 
 For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications-on-cloud).
 
@@ -190,7 +190,7 @@ In short, {{site.data.keyword.cloud_notm}} provides two levels of VMware, which 
 - **{{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated**, fully automated VMware SDDC setup and configuration
     - _includes optional BYOL and access to advanced VMware capabilities, such as VMware HCX for seamless bidirectional network extension and connection to existing VMware clusters on-premises_
 
-For more information about {{site.data.keyword.cloud_notm}} for VMware on Classic Infrastructure, see [{{site.data.keyword.cloud_notm}} for VMware](https://www.ibm.com/cloud/vmware){: external}. Additional information is available on:
+For more information about {{site.data.keyword.cloud_notm}} for VMware on Classic Infrastructure, see [{{site.data.keyword.cloud_notm}} for VMware](https://www.ibm.com/products/vmware){: external}. Additional information is available on:
 - [{{site.data.keyword.cloud_notm}} Intel Bare Metal and VMware vSphere (ESXi OS)](/docs/vmware?topic=vmware-about-vmware){: external} for the manual VMware setup and configuration
 - [{{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated](/docs/vmwaresolutions?topic=vmwaresolutions-inst_comp_chart){: external} for fully automated VMware SDDC setup and configuration
 
@@ -205,7 +205,7 @@ IBM treats your data with the same safeguards as our own, the security is built 
 
 [{{site.data.keyword.cloud_notm}} compliance programs](https://www.ibm.com/cloud/compliance){: external} provide compliance and trust certifications, which reaffirm IBM's commitment to protection of customer data and applications. These compliance programs are for regulations, standards, and frameworks across Global, Government, Industry, and Regional.
 
-More supplementary information to the {{site.data.keyword.cloud_notm}} compliance programs is available on [{{site.data.keyword.cloud_notm}} service offering descriptions and terms](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: external} which contain links to individual **"Data Processing and Protection data sheets"** for {{site.data.keyword.cloud_notm}} offerings.
+More supplementary information to the {{site.data.keyword.cloud_notm}} compliance programs is available on {{site.data.keyword.cloud_notm}} service offering descriptions and terms which contain links to individual **"Data Processing and Protection data sheets"** for {{site.data.keyword.cloud_notm}} offerings.
 
 Each {{site.data.keyword.ibm_cloud_sap}} offering uses different infrastructure configurations and approaches to providing the service and will therefore be certified independent of each other. These certifications can be checked on the previous links or clarified by contacting {{site.data.keyword.cloud_notm}} or your IBM representative. Following is a small extract from the full list of recognized compliance, certifications, attestations, or reports available across the various {{site.data.keyword.ibm_cloud_sap}} offerings:
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-05"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -215,7 +215,7 @@ Use the following steps to set up the network interface for your database server
 
 6. Click **Create** to be redirected to the Checkout page after your order is verified.
 
-You are redirected to a page with your order number. The page is your receipt; print the page for your records. You also receive a confirmation email with the subject _Your {{site.data.keyword.cloud_notm}} Order ## has been approved_. The ## is your order number.
+You are redirected to a page with your order number. The page is your receipt; print the page for your records. You also receive a confirmation email with the subject *Your {{site.data.keyword.cloud_notm}} Order ## has been approved*. The ## is your order number.
 
  Depending on your order, the server is available for use within one to four hours after the order is submitted. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../icons/icon-hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
 
@@ -370,7 +370,7 @@ External storage can be added to your provisioned server or servers. You can use
 {: step}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external} with your unique credentials.
-2. Expand the Menu icon ![Menu icon](../icons/icon.hamburger.svg) and select *Classic Infrastructure*.
+2. Expand the Menu icon ![Menu icon](../icons/icon_hamburger.svg) and select *Classic Infrastructure*.
 3. Select *Storage* > *Block Storage* > *Order Block Storage*.
 4. Select the specifics for your storage needs. Table 1 contains recommended values, including 10 IOPS/GB for a demanding database workload.
 
@@ -574,9 +574,9 @@ Log in to the [SAP Support Portal)](https://support.sap.com/en/index.html){: ext
 {: #prepare_for_GUI}
 {: step}
 
-Depending on your network bandwidth and latency, you might want to run the SAP Software Provisioning Manager (SWPM) graphical user interface (GUI) remotely in a virtual network computing (VNC) session. Another option is to have the GUI running locally and connect to SWPM on the target machine. Use the [SWPM documentation)](https://wiki.scn.sap.com/wiki/display/SL/Software+Provisioning+Manager+1.0+and+2.0){: external} if you decide to run the GUI locally.
+Depending on your network bandwidth and latency, you might want to run the SAP Software Provisioning Manager (SWPM) graphical user interface (GUI) remotely in a virtual network computing (VNC) session. Another option is to have the GUI running locally and connect to SWPM on the target machine. Use the [SWPM documentation)](https://help.sap.com/docs/SUPPORT_CONTENT/sl/3362916978.html){: external} if you decide to run the GUI locally.
 
-The following steps outline running the SWPM GUI remotely in a virtual network computing (VNC) session. This option installs a VNC server, which might not be inline with hardening your operating system; ensure that you are meeting your security measures. Refer to [VNC documentation](http://searchnetworking.techtarget.com/definition/virtual-network-computing){: external} for an overview on its functions if you are not familiar with it.
+The following steps outline running the SWPM GUI remotely in a virtual network computing (VNC) session. This option installs a VNC server, which might not be inline with hardening your operating system; ensure that you are meeting your security measures. Refer to [VNC documentation](https://www.techtarget.com/searchnetworking/definition/virtual-network-functions-VNF){: external} for an overview on its functions if you are not familiar with it.
 
 1. Use the following commands to install a VNC server.
 ```

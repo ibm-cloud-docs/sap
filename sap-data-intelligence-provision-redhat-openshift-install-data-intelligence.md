@@ -52,9 +52,9 @@ According to section [3.3.4.1. Label the compute nodes for SAP Data Intelligence
 1. Set the nodes' role.
 
     ```
-    $ oc label node/10.**********.177 node-role.kubernetes.io/sdi=""
-    $ oc label node/10.**********.182 node-role.kubernetes.io/sdi=""
-    $ oc label node/10.**********.185 node-role.kubernetes.io/sdi=""
+    oc label node/10.**********.177 node-role.kubernetes.io/sdi=""
+    oc label node/10.**********.182 node-role.kubernetes.io/sdi=""
+    oc label node/10.**********.185 node-role.kubernetes.io/sdi=""
     ```
 
 1. Check the nodes.
@@ -79,7 +79,7 @@ According to section [3.3.4.1. Label the compute nodes for SAP Data Intelligence
 ## Creating the related projects
 {: #rhos-di-create-sdi-projects}
 
-For deployment of SAP applications in cloud-based environments, SAP provides the Software Lifecycle Container Bridge 1.0 tool with the Maintenance Planner. In the following, we use the abbreviated tool name “SLC Bridge”. [Find more information on SAP's SLC Bridge here](https://help.sap.com/viewer/a8d90a56d61a49718ebcb5f65014bbe7/3.2.latest/en-US/0986e8da1d8f43379be9c7999f9ff280.html){: external}. Red Hat's SAP Data Intelligence (SDI) Observer, SLC Bridge and SDI runtime components require separate projects/namespaces for the related pods that will be deployed.
+For deployment of SAP applications in cloud-based environments, SAP provides the Software Lifecycle Container Bridge 1.0 tool with the Maintenance Planner. In the following, we use the abbreviated tool name “SLC Bridge”. [Find more information on SAP's SLC Bridge here](https://help.sap.com/docs/SAP_DATA_INTELLIGENCE_ON-PREMISE/a8d90a56d61a49718ebcb5f65014bbe7/0986e8da1d8f43379be9c7999f9ff280.html?version=3.2.18){: external}. Red Hat's SAP Data Intelligence (SDI) Observer, SLC Bridge and SDI runtime components require separate projects/namespaces for the related pods that will be deployed.
 {: shortdesc}
 
 In the RHA, the sample project names (i.e. namespaces) are `sdi`, `sdi-observer` and `sap-slcbridge`. Following these naming conventions of the Red Hat    article, create the related projects as follows.
@@ -87,9 +87,9 @@ In the RHA, the sample project names (i.e. namespaces) are `sdi`, `sdi-observer`
 1. Create the projects
 
     ```
-    $ oc new-project sdi-observer
-    $ oc new-project sap-slcbridge
-    $ oc new-project sdi
+    oc new-project sdi-observer
+    oc new-project sap-slcbridge
+    oc new-project sdi
     ```
 
 ## Deploying Red Hat's SAP Data Intelligence (SDI) Observer
@@ -147,7 +147,7 @@ The worker nodes need be configured to grant proper execution of SAP Data Intell
     ```
     {: pre}
 
- 1. Copy the template from GitHub:
+1. Copy the template from GitHub:
     ```
     curl -O https://raw.githubusercontent.com/redhat-sap/sap-data-intelligence/master/node-configurator/ocp-template.json
     ```
@@ -302,7 +302,7 @@ This URL will be required later to launch the SDI installation - https://HOSTNAM
 ## SAP Data Intelligence installation via running the SAP Maintenance Planner
 {: #rhos-di-run-install-di}
 
-Review SAP documentation about the installation setup - [Install SAP Data Intelligence with SLC Bridge](https://help.sap.com/viewer/a8d90a56d61a49718ebcb5f65014bbe7/3.2.latest/en-US/7e4847e241c340b3a3c50a5db11b46e2.html){: external}.
+Review SAP documentation about the installation setup - [Install SAP Data Intelligence with SLC Bridge](https://help.sap.com/docs/SAP_DATA_INTELLIGENCE_ON-PREMISE/a8d90a56d61a49718ebcb5f65014bbe7/7e4847e241c340b3a3c50a5db11b46e2.html?version=3.2.18){: external}.
 
 Before installing SAP Data Intelligence you need to review the Red Hat article and do these steps:
 * [(RHA) 5.3. Project setup](https://access.redhat.com/articles/5100521#project-setup){: external}
@@ -393,4 +393,4 @@ The installation and the initialization of all pods may take a while to complete
 ### Final Step
 {: #rhos-di-final-step}
 
-[Testing your installation](https://help.sap.com/viewer/a8d90a56d61a49718ebcb5f65014bbe7/3.1.latest/en-US/1551785f3d7e4d37af7fe99185f7acb6.html){: external}.
+[Testing your installation](https://help.sap.com/docs/SAP_DATA_INTELLIGENCE_ON-PREMISE/a8d90a56d61a49718ebcb5f65014bbe7/1551785f3d7e4d37af7fe99185f7acb6.html?version=3.1.12){: external}.
