@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-12"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -295,8 +295,8 @@ For more information on system replication, and network throughput and latency, 
 For more information on setting up the HA cluster extensions of the OS, view the Linux vendor documentation.
 
 SUSE Linux Enterprise Server for SAP:
-- [SAP HANA System Replication Scale-Up - Performance Optimized Scenario](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html){: external}
-- [SUSE Linux Enterprise High Availability Extension](https://documentation.suse.com/sle-ha/){: external}
+- [SAP HANA System Replication Scale-Up - Performance Optimized Scenario](https://documentation.suse.com/sbp/sap-12/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html){: external}
+- [SUSE Linux Enterprise High Availability Extension](https://documentation.suse.com/sle-ha/15-SP6/){: external}
 
 Red Hat Enterprise Linux for SAP:
 - [Supported HA Scenarios for SAP HANA, SAP S/4HANA, and SAP NetWeaver](https://access.redhat.com/articles/4079981){: external}

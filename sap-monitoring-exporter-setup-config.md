@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, 2024
-lastupdated: "2024-12-03"
+  years: 2024, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP Monitoring, {{site.data.keyword.cloud_notm}}, SAP Workloads
 
@@ -293,7 +293,7 @@ The GitHub repository and original documentation can be found at the following w
 
 * [Hanadb exporter](https://github.com/SUSE/hanadb_exporter){: external}
 * [SAP monitoring](https://documentation.suse.com/sles-sap/15-SP4/pdf/article-sap-monitoring_en.pdf){: external}
-* [Hanadb exporter metrics](https://github.com/SUSE/hanadb_exporter/blob/master/metrics.json){: external}
+* [Hanadb exporter metrics](https://github.com/SUSE/hanadb_exporter/blob/main/metrics.json){: external}
 
 The configuration consists of two configuration files:
 

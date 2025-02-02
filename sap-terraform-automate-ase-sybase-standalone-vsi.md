@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2024
-lastupdated: "2024-12-09"
+years: 2025
+lastupdated: "2025-02-02"
 
 subcollection: sap
 
@@ -124,7 +124,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 
 *	Log in to your Deployment Server and verify that Terraform and Ansible are installed.
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md){: external} file.
-*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key&interface=ui). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
+*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
 ## Procedure
@@ -135,9 +135,9 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 2.	Clone the GitHub repository from https://github.com/IBM-Cloud/sap-ase-db and go to the `sap-ase-db` folder.
 
     ```shell
-	$ git clone https://github.com/IBM-Cloud/sap-ase-db.git
+	git clone https://github.com/IBM-Cloud/sap-ase-db.git
 
-	$ cd sap-ase-db
+	cd sap-ase-db
     ```
 
 3.	Customize the values for VPC variable resources according to your existing VPC data. Your options can be specified by updating `input.auto.tfvars` file. You need a 40-digit SSH key ID for the deployment. Additional SSH key IDs are optional.
@@ -313,7 +313,7 @@ If you need to remove the resources created with the automation for your SAP sol
 ## Related information
 {: #automate-ase-sybase-standalone-vsi-related}
 
-For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on IBM Cloud getting started tutorial](https://test.cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
+For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on IBM Cloud getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
 
 For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier VPC for SAP on IBM Cloud® VPC with Terraform](https://test.cloud.ibm.com/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap){: external}.
 

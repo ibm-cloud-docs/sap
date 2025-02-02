@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-09"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -67,10 +67,10 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 1. Click **Create**.
 1. Enter a unique **Name** for the VPC, for example, *sap-test-vpc*.
 1. Select a **Resource group**. Use resource groups to organize your account resources for access control and billing purposes. **Leave the value default**.
-1. _Optional: Tags_. Enter tags to help you organize and find your resources. For example, *sap quick guide*.
+1. *Optional: Tags*. Enter tags to help you organize and find your resources. For example, *sap quick guide*.
 1. Select whether the **Default security group** allows inbound SSH and ping traffic to VSIs in this VPC. **Leave the value default**.
-1. _Optional: Classic access_. Select whether you want to enable your VPC to access classic infrastructure resources. **Leave the value default**.
-1. _Optional: Default address prefixes_. If you do disable this option, the **New subnet for VPC** section will be hidden, and will require manual definition after the VPC is created. **Leave the value default**.
+1. *Optional: Classic access*. Select whether you want to enable your VPC to access classic infrastructure resources. **Leave the value default**.
+1. *Optional: Default address prefixes*. If you do disable this option, the **New subnet for VPC** section will be hidden, and will require manual definition after the VPC is created. **Leave the value default**.
 
 ### New subnet for VPC
 {: #vs-new-subnet-for-vpc-wins}
@@ -83,7 +83,7 @@ You use security groups to restrict access to and from IP ranges, protocols, and
     {: tip}
 
 1. Enter an **Address prefix**, **Number of addresses**, and an **IP range** for the subnet. **Leave the value default**.
-1. _Optional: Public gateway_. **Leave the value default**.
+1. *Optional: Public gateway*. **Leave the value default**.
 1. Click **Create virtual private cloud** on the right.
 
 ## Creating a Virtual Server Instance
@@ -100,9 +100,9 @@ Use the following steps to create a virtual server instance.
 
 1. Select the **Virtual private cloud** in which to attach the VSI, for example, *sap-test-vpc*.
 1. Keep the **Resource group** default.
-1. _Optional: Tags_. For example, *sap quick guide*.
+1. *Optional: Tags*. For example, *sap quick guide*.
 1. Leave the selected **Location** in which you created your subnet
-1. Select **Windows Server** > **_2016 Standard Edition_** as the _Operating System_.
+1. Select **Windows Server** > ***2016 Standard Edition*** as the *Operating System*.
 1. Click **All profiles** > **Balanced** and select *bx2-32x128*.
 
 For more information about SAP-certified profiles, see [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
@@ -118,11 +118,11 @@ Otherwise, follow these steps.
 1. Enter a unique **Name**, for example, *sap-ssh-key*.
 1. Keep the default **Resource group**.
 1. The **Region** in which you created your subnets is already selected.
-1. _Optional: Tags_. For example, *sap quick guide*.
+1. *Optional: Tags*. For example, *sap quick guide*.
 2. Paste the **Public key**, that you created according to [the guidelines mentioned in Securing Access](#quickstudy-vs-gen2-netweaver-wins-secure-access).
 3. Click **Add SSH key**.
 
-4. _Optional: User data_. Leave blank.
+4. *Optional: User data*. Leave blank.
 
 ### Attaching a block storage volume
 {: #attach-block-wins}
@@ -146,11 +146,11 @@ To have file system space available beyond what is required by the operating sys
 {: #connect-to-virtual-server-wins}
 {: step}
 
-To be able to connect to the Windows VSI from your client, you need the *Administrator* password and a public IP address. The password is retrieved by the {{site.data.keyword.cloud_notm}} command-line interface (CLI) whereas the public IP address - it is called _Floating IP_ - can be created with the {{site.data.keyword.cloud_notm}} console.
+To be able to connect to the Windows VSI from your client, you need the *Administrator* password and a public IP address. The password is retrieved by the {{site.data.keyword.cloud_notm}} command-line interface (CLI) whereas the public IP address - it is called *Floating IP* - can be created with the {{site.data.keyword.cloud_notm}} console.
 
 ### Install CLI
 
-Before you can use the CLI to retrieve the *Administrator* password, you must [install the IBM Cloud CLI](/docs/cli?topic=cli-getting-started) and [the VPC CLI plug-in](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup &interface=cli).
+Before you can use the CLI to retrieve the *Administrator* password, you must [install the IBM Cloud CLI](/docs/cli?topic=cli-getting-started) and [the VPC CLI plug-in](/docs/vpc?topic=vpc-set-up-environment&interface=cli#cli-prerequisites-setup).
 
 ### Connect to {{site.data.keyword.cloud_notm}} with the CLI
 
@@ -200,7 +200,7 @@ Take note of the password.
 
 ### Set the floating IP
 
-To quickly access the deployed instance, you can assign a _Floating IP_ to your VSI. To add this IP to your server, complete the following steps:
+To quickly access the deployed instance, you can assign a *Floating IP* to your VSI. To add this IP to your server, complete the following steps:
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 1. Click the name of the Windows VSI - *sap-wdb*.
@@ -209,7 +209,7 @@ To quickly access the deployed instance, you can assign a _Floating IP_ to your 
 1. Click the pencil icon to edit the primary network interface.
 1. On the **Edit network interface** page, locate the **Floating IP address** field. You can select **Reserve a new floating IP** or you can select an existing floating IP address.
 1. After you make your selection, click **Save**.
-1. You might note the _Floating IP address_ or back in the **virtual server instances list** you can click it and copy it into the clipboard.
+1. You might note the *Floating IP address* or back in the **virtual server instances list** you can click it and copy it into the clipboard.
 
 You can now log in to the virtual instance and begin preparing it for the SAP NetWeaver workload installation.
 
@@ -269,7 +269,7 @@ Your next step is to [download and install your SAP software and applications](#
 
 A more complex scenario involves installing two virtual servers. One server is the SAP NetWeaver Application Server (*sap-wapp*) and the other server (*sap-wdb*) is the database server for SAP NetWeaver. You can reuse the server *sap-wdb* that you provisioned in the previous sections and create the application server *sap-wapp* as described in sections [Creating a Virtual Server Instance](#new-vrtual-server-wins) and [Attaching a block storage volume](#attach-block-wins) previously, except that you use the **Balanced profile** *bx2-8x32* and *20* as **Size** for data volume *sap-app-vol*.  Also, follow the steps to retrieve the *Administrator* password of the new VSI.
 
-Both VSIs have one extra attached volume and a _Floating IP_. A smaller volume is attached to *sap-wapp*, which is the SAP primary application server (PAS). *sap-wdb* has a larger volume to host the RDBMS and the SAP Central Services (ASCS) instance.
+Both VSIs have one extra attached volume and a *Floating IP*. A smaller volume is attached to *sap-wapp*, which is the SAP primary application server (PAS). *sap-wdb* has a larger volume to host the RDBMS and the SAP Central Services (ASCS) instance.
 
 
 

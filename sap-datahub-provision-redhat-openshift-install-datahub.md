@@ -185,7 +185,7 @@ The command line parameters provide {{site.data.keyword.cloud_notm}} specific in
  The default domain for {{site.data.keyword.openshiftlong}} clusters on {{site.data.keyword.cloud_notm}} is `<region>.containers.cloud.ibm.com`. You can see your region with the command `oc project`.
  {: note}
 
-For more information about command-line parameters, see [Command-Line Parameters of the SAP Data Hub Installer](https://help.sap.com/viewer/e66c399612e84a83a8abe97c0eeb443a/2.7.latest/en-US/fe5f71216f0e465c929e93ecd48e5a14.html){: external}.
+For more information about command-line parameters, see [Command-Line Parameters of the SAP Data Hub Installer](https://help.sap.com/docs/SAP_DATA_HUB/e66c399612e84a83a8abe97c0eeb443a/fe5f71216f0e465c929e93ecd48e5a14.html){: external}.
 
 ### SAP Data Hub installation
 {: #rhos-run-install-sh-manually}
@@ -232,7 +232,7 @@ Use the following commands to provide the modeler's access credentials to the {{
     ```
     {: pre}
 
-2. Follow the instructions in [Provide Access Credentials for a Password Protected Container Registry](https://help.sap.com/viewer/e66c399612e84a83a8abe97c0eeb443a/2.7.latest/en-US/a1cbbc0acc834c0cbbe443f2e0d63ab9.html){: external}. Be sure to use the following parameters, including pasting the copied API key into the **password** field.
+2. Follow the instructions in [Provide Access Credentials for a Password Protected Container Registry](https://help.sap.com/docs/SAP_DATA_HUB/e66c399612e84a83a8abe97c0eeb443a/a1cbbc0acc834c0cbbe443f2e0d63ab9.html){: external}. Be sure to use the following parameters, including pasting the copied API key into the **password** field.
 
     ```
     cat >/tmp/vsystem-registry-secret.txt <<EOF
@@ -245,4 +245,4 @@ Use the following commands to provide the modeler's access credentials to the {{
 ### Final Step
 {: #rhos-next-steps-provide-credentials}
 
-[Testing your installation](https://help.sap.com/viewer/e66c399612e84a83a8abe97c0eeb443a/2.7.latest/en-US/1551785f3d7e4d37af7fe99185f7acb6.html){: external}.
+[Testing your installation](https://help.sap.com/docs/SAP_DATA_HUB/e66c399612e84a83a8abe97c0eeb443a/1551785f3d7e4d37af7fe99185f7acb6.html){: external}.

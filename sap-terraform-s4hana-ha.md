@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-06"
+  years: 2023, 2025
+lastupdated: "2025-02-02"
 
 subcollection: sap
 
@@ -117,7 +117,7 @@ It is your responsibility to download the necessary SAP and DB kits to your Depl
 {: #automate-s4hana-ha-terraform-deployment}
 {: terraform}
 
-The automation scripts from the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha) can be executed by running the Terraform scripts in CLI, from the bastion server (deployment server).
+The automation scripts from the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-ha) can be executed by running the Terraform scripts in CLI, from the bastion server (deployment server).
 
 Edit the input parameter file `input.auto.tfvars`, and modify the variables to match your solution:
 *    VPC - An existing VPC name
@@ -139,7 +139,7 @@ Edit the input parameter file `input.auto.tfvars`, and modify the variables to m
 {: #automate-s4hana-ha-schematics-deployment}
 {: ui}
 
-{{site.data.keyword.bpshort}} user interface is used on the {{site.data.keyword.cloud_notm}}. Enter the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha){: external} for SAP S/4HANA High Availability on single zone {{site.data.keyword.bpshort}}.
+{{site.data.keyword.bpshort}} user interface is used on the {{site.data.keyword.cloud_notm}}. Enter the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-ha){: external} for SAP S/4HANA High Availability on single zone {{site.data.keyword.bpshort}}.
 
 When you run the scripts with the {{site.data.keyword.bpshort}} interface, you:
 
@@ -180,7 +180,7 @@ Before you deploy SAP S/4HANA High Availability on Single Zone or Multi Zone:
 * The automation for this deployment requires {{site.data.keyword.cloud_notm}} File Storage for VPC to complete successfully. {{site.data.keyword.cloud_notm}} File Storage for VPC is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative to get access. For more information, see [{{site.data.keyword.cloud_notm}} File Storage for VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-file-storage-vpc-about){: external}.
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 * If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
-* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the Readme file in the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-sz-ha){: external} and on the About page for the catalog tile.
+* Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the Readme file in the [GitHub repository](https://github.com/IBM-Cloud/sap-s4hana-ha){: external} and on the About page for the catalog tile.
 * [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 * [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 * (Optional - catalog tile) create secrets for your credentials and passwords by using the [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui). {: ui}
@@ -202,7 +202,7 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
 
     ```
 
-3. Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options on images, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [readme file](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md){: external}.
+3. Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options on images, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [readme file](https://github.com/IBM-Cloud/sap-s4hana-ha/blob/main/README.md){: external}.
 
     ```terraform
     ##########################################################
@@ -341,7 +341,7 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     # Example: APP_IMAGE = "ibm-redhat-8-4-amd64-sap-hana-10"
     ```
 
-4. Customize your SAP system configuration. In the same `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme file](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md){: external}.
+4. Customize your SAP system configuration. In the same `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [readme file](https://github.com/IBM-Cloud/sap-s4hana-ha/blob/main/README.md){: external}.
 
     ```terraform
     ##########################################################
@@ -421,7 +421,7 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     KIT_S4HANA_EXPORT = "/storage/S4HANA/2023"
     ```
 
-    Ansible decompresses the rest of the SAP kit files. For more information, see the [readme file](https://github.com/IBM-Cloud/sap-s4hana-sz-ha/blob/main/README.md){: external}.
+    Ansible decompresses the rest of the SAP kit files. For more information, see the [readme file](https://github.com/IBM-Cloud/sap-s4hana-ha/blob/main/README.md){: external}.
     {: note}
 
 5. Initialize the Terraform CLI.
@@ -546,7 +546,7 @@ Use these steps to configure the SAP S/4HANA High Availability on Single Zone on
 1.	From the {{site.data.keyword.cloud_notm}} menu, select **{{site.data.keyword.bpshort}}**.
 2.	Click **Create workspace**.
 3.	On the **Specify template** page:
-    *   Enter the [GitHub repository URL](https://github.com/IBM-Cloud/sap-s4hana-sz-ha){: external} that contains the {{site.data.keyword.bpshort}} code for this offering.
+    *   Enter the [GitHub repository URL](https://github.com/IBM-Cloud/sap-s4hana-ha){: external} that contains the {{site.data.keyword.bpshort}} code for this offering.
     *   Select the **Terraform version**.
     *   Click **Next**.
 4.	On the **Workspace details** page:

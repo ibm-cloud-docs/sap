@@ -32,7 +32,7 @@ completion-time: 90m
 **_INCOMPLETE: This page only appears in Test/Staging, it is not complete or ready to be published_**
 {: important}
 
-*A Quick Study, someone who is able to learn new things quickly.*
+_A Quick Study, someone who is able to learn new things quickly._
 {: note}
 
 These Quick Study Tutorials provide a single sample configuration, with less detailed instructions, as an introduction for customers who prefer hands-on tasks to increase their pace of learning.
@@ -352,6 +352,7 @@ You can run the following command to check whether the filesets are available:
 ```
 lslpp -l |egrep -w 'bos.adt.base|bos.perf.libperfstat|bos.adt.lib| bos.adt.libm|bos.perf.perfstat|bos.perf.proctools'
 ```
+
 ### SAP MaxDB
 {: #requirements_for_sap_maxdb}
 
@@ -626,7 +627,7 @@ The following links will assist you in the installation and configuration of you
 | [2679703 - Linux on {{site.data.keyword.IBM_notm}} Power Systems -- SAP monitoring recommendations](https://launchpad.support.sap.com/#/notes/2679703){: external}                                               | SAP monitoring recommendations                   |
 | [2578899 - SUSE Linux Enterprise Server 15: Installation Note](https://launchpad.support.sap.com/#/notes/2578899){: external}                                                         | SLES 15 installation note                        |
 | [1275776 - Linux: Preparing SLES for SAP environments](https://launchpad.support.sap.com/#/notes/1275776){: external}                                                                 | Preparing SLES for SAP environments              |
-| [SUSE Best Practices Library](https://documentation.suse.com/sbp/all/?context=sles-sap){: external}                                                                                   | A useful collection of SUSE documentation        |
+| [SUSE Best Practices Library](https://documentation.suse.com/sbp/sap-15/){: external}                                                                                   | A useful collection of SUSE documentation        |
 | [187864 - Linux: Locale Support on Linux](https://launchpad.support.sap.com/#/notes/187864){: external}                                                                               | Locale support for Linux                         |
 | [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://community.sap.com/topics/linux/sap-on-ibm-power-systems-on-linux){: external}                                       | News about SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux                 |
 | [Technical Resource for SAP Business Applications on Red Hat](https://blogs.sap.com/2013/02/28/technical-resources-for-sap-business-applications-on-red-hat/){: external}  | A useful collection of links for SAP and Redhat  |

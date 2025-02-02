@@ -39,7 +39,7 @@ As a best practice for SAP that runs on {{site.data.keyword.powerSysFull}}, thre
 
 Access host is a **mandatory** component in the SAP on {{site.data.keyword.powerSys_notm}} best practices. By this virtual server instance, the floating IP address is activated. You can then log in to the environment by using SSH. You need to set up a VPN access as a separate step and disable the floating IP address for a more secure environment. Use the following steps to deploy the access host.
 
-1. Create a security group for management services. For more information, see [Configuring the security group for the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group). Specify following rules.
+1. Create a security group for management services. For more information, see [Configuring the security group for the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group-step). Specify following rules.
 
     |**Protocol**       |**Source type**|**Source**   |**Value** |**Rule's purpose**                                     |
     |-------------------|---------------|-------------|----------|-------------------------------------------------------|
@@ -129,7 +129,7 @@ Host for internet services is a mandatory component in the SAP on {{site.data.ke
 The following example setup uses open ports for standard SQUID proxy server that is provided by Linux distributions. If you use another proxy software or custom configurations, setup might vary.
 {: note}
 
-1. Create a security group for basic management services as described [Configuring the security group for the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group). Specify following rules:
+1. Create a security group for basic management services as described [Configuring the security group for the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group-step). Specify following rules:
 
 
     |**Protocol**       |**Source type**|**Source**   |**Value**     |**Rule's purpose**                                     |
@@ -211,7 +211,7 @@ Host for workload services is a **mandatory** component in the SAP on IBM Power 
 By the using the following setup, we open ports for standard widely used management components: NFS service provided by Linux distributions, NTP service over 'chrony', DNS service over 'bind' and open LDAP. If you use another software solutions or custom configurations, set up might vary.
 {: note}
 
-1. Create a security group for private services. For more information, see [Configuring the security group for the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group). Specify following rules:
+1. Create a security group for private services. For more information, see [Configuring the security group for the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group-step). Specify following rules:
 
     |**Protocol**       |**Source type**|**Source**   |**Value**     |**Rule's purpose**                                     |
     |-------------------|---------------|-------------|--------------|-------------------------------------------------------|

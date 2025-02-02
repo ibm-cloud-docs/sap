@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-09"
+  years: 2023, 2025
+lastupdated: "2025-02-02"
 
 subcollection: sap
 
@@ -110,7 +110,7 @@ This solution is applied on existing VSIs with SAP HANA deployed in an existing 
 * https://github.com/IBM-Cloud/sap-s4hana
 * https://github.com/IBM-Cloud/sap-bw4hana
 * https://github.com/IBM-Cloud/sap-netweaver-abap-hana
-* https://github.com/IBM-Cloud/sap-s4hana-sz-ha
+* https://github.com/IBM-Cloud/sap-s4hana-ha
 
 ## Before you begin
 {: #sap-hana-db-backup-cos-before}
@@ -226,7 +226,7 @@ You need the following to get started with {{site.data.keyword.cloud_notm}} Obje
 *	Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](https://cloud.ibm.com/docs/account?topic=account-accountfaqs#changeacct){: external}.
 *	Create a deployment server (bastion server) to store the SAP kits. For more information, see the [Automate SAP bastion server - SAP media storage repository](https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file.
-*	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key&interface=ui){: external}. The API key is used to authenticate with the create or retrieve your SSH key ID.
+*	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key&interface=ui){: external}. The API key is used to authenticate with the create or retrieve your SSH key ID.
 *	Log in to the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *	Terraform should be already installed on the deployment server (bastion server) that you deployed. For more information, see the [Bastion server for SAP deployment](https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}.
 *	Before using "HANA db backup to Cloud Object Storage" automation module the HANA database instance(s) should be installed on the specified VPC in your {{site.data.keyword.cloud_notm}} account.

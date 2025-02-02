@@ -1,11 +1,8 @@
 ---
-
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-16"
-
+  years: 2023, 2025
+lastupdated: "2025-02-02"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
-
 subcollection: sap
 
 ---
@@ -43,13 +40,13 @@ Follow [Configuring a private network subnet](https://cloud.ibm.com/docs/power-i
 It is recommended to perform a memory sizing of SAP applications before deploying them on {{site.data.keyword.powerSys_notm}} instances.
 See the [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing) and [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
 
-Before deploying of {{site.data.keyword.powerSys_notm}} instances, you shopuld be aware of the various options for choosing an operating system (OS) image, that is based on a subscription.
+Before deploying of {{site.data.keyword.powerSys_notm}} instances, you should be aware of the various options for choosing an operating system (OS) image, that is based on a subscription.
 The available subscription alternatives are:
 
 * **IBM provided subscription**, where {{site.data.keyword.cloud}} provides a full subscription to IBM stock OS images, such as RHEL and SLES, Linux&reg; for SAP applications (RHEL and SLES for SAP workloads), AIX, and IBM i.
 
 * **Client supplied subscription**, where you use your own subscription with IBM stock OS images or custom images.
-   This feature is called "Bring Your Own Licence" (BYOL).
+   This feature is called "Bring Your Own License" (BYOL).
    Custom images are imported by users as boot images into {{site.data.keyword.powerSys_notm}}.
    Therefore, if you plan to use your own subscription, select the OS image that has a suffix of -BYOL under the "Client supplied subscription" when deploying Power Virtual Server instances in the step [Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP HANA](#power-vs-set-up-power-hana-instance).
 
@@ -62,7 +59,7 @@ More details about the subscription for RHEL and SLES could be found in [Using R
 
 * Linux&reg; for SAP HANA: Red Hat Enterprise Linux for SAP HANA and SUSE Linux Enterprise Server for SAP HANA. The images have a `SAP` suffix.
 
-* Linux&reg; for SAP application server (NetWeaver): Red Hat Enterprise Linux for SAP NetWeaver and SUSE Linux Enterprise Server for SAP NetWeaver. The images have a `NETWEAVER` suffixe.
+* Linux&reg; for SAP application server (NetWeaver): Red Hat Enterprise Linux for SAP NetWeaver and SUSE Linux Enterprise Server for SAP NetWeaver. The images have a `NETWEAVER` suffix.
 
 Pay attention to the choice of operating system.
 Linux&reg; OS is not the same as Linux&reg; for SAP applications.
@@ -83,6 +80,7 @@ To create a new instance, click **Create instance** on the right side.
 Complete the following steps:
 
 1. In the **General** section, make the following selections:
+
    | Field | Details |
    | ----- | ------- |
    | Instance name | Enter a unique name for the instance. |
@@ -94,6 +92,7 @@ Complete the following steps:
    {: caption="Table 1. SAP HANA general selections" caption-side="top"}
 
 2. In the **Boot image** section, make the following selections:
+
    | Field | Details |
    | ----- | ------- |
    | Operating system | Select the IBM provided subscription 'Linux for SAP (HANA)'. See the explanation of differences in the section [Deploying {{site.data.keyword.powerSys_notm}} instances for SAP on {{site.data.keyword.cloud}}](#power-vs-memory-sizing-and-subscription-concepts) |
@@ -175,7 +174,7 @@ In accordance with the SAP sizing guidelines, you should add the following volum
 
 For more information, see [Block Storage for VPC profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers){: external}.
 
-Contiune with the configuration of {{site.data.keyword.powerSys_notm}} instances for SAP applications, which can be done by manual or automated setup. 
+Continue with the configuration of {{site.data.keyword.powerSys_notm}} instances for SAP applications, which can be done by manual or automated setup. 
 You can choose one of the following setup sections:
 
 * [Configuring {{site.data.keyword.powerSys_notm}} instances manually](#power-vs-set-up-powervs-manually-os-config).

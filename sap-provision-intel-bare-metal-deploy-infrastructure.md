@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-19"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -82,7 +82,7 @@ You cannot change the local storage when you have selected an SAP HANA appliance
 [Getting started with Block Storage](/docs/BlockStorage?topic=BlockStorage-getting-started) and [Getting started with File Storage](/docs/FileStorage?topic=FileStorage-getting-started) provides you with provisioning considerations, how to submit your order (if you didn't order when you originally provisioned your server), and connecting to and managing your new storage.
 
 Use the following links to learn more about {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_full_notm}}:
-* [Learn about {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/topics/block-storage){: external}
+* [Learn about {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/think/topics/block-storage){: external}
 * [Learn about {{site.data.keyword.filestorage_full_notm}}](/docs/FileStorage)
 
 Provisioning steps can be found under
@@ -111,7 +111,7 @@ Make sure that your name resolution reflects the internal and external addresses
 
 6. Click **Create** to be redirected to the Checkout page after your order has been verified.
 
-You are redirected to a page with your order number. You can print the page, because it's your receipt. A confirmation email with the subject Your _{{site.data.keyword.cloud_notm}} Order ## has been approved_ is be sent to the email address in your profile. This email is notice that your server has been approved and is in the process of being deployed. After it is deployed, another notice is sent notifying you that the server is available and can be managed through the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Classic Infrastructure > Device List) for a status of the provisioning steps. Click the **Device Name** that matches your device's Hostname and Domain to see its status.
+You are redirected to a page with your order number. You can print the page, because it's your receipt. A confirmation email with the subject Your *{{site.data.keyword.cloud_notm}} Order ## has been approved* is be sent to the email address in your profile. This email is notice that your server has been approved and is in the process of being deployed. After it is deployed, another notice is sent notifying you that the server is available and can be managed through the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Classic Infrastructure > Device List) for a status of the provisioning steps. Click the **Device Name** that matches your device's Hostname and Domain to see its status.
 
 
 ## Readying your Operating System

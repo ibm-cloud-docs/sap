@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-12"
+  years: 2020, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -66,8 +66,8 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
-1. Open the independent [IBM Cloud for VMware Solutions console](https://cloud.ibm.com/infrastructure/vmware-solutions/console){: external} using either the shortcut in the Navigation menu or by using search to access using the IBM Cloud catalog.
-1. The [IBM Cloud for VMware Solutions console](https://cloud.ibm.com/infrastructure/vmware-solutions/console){: external} provides significant additional information and a wide range of options. To start provisioning for SAP, select **IBM Cloud for VMware Solutions Dedicated** which opens the order page.
+1. Open the independent [IBM Cloud for VMware Solutions console](https://cloud.ibm.com/vmware){: external} using either the shortcut in the Navigation menu or by using search to access using the IBM Cloud catalog.
+1. The [IBM Cloud for VMware Solutions console](https://cloud.ibm.com/vmware){: external} provides significant additional information and a wide range of options. To start provisioning for SAP, select **IBM Cloud for VMware Solutions Dedicated** which opens the order page.
 1. The default solution type is **vCenter Server**.
 1. The default deployment topology is **Deployment in single-zone region**. This option applies to SAP certification. Do not select **Stretched cluster**.
 1. The default instance configuration is set to **(New configuration)**. This option applies to SAP certification. Do not select on any of the other configurations.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-11"
+  years: 2022, 2025
+lastupdated: "2025-02-02"
 
 subcollection: sap
 
@@ -137,7 +137,7 @@ The virtual server instance is configured with:
 *	Set up your account to access the VPC. Make sure that your account is upgraded to a [paid account](/docs/account?topic=account-upgrading-account).
 *   If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the readme file.
-*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key&interface=ui). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
+*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
 During configuration you can specify an existing VPC to use, instead of creating a new VPC.
@@ -259,9 +259,9 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
 2.	Clone the terraform and ansbile folders and readme file from https://github.com/IBM-Cloud/sap-bw4hana/tree/main
 
 
-	    $ git clone https://github.com/IBM-Cloud/sap-bw4hana.git
+	    git clone https://github.com/IBM-Cloud/sap-bw4hana.git
 
-	    $ cd sap-bw4hana/
+	    cd sap-bw4hana/
 
 3.	Edit the input parameter file, `input.auto.tfvars`, and modify the variables to match your solution. The file is preset with the minimal recommended disk sizes. For using an existing VPC, you must modify:
 

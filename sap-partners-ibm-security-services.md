@@ -43,13 +43,13 @@ Through continuous monitoring, IBM Security Services are able to deliver near re
 * Prescriptive best practices for solution implementation by using {{site.data.keyword.cloud_notm}} Services products and features
 * Rapid learning and risk mitigation through access to {{site.data.keyword.cloud_notm}} experts
 
-For more information, see [IBM.com - IBM Security - SAP Security and GRC Strategy Services](https://www.ibm.com/security/services/security-governance/sap-grc-strategy){: external}
+For more information, see [IBM.com - IBM Security - SAP Security and GRC Strategy Services](https://www.ibm.com/services/sap-security){: external}
 
 ## Procedure to request IBM Security Services for SAP
 {: #ibm-security-services-request}
 
 To begin with IBM Security Services for SAP, use either:
-- Live Chat with IBM Security Sales, by using [IBM.com - IBM Security](https://www.ibm.com/security/services/security-governance/sap-grc-strategy){: external} and click `Let's talk` in the botttom-left
+- Live Chat with IBM Security Sales, by using [IBM.com - IBM Security](https://www.ibm.com/services/sap-security){: external} and click `Let's talk` in the botttom-left
 - [Email with IBM Security Sales](https://www.ibm.com/account/reg/us-en/signup?formid=MAIL-security){: external}
 
 
@@ -62,4 +62,3 @@ Because of the close collaboration between IBM Cloud for VMware with SAP and IBM
 2. On the **IBM Security Services for SAP** page, in the **Engage IBM Security Services** box, provide the requested details, and click **Request a consultation**.
 
     An {{site.data.keyword.vmwaresolutions_short}} representative will contact you by using your {{site.data.keyword.cloud_notm}} contact information to help you with the solution that you need.
-

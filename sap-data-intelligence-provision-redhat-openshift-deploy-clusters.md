@@ -29,7 +29,7 @@ This topic takes you through the steps for creating the {{site.data.keyword.open
 ## Before you begin
 {: #rhos-di-before-you-begin}
 
-When you create the {{site.data.keyword.openshiftshort}} cluster, it is important that the flavor meets SAP's sizing recommendations and your expected workload characteristics, as well as the expected data volumes. The following implementation scenario is based on [Minimum Sizing for SAP Data Intelligence](https://help.sap.com/viewer/835f1e8d0dde4954ba0f451a9d4b5f10/latest/en-US/d771891d749d425ba92603ec9b0084a8.html){: external} and therefore is appropriate for a very basic test environment, only. When planning to setup and deploy a production cluster you must carefully consult the [Sizing Guide for SAP Data Intelligence](https://help.sap.com/viewer/835f1e8d0dde4954ba0f451a9d4b5f10/latest/en-US/633d429ff69441ae81fe57d912397903.html){: external} and adapt the flavors that will meet your specific needs. Before creating your cluster, please refer to the most recent SAP documentation, like [Installation](https://help.sap.com/viewer/a8d90a56d61a49718ebcb5f65014bbe7/latest/en-US/9f866d8ef9a94c30947f12e73eaf0dd9.html){: external} and [Administration Guide](https://help.sap.com/viewer/b13b5722c8ff4bf9bb097251310031d0/latest/en-US/884ffcd587784ed2a311b2c19feb8410.html){: external}. You may find more related information in [SAP's Community page](https://community.sap.com/topics/data-intelligence){: external}.
+When you create the {{site.data.keyword.openshiftshort}} cluster, it is important that the flavor meets SAP's sizing recommendations and your expected workload characteristics, as well as the expected data volumes. The following implementation scenario is based on [Minimum Sizing for SAP Data Intelligence](https://help.sap.com/docs/SAP_DATA_INTELLIGENCE_ON-PREMISE/835f1e8d0dde4954ba0f451a9d4b5f10/d771891d749d425ba92603ec9b0084a8.html){: external} and therefore is appropriate for a very basic test environment, only. When planning to setup and deploy a production cluster you must carefully consult the [Sizing Guide for SAP Data Intelligence](https://help.sap.com/docs/SAP_DATA_INTELLIGENCE_ON-PREMISE/835f1e8d0dde4954ba0f451a9d4b5f10/633d429ff69441ae81fe57d912397903.html){: external} and adapt the flavors that will meet your specific needs. Before creating your cluster, please refer to the most recent SAP documentation, like [Installation](https://help.sap.com/docs/SAP_DATA_INTELLIGENCE_ON-PREMISE/a8d90a56d61a49718ebcb5f65014bbe7/9f866d8ef9a94c30947f12e73eaf0dd9.html){: external} and [Administration Guide](https://help.sap.com/docs/SAP_DATA_INTELLIGENCE_ON-PREMISE/b13b5722c8ff4bf9bb097251310031d0/884ffcd587784ed2a311b2c19feb8410.html){: external}. You may find more related information in [SAP's Community page](https://pages.community.sap.com/topics/data-intelligence){: external}.
 
 Please check that your {{site.data.keyword.cloud_notm}} account is eligible to create clusters. For more information and the steps to set up your account, see [Prepare to create clusters at the account level](/docs/openshift?topic=openshift-clusters#cluster_prepare){: external}.
 
@@ -68,7 +68,7 @@ The Information button provides field-specific information on how to use a field
 1. Check if you want to connect none, one or more of the available integrations, like **Activity tracking**, **Logging** and **Monitoring**
 1. In the **Summary** pane on the left, review the order summary and then click **Create**.
 
-For many more additional information on the fields, see [Creating a classic standard cluster in the console](/docs/openshift?topic=openshift-clusters&interface=ui#clusters_standard){: external}.
+For many more additional information on the fields, see [Creating a classic standard cluster in the console](/docs/openshift?topic=openshift-clusters&interface=ui){: external}.
 
 ## Provisioning your jump host
 {: #rhos-di-provision-jump-host}
@@ -158,15 +158,15 @@ Use the following commands to download and install the CLIs you use to configure
     Set the executable attribute - if necessary.
 
     ```
-    $ chmod +x oc
-    $ chmod +x kubectl
+    chmod +x oc
+    chmod +x kubectl
     ```
 
     Move both files to the local executables directory.
 
     ```
-    $ sudo mv oc /usr/local/bin
-    $ sudo mv kubectl /usr/local/bin
+    sudo mv oc /usr/local/bin
+    sudo mv kubectl /usr/local/bin
     ```
 
 1. Verify the installation of the {{site.data.keyword.cloud_notm}} CLI.
@@ -267,7 +267,7 @@ Use the following commands to download and install the CLIs you use to configure
 
     The API key file <APIKeyFilename> will be stored in your current directory.
     ```
-    $ ibmcloud iam api-key-create sdi-apikey-admin -d "API Key for managing the SAP Data Intelligence cluster" --file APIKey4sdi_file
+    ibmcloud iam api-key-create sdi-apikey-admin -d "API Key for managing the SAP Data Intelligence cluster" --file APIKey4sdi_file
     ```
 
 1. Logout again after this initial step.
@@ -301,16 +301,16 @@ Use the following commands to download and install the CLIs you use to configure
 1. Install the {{site.data.keyword.openshiftlong}} Container Registry and the container services plug-ins.
 
     ```
-    $ ibmcloud plugin install container-registry
-    $ ibmcloud plugin install container-service
+    ibmcloud plugin install container-registry
+    ibmcloud plugin install container-service
     ```
 
 1. For this example, the namespace name is `sap_di_cr`, which is an acronym for SAP Data Intelligence - Container Registry - OpenShift.
 
     ```
-    $ ibmcloud cr login
+    ibmcloud cr login
 
-    $ ibmcloud cr namespace-add sap_di_cr
+    ibmcloud cr namespace-add sap_di_cr
     ```
 
 1. Verify that the namespace is created.

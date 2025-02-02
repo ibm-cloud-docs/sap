@@ -35,7 +35,7 @@ To ensure that your first deployment is a success, review the following informat
 * The _Plan your SAP workloads_ topic group
 * The _Infrastructure for SAP design considerations_  topic group
 
-An exhaustive overview about {{site.data.keyword.cloud_notm}} for VMware on Classic Infrastructure you find here: [{{site.data.keyword.cloud_notm}} for VMware](https://www.ibm.com/cloud/vmware){: external}. Additional information is available on:
+An exhaustive overview about {{site.data.keyword.cloud_notm}} for VMware on Classic Infrastructure you find here: [{{site.data.keyword.cloud_notm}} for VMware](https://www.ibm.com/products/vmware){: external}. Additional information is available on:
 - [{{site.data.keyword.cloud_notm}} Intel Bare Metal and VMware vSphere (ESXi OS)](/docs/vmware?topic=vmware-about-vmware){: external} for the manual VMware setup and configuration
 - [{{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated](/docs/vmwaresolutions?topic=vmwaresolutions-inst_comp_chart){: external} for fully automated VMware SDDC setup and configuration
 

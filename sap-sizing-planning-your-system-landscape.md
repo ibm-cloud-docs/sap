@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-02-02"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Landscape
 
@@ -57,9 +57,9 @@ If you plan to migrate an on-premises SAP installation into the {{site.data.keyw
 Each deployment of SAP HANA Database Server or SAP NetWeaver Application Server will have items to consider. These are included under each relevant section of this documentation.
 
 For further information regarding SAP Landscapes, guidance has been released by {{site.data.keyword.IBM_notm}} Power Systems, which provide excellent detailed agnostic information and guidance regarding SAP Landscapes components and setup (which applies to running SAP on any infrastructure, on-premises data centers or Cloud IaaS):
-* [SAP on {{site.data.keyword.IBM_notm}} Power Systems Best Practices Guide](https://www-03.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/WP102618){: external} (click the link in the middle of the page)
+* [SAP on {{site.data.keyword.IBM_notm}} Power Systems Best Practices Guide](https://www.ibm.com/support/pages/sap-power-systems-best-practices-guide){: external} (click the link in the middle of the page)
 * [{{site.data.keyword.IBM_notm}} Power Systems Virtualization Operation Management for SAP Applications](https://www.redbooks.ibm.com/abstracts/redp5579.html?Open){: external}
-* [SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems and IBM System Storage - Guides](http://www-03.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/WP102502){: external}
+* [SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems and IBM System Storage - Guides](https://www.ibm.com/support/pages/sap-hana-ibm-power-systems-and-ibm-system-storage){: external}
 
 ## Reviewing any relevant SAP and {{site.data.keyword.cloud_notm}} documentation
 {: #review-documentation}
@@ -68,7 +68,7 @@ Review the following documentation to help you determine any prerequisites for t
 
 If your organization is new to {{site.data.keyword.cloud_notm}}, read the following SAP documentation to help with your planning phase and implementation:
 
-* [SAP workloads on {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/sap/certified-infrastructure){: external}
+* [SAP workloads on {{site.data.keyword.cloud}}](/docs/sap?topic=sap-iaas-offerings){: external}
 * [Get started with {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/get-started){: external}
 * [Creating an {{site.data.keyword.cloud}} account](/docs/account?topic=account-account-getting-started)
 * [How to create an SAP S-user ID](https://www.youtube.com/watch?v=4wICiRTP8u0){: external} Note that only super administrators or S-users with the required authorization are allowed to create S-user IDs for your company's SAP Customer Number (SCN)
@@ -85,7 +85,7 @@ If your organization is new to {{site.data.keyword.cloud_notm}}, read the follow
 ## Selecting your SAP-certified infrastructure
 {: #selecting-iaas}
 
-This expands on the introduction [Comparing the different SAP-certified IaaS offerings](/docs/sap?topic=sap-overview-sap-offerings-overview#iaas-offerings-compare-summary), which summarises the benefits of each different Infrastructure option.
+This expands on the introduction [Comparing the different SAP-certified IaaS offerings](/docs/sap?topic=sap-overview-sap-offerings-overview#iaas-offerings-compare-summary), which summarizes the benefits of each different Infrastructure option.
 
 You are ready to define the number of host servers and size of those hosts after:
 - the business has defined their requirements

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, 2024
-lastupdated: "2024-10-10"
+  years: 2024, 2025
+lastupdated: "2025-02-02"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -61,7 +61,7 @@ For example, the number 01 is used to map the first (or only one existing) SAP s
 {: note}
 
 The following port numbers are the required port numbers for an SAP system that is used as exposed ports on the monitoring host.
-The corresponding services are based on the [SAP HANA Database exporter](https://github.com/SUSE/hanadb_exporter/tree/master){: external} variables.
+The corresponding services are based on the [SAP HANA Database exporter](https://github.com/SUSE/hanadb_exporter/tree/main){: external} variables.
 
 | Exposed port numbers | Service description|
 | ----------------------------- | --------------------- |

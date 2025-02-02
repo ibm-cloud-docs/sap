@@ -28,7 +28,7 @@ This topic takes you through the steps of creating the {{site.data.keyword.opens
 ## Before you begin
 {: #rhos-before-you-begin}
 
-When you create the {{site.data.keyword.openshiftshort}} cluster, it is important that the flavor meets SAP's sizing recommendations and your expected workload characeterisitcs, as well as the expected data volumes. The flavor used in this provisioning scenario is appropriate for a test environment. Use this scenario to create your own test environment or adapt the scenario for your needs. Refer to the most recent SAP documentation when creating your cluster. The following implementation scenario is based on [Minimum Sizing for SAP Data Hub 2.7](https://help.sap.com/viewer/1f833eab23244ef2ad66fe982dd14873/2.7.latest/en-US/d771891d749d425ba92603ec9b0084a8.html){: external}. When planning to setup and deploy a production cluster you must consult [Sizing Guide for SAP Data Hub 2.7](https://help.sap.com/viewer/1f833eab23244ef2ad66fe982dd14873/2.7.latest/en-US/d771891d749d425ba92603ec9b0084a8.html){: external}.
+When you create the {{site.data.keyword.openshiftshort}} cluster, it is important that the flavor meets SAP's sizing recommendations and your expected workload characeterisitcs, as well as the expected data volumes. The flavor used in this provisioning scenario is appropriate for a test environment. Use this scenario to create your own test environment or adapt the scenario for your needs. Refer to the most recent SAP documentation when creating your cluster. The following implementation scenario is based on [Minimum Sizing for SAP Data Hub 2.7](https://help.sap.com/docs/SAP_DATA_HUB/1f833eab23244ef2ad66fe982dd14873/d771891d749d425ba92603ec9b0084a8.html){: external}. When planning to setup and deploy a production cluster you must consult [Sizing Guide for SAP Data Hub 2.7](https://help.sap.com/docs/SAP_DATA_HUB/1f833eab23244ef2ad66fe982dd14873/d771891d749d425ba92603ec9b0084a8.html){: external}.
 
 Please check that your {{site.data.keyword.cloud_notm}} account is set up to create clusters. For more information and the steps to set up your account, see [Prepare to create clusters at the account level](/docs/openshift?topic=openshift-clusters#cluster_prepare).
 
@@ -151,7 +151,7 @@ Use the following commands to download and install the CLIs you use to configure
     ```
     {: pre}
 
-1. Download a script from [The Kubernetes Package Manager](https://github.com/kubernetes/helm){: external} and execute it with the latest release of helm for your SAP Data Hub (SDH) release. The helm version is v2.11.0 for SAP Data Hub 2.4, 2.5, 2.6 and 2.7.
+1. Download a script from [The Kubernetes Package Manager](https://github.com/helm/helm){: external} and execute it with the latest release of helm for your SAP Data Hub (SDH) release. The helm version is v2.11.0 for SAP Data Hub 2.4, 2.5, 2.6 and 2.7.
 
     ```
     curl --silent https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | \
@@ -234,7 +234,7 @@ Use the following commands to download and install the CLIs you use to configure
     ```
     {: pre}
 
-    a. If you're logging in to {{site.data.keyword.cloud_notm}} for the first time, create an [{{site.data.keyword.cloud_notm}} API key file](/docs/account?topic=account-userapikey#create_user_key&interface=ui).
+    a. If you're logging in to {{site.data.keyword.cloud_notm}} for the first time, create an [{{site.data.keyword.cloud_notm}} API key file](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
 
     The command is `ibmcloud iam api-key-create <APIKeyName> -d <description> --file <APIKeyFilename>`.
     The API key file <APIKeyFilename> will be stored in your current directory.

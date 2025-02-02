@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-12-11"
+  years: 2021, 2025
+lastupdated: "2025-02-02"
 
 subcollection: sap
 
@@ -118,7 +118,7 @@ Before you use the scripts in the Bastion cli or Schematics:
 
 *  Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the readme file, in the respective GitHub repository for Schematics and Terraform and on the About page for the Catalog Tile.
 
-*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey#create_user_key&interface=ui). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
+*  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
@@ -137,8 +137,8 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
 2.	Clone the solution repository from `https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard` and cd to the sap-netweaver-abap-db2-standard folder:
 
     ```sh
-    $ git clone https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard.git
-    $ cd sap-netweaver-abap-db2-standard
+    git clone https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard.git
+    cd sap-netweaver-abap-db2-standard
     ```
 
 3.	Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-standard/tree/main#readme){: external}.
