@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-02"
+lastupdated: "2025-02-03"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -217,7 +217,7 @@ Use the following steps to set up the network interface for your database server
 
 You are redirected to a page with your order number. The page is your receipt; print the page for your records. You also receive a confirmation email with the subject *Your {{site.data.keyword.cloud_notm}} Order ## has been approved*. The ## is your order number.
 
- Depending on your order, the server is available for use within one to four hours after the order is submitted. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../icons/icon-hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
+ Depending on your order, the server is available for use within one to four hours after the order is submitted. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
 
 ### Bring your own license
 {: #byol}
