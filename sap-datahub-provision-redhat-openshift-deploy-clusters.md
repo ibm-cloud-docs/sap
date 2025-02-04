@@ -55,7 +55,7 @@ The Information button provides field-specific information on how to use a field
 1. Enter a **Cluster name** and optionally **Tags**.
 1. In the Summary pane, review the order summary and then click **Create**.
 
-For additional information on the fields, see [Creating a classic standard cluster in the console](/docs/openshift?topic=openshift-clusters#clusters_ui){: external}.
+For additional information on the fields, see [Creating a classic standard cluster in the console](/docs/openshift?topic=openshift-clusters){: external}.
 
 ## Provisioning your jump host
 {: #rhos-provision-jump-host}
