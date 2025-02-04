@@ -71,6 +71,7 @@ toc:
                 - sap-design-considerations-networking.md
                 - sap-design-considerations-storage.md
                 - sap-design-considerations-compute-os.md
+                - sap-design-considerations-disaster-recovery.md
           - sap-design-considerations-sap-hana.md
           - sap-design-considerations-sap-netweaver.md
           - topicgroup:
