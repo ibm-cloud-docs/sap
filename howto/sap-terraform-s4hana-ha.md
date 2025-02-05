@@ -73,9 +73,9 @@ During the second phase, the Ansible Playbooks are called and the SAP High avail
 ## Highly available system for SAP S/4HANA in a Single zone or Multi zone architectures
 {: #automate-s4hana-ha-for-hana-db}
 
-![Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) Schematics deployment (Single Zone architecture)](images/sap-hana-ha-sz-sap-layer.svg "SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) Schematics deployment (Single Zone architecture)"){: caption="SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) Schematics deployment (Single Zone architecture)" caption-side="bottom"}
+![Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) Schematics deployment (Single Zone architecture)](../images/sap-hana-ha-sz-sap-layer.svg "SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) Schematics deployment (Single Zone architecture)"){: caption="SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) Schematics deployment (Single Zone architecture)" caption-side="bottom"}
 
-![Figure 2. SAP HA for HANA DB instances cluster nodes primary (Active) and Secondary (Passive) (Single Zone architecture)](images/sap-ha-hana-vpc-single-zone.svg "SAP HA for HANA DB instances cluster nodes primary (Active) and Secondary (Passive) (Single Zone architecture)"){: caption="SAP HA for HANA DB instances cluster nodes primary (Active) and Secondary (Passive) (Single Zone architecture)" caption-side="bottom"}
+![Figure 2. SAP HA for HANA DB instances cluster nodes primary (Active) and Secondary (Passive) (Single Zone architecture)](../images/sap-ha-hana-vpc-single-zone.svg "SAP HA for HANA DB instances cluster nodes primary (Active) and Secondary (Passive) (Single Zone architecture)"){: caption="SAP HA for HANA DB instances cluster nodes primary (Active) and Secondary (Passive) (Single Zone architecture)" caption-side="bottom"}
 
 At the most basic level, a standard HA HANA cluster in an active-passive configuration has two nodes: one is the primary node and the other is the standby node. The primary node is actively serving the active SAP instances (PAS and AAS), while the standby node is waiting to jump in if necessary.
 

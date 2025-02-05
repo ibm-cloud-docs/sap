@@ -36,7 +36,7 @@ You can store the SAP HANA db backup into the Cloud Object Storage.
 ## SAP solution implemented
 {: #sap-hana-db-backup-cos-proc}
 
-![Figure 1. Backup SAP HANA db into Cloud Object Storage from a standard SAP NW on HANA db architecture](images/sap-hana-backup-on-vpc.svg "Backup SAP HANA db into Cloud Object Storage from a standard SAP NW on HANA db architecture"){: caption="Backup SAP HANA db into Cloud Object Storage from a standard SAP NW on HANA db architecture" caption-side="bottom"}
+![Figure 1. Backup SAP HANA db into Cloud Object Storage from a standard SAP NW on HANA db architecture](../images/sap-hana-backup-on-vpc.svg "Backup SAP HANA db into Cloud Object Storage from a standard SAP NW on HANA db architecture"){: caption="Backup SAP HANA db into Cloud Object Storage from a standard SAP NW on HANA db architecture" caption-side="bottom"}
 
 ## What is created
 {: #sap-hana-db-backup-cos-created}
@@ -128,7 +128,7 @@ Before you use the scripts:
 
 To provide the access for the required roles to run the "SAP HANA db backup to Cloud Object Storage", go to https://cloud.ibm.com/iam/users and select the USER_ID to run the automation.
 
-   ![Figure 1. SAP HANA db backup to Cloud Object Storage](images/grant_permissions_cos.png "SAP HANA db backup to Cloud Object Storage"){: caption="SAP HANA db backup to Cloud Object Storage" caption-center="bottom"}
+   ![Figure 1. SAP HANA db backup to Cloud Object Storage](../images/grant_permissions_cos.png "SAP HANA db backup to Cloud Object Storage"){: caption="SAP HANA db backup to Cloud Object Storage" caption-center="bottom"}
 
 * The kit of the backup agent for the IBM COS `aws-s3-backint-.*-linuxx86_64.tar.gz` should be manually uploaded on the deployment server (bastion server). This kit is part of the SAP HANA kit file and can be found in `*/DATA_UNITS/HDB_SERVER_LINUX_X86_64/server` path. Either the entire SAP HANA kit or only the kit of the backup agent for IBM COS can be provided, but the minimum backint agent kit version to be used is `aws-s3-backint-1.2.17-linuxx86_64`
 

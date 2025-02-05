@@ -57,15 +57,15 @@ Check [SAP' Certified and Supported SAP HANA Hardware Directory](https://www.sap
 ### Network layout for Scale-out configurations
 
 For Intel Bare Metal scale-out configurations, contact {{site.data.keyword.cloud_notm}} support for assisting you to set-up the required networking. Depending on the hardware used, the choice of networks might be restricted, or special configurations might have to be adapted. See the following diagram, for the layout to use. The diagram describes the use of three fully redundant (LACP config), physically separate networks, for:
-* Storage traffic, 
-* Internal SAP HANA inter-node communication 
-* Communication with the client(s), for example SAP ABAP application servers or SAP HANA Studio for administration purposes. 
+* Storage traffic,
+* Internal SAP HANA inter-node communication
+* Communication with the client(s), for example SAP ABAP application servers or SAP HANA Studio for administration purposes.
 
 Use the network that holds the default route of your environment to pass the NFS traffic through it, the storage servers are reachable through that gateway, only.
 
 ### Storage for Scale-out configurations
 
-For scale-out configuration, the ability of storage volumes to be accessed from different server nodes is required for failover purposes. Thus, local storage is out of scope, and NFS volumes need to be deployed. The deployed volumes can vary in size and number (see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they have to comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}. 
+For scale-out configuration, the ability of storage volumes to be accessed from different server nodes is required for failover purposes. Thus, local storage is out of scope, and NFS volumes need to be deployed. The deployed volumes can vary in size and number (see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they have to comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}.
 
 {{site.data.keyword.cloud_notm}} recommends Endurance File Storage at 10 IOPS per GB or Performance File Storage with IOPS equal or greater than 10K. For the network configuration, use the primary network as storage network to guide the traffic to the NFS servers through it.
 
@@ -93,7 +93,7 @@ Figure 2 shows the network topology that is required for the {{site.data.keyword
 
 ### Storage for Scale-out configurations
 
-For scale-out configuration, the ability of storage volumes to be accessed from different server nodes is required for failover purposes. Thus, local storage is out of scope, and NFS volumes need to be deployed. These shares are referred to as `file shares and their mount targets` in {{site.data.keyword.cloud_notm}} VPC. The shares can vary in size and number (see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they must comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}. 
+For scale-out configuration, the ability of storage volumes to be accessed from different server nodes is required for failover purposes. Thus, local storage is out of scope, and NFS volumes need to be deployed. These shares are referred to as `file shares and their mount targets` in {{site.data.keyword.cloud_notm}} VPC. The shares can vary in size and number (see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they must comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}.
 
 {{site.data.keyword.cloud_notm}} recommends 10 IOPS per GB or custom profile File Shares for meeting the SAP's KPIs.
 

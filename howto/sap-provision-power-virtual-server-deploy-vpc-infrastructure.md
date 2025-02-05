@@ -17,13 +17,13 @@ subcollection: sap
 # Deploying {{site.data.keyword.vpc_short}} infrastructure for {{site.data.keyword.powerSys_notm}} SAP workloads
 {: #power-vs-set-up-vpc-infrastructure}
 
-As a best practice for SAP that runs on {{site.data.keyword.powerSysFull}}, three {{site.data.keyword.vpc_short}}s are created and three virtual server instances are deployed and configured. 
+As a best practice for SAP that runs on {{site.data.keyword.powerSysFull}}, three {{site.data.keyword.vpc_short}}s are created and three virtual server instances are deployed and configured.
 
 * **Access host that is deployed in management VPC** is used for the management access to the landscape.
 * **Host for internet services that are deployed in edge VPC** is used to configure the access from {{site.data.keyword.powerSys_notm}} instances to IBM Cloud services and to the public internet.
 * **Host for private services that are deployed in workload VPC** provides certain management services to the {{site.data.keyword.powerSys_notm}} instances, like NFS, DNS, NTP.
 
-![VPC landing zone for SAP on PowerVS](images/step1_manual_VPC-for-PowerVS.svg){: caption="VPC landing zone for SAP on PowerVS" caption-side="bottom"}
+![VPC landing zone for SAP on PowerVS](../images/step1_manual_VPC-for-PowerVS.svg){: caption="VPC landing zone for SAP on PowerVS" caption-side="bottom"}
 
 ## Deploying {{site.data.keyword.vpc_short}} for management services (management VPC)
 {: #power-vs-set-up-management-vpc}
@@ -95,8 +95,8 @@ Access host is a **mandatory** component in the SAP on {{site.data.keyword.power
 
 4. Attach the security group to the virtual server instance that you created in the previous step. Detach the default security group.
 5. Enable the floating IP address on the access host. For more information, see [Reserving a floating IP address](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address).
-6. After instance status changes to `Running`, verify that you can successfully log in on the access host. 
-    
+6. After instance status changes to `Running`, verify that you can successfully log in on the access host.
+
 We recommend that you use two extra SSH client parameters to get a more reliable SSH connection: `ServerAliveInterval=60` and `ServerAliveCountMax=600`. If you use a nondefault path to your SSH key, you must specify it by following SSH client parameter: `-i \<path to your SSH private key\>`.
 {: tip}
 
@@ -301,7 +301,7 @@ The following setup example demonstrates usage of SQUID proxy server, NFS server
 {: #power-vs-set-up-proxy-server}
 
 1. Ensure all required ports in the security group in {{site.data.keyword.vpc_short}} for edge services that are used by host for internet services are open. The needed ports are configured for internet services. Required ports for SQUID proxy are used by {{site.data.keyword.powerSys_notm}} services. For more information, see [Creating a proxy](/docs/power-iaas?topic=power-iaas-set-full-Linux#create-proxy).
-2. Log in to the internet services instance. SSH command example: 
+2. Log in to the internet services instance. SSH command example:
 
    ```bash
    ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand=\"ssh -W %h:%p root@\<access_host_floating_ip\>\" root@\<internet_services_host_private_ip\>
@@ -444,7 +444,7 @@ ansible-playbook \--connection=local -i \"localhost,\" powervs-services.yml -e \
 
 This ansible execution ensures that the NTP proxy is configured on the host for workload services.
 
-### Setting up IBM Cloud-native DNS service (DNS option 1) 
+### Setting up IBM Cloud-native DNS service (DNS option 1)
 {: #power-vs-set-up-dns-service}
 
 You can use IBM Cloud DNS service that is directly reachable from IBM Power Virtual Servers over custom resolver. For more information, see the following links.

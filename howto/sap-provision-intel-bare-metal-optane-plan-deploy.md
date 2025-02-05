@@ -27,10 +27,10 @@ Make sure that you are already familiar with the fundamental components and opti
 
 Intel Optane persistent memory (PMem) is available on the Bare Metal servers. You have three memory options for PMem on the Bare Metal servers, 1.5 TB, 3.0 TB, and 6.0 TB. Which option you choose depends on the:
 
-*  Application that you want to run, for example BW or BW/4 HANA. 
+*  Application that you want to run, for example BW or BW/4 HANA.
 *  SAP sizing, which determines the amount of memory and CPU that you need.
 
-Network and storage configuration, disaster recovery, high availability, backups, and system replication are all configured and managed as part of the Bare Metal provisioning and operation. 
+Network and storage configuration, disaster recovery, high availability, backups, and system replication are all configured and managed as part of the Bare Metal provisioning and operation.
 
 ## The 'Must-Reads' before you start deploying
 {: #bm-optane-must-reads}

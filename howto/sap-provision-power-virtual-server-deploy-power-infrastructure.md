@@ -13,7 +13,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Deploying SAP {{site.data.keyword.powerSys_notm}} workloads 
+# Deploying SAP {{site.data.keyword.powerSys_notm}} workloads
 {: #power-vs-set-up-power-infrastructure}
 
 For SAP workloads that run on {{site.data.keyword.powerSysFull}}, one workspace for {{site.data.keyword.powerSys_notm}} is deployed. When the workspace is deployed, you see the following results.
@@ -24,7 +24,7 @@ For SAP workloads that run on {{site.data.keyword.powerSysFull}}, one workspace 
 
 The following diagram shows deployed components.
 
-![PowerVS infrastructure for SAP](images/step2_manual_PowerVS-with-VPC.svg){: caption="{{site.data.keyword.powerSys_notm}} infrastructure for SAP" caption-side="bottom"}
+![PowerVS infrastructure for SAP](../images/step2_manual_PowerVS-with-VPC.svg){: caption="{{site.data.keyword.powerSys_notm}} infrastructure for SAP" caption-side="bottom"}
 
 ## Deploying a {{site.data.keyword.powerSys_notm}}
 {: #power-vs-set-up-power-service}
@@ -32,7 +32,7 @@ The following diagram shows deployed components.
 Workspaces for {{site.data.keyword.powerSys_notm}} host all the SAP instances that don't require direct internet access. All SAP NetWeaver and SAP HANA instances are deployed in the workspace for {{site.data.keyword.powerSys_notm}}. To create and configure this service, use the following steps.
 
 1. Deploy a new workspace for {{site.data.keyword.powerSys_notm}} in the same region where your IBM Cloud edge VPC is. For more information, see [Creating a Power Systems Virtual Server workspace](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-service).
-2. Optionally, you can upload your SSH public key to the workspace. SSH keys are distributed across all the workspaces that are in your account, so you generate the SSH key one time. 
+2. Optionally, you can upload your SSH public key to the workspace. SSH keys are distributed across all the workspaces that are in your account, so you generate the SSH key one time.
    - Go to **SSH keys**, click `Create SSH key`, provide a unique name, and press **Add SSH key**.
 3. In the workspace, create a management and backup private networks. For more information, see [
 Configuring and adding a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet).

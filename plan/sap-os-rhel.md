@@ -121,7 +121,7 @@ Each RHEL OS on-demand license is made of a few concepts:
     - Activation Key: the alphanumerical sequence associated to a specific licence
     - Entitlement: number of systems where this license can be applied
     - Service Level: support level for the subscriptions
-    - Subscriptions: 
+    - Subscriptions:
       - Product:
         - Product Key:
       - Package Repositories:
@@ -183,7 +183,7 @@ Repo ID:   rhel-8-for-x86_64-sap-solutions-e4s-rpms
     Available Subscriptions
 +-------------------------------------------+
 Subscription Name:   Red Hat Satellite - Add-Ons for Providers
-Provides:            
+Provides:
                      Red Hat Enterprise Linux for SAP Applications for x86_64
                      Red Hat Enterprise Linux for SAP HANA for Power, little endian
                      Red Hat Enterprise Linux for SAP HANA for x86_64
@@ -330,10 +330,10 @@ Provides Management: Yes
 Available:           000000
 Suggested:           0
 Service Type:        L1-L3
-Roles:               
+Roles:
 Service Level:       Premium
-Usage:               
-Add-ons:             
+Usage:
+Add-ons:
 Subscription Type:   Stackable
 Starts:              01/01/21
 Ends:                17/01/22
@@ -381,7 +381,7 @@ Repo ID:   rhel-sap-hana-for-rhel-7-server-e4s-rpms
     Available Subscriptions
 +-------------------------------------------+
 Subscription Name:   Red Hat Satellite - Add-Ons for Providers
-Provides:            
+Provides:
                      Red Hat Enterprise Linux for SAP Applications for x86_64
                      Red Hat Enterprise Linux for SAP HANA for x86_64
                      Red Hat Enterprise Linux High Availability - Update Services for SAP Solutions

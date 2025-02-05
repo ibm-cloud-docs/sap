@@ -16,7 +16,7 @@ subcollection: sap
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}   
+{:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
 # Automating SAP workload HA deployment on IBM Cloud VPC with Terraform and Ansible
@@ -47,7 +47,7 @@ A [Virtual Private Cloud (VPC)](https://www.ibm.com/think/topics/vpc){: external
 
 In a Highly Available (HA) system, every instance can run on a separate {{site.data.keyword.cloud_notm}} virtual server instance. The cluster HA configuration for the SAP application server consists of two virtual server instances, each of them located in the same zone within the region by using placement groups. Placement groups assure that both cluster resources and cloud resources are also located in different compute nodes as specified in the following placement groups section:
 
-![Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)](images/sap-ha-vpc-single-zone.svg "SAP HA applications cluster nodes PAS (Active) and AAS (Active)"){: caption="SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)" caption-side="bottom"}
+![Figure 1. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)](../images/sap-ha-vpc-single-zone.svg "SAP HA applications cluster nodes PAS (Active) and AAS (Active)"){: caption="SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active)" caption-side="bottom"}
 
 ### Placement groups on {{site.data.keyword.cloud_notm}} VPC for SAP HA architecture
 {: #automate-ha-deployment-on-vpc-placement-groups}
@@ -60,8 +60,8 @@ Placement groups with the spread rule are available to create in selected {{site
 
 You can create your placement group and assign upto four new virtual server instances. With the spread rule, each of your virtual servers are provisioned on different physical hosts. In the following configuration example, the “Power Spread” option is used:
 
-![Figure 2. Placement groups host spread](images/sap-terraform-ha-pg-1.png "Placement groups host spread"){: caption="Placement groups host spread" caption-side="bottom"}
-![Figure 3. Placement groups power spread](images/sap-terraform-ha-pg-2.png "Placement groups power spread"){: caption="Placement groups power spread" caption-side="bottom"}
+![Figure 2. Placement groups host spread](../images/sap-terraform-ha-pg-1.png "Placement groups host spread"){: caption="Placement groups host spread" caption-side="bottom"}
+![Figure 3. Placement groups power spread](../images/sap-terraform-ha-pg-2.png "Placement groups power spread"){: caption="Placement groups power spread" caption-side="bottom"}
 
 Following are the SAP instances that are required for HA scenario:
 
@@ -78,7 +78,7 @@ It is recommended to run both the ASCS instance and the ERS instance in a switch
 {: #automate-ha-deployment-on-vpc-file-storage}
 
 [{{site.data.keyword.filestorage_vpc_full_notm}}](/docs/vpc?topic=vpc-file-storage-vpc-about) technology is used to make the SAP directories available to the SAP system. The technologies of choice are NFS, shared disks, and cluster file system. If you have decided to use the HA solution for your SAP system, make sure that you properly address the HA requirements of the SAP file systems in your SAP environment.
-![Figure 4. Fire shares for VPC](images/sap-terraform-ha-file-shares.png "File shares for VPC"){: caption="File shares for VPC" caption-side="bottom"}
+![Figure 4. Fire shares for VPC](../images/sap-terraform-ha-file-shares.png "File shares for VPC"){: caption="File shares for VPC" caption-side="bottom"}
 
 * File shares that are mounted as NFS permanent file systems on both cluster nodes for SAP HA application:
     * `/usr/sap/<SAPSID>/SYS`
@@ -121,7 +121,7 @@ In this VPC-based SAP HA solution, the shared file system that is required by th
 
 In this scenario, three ALBs are used, one for each Single Point of Failure (SPOF) component in order to replace the virtual IP requirement: ALB for ASCS, ALB for ERS, and ALB for ASE Sybase. Each ALB is configured as a backend for the corresponding cluster servers and redirects all of the communication that is received on the front-end ports to the active server in the backend pool.
 
-![Figure 5. Application load balancer management of HA IPs mechanism](images/sap-terraform-ha-load-balancers.png "Application load balancer management of HA IPs mechanism"){: caption="Application load balancer management of HA IPs mechanism" caption-side="bottom"}
+![Figure 5. Application load balancer management of HA IPs mechanism](../images/sap-terraform-ha-load-balancers.png "Application load balancer management of HA IPs mechanism"){: caption="Application load balancer management of HA IPs mechanism" caption-side="bottom"}
 
 ### Private application load balancer
 {: #automate-ha-deployment-on-vpc-private-application-load-balancer}
@@ -164,12 +164,12 @@ Resource records and zones that are configured through {{site.data.keyword.dns_s
 
 The DNS service maps the FQDN of each ALB to the virtual hostnames of the ASCS, ERS, and ASE Sybase that are used by SAP applications.
 
-![Figure 6. DNS records](images/sap-terraform-ha-dns.png "DNS records"){: caption="DNS records" caption-side="bottom"}
+![Figure 6. DNS records](../images/sap-terraform-ha-dns.png "DNS records"){: caption="DNS records" caption-side="bottom"}
 
 ## Highly available system for SAP ASE Sybase database with HADR system
 {: #automate-ha-deployment-on-vpc-ase-sybase-database}
 
-![Figure 7. SAP HA for ASE Sybase DB instances cluster nodes Primary (Active) and Secondary (Companion)](images/sap-ha-hana-vpc-single-zone.svg "SAP HA for ASE Sybase DB instances cluster nodes Primary (Active) and Secondary (Companion)"){: caption="SAP HA for ASE Sybase DB instances cluster nodes primary (Active) and Secondary (Companion)" caption-side="bottom"}
+![Figure 7. SAP HA for ASE Sybase DB instances cluster nodes Primary (Active) and Secondary (Companion)](../images/sap-ha-hana-vpc-single-zone.svg "SAP HA for ASE Sybase DB instances cluster nodes Primary (Active) and Secondary (Companion)"){: caption="SAP HA for ASE Sybase DB instances cluster nodes primary (Active) and Secondary (Companion)" caption-side="bottom"}
 
 At the most basic level, a standard HA ASE Sybase cluster in an active(primary)-passive(companion) configuration has two nodes: one is the primary node and the other is the standby node. This means that the primary node is actively serving the active SAP DB instances (Primary and Companion), while the standby node is waiting to jump in if there is any failure.
 

@@ -60,7 +60,7 @@ SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 1
 (\*\*\*): SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
 (^1^): RHEL 8.10 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions <br/>
-SLES 15, SLES 15 SP1 , SLES 15 SP2, SLES 15 SP3, SLES 15 SP4 
+SLES 15, SLES 15 SP1 , SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
 Please regard the supported operated systems mentioned in the footnotes.
 {: note}
@@ -481,7 +481,7 @@ Link to Profile: [BI.S5.H2.1000 Appliance](https://cloud.ibm.com/gen1/infrastruc
 #### Physical Disk and RAID Configuration
 {: #hana-iaas-intel-bm-s5-h2-1000gb-physical}
 
-By default, a boot volume is attached to the instance, mapped to `/dev/nvme0n1`. The default boot volume size is 480 GB which is composed of two 480 GB SSDs in RAID1 for redundancy. 
+By default, a boot volume is attached to the instance, mapped to `/dev/nvme0n1`. The default boot volume size is 480 GB which is composed of two 480 GB SSDs in RAID1 for redundancy.
 In addition this server has 5 x 3.2 TB sized NVMe local storage mapped to `/dev/nvme#n1`, # being the disk number 1 to 5.
 
 #### Disk mount points and Partitions
@@ -510,7 +510,7 @@ Link to Profile: [BI.S5.H2.2001 Appliance](https://cloud.ibm.com/gen1/infrastruc
 #### Physical Disk and RAID Configuration
 {: #hana-iaas-intel-bm-s5-h2-2001gb-physical}
 
-By default, a boot volume is attached to the instance, mapped to `/dev/nvme0n1`. The default boot volume size is 480 GB which is composed of two 480 GB SSDs in RAID1 for redundancy. 
+By default, a boot volume is attached to the instance, mapped to `/dev/nvme0n1`. The default boot volume size is 480 GB which is composed of two 480 GB SSDs in RAID1 for redundancy.
 In addition this server has 7 x 3.2 TB sized NVMe local storage mapped to `/dev/nvme#n1`, # being the disk number 1 to 7.
 
 #### Disk mount points and Partitions

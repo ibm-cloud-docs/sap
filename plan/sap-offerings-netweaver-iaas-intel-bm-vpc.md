@@ -71,7 +71,7 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 | ux3d-metal-16x512 | 16 | 512 | 34,320 |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-    side="bottom"}
 
-For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment]    (https://me.sap.com/notes/2927211){: external}. 
+For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment]    (https://me.sap.com/notes/2927211){: external}.
 
 ## Understanding Bare Metal Server profile names
 {: #nw-iaas-intel-bm-vpc-names}

@@ -38,7 +38,7 @@ It is the customers responsibility to download and prepare the necessary SAP kit
 
 The Bastion server is used for remote software installation by using Terraform remote-exec and Ansible playbooks run by Schematics.
 
-![Figure 1. Standard Bastion within a VPC region with 3 zones](images/sap-terraform-bastion-server.svg "Standard Bastion within a VPC region with 3 zones"){: caption="Standard Bastion within a VPC region with 3 zones" caption-side="bottom"}
+![Figure 1. Standard Bastion within a VPC region with 3 zones](../images/sap-terraform-bastion-server.svg "Standard Bastion within a VPC region with 3 zones"){: caption="Standard Bastion within a VPC region with 3 zones" caption-side="bottom"}
 
 The Terraform modules implement a 'reasonable' set of best practices for bastion host configuration only. Your own Organization might have more requirements that you must apply before the deployment.
 

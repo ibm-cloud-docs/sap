@@ -176,7 +176,7 @@ No reported metrics is often due to the port not assigned to SAP Metrics Collect
    ```
    {: pre}
 
-  ![Figure 1. Ports that are used by applications](/images/quickstudy-intel-vs-gen2-win-PS-Listen.png "Ports that are used by applications."){: caption="Ports that are used by applications" caption-side="bottom"}
+  ![Figure 1. Ports that are used by applications](../images/quickstudy-intel-vs-gen2-win-PS-Listen.png "Ports that are used by applications."){: caption="Ports that are used by applications" caption-side="bottom"}
 
 
 ## Additional information

@@ -16,7 +16,7 @@ subcollection: sap
 {:important: .important}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{:tip: .tip} 
+{:tip: .tip}
 {:ui: .ph data-hd-interface="ui"}
 {:terraform: .ph data-hd-interface="terraform"}
 
@@ -62,7 +62,7 @@ The configuration and script files are available in [SAP HANA DR GitHub reposito
 
 To run the Terraform script, you should modify:
 
-* The `input.auto.tfvars` file, to specify the VPC resources for your solution as well as the SAP parameters. You should provide the values for the following variables: 
+* The `input.auto.tfvars` file, to specify the VPC resources for your solution as well as the SAP parameters. You should provide the values for the following variables:
     * VPC name of the primary SAP HANA system
     * VPC name of the secondary SAP HANA system (new or existing)
     * Region of the primary SAP HANA system
@@ -70,7 +70,7 @@ To run the Terraform script, you should modify:
     * Zone for the secondary SAP HANA system
     * Security group of the primary SAP HANA system
     * Subnet for the secondary SAP HANA system (new or existing)
-    * Bastion Subnet 
+    * Bastion Subnet
     * Resource Group
     * Transit Gateway (new or existent)
     * HostName(s) for the primary and secondary (new) SAP HANA system
@@ -94,7 +94,7 @@ The configuration and script files are provided in [GitHub](https://github.com/I
 ## Support
 {: #automate-hana-db-crossregion-dr-support}
 
-There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system. 
+There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
 Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
