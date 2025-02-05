@@ -60,7 +60,7 @@ For more information about provisioning IBM Power Virtual Server for SAP HANA an
 - [Planning your deployment](/docs/sap?topic=sap-power-vs-planning-items)
 - [Deploying IBM Cloud VPC infrastructure that is used by SAP workloads that run on IBM Power Virtual Servers](/docs/sap?topic=sap-power-vs-set-up-vpc-infrastructure)
 - [Deploying IBM Cloud Power Virtual Services infrastructure that is used by SAP workloads](/docs/sap?topic=sap-power-vs-set-up-power-infrastructure)
-- [Deploying IBM PowerVS instances for SAP system](/docs/sap?topic=sap-power-vs-set-up-power-instances)
+- [Deploying IBM {{site.data.keyword.powerSys_notm}} instances for SAP system](/docs/sap?topic=sap-power-vs-set-up-power-instances)
 
 For more information about implementing high availability scenarios for SAP on IBM {{site.data.keyword.powerSysFull}}, see the following links.
 
@@ -76,7 +76,7 @@ For more information about implementing high availability scenarios for SAP on I
 - [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-ensa)
 - [Configuring an active-passive NFS server in a Red Hat High Availability cluster](/docs/sap?topic=sap-ha-rhel-nfs)
 
-For more information about SAP hybrid cloud migration scenarios for SAP on IBM {{site.data.keyword.powerSysFull}} moving to PowerVS, see the following links.
+For more information about SAP hybrid cloud migration scenarios for SAP on IBM {{site.data.keyword.powerSysFull}} moving to {{site.data.keyword.powerSys_notm}}, see the following links.
 - [Migrating SAP between on-premises and IBM Cloud on {{site.data.keyword.powerSysFull}} Overview](/docs/sap?topic=sap-sapmig-overview)
 - [Hybrid Cloud Network Considerations for SAP on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking)
 - [Migrating SAP S/4HANA using HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana)

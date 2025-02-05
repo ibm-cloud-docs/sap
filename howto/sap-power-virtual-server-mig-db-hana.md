@@ -148,7 +148,7 @@ If you want to run the SAP HANA Sizing report, see the following SAP Note.
 * [SAP Note 1872170 - ABAP on HANA sizing report (S/4HANA, Suite on HANA...)](https://me.sap.com/notes/1872170){: external}
 
 It is advised that you use the most recent Advanced Correction of the SAP Sizing report.
-When you run the report, make sure that you include the forecast for SAP HANA database growth. The generated report  states the anticipated required CPU, memory, and storage recommendations for your PowerVS instance target.
+When you run the report, make sure that you include the forecast for SAP HANA database growth. The generated report  states the anticipated required CPU, memory, and storage recommendations for your {{site.data.keyword.powerSys_notm}} instance target.
 Go to {{site.data.keyword.cloud}} and select the most recent certified profile that is available for IBM Power Virtual Servers.
 
 * [SAP 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579){: external}
@@ -231,7 +231,7 @@ The following document outlines the required storage configuration for the targe
 - [IBM System Storage Architecture and Configuration Guide for SAP HANA TDI](https://www.ibm.com/support/pages/ibm-system-storage-architecture-and-configuration-guide-sap-hana-tdi-0){: external}
 
 Consider the extra space that you need to create a file system mount point to store software executable files and the initial SAP HANA system backup.
-Depending on your planned IBM Cloud PowerVS infrastructure, you can create the file system as an NFS mount to export to other systems in the architecture.
+Depending on your planned IBM Cloud {{site.data.keyword.powerSys_notm}} infrastructure, you can create the file system as an NFS mount to export to other systems in the architecture.
 
 ### Creating the software repository file system and transfer the installation packages
 {: #mig-db-hana-target-system-software-transfer}
@@ -339,7 +339,7 @@ During extraction directories `/swrepo/SAP_HANA_DATABASE` and `/swrepo/SAP_HANA_
 
 Check the operating system version and patch level on the target system.
 For productive systems, the same level makes sure that the installation performs similar and migrating runs with ease.
-For nonproductive systems, for example, a proof of concept system (POC) in IBM PowerVS, a higher operating system version is a valid option.
+For nonproductive systems, for example, a proof of concept system (POC) in IBM {{site.data.keyword.powerSys_notm}}, a higher operating system version is a valid option.
 
 ##### Target server - Both RHEL and SLES
 {: #mig-db-hana-target-system-os-rhel-and-sles}
@@ -384,7 +384,7 @@ export SiteOnPrem=<PrimarySiteName>        # HANA System Replication Site Name 1
 export SiteOnCloud=<secondarySiteName>     # HANA System Replication Site Name 2 - Migration to On-Cloud - Target
 
 export NODE1=<Hostname 1>                  # Hostname of On-Prem Server
-export NODE2=<Hostname 2>                  # Hostname of IBM Cloud PowerVS Instance
+export NODE2=<Hostname 2>                  # Hostname of IBM Cloud {{site.data.keyword.powerSys_notm}} Instance
 ```
 {: pre}
 
@@ -787,7 +787,7 @@ export SiteOnPrem=<PrimarySiteName>        # HANA System Replication Site Name 1
 export SiteOnCloud=<secondarySiteName>     # HANA System Replication Site Name 2 - Migration to On-Cloud - Target
 
 export NODE1=<Hostname 1>                  # Hostname of On-Prem Server
-export NODE2=<Hostname 2>                  # Hostname of IBM Cloud PowerVS Instance
+export NODE2=<Hostname 2>                  # Hostname of IBM Cloud {{site.data.keyword.powerSys_notm}} Instance
 ```
 {: codeblock}
 

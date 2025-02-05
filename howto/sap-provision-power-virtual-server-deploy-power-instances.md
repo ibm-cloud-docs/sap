@@ -23,9 +23,9 @@ An infrastructure, that was deployed on {{site.data.keyword.cloud}} and runs on 
 * An operating system, such as RHEL or SLES, that is configured to use management services that are configured on {{site.data.keyword.vpc_full}} (SQUID proxy, NFS, NTP, DNS).
 * A registered RHEL or SLES operating systems (OS) with IBM provided subscription, which includes SAP-specific network performance tuning, file system setup, and packages.
 
-The following diagram shows SAP applications already deployed on PowerVS infrastructure.
+The following diagram shows SAP applications already deployed on {{site.data.keyword.powerSys_notm}} infrastructure.
 
-![Figure 1. SAP applications on PowerVS infrastructure](../images/deploy-arch-ibm-pvs-sap-s4hana-bw4hana.svg){: caption="SAP applications on PowerVS infrastructure" caption-side="bottom"}
+![Figure 1. SAP applications on {{site.data.keyword.powerSys_notm}} infrastructure](../images/deploy-arch-ibm-pvs-sap-s4hana-bw4hana.svg){: caption="SAP applications on {{site.data.keyword.powerSys_notm}} infrastructure" caption-side="bottom"}
 {: external download="deploy-arch-ibm-pvs-sap-s4hana-bw4hana.svg"}
 
 ## Deploying a separate private network for SAP systems

@@ -307,7 +307,7 @@ Use the following step to transfer the backup files.
    ```
    {: pre}
 
-This example uses secure copy (SCP), a slower version of data transfer. You can transfer backup files either directly to an IBM AIX LPAR in PowerVS, or to IBM Cloud Object Storage. If you use SCP or SFTP with IBM Cloud Object Storage, it assumes that you are using an IBM FileManage Gateway service or installed and configured an SFTP server within or next to the target IBM PowerVS environment to receive the transfer.
+This example uses secure copy (SCP), a slower version of data transfer. You can transfer backup files either directly to an IBM AIX LPAR in {{site.data.keyword.powerSys_notm}}, or to IBM Cloud Object Storage. If you use SCP or SFTP with IBM Cloud Object Storage, it assumes that you are using an IBM FileManage Gateway service or installed and configured an SFTP server within or next to the target IBM {{site.data.keyword.powerSys_notm}} environment to receive the transfer.
 
 The faster option is IBM’s high-performance Aspera product for data transfer. In many situations, IBM Aspera can transfer data several times faster than traditional TCP-based protocols. For more information, see [IBM Aspera Technologies](/docs/power-iaas?topic=power-iaas-additional-migration-strategies-power#aspera-technologies).
 

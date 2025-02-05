@@ -81,7 +81,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 
 - [Support Policies for RHEL High Availability Clusters](https://access.redhat.com/articles/2912891){: external}
 - [Support Policies for RHEL High Availability Clusters - General Requirements for Fencing/STONITH](https://access.redhat.com/articles/2881341){: external}
-- [Support Policies for RHEL High Availability Clusters - IBM {{site.data.keyword.powerSys_notm}} (PowerVS) Virtual Machines as Cluster Members](https://access.redhat.com/articles/5651561){: external}
+- [Support Policies for RHEL High Availability Clusters - IBM {{site.data.keyword.powerSys_notm}} ({{site.data.keyword.powerSys_notm}}) Virtual Machines as Cluster Members](https://access.redhat.com/articles/5651561){: external}
 - [Available Fencing Types and Fencing Agents for a Red Hat High-Availability Cluster](https://access.redhat.com/articles/2295961){: external}
 - [Configuring a RHEL HA Cluster Fence Agent for an IBM {{site.data.keyword.powerSys_notm}}](https://access.redhat.com/articles/6966644){: external}
 - [How to configure HA-LVM Cluster by using system_id in RHEL 8 and above](https://access.redhat.com/solutions/3796221){: external}

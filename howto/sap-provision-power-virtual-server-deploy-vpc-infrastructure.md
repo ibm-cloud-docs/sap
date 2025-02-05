@@ -23,7 +23,7 @@ As a best practice for SAP that runs on {{site.data.keyword.powerSysFull}}, thre
 * **Host for internet services that are deployed in edge VPC** is used to configure the access from {{site.data.keyword.powerSys_notm}} instances to IBM Cloud services and to the public internet.
 * **Host for private services that are deployed in workload VPC** provides certain management services to the {{site.data.keyword.powerSys_notm}} instances, like NFS, DNS, NTP.
 
-![VPC landing zone for SAP on PowerVS](../images/step1_manual_VPC-for-PowerVS.svg){: caption="VPC landing zone for SAP on PowerVS" caption-side="bottom"}
+![VPC landing zone for SAP on {{site.data.keyword.powerSys_notm}}](../images/step1_manual_VPC-for-{{site.data.keyword.powerSys_notm}}.svg){: caption="VPC landing zone for SAP on {{site.data.keyword.powerSys_notm}}" caption-side="bottom"}
 
 ## Deploying {{site.data.keyword.vpc_short}} for management services (management VPC)
 {: #power-vs-set-up-management-vpc}

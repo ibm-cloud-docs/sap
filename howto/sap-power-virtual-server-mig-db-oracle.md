@@ -19,7 +19,7 @@ subcollection: sap
 ### Target Audience and Intent
 {: #sapmig-db-oracle-target-audience-intent}
 
-This documentation presents Oracle Database Administrators (DBA's) with two options, both based on Oracle RMAN to migrate AIX-based Oracle databases from IBM Power to IBM Power Virtual Server (IBM PowerVS).
+This documentation presents Oracle Database Administrators (DBA's) with two options, both based on Oracle RMAN to migrate AIX-based Oracle databases from IBM Power to IBM Power Virtual Server (IBM {{site.data.keyword.powerSys_notm}}).
 
 The target audience consists of solution and infrastructure architects and Oracle database administrators.
 
@@ -33,7 +33,7 @@ In this documentation, the generic term *Discovery* indicates that the customers
 All following procedures require network connectivity between the source and the target system, and a sufficient network bandwidth for the data transfer and/or data replication.
 
 
-A discussion of alternative procedures by using the optional mobile or container solutions such as *Seagate Lyve Mobile Solution* in combination with IBM Cloud Object Storage or *IBM Aspera Connect* to transfer On-Premises backups/database files to IBM PowerVS infrastructure is interspersed.  Links to detailed information about this service may be found in the IBM Cloud online documentation or in the following links.
+A discussion of alternative procedures by using the optional mobile or container solutions such as *Seagate Lyve Mobile Solution* in combination with IBM Cloud Object Storage or *IBM Aspera Connect* to transfer On-Premises backups/database files to IBM {{site.data.keyword.powerSys_notm}} infrastructure is interspersed.  Links to detailed information about this service may be found in the IBM Cloud online documentation or in the following links.
 
 * [Seagate Lyve Mobile Solution](https://www.seagate.com/de/de/manuals/lyve-mobile-cloud-service/import-to-ibm-cloud/){: external}
 * [Getting started with IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external}
@@ -57,7 +57,7 @@ Any attempt to execute these procedures will be performed in context with Custom
 
 The Customer is responsible for reviewing these representative procedures in the context of their particular environment and adjusting as required.
 
-The Oracle Database migration options that are described are not necessarily specific to IBM PowerVS migrations. Oracle technical staff should recognize the procedures that are used and understand that not every technical detail or consideration have been explicitly identified.
+The Oracle Database migration options that are described are not necessarily specific to IBM {{site.data.keyword.powerSys_notm}} migrations. Oracle technical staff should recognize the procedures that are used and understand that not every technical detail or consideration have been explicitly identified.
 The Oracle Database Admins executing the procedures are expected to understand the full scope of Oracle database backup and recovery methods - including those details not explicitly stated.
 
 ### Discovery and Migration Option Selection.
@@ -80,8 +80,8 @@ This document assumes that a detailed discovery has been previously collected:
 The following flowchart illustrates the three options covered by this document:
 
 
-* *Option 1*: Consistent RMAN backup from source, with generated files to be used by the RMAN Duplicate Database procedure to restore to IBM PowerVS.
-* *Option 2*: Inconsistent RMAN backup + archived redo logs (or level 0 + incremental backups) from source, with backup files to be used by the RMAN Restore/Recover Database procedure to restore to IBM PowerVS.
+* *Option 1*: Consistent RMAN backup from source, with generated files to be used by the RMAN Duplicate Database procedure to restore to IBM {{site.data.keyword.powerSys_notm}}.
+* *Option 2*: Inconsistent RMAN backup + archived redo logs (or level 0 + incremental backups) from source, with backup files to be used by the RMAN Restore/Recover Database procedure to restore to IBM {{site.data.keyword.powerSys_notm}}.
 * *Option 3*: Leveraging Oracle Data Guard, currently being researched and will be the recommended method if it is the same platform – create a mirror and as soon as it is in sync you can switchover with just minutes of database downtime. The online documentation will be updated as soon as the testing and assessment phases have been completed.
 
 ![Figure 1. Collect relevant metrics](../images/sap-power-virtual-server-mig-db-oracle-mig-options.png "Image showing Preparation - Collect relevant metrics"){: caption="Collect relevant metrics" caption-side="bottom"}
@@ -99,9 +99,9 @@ Customer requirements and technical conditions affect the decision to select fro
     * Transporting backups of a large database across a network takes time. Consider the following transfer example of 600 GB of backups across an end-to-end network connection where available protocols and bandwidth support 80 megabytes/second throughput. At this rate, it will take 125 minutes to transfer the data. If the database backups are much bigger or if the network connection throughput is less, more transfer time will be required. Unreliable networks can disrupt the transfer, requiring you to restart the transfer process, incurring delay.
 
         * Customers can benefit from specialized transfer tools that compress data before/during transfer, use high-throughput protocols and decompress data after transfer.
-        * Access to IBM’s Aspera, which can greatly accelerate data transfers from on-premise to IBM PowerVS locations is advantageous.
+        * Access to IBM’s Aspera, which can greatly accelerate data transfers from on-premise to IBM {{site.data.keyword.powerSys_notm}} locations is advantageous.
 3. Availability of Skills to Execute.
-    *	Options provided in this document require experienced Database Administrator skills and the ability to work with infrastructure teams to migrate database content to a new target database on Power Virtual Server within an IBM PowerVS workspace.
+    *	Options provided in this document require experienced Database Administrator skills and the ability to work with infrastructure teams to migrate database content to a new target database on Power Virtual Server within an IBM {{site.data.keyword.powerSys_notm}} workspace.
 
 Any migration procedures a Customer elects to use should be executed in the context of a detailed, well-rehearsed transfer and cutover plan.
 
@@ -163,7 +163,7 @@ Discovery has confirmed or identified the following preparation steps.
 {: #sapmig-db-oracle-prep-sizing}
 
 Document current sizing and performance metrics related to compute, IOPS, and storage, of one or more source Oracle instances.
-* The target IBM PowerVS Oracle instance should be constructed to at least match the sizing of the existing system.
+* The target IBM {{site.data.keyword.powerSys_notm}} Oracle instance should be constructed to at least match the sizing of the existing system.
 * Very important on the target system to select disk tier and disk capacity to meet IOPS requirements.
 * This discovery process should include execution of a performance test tool against the source database to capture metrics for future reference and comparison to target system deployment.
 
@@ -331,7 +331,7 @@ Customer should balance how parallelism and/or compression is applied (and assoc
 
 Consider applying *section size* to backup configuration. Without specifying `section size` that you can end up with very few very large files which makes it challenging to handle or restart in case of a transfer failure. Parallelism at restore is also limited to the number of backup files available to process concurrently.
 
-Using a `good section size` allows to control the size of each backup file that is generated and thereby also influence how many files are generated which can then be processed in parallel during restore in IBM PowerVS.
+Using a `good section size` allows to control the size of each backup file that is generated and thereby also influence how many files are generated which can then be processed in parallel during restore in IBM {{site.data.keyword.powerSys_notm}}.
 
 Note that Medium compression requires the Oracle Advanced Compression License. Basic compression is *good*, but significantly slower and achieves lower compression rates. High compression, is VERY CPU intensive on the compression side and only provides limited compression benefit as compared to Medium.
 High compression also requires the Advanced Compression License.
@@ -342,7 +342,7 @@ Although enabling block change tracking is not expected to impact the performanc
 ### Network Transfer - Standard Protocols versus IBM Aspera
 {: #sapmig-db-oracle-standard-protocols-aspera}
 
-A slower version of data transfer is using standard protocols such as scp/sftp. Backup files can be transfered either directly to an IBM AIX LPAR in PowerVS, or to IBM Cloud Object Storage (COS). Using scp/sftp with IBM COS assumes that you are using an IBM FileManage Gateway service or have installed and configured a sftp server within or next to the target IBM PowerVS environment to receive the transfer.
+A slower version of data transfer is using standard protocols such as scp/sftp. Backup files can be transfered either directly to an IBM AIX LPAR in {{site.data.keyword.powerSys_notm}}, or to IBM Cloud Object Storage (COS). Using scp/sftp with IBM COS assumes that you are using an IBM FileManage Gateway service or have installed and configured a sftp server within or next to the target IBM {{site.data.keyword.powerSys_notm}} environment to receive the transfer.
 
 The faster option is using IBM’s high-performance Aspera product for data transfer. In many situations, IBM Aspera has been shown to transfer data several times faster than traditional TCP-based protocols.
 
@@ -877,18 +877,18 @@ Option 2 - RMAN Restore/Recovery
 ### Assumptions
 {: #sapmig-db-oracle-restore2-assumptions}
 
-1. An IBM cloud account has been established, along with an IBM PowerVS workspace.
-1. Within the workspace, manual or automated procedures have been executed to install on the IBM PowerVS instance the necessary Oracle Grid  Infrastructure (if using ASM) and Oracle RDBMS homes on AIX. The AIX LPAR should be sized comparable to the source system in terms of compute, memory, storage capacity and performance, with compatible HW/SW versionings applied.
+1. An IBM cloud account has been established, along with an IBM {{site.data.keyword.powerSys_notm}} workspace.
+1. Within the workspace, manual or automated procedures have been executed to install on the IBM {{site.data.keyword.powerSys_notm}} instance the necessary Oracle Grid  Infrastructure (if using ASM) and Oracle RDBMS homes on AIX. The AIX LPAR should be sized comparable to the source system in terms of compute, memory, storage capacity and performance, with compatible HW/SW versionings applied.
 1.  All required backup files are accessible to the RMAN duplicate/restore/recover process.
 
 
-### Connectivity and Preparation – Oracle on IBM PowerVS
+### Connectivity and Preparation – Oracle on IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-db-oracle-restore-connect-prep}
 
 From the target instance command line, you can use the following RMAN procedure to perform a restore.
 1. Login as the user `oracle` to the AIX Power Virtual Server where you want to restore the database.
 1. Confirm that:
-    * Target IBM PowerVS system has a valid installation of the Oracle database software with the same version and patch level of software as in the source environment.
+    * Target IBM {{site.data.keyword.powerSys_notm}} system has a valid installation of the Oracle database software with the same version and patch level of software as in the source environment.
     * The device names for storage of Oracle datafiles and tablespace names are the same as with the source database. If not, `set newname` directives are required (steps are out of scope for this procedure)
     * ASM disk groups (if used) have been established with names and capacities that match the source environment.
     * Backup files are available to RMAN, whether resident on local file storage, Cloud Object Storage, NFS, and so on.

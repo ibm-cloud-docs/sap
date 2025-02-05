@@ -90,10 +90,10 @@ This estimation is based on assumptions. It is not qualified or intended to dete
 
 A hybrid cloud setup in general combines the customer network with a customer network segment in {{site.data.keyword.cloud}}. It is an extension of the existing customer network, as if you would connect a remote data center.
 
-Connecting an on-premises network with IBM Power Servers in PowerVS in {{site.data.keyword.cloud}} is described in
+Connecting an on-premises network with IBM Power Servers in {{site.data.keyword.powerSys_notm}} in {{site.data.keyword.cloud}} is described in
 [Network architecture diagrams](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams).
 
-If you are new to PowerVS, architectures from the [Power Edge Router (PER) use cases](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#per-use-cases) are the recommended ones and are the easiest to implement. If you have an existing PowerVS workspace, you might either consider migrating to the newer PER setup or inspect the [Power Virtual Server networking environment](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#networking-environment) description.
+If you are new to {{site.data.keyword.powerSys_notm}}, architectures from the [Power Edge Router (PER) use cases](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#per-use-cases) are the recommended ones and are the easiest to implement. If you have an existing {{site.data.keyword.powerSys_notm}} workspace, you might either consider migrating to the newer PER setup or inspect the [Power Virtual Server networking environment](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#networking-environment) description.
 
 Both PER and non-PER architectures offer these types of network connection options:
 
@@ -105,7 +105,7 @@ Both PER and non-PER architectures offer these types of network connection optio
 ### Internet VPN
 {: #sapmig-hybrid-cloud-networking-vpn}
 
-Internet VPN uses the public internet to connect on-premises networks and {{site.data.keyword.cloud}} networks through a VPN. At {{site.data.keyword.cloud}} the VPN is either terminated by a gateway device, gateway appliance, or a VPN as a service (VPNaaS). Read the IBM PowerVS specific [Creating VPN connections](/docs/power-iaas?topic=power-iaas-VPN-connections) article.
+Internet VPN uses the public internet to connect on-premises networks and {{site.data.keyword.cloud}} networks through a VPN. At {{site.data.keyword.cloud}} the VPN is either terminated by a gateway device, gateway appliance, or a VPN as a service (VPNaaS). Read the IBM {{site.data.keyword.powerSys_notm}} specific [Creating VPN connections](/docs/power-iaas?topic=power-iaas-VPN-connections) article.
 
 The easiest way to establish a site-to-site VPN is to start with the VPN-as-a-service (VPNaaS).
 Read the article [FAQs for site-to-site VPN gateways](/docs/vpc?topic=vpc-faqs-vpn#faq-vpn-10) for more details.
@@ -130,7 +130,7 @@ This SAP tool demonstrates a working connection, even if ICMP packages are dropp
 
 Refer to [SAP Note 500235 - Network Diagnosis with NIPING](https://me.sap.com/notes/500235){: external} for further NIPING details.
 
-For migrating SAP systems by using SAP HANA database replication between SAP HANA databases on-premises and PowerVS, the source and target servers are the two database servers.
+For migrating SAP systems by using SAP HANA database replication between SAP HANA databases on-premises and {{site.data.keyword.powerSys_notm}}, the source and target servers are the two database servers.
 The following two commands verify the connection between a source- and a target-system.
 
 1. *NIPING server:*
