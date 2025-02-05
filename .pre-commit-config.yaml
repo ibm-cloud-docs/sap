@@ -18,7 +18,7 @@ repos:
       - id: mixed-line-ending
         exclude: .png|.jpg|.svg|.drawio
         args: ["--fix=lf"]
-        description: Forces to replace line ending by the UNIX 'lf' character.
+        description: Forces to replace line ending by the UNIX 'lf' character
       - id: check-symlinks
         exclude: .png|.jpg|.svg|.drawio
         types: ["symlink"]
