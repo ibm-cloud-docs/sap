@@ -49,7 +49,7 @@ The network load balancer (NLB) with routing mode has two IP addresses (active/s
 When a failover occurs, the route mode updates all routing rules that are created for the VPC with a `next_hop` of the previous standby IP.
 Both the active IP and the standby IP are used during the lifetime of the NLB with route mode.
 
-![Architecture overview diagram](images/sap-power-virtual-server-ha-nlb-rt-nfs.svg){: figure caption="A diagram that shows the architecture for accessing VPC file storage."}
+![Architecture overview diagram](../images/sap-power-virtual-server-ha-nlb-rt-nfs.svg){: figure caption="A diagram that shows the architecture for accessing VPC file storage."}
 
 ## Before you begin
 {: #ha-nlb-rt-nfs-prereqs}
