@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-02-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, backup, restore
 
@@ -351,7 +351,7 @@ Documentation for IBM Aspera can be found here:
 [IBM Aspera Technologies - IBM Cloud](/docs/power-iaas?topic=power-iaas-additional-migration-strategies-power#aspera-technologies)
 
 This reference also contains the [Accelerated network transfer migration guide](https://cloud.ibm.com/media/docs/downloads/power-iaas/accelerated_migration.pdf){: external}.
-{: hint}
+{: tip}
 
 ### Backup Procedure Options
 {: #sapmig-db-oracle-backup-procedures}
@@ -398,7 +398,7 @@ mkdir -p /backup/rman/<sid>_option1
 ```
 {: pre}
 
-```
+```sh
 setenv ORACLE_SID <SID>
 ```
 {: pre}
@@ -427,7 +427,7 @@ BACKUP AS compressed BACKUPSET section size 6000M DEVICE TYPE DISK DATABASE TAG 
 alter database open;
 quit;
 ```
-{: codesection}
+{: codeblock}
 
 Execute this script from the command line by using the `oracle` user.
 ```sh
@@ -440,6 +440,8 @@ RMAN backs up data to the configured default device for the type of backup reque
 The following are the main components of the rman script used:
 
 ##### Database Shutdown and Start in Mount Mode
+{: #sapmig-db-oracle-rman1-shutdown-start}
+
 The database must be cleanly shut down and then started in “mount mode” for the offline backup option 1.
 To ensure that the backup is consistent, the database must not be open.
 Database shutdown + mount mode is accomplished by these two lines:
@@ -448,9 +450,11 @@ Database shutdown + mount mode is accomplished by these two lines:
 SHUTDOWN IMMEDIATE
 STARTUP MOUNT
 ```
-{: codesection}
+{: codeblock}
 
 ##### Backup Control File
+{: #sapmig-db-oracle-rman1-backup-control-file}
+
 The database control file contains the RMAN catalog that is required to restore the backup pieces into a functioning database.
 
 This command includes the control file into the backup:
@@ -461,6 +465,8 @@ BACKUP AS compressed BACKUPSET section size 6000M DEVICE TYPE DISK DATABASE TAG 
 Note that the `CONFIGURE CHANNEL DEVICE TYPE DISK` and `CONFIGURE CONTROLFILE AUTOBACKUP FORMAT` for `DEVICE TYPE DISK` commands in the previous mentioned script include the backup file system location!
 
 ##### Backup Parallelism
+{: #sapmig-db-oracle-rman1-backup-parallelism}
+
 Set disk device parallelism - likely to speed up the backup and to reduce the backup window. The optimal parallelism is dependent on several factors:
 * Availability of CPU resources to run that many concurrent backup processes. With the selected compression and encryption each RMAN process typically uses all CPU cycles of a logical processor, assuming the storage subsystem can provide the data fast enough.
 * Capability of storage subsystem to support the RMAN data file read and the write to backup location I/O throughput.
@@ -470,9 +476,11 @@ Set disk device parallelism - likely to speed up the backup and to reduce the ba
 ```sql
 CONFIGURE DEVICE TYPE DISK PARALLELISM 8 BACKUP TYPE TO BACKUPSET;
 ```
-{: codesection}
+{: codeblock}
 
 ##### Backup Compression
+{: #sapmig-db-oracle-rman1-backup-compression}
+
 Set backup file compression. However HIGH has been tested in the script, however MEDIUM is advised. HIGH could be an option under certain circumstances. The use of 'MEDIUM' and 'HIGH' requires the Oracle Advanced Compression license!
 * **Tested**
     `CONFIGURE COMPRESSION ALGORITHM 'HIGH' ;`
@@ -480,6 +488,8 @@ Set backup file compression. However HIGH has been tested in the script, however
     `CONFIGURE COMPRESSION ALGORITHM 'MEDIUM' ;`
 
 ##### Backup encryption
+{: #sapmig-db-oracle-rman1-backup-encryption}
+
 Set backup encryption on and modify the algorithm if desired (the default is AES128) and specify the encryption password to be used. Unless you are working with a TDE-encrypted database, every RMAN session requires the setting of the encryption and decryption password; otherwise, the session fails with a "wallet not open" error:
 
 ```sql
@@ -487,9 +497,11 @@ CONFIGURE ENCRYPTION FOR DATABASE ON ;
 CONFIGURE ENCRYPTION ALGORITHM 'AES256' ;
 SET ENCRYPTION ON IDENTIFIED BY passw0rd ONLY ;
 ```
-{: codesection}
+{: codeblock}
 
 ##### Backup
+{: #sapmig-db-oracle-rman1-backup}
+
 The final command then triggers the actual backup of the database to disk. The backup uses the RMAN-specific backup sets. Each RMAN process reads up to 6000M of consecutive data from a data file as a backup piece, compress and encrypt that data and then write it to the destination file system.
 
 The last action is to alter the database to open. Create a specific tag, including the `ORACLE_SID <SID>` , for identification purposes. Set the `section size` to limit the size of a backup part to improve potentially required retransmits in case of a failed file transfer to the destination environment. Using a TAG is recommended as it simplifies the management of multiple backups in an RMAN catalog:
@@ -499,9 +511,11 @@ The last action is to alter the database to open. Create a specific tag, includi
 BACKUP AS compressed BACKUPSET section size 6000M DEVICE TYPE DISK DATABASE TAG <SID>_100K_INITV3 include current controlfile ;
 alter database open;
 ```
-{: codesection}
+{: codeblock}
 
 ##### Backup Validation and Cross Check
+{: #sapmig-db-oracle-rman1-backup-validation}
+
 When the backup is complete, use some of the RMAN commands listed below to validate and cross-check the results.
 
 
@@ -515,7 +529,7 @@ RMAN> VALIDATE DATAFILE 10;
 RMAN> VALIDATE BACKUPSET 3;
 RMAN> CROSSCHECK BACKUP;
 ```
-{: codesection}
+{: codeblock}
 
 Explanation of commands:
 * `REPORT SCHEMA ;` - Lists and displays information about the database files, tablespaces and so on.
@@ -527,10 +541,13 @@ Explanation of commands:
 * `CROSSCHECK BACKUP;` - Synchronize the physical reality of backups and copies with their logical records in the RMAN repository.
 
 ##### Create PFILE
+{: #sapmig-db-oracle-rman1-create-pfile}
+
 Create a plain text database parameter file (PFILE) from the binary server parameter file (SPFILE) as follows.
 The database remains in mounted mode. Remember to use your `<SID>` in the command.
 
 As the `oracle` user execute:
+
 ```sh
 export ORACLE_SID=<SID>
 sqlplus "/ as sysdba";
@@ -541,7 +558,7 @@ Inside SQL*Plus create the parameter file:
 ```sql
 SQL> create pfile='/backup/rman/init<SID>.ora' from spfile;
 ```
-{: codesection}
+{: codeblock}
 
 Be sure to restore all RMAN parameters back to original discovery settings when done.
 
@@ -628,7 +645,7 @@ SET ENCRYPTION ON IDENTIFIED BY passw0rd ONLY ;
 BACKUP  tag '<Your TAG Here>' incremental level 0 AS compressed BACKUPSET section size 6000M DEVICE TYPE DISK DATABASE INCLUDE CURRENT CONTROLFILE PLUS ARCHIVELOG;
 quit;
 ```
-{: codesection}
+{: codeblock}
 
 You can call the script directly from the command line that uses user `oracle` and:
 ```sh
@@ -655,7 +672,7 @@ then this option should be set to `OFF`.
 ```sql
 CONFIGURE BACKUP OPTIMIZATION ON;
 ```
-{: codesection}
+{: codeblock}
 
 Restoring the database requires a copy of the database control file as it contains the RMAN catalog that is required to restore the backup pieces into a functioning database.
 
@@ -664,7 +681,7 @@ CONFIGURE CONTROLFILE AUTOBACKUP ON;
 
 BACKUP AS compressed BACKUPSET section size 6000M DEVICE TYPE DISK DATABASE PLUS ARCHIVELOG TAG ECOM_option1 include current controlfile;
 ```
-{: codesection}
+{: codeblock}
 
 Note that the script also contains `CONFIGURE CHANNEL DEVICE TYPE DISK` and `CONFIGURE CONTROLFILE AUTOBACKUP FORMAT for DEVICE TYPE DISK TO <directory>` commands, which define the backup type and file system location.
 
@@ -680,14 +697,14 @@ Parallelism 60 was used in the our testing as shown in the rman script previousl
 ```sql
 CONFIGURE DEVICE TYPE DISK PARALLELISM 8 BACKUP TYPE TO BACKUPSET;
 ```
-{: codesection}
+{: codeblock}
 
 Set backup file compression. MEDIUM is shown, HIGH could be an option under certain circumstances.
 The use of 'MEDIUM' and 'HIGH' requires the `Oracle Advanced Compression license` !
 ```sql
 CONFIGURE COMPRESSION ALGORITHM 'MEDIUM' ;
 ```
-{: codesection}
+{: codeblock}
 
 Set backup encryption on and modify the algorithm if desired (the default is AES128) and specify the encryption password to be used. Unless you are working with a TDE-encrypted database, every RMAN session requires the setting of the encryption and decryption password; otherwise, the session fails with a "wallet not open" error.
 ```sql
@@ -695,7 +712,7 @@ CONFIGURE ENCRYPTION FOR DATABASE ON;
 CONFIGURE ENCRYPTION ALGORITHM 'AES256';
 SET ENCRYPTION ON IDENTIFIED BY passw0rd ONLY ;
 ```
-{: codesection}
+{: codeblock}
 
 The final command then triggers the actual backup of the database to disk. The backup uses the RMAN-specific backup sets. Each RMAN process reads 6000M of consecutive data from a data file as a backup piece, compress and encrypt it and then write it to the destination file system. The goal of the section size is to limit the size of a backup piece so that a potentially required retransmit of a failed file transfer to the destination environment is manageable.
 
@@ -705,7 +722,7 @@ RMAN picks up the existing archivelogs. The use of a TAG is recommended as it si
 ```sql
 BACKUP  tag '<Your TAG here>' incremental level 0 AS compressed BACKUPSET section size 6000M DEVICE TYPE DISK DATABASE INCLUDE CURRENT CONTROLFILE PLUS ARCHIVELOG TAG <SID>_LEV0;
 ```
-{: codesection}
+{: codeblock}
 
 For additional incremental backups we suggest replacing occurrences of “inc1 / INC1” with corresponding “incN / INCN” in the following backup script. Note that it is suggested to store each incremental set of backup files into its own directory for easier management.
 
@@ -734,7 +751,7 @@ SET ENCRYPTION ON IDENTIFIED BY passw0rd ONLY ;
 BACKUP TAG `<SID>`_INC1 incremental level 1 AS compressed BACKUPSET section size 6000M DEVICE TYPE DISK DATABASE INCLUDE CURRENT CONTROLFILE PLUS ARCHIVELOG;
 quit;
 ```
-{: codesection}
+{: codeblock}
 
 As user `oracle` set the environment variable `ORACLE_SID` with the SID value of your system:
 ```sh
@@ -786,7 +803,7 @@ RMAN> VALIDATE DATAFILE 10;
 RMAN> VALIDATE BACKUPSET 3;
 RMAN> CROSSCHECK BACKUP;
 ```
-{: codesection}
+{: codeblock}
 
 Lists and displays information about the database files, tablespaces and so on..
 
@@ -816,7 +833,7 @@ In SQL*Plus create the parameter file:
 ```sql
 SQL> create pfile='/backup/rman/init<SID>.ora' from spfile;
 ```
-{: codesection}
+{: codeblock}
 
 Be sure to restore all RMAN parameters back to original discovery settings when done.
 
@@ -967,7 +984,7 @@ SQL> shutdown immediate;
 SQL> startup nomount;
 SQL> show parameter spfile;
 ```
-{: codesection}
+{: codeblock}
 
 The spfile parameters that are printed will look like this:
 ```text
@@ -1057,7 +1074,7 @@ run {
     duplicate database to <DBSID> backup location '/backup/rman/ec6_option1' nofilenamecheck noredo;
 }
 ```
-{: codesection}
+{: codeblock}
 
 As user `oracle` execute this script:
 ```sh
@@ -1097,7 +1114,7 @@ Inside SQL*Plus excute these sql commands:
 ```sql
 SQL> archive log list;
 ```
-{: codesection}
+{: codeblock}
 
 The typical output looks like:
 ```text
@@ -1242,7 +1259,7 @@ run {
   recover database;
 }
 ```
-{: codesection}
+{: codeblock}
 
 #### Explanation of Restore Script
 {: #sapmig-db-oracle-restore2-script1-explanation}
@@ -1253,31 +1270,31 @@ The backup files are encrypted and RMAN requires the encryption password to be a
 ```sql
 SET DECRYPTION IDENTIFIED BY passw0rd;
 ```
-{: codesection}
+{: codeblock}
 
 We restore the database control file from the level 0 backup that contains the RMAN catalog we need to map backup pieces to data files as well as the list of data files and their expected locations.
 ```sql
 restore controlfile from '/backup/rman/ec6_option2/lev0_cf_c-2252531432-20240529-01';
 ```
-{: codesection}
+{: codeblock}
 
 We then alter the database to `mount mode` which is required for the next step.
 ```sql
 alter database mount;
 ```
-{: codesection}
+{: codeblock}
 
 Using the TAG we assigned to the level 0 backup that we instruct RMAN to restore the database from that specific backup.
 ```sql
 restore database from tag IBMECC02_EC6_LEV0;
 ```
-{: codesection}
+{: codeblock}
 
 As a final step we apply any in level 0 backup included archive logs to the restored database. Note that this does not open the database so that we can apply future incremental backups and/or archive logs to the database.
 ```sql
 recover database;
 ```
-{: codesection}
+{: codeblock}
 
 #### Execute Restore Database Level0 Script
 {: #sapmig-db-oracle-restore2-exec-script1}
@@ -1371,7 +1388,7 @@ RMAN> SET ENCRYPTION ALGORITHM 'AES256' ;
 RMAN> SET DECRYPTION IDENTIFIED BY passw0rd;
 RMAN> recover database ;
 ```
-{: codesection}
+{: codeblock}
 
 After cataloging the FINAL incremental backup pieces the recovery needs to be up to the *date/time* determined in the backup
 
@@ -1380,13 +1397,13 @@ Set the time and date format with:
 ```sql
 RMAN> alter session set nls_date_format='DD-MM-YYYY HH24:mi:SS' ;
 ```
-{: codesection}
+{: codeblock}
 
 You will find an example date range here:
 ```sql
 RMAN> recover database until time '13-01-2024 11:52:12';
 ```
-{: codesection}
+{: codeblock}
 
 ### Start Database
 {: #sapmig-db-oracle-restore2-start-db}
@@ -1402,7 +1419,7 @@ sqlplus "/ as sysdba"
 ```sql
 SQL> alter database open resetlogs ;
 ```
-{: codesection}
+{: codeblock}
 
 ### Check Database Mode
 {: #sapmig-db-oracle-restore2-check-db-mode}
@@ -1419,6 +1436,6 @@ And double check the archive logs list:
 ```sql
 SQL> archive log list;
 ```
-{: codesection}
+{: codeblock}
 
 This concludes the Restore/Recover approach to database migration to Power Virtual Server.

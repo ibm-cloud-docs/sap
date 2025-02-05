@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-02-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 
@@ -494,7 +494,7 @@ export SID=<SID>                           # SAP HANA System ID (uppercase)
 export sid=<sid>                           # SAP HANA System ID (lowercase)
 export INSTNO=<INSTNO>                     # SAP HANA Instance Number
 ```
-{: codesection}
+{: codeblock}
 
 For this example, the installation is up to the point where you need to enter "Y" to continue.
 Navigate back to the HANA_DATABASE directory.

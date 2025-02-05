@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2024-10-04"
+  years: 2024, 2025
+lastupdated: "2025-02-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Hybrid Cloud, Migration, AIX, Linux, RHEL, SuSE
 
@@ -16,7 +16,7 @@ subcollection: sap
 Running SAP S/4HANA or SAP ECC on IBM {{site.data.keyword.powerSysFull}} in a hybrid cloud environment offers:
 - A flexible infrastructure
 - Consistent platform for SAP HANA based and traditional applications
-- Best-in-class performance and
+- Best-in-class performance
 - Freedom to run SAP workload where you need it.
 {: shortdesc}
 
@@ -52,7 +52,7 @@ Following steps describe how to migrate an SAP Enterprise Core Component (ECC) S
 ## Migrating SAP ERP 6 on IBM Db2 to IBM Power Virtual Server
 {: #sapmig-migrating-sap-erp-db2}
 
-You have different options to migrate an SAP system on IBM Db2 database. For SAP ERP on IBM Db2, you have two migration options. [Migrating SAP ERP 6 on IBM Db2 to IBM Power Virtual Server](/docs/sap?topic=sap-sapmig-db-db2) describes the two options:
+Multiple options to migrate SAP on IBM Db2 are technically possible. The chapter [Migrating SAP ERP 6 on IBM Db2 to IBM Power Virtual Server](/docs/sap?topic=sap-sapmig-db-db2) describes these two major options:
 
 - [Migration option 1 - Back up and restore](/docs/sap?topic=sap-sapmig-db-db2#sapmig-db-db2-option1-backup-restore) is the easier migration option with downtime during the complete migration
 - [Migration option 2 - IBM Db2 high availability and disaster recovery (HADR)](/docs/sap?topic=sap-sapmig-db-db2#sapmig-db-db2-option2-backup-restore-hadr) is a downtime-optimized version, more complex but with minimum downtime.

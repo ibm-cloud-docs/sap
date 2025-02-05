@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, 2024
-lastupdated: "2024-12-05"
+  years: 2024, 2025
+lastupdated: "2025-02-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, backup, restore, Db2, IBM Db2, HADR
 
@@ -297,7 +297,7 @@ Files that are listed in the output are the backup files that are transferred to
 ### Transferring the backup files
 {: #sapmig-db-db2-option1-step3-transfer}
 
-Use the following steps to transfer the backup files.
+Use the following step to transfer the backup files.
 
 1. Copy the backup files from the source SAP system to the target:
 
@@ -756,7 +756,7 @@ To minimize SAP system downtime, create an online Db2 database backup.
 ### Transferring backup files to the target system
 {: #sapmig-db-db2-option2-transfer}
 
-Use the following steps to transfer the backup files to the target system.
+Use the following step to transfer the backup files to the target system.
 
 1. Copy the backup files from the source SAP system to the target system:
 
