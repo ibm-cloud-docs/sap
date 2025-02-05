@@ -35,7 +35,7 @@ Veeam Backup & Replication can be provisioned and deployed from the {{site.data.
 
 Below is high-level overview of how an SAP `Backint` database backup is performed:
 
-![Figure 1. SAP HANA Backint database backup overview](/images/sap-partners-veeam_plug-in.png "SAP HANA Backint database backup overview"){: caption="SAP HANA Backint database backup overview" caption-side="bottom"}
+![Figure 1. SAP HANA Backint database backup overview](../images/sap-partners-veeam_plug-in.png "SAP HANA Backint database backup overview"){: caption="SAP HANA Backint database backup overview" caption-side="bottom"}
 
 Veeam Plug-in, which acts as a go-between for SAP HANA and Veeam Backup repository, is installed on the SAP HANA server. Veeam Backup & Replication is provisioned on either {{site.data.keyword.cloud_notm}} {{site.data.keyword.baremetal_short}} or {{site.data.keyword.cloud_notm}} Classic {{site.data.keyword.virtualmachinesshort}}.
 

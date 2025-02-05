@@ -39,7 +39,7 @@ Reference architecture (RA) for a landscape comprised of
 
 The example RA is configured with high availability and disaster recovery. Note that in Figure 1, the database servers can be any database system supported by SAP NetWeaver, for example, SAP HANA.
 
-![Figure 1. Sample reference architecture](/images/refarch-sap-optimization-20180527.png "Sample reference architecture"){: caption="Sample reference architecture" caption-side="bottom"}
+![Figure 1. Sample reference architecture](../images/refarch-sap-optimization-20180527.png "Sample reference architecture"){: caption="Sample reference architecture" caption-side="bottom"}
 
 
 ### Understanding the architecture behind the SAP reference architecture

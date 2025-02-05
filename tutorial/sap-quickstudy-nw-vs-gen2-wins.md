@@ -87,7 +87,7 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 1. Click **Create virtual private cloud** on the right.
 
 ## Creating a Virtual Server Instance
-{: #new-vrtual-server-wins}
+{: #new-virtual-server-wins}
 {: step}
 
 Use the following steps to create a virtual server instance.
@@ -236,7 +236,7 @@ You can access the newly created VSI with Windows Remote Desktop. Enter the *Flo
 ### Initializing the block storage for Windows disk usage
 
 1. Start the Windows Server **Disk Management**
-![Figure 1. Windows Server Disk Manager](/images/quickstudy-intel-vs-gen2-win-DiskMgr.png "Windows Server Disk Manager"){: caption="Windows Server Disk Manager" caption-side="bottom"}
+![Figure 1. Windows Server Disk Manager](../images/quickstudy-intel-vs-gen2-win-DiskMgr.png "Windows Server Disk Manager"){: caption="Windows Server Disk Manager" caption-side="bottom"}
 1. Find the block storage - usually it is Disk 2 and shows the ordered size and the status *offline*
 1. Right-click the Disk tile and select **online** from the menu
 1. Again right-click the Disk tile and select **Initialize Disk** from the menu, check to make sure that the correct disk is selected, select **GPT** as the default partition style - see footnote (+) below - and click **Ok**
@@ -273,9 +273,9 @@ Both VSIs have one extra attached volume and a *Floating IP*. A smaller volume i
 
 
 
-![Figure 4. Virtual server instances](/images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Virtual server instances" caption-side="bottom"}
+![Figure 4. Virtual server instances](../images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Virtual server instances" caption-side="bottom"}
 
-![Figure 5. Block storage volumes for VPC](/images/quickstudy-intel-vs-gen2-image15.png "Block storage volumes for VPC"){: caption="Block storage volumes for VPC" caption-side="bottom"}
+![Figure 5. Block storage volumes for VPC](../images/quickstudy-intel-vs-gen2-image15.png "Block storage volumes for VPC"){: caption="Block storage volumes for VPC" caption-side="bottom"}
 
 
 ## Preparing your network
@@ -290,9 +290,9 @@ The two VSIs need to connect to the new network.
 1. Go to the VSIs details overview and on each click **New interface**.
 1. Select *eth1* as **Interface name**.
 1. Select *sap-test-net2* as **Subnet**.
-1. Leave the other vaulues default and click **Create**.
+1. Leave the other values default and click **Create**.
 
-![Figure 13. Data volumes](/images/quickstudy-intel-vs-gen2-image4.png "Data volumes"){: caption="Data volumes" caption-side="bottom"}
+![Figure 13. Data volumes](../images/quickstudy-intel-vs-gen2-image4.png "Data volumes"){: caption="Data volumes" caption-side="bottom"}
 
 Maintain your `hosts` files on both servers according to the targeted setup. Usually you find it in the following path: `C:\Windows\System32\drivers\etc\hosts`.
 
@@ -344,7 +344,7 @@ SWPM is the component that guides you through the steps to successfully prepare 
 
 Follow the instructions in the [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2){: external}.
 
-![Figure 2. SAP Application instances](/images/quickstudy-intel-vs-gen2-win-SingleHostSAPDb2.png "SAP Application instances"){: caption="SAP Application instances" caption-side="bottom"}
+![Figure 2. SAP Application instances](../images/quickstudy-intel-vs-gen2-win-SingleHostSAPDb2.png "SAP Application instances"){: caption="SAP Application instances" caption-side="bottom"}
 
 Figure 2 illustrates the basic SAP instances that will be installed to deploy the SAP NetWeaver ABAP application server onto one host. If you now want to complete the single server instance - i.e. just using VSI `sap-wdb`, you need to launch `sapinst` only one time on that server. In this case, you will first install the ABAP Central Services Instance (ASCS), then the Database Instance DB and finally the Primary Application Server (PAS).
 
@@ -395,5 +395,3 @@ Leaving now the tutorial and finding all information that you need to install yo
 * [SAP Note 100972 - Windows bug check event (blue screen)](https://me.sap.com/notes/100972){: external}.
 * [SAP Note 1559353 - How to capture user dumps on Windows](https://me.sap.com/notes/1559353){: external}.
 * [SAP Note 2015747 - How to generate Windows crash dump files](https://me.sap.com/notes/2015747){: external}.
-
-

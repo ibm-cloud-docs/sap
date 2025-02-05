@@ -33,7 +33,7 @@ The {{site.data.keyword.cloud}} architecture provides superior technical capabil
 
 Figure 1 shows the network topology that is required for the {{site.data.keyword.cloud_notm}} Classic Infrastructure as a Service SAP HANA TDI scale-out setup.
 
-![Figure 1. {{site.data.keyword.cloud_notm}} IaaS SAP HANA TDI scale-out network topology](/images/refarch-sap-bw-hana-scale-out-classic.png "{{site.data.keyword.cloud_notm}} Infrastructure as a Service SAP HANA TDI network topology"){: caption="{{site.data.keyword.cloud_notm}} Classic IaaS SAP HANA TDI scale-out network topology" caption-side="bottom"}
+![Figure 1. {{site.data.keyword.cloud_notm}} IaaS SAP HANA TDI scale-out network topology](../images/refarch-sap-bw-hana-scale-out-classic.png "{{site.data.keyword.cloud_notm}} Infrastructure as a Service SAP HANA TDI network topology"){: caption="{{site.data.keyword.cloud_notm}} Classic IaaS SAP HANA TDI scale-out network topology" caption-side="bottom"}
 
 ### Available SAP HANA certified {{site.data.keyword.cloud_notm}} configurations
 
@@ -89,7 +89,7 @@ For Intel Bare Metal scale-out configurations, contact {{site.data.keyword.cloud
 
 Figure 2 shows the network topology that is required for the {{site.data.keyword.cloud_notm}} VPC Infrastructure as a Service SAP HANA TDI scale-out setup.
 
-![Figure 2. {{site.data.keyword.cloud_notm}} VPC IaaS SAP HANA TDI scale-out network topology](/images/refarch-sap-bw-hana-scale-out-vpc-vm.svg "{{site.data.keyword.cloud_notm}} Infrastructure as a Service SAP HANA TDI network topology"){: caption="{{site.data.keyword.cloud_notm}} VPC IaaS SAP HANA TDI scale-out network topology for VSIs" caption-side="bottom"}
+![Figure 2. {{site.data.keyword.cloud_notm}} VPC IaaS SAP HANA TDI scale-out network topology](../images/refarch-sap-bw-hana-scale-out-vpc-vm.svg "{{site.data.keyword.cloud_notm}} Infrastructure as a Service SAP HANA TDI network topology"){: caption="{{site.data.keyword.cloud_notm}} VPC IaaS SAP HANA TDI scale-out network topology for VSIs" caption-side="bottom"}
 
 ### Storage for Scale-out configurations
 
