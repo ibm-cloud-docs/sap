@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-04"
+lastupdated: "2025-02-05"
 
 subcollection: sap
 
@@ -345,7 +345,7 @@ Second, release the IBM Bucket and delete all the backups:
 - The used files/directories for "Python 3.7 with ssl support" and "S3 backint" are still present at the OS level on Hana VSI but Hana will no longer use them.
 
 ## Next steps
-{: #sap-hana-db-backup-next}
+{: #sap-hana-db-backup-next-steps-ui}
 {: ui}
 
 Do not use the {{site.data.keyword.cloud_notm}} dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.

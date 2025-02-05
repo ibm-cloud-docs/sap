@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-03"
+  years: 2020, 2025
+lastupdated: "2025-02-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -60,9 +60,11 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 | bx3d-metal-64x256 | 64 | 256 | 124,520 |
 | bx3d-metal-192x1024 | 192 | 1.024 | 297,770 |
 | **Memory Optimized** | | | |
+| mx3d-metal-16x128 | 16 | 128 | 30,030 |
 | mx3d-metal-48x512 | 48 | 512 | 97,830 |
 | mx3d-metal-64x512 | 64 | 512 | 128,750 |
 | mx3d-metal-96x1024 | 96 | 1.024 | 182,670 |
+| mx3d-metal-128x1024 | 128 | 1.024 | 239,300 |
 | **Very High Memory Optimized** | | | |
 | vx3d-metal-16x256 | 16 | 256 | 35,520 |
 | **Ultra High Memory Optimized** | | | |

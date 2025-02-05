@@ -6,7 +6,7 @@ lastupdated: "2021-12-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
-subcollection: sap  
+subcollection: sap
 
 ---
 
@@ -27,12 +27,12 @@ subcollection: sap
 With over 60 {{site.data.keyword.IBM_notm}} data centers worldwide, the {{site.data.keyword.cloud}} SAP-Certified Infrastructure gives you the flexibility to run your SAP workloads in the {{site.data.keyword.cloud_notm}} when and where you need them. You can quickly address issues such as:
 
 * Rapidly expanding or contracting capacity
-* Moving SAP workloads to the cloud 
+* Moving SAP workloads to the cloud
 * Supplementing an existing private cloud architecture.
 
-The following documentation provides design considerations and guidance for provisioning the infrastructure to support SAP workloads, including: 
+The following documentation provides design considerations and guidance for provisioning the infrastructure to support SAP workloads, including:
 
-* SAP Business Applications such as SAP S/4HANA or SAP BW/4HANA 
+* SAP Business Applications such as SAP S/4HANA or SAP BW/4HANA
 * SAP Technical Applications such SAP HANA database server and SAP NetWeaver application server
 
 You can use this information to help planning your SAP installation and running your SAP workloads on {{site.data.keyword.cloud_notm}}.
@@ -40,7 +40,7 @@ You can use this information to help planning your SAP installation and running 
 The following documentation does not replace any SAP implementation-related documentation.
 
 ## Before you begin
-{: #before-you-begin}
+{: #getting-started-before-you-begin}
 
 Before you install the SAP software components on {{site.data.keyword.cloud_notm}}, you need an:
 * SAP S-User ID to review the relevant SAP documentation and download SAP installation media
@@ -66,7 +66,7 @@ This table summarizes the SAP landscape installation steps for you and your team
 {: caption="Overview of your SAP landscape installation steps" caption-side="top"}
 
 ## Next steps
-{: #next-steps}
+{: #gettings-started-next-steps}
 
 Review the following documentionat for your relevant configuration:
 

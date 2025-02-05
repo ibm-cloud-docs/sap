@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-02"
+lastupdated: "2025-02-05"
 
 subcollection: sap
 
@@ -42,7 +42,7 @@ With {{site.data.keyword.vpc_short}}, you can use the UI, CLI, and API to manual
 A [Virtual Private Cloud (VPC)](https://www.ibm.com/think/topics/vpc){: external} contains one of the most secure and reliable cloud environments for SAP applications within your own VPC with its included virtual server instances. This represents an Infrastructure as a Service (IaaS){: external} within {{site.data.keyword.cloud_notm}} that offers all of the benefits of isolated, secure, and flexible virtual cloud infrastructure from IBM. In comparison, the {{site.data.keyword.cloud_notm}} classic infrastructure virtual servers offering uses virtual instances with native and VLAN networking to communicate to each other within a data center; however, the instances are restricted in one well-working pod by using subnet and VLAN networking as a gap scale up of virtual resources should rely between the pods. What’s new with {{site.data.keyword.vpc_short}} is a network orchestrator layer concept that eliminates the pod boundaries and restrictions, so this new concept handles all the networking for every virtual instance running within VPC across regions and zones.
 
 ## Highly available system for SAP NetWeaver on {{site.data.keyword.cloud_notm}} VPC
-{: #automate-sap-ha-system-nw}
+{: #automate-sap-ha-system-nw-vpc}
 
 In a highly available (HA) system, every instance can run on a separate {{site.data.keyword.cloud_notm}} virtual server instance. The cluster HA configuration for the SAP application server consists of two virtual server instances, each of them located in the same zone for single zone or in different zones for multi zone within the same region by using placement groups. Placement groups assure that both cluster resources and cloud resources are also located in different compute nodes as specified in the following placement groups section.
 

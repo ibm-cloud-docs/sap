@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-06"
+  years: 2020, 2025
+lastupdated: "2025-02-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, SAP HANA, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS
 
@@ -39,18 +39,18 @@ You need to successfully create an {{site.data.keyword.vpc_full}} and {{site.dat
 
 
 ## Getting an {{site.data.keyword.cloud_notm}} API key
-{: #get-api-key}
+{: #metrics-linux-get-api-key}
 
 You need an {{site.data.keyword.cloud_notm}} API key for IMCS to successfully collect all required metrics. The API key grants view access to {{site.data.keyword.cloud_notm}} infrastructure services. You can install IMCS without an API key. However, some metrics are missing and the virtual server is not supported by SAP.
 
-For a list of missing metrics, see [Additional Information](#addl-info).
+For a list of missing metrics, see [Additional Information](#metrics-linux-addl-info).
 
 You need to create only one Service ID and one API Key per Account. You can use the same Service ID and API Key for all the Metric Collectors that are installed in the virtual server that is associated to the Account.
 {: note}
 
 
 ### Creating a Service ID
-{: #service-id}
+{: #metrics-linux-service-id}
 
 You need to first create a Service ID and then the related API key. Use the following steps to create a Service ID.
 
@@ -71,7 +71,7 @@ You need to first create a Service ID and then the related API key. Use the foll
 1. Click **Add** > **Assign**. The VPC Infrastructure Service policy is assigned to your Service ID.
 
 ### Creating an API Key for the Service ID.
-{: #api-key}
+{: #-metrucs-linux-api-key}
 
 Use the following steps to create an API Key for the new Service ID.
 
@@ -225,7 +225,7 @@ You can install `nmap` on your system by using the appropriate package manager l
 
 
 ## Additional information
-{: #addl-info}
+{: #metrics-linux-addl-info}
 
 If you don't have an {{site.data.keyword.cloud_notm}} API key, the IMCS can't collect all of the metrics that are required by SAP, which include
 

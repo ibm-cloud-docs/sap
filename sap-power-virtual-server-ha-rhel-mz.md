@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-12-04"
+lastupdated: "2025-02-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -594,7 +594,7 @@ pcs resource describe powervs-subnet
 ### Creating a service ID for the `powervs-subnet` resource agent
 {: #ha-rhel-mz-iam-custom-role}
 
-Follow the steps in [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-id) to create a `Service ID` and an `API key` for the `powervs-subnet` resource agent.
+Follow the steps in [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-role-and-service-id) to create a `Service ID` and an `API key` for the `powervs-subnet` resource agent.
 
 ## Conclusion
 {: #ha-rhel-mz-conclusion}

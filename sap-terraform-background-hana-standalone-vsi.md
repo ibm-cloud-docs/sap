@@ -1,7 +1,7 @@
 ---
 
 copyright:
-years: 2023, 2024
+  years: 2023, 2024
 lastupdated: "2024-06-17"
 
 subcollection: sap
@@ -21,7 +21,7 @@ subcollection: sap
 {: #sap-hana-vpc-background}
 
 ## {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) introduction
-{: #sap-hana-vpc-intro}
+{: #sap-hana-standalone-vsi-vpc-intro}
 
 {{site.data.keyword.cloud}} VPC offers the possibility to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. A VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 {: shortdesc}

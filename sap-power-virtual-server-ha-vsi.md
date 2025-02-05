@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-04"
+lastupdated: "2025-02-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -157,7 +157,7 @@ If you deployed a virtual server instance from a stock image, you need to perfor
 For more information, see [Configuring a {{site.data.keyword.powerSys_notm}} instance](/docs/sap?topic=sap-power-vs-set-up-power-instances#power-vs-set-up-powervs-manually-os-config).
 
 ## Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}
-{: #ha-vsi-create-service-id}
+{: #ha-vsi-create-role-and-service-id}
 
 A *Service ID* in {{site.data.keyword.cloud_notm}} identifies a service or an application in a similar way as a user ID identifies a user.
 Create a *service ID* for the fencing agent to allow access to IBM Power Cloud actions such as monitoring or controlling the virtual server instances.
