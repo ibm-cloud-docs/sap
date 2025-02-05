@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-12-06"
+  years: 2021, 2025
+lastupdated: "2025-02-05"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -93,7 +93,7 @@ A sample configuration is shown in:
 * [Quick Study Tutorial - SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using Windows Server](/docs/sap?topic=sap-quickstudy-bm-netweaver-wins)
 
 ## SAP on SAP HANA using Intel Virtual Servers (Gen2)
-{: #anydb-hana-documentation-bm}
+{: #anydb-hana-documentation-vsi}
 
 See [SAP Note 2927211 - SAP Applications on IBM Virtual Private Cloud: Supported DB/OS and IBM Gen 2 Virtual Server Instances](https://me.sap.com/notes/2927211){: external} for supported MSSQL database versions.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-02"
+lastupdated: "2025-02-05"
 
 subcollection: sap
 
@@ -73,7 +73,7 @@ The {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform on {{site.da
 ## Support
 {: #automate-nw-asesyb-support}
 
-There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.ibm}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
+There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
 Though the materials provided herein are not supported by the {{site.data.keyword.IBM}} Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
@@ -257,7 +257,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 12.	Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/doc/7abd5470728810148a4b1a83b0e91070/1511%20000/en-US/frameset.htm){: external}.
 
 ## Deploying SAP NetWeaver 7.x and Db2 on 3-tier by using the Schematics user interface
-{: #sap-terraform-3tier-nw-db2-deploying-schematics}
+{: #sap-terraform-3tier-nw-asesyb-deploying-schematics}
 {: ui}
 
 Use these steps to configure the SAP NetWeaver 7.x with Db2 3-tier on your existing VPC by using the {{site.data.keyword.bpshort}} user interface. The scripts can take 1 - 2 hours to complete.

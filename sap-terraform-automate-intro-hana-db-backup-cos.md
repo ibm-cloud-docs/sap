@@ -26,7 +26,7 @@ You can use Terraform to automate {{site.data.keyword.cloud}} VPC provisioning. 
 {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
 
 ## {{site.data.keyword.cloud_notm}} VPC introduction
-{: #vpc-intro}
+{: #automate-backup-vpc-intro}
 
 A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud) infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 
