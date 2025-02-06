@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -10,14 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Intel Bare Metal server certified profiles on Classic infrastructure for SAP HANA
 {: #hana-iaas-offerings-profiles-intel-bm}
@@ -32,13 +25,13 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 
 | **Profile** | **CPU Cores** | **CPU Threads (aka. vCPU)** | **Memory (RAM GB)** | **SAPS** | **SAP HANA Processing Type** |
 | --- | --- | --- | --- | --- | --- |
-| [BI.S3.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=823){: external} | 36 | 72 | 192 GB | 78,850 | OLAP/OLTP (\*)<br/>SAP Business One (\*\*\*) |
-| [BI.S3.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=825){: external} | 36 | 72 | 384 GB | 79,430 | OLAP/OLTP (\*)<br/>SAP Business One (\*\*\*) |
-| [BI.S3.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=827){: external} | 36 | 72 | 768 GB | 79,630 | OLAP/OLTP (\*)<br/>SAP Business One (\*\*\*) |
-| [BI.S4.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1087){: external} | 32 | 64 | 192 GB | 82,470 | OLAP/OLTP (\*\*)<br/>SAP Business One (\*\*\*) |
-| [BI.S4.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1091){: external} | 32 | 64 | 384 GB | 85,130 | OLAP/OLTP (\*\*)<br/>SAP Business One (\*\*\*) |
+| [BI.S3.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=823){: external} | 36 | 72 | 192 GB | 78,850 | OLAP/OLTP (\*)\nSAP Business One (\*\*\*) |
+| [BI.S3.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=825){: external} | 36 | 72 | 384 GB | 79,430 | OLAP/OLTP (\*)\nSAP Business One (\*\*\*) |
+| [BI.S3.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=827){: external} | 36 | 72 | 768 GB | 79,630 | OLAP/OLTP (\*)\nSAP Business One (\*\*\*) |
+| [BI.S4.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1087){: external} | 32 | 64 | 192 GB | 82,470 | OLAP/OLTP (\*\*)\nSAP Business One (\*\*\*) |
+| [BI.S4.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1091){: external} | 32 | 64 | 384 GB | 85,130 | OLAP/OLTP (\*\*)\nSAP Business One (\*\*\*) |
 | BI.S4.H2.384_v3 Appliance | 16 | 32 | 384 GB | 60,420 | OLAP/OLTP (\*\*) |
-| [BI.S4.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1095){: external} | 40 | 80 | 768 GB | 112,830 | OLAP/OLTP (\*\*)<br/>SAP Business One (\*\*\*) |
+| [BI.S4.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1095){: external} | 40 | 80 | 768 GB | 112,830 | OLAP/OLTP (\*\*)\nSAP Business One (\*\*\*) |
 | BI.S4.H2.768_v2 Appliance | 48 | 96 | 768 GB | 124,620 | OLAP/OLTP (\*\*) |
 | BI.S4.H2.768_v3 Appliance | 16 | 32 | 768 GB | 60,420 | OLAP/OLTP (\*\*) |
 | [BI.S4.H2.1500 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1099){: external} | 56 | 112 | 1536 GB | 147,220 | OLAP/OLTP (\*\*) |
@@ -51,15 +44,15 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 | BI.S5.H2.2001 Appliance | 96 | 192 | 2 TB | 297.370 | OLAP/OLTP (^1^) |
 {: caption="Certified {{site.data.keyword.cloud_notm}} {{site.data.keyword.baremetal_short}} for SAP HANA" caption-side="bottom"}
 
-(\*): RHEL 7.4 for SAP Solutions, RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions<br/>
+(\*): RHEL 7.4 for SAP Solutions, RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions\n
 SLES 12 SP2, SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3
 
-(\*\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.2 for SAP Solutions <br/>
+(\*\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.2 for SAP Solutions \n
 SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
 (\*\*\*): SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
-(^1^): RHEL 8.10 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions <br/>
+(^1^): RHEL 8.10 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions \n
 SLES 15, SLES 15 SP1 , SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
 Please regard the supported operated systems mentioned in the footnotes.
@@ -78,7 +71,7 @@ The Bare Metal profile names are contextual and sequential.  This example uses a
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
 | BI.S4.H2.1500 | BI | {{site.data.keyword.cloud_notm}} Infrastructure |
-| | S4 | Series 4 (CPU generation)<br/><ul><li>S3: Intel Skylake/Kaby Lake</li><li>S4 is Intel Cascade Lake</li><li>S5: Intel Sapphire Rapids</li></ul> |
+| | S4 | Series 4 (CPU generation)\n* S3: Intel Skylake/Kaby Lake\n* S4 is Intel Cascade Lake\n * S5: Intel Sapphire Rapids |
 | | H | HANA-certified server |
 | | 2 | 2-socket server |
 | | 1500 | 1500 GB RAM |

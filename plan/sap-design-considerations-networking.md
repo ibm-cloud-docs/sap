@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -10,14 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Networking design considerations
 {: #networking-design-considerations}
@@ -100,7 +93,7 @@ Using the Enterprise Resource Planning (ERP) business application, for example, 
     - SAP HANA secondary failover node _(using SAP HANA System Replication)_
     - SAP HANA tertiary disaster recovery failover node _(using SAP HANA System Replication)_
 
-  This describes 1 SAP System within the SAP Landscape. An SAP Landscape might use:
+- This describes 1 SAP System within the SAP Landscape. An SAP Landscape might use:
     - One Track, 5 SAP Systems (Sandbox > Development > Testing > Staging > Production)
     - Dual Track, 5 SAP Systems (Sandbox > New Feature Development + Maintenance Development > New feature testing + Maintenance testing > Staging > Production)
 
@@ -122,13 +115,11 @@ Depending on your operating system, SAP workload, and network connectivity, you 
 
 * OS packages update server, with the different subscription channels of the OS packages for SAP HANA and SAP NetWeaver.
     * For {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers.
-    
 * Software and patches download server. When the software is downloaded onto the server, you can use various protocols to transfer the files such as SCP or SFTP to transfer the software to the target server for installation.
 * Time server (NTP), using NTP on {{site.data.keyword.cloud_notm}} private backbone, public internet NTP or private NTP host.
 * Gateway (and Proxy) and Firewall hosts
 * Bastion/Jump host. Enables secured pass-through to your Cloud resources from public internet or other network access; often this uses tightly secured SSH on a non-default port.
 * Jump host that is enabled with VNC or RDP. Enables GUI access to a target machine (if GUI and VNC or RDP is installed on the target).
-
 * VPN hosts. Enables secured connection to your existing internal network.
 * Network Routing hosts, via TelCo or Network Service Provider. Enables secured private high-throughput connection to your existing internal network.
 * Backup management service hosts

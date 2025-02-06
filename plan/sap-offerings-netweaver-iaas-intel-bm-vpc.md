@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -10,14 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Bare Metal Server certified profiles on VPC Infrastructure for SAP NetWeaver
 {: #nw-iaas-offerings-profiles-intel-bm-vpc}
@@ -94,7 +87,7 @@ The first letter of the profile name indicates the profile family:
 | v | *Very High Memory Optimized* family | 1:27.43 | 1:16 |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
-<br/>
+
 The Bare Metal Server profile names are contextual and sequential. See the following example:
 
 | Profile name | Naming convention component | What it means |
@@ -103,11 +96,11 @@ The Bare Metal Server profile names are contextual and sequential. See the follo
 | | x | Intel x86_64 CPU architecture |
 | | ? \n   2 \n   3 | The Intel generation for the underlying hardware \n   Cascade Lake \n   Sapphire Rapids |
 | | d | the optional 'd' in the name indicates that the server is equipped with one or more additional NVMe SSD storage devices |
-| | — | _spacer_ |
+| | — | *spacer* |
 | | metal | *metal* in the name indicates that this is a bare metal server |
-| | — | _spacer_ |
+| | — | *spacer* |
 | | 96 | 96 vCPU |
-| | x | _spacer_ |
+| | x | *spacer* |
 | | 768 | 768 GiB RAM |
 {: caption="Profile naming for SAP NetWeaver" caption-side="top"}
 

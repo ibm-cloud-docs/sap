@@ -10,15 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # SAP HANA database design considerations
 {: #hana-design-considerations}
@@ -56,10 +48,10 @@ Examples of these performance indicators for SAP HANA include:
 
 | Indicator | Description |
 | --- | --- |
-| **Memory** | <ul><li>Leading factors for SAP Sizing (and cost of landscape + licenses)</li><li>Determined by data footprint (business and metadata in the column and row store) after compression and by extra SAP HANA components used (such as cache store)</li></ul> |
-| **CPU** | <ul><li>Compared to SAP AnyDB options, more CPU power is required to fully benefit from the parallel processing capabilities of SAP HANA for optimal response times.</li><li>The large parallelization in analytical scenarios influence on Response Times. Therefore, CPU requirement is more important for analytical scenarios.</li><li>Mixed transactional and analytic workloads are supported by SAP HANA but compete for shared resources.</li></ul> |
-| **Disk capacity size**<br />**Disk throughput (I/O)** | <ul><li>Disk capacity that is required for data persistence for logging and cache data</li><li>Disk capacity size depends on the type of database store usage (such as row and column) </li><li>Sufficient I/O performance is required to enable processes to run with acceptable data throughput and storage system latency (that is, read/write from or to the disk)</li></ul> |
-| **Network Load** | <ul><li>Network throughput bandwidth in gigabits per second (Gbps):</li><ul><li>_Amount of data transferred between SAP Application Servers and Database Servers_</li><li>_Amount of data transferred between SAP Application and End User_</li></ul><li>Network latency roundtrip in milliseconds (ms):</li><ul><li>_Time between SAP Application Servers and Database Servers_</li><li>_Time between hosts and any network-attached storage_</li><li>_Time between SAP Application and End User_</li></ul></ul> |
+| **Memory** | * Leading factors for SAP Sizing (and cost of landscape + licenses)\n* Determined by data footprint (business and metadata in the column and row store) after compression and by extra SAP HANA components used (such as cache store) |
+| **CPU** | * Compared to SAP AnyDB options, more CPU power is required to fully benefit from the parallel processing capabilities of SAP HANA for optimal response times.\n* The large parallelization in analytical scenarios influence on Response Times. Therefore, CPU requirement is more important for analytical scenarios.\n* Mixed transactional and analytic workloads are supported by SAP HANA but compete for shared resources. |
+| **Disk capacity size**\n**Disk throughput (I/O)** | * Disk capacity that is required for data persistence for logging and cache data\n* Disk capacity size depends on the type of database store usage (such as row and column) \n* Sufficient I/O performance is required to enable processes to run with acceptable data throughput and storage system latency (that is, read/write from or to the disk) |
+| **Network Load** | * Network throughput bandwidth in gigabits per second (Gbps):\n* _Amount of data transferred between SAP Application Servers and Database Servers_\n* _Amount of data transferred between SAP Application and End User_\n * Network latency roundtrip in milliseconds (ms):\n * _Time between SAP Application Servers and Database Servers_\n* _Time between hosts and any network-attached storage_\n* _Time between SAP Application and End User_ |
 {: caption="Example performance indicators for SAP HANA" caption-side="top"}
 
 ## SAP HANA Sizing Type and Deployment Method
@@ -183,7 +175,7 @@ A multi-node / distributed / scale-out cluster is a system installation across m
 ### SAP HANA scale-out cluster
 {: #hana-system-type-scale-out}
 
-Use of scale-out is primarily designed for SAP BW/4HANA or SAP BW on HANA. The [Scale-up and Scale-out for SAP BW/4HANA](/docs/sap?topic=sap-bw4hana#bw4hana-hana-scaling) considerations at the application-layer is covered separately. These consideratios are in addition to database-layer considerations described in the following sections.
+Use of scale-out is primarily designed for SAP BW/4HANA or SAP BW on HANA. The [Scale-up and Scale-out for SAP BW/4HANA](/docs/sap?topic=sap-bw4hana#bw4hana-hana-scaling) considerations at the application-layer is covered separately. These consideration are in addition to database-layer considerations described in the following sections.
 
 It is important to note that if your SAP HANA database server nodes or SAP NetWeaver application server components are distributed across multiple availability zones and data centers, SAP will not support your SAP HANA scale-out cluster (also known as, SAP HANA multi-node system).
 {: note}

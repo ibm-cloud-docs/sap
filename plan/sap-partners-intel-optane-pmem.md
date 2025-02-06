@@ -10,16 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
-{:deprecated: .deprecated}
+{{site.data.keyword.attribute-definition-list}}
 
 # SAP HANA with Intel Optane Persistent Memory (PMEM)
 {: #sap-partner-intel-optane-pmem}
@@ -64,6 +55,7 @@ Bare Metal server profiles for the DRAM:PMEM ratios include:
 |1:4|BI.S4.H4.1.5TB RAM + 6TB Persistent Memory|
 |1:4|BI.S4.H8.1.5TB RAM + 6TB Persistent Memory|
 |1:4|BI.S4.H8.3TB RAM + 12TB Persistent Memory|
+{: caption="DRAM:PMEM ratios" caption-side="bottom"}
 
 ## Sizing
 {: #sap-partner-intel-optane-sizing}
@@ -76,5 +68,6 @@ Standard HANA sizing rules apply to a 1:1 ratio configured server. The PMem size
 When you order your Bare Metal server with persistent memory, regions are created by the provisioning engine. As part of post-provisioning, you create the namespaces that you need. For more information, see [Deploying your infrastructure](https://test.cloud.ibm.com/docs/sap?topic=sap-bm-optane-set-up-infrastructure){: external}.
 
 ### Backup, recovery, and system replication
+{: #baremetal-backup-recovery-replication}
 
 Backup, recovery, and system replication are part of standard Bare Metal configuration. You perform the same steps for post provisioning on the Bare Metal servers as you do for SAP HANA.

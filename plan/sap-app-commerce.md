@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -10,14 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # SAP Commerce
 {: #commerce}
@@ -29,11 +22,11 @@ Due to the design and business purpose and the nature of SAP Commerce, the insta
 Therefore, deployments of SAP Commerce are available in different variants; we detail the following to assist understanding what {{site.data.keyword.ibm_cloud_sap}} can provide:
 
 - **SAP Commerce "on-premises edition" variants:**
-  - SAP Commerce "on-premises edition" with on-premises data center
-  - SAP Commerce "on-premises edition" on Cloud IaaS
+   - SAP Commerce "on-premises edition" with on-premises data center
+   - SAP Commerce "on-premises edition" on Cloud IaaS
 - **SAP Commerce Cloud (PaaS solution) variants:**
-  - SAP Commerce Cloud hosted on SAP Infrastructure (also known as CCv1 using VMs)
-  - SAP Commerce Cloud in the Public Cloud (also known as CCv2 using Kubernetes)
+   - SAP Commerce Cloud hosted on SAP Infrastructure (also known as CCv1 using VMs)
+   - SAP Commerce Cloud in the Public Cloud (also known as CCv2 using Kubernetes)
 
 Within the {{site.data.keyword.ibm_cloud_sap}} portfolio, infrastructure is supported for **_SAP Commerce "on-premises edition" on Cloud IaaS_**.
 

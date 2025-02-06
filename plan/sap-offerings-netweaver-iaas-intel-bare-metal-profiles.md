@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -10,14 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Intel Bare Metal server certified profiles on Classic infrastructure for SAP NetWeaver
 {: #nw-iaas-offerings-profiles-intel-bm}
@@ -58,7 +51,7 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP Ne
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
 | BI.S3.NW384 | BI | {{site.data.keyword.cloud_notm}} Infrastructure |
-| | S3 | Series 3 (CPU generation)<br/><ul><li>S3: Intel Skylake/Kaby Lake</li><li>S4: Intel Cascade Lake</li><li>S5: Intel Sapphire Rapids</li></ul> |
+| | S3 | Series 3 (CPU generation)\n* S3: Intel Skylake/Kaby Lake\n * S4: Intel Cascade Lake\n * S5: Intel Sapphire Rapids |
 | | NW | NetWeaver-certified server |
 | | H2 | HANA-(*) and NetWeaver-certified server, 2 sockets  |
 | | 384 | 384 GB RAM |

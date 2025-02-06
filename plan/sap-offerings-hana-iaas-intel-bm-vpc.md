@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2023, 2025
-lastupdated: "2025-02-05"
+    years: 2023, 2025
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -10,15 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # Bare Metal Server certified profiles on VPC infrastructure for SAP HANA
 {: #hana-iaas-offerings-profiles-intel-bm-vpc}
@@ -33,15 +25,15 @@ The following table gives you an overview of the SAP-certified profiles with bar
 | **Compute Optimized** | | | | |
 | cx2d-metal-96x192 | 96 | 192 | 107,400 | SAP Business One (\*\*) |
 | **Balanced** | | | | |
-| bx2d-metal-96x384 | 96 | 384 | 124,130 | OLTP/OLAP (\*)<br/>SAP Business One (\*\*) |
+| bx2d-metal-96x384 | 96 | 384 | 124,130 | OLTP/OLAP (\*)\nSAP Business One (\*\*) |
 | **Memory Optimized** | | | | |
-| mx2d-metal-96x768 | 96 | 768 | 127,620 | OLTP/OLAP (\*)<br/>SAP Business One (\*\*) |
+| mx2d-metal-96x768 | 96 | 768 | 127,620 | OLTP/OLAP (\*)\nSAP Business One (\*\*) |
 | **Ultra High Memory Optimized** | | | |
 | ux2d-metal-112x3072 | 112 | 3,072 | 140,730 | OLTP/OLAP (\*) |
 | ux2d-metal-224x6144 | 224 | 6,144 | 294,730 | OLTP/OLAP (\*) |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA" caption-side="bottom"}
 
-(\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions<br/>
+(\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions\n
 SLES 12 SP5, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5, SLES 15 SP6
 
 (\*\*): SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
@@ -73,7 +65,6 @@ The first letter of the profile name indicates the profile family:
 | u | *Ultra High Memory Optimized* family, even higher vCPU to memory ratio 1:27.43 |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
-<br/>
 The bare metal server profile names are contextual and sequential. See the following example:
 
 | Profile name | Naming convention component | What it means |
@@ -82,11 +73,11 @@ The bare metal server profile names are contextual and sequential. See the follo
 | | x | Intel x86_64 CPU Architecture |
 | | 2 | The generation for the underlying hardware |
 | | d | the optional 'd' in the name indicates that the server is equipped with one or more SSD storage devices |
-| | — | _spacer_ |
+| | — | *spacer* |
 | | metal | *metal* in the name indicates that this is a bare metal server |
-| | — | _spacer_ |
+| | — | *spacer* |
 | | 96 | 96 vCPU |
-| | x | _spacer_ |
+| | x | *spacer* |
 | | 768 | 768 GiB RAM |
 {: caption="Profile naming for SAP HANA" caption-side="top"}
 
@@ -140,8 +131,6 @@ The following table shows the required physical volumes, related volume groups, 
 | | `/hana/data` | `hana_data_lv` | *the remaining space ~17,190*  | `vg0` | |
 {: caption="Storage layout for Bare Metal Servers for VPC" caption-side="top"}
 
-<br/>
-<br/>
 
 Profile `ux2d-metal-224x6144` is equipped with different set of disks, so jump directly to ["Steps for setting up storage for the `ux2d-metal-224x6144` profile"](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc#hana-iaas-intel-bm-vpc-storage-specs-6TB).
 {: note}
@@ -157,40 +146,40 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
 
 1. Log in to the OS and install the lvm2 package, if not installed already.
 
-    ```
+    ```sh
     [root@mx2d-metal-96x768 ~]# yum install lvm2
     ```
     This command applies to RHEL, on SLES use ‘zypper install’ instead.
 
 2. Create the volume groups.
 
-    ```
+    ```sh
     [root@mx2d-metal-96x768 ~]# vgcreate vg0 /dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1 /dev/nvme3n1
     [root@mx2d-metal-96x768 ~]# vgcreate vg1 /dev/nvme4n1 /dev/nvme5n1 /dev/nvme6n1 /dev/nvme7n1
     ```
 
 3. Create logical volumes on top of the volume groups.
 
-    ```
+    ```sh
     [root@mx2d-metal-96x768 ~]# lvcreate --type raid10 -i 2 -m 1 -L 768G -I 64 -n hana_shared_lv vg0
     ```
 
     `768G` needs to be adapted to the hana_shared volume size specific to your memory size in the sizing table. Sizes for hana_log can be found there, too, and can be used in the lvcreate command as well.
     {: note}
 
-    ```
+    ```sh
     [root@mx2d-metal-96x768 ~]# lvcreate --type raid10 -i 2 -m 1 -L 512G -I 64 -n hana_log_lv vg0
     ```
 
 4. Create hana_data. Either modify the size with the `-L` option according to the sizing table, or the use the entire volume group with `-l 100%FREE`:
 
-    ```
+    ```sh
     [root@mx2d-metal-96x768 ~]# lvcreate --type raid10 -i 2 -m 1 -l 100%FREE -I 64 -n hana_data_lv vg1
     ```
 
 5. Create file systems on the logical volumes. In this example, XFS is used and is mounted by label. Mount by label is not a requirement and can be adapted according to your needs:
 
-    ```
+    ```sh
     [root@mx2d-metal-96x768 ~]# mkfs.xfs -L HANA_SHARED -K /dev/mapper/vg0-hana_shared_lv
     [root@mx2d-metal-96x768 ~]# mkfs.xfs -L HANA_LOG -K /dev/mapper/vg0-hana_log_lv
     [root@mx2d-metal-96x768 ~]# mkfs.xfs -L HANA_DATA -K /dev/mapper/vg1-hana_data_lv
@@ -198,7 +187,7 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
 
 6. Add the following lines to `/etc/fstab` and create the required directory paths with mkdir.
 
-    ```
+    ```sh
     LABEL=HANA_SHARED /hana/shared xfs defaults 0 0
     LABEL=HANA_LOG /hana/log xfs defaults,swalloc,inode64 0 0
     LABEL=HANA_DATA /hana/data xfs defaults,largeio,swalloc,inode64 0 0
@@ -214,33 +203,33 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
 
 1. Log in to the OS and install the lvm2 package, if not installed already.
 
-    ```
+    ```sh
     [root@ux2d-metal-224x6144 ~]# yum install lvm2
     ```
     This command applies to RHEL, on SLES use ‘zypper install’ instead.
 
 2. Create the volume group.
 
-    ```
+    ```sh
     [root@ux2d-metal-224x6144 ~]# vgcreate vg0 /dev/nvme0n1 /dev/nvme1n1
     ```
 
 3. Create logical volumes hana_shared_lv and hana_log_lv on top of the volume group.
 
-    ```
+    ```sh
     [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -L 6144G -n hana_shared_lv vg0
     [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -L 512G -n hana_log_lv vg0
     ```
 
 4. Create logical volume hana_data_lv.
 
-    ```
+    ```sh
     [root@ux2d-metal-224x6144 ~]# lvcreate --type raid1 -l 100%FREE -n hana_data_lv vg0
     ```
 
 5. Create file systems on the logical volumes. In this example, XFS is used and is mounted by label. Mount by label is not a requirement and can be adapted according to your needs:
 
-    ```
+    ```sh
     [root@ux2d-metal-224x6144 ~]# mkfs.xfs -L HANA_SHARED -K /dev/mapper/vg0-hana_shared_lv
     [root@ux2d-metal-224x6144 ~]# mkfs.xfs -L HANA_LOG -K /dev/mapper/vg0-hana_log_lv
     [root@ux2d-metal-224x6144 ~]# mkfs.xfs -L HANA_DATA -K /dev/mapper/vg0-hana_data_lv
@@ -248,7 +237,7 @@ These steps show a step-by-step guide for setting up the volume groups, logical 
 
 6. Add the following lines to `/etc/fstab` and create the required directory paths with mkdir.
 
-    ```
+    ```sh
     LABEL=HANA_SHARED /hana/shared xfs defaults 0 0
     LABEL=HANA_LOG /hana/log xfs defaults,swalloc,inode64 0 0
     LABEL=HANA_DATA /hana/data xfs defaults,largeio,swalloc,inode64 0 0

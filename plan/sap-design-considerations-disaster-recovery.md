@@ -13,7 +13,7 @@ subcollection: sap
 # Planning Disaster Recovery for SAP solutions on IBM Cloud
 {: #disaster-recovery-design-considerations-overview}
 
-Disaster Recovery (DR) is a strategic plan that helps organizations respond to unplanned events such as natural disasters, power outages, cyberattacks, and other disruptive events.
+Disaster Recovery (DR) is a strategic plan that helps organizations respond to unplanned events such as natural disasters, power outages, cyber attacks, and other disruptive events.
 The primary goal of a DR plan is to minimize the impact of such disruptions and enable the organization to continue or quickly resume critical operations.
 A well-structured DR plan facilitates rapid recovery, regardless of the cause of the disruption, to mitigate potential revenue loss, brand damage, and customer dissatisfaction.
 

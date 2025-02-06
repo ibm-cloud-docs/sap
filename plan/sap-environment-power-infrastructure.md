@@ -10,15 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # {{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment introduction
 {: #power-env-introduction}
@@ -127,6 +119,7 @@ If you need to connect to your virtual server through the public internet, in ot
 - {{site.data.keyword.IBM_notm}} Power Systems Infrastructure bridged to on-premises data centers by using IBM Direct Link
 
 
+
 {{site.data.keyword.dlc_short}} is also used for closer integration into your backbone infrastructure, for more information, see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access).
 
 For more explanation information about {{site.data.keyword.IBM_notm}} Power Systems Infrastructure, see [IBM {{site.data.keyword.powerSys_notm}}s](https://www.ibm.com/products/power-virtual-server){: external}.
@@ -164,7 +157,7 @@ There is only one type of IaaS available within the {{site.data.keyword.IBM_notm
 
 The {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are SAP-certified.
 
-Currently following {{site.data.keyword.IBM_notm}} Power Systems hardware are utilised by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s:
+Currently following {{site.data.keyword.IBM_notm}} Power Systems hardware are utilized by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s:
 -	 S922 – optimized for SAP NetWeaver application server
 -	 E980 – optimized for SAP HANA database server
 

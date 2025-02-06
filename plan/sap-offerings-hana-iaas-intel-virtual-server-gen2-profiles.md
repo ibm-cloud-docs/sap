@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -10,15 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA
 {: #hana-iaas-offerings-profiles-intel-vs-vpc}
@@ -35,9 +27,9 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | --- | --- | --- | --- | --- |
 | **Memory Optimized** | | | | |
 | mx2-8x64 \n mx2d-8x64 | 8 | 64 | 10,280 | SAP Business One (\*\*) |
-| mx2-16x128 \n mx2d-16x128 | 16 | 128 | 20,565 | OLTP (\*)<br/>SAP Business One (\*\*) |
-| mx2-32x256 \n mx2d-32x256 | 32 | 256 | 41,130 | OLTP (\*)<br/>SAP Business One (\*\*)  |
-| mx2-48x384 \n mx2d-48x384 | 48 | 384 | 56,970 | OLTP (\*)<br/>SAP Business One (\*\*)  |
+| mx2-16x128 \n mx2d-16x128 | 16 | 128 | 20,565 | OLTP (\*)\nSAP Business One (\*\*) |
+| mx2-32x256 \n mx2d-32x256 | 32 | 256 | 41,130 | OLTP (\*)\nSAP Business One (\*\*)  |
+| mx2-48x384 \n mx2d-48x384 | 48 | 384 | 56,970 | OLTP (\*)\nSAP Business One (\*\*)  |
 | **Very High Memory Optimized** | | | | |
 | vx2d-16x224 | 16 | 224 | 17,046 | OLTP (\*) |
 | vx2d-44x616 | 44 | 616 | 46,875 | OLAP/OLTP (\*) |
@@ -54,9 +46,9 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | ux2d-200x5600 | 200 | 5,600 | 215,570 | OLTP (\*) |
 {: caption="{{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA" caption-side="bottom"}
 
-(\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.1 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions<br/>
-SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5, SLES 15 SP6<br/>
-<br/>
+(\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.1 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions\n
+SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5, SLES 15 SP6\n
+\n
 (\*\*): SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
 
 Please, regard the supported operated systems that are mentioned in the footnotes.
@@ -85,7 +77,7 @@ The first letter of the profile name indicates the profile family that is mentio
 {: caption="{{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
 
 
-<br/>
+\n
 The Virtual Server profile names are contextual and sequential. See the following example:
 
 | Profile name | Naming convention component | What it means |
@@ -94,9 +86,9 @@ The Virtual Server profile names are contextual and sequential. See the followin
 | | x | Intel x86_64 CPU Architecture |
 | | 2 | The generation for the underlying hardware |
 | | d | the optional 'd' in the name indicates that the server is equipped with one or more internal SSD storage devices (*) |
-| | — | _spacer_ |
+| | — | *spacer* |
 | | 16 | 16 vCPU |
-| | x | _spacer_ |
+| | x | *spacer* |
 | | 128 | 128 GiB RAM |
 {: caption="Profile naming for SAP HANA" caption-side="top"}
 
@@ -174,41 +166,41 @@ See the step by step instructions for setting up the assets here. Mind the diffe
 
 The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
 
-| Profile | File\nsystem | Logical\nVolume | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(GB) |
-| --- | --- | --- | --- | --- | --- | --- |
-| `vx2d-16x224`  | `/hana/shared` | `hana_shared_lv` | 224 | `hana_vg` | `vde` | 1,120 |
-| | `/hana/data` | `hana_data_lv` | 672 | | | |
-| | `/hana/log` | `hana_log_lv` | 224 | | | |
-| --- | --- | --- | --- | --- | --- | --- |
-| `vx2d-44x616`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 616 |
-| | `/hana/data` |<td class="foot" colspan="2">n/a</td>| `vde` | 1,848 |
-| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdf` | 192 |
-| | | | | | `vdg` | 192 |
-| | | | | | `vdh` | 192 |
-| --- | --- | --- | --- | --- | --- | --- |
-| `vx2d-88x1232`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 1,232 |
-| | `/hana/data` |<td class="foot" colspan="2">n/a</td>| `vde` | 3,696 |
-| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdf` | 192 |
-| | | | | | `vdg` | 192 |
-| | | | | | `vdh` | 192 |
-| --- | --- | --- | --- | --- | --- | --- |
-| `vx2d-144x2016`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 2,016 |
-| | `/hana/data` | `hana_data_lv` | 4,096 | `hana_data_vg` | `vde` | 1,024 |
-| | | | | | `vdf` | 1,024 |
-| | | | | | `vdg` | 1,024 |
-| | | | | | `vdh` | 1,024 |
-| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdi` | 192 |
-| | | | | | `vdj` | 192 |
-| | | | | | `vdk` | 192 |
-| --- | --- | --- | --- | --- | --- | --- |
-| `vx2d-176x2464`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 2,464 |
-| | `/hana/data` | `hana_data_lv` | 5,120 | `hana_data_vg` | `vde` | 1,280 |
-| | | | | | `vdf` | 1,280 |
-| | | | | | `vdg` | 1,280 |
-| | | | | | `vdh` | 1,280 |
-| | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdi` | 192 |
-| | | | | | `vdj` | 192 |
-| | | | | | `vdk` | 192 |
+| Profile       | File\nsystem    | Logical\nVolume  | LV Size\n(GB) | Volume Group | Physical\nVolume | PV Size\n(GB) |
+| --------------| --------------- | ---------------- | --------------| ------------ | ---------------- | ------------- |
+| `vx2d-16x224` | `/hana/shared`  | `hana_shared_lv` | 224           | `hana_vg`    | `vde`            | 1,120         |
+|               | `/hana/data`    | `hana_data_lv`   | 672           |              |                  |               |
+|               | `/hana/log`     | `hana_log_lv`    | 224           |              |                  |               |
+| --------------| --------------- | ---------------- | --------------| ------------ | ---------------- | ------------- |
+| `vx2d-44x616` | `/hana/shared`  |                  | n/a           | `vdd`        | 616              |               |
+|               | `/hana/data`    |                  | n/a           | `vde`        | 1,848            |               |
+|               | `/hana/log`     | `hana_log_lv`    | 576           | `hana_log_vg`| `vdf`            | 192           |
+|               |                 |                  |               |              | `vdg`            | 192           |
+|               |                 |                  |               |              | `vdh`            | 192           |
+| --------------| --------------- | ---------------- | --------------| ------------ | ---------------- | ------------- |
+| `vx2d-88x1232`| `/hana/shared`  |                  | n/a           | `vdd`        | 1,232            |               |
+|               | `/hana/data`    |                  | n/a           | `vde`        | 3,696            |               |
+|               | `/hana/log`     | `hana_log_lv`    | 576           | `hana_log_vg`| `vdf`            | 192           |
+|               |                 |                  |               |              | `vdg`            | 192           |
+|               |                 |                  |               |              | `vdh`            | 192           |
+| --------------| --------------- | ---------------- | --------------| ------------ | ---------------- | ------------- |
+|`vx2d-144x2016`| `/hana/shared`  |                  | n/a           | `vdd`        | 2,016            |               |
+|               | `/hana/data`    | `hana_data_lv`   | 4,096         |`hana_data_vg`| `vde`            | 1,024         |
+|               |                 |                  |               |              | `vdf`            | 1,024         |
+|               |                 |                  |               |              | `vdg`            | 1,024         |
+|               |                 |                  |               |              | `vdh`            | 1,024         |
+|               | `/hana/log`     | `hana_log_lv`    | 576           | `hana_log_vg`| `vdi`            | 192           |
+|               |                 |                  |               |              | `vdj`            | 192           |
+|               |                 |                  |               |              | `vdk`            | 192           |
+| --------------| --------------- | ---------------- | --------------| ------------ | ---------------- | ------------- |
+|`vx2d-176x2464`| `/hana/shared`  |                  | n/a           | `vdd`        | 2,464            |               |
+|               | `/hana/data`    | `hana_data_lv`   | 5,120         |`hana_data_vg`| `vde`            | 1,280         |
+|               |                 |                  |               |              | `vdf`            | 1,280         |
+|               |                 |                  |               |              | `vdg`            | 1,280         |
+|               |                 |                  |               |              | `vdh`            | 1,280         |
+|               | `/hana/log`     | `hana_log_lv`    | 576           | `hana_log_vg`| `vdi`            | 192           |
+|               |                 |                  |               |              | `vdj`            | 192           |
+|               |                 |                  |               |              | `vdk`            | 192           |
 {: caption="Storage for vx2* profile based virtual servers" caption-side="top"}
 
 
@@ -318,21 +310,21 @@ The following table shows the required volumes and related volume groups, if nec
 | | `/hana/data` | `hana_data_lv` | 1,344 | | | |
 | | `/hana/log` | `hana_log_lv` | 448 | | | |
 | --- | --- | --- | --- | --- | --- | --- |
-| `ux2d-36x1008`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 1,008 |
+| `ux2d-36x1008`  | `/hana/shared` |n/a| `vdd` | 1,008 |
 | | `/hana/data` | `hana_data_lv` | 2,016 | `hana_data_vg` | `vde` | 1,008 |
 | | | | | | `vdf` | 1,008 |
 | | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdg` | 192 |
 | | | | | | `vdh` | 192 |
 | | | | | | `vdi` | 192 |
 | --- | --- | --- | --- | --- | --- | --- |
-| `ux2d-48x1344`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 1,344 |
+| `ux2d-48x1344`  | `/hana/shared` |n/a| `vdd` | 1,344 |
 | | `/hana/data` | `hana_data_lv` | 2,700 | `hana_data_vg` | `vde` | 1,350 |
 | | | | | | `vdf` | 1,350 |
 | | `/hana/log` | `hana_log_lv` | 576 | `hana_log_vg` | `vdg` | 192 |
 | | | | | | `vdh` | 192 |
 | | | | | | `vdi` | 192 |
 | --- | --- | --- | --- | --- | --- | --- |
-| `ux2d-72x2016`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 2,016 |
+| `ux2d-72x2016`  | `/hana/shared` |n/a| `vdd` | 2,016 |
 | | `/hana/data` | `hana_data_lv` | 4,096 | `hana_data_vg` | `vde` | 1,024 |
 | | | | | | `vdf` | 1,024 |
 | | | | | | `vdg` | 1,024 |
@@ -341,7 +333,7 @@ The following table shows the required volumes and related volume groups, if nec
 | | | | | | `vdj` | 192 |
 | | | | | | `vdk` | 192 |
 | --- | --- | --- | --- | --- | --- | --- |
-| `ux2d-100x2800`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 2,800 |
+| `ux2d-100x2800`  | `/hana/shared` |n/a| `vdd` | 2,800 |
 | | `/hana/data` | `hana_data_lv` | 8,400 | `hana_data_vg` | `vde` | 2,100 |
 | | | | | | `vdf` | 2,100 |
 | | | | | | `vdg` | 2,100 |
@@ -350,7 +342,7 @@ The following table shows the required volumes and related volume groups, if nec
 | | | | | | `vdj` | 192 |
 | | | | | | `vdk` | 192 |
 | --- | --- | --- | --- | --- | --- | --- |
-| `ux2d-200x5600`  | `/hana/shared` |<td class="foot" colspan="2">n/a</td>| `vdd` | 5,600 |
+| `ux2d-200x5600`  | `/hana/shared` |n/a| `vdd` | 5,600 |
 | | `/hana/data` | `hana_data_lv` | 16,800 | `hana_data_vg` | `vde` | 4,200 |
 | | | | | | `vdf` | 4,200 |
 | | | | | | `vdg` | 4,200 |

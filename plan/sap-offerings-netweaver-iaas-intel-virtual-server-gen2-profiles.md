@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -10,14 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver
 {: #nw-iaas-offerings-profiles-intel-vs-vpc}
@@ -32,6 +25,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 {: #nw-iaas-offerings-profiles-intel-vs-vpc-full-list}
 
 ### SAP-certified profiles hosted on Intel Cascade Lake CPUs
+{: #certified-profiles-intel-cascade-lake}
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
 | --- | --- | --- | --- |
@@ -87,6 +81,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 {: caption="{{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} hosted on Intel Cascade Lake CPUs" caption-side="bottom"}
 
 ### SAP-certified profiles hosted on Intel Sapphire Rapids CPUs
+{: #certified-profiles-intel-sapphire-rapids}
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
 | --- | --- | --- | --- |
@@ -163,9 +158,9 @@ For SAP HANA, only the memory profile families are used, for NetWeaver also the 
 | | x | Intel x86_64 CPU Architecture |
 | | ? \n   2 \n   3 | The Intel generation for the underlying hardware \n   Cascade Lake \n   Sapphire Rapids |
 | | d | the optional 'd' in the name indicates that the server is equipped with one or more internal SSD or NVMe storage devices (*) |
-| | — | _spacer_ |
+| | — | *spacer* |
 | | 16 | 16 vCPU |
-| | x | _spacer_ |
+| | x | *spacer* |
 | | 128 | 128 GiB RAM |
 {: caption="Profile naming for SAP HANA" caption-side="top"}
 

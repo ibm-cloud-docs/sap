@@ -10,19 +10,12 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # SAP Business One (B1)
 {: #b1}
 
-SAP Business One is an enterprise resource planning (ERP) software that is especially designed for small-to-medium enterprises. It integrates business management - accounting and financials, purchasing and inventory, sales and customer relationships, and project management and operations - into one application.
+SAP Business One is an enterprise resource planning (ERP) software that is especially designed for small-to-medium enterprises. It integrates business management - accounting and financing, purchasing and inventory, sales and customer relationships, and project management and operations - into one application.
 {: shortdesc}
 
 The single application eliminates the need for multiple installations and interfaces across separate modules. As your business grows, you can expand SAP Business One to fit your needs by adding one of over 500 add-on solutions from SAP Partners. It runs on both the SAP HANA and Microsoft SQL Server platforms and helps with the day-to-day operations of your enterprise. For more information, see [SAP Business One](https://www.sap.com/products/business-one.html){: external}

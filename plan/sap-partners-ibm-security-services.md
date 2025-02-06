@@ -10,14 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # IBM Security Services for SAP
 {: #ibm-security-services}
@@ -62,4 +55,3 @@ Because of the close collaboration between IBM Cloud for VMware with SAP and IBM
 2. On the **IBM Security Services for SAP** page, in the **Engage IBM Security Services** box, provide the requested details, and click **Request a consultation**.
 
     An {{site.data.keyword.vmwaresolutions_short}} representative will contact you by using your {{site.data.keyword.cloud_notm}} contact information to help you with the solution that you need.
-

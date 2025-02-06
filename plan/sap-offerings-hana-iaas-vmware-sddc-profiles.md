@@ -10,14 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # VMware SDDC certified profiles for SAP HANA
 {: #hana-iaas-offerings-profiles-vmware}
@@ -57,7 +50,7 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP HA
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
 | BI.S3.H8401 | BI | {{site.data.keyword.cloud_notm}}) Infrastructure |
-| | S3 | Series 3 (processor generation)  \n <ul><li>S3 is Intel Skylake/Kaby Lake</li><li>S4 is Intel Cascade Lake</li></ul> |
+| | S3 | Series 3 (processor generation)  \n * S3 is Intel Skylake/Kaby Lake\n * 4 is Intel Cascade Lake |
 | | H | HANA-certified server |
 | | 8 | 8-socket server |
 | | 4 | 4 TB RAM |

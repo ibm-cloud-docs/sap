@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -10,15 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # SAP S/4HANA
 {: #s4hana}
@@ -26,7 +18,7 @@ subcollection: sap
 SAP S/4HANA is the leading Enterprise Resource Planning (ERP) software that is designed for the largest enterprises, in any country worldwide within any industry, with extensive business processes and customization.
 {: shortdesc}
 
-ERP software integrates all business management and operations into one cohesive application to coordinate business execution, such as accounting and financials, purchasing and inventory, sales and customer relationships. An ERP can be considered a hub of all business operations. Various applications and all parts of the business can be connected into ERP, from the factory to the headquarters. The ERP software as a whole can have many add-on components (functional and industry) that provide different business functions for different lines of businesses and industries.
+ERP software integrates all business management and operations into one cohesive application to coordinate business execution, such as accounting and financing, purchasing and inventory, sales and customer relationships. An ERP can be considered a hub of all business operations. Various applications and all parts of the business can be connected into ERP, from the factory to the headquarters. The ERP software as a whole can have many add-on components (functional and industry) that provide different business functions for different lines of businesses and industries.
 
 SAP S/4HANA is a major release of ERP software from SAP designed to run with the SAP HANA database exclusively. Previous major releases of ERP from SAP, known as SAP ECC and SAP R/3, could use various relational database vendors.
 
@@ -47,12 +39,12 @@ Primarily the software operational models are grouped into two categories:
 
 Within each of the software operational models, multiple software deployment options are available:
 - SAP S/4HANA "AnyPremise” Edition _(formerly "On-Premise" Edition)_
-  - Deployment to existing Traditional On-Premises data center
-  - Deployment to Cloud IaaS
+   - Deployment to existing Traditional On-Premises data center
+   - Deployment to Cloud IaaS
 - SAP S/4HANA Cloud SaaS
-  - SAP S/4HANA Public Cloud **Extended (EX)** Edition, _SaaS provided by SAP along with SAP Partner subcontractors_
-  - SAP S/4HANA Public Cloud **Essentials (ES)** Edition, _SaaS provided by SAP along with SAP Partner subcontractors_
-  - SAP S/4HANA Private Cloud, _SaaS extension of SAP HANA Enterprise Cloud (HEC) provided by SAP along with SAP Partner subcontractors_
+   - SAP S/4HANA Public Cloud **Extended (EX)** Edition, _SaaS provided by SAP along with SAP Partner subcontractors_
+   - SAP S/4HANA Public Cloud **Essentials (ES)** Edition, _SaaS provided by SAP along with SAP Partner subcontractors_
+   - SAP S/4HANA Private Cloud, _SaaS extension of SAP HANA Enterprise Cloud (HEC) provided by SAP along with SAP Partner subcontractors_
 
 More information on the variants of SAP S/4HANA software is available from SAP. A concise explanation on the variants of SAP S/4HANA is available from SAP America, see [SAP Community Blogs - Product Information - SAP S/4HANA Cloud Deployment Options (June 17, 2019)](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-sap/sap-s-4hana-cloud-deployment-options/ba-p/13406848){: external}.
 
@@ -69,8 +61,8 @@ In addition to selecting a variant of SAP S/4HANA (the operational model and the
 
 - New SAP customer first-time implementation
 - ERP Migration (Brownfield)
-  - System Conversion (also known as Brownfield)
-  - Selective Data Transition (that uses Shell Conversion or Mix&Match)
+   - System Conversion (also known as Brownfield)
+   - Selective Data Transition (that uses Shell Conversion or Mix&Match)
 - ERP Re-Implementation (Greenfield)
 
 #### **SAP S/4HANA delivery model for the project implementation, from the list of SAP Partners**
@@ -108,9 +100,9 @@ Further information on [Moving SAP Workloads](/docs/sap?topic=sap-faq-moving-sap
 
 Depending on the business requirements and risk acceptance, the primary decision for any Cloud IaaS running SAP workloads which Cloud Tenancy model to use:
 - Single-Tenant infrastructure, **dedicated** compute resources that are accessed with a private logical network within the Cloud provider network backbone that uses:
-  - Bare Metal
-  - Virtual Servers on Dedicated Hosts
-  - VMware SDDC
+   - Bare Metal
+   - Virtual Servers on Dedicated Hosts
+   - VMware SDDC
 - Multi-Tenant infrastructure, **shared** compute resources that are accessed with a private logical network within the Cloud provider network backbone that uses Virtual Servers
 
 After you decide on the Cloud Tenancy model that meets your business and IT risk needs, the focus is then on sizing and throughput requirements:
@@ -139,7 +131,7 @@ Instead, we advise customers who have exceptionally large SAP HANA requirements 
 
 Alternates can include, the creation of a Hybrid Cloud model with the use of the available high-performance scale-up options in traditional datacenter deployments.
 
-An example of Hybrid Cloud used with SAP S/4HANA when exceeding 14-18TB of DRAM, would be the use of {{site.data.keyword.IBM_notm}} Power9 hardware provided by {{site.data.keyword.IBM_notm}} Power Systems, deployed into Traditional On-Premises datacenters. The maximum **IBM Power9 hardware can support 28TB of DRAM for SAP HANA 2.0 scale-up**. These complementary offerings are already succesfully running many customers SAP workloads at these largest memory footprints, through a close partnership and engineering discussions with SAP, therefore may suit the business needs for such exceptional scale-up requirements. For more information regarding SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems, see [SAP Note 2188482 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems: Allowed Hardware](https://me.sap.com/notes/2188482){: external}.
+An example of Hybrid Cloud used with SAP S/4HANA when exceeding 14-18TB of DRAM, would be the use of {{site.data.keyword.IBM_notm}} Power9 hardware provided by {{site.data.keyword.IBM_notm}} Power Systems, deployed into Traditional On-Premises datacenters. The maximum **IBM Power9 hardware can support 28TB of DRAM for SAP HANA 2.0 scale-up**. These complementary offerings are already successfully running many customers SAP workloads at these largest memory footprints, through a close partnership and engineering discussions with SAP, therefore may suit the business needs for such exceptional scale-up requirements. For more information regarding SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems, see [SAP Note 2188482 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Systems: Allowed Hardware](https://me.sap.com/notes/2188482){: external}.
 
 ## SAP NetWeaver considerations
 {: #s4hana-netweaver}
