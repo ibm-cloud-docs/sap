@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -10,15 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # Storage design considerations
 {: #storage-design-considerations}
@@ -115,16 +107,6 @@ In general, for typical RDBMS-based applications, a 5 IOPS/GB profile is reasona
 If your application uses dedicated key performance indicators (KPIs) on storage performance, test the storage throughput before you begin software deployment. By using volume manager-based software RAID (like LVM), you meet almost every KPI.
 
 
-#### Network Block Storage for IBM Power Virtual Servers
-{: #storage-performance-network-block-power}
-
-For SAP HANA, Tier 1 (NVMe) high performance is required.
-
-For SAP NetWeaver and SAP AnyDB databases (such as IBM Db2 or Oracle DB), Tier 1 (NVMe) is recommended but Tier 3 (SSD) can be used.
-
-Given {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are configured to enterprise-grade standards using Fibre Channel, there are no additional performance considerations.
-
-
 ## Sample storage configurations on Classic Infrastructure
 {: #sample-classic}
 
@@ -200,7 +182,7 @@ After attaching the three data volumes, three new virtual disks will appear in t
 
 The disks are visible in the operating system of the virtual server as follows:
 
-```
+```sh
 [root@hana256-vsi ~]# fdisk -l
 
 Disk /dev/vdd: 536.9 GB, 536870912000 bytes, 1048576000 sectors
@@ -223,19 +205,19 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 These three disks must be managed under the Linux&reg; Logical Volume Manager (LVM), and deployed as logical volumes. In order to achieve that, first put the three devices under LVM control. For example, make them physical volumes:
 
-```
+```sh
 [root@hana256-vsi ~]# pvcreate /dev/vdd /dev/vde /dev/vdf
 ```
 
 Then, create a volume group from the physical volumes. The name of the volume group can be chosen according to your preferences, in our sample it is `hana_vg`:
 
-```
+```sh
 [root@hana256-vsi ~]# vgcreate hana_vg /dev/vdd /dev/vde /dev/vdf
 ```
 
 After creating the volume group, three logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA. The following commands are for a 256 GB virtual server:
 
-```
+```sh
 [root@hana256-vsi ~]# lvcreate -i 3 -I 64K -L 256GB -n hana_log_lv hana_vg
 [root@hana256-vsi ~]# lvcreate -i 3 -I 64K -L 256GB -n hana_shared_lv hana_vg
 [root@hana256-vsi ~]# lvcreate -i 3 -I 64K -l 100%FREE -n hana_data_lv hana_vg
@@ -244,7 +226,7 @@ After creating the volume group, three logical volumes need to be defined on top
 For a 128 GB virtual server, in the example above `-L 256GB` must be replaced by `-L 128GB` and for 64 GB by `-L 64GB` accordingly. These commands will not result in the smallest possible file system size, but they create the smallest configuration, which will fulfill the SAP HANA KPIs.
 Finally, a file system needs to be created on top of each volume group:
 
-```
+```sh
 [root@hana256-vsi ~]# mkfs.xfs /dev/mapper/hana_vg-hana_log_lv
 [root@hana256-vsi ~]# mkfs.xfs /dev/mapper/hana_vg-hana_data_lv
 [root@hana256-vsi ~]# mkfs.xfs /dev/mapper/hana_vg-hana_shared_lv
@@ -252,7 +234,7 @@ Finally, a file system needs to be created on top of each volume group:
 
 The following entries to `/etc/fstab` will mount the file systems after their mount points (`/hana/data`, `/hana/log` and  `/hana/shared`) have been created:
 
-```
+```sh
 /dev/mapper/hana_vg-hana_log_lv    /hana/log xfs defaults,swalloc,nobarrier,inode64
 /dev/mapper/hana_vg-hana_shared_lv /hana/shared xfs defaults,inode64 0 0
 /dev/mapper/hana_vg-hana_data_lv   /hana/data xfs defaults,largeio,swalloc,inode64 0 0
@@ -271,20 +253,20 @@ After attaching the seven data volumes, seven new virtual disks will appear in t
 
 These three disks must be managed under the Linux&reg; Logical Volume Manager (LVM), and deployed as logical volumes. In order to achieve that, first put the three devices under LVM control. For example, make them physical volumes:
 
-```
+```sh
 [root@hana384-vsi ~]# pvcreate /dev/vd[d,e,f,g,h,i,j]
 ```
 
 Then, two different volume groups need to be created:
 
-```
+```sh
 [root@hana384-vsi ~]# vgcreate hana_vg /dev/vdh /dev/vdi /dev/vdj
 [root@hana384-vsi ~]# vgcreate hana_log_vg /dev/vdd /dev/vde /dev/vdf /dev/vdg
 ```
 
 Next, three logical volumes need to be defined on top. These logical volumes reflect the file system size requirements for SAP HANA. The following commands are for a 384 GB virtual server:
 
-```
+```sh
 [root@hana384-vsi ~]# lvcreate -l 100%VG -i 4 -I 64K  -n hana_log_lv hana_log_vg
 [root@hana384-vsi ~]# lvcreate -i 3 -L 384G -I 64K -n hana_shared_lv hana_vg
 [root@hana384-vsi ~]# lvcreate -i 3 -l 100%FREE  -I 64K -n hana_data_lv hana_vg
@@ -292,7 +274,7 @@ Next, three logical volumes need to be defined on top. These logical volumes ref
 
 Finally, a file system needs to be created on top of each volume group:
 
-```
+```sh
 [root@hana384-vsi ~]# mkfs.xfs /dev/mapper/hana_log_vg-hana_log_lv
 [root@hana384-vsi ~]# mkfs.xfs /dev/mapper/hana_vg-hana_data_lv
 [root@hana384-vsi ~]# mkfs.xfs /dev/mapper/hana_vg-hana_shared_lv
@@ -300,7 +282,7 @@ Finally, a file system needs to be created on top of each volume group:
 
 The following entries to `/etc/fstab` mount the file systems after their mount points (`/hana/data`, `/hana/log` and  `/hana/shared`) have been created:
 
-```
+```sh
 /dev/mapper/hana_log_vg-hana_log_lv    /hana/log xfs defaults,swalloc,nobarrier,inode64
 /dev/mapper/hana_vg-hana_shared_lv /hana/shared xfs defaults,inode64 0 0
 /dev/mapper/hana_vg-hana_data_lv   /hana/data xfs defaults,largeio,swalloc,inode64 0 0
@@ -330,12 +312,16 @@ See [Benefits of flexible IOPS](/docs/power-iaas?topic=power-iaas-on-cloud-archi
 The storage tier and capacity that is recommended for deployment of SAP S/4HANA on Power Virtual Server is described in this topic. These recommendations are based on the best practices and to meet the minimum performance criteria defined by HCMT.
 {: shortdesc}
 
-**Recommendation for SAP HANA DB size 128 GB - 768 GB**
+#### Recommendation for SAP HANA DB size 128 GB - 768 GB
+{: #sap-recommended-db-memory-sizes-1 }
+
 * Use 4 volumes of Fixed 5,000 IOPS storage for storing log files. Log files are usually up to 512 GB and need the high performance
 * Use 4 volumes of Tier 0 storage for data file system
 * Use 1 volume of Tier 3 storage for shared file system.
 
-**Recommendations for SAP HANA DB size 960 GB - 22.5 TB**
+#### Recommendations for SAP HANA DB size 960 GB - 22.5 TB
+{: #sap-recommended-db-memory-sizes-2 }
+
 * Use 4 volumes of Tier 0 storage for storing log files. Log files are usually up to 512 GB and need the high performance
 * Use 4 volumes of Tier 3 storage for data file system
 * Use 1 volume of Tier 3 storage for shared file system.
@@ -416,64 +402,64 @@ The tables below shows the mapping of minimum IOPS and its storage tier mapping 
 {: #log}
 {: tab-title="Log"}
 
-| Certified profile | Volume (GB) | Minimum IOPS | Data-storage tier|
-|-------------------|-------------|--------------|-----------------|
-| ush1-4x128 |	 4 x 77 GB | 	7,500	| Tier 0 |
-| ush1-4x256 |	 4 x 77 GB | 	7,500	| Tier 0 |
-| ush1-4x384 |	 4 x 115 GB | 	7,500	| Tier 0 |
-| ush1-4x512 |	 4 x 154 GB | 	7,500	| Tier 0 |
-| ush1-4x768 |	 4 x 230 GB | 	7,500	| Tier 0 |
-|	umh-4x960	|	4 x 722 GB	|    	7,500	|	 Tier 3     	   |
-|	umh-6x1440	|	4 x 720 GB	|    	7,500	|	 Tier 3     	 |
-|	umh-8x1920	|	4 x 720 GB	|    	7,500	|	 Tier 3     	 |
-|	umh-10x2400	|	4 x 720 GB	|    	7,500	|	 Tier 3     	 |
-|	umh-12x2880	|	4 x 864 GB	|    	7,500	|	 Tier 3     	 |
-|	umh-16x3840	|	4 x 1,152 GB	|    	7,500	|	 Tier 3     	 |
-|	umh-20x4800	|	4 x 1,440 GB	|    	7,500	|	 Tier 3     	 |
-|	umh-22x5280	|	4 x 1,584 GB	|    	7,500	|	 Tier 3     	 |
-|	umh-25x6000	|	4 x 1,800 GB	|    	7,500	|	 Tier 3     	 |
-|	umh-30x7200	|	4 x 2,160 GB	|    	7,500	|	 Tier 3     	 |
-|	umh-35x8400	|	4 x 2,520 GB	|    	7,500	|	 Tier 3     	 |
-|	umh-40x9600	|	4 x 2,880 GB	|    	7,500	|	 Tier 3     	 |
-|	umh-50x12000	|	4 x 3,600 GB	|    	7,500	|	 Tier 3      |
-|	umh-60x14400	|	4 x 4,320 GB	|    	7,500	|	 Tier 3      |
-|	mh1-8x1440	|	4 x 648 GB	|    	7,500	|	 Tier 3     	 |
-|	mh1-10x1800	|	4 x 648 GB	|    	7,500	|	 Tier 3     	 |
-|	mh1-12x2160	|	4 x 648 GB	|    	7,500	|	 Tier 3     	 |
-|	mh1-16x2880	|	4 x 864 GB	|    	7,500	|	 Tier 3     	 |
-|	mh1-20x3600	|	4 x 1,080 GB	|    	7,500	|	 Tier 3     	 |
-|	mh1-22x3960	|	4 x 1,188 GB	|    	7,500	|	 Tier 3     	 |
-|	mh1-25x4500	|	4 x 1,350 GB	|    	7,500	|	 Tier 3     	 |
-|	mh1-30x5400	|	4 x 1,620 GB	|    	7,500	|	 Tier 3     	 |
-|	mh1-35x6300	|	4 x 1,890 GB	|    	7,500	|	 Tier 3     	 |
-|	mh1-40x7200	|	4 x 2,160 GB	|    	7,500	|	 Tier 3     	 |
-|	mh1-50x9000	|	4 x 2,700 GB	|    	7,500	|	 Tier 3     	 |
-|	mh1-60x10800	|	4 x 3,240 GB	|    	7,500	|	 Tier 3      |
-|	mh1-70x12600	|	4 x 3,780 GB	|    	7,500	|	 Tier 3      |
-|	mh1-80x14400	|	4 x 4,320 GB	|    	7,500	|	 Tier 3      |
-|	mh1-90x16200	|	4 x 4,860 GB	|    	7,500	|	 Tier 3      |
-|	mh1-100x18000	|	4 x 5,400 GB	|    	7,500	|	 Tier 3      |
-|	mh1-125x22500	|	4 x 6,750 GB	|    	7,500	|	 Tier 3      |
-|	ch1-60x3000	|	4 x 900 GB	|    	7,500	|	 Tier 3     	 |
-|	ch1-70x3500	|	4 x 1,050 GB	|    	7,500	|	 Tier 3     	 |
-|	ch1-80x4000	|	4 x 1,200 GB	|    	7,500	|	 Tier 3     	 |
-|	ch1-100x5000	|	4 x 1,500 GB	|    	7,500	|	 Tier 3      |
-|	ch1-120x6000	|	4 x 1,800 GB	|    	7,500	|	 Tier 3      |
-|	ch1-140x7000	|	4 x 2,100 GB	|    	7,500	|	 Tier 3      |
-|	bh1-16x1600	|	4 x 660 GB	|    	7,500	|	 Tier 3     	 |
-|	bh1-20x2000	|	4 x 660 GB	|    	7,500	|	 Tier 3     	 |
-|	bh1-22x2200	|	4 x 660 GB	|    	7,500	|	 Tier 3     	 |
-|	bh1-25x2500	|	4 x 750 GB	|    	7,500	|	 Tier 3     	 |
-|	bh1-30x3000	|	4 x 900 GB	|    	7,500	|	 Tier 3     	 |
-|	bh1-35x3500	|	4 x 1,050 GB	|    	7,500	|	 Tier 3     	 |
-|	bh1-40x4000	|	4 x 1,200 GB	|    	7,500	|	 Tier 3     	 |
-|	bh1-50x5000	|	4 x 1,500 GB	|    	7,500	|	 Tier 3     	 |
-|	bh1-60x6000	|	4 x 1,800 GB	|    	7,500	|	 Tier 3     	 |
-|	bh1-70x7000	|	4 x 2,100 GB	|    	7,500	|	 Tier 3     	 |
-|	bh1-80x8000	|	4 x 2,400 GB	|    	7,500	|	 Tier 3     	 |
-|	bh1-100x10000	|	4 x 3,000 GB	|    	7,500	|	 Tier 3      |
-|	bh1-120x12000	|	4 x 3,600 GB	|    	7,500	|	 Tier 3      |
-|	bh1-140x14000	|	4 x 4,200 GB	|    	7,500	|	 Tier 3      |
+| Certified profile | Volume (GB)   | Minimum IOPS | Data-storage tier|
+|-------------------|---------------|--------------|-----------------|
+| ush1-4x128        |	4 x 81 GB     |  7,500	     |   Tier 0        |
+| ush1-4x256        |	4 x 103 GB    |  7,500	     |   Tier 0        |
+| ush1-4x384        |	4 x 154 GB    |  7,500	     |   Tier 0        |
+| ush1-4x512        |	4 x 206 GB    |  7,500	     |   Tier 0        |
+| ush1-4x768        |	4 x 309 GB    |  7,500	     |   Tier 0        |
+|	umh-4x960	        | 4 x 670 GB	  |  7,500	     |	 Tier 3     	 |
+|	umh-6x1440	      |	4 x 670 GB	  |  7,500	     |	 Tier 3     	 |
+|	umh-8x1920	      |	4 x 773 GB	  |  7,500	     |	 Tier 3     	 |
+|	umh-10x2400	      |	4 x 966 GB	  |  7,500	     |	 Tier 3     	 |
+|	umh-12x2880	      |	4 x 1,159 GB	|  7,500	     |	 Tier 3     	 |
+|	umh-16x3840	      |	4 x 1,546 GB	|  7,500	     |	 Tier 3     	 |
+|	umh-20x4800	      |	4 x 1,933 GB	|  7,500	     |	 Tier 3     	 |
+|	umh-22x5280	      |	4 x 2,126 GB	|  7,500	     |	 Tier 3     	 |
+|	umh-25x6000	      |	4 x 2,416 GB	|  7,500	     |	 Tier 3     	 |
+|	umh-30x7200	      |	4 x 2,899 GB	|  7,500	     |	 Tier 3     	 |
+|	umh-35x8400	      |	4 x 3,383 GB	|  7,500	     |	 Tier 3     	 |
+|	umh-40x9600	      |	4 x 3,866 GB	|  7,500	     |	 Tier 3     	 |
+|	umh-50x12000	    |	4 x 4,833 GB	|  7,500	     |	 Tier 3        |
+|	umh-60x14400	    |	4 x 5,799 GB	|  7,500	     |	 Tier 3        |
+|	mh1-8x1440	      |	4 x 670 GB	  |  7,500	     |	 Tier 3     	 |
+|	mh1-10x1800	      |	4 x 670 GB	  |  7,500	     |	 Tier 3     	 |
+|	mh1-12x2160	      |	4 x 869 GB	  |  7,500	     |	 Tier 3     	 |
+|	mh1-16x2880	      |	4 x 1,159 GB	|  7,500	     |	 Tier 3     	 |
+|	mh1-20x3600	      |	4 x 1,449 GB	|  7,500	     |	 Tier 3     	 |
+|	mh1-22x3960	      |	4 x 1,594 GB	|  7,500	     |	 Tier 3     	 |
+|	mh1-25x4500	      |	4 x 1,812 GB	|  7,500	     |	 Tier 3     	 |
+|	mh1-30x5400	      |	4 x 2,174 GB	|  7,500	     |	 Tier 3     	 |
+|	mh1-35x6300	      |	4 x 2,537 GB	|  7,500	     |	 Tier 3     	 |
+|	mh1-40x7200	      |	4 x 2,899 GB	|  7,500	     |	 Tier 3     	 |
+|	mh1-50x9000	      |	4 x 3,624 GB	|  7,500	     |	 Tier 3     	 |
+|	mh1-60x10800	    |	4 x 4,349 GB	|  7,500	     |	 Tier 3        |
+|	mh1-70x12600	    |	4 x 5,074 GB	|  7,500	     |	 Tier 3        |
+|	mh1-80x14400	    |	4 x 5,799 GB	|  7,500	     |	 Tier 3        |
+|	mh1-90x16200	    |	4 x 6,524 GB	|  7,500	     |	 Tier 3        |
+|	mh1-100x18000	    |	4 x 7,249 GB	|  7,500	     |	 Tier 3        |
+|	mh1-125x22500	    |	4 x 9,061 GB	|  7,500	     |	 Tier 3        |
+|	ch1-60x3000	      |	4 x 1,208 GB	|  7,500	     |	 Tier 3     	 |
+|	ch1-70x3500	      |	4 x 1,409 GB	|  7,500	     |	 Tier 3     	 |
+|	ch1-80x4000	      |	4 x 1,611 GB	|  7,500	     |	 Tier 3     	 |
+|	ch1-100x5000	    |	4 x 2,013 GB	|  7,500	     |	 Tier 3        |
+|	ch1-120x6000	    |	4 x 2,416 GB	|  7,500	     |	 Tier 3        |
+|	ch1-140x7000	    |	4 x 2,819 GB	|  7,500	     |	 Tier 3        |
+|	bh1-16x1600	      |	4 x 670 GB	  |  7,500	     |	 Tier 3     	 |
+|	bh1-20x2000	      |	4 x 805 GB	  |  7,500	     |	 Tier 3     	 |
+|	bh1-22x2200	      |	4 x 886 GB	  |  7,500	     |	 Tier 3     	 |
+|	bh1-25x2500	      |	4 x 1,006 GB	|  7,500	     |	 Tier 3     	 |
+|	bh1-30x3000	      |	4 x 1,208 GB	|  7,500	     |	 Tier 3     	 |
+|	bh1-35x3500	      |	4 x 1,409 GB	|  7,500	     |	 Tier 3     	 |
+|	bh1-40x4000	      |	4 x 1,611 GB	|  7,500	     |	 Tier 3     	 |
+|	bh1-50x5000	      |	4 x 2,013 GB	|  7,500	     |	 Tier 3     	 |
+|	bh1-60x6000	      |	4 x 2,416 GB	|  7,500	     |	 Tier 3     	 |
+|	bh1-70x7000	      |	4 x 2,819 GB	|  7,500	     |	 Tier 3     	 |
+|	bh1-80x8000	      |	4 x 3,222 GB	|  7,500	     |	 Tier 3     	 |
+|	bh1-100x10000	    |	4 x 4,027 GB	|  7,500	     |	 Tier 3        |
+|	bh1-120x12000	    |	4 x 4,833 GB	|  7,500	     |	 Tier 3        |
+|	bh1-140x14000	    |	4 x 5,638 GB	|  7,500	     |	 Tier 3        |
 {: class="simple-tab-table"}
 {: tab-group="recommended storage-tier"}
 {: caption="Recommended storage tier and capacity for data" caption-side="top"}
@@ -553,6 +539,7 @@ Fixed 5000 IOPS is limited to 200 GB of storage.
 {: note}
 
 Sample pricing calculation when you need a storage of 1 GB
+
 | Storage Required = 1 GB | Calculation | $Price/Month | IOPS Performance |
 |-------------------------|-------------|--------------|------------------|
 | Tier 0  	   | 	 1 GB x $.24  	 | 	 $0.240	 | 	 25 IOPS  |
@@ -562,6 +549,7 @@ Sample pricing calculation when you need a storage of 1 GB
 
 
 Sample pricing calculation when you need a storage of 100 GB
+
 | Storage Required = 100 GB | Calculation | $Price/Month | IOPS Performance |
 |-------------------------|-------------|--------------|------------------|
 | Tier 0  	   | 	 100 GB x $.24  	 | 	 $24 	 | 	 2,500 IOPS  |
@@ -584,8 +572,8 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | --- | --- | --- | --- |
 | OS disk | Default configuration | Default configuration | Default configuration |
 | Application disk | `app<sid>vg` | `lvusrsap` | `/usr/sap` |
-| | | `lvusrsap<SID>` | `/usr/sap/<SID` |
-| | | `lvusrsapmnt` | `/sapmnt/<SID>` |
+| | | `lvusrsap{SID}` | `/usr/sap/<SID` |
+| | | `lvusrsapmnt` | `/sapmnt/{SID}` |
 | | | `lvusrsaptrans` | `/usr/sap/trans` |
 | | | `lvsapDAH` | `/usr/sap/DAH` |
 {: caption="Sample storage layout for Linux" caption-side="top"}
@@ -604,21 +592,21 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | --- | --- | --- | --- |
 | OS disk | Default configuration | Default configuration | Default configuration |
 | Application disk | `app<sid>vg` | `lvusrsap` | `/usr/sap` |
-| | | `lvusrsap<SID>` | `/usr/sap/<SID>` |
-| | | `lvusrsapmnt` | `/sapmnt/<SID>` |
+| | | `lvusrsap{SID}` | `/usr/sap/{SID}` |
+| | | `lvusrsapmnt` | `/sapmnt/{SID}` |
 | | | `lvusrsaptrans` | `/usr/sap/trans` |
 | | | `lvsapDAH` | `/usr/sap/DAH` |
-| Database storage | `db<sid>vg` | `lv<SID>arch` | `/oracle/<SID>/oraarch` |
-| | | `lv<SID>reorg` | `/oracle/<SID>/sapreorg` |
-| | | `lv<SID>origlogA` | `/oracle/<SID>/origlogA` |
-| | | `lv<SID>origlogB` | `/oracle/<SID>/origlogA` |
-| | | `lv<SID>ora` | `/oracle/<SID>` |
-| | | `lv<SID>sapdata1` | `/oracle/<SID>/sapdata1` |
-| | | `lv<SID>sapdata2` | `/oracle/<SID>/sapdata2` |
+| Database storage | `db<sid>vg` | `lv{SID}arch` | `/oracle/{SID}/oraarch` |
+| | | `lv{SID}reorg` | `/oracle/{SID}/sapreorg` |
+| | | `lv{SID}origlogA` | `/oracle/{SID}/origlogA` |
+| | | `lv{SID}origlogB` | `/oracle/{SID}/origlogA` |
+| | | `lv{SID}ora` | `/oracle/{SID}` |
+| | | `lv{SID}sapdata1` | `/oracle/{SID}/sapdata1` |
+| | | `lv{SID}sapdata2` | `/oracle/{SID}/sapdata2` |
 | | | `lvorastage` | `/oracle/stage` |
-| | | `lv<SID>sapdata3` | `/oracle/<SID>/sapdata3` |
-| | | `lv<SID>sapdata4` | `/oracle/<SID>/sapdata4` |
-| | | `lv<SID>oraclient` | `/oracle/client` |
+| | | `lv{SID}sapdata3` | `/oracle/{SID}/sapdata3` |
+| | | `lv{SID}sapdata4` | `/oracle/{SID}/sapdata4` |
+| | | `lv{SID}oraclient` | `/oracle/client` |
 {: caption="Sample storage layout for Oracle" caption-side="top"}
 
 For more information, see [SAP Note 2172935](https://me.sap.com/notes/2172935){: external}.
@@ -637,22 +625,22 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | --- | --- | --- | --- |
 | OS disk | Default configuration | Default configuration | Default configuration |
 | Application disk | `app<sid>vg` | `lvusrsap` | `/usr/sap` |
-| | | `lvusrsap<SID>` | `/usr/sap/<SID>` |
-| | | `lvusrsapmnt` | `/sapmnt/<SID>` |
+| | | `lvusrsap{SID}` | `/usr/sap/{SID}` |
+| | | `lvusrsapmnt` | `/sapmnt/{SID}` |
 | | | `lvusrsaptrans` | `/usr/sap/trans` |
 | | | `lvsapDAH` | `/usr/sap/DAH` |
-| Db2 database storage I | `<sid>db2vg` | `loglv<SID>` | NA |
-| | | `lv<SID>db2` | `/db2/<SID>` |
-| | | `lvhome<SID>` | `/db2/db2<SID>` |
-| | | `lv<SID>db2dump` | `/db2/<SID>/db2dump` |
-| | | `lv<SID>logdir` | `/db2/<SID>/log_dir` |
-| | | `lv<SID>log_archive` | `/db2/<SID>/log_archive` |
-| | | `lv<SID>saptmp` | `/db2/<SID>/saptemp1` |
-| | | `lv<SID>db2sw` | `/db2/db2/<DBSID>/db2_sw` |
-| Db2 database storage II | `<sid>db2datvg` | `lv<SID>sapdata1` | `/db2/<SID>/sapdata1` |
-| | | ``lv<SID>sapdata2` | `/db2/<SID>/sapdata2` |
-| | | ``lv<SID>sapdata3` | `/db2/<SID>/sapdata3` |
-| | | ``lv<SID>sapdata4` | `/db2/<SID>/sapdata4` |
+| Db2 database storage I | `<sid>db2vg` | `loglv{SID}` | NA |
+| | | `lv{SID}db2` | `/db2/{SID}` |
+| | | `lvhome{SID}` | `/db2/db2{SID}` |
+| | | `lv{SID}db2dump` | `/db2/{SID}/db2dump` |
+| | | `lv{SID}logdir` | `/db2/{SID}/log_dir` |
+| | | `lv{SID}log_archive` | `/db2/{SID}/log_archive` |
+| | | `lv{SID}saptmp` | `/db2/{SID}/saptemp1` |
+| | | `lv{SID}db2sw` | `/db2/db2/<DBSID>/db2_sw` |
+| Db2 database storage II | `<sid>db2datvg` | `lv{SID}sapdata1` | `/db2/{SID}/sapdata1` |
+| | | ``lv{SID}sapdata2` | `/db2/{SID}/sapdata2` |
+| | | ``lv{SID}sapdata3` | `/db2/{SID}/sapdata3` |
+| | | ``lv{SID}sapdata4` | `/db2/{SID}/sapdata4` |
 {: caption="Sample storage layout for Db2 on Cloud" caption-side="top"}
 
 For more information, see [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/docs/SLTOOLSET/4fbd902c7c76410bb82c6311dd4dc94b/713eb64f45c6448c8dbe8a51b85680ee.html?version=CURRENT_VERSION){: external} and [SAP Note 1707361](https://me.sap.com/notes/1707361){: external}.

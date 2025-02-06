@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -251,7 +251,7 @@ Fence agent *fence_ibm_powervs* is the only supported agent for a STONITH device
 
 The fence agent connects to the [Power Cloud API](https://cloud.ibm.com/apidocs/power-cloud){: external} by using parameters *APIKEY*, *IBMCLOUD_CRN_1*, *CLOUD_REGION*, *GUID*, and the instance IDs *POWERVSI_1* and *POWERVSI_2*.
 
-You can test the agent invocation by using the parameters that you gathered in the [Gathering required parameters for the cluster configuration](#ha-rhel-gather-parameters-for-cluster-config) section.
+You can test the agent invocation by using the parameters that you gathered in the [Collecting parameters for configuring a RHEL HA Add-On cluster](#ha-rhel-collect-parameters-for-cluster-config) section.
 
 #### Identifying the virtual server instances for fencing
 {: #ha-rhel-identify-virtual-instances-for-fencing}
