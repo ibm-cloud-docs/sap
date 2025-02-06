@@ -219,7 +219,7 @@ Check that the certified profiles in {{site.data.keyword.cloud}} are close to or
 
 Select the correct IBM Power Systems Virtual Server Certified Profile from the following two links:
 
-- [IBM Power VS Certified Profiles SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
+- [IBM {{site.data.keyword.powerSys_notm}} Certified Profiles SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
 - [SAP Note 2947579 - SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2947579){: external}
 
 #### Target server must have equal or greater storage capacity than the source system and be sized correctly

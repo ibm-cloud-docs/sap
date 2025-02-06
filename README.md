@@ -3,7 +3,7 @@ Documentation repository for everything in the IBM Cloud for SAP portfolio.
 
 * OM - Bradley Knapp
 * SME - Sean Freeman, Rainer Vetter, Ingo Dahm (Contractor)
-   * Specialist SME for SAP on IBM Power VS - Arnold Beilmann, Graham Hardy
+   * Specialist SME for SAP on IBM {{site.data.keyword.powerSys_notm}} - Arnold Beilmann, Graham Hardy
 * PM - Sam Jellad
 
 
