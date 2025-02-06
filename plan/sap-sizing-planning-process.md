@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP NetWeaver, SAP HANA, SAP Application Performance Standard, SAPS, SAP Quick Sizer
 
@@ -77,7 +77,7 @@ The capability of processors is measured during the standard (SAP SD) benchmark 
 
 There are multiple ways in which the SAP logical structure and SAP sizing activities can impact infrastructure-related requirements, three key ways are highlighted below:
 
-**1. Business Requirements**
+1. Business Requirements
 
 Business requirements, such as 99.99% uptime or 3 downtime windows per year, effect logical design and structure of the SAP Landscape. The logical structure is made up of:
 - SAP Systems
@@ -86,14 +86,14 @@ Business requirements, such as 99.99% uptime or 3 downtime windows per year, eff
 - SAP Instances
 - SAP Clients
 
-**2. SAP sizing results**
+1. SAP sizing results
 
 Each decision in the logical structure is reflected by the SAP Sizing project/exercise outcome:
 - SAPS benchmark threshold required
 - Size of database (memory and disk storage)
 - etc.
 
-**3. Infrastructure requirements**
+1. Infrastructure requirements
 
 SAP sizing results will heavily impact Infrastructure needs:
 - Number of hosts required
