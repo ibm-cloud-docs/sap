@@ -3,23 +3,12 @@
 copyright:
   years: 2021, 2025
 lastupdated: "2025-02-06"
-
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Sybase
-
 subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:deprecated: .deprecated}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # SAP NetWeaver 7.x on UNIX with Sybase on {{site.data.keyword.cloud}} VPC
 {: #sap-refarch-nw-sybase}
@@ -76,7 +65,8 @@ The virtual server instance has these components:
 
 ![Figure 2. Standard installation](../images/refarch-sap-syb-std-only.svg "SAP NetWeaver 7.x SYB standard installation with AAS"){: caption="SAP NetWeaver 7.x SYB standard installation with AAS" caption-side="bottom"}
 
-**Architecture of SAP NetWeaver AS for ABAP**
+#### Architecture of SAP NetWeaver Application Server ABAP
+{: #sap-refarch-nw-as-abap}
 
 SAP tools create a PAS Instance and an ASCS Instance. This method is the standard for Java Stack (System) and is now standard for ABAP Stack.
 
@@ -102,7 +92,8 @@ Optionally, you can install the ASCS instance with an integrated:
 * SAP Web Dispatcher. For more information, see [ASCS Instance with Embedded SAP Web Dispatcher](https://help.sap.com/docs/SLTOOLSET/910828cec5d14d6685da380aec1dc4ae/2e708e2d42134b4baabdfeae953b24c5.html?version=CURRENT_VERSION){: external}.
 * Gateway. For more information, see [ASCS Instance with Embedded Gateway](https://help.sap.com/docs/SLTOOLSET/ce9e270ad34949969c16d09d1b099a26/bf1d359ac8384441a781ae3b0b5bd1b5.html?version=CURRENT_VERSION){: external}.
 
-**Architecture of SAP NetWeaver AS for Java**
+#### Architecture of SAP NetWeaver Application Server Java
+{: #sap-refarch-nw-as-java}
 
 1. Java central instance (J< nn > instance) – A Java instance is a unit in the AS Java cluster that is identified by its instance number. The elements that form an instance that is run on one physical machine. Also, it is possible to run several instances on one physical machine, but it is recommended that you split the different instances among different physical machines. An [AS Java Cluster Architecture](https://help.sap.com/docs/SAP_NETWEAVER_750/5bdacafd0bbd41648f4b80093a1bf9d6/4b1bb795eb2770d3e10000000a42189b.html?version=7.5.4){: external} consists of:
 
@@ -114,15 +105,16 @@ Optionally, you can install the ASCS instance with an integrated:
     *  Message Server - The message server keeps a list of all server processes in the AS Java cluster and provides information about their availability to Internet Communication Manager (ICM). It also represents the infrastructure for data exchange between the participating server processes.
     *  Enqueue Server - The enqueue server manages logical locks. The enqueue server runs on the Central Services instance of the Java cluster. It manages the lock table in the main memory and receives requests for setting or releasing locks. It maps the logical locks to the database.
 
-**Sybase for standard system**
+#### Sybase for standard system
+{: #sap-refarch-sybase-standard-system}
 
 * Database instance (DB) - SAP Adaptive Server Enterprise (SAP ASE) in this case. The SAP systems in a landscape have specific requirements for servers, operating systems, network setup, and supported storage. Deployment of SAP AnyDB on {{site.data.keyword.cloud_notm}} is similar to deployments with infrastructure with on-premises data centers. Therefore, use the information that is provided from SAP and the RDBMS providers. For more information, see [SAP AnyDB - SAP ASE](/docs/sap?topic=sap-anydb-sap-ase) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
 * Primary application server instance (PAS instance)  - The global directories of the ASCS instance can be used as the global file system. That means that the host with the ASCS instance is the SAP global host. However, you can also separately install the global directories on any host of your SAP system landscape. You can also use the SAP transport host or the host with the global file system (SAP global host) as your primary application server instance host. Optionally, you can install one or more additional application server instances.
 * Additional Application Server (AAS) - You can install one or more additional application server instances for an existing SAP system. Additional application server instances are optional and can be installed on separate hosts.
 
-  An additional application server instance can run on:
-    * The host of any instance of the existing SAP system
-    * On a dedicated host
+   An additional application server instance can run on:
+     * The host of any instance of the existing SAP system
+     * On a dedicated host
 
 * SAP Dialog Instance (DI) / Additional Application Instance (AAS) - Dialog Instance (DI) is an additional application instance on top of the Central Instance (CI). Normally the DI is set up on a different host.
 

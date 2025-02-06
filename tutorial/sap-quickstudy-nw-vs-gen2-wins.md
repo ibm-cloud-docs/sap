@@ -1,28 +1,15 @@
 ---
-
 copyright:
   years: 2020, 2025
 lastupdated: "2025-02-06"
-
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
-
 subcollection: sap
-
 content-type: tutorial
-completion-time:
+completion-time: 90m
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
-{:step: data-tutorial-type='step'}
+{{site.data.keyword.attribute-definition-list}}
 
 # SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure that uses Windows Server
 {: #quickstudy-vs-gen2-netweaver-wins}
@@ -63,7 +50,7 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 {{site.data.keyword.cloud}} compute resources are kept in a global region within a VPC. Use the following steps to create a VPC and its subnet.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
-1. Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
+1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
 1. Click **Create**.
 1. Enter a unique **Name** for the VPC, for example, *sap-test-vpc*.
 1. Select a **Resource group**. Use resource groups to organize your account resources for access control and billing purposes. **Leave the value default**.
@@ -149,14 +136,16 @@ To have file system space available beyond what is required by the operating sys
 To be able to connect to the Windows VSI from your client, you need the *Administrator* password and a public IP address. The password is retrieved by the {{site.data.keyword.cloud_notm}} command-line interface (CLI) whereas the public IP address - it is called *Floating IP* - can be created with the {{site.data.keyword.cloud_notm}} console.
 
 ### Install CLI
+{: #ibmcloud-cli-install}
 
 Before you can use the CLI to retrieve the *Administrator* password, you must [install the IBM Cloud CLI](/docs/cli?topic=cli-getting-started) and [the VPC CLI plug-in](/docs/vpc?topic=vpc-set-up-environment&interface=cli#cli-prerequisites-setup).
 
 ### Connect to {{site.data.keyword.cloud_notm}} with the CLI
+{: #ibmcloud-cli-connect}
 
 Log in to {{site.data.keyword.cloud_notm}} with your IBMid. If you have multiple accounts, you are prompted to select which account to use.
 
-```shell
+```sh
 ibmcloud login
 ```
 
@@ -164,45 +153,43 @@ If your credentials are rejected, you might be using a federated ID. To log in w
     {: tip}
 
 ### Set the target region (DC)
+{: #ibmcloud-cli-regions}
 
-Look up your region code in the table that corresponds to the location of your VPC.
+List the regions using command
+```sh
+ibmcloud regions
+```
 
-| Region | Location |
-| --- | --- |
-| au-syd | Sydney |
-| jp-tok | Tokyo |
-| eu-de | Frankfurt |
-| eu-gb | London |
-| us-south | Dallas |
-| us-east | Washington DC |
+Target the region using command
 
-For example:
-
-```shell
+```sh
 ibmcloud target -r eu-de
 ```
 
 ### Get the instance ID
+{: #ibmcloud-get-instance}
 
-```shell
+```sh
 ibmcloud is ins
 ```
 
 Find the instance ID that is assigned to your VSI *sap-wdb*.
 
 ### Retrieve the Administrator password
+{: #ibmcloud-get-password}
 
-```shell
+```sh
 ibmcloud is instance-initialization-values <instance ID> --private-key @sap-ssh-key
 ```
 
 Take note of the password.
 
 ### Set the floating IP
+{: #ibmcloud-set-floating-ip}
 
 To quickly access the deployed instance, you can assign a *Floating IP* to your VSI. To add this IP to your server, complete the following steps:
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 1. Click the name of the Windows VSI - *sap-wdb*.
 1. On the Instance details page, find the **Network interfaces** section.
 1. By default, the first interface is named *eth0*.
@@ -221,21 +208,24 @@ You can now log in to the virtual instance and begin preparing it for the SAP Ne
 In this tutorial, we simplify the process and use sample VSI profiles, volume and pagefile sizes. In a production-ready environment, of course, you need to size the servers and the volumes according to the number of concurrent users and the expected amount of data and further parameters. Find more in the topic [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing).
 {: important}
 
-Depending on the database vendor you should consult their specific documentation, recommendations and best practises how to setup the file systems. You may start here.
+Depending on the database vendor you should consult their specific documentation, recommendations and best practices how to setup the file systems. You may start here.
 * [IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2)
 * [SAP MaxDB](/docs/sap?topic=sap-anydb-sap-maxdb)
 * [SAP ASE](/docs/sap?topic=sap-anydb-sap-ase)
 
-We let `sapinst`, the SAP installation programm, care about the user management, the disk partitioning as well as folder and subfolder creations that are required for the SAP application and the RDBMS.
+We let `sapinst`, the SAP installation program, care about the user management, the disk partitioning as well as folder and subfolder creations that are required for the SAP application and the RDBMS.
 
 
 ### Logging in to your Windows VSI
+{: #login-to-windows-vsi}
 
 You can access the newly created VSI with Windows Remote Desktop. Enter the *Floating IP* and the *Administrator* password that you retrieved during the steps that are described previously.
 
 ### Initializing the block storage for Windows disk usage
+{: #initialize-storage-windows-vsi}
 
 1. Start the Windows Server **Disk Management**
+
 ![Figure 1. Windows Server Disk Manager](../images/quickstudy-intel-vs-gen2-win-DiskMgr.png "Windows Server Disk Manager"){: caption="Windows Server Disk Manager" caption-side="bottom"}
 1. Find the block storage - usually it is Disk 2 and shows the ordered size and the status *offline*
 1. Right-click the Disk tile and select **online** from the menu
@@ -249,13 +239,14 @@ You can access the newly created VSI with Windows Remote Desktop. Enter the *Flo
 (+) [About partition styles - GPT and MBR.](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){: external}
 
 ### Specifying the page file
+{: #initialize-storage-windows-vsi}
 
 1. Start the Windows Control Panel
 1. Click **System and Security** then **System**
 1. Click **Advanced system settings**
 1. Click the tab **Advanced** then in Section **Performance** the button **Settings...**
 1. Click the tab **Advanced** then in Section **Virtual memory** the button **Change...**
-1. Deselect the check mark **Automacally manage...**
+1. Deselect the check mark **Automatically manage...**
 1. Select drive C: and click **Custom size**
 1. Enter Initial size and Maximum size **32768**, click **Set** and **Ok**
 
@@ -366,6 +357,7 @@ Example values are e.g. depending on the instance numbers that you have chosen:
 | 5912-5917 | Db2 |
 | 40000-40099 | IGS |
 | 50000-50099 | sapstartsrv |
+{: caption="Port mapping" caption-side="bottom"}
 
 In a production environment you will get more granular on the port numbers. For more information about ports, see [SAP ports](https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16/616a3c0b1cc748238de9c0341b15c63c.html){: external} and the respective documentation of your database vendor for details.
 {: note}
@@ -393,6 +385,7 @@ Leaving now the tutorial and finding all information that you need to install yo
 * [SAP Note 2488097 - FAQ: Memory usage for the ABAP Server on Windows](https://me.sap.com/notes/2488097){: external}.
 
 #### Troubleshooting
+{: #troubleshooting-windows-vsi}
 
 * [SAP Note 100972 - Windows bug check event (blue screen)](https://me.sap.com/notes/100972){: external}.
 * [SAP Note 1559353 - How to capture user dumps on Windows](https://me.sap.com/notes/1559353){: external}.

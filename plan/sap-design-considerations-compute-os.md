@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -57,11 +57,8 @@ Some {{site.data.keyword.ibm_cloud_sap}} Bare Metal profiles do allow alteration
 {{site.data.keyword.ibm_cloud_sap}} provides SAP-certified infrastructure by using the latest Virtual Servers. These virtual servers are available with instantaneous provisioning, and are offered in different profiles that define CPU and RAM combinations.
 
 
-### Compute Profiles of SAP-certified IBM Power Virtual Servers
+### SAP HANA certified instances on IBM {{site.data.keyword.powerSys_notm}}
 {: #compute-power}
-
-This offering is complementary from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
-{: note}
 
 The [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings) compute options provide different variations of capabilities and sizing for SAP workloads.
 SAP HANA database servers and SAP NetWeaver applications run on {{site.data.keyword.IBM_notm}} Power Systems using [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).

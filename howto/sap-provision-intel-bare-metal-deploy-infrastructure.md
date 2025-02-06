@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -111,7 +111,7 @@ Make sure that your name resolution reflects the internal and external addresses
 
 6. Click **Create** to be redirected to the Checkout page after your order has been verified.
 
-You are redirected to a page with your order number. You can print the page, because it's your receipt. A confirmation email with the subject Your *{{site.data.keyword.cloud_notm}} Order ## has been approved* is be sent to the email address in your profile. This email is notice that your server has been approved and is in the process of being deployed. After it is deployed, another notice is sent notifying you that the server is available and can be managed through the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Classic Infrastructure > Device List) for a status of the provisioning steps. Click the **Device Name** that matches your device's Hostname and Domain to see its status.
+You are redirected to a page with your order number. You can print the page, because it's your receipt. A confirmation email with the subject Your *{{site.data.keyword.cloud_notm}} Order ## has been approved* is be sent to the email address in your profile. This email is notice that your server has been approved and is in the process of being deployed. After it is deployed, another notice is sent notifying you that the server is available and can be managed through the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Classic Infrastructure > Device List) for a status of the provisioning steps. Click the **Device Name** that matches your device's Hostname and Domain to see its status.
 
 
 ## Readying your Operating System

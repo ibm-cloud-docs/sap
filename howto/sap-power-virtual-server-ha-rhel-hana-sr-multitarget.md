@@ -1,15 +1,13 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
 subcollection: sap
 
 ---
-
-sap-power-virtual-server-ha-rhel-hana-sr-multitarget.md
 
 {{site.data.keyword.attribute-definition-list}}
 

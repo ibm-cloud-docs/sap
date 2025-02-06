@@ -10,13 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
+{{site.data.keyword.attribute-definition-list}}
 
 # Get started
 {: #get-started}
@@ -58,17 +52,17 @@ This table summarizes the SAP landscape installation steps for you and your team
 | Read the [Overview of {{site.data.keyword.ibm_cloud_sap}}](/docs/sap?topic=sap-overview-sap-offerings-overview) | Identify the various offerings that are available for your SAP landscape. Provides a high-level comparison of your options. |
 | Read the relevant documents in the following topic groups: | * Infrastructure environments section for your specific environment, such as [IBM Power Systems Infrastructure environment introduction](/docs/sap?topic=sap-power-env-introduction) \n * [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings) \n * [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing) \n Read these documents to identify the detailed infrastructure options and design considerations that apply to your SAP landscape. |
 | Read the relevant SAP software documentation. | Short lists of planning considerations are available to assist under topic groups: \n * SAP Business Applications \n * SAP Technical Applications \n * SAP AnyDB databases \n Lists of usage, network, storage, database, and OS considerations are available for SAP Business Applications, SAP Technical Applications, SAP AnyDB databases, SAP Development Applications. References to SAP installation documents are also included. |
-| _Optional:_ Read the relevant SAP Business Partner certified solutions documents | Various SAP Open Ecosystem Partners are available from {{site.data.keyword.cloud_notm}}, with documents on how to best use these solutions for your SAP deployment. |
-| _Optional:_ Read the relevant IBM-SAP innovation solutions documents|{{site.data.keyword.ibm_cloud_sap}} | This documentation provides more options for maximizing your SAP landscape, including Cloud Migration Acceleration and {{site.data.keyword.ibmwatson_notm}}. |
+| *Optional:* Read the relevant SAP Business Partner certified solutions documents | Various SAP Open Ecosystem Partners are available from {{site.data.keyword.cloud_notm}}, with documents on how to best use these solutions for your SAP deployment. |
+| *Optional:* Read the relevant IBM-SAP innovation solutions documents|{{site.data.keyword.ibm_cloud_sap}} | This documentation provides more options for maximizing your SAP landscape, including Cloud Migration Acceleration and {{site.data.keyword.ibmwatson_notm}}. |
 | Read and follow the documents in the **Pre-requisites for SAP Workloads** topic group | Prepare the credentials, account structure, connectivity, software downloads, support procedures, and licensing that is needed before you begin your deployment. |
 | Read and follow the **Provisioning** topic groups in the **How to** section | For your specific infrastructure, follow the provisioning guidelines to set up the first servers at the sizes that are required to run your SAP systems. Planning your SAP landscape with the business is crucial to success. It is likely these documents might be read many months after the topics listed in the other steps. |
 | Revisit **Task 3**, and follow the relevant SAP software documentation to install SAP on the infrastructure | It is important to follow SAP guidance clearly, including any additional reference guidance available on SAP Notes for your chosen applications. This stage is the same as installations into servers hosted at on-premises data centers. |
 {: caption="Overview of your SAP landscape installation steps" caption-side="top"}
 
 ## Next steps
-{: #gettings-started-next-steps}
+{: #getting-started-next-steps}
 
-Review the following documentionat for your relevant configuration:
+Review the following documentation at for your relevant configuration:
 
 * [Fast Path of IBM Cloud Intel Bare Metal on Classic Infrastructure](/docs/sap?topic=sap-fast-path-site-map-intel-bm)
 * [Fast Path of IBM Cloud Intel Bare Metal Servers on VPC Infrastructure](/docs/sap?topic=sap-fast-path-site-map-intel-bm-vpc)

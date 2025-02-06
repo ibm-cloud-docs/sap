@@ -1,25 +1,13 @@
 ---
-
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
-
+lastupdated: "2025-02-06"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
-
 subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQ of {{site.data.keyword.ibm_cloud_sap}}
 {: #faq-ibm-cloud-for-sap}
@@ -263,7 +251,7 @@ You can add backup options during the ordering process from the {{site.data.keyw
 
 
 ### Is there a best practice configuration check for SAP HANA?
-{: #faq-sap-hana-best-practises}
+{: #faq-sap-hana-best-practices}
 
 Yes, see [SAP Note 2903141 - Best practice configuration checks for SAP HANA](https://me.sap.com/notes/2903141){: external}
 

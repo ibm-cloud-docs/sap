@@ -1,28 +1,15 @@
 ---
-
 copyright:
   years: 2020, 2025
 lastupdated: "2025-02-06"
-
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
-
 subcollection: sap
-
 content-type: tutorial
 completion-time: 90m
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
-{:step: data-tutorial-type='step'}
+{{site.data.keyword.attribute-definition-list}}
 
 # SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure that uses RHEL
 {: #quickstudy-vs-gen2-netweaver-rhel}
@@ -60,7 +47,7 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 {{site.data.keyword.cloud}} compute resources are kept in a global region within a VPC. Use the following steps to create a VPC and its subnet.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
-1. Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs** and click **New virtual private cloud** > **Create VPC for Gen 2**.
+1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs** and click **New virtual private cloud** > **Create VPC for Gen 2**.
 
 ![Figure 2. Creating a VPC](../images/quickstudy-intel-vs-gen2-image6.png "Creating a VPC"){: caption="Creating a VPC" caption-side="bottom"}
 
@@ -176,7 +163,7 @@ To have file system space available beyond what is required by the operating sys
 ![Figure 6. Floating IP](../images/quickstudy-intel-vs-gen2-image12.png "Floating IP"){: caption="Floating IP" caption-side="bottom"}
 
 By assigning the IP, you can directly `ssh` into your virtual server instance - in our example, the command is
-```
+```sh
 ssh -i ~/.ssh/sap-ssh-key root@158.176.180.39
 ```
 
@@ -186,7 +173,7 @@ The SAP NetWeaver Software Provisioning Manager (SWPM) doesn't allow products to
 
 These lines are an example of an **`/etc/hosts`** file. Take care that both references of localhost to the hostname, IPv4 and IPv6 are in comments (or deleted).
 
-```
+```sh
   # The following lines are desirable for IPv4 capable hosts
 
   #127.0.0.1 sap-app-vsi sap-app-vsi
@@ -208,56 +195,57 @@ Finally, you need to adapt your storage by creating a file system on the attache
 ![Figure 7. Data volumes](../images/quickstudy-intel-vs-gen2-image13.png "Data volumes"){: caption="Data volumes" caption-side="bottom"}
 
 1. On the Overview page, check the first 20 digits in **Device**, and find the same ID under `/dev/disk/by-id`. Our example device is `07a7-184b...`.
-  ```
-  [root@sap-app-vsi ~]# ls -als /dev/disk/by-id/ | grep 07a7-184b4a2f-d768-4
-  0 lrwxrwxrwx 1 root root   11 May   3 08:30 virtio-07a7-184b4a2f-d786-4 -> ../../vdb
-  ```
+    ```sh
+    [root@sap-app-vsi ~]# ls -als /dev/disk/by-id/ | grep 07a7-184b4a2f-d768-4
+    0 lrwxrwxrwx 1 root root   11 May   3 08:30 virtio-07a7-184b4a2f-d786-4 -> ../../vdb
+    ```
+
 In our example, it's `virtio-07a7-184b4a2f-d786-4`, which is linked to `/dev/vdb`.
 
 1. Create a file system on this path:
-  ```
-  [root@sap-app-vsi ~]# mkfs.xfs /dev/vdb
-  ```
+    ```sh
+    [root@sap-app-vsi ~]# mkfs.xfs /dev/vdb
+    ```
 
 1. Find the related UUID in `/dev/disk/by-uuid`:
-  ```
-  [root@sap-app-vsi ~]# ls -als /dev/disk/by-uuid/ | grep vdb
-  0 lrwxrwxrwx 1 root root  11 May 10 08:31 1350230e-8058-4fe5-bbc0-cc27253ff778 -> ../../vdb
-  ```
+    ```sh
+    [root@sap-app-vsi ~]# ls -als /dev/disk/by-uuid/ | grep vdb
+    0 lrwxrwxrwx 1 root root  11 May 10 08:31 1350230e-8058-4fe5-bbc0-cc27253ff778 -> ../../vdb
+    ```
 
 1. Add the UUID to `/etc/fstab`, in our example:
-  ```
-  UUID=1350230e-8058-4fe5-bbc0-cc27253ff778 /db2 xfs defaults 0 0
-  ```
+    ```sh
+    UUID=1350230e-8058-4fe5-bbc0-cc27253ff778 /db2 xfs defaults 0 0
+    ```
 
 1. Create a file system to use for the greater part of your installation, since we are using IBM Db2, we choose:
-  ```
-  [root@sap-app-vsi ~]# mkdir /db2
-  [root@sap-app-vsi ~]# mount /db2
-  ```
+    ```sh
+    [root@sap-app-vsi ~]# mkdir /db2
+    [root@sap-app-vsi ~]# mount /db2
+    ```
 
 1. Add swap space for SWPM. We are adding a minimum swap space to the system.
-  ```
-  [root@sap-app-vsi ~]# dd if=/dev/zero of=/swapfile bs=1M count=8192
-  8192+0 records in
-  8192+0 records out
-  8589934592 bytes (8.6 GB) copied, 24.701 s, 348 MB/s
+    ```sh
+    [root@sap-app-vsi ~]# dd if=/dev/zero of=/swapfile bs=1M count=8192
+    8192+0 records in
+    8192+0 records out
+    8589934592 bytes (8.6 GB) copied, 24.701 s, 348 MB/s
 
-  [root@sap-app-vsi ~]# chmod 0600 /swapfile
-  [root@sap-app-vsi ~]# mkswap /swapfile
-  Setting up swapspace version 1, size = 8388604 KiB
-  no label, UUID=e7a63777-521a-44a7-abcc-0d17e1876a78
-  ```
+    [root@sap-app-vsi ~]# chmod 0600 /swapfile
+    [root@sap-app-vsi ~]# mkswap /swapfile
+    Setting up swapspace version 1, size = 8388604 KiB
+    no label, UUID=e7a63777-521a-44a7-abcc-0d17e1876a78
+    ```
 
 1. Add the following line to your `/etc/fstab`.
-  ```
-  /swapfile    none    swap    sw      0 0
-  ```
+    ```sh
+    /swapfile    none    swap    sw      0 0
+    ```
 
 1. Activate the swap space:
-  ```
-  [root@sap-app-vsi ~]# swapon -a
-  ```
+    ```sh
+    [root@sap-app-vsi ~]# swapon -a
+    ```
 
 
 You're now ready to install the SAP product of your choice. Your next step is to [download and install your SAP software and applications](/docs/sap?topic=sap-download-install-media) if a single virtual server sample is sufficient for your needs.
@@ -284,7 +272,7 @@ To segregate network traffic, as SAP recommends, deploy a second subnet. One net
 
 Use Figure 11 as your guide to create a new subnet named `sap-test-net2`.
 
-Click **Menu icon** ![Menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **Subnets** and click **New subnet**.
+Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **Subnets** and click **New subnet**.
 
 ![Figure 11. Create a subnet](../images/quickstudy-intel-vs-gen2-image2.png "Create a subnet"){: caption="Create a subnet" caption-side="bottom"}
 
@@ -298,7 +286,7 @@ The two virtual servers need to connect to the new network. Go back to the virtu
 
 Maintain your `/etc/hosts` files according to the targeted setup. The following example is for `sap-app2-vsi`.
 
-```
+```sh
   # The following lines are desirable for IPv4 capable hosts
 
   #127.0.0.1 sap-app2-vsi sap-app2-vsi
@@ -324,7 +312,7 @@ You need to provision two volumes on the database virtual server with a file sys
 
 The application server virtual server has only one attached 20 GB volume. You can identify the volume without looking at the resource ID.
 
-```
+```sh
 Disk /dev/vdd: 21.5 GB, 21474836480 bytes, 41943040 sectors
 Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
@@ -333,27 +321,27 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 We create a file system on the volume and mount it after you determine its `/dev/disk/by-uuid` path.
 
-```
+```sh
 ls -als /dev/disk/by-uuid/ | grep vdd
 0 lrwxrwxrwx 1 root root 9 May 13 03:23 cf5d6692-4176-47c4-b799-039c11103fd4 -> ../../vdd
 ```
 
 The resulting `/etc/fstab` entry is in the following example.
 
-```
+```sh
 UUID=cf5d6692-4176-47c4-b799-039c11103fd4 /usr/sap xfs defaults 0 0
 ```
 
 You need to create the mount point and mount it.
 
-```
+```sh
 [root@sap-app-vsi ~]# mkdir /usr/sap
 [root@sap-app-vsi ~]# mount -a
 ```
 
 On the database virtual server, you need to create three file systems. One for the RDBMS installation and two for `/usr/sap` and `/sapmnt`. Both attached volumes are created the same way and display as `/dev/vdb` and `/dev/vde`. In our example, we split the first file system in two partitions.
 
-```
+```sh
 [root@sap-app2-vsi ~]# /sbin/fdisk /dev/vdb
 Welcome to fdisk (util-linux 2.23.2).
 Changes will remain in memory only, until you decide to write them.
@@ -389,7 +377,7 @@ Syncing disks.
 
 Create the three file systems (output isn't shown in this example).
 
-```
+```sh
 [root@sap-app2-vsi ~]# mkfs.xfs /dev/vdb1
 [root@sap-app2-vsi ~]# mkfs.xfs /dev/vdb2
 [root@sap-app2-vsi ~]# mkfs.xfs /dev/vde
@@ -399,21 +387,21 @@ Create the three file systems (output isn't shown in this example).
 Again, you need to determine the `/dev/disk/by-uuid` paths, as previously shown, and maintain `/etc/fstab` entries. As a final step, you need to set up the NFS to install SAP.
 
 1. Install the NFS utilities on both virtual servers.
-   ```
+   ```sh
    [root@sap-app-vsi ~]# yum install nfs-utils
    ```
-   ```
+   ```sh
    [root@sap-app2-vsi ~]# yum install nfs-utils
    ```
 
 1. Start the NFS server on the database virtual server.
-   ```
+   ```sh
    [root@sap-app2-vsi ~]# systemctl enable nfs-server
    [root@sap-app2-vsi ~]# systemctl start nfs-server
    ```
 
 1. Use NFS to export /sapmnt and /usr/sap/trans from the database server to the application server by adding the required entry to /etc/exports of the database server:
-   ```
+   ```sh
    /sapmnt/C10 10.243.129.0/24(rw,no_root_squash,sync,no_subtree_check)
    /usr/sap/trans 10.17.139.0/24(rw,no_root_squash,sync,no_subtree_check)
    ```
@@ -421,14 +409,14 @@ Again, you need to determine the `/dev/disk/by-uuid` paths, as previously shown,
     You need to adapt the subnet in the previous example to your actual IP range and subnet mask. Replace the value `C10` with the SAP System ID for your SAP system. `C10` is a sample value. You must create the directory before you export it.
 
 1. Run on the following command from the command line.
-   ```
+   ```sh
    [root@sap-app2-vsi ~]# mkdir /sapmnt/C10
    [root@sap-app2-vsi ~]# mkdir -p /usr/sap/trans
    [root@sap-app2-vsi ~]# exportfs -a
    ```
 
 1. Mount the NFS share on the application server by adding the following entry to its `/etc/fstab` and mount the application server from the command line by using the following command.
-   ```
+   ```sh
    [root@sap-app-vsi ~]# vi /etc/fstab
    ...
    sap-app2-vsi-priv:/sapmnt/C10 /sapmnt/C10 nfs defaults 0 0
@@ -436,7 +424,7 @@ Again, you need to determine the `/dev/disk/by-uuid` paths, as previously shown,
    ```
 
 1. Create and mount the target directory.
-   ```
+   ```sh
    [root@sap-app-vsi ~]# mkdir /sapmnt/C10
    [root@sap-app-vsi ~]# mkdir /usr/sap/trans
    [root@sap-app-vsi ~]# mount /sapmnt/C10
@@ -459,7 +447,7 @@ An SAP installation requires that certain prerequisites are met regarding the pa
     - `csh`: C shell support for the OS
 
 1. Follow [SAP note 2195019](https://me.sap.com/notes/2195019){: external} and install package `compat-sap-c++-7`. Create a specific soft-link, which is required by the SAP binary files.
-   ```
+   ```sh
    [root@sap-app-vsi ~]# yum install compat-sap-c++-7
    ...
 
@@ -468,7 +456,7 @@ An SAP installation requires that certain prerequisites are met regarding the pa
    ```
 
 1. Check if uuid daemon (uuidd) is installed. If it’s not, install and start it.
-   ```
+   ```sh
    [root@sap-app-vsi ~]# rpm -qa | grep uuidd
    [root@sap-app-vsi ~]# yum install uuidd
    [root@sap-app-vsi ~]# systemctl enable uuidd
@@ -476,7 +464,7 @@ An SAP installation requires that certain prerequisites are met regarding the pa
    ```
 
 1. Install the tcsh package required for C shell support
-   ```
+   ```sh
    [root@sap-app-vsi ~]# yum install tcsh
    ```
 
@@ -501,7 +489,7 @@ You need an S-User ID and the Download Software authorization when you download 
 
 Depending on your network bandwidth and latency, you might need to run the SAP SWPM GUI remotely in a virtual network computing (VNC) session. Another option is to run GUI locally and connect it to SWPM on the target machine. For the first option, you must run X11 in your virtual server and install a VNC server and a browser. You can run the browser locally on your desktop, and connect to SWPM in the virtual server. To connect to SWPM, check the port that SWPM is listening on. SWPM displays the port during startup when it lists the access URL. The port, typically 4237, needs to open in the security group of your VPC. You need to add a **New Inbound rule** for your IP source range (or 0.0.0.0/0) and the port number. Another possibility, and even more secure, is to tunnel the port through `ssh`.
 
-```
+```sh
 [root@sap-app-vsi ~]# ssh -L 4237:localhost:4237 <your virtual server IP>
 ```
 

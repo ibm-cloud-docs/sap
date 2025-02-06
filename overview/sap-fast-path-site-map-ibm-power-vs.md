@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -135,7 +135,7 @@ For more information about SAP on SUSE Linux, see the following table.
 {: caption="Operating systems – SUSE Linux&reg;" caption-side="top"}
 
 ### Operating systems – Red Hat Enterprise Linux (RHEL)
-{: #power-vs-rehl-hana-snote-redhat_linux}
+{: #power-vs-rhel-hana-snote-redhat_linux}
 
 For more information about SAP on RHEL, see the following table.
 

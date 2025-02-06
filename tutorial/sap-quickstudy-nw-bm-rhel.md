@@ -1,28 +1,15 @@
 ---
-
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
-
+lastupdated: "2025-02-06"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
-
 subcollection: sap
-
 content-type: tutorial
 completion-time: 90m
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{: important .important}
-{:step: data-tutorial-type='step'}
+{{site.data.keyword.attribute-definition-list}}
 
 # SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using RHEL
 {: #quickstudy-bm-netweaver-rhel}
@@ -76,7 +63,7 @@ The sample layouts might not be your preferred layout. The purpose of this guida
 
 1. Under **Type**, select *RAID 10*.
 2. **Disks**, **Hot Spare**, and **Disk Media** have default values. Select a **Disk size** that covers the total amount of storage you need.
-3. Click the Menu icon ![Menu icon](../icons/action-menu-icon.svg) > **Advanced configuration** and leave **Controller** cleared. Click **OK**.
+3. Click the Menu icon ![Menu icon](../../icons/action-menu-icon.svg) > **Advanced configuration** and leave **Controller** cleared. Click **OK**.
 
 ### Network interface
 {: #network-interface-32GB}
@@ -104,7 +91,7 @@ The sample layouts might not be your preferred layout. The purpose of this guida
 
 You are redirected to a page with your order number. The page is your order receipt; print a copy for your records. You also receive a confirmation email with the subject *Your {{site.data.keyword.cloud_notm}} Order ## has been approved*. The ## is your order number.
 
-Depending on your order, server is available for use within one to four hours after your order is submitted. You can check the Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your device's Hostname and Domain to see its status.
+Depending on your order, server is available for use within one to four hours after your order is submitted. You can check the Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your device's Hostname and Domain to see its status.
 
 ### Bring your own license
 {: #byol-32GB-rhel}
@@ -125,7 +112,8 @@ A public IP is used for remote access, so you can connect to your server through
 For the single-node example, you ordered a server with one logical disk (on RAID 1). The server has one mirrored disk with the operating system (OS) and one large root file system equal to the total size of the disk (with some space used for `/boot`). The file system layout in this example is just one possible approach. For production use, follow the sizing information for your system as other layouts might better meet your needs or SAP requirements.
 
 1. Create the three directories required for the SAP installation, `/sapmnt`, `/usr/sap`, and `/db2`.
-```
+
+```sh
 [root@e2e1270 ~]# mkdir /sapmnt
 [root@e2e1270 ~]# mkdir /usr/sap
 [root@e2e1270 ~]# mkdir /db2
@@ -182,7 +170,7 @@ Use the following steps to configure your database server and OS.
 
 Use the following steps to add a second 2 TB SATA drive to your database server.
 
-1. For **Disk 1**, click the Menu icon ![Menu icon](../icons/action-menu-icon.svg) > **Advanced configuration** > and verify that Primary disk partition** is set to the default of *Windows Basic*. Click **OK**.
+1. For **Disk 1**, click the Menu icon ![Menu icon](../../icons/action-menu-icon.svg) > **Advanced configuration** > and verify that Primary disk partition** is set to the default of *Windows Basic*. Click **OK**.
 2. Click **Add new**.
 3. **Disks**, **Hot Spare**, and **Disk Media** have default values. Select a **Disk Size** that covers the total amount of storage you need.
 
@@ -217,7 +205,7 @@ Use the following steps to set up the network interface for your database server
 
 You are redirected to a page with your order number. The page is your receipt; print the page for your records. You also receive a confirmation email with the subject *Your {{site.data.keyword.cloud_notm}} Order ## has been approved*. The ## is your order number.
 
- Depending on your order, the server is available for use within one to four hours after the order is submitted. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
+ Depending on your order, the server is available for use within one to four hours after the order is submitted. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
 
 ### Bring your own license
 {: #byol}
@@ -242,7 +230,7 @@ For the 32 GB server, create the `/usr/sap/` file system. The file systems `sapm
 The following file system layout is one possible approach. For production use, you might follow the sizing information for your system as other layouts might better meet your needs or SAP requirements, or you might use quotas.
 
 Use the following commands to create the required directories for installing the SAP software, `/sapmnt`, `/usr/sap`, and `/db2`:
-```
+```sh
 [root@ sdb192 ~]# mkdir /sapmnt
 [root@ sdb192 ~]# mkdir /usr/sap
 [root@ sdb192 ~]# mkdir /db2
@@ -260,7 +248,7 @@ Use the following steps to establish your network.
 
 1. Log in to the servers and find their private network configuration.
 
-```
+```sh
 [root@sdb192 ~]# ifconfig bond0
     bond0	  Link encap:Ethernet  HWaddr 0C:C4:7A:66:2D:A8
             inet addr:10.17.139.35  Bcast:10.17.139.63 Mask:255.255.255.192
@@ -272,7 +260,7 @@ Use the following steps to establish your network.
             RX bytes:19137850 (18.2 MiB)  TX bytes:3426015 (3.2 MiB)
 ```
 
-```
+```sh
 [root@sdb192 ~]# ifconfig bond1
     bond1	  Link encap:Ethernet  HWaddr 0C:C4:7A:66:2D:A9
             inet addr:208.43.211.118  Bcast:208.43.211.127 Mask:255.255.255.224
@@ -286,7 +274,7 @@ Use the following steps to establish your network.
 
 In the three-tier example, 10.17.139.35 is the private IP address of the database server; it is from one of the IP address ranges from RFC 1597. You can determine the IP address of the application server, too, and add both IP addresses to both servers’ `/etc/hosts`.
 
-```
+```sh
 [root@sdb192 ~]# cat /etc/hosts
 
 127.0.0.1 localhost.localdomain localhost
@@ -303,12 +291,13 @@ Add the last two lines on `e2e1270`, too.
 {: step}
 
 1. Install NFS software `nfs-utils` **on both servers**.
-```
+
+```sh
 [root@sdb192 ~]# yum install nfs-utils
 ```
 Make sure you start and register the `rpcbind` and NFS service on the database server.
 
-```
+```sh
 [root@sdb192 ~]# service rpcbind start
 [root@sdb192 ~]# chkconfig nfs on
 [root@sdb192 ~]# service nfs start
@@ -320,14 +309,14 @@ Make sure you start and register the `rpcbind` and NFS service on the database s
 
 1. Use NFS to export `/sapmnt` and `/usr/sap/trans` from the database server to the application server by adding the required entry to `/etc/exports` of the database server.
 
-```
+```sh
 /sapmnt/C10		10.17.139.46(rw,no_root_squash,sync,no_subtree_check)
 /usr/sap/trans	10.17.139.46(rw,no_root_squash,sync,no_subtree_check)
 ```
 
 The sample value `C10` needs to be replaced with the SAP System ID for your SAP system. You must create the directory before you export it. Run the following commands from the command line of the database server:
 
-```
+```sh
 [root@sdb192 ~]# mkdir /sapmnt/C10
 [root@sdb192 ~]# mkdir -p /usr/sap/trans
 [root@sdb192 ~]# exportfs -a
@@ -339,14 +328,14 @@ The sample value `C10` needs to be replaced with the SAP System ID for your SAP 
 
 1. Mount the NFS share on the application server by adding the following entry to its `/etc/fstab` and mount it from the command line.
 
-```
+```sh
 sdb192-priv:/sapmnt/C10 /sapmnt/C10 nfs defaults 0 0
 sdb192-priv:/usr/sap/trans /usr/sap/trans nfs defaults 0 0
 ```
 
 2. Create the target directories on the application server and mount them.
 
-```
+```sh
 [root@e2e1270 ~]# mkdir -p /sapmnt/C10
 [root@e2e1270 ~]# mkdir /usr/sap/trans
 [root@e2e1270 ~]# mount /sapmnt/C10
@@ -370,7 +359,7 @@ External storage can be added to your provisioned server or servers. You can use
 {: step}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external} with your unique credentials.
-2. Expand the Menu icon ![Menu icon](../icons/icon_hamburger.svg) and select *Classic Infrastructure*.
+2. Expand the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) and select *Classic Infrastructure*.
 3. Select *Storage* > *Block Storage* > *Order Block Storage*.
 4. Select the specifics for your storage needs. Table 1 contains recommended values, including 10 IOPS/GB for a demanding database workload.
 
@@ -393,7 +382,7 @@ External storage can be added to your provisioned server or servers. You can use
 {: step}
 
 1. Select **Storage** > **Block Storage**.
-2. Highlight your LUN and expand the Action menu ![Action menu](../icons/action-menu-icon.svg) and select **Authorize Host**.
+2. Highlight your LUN and expand the Action menu ![Action menu](../../icons/action-menu-icon.svg) and select **Authorize Host**.
 3. Select *Bare Metal Server* for **Device Type**.
 4. Click **Hardware** to load available devices and select the hostname of your database server.
 5. Click **Save**.
@@ -416,14 +405,16 @@ In the sample deployment, you retrieved the following data from the **Storage** 
     * Password: EtJ79F4RA33dXm2q
 
 1. Enter the following based on the retrieved information:
-```
+
+```sh
 [root@sdb192 ~]# cat /etc/iscsi/initiatorname.iscsi
 InitiatorName=iqn.2005-05.come.softlayer:SL01SU276540-H986345
 ```
    An existing entry might have to be replaced in `/etc/iscsi/initiatorname.iscsi`.
 
 2. Add the following lines to the end of `/etc/iscsi/iscsid.conf`:
-```
+
+```sh
 [root@sdb192 ~]# tail /etc/iscsi/iscsid.conf
 # it continue to respond to R2Ts. To enable this, uncomment this line
 # node.session.iscsi.FastAbort = No
@@ -438,7 +429,8 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 3. Replace the `username` and `password` values in step 2 with th values that you noted during step 5 of *Authorizing hosts*.
 
 4. Discover the iSCSI target by entering the following lines.
-```
+
+```sh
 [root@sdb192 ~]# iscsiadm -m discovery -t sendtargets -p "10.2.62.78"
 10.2.62.78:3260,1031 iqn.1992-08.com.netapp:tor0101
 10.2.62.87:3260,1032 iqn.1992-08.com.netapp:tor0101
@@ -446,12 +438,13 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 
 5. Set the host to automatically log in to the iSCSI array.
 
-```
+```sh
 [root@sdb192 ~]# iscsiadm -m node -L automatic
 ```
 
 6. Install and start the multipath daemon.
-```
+
+```sh
 [root@sdb192 ~]# yum install device-mapper-multipath
 …
 [root@sdb192 ~]# chkconfig multipathd on
@@ -459,7 +452,8 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 ```
 
 7. Complete all the commands in [Connecting to iSCSI LUNS on Linux](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8) so another LUN appears in the multipath output.
-```
+
+```sh
 [root@sdb192 ~]# multipath -ll
 …
 3600a098038303452543f464142755a42 dm-9 NETAPP,LUN C-Mode
@@ -475,9 +469,9 @@ You can now use the multipath device as you would use any disk device. A device 
 
 Take the sample `/etc/multipath.conf` from the [example `multipath.conf`](/docs/sap?topic=sap-quickstudy-bm-netweaver-rhel#sample) and create it on your server. Any copied special characters, DOS-like carriage returns, line-feed entries might lead to unexpected behavior. Make sure that you have an ASCII Unix file after you copy the contents.
 
-Adapt the multipath block from `/etc/multipath.conf` to create an alias of the path to access the device under `1/dev/mapper/mpath1`.
+Adapt the multipath block from `/etc/multipath.conf` to create an alias of the path to access the device under `/dev/mapper/mpath1`.
 
-```
+```sh
 multipaths {
     multipath {
         wwid 3600a098038303452543f464142755a42
@@ -488,7 +482,7 @@ multipaths {
 
 1. Restart `multipathd`. You can now create the `/backup` file system and mount on the block device.
 
-```
+```sh
 [root@sdb192 ~]# service multipathd restart
 [root@sdb192 ~]# mkfs.ext4 /dev/mapper/mpath1
 [root@sdb192 ~]# mkdir  /backup
@@ -496,7 +490,7 @@ multipaths {
 
 1. Check the file systems on both servers. Your output should be similar to the following output.
 
-```
+```sh
 [root@e2e1270 ~]# df -h
 Filesystem		    Size  Used Avail Use% Mounted on
 /dev/sda3             879G  1,5G  833G   1% /
@@ -509,7 +503,7 @@ db192-priv:/usr/sap/trans
               165G   59M  157G   1% /sapmnt/C10
 ```
 
-```
+```sh
 [root@sdb192 ~]# df -h
 Filesystem      	    Size  Used Avail Use% Mounted on
 /dev/sda3             549G  2,3G  519G   1% /
@@ -545,7 +539,8 @@ Two more packages need to be installed:
 {: step}
 
 1. Check whether uuid daemon (uuidd) is installed. If it is not, install and start it.
-```
+
+```sh
 [root@sdb192 ~]# rpm -qa | grep uuidd
 [root@sdb192 ~]# yum install uuidd
 [root@sdb192 ~]# chkconfig uuidd on
@@ -557,7 +552,8 @@ Two more packages need to be installed:
 {: step}
 
 1. Follow [SAP Note 2195019)](https://me.sap.com/notes/2195019){: external} and install package compat-sap-c++-7 and create a specific soft-link, which is required by the SAP binaries. Check the release-specific SAP Notes for the product you are installing to determine whether the library is required.
-```
+
+```sh
 [root@sdb192 ~]# yum install compat-sap-c++-7-7.2.1-2.e17_4.x86_64.rpm
 ....
 [root@sdb192 ~]# mkdir -p /usr/sap/lib
@@ -579,25 +575,26 @@ Depending on your network bandwidth and latency, you might want to run the SAP S
 The following steps outline running the SWPM GUI remotely in a virtual network computing (VNC) session. This option installs a VNC server, which might not be inline with hardening your operating system; ensure that you are meeting your security measures. Refer to [VNC documentation](https://www.techtarget.com/searchnetworking/definition/virtual-network-functions-VNF){: external} for an overview on its functions if you are not familiar with it.
 
 1. Use the following commands to install a VNC server.
-```
+
+```sh
 [root@sdb192 ~]# yum install tigervnc-server
 ```
 
 2. Use the following command to install the X11 window manager, `twm`, which is included in the Linux distribution.
 
-```
+```sh
 [root@sdb192 ~]# yum install twm
 ```
 
 3. Install a terminal emulator, for example, `xterm`.
 
-```
+```sh
 [root@sdb192 ~]# yum install xterm
 ```
 
 4. Start the VNC server from the command line.
 
-```
+```sh
 [root@sdb192 ~]# vncserver
 ```
 
@@ -630,7 +627,7 @@ The use of the private addresses and hostnames assures that network traffic betw
 {: step}
 
 The following sample multipath.conf is for Red Hat 7.X and NetApp-based iSCSI LUNs.
-```
+```sh
 defaults {
         user_friendly_names no
         max_fds max
@@ -642,7 +639,8 @@ defaults {
 ```
 
 All data under blacklist must be specific to your system.
-```
+
+```sh
 blacklist {
         wwid "SAdaptec*"
         devnode "^hd[a-z]"
@@ -667,7 +665,7 @@ devices {
 ```
 
 Sample multipath.conf multipaths extension for ‘human readable’ device paths:
-```
+```sh
 multipaths {
 	multipath {
 		wwid XXXXYYYZZZ

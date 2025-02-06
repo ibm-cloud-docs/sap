@@ -10,20 +10,13 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Overview of {{site.data.keyword.ibm_cloud_sap}}
 {: #overview-sap-offerings-overview}
 
 ## Introduction
-{: #introductionsap-offereings}
+{: #introductionsap-offerings}
 
 {{site.data.keyword.ibm_cloud_sap}} is for enterprises who believe that empowering their SAP workloads also empowers their business. {{site.data.keyword.ibm_cloud_sap}} provides your enterprise with full cloud capabilities. So, you can run your mission-critical SAP workloads with secure, reliable, and compliant infrastructure, and take advantage of options to append more cloud services to transform the business.
 {: shortdesc}
@@ -57,6 +50,7 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 
 ## Supported SAP Business Applications
 {: #supported-sap-business-applications-summary}
+
 - SAP S/4HANA AnyPremise edition
 - SAP S/4HANA Cloud SaaS Extended edition (by request to SAP)
 - SAP BW/4HANA
@@ -71,6 +65,7 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 
 ## Supported SAP Technical Applications
 {: #supported-sap-technical-applications-summary}
+
 - SAP HANA
 - SAP NetWeaver
 - SAPRouter
@@ -93,7 +88,7 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 ## Supported SAP Development Applications
 {: #supported-sap-development-applications-summary}
 
-  SAP Business Technology Platform (BTP) (including SAP Cloud Connector)
+SAP Business Technology Platform (BTP) (including SAP Cloud Connector)
 
 ## SAP-certified Infrastructure-as-a-Service (IaaS) offerings
 {: #iaas-offerings-summary}
@@ -160,7 +155,7 @@ Cloud-native SAP technologies which are portable, directly to Red Hat OpenShift 
 
 {{site.data.keyword.cloud_notm}} offerings for SAP's SaaS by request only:
 
-  SAP S/4HANA Cloud SaaS, Extended Edition; using {{site.data.keyword.cloud_notm}} SAP-certified IaaS _({{site.data.keyword.cloud_notm}} is a strategic premier partner, requires PMC contract with a services partner)_
+SAP S/4HANA Cloud SaaS, Extended Edition; using {{site.data.keyword.cloud_notm}} SAP-certified IaaS _({{site.data.keyword.cloud_notm}} is a strategic premier partner, requires PMC contract with a services partner)
 
 ## SAP Partner ecosystem solutions offerings
 {: #partner-solutions-summary}
@@ -187,9 +182,9 @@ Each of these SAP-certified offerings is available to support numerous different
 - Intel Virtual Servers for VPC uses an {{site.data.keyword.cloud_notm}} managed hypervisor. This option provides lower total cost of ownership when coupling Suspend Discounts and Sustained Usage Discounts, with more flexibility and an abundance of extra features for security and networking. However, the performance and sizing are lower than other options.
 - IBM Power Virtual Servers use the enterprise-grade IBM PowerVM Type 1. This option is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with connection through {{site.data.keyword.cloud_notm}}, that provides significant scalability on robust hardware with significant flexibility and many more features available. But, this option does not allow root-access control of IBM PowerVM underneath where some SAP tools would ordinarily provide integration. **_Commonly this is paired with existing IBM Power or IBM Z infrastructure in on-premises data centers, to create a Hybrid Cloud model which drives modernization using paired capabilities from either on-premises or Cloud that address the business needs (e.g. security, flexibility, speed etc.) and business strategy_**
 - VMware is a Type 2 hypervisor. This option has a minor reduction in the available performance. But this option also has vastly more flexibility and optimization in running SAP workloads, including:
- - Full root-access control to all VMware features
- - Capability to install more software that uses VMware capabilities (for example, SAP Landscape Management)
- - Ability to bridge the network with any existing VMware installations
+    - Full root-access control to all VMware features
+    - Capability to install more software that uses VMware capabilities (for example, SAP Landscape Management)
+    - Ability to bridge the network with any existing VMware installations
 
 This content is a high-level summary, for more details please see [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings); in addition there are multiple pages describing each profile available across the infrastructure options.
 

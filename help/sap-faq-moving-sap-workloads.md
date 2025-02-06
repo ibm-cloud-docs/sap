@@ -1,22 +1,13 @@
 ---
-
 copyright:
   years: 2020
 lastupdated: "2020-09-21"
-
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
-
 subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQ of Moving SAP Workloads
 {: #faq-moving-sap-workloads}
@@ -36,7 +27,7 @@ Moving workloads is an infrastructure-level change that affects the SAP systems 
 
 Migrating workloads is an application-level change that affects the SAP system installation because new software is being used.
 
-_For VMware-based SAP workloads that are running in on-premises data centers, depending on the existing setup, the movement of these virtual machines into {{site.data.keyword.cloud_notm}} for VMware may potentially be simplified with the usage of VMware HCX_
+- For VMware-based SAP workloads that are running in on-premises data centers, depending on the existing setup, the movement of these virtual machines into {{site.data.keyword.cloud_notm}} for VMware may potentially be simplified with the usage of VMware HCX
 
 
 ## How do I move an existing SAP HANA database or relational database to an SAP HANA-certified server in the {{site.data.keyword.cloud_notm}}?
@@ -71,10 +62,10 @@ This table is a high-level list of the options for moving and migrating existing
 |**Move and Migrate SAP workloads approach**|**Description**|**Common Usage**|**Downtime**|**Pre/Post Migration Work**|**Data Transfer**|
 |-----|-----|-----|-----|-----|-----|
 |Heterogeneous System Copy that uses SWPM|Move or Re-Platform to different CPU Architecture, OS, or database. Uses System Copy Export/Import of SWPM|Commonly used to change database server in preparation for more significant move; for example, move to SAP HANA DB with a Classical Migration approach|Yes|Significant preparation and post processing required.|System Copy Export dump|
-|Homogeneous System Copy that uses SWPM _(Only option for System Copies that are running SAP HANA DB)_|Move or Re-Platform to more to newer OS or database version. Cannot be used to move between CPU Architecture or Endianness. Uses SAP Database Backup with SWPM.|Move to new SAP HANA target, or to move to new OS target with existing AnyDB. Also used to create fresh sandboxes of an existing system (with or without Logical System Name change).|Yes. Some reduction in downtime possible depending on preparation, change freeze, and delta change sync (of log files) in failover to target|Less preparation than heterogeneous System Copy; moderate to significant post processing required depending on scenario (in most cases, the Logical System Name is changed, for example, BDLS)|SAP Database Backup|
-|SAP HANA System Replication (HSR) with replicated database mirror on cloud|Secondary failover site is hosted on cloud|HA and DR scenarios|Yes minimal, depends on design and failover factors (for example, cost-optimised or performance)|Using SAP Landscape Management (LaMa), set up and execution can be automated|Log or memory shipping; SYNCMEM, FULLSYNC, SYNC, or ASYNC modes|
+|Homogeneous System Copy that uses SWPM *(Only option for System Copies that are running SAP HANA DB)*|Move or Re-Platform to more to newer OS or database version. Cannot be used to move between CPU Architecture or Endianness. Uses SAP Database Backup with SWPM.|Move to new SAP HANA target, or to move to new OS target with existing AnyDB. Also used to create fresh sandboxes of an existing system (with or without Logical System Name change).|Yes. Some reduction in downtime possible depending on preparation, change freeze, and delta change sync (of log files) in failover to target|Less preparation than heterogeneous System Copy; moderate to significant post processing required depending on scenario (in most cases, the Logical System Name is changed, for example, BDLS)|SAP Database Backup|
+|SAP HANA System Replication (HSR) with replicated database mirror on cloud|Secondary failover site is hosted on cloud|HA and DR scenarios|Yes minimal, depends on design and failover factors (for example, cost-optimized or performance)|Using SAP Landscape Management (LaMa), set up and execution can be automated|Log or memory shipping; SYNCMEM, FULLSYNC, SYNC, or ASYNC modes|
 |System Relocation that uses SAP LaMa to orchestrate move|Physically or virtually relocate running or shutdown instances. Uses SAP LaMa. Cannot relocate SAP HANA DB MDC Tenants.|Moving individual SAP instances to new infrastructure landscape that is already set up.|Yes minimal, running systems have downtimes as they are stopped, unprepared, then prepared and started|Using SAP LaMa, relocation can be automated|Package network transfer that uses LaMa or LaMa adapter for VMware|
-|DMO for SUM with System Move execution _(Combines Migration, Unicode conversion, Upgrades, and more tasks)_|Supported for App Server (NetWeaver) upgrade or database conversion to SAP HANA. Moves the NW PAS + database server and upgrade - all at the same time.|Migrations to Business Suite on SAP HANA or part of SAP S/4HANA conversion migration (Brownfield)|Yes. Both PAS Target and database host in the target landscape (for example, {{site.data.keyword.cloud_notm}}) needs to be ready before DMO for SUM with System Move execution. |Significant preparation is required.|System Export is performed in source landscape. Import is performed in target landscape. The export/import can also be done in parallel.|
+|DMO for SUM with System Move execution *(Combines Migration, Unicode conversion, Upgrades, and more tasks)*|Supported for App Server (NetWeaver) upgrade or database conversion to SAP HANA. Moves the NW PAS + database server and upgrade - all at the same time.|Migrations to Business Suite on SAP HANA or part of SAP S/4HANA conversion migration (Brownfield)|Yes. Both PAS Target and database host in the target landscape (for example, {{site.data.keyword.cloud_notm}}) needs to be ready before DMO for SUM with System Move execution. |Significant preparation is required.|System Export is performed in source landscape. Import is performed in target landscape. The export/import can also be done in parallel.|
 | Selective Data Transition, with Shell Conversion | Create shell of SAP System with Customizing and Development only; then upgrade / conversion to either SAP ECC or SAP S/4HANA. Migrate selective data from ECC to the upgraded shell system | Used in Business split scenarios (e.g. Divestitures), and Transformation/Conversion projects with SAP S/4HANA | Yes minimal, the target can be built and tested in advance (repeatedly testing the conversion steps and remediation). Data can be replicated to target in advance, so downtime is only for the delta data synchronization and replacing the old system with target. | Significant preparation is required. | SAP Landscape Transformation Replication Server, handled through a direct SAP engagement |
 | Selective Data Transition, with Mix & Match | Merge of two or more system configurations to create a new SAP System with required configuration; then upgrade / conversion to SAP S/4HANA | Used in Business merge scenarios (e.g. Acquisitions) or multiple SAP system consolidation (e.g. ERPs for each Geographic Region or Business Units), and Transformation/Conversion projects with SAP S/4HANA | Yes minimal, the target can be built and tested in advance (repeatedly testing the conversion steps and remediation). Data can be replicated to target in advance, so downtime is only for the delta data synchronization and replacing the old system with target. | Significant preparation is required. | SAP Landscape Transformation Replication Server, handled through a direct SAP engagement |
 {: caption="List of Move and Migrate SAP workloads approaches" caption-side="top"}
