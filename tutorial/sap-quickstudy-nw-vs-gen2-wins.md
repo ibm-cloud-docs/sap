@@ -239,7 +239,7 @@ You can access the newly created VSI with Windows Remote Desktop. Enter the *Flo
 (+) [About partition styles - GPT and MBR.](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){: external}
 
 ### Specifying the page file
-{: #initialize-storage-windows-vsi}
+{: #configure-page-file-windows-vsi}
 
 1. Start the Windows Control Panel
 1. Click **System and Security** then **System**
