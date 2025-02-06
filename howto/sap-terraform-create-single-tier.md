@@ -63,6 +63,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
 ## Procedure
+{: #tf-create-single-procedure}
 
 Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-in and use Terraform to create a VPC for SAP.
 
@@ -120,6 +121,7 @@ This automation is offered at no cost; however, the provisioned infrastructure c
 {: note}
 
 ## Next steps
+{: #tf-create-single-tier-next-steps}
 
 If you need to rename your resources after they are created, modify the ``input.auto.tfvars`` file to change the names and run ``terraform plan`` and ``terraform apply`` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
 

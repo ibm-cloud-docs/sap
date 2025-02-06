@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP Monitoring, {{site.data.keyword.cloud_notm}}, SAP Workloads
 
@@ -570,6 +570,6 @@ Only one extra `systemd` configuration file is required for all `sap_host_export
    {: pre}
 
 ## Next steps
-{: mon-exporter-setup-next-steps}
+{: #mon-exporter-setup-next-steps}
 
 If the setup and configuration of the monitoring host was successful, continue with [Configuration of Prometheus server metric forwarding](/docs/sap?topic=sap-mon-metric-forwarding).

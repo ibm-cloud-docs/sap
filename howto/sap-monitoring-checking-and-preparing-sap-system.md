@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -238,6 +238,6 @@ Add a line to the SAP default profile:
    {: screen}
 
 ## Next steps
-{: mon-preparing-system-next-steps}
+{: #mon-preparing-system-next-steps}
 
 After checking and preparing the SAP system, you can proceed to the next step [Creating of monitoring instance in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-mon-create-instance).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
@@ -436,6 +436,7 @@ Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to 
 If you need to remove your VPC, go to your project folder and run ``terraform destroy``.
 
 ## Related information
+{: #tf-automate-3tier-nw-hana-related-information}
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on {{site.data.keyword.cloud_notm}} getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 

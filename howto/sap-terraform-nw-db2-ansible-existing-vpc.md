@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
@@ -319,6 +319,7 @@ If you need to rename your resources after they are created, modify the ``input.
 If you need to remove the SAP NetWeaver 7.X and Db2 installation, go to your project folder and run ``terraform destroy``. The `terraform destroy` command does not remove the VPC in this scenario because the VPC was not created with the Terraform scripts.
 
 ## Related information
+{: #terraform-nw-db2-related-information}
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on {{site.data.keyword.cloud_notm}} getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 

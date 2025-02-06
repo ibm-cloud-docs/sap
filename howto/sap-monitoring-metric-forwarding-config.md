@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -164,6 +164,6 @@ It takes some time for the metrics to appear in your dashboard.
 {: note}
 
 ## Next steps
-{: mon-metric-forwarding-next-steps}
+{: #mon-metric-forwarding-next-steps}
 
 To visualize the metrics that are collected by the Prometheus server, see [Launch the monitoring web UI and work with dashboards](/docs/sap?topic=sap-mon-launch-web-ui-dashboards).

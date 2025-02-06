@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
@@ -132,6 +132,7 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
 6. [Create an IAM service-to-service authorization for your VPN server and IBM Cloud Secrets Manager](/docs/vpc?topic=vpc-client-to-site-authentication#creating-iam-service-to-service). This will allow the client-to-site VPN service to access and use the secrets created under the Secrets Manager instance.
 
 ## Procedure
+{: #bastion-server-procedure}
 
 1. From the {{site.data.keyword.cloud_notm}} menu, select [Schematics](https://cloud.ibm.com/schematics/overview){: external}.
 2. Click Create workspace.

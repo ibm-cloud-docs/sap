@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
@@ -367,6 +367,7 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the S
 10.	Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
 
 ## Related information
+{: #tf-automate-s4hana-ansible-related-info}
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [*Getting started with Terraform on IBM Cloud*](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started) tutorial.
 

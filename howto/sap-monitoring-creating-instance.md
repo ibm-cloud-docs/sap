@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -76,6 +76,6 @@ The new URL looks like the following example.
 [Collecting metrics by using Prometheus remote write](/docs/monitoring?topic=monitoring-prometheus_remote_write#prometheus_remote_write_endpoints){: external}.
 
 ## Next steps
-{: mon-creating-instance-next-steps}
+{: #mon-creating-instance-next-steps}
 
 You're ready to set up and configure a monitoring host and send the SAP metrics data to the {{site.data.keyword.cloud}} monitoring instance. For more information, see [Setting up and configuring a monitoring host](/docs/sap?topic=sap-mon-exporter-setup-config).

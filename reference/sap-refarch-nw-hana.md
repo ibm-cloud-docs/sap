@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -32,6 +32,7 @@ SAP HANA is one of several databases that can be deployed on SAP NetWeaver in th
 SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for Advanced Business Application Programming (ABAP) and Java applications. SAP NetWeaver components are built on the SAP NetWeaver Application Server and are written in ABAP or Java Platform, Enterprise Edition. ABAP systems, Java systems, and dual-stack systems are distinct systems.
 
 ### Core platform features
+{: #refarch-nw-hana-core-platform-features}
 
 SAP NetWeaver uses ABAP or Java core platforms to support the SAP applications. SAP NetWeaver:
 *  Has application lifecycle management capabilities.
@@ -41,6 +42,7 @@ SAP NetWeaver uses ABAP or Java core platforms to support the SAP applications. 
 SAP provides a list of the [SAP versions](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#section_486851042){: external} to learn more about the versions available in {{site.data.keyword.cloud_notm}}. Each support package stack has a leading software component version. The support package level of each component version is a key part of the stack and a unique identifier for the support package stack.
 
 ### Installation types
+{: #sap-netweaver-arch-inst-types}
 
 The three installation types for SAP NetWeaver Application Server are:
 *	ABAP System– You can run ABAP programs and some SAP Java apps

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 
@@ -380,11 +380,13 @@ Leaving now the tutorial and finding all information that you need to install yo
 
 
 ### Relevant SAP Notes
+{: #quickstudy-nw-vs-gen2-wins-relevant-sap-notes}
 
 * [SAP Note 2384179 - SAP Systems on Windows Server 2016](https://me.sap.com/notes/2384179){: external}.
 * [SAP Note 2979010 - Windows on IBM Cloud (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2979010){: external}.
 
 #### Memory Management
+{: #quickstudy-nw-vs-gen2-wins-mem-management}
 
 * [SAP Note 88416 - Zero administration memory management for the ABAP server](https://me.sap.com/notes/88416){: external}.
 * [SAP Note 1518419 - Page file and virtual memory required by the SAP system](https://me.sap.com/notes/1518419){: external}.
