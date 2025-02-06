@@ -95,6 +95,7 @@ toc:
               topics:
                 - plan/sap-partners-veeam.md
                 - plan/sap-partners-ibm-security-services.md
+                - plan/sap-partners-intel-optane-pmem.md
     - navgroup:
         id: tutorial
         topics:
