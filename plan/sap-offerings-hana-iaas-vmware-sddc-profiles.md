@@ -57,7 +57,7 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP HA
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
 | BI.S3.H8401 | BI | {{site.data.keyword.cloud_notm}}) Infrastructure |
-| | S2 | Series 2 (processor generation)  \n <ul><li>S2 is Intel Broadwell</li><li>S3 is Intel Skylake/Kaby Lake</li><li>S4 is Intel Cascade Lake</li></ul> |
+| | S3 | Series 3 (processor generation)  \n <ul><li>S3 is Intel Skylake/Kaby Lake</li><li>S4 is Intel Cascade Lake</li></ul> |
 | | H | HANA-certified server |
 | | 8 | 8-socket server |
 | | 4 | 4 TB RAM |

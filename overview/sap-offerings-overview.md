@@ -93,7 +93,7 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 ## Supported SAP Development Applications
 {: #supported-sap-development-applications-summary}
 
-  SAP Cloud Platform (including SAP Cloud Connector)
+  SAP Business Technology Platform (BTP) (including SAP Cloud Connector)
 
 ## SAP-certified Infrastructure-as-a-Service (IaaS) offerings
 {: #iaas-offerings-summary}
@@ -145,9 +145,9 @@ For more details on SAP S/4HANA scale-out with IBM Cloud, read [SAP S/4HANA addi
 The portfolio includes a variation of SAP's Platform-as-a-Service, which is designed for increased security of cloud-native SAP extensions. This SAP PaaS variation can be combined with {{site.data.keyword.cloud_notm}}'s various PaaS options, functions, and services.
 
 **Affiliate offerings for SAP's PaaS by request only:**
-- SAP Cloud Platform Private Edition, using Red Hat OpenShift Virtualization
+- SAP Business Technology Platform (BTP) Private Edition, using Red Hat OpenShift Virtualization
 
-However, the core cloud-native SAP technologies are able to be used directly with Red Hat OpenShift on {{site.data.keyword.cloud_notm}} or other {{site.data.keyword.cloud_notm}} capabilities (such as Cloud Foundry) in the same way as deploying to SAP Cloud Platform. This is because many of the cloud-native SAP technologies are built upon widely supported cloud-native technologies. However, to deploy outside of the SAP Cloud Platform ecosystem requires general knowledge of cloud-native technologies, and will require more manual effort (not described in this documentation series) because the SAP multitarget application (MTA) archive format is not supported outside SAP Cloud Platform.
+However, the core cloud-native SAP technologies are able to be used directly with Red Hat OpenShift on {{site.data.keyword.cloud_notm}} or other {{site.data.keyword.cloud_notm}} capabilities (such as Cloud Foundry) in the same way as deploying to SAP Business Technology Platform (BTP). This is because many of the cloud-native SAP technologies are built upon widely supported cloud-native technologies. However, to deploy outside of the SAP Business Technology Platform (BTP) ecosystem requires general knowledge of cloud-native technologies, and will require more manual effort (not described in this documentation series) because the SAP multitarget application (MTA) archive format is not supported outside SAP Business Technology Platform (BTP).
 
 Cloud-native SAP technologies which are portable, directly to Red Hat OpenShift on {{site.data.keyword.cloud_notm}} or Cloud Foundry from {{site.data.keyword.cloud_notm}}, examples include:
 - [SAP Fundamental Library Styles component library](https://sap.github.io/fundamental-styles){: external} for UI Frameworks (Angular, React, Vue, and other frameworks)
