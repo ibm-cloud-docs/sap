@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -161,7 +161,7 @@ mkdir -p /usr/sap/${SID}/{ASCS${ASCS_INSTNO},ERS${ERS_INSTNO}} /sapmnt/${SID}
 ## Installing and setting up the RHEL HA Add-On cluster
 {: #ha-rhel-ensa-mz-set-up}
 
-Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On cluster on IBM Power Virtual Server in a Multizone Region Environment](/docs/sap?topic=sap-ha-rhel-mz).
+Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}} in a Multizone Region Environment](/docs/sap?topic=sap-ha-rhel-mz).
 
 Configure and test the cluster fencing as described in [Creating the fencing device](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-create-fencing-device).
 

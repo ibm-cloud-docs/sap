@@ -67,5 +67,5 @@ Review the following documentation at for your relevant configuration:
 * [Fast Path of IBM Cloud Intel Bare Metal on Classic Infrastructure](/docs/sap?topic=sap-fast-path-site-map-intel-bm)
 * [Fast Path of IBM Cloud Intel Bare Metal Servers on VPC Infrastructure](/docs/sap?topic=sap-fast-path-site-map-intel-bm-vpc)
 * [Fast Path of IBM Cloud Intel Virtual Servers on VPC Infrastructure](/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2)
-* [Fast Path of IBM Power Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-power-vs)
+* [Fast Path of IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-fast-path-site-map-power-vs)
 * [Fast Path of IBM Cloud for VMware on Classic Infrastructure](/docs/sap?topic=sap-fast-path-site-map-vmware-sddc)

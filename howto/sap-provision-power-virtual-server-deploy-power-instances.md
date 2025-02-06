@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 
@@ -48,12 +48,12 @@ The available subscription alternatives are:
 * **Client supplied subscription**, where you use your own subscription with IBM stock OS images or custom images.
    This feature is called "Bring Your Own License" (BYOL).
    Custom images are imported by users as boot images into {{site.data.keyword.powerSys_notm}}.
-   Therefore, if you plan to use your own subscription, select the OS image that has a suffix of -BYOL under the "Client supplied subscription" when deploying Power Virtual Server instances in the step [Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP HANA](#power-vs-set-up-power-hana-instance).
+   Therefore, if you plan to use your own subscription, select the OS image that has a suffix of -BYOL under the "Client supplied subscription" when deploying {{site.data.keyword.powerSys_notm}} instances in the step [Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP HANA](#power-vs-set-up-power-hana-instance).
 
 For deploying and setting up the {{site.data.keyword.powerSys_notm}} instances for SAP applications, we focus on the **IBM provided subscription** for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) images.
 {: note}
 
-More details about the subscription for RHEL and SLES could be found in [Using RHEL within the Power Virtual Server](/docs/power-iaas?topic=power-iaas-linux-with-powervs) and [Using SLES within IBM Power Virtual Server](/docs/power-iaas?topic=power-iaas-using-linux).
+More details about the subscription for RHEL and SLES could be found in [Using RHEL within the {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-linux-with-powervs) and [Using SLES within IBM {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-using-linux).
 
 {{site.data.keyword.ibm_cloud_sap}} provides SAP-certified infrastructure to run SAP workloads, which includes the following operating systems with OS images under **IBM provided subscription**:
 
@@ -66,7 +66,7 @@ Linux&reg; OS is not the same as Linux&reg; for SAP applications.
 Linux&reg; OS does not have specific pre-configured settings for SAP workloads.
 {: important}
 
-See more details about Linux&reg; versions for SAP applications in [OS for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-power).
+See more details about Linux&reg; versions for SAP applications in [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-power).
 
 It is recommended to perform a memory sizing of SAP applications before deploying them on {{site.data.keyword.powerSys_notm}} instances.
 See the [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing) and [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
@@ -125,7 +125,7 @@ See more details in the tutorial [Connect by using a client-to-site VPN](/docs/s
 ### Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver
 {: #power-vs-set-up-power-netweaver-instance}
 
-To deploy an {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver, go to your [workspace for {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-power-vs-set-up-power-infrastructure) and create an {{site.data.keyword.powerSys_notm}} instance as described in [Configuring a Power Virtual Server instance](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#configuring-instance).
+To deploy an {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver, go to your [workspace for {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-power-vs-set-up-power-infrastructure) and create an {{site.data.keyword.powerSys_notm}} instance as described in [Configuring a {{site.data.keyword.powerSys_notm}} instance](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#configuring-instance).
 Use the information in [Deploying SAP HANA on {{site.data.keyword.powerSys_notm}}](#power-vs-set-up-power-hana-instance) to complete the configuration for **General**, **Profile**, **Storage volumes**, **Networking** sections.
 For the **Boot image** section, specify the IBM provided subscription 'Linux for SAP (NetWeaver)' selection.
 
@@ -150,7 +150,7 @@ A single {{site.data.keyword.powerSys_notm}} shared file systems instance can be
 Your security requirements determine how many {{site.data.keyword.powerSys_notm}} shared file systems instances you might need.
 
 To deploy an {{site.data.keyword.powerSys_notm}} instance for shared file systems, use the Workspace where the SAP HANA and SAP NetWeaver instances were created.
-Create a shared file system as described in [Configuring a Power Virtual Server instance](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#configuring-instance).
+Create a shared file system as described in [Configuring a {{site.data.keyword.powerSys_notm}} instance](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#configuring-instance).
 
 After deploying the {{site.data.keyword.powerSys_notm}} instance for shared file systems, you can use it as Network File System (NFS) storage, where an NFS server will run.
 How to set up the NFS server is described in the [Deploying an NFS server](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_using_network_file_services/deploying-an-nfs-server_configuring-and-using-network-file-services#services-required-on-an-nfs-server_deploying-an-nfs-server){: external} for [RHEL]{: tag-red} and [Sharing file systems with NFS](https://documentation.suse.com/sles/15-SP6/html/SLES-all/cha-nfs.html){: external} for [SLES]{: tag-green}.

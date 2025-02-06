@@ -18,7 +18,7 @@ subcollection: sap
 This FAQ provides answers for the following:
 - [{{site.data.keyword.ibm_cloud_sap}} portfolio questions](#faq-ibm-cloud-for-sap-portfolio)
 - [Licensing and pricing](#faq-licensing-pricing)
-- [SAP-certified IBM Power Virtual Servers](#faq-sap-certified-power-vsi)
+- [SAP-certified IBM {{site.data.keyword.powerSys_notm}}s](#faq-sap-certified-power-vsi)
 - [SAP HANA generic questions](#faq-sap-hana)
 - [SAP NetWeaver generic questions](#faq-sap-nw-generic)
 - [SAP Notes full list of the {{site.data.keyword.ibm_cloud_sap}} portfolio](#faq-ibm-cloud-for-sap-portfolio-snotes)
@@ -124,7 +124,7 @@ You can set up high availability at either the:
 How you set up high availability differs depending on the infrastructure types and network types:
 - For Intel Bare Metal that uses Classic Infrastructure network
 - For Intel Virtual Servers that use VPC Infrastructure network _(does not currently support SAP NetWeaver high availability or SAP HANA high availability)_
-- For IBM Power Virtual Servers, on {{site.data.keyword.cloud_notm}} that use IBM Power Virtual Server Group network
+- For IBM {{site.data.keyword.powerSys_notm}}s, on {{site.data.keyword.cloud_notm}} that use IBM {{site.data.keyword.powerSys_notm}} Group network
 - For VMware that uses Classic Infrastructure network
 
 See the respective topics in the **_Get Started_** section for:
@@ -172,10 +172,10 @@ For SAP-certified bare metal servers that are certified as HANA appliances, pric
 As an industry practice across Cloud Service Providers, virtual servers from {{site.data.keyword.ibm_cloud_sap}} use redundant network block or file storage. These storage costs might not be included in the initial price estimation. In addition, there are **no network bandwidth charges** for local network traffic to or from the virtual server host and the storage host on {{site.data.keyword.cloud_notm}}.
 {: note}
 
-## SAP-certified IBM Power Virtual Servers
+## SAP-certified IBM {{site.data.keyword.powerSys_notm}}s
 {: #faq-sap-certified-power-vsi}
 
-### Which version of Db2 can I use to run SAP NetWeaver on {{site.data.keyword.IBM_notm}} Power Virtual Servers?
+### Which version of Db2 can I use to run SAP NetWeaver on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s?
 {: #faq-which-db2-version-on-power}
 
 For information check [SAP Note 2855850](https://me.sap.com/notes/2855850){: external} regularly. You can also reference [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}.
@@ -305,7 +305,7 @@ Most versions of SAP NetWeaver Application Server (ABAP or Java) from 7.0 or hig
 For a full updated list of SAP NetWeaver versions and SAP Kernel Patch Levels supported for the various IaaS options, see the following SAP Notes:
 - [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
 - [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
-- [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external}
+- [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external}
 
 ## Full list of SAP Notes for the {{site.data.keyword.ibm_cloud_sap}} portfolio
 {: #faq-ibm-cloud-for-sap-portfolio-snotes}
@@ -328,10 +328,10 @@ For a full updated list of SAP NetWeaver versions and SAP Kernel Patch Levels su
 ### SAP Notes that are related to IBM Power Infrastructure connected to {{site.data.keyword.cloud_notm}}
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-power}
 
-- [SAP Note 2923984 - SAP on IBM Power Virtual Servers: Support prerequisites](https://me.sap.com/notes/2923984){: external}
-- [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579){: external}
-- [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external}
-- [SAP Note 2932766 - SAP on IBM Power Virtual Servers: Key Monitoring Metrics](https://me.sap.com/notes/2932766){: external}
+- [SAP Note 2923984 - SAP on IBM {{site.data.keyword.powerSys_notm}}s: Support prerequisites](https://me.sap.com/notes/2923984){: external}
+- [SAP Note 2947579 - SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2947579){: external}
+- [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external}
+- [SAP Note 2932766 - SAP on IBM {{site.data.keyword.powerSys_notm}}s: Key Monitoring Metrics](https://me.sap.com/notes/2932766){: external}
 
 
 ### SAP Notes that are related to any Public Cloud or Virtualized Environments

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPN, Virtual Private Network, VPN for VPC, Direct Link, DL, Cloud connection, Software Defined Network, SDN, SD, Hybrid Cloud, Migration, AIX, Linux, RHEL, SuSE
 
@@ -10,7 +10,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Hybrid Cloud Network Consideration for SAP applications on IBM Power Virtual Server
+# Hybrid Cloud Network Consideration for SAP applications on IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-hybrid-cloud-networking}
 
 A hybrid cloud environment combines the on-premises site with {{site.data.keyword.powerSysFull}}.
@@ -93,7 +93,7 @@ A hybrid cloud setup in general combines the customer network with a customer n
 Connecting an on-premises network with IBM Power Servers in {{site.data.keyword.powerSys_notm}} in {{site.data.keyword.cloud}} is described in
 [Network architecture diagrams](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams).
 
-If you are new to {{site.data.keyword.powerSys_notm}}, architectures from the [Power Edge Router (PER) use cases](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#per-use-cases) are the recommended ones and are the easiest to implement. If you have an existing {{site.data.keyword.powerSys_notm}} workspace, you might either consider migrating to the newer PER setup or inspect the [Power Virtual Server networking environment](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#networking-environment) description.
+If you are new to {{site.data.keyword.powerSys_notm}}, architectures from the [Power Edge Router (PER) use cases](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#per-use-cases) are the recommended ones and are the easiest to implement. If you have an existing {{site.data.keyword.powerSys_notm}} workspace, you might either consider migrating to the newer PER setup or inspect the [{{site.data.keyword.powerSys_notm}} networking environment](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams#networking-environment) description.
 
 Both PER and non-PER architectures offer these types of network connection options:
 

@@ -61,15 +61,15 @@ Some {{site.data.keyword.ibm_cloud_sap}} Bare Metal profiles do allow alteration
 {: #compute-power}
 
 The [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings) compute options provide different variations of capabilities and sizing for SAP workloads.
-SAP HANA database servers and SAP NetWeaver applications run on {{site.data.keyword.IBM_notm}} Power Systems using [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
-For more information, see [SAP HANA and IBM Power Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs-hana), [SAP NetWeaver and IBM Power Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs-netweaver), and [SAP NetWeaver certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs).
+SAP HANA database servers and SAP NetWeaver applications run on {{site.data.keyword.IBM_notm}} Power Systems using [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
+For more information, see [SAP HANA and IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs-hana), [SAP NetWeaver and IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs-netweaver), and [SAP NetWeaver certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs).
 
 The {{site.data.keyword.cloud_notm}} SAP-certified Infrastructure-as-a-Service (IaaS) offerings are available on {{site.data.keyword.cloud_notm}} in many {{site.data.keyword.IBM_notm}} data centers around the world.
 See the current data centers in [IBM Cloud regions](/docs/power-iaas?topic=power-iaas-ibm-cloud-reg).
 
-All SAP NetWeaver Application Server ABAP-based products and SAP NetWeaver Application Server Java-based products are supported on {{site.data.keyword.IBM_notm}} Power Virtual Servers. For SAP NetWeaver-based SAP products, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external}.
+All SAP NetWeaver Application Server ABAP-based products and SAP NetWeaver Application Server Java-based products are supported on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s. For SAP NetWeaver-based SAP products, see [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external}.
 
-All SAP HANA-based products are supported on {{site.data.keyword.IBM_notm}} Power Virtual Servers. For support requirements, see [SAP Note 2923984 - SAP on IBM Power Virtual Servers: Support prerequisites](https://me.sap.com/notes/2923984){: external}.
+All SAP HANA-based products are supported on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s. For support requirements, see [SAP Note 2923984 - SAP on IBM {{site.data.keyword.powerSys_notm}}s: Support prerequisites](https://me.sap.com/notes/2923984){: external}.
 
 For all other software components or third-party products, contact [SAP Support](https://support.sap.com/en/index.html){: external}.
 
@@ -152,14 +152,14 @@ For a list of operating systems and databases available for SAP NetWeaver-based 
 An SAP S-user ID is required to access the SAP Note.
 {: note}
 
-### OS for IBM Power Virtual Servers
+### OS for IBM {{site.data.keyword.powerSys_notm}}s
 {: #os-power}
 
-For the Linux&reg; versions to deploy for SAP HANA, see [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579){: external}. An SAP S-user ID is required to access the SAP Note. The OS image is provided by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, and the licensing for Linux is covered through a "bring your own license" (BYOL) model.
+For the Linux&reg; versions to deploy for SAP HANA, see [SAP Note 2947579 - SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2947579){: external}. An SAP S-user ID is required to access the SAP Note. The OS image is provided by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, and the licensing for Linux is covered through a "bring your own license" (BYOL) model.
 
-For the version of IBM AIX or Linux on Power to deploy for SAP NetWeaver-based systems, see [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external}. An SAP S-user ID is required to access the SAP Note. License fees for AIX are covered by your monthly billing rate.
+For the version of IBM AIX or Linux on Power to deploy for SAP NetWeaver-based systems, see [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external}. An SAP S-user ID is required to access the SAP Note. License fees for AIX are covered by your monthly billing rate.
 
-OS Packages update server with IBM Power Power Virtual Servers:
+OS Packages update server with IBM Power {{site.data.keyword.powerSys_notm}}s:
 * For SAP NetWeaver you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers.
 * For SAP HANA you can use publicly available SUSE update repositories, or use your own private SUSE RMT servers.
 
@@ -175,7 +175,7 @@ OS Packages update server with IBM Power Power Virtual Servers:
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | SLES15-SP3-SAP-BYOL | SLES15-SP3-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | SLES15-SP4-SAP-BYOL | SLES15-SP4-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | SLES15-SP5-SAP-BYOL  | SLES15-SP5-SAP |
-{: caption="Operating systems for IBM Power virtual servers on SAP HANA" caption-side="bottom"}
+{: caption="Operating systems for IBM {{site.data.keyword.powerSys_notm}}s on SAP HANA" caption-side="bottom"}
 
 | Operating system for SAP NetWeaver | Operating system image (Bring your own license) | Operating system image (IBM subscription) |
 |---------|---------|---------|
@@ -191,7 +191,7 @@ OS Packages update server with IBM Power Power Virtual Servers:
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | SLES15-SP5-SAP-NETWEAVER-BYOL | SLES15-SP5-SAP-NETWEAVER |
 | AIX 7.2 | 7200-05-08 or later |
 | AIX 7.3 | 7300-02-01 or later |
-{: caption="Operating systems for IBM Power virtual servers on SAP NetWeaver" caption-side="bottom"}
+{: caption="Operating systems for IBM {{site.data.keyword.powerSys_notm}}s on SAP NetWeaver" caption-side="bottom"}
 
 Update on new SAP HANA large t-shirt profiles feature
 IBM supports SLES15 SP4 for SAP and RHEL8.6 for SAP OS images with all other features on all t-shirt profiles with fewer than 64 cores. These SLES15 SP4 for SAP and RHEL8.6 for SAP OS images while they are updating to support the larger t-shirt profiles. Until further notice, use the larger t-shirt profiles with the SLES15 SP3 for SAP OS image or the RHEL8.4 for SAP OS image.

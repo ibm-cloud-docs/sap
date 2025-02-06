@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -85,13 +85,13 @@ See [SAP Note 2927211 - SAP Applications on {{site.data.keyword.IBM_notm}} Cloud
 A sample configuration is shown in:
 - [Quick Study Tutorial - SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure, using RHEL](/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-rhel)
 
-### SAP on IBM Db2 using IBM Power Virtual Servers
+### SAP on IBM Db2 using IBM {{site.data.keyword.powerSys_notm}}s
 {: #anydb-ibm-db2-power-vs}
 
 This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
-See [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://me.sap.com/notes/2855850){: external} for supported {{site.data.keyword.IBM_notm}} Db2 database versions on AIX running on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
+See [SAP Note 2855850 - SAP Applications on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external} for supported {{site.data.keyword.IBM_notm}} Db2 database versions on AIX running on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
 
 ## Infrastructure size considerations
 {: #anydb-ibm-db2-infrastructure}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -15,7 +15,7 @@ subcollection: sap
 # Planning your deployment
 {: #power-vs-planning-items}
 
-SAP for Power Virtual Servers is a complementary offering from {{site.data.keyword.powerSysFull}} with low latency access to {{site.data.keyword.cloud}} services.
+SAP for {{site.data.keyword.powerSys_notm}}s is a complementary offering from {{site.data.keyword.powerSysFull}} with low latency access to {{site.data.keyword.cloud}} services.
 {: note}
 
 Make sure that you're familiar with the fundamental components and options that are provided by {{site.data.keyword.powerSysShort}} infrastructure offerings for SAP. Before you deploy servers, make sure that you read the {{site.data.keyword.Bluemix}} for SAP information in [Getting started](/docs/sap?topic=sap-get-started).
@@ -24,9 +24,9 @@ Make sure that you're familiar with the fundamental components and options that 
 ## Before you begin
 {: #power-vs-before-you-begin}
 
-To help make sure that your first deployment is a success, read [Fast path of IBM Power Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-power-vs) including the following sections:
+To help make sure that your first deployment is a success, read [Fast path of IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-fast-path-site-map-power-vs) including the following sections:
 * [IBM Power Systems Infrastructure environment introduction](/docs/sap?topic=sap-power-env-introduction) for the basic understanding about the environment.
-* [Connectivity options within the IBM Power Virtual Server network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-power)
+* [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-power)
 * [Sample storage configurations on IBM Power Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-power)
 
 ## Prerequisites
@@ -51,7 +51,7 @@ Review the following prerequisites.
    For more information about configuring API access in IBM Cloud Object Storage [Getting started with IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage) and [Service credentials](/docs/cloud-object-storage?topic=cloud-object-storage-service-credentials).
 
 4. Choose a Linux operating system for your deployments. We recommend that you use the same OS release for all the hosts in the environment. When you use the same operating system version and release, it simplifies the operations management of the whole landscape. In this tutorial, Linux is used on all management components that run in your landscape. SAP solutions can run on Linux or on AIX.
-5. Read [OS for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-power) to learn about supported operating systems for SAP workloads on {{site.data.keyword.powerSysShort}}.
+5. Read [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-power) to learn about supported operating systems for SAP workloads on {{site.data.keyword.powerSysShort}}.
 6. Design the network layout for your landscape. Specify the IP address ranges in the subnets to prevent IP address conflicts between all subnets in the landscape, including external subnets (subnets in your on-premises environment), and any other subnets.
 
    All IP address ranges in the subnets must be unique.

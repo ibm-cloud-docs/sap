@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -80,7 +80,7 @@ The other technical components, such as the ASCS instance, the SAP HANA database
 - SAP HANA system
 
    SAP HANA provides two approaches to scale a system: *scale-up* and *scale-out*.
-   With the comprehensive and highly scalable set of [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs){: external} that are available in IBM {{site.data.keyword.powerSys_notm}}, the focus is on SAP HANA *scale-up* solutions.
+   With the comprehensive and highly scalable set of [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs){: external} that are available in IBM {{site.data.keyword.powerSys_notm}}, the focus is on SAP HANA *scale-up* solutions.
    {: note}
 
    The best way to protect an SAP HANA system is to set up a secondary SAP HANA system on a separate virtual server instance. Then, configure SAP HANA system replication, and automate failover with HA cluster software.

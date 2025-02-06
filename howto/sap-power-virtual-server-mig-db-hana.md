@@ -10,7 +10,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Migrating SAP S/4HANA to IBM Power Virtual Server
+# Migrating SAP S/4HANA to IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-db-hana}
 
 ## Steps before you migrate an SAP S/4HANA database
@@ -149,9 +149,9 @@ If you want to run the SAP HANA Sizing report, see the following SAP Note.
 
 It is advised that you use the most recent Advanced Correction of the SAP Sizing report.
 When you run the report, make sure that you include the forecast for SAP HANA database growth. The generated report  states the anticipated required CPU, memory, and storage recommendations for your {{site.data.keyword.powerSys_notm}} instance target.
-Go to {{site.data.keyword.cloud}} and select the most recent certified profile that is available for IBM Power Virtual Servers.
+Go to {{site.data.keyword.cloud}} and select the most recent certified profile that is available for IBM {{site.data.keyword.powerSys_notm}}s.
 
-* [SAP 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579){: external}
+* [SAP 2947579 - SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2947579){: external}
 * [SAP 2188482 - SAP HANA on IBM Power Systems: Supported hardware and features](https://me.sap.com/notes/2188482){: external}
 
 #### Extra sizing SAP Notes
@@ -192,16 +192,16 @@ If, for example, you forget the passwords and proceed with the SAP HANA System R
 
 
 
-## Creating the Target SAP HANA System on IBM Power Virtual Server
+## Creating the Target SAP HANA System on IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-db-hana-presteps-target}
 
-### Planning the IBM Power Virtual Server deployment
+### Planning the IBM {{site.data.keyword.powerSys_notm}} deployment
 {: #mig-db-hana-target-system-pre-deploy}
 
 A Power Server workspace in your IBM Cloud account is a prerequisite for the following steps.
-Read details in [Hybrid Cloud Network Considerations for SAP on IBM Power Virtual Server](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking).
+Read details in [Hybrid Cloud Network Considerations for SAP on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking).
 
-A hybrid cloud network connection needs to be in place, as described in [Hybrid Cloud Network Considerations for SAP on IBM Power Virtual Server](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking).
+A hybrid cloud network connection needs to be in place, as described in [Hybrid Cloud Network Considerations for SAP on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking).
 
 The Planning for a deployable SAP HANA infrastructure is described in [Planning your deployment](/docs/sap?topic=sap-power-vs-planning-items).
 
@@ -220,7 +220,7 @@ Check that the certified profiles in {{site.data.keyword.cloud}} are close to or
 Select the correct IBM Power Systems Virtual Server Certified Profile from the following two links:
 
 - [IBM Power VS Certified Profiles SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
-- [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579){: external}
+- [SAP Note 2947579 - SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2947579){: external}
 
 #### Target server must have equal or greater storage capacity than the source system and be sized correctly
 {: #mig-db-hana-target-system-storage-tdi}

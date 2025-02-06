@@ -38,7 +38,7 @@ You can securely connect to your infrastructure in multiple ways by using variou
     * Intel Virtual Servers (Generation 2)
 
 * **[IBM Power](/docs/sap?topic=sap-power-env-introduction) Virtual Server network, connection through {{site.data.keyword.cloud}}**
-    * IBM Power Virtual Servers, connection through {{site.data.keyword.cloud}}. _This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems_
+    * IBM {{site.data.keyword.powerSys_notm}}s, connection through {{site.data.keyword.cloud}}. _This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems_
 
 
 ## Interconnectivity between {{site.data.keyword.cloud_notm}} network
@@ -105,16 +105,16 @@ All options require upgrading the {{site.data.keyword.cloud_notm}} account to be
 For more information on VPC access to Classic Infrastructure, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure). For more information on {{site.data.keyword.tg_short}}, see [Getting started with {{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gateway-getting-started).
 
 
-## Connectivity options within the IBM Power Virtual Server network, connection through {{site.data.keyword.cloud_notm}}
+## Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through {{site.data.keyword.cloud_notm}}
 {: #determine-access-connectivity-options-power}
 
 This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
-To arrange connection through to IBM Cloud or an on-premises network, a private subnet (and the allocated Private VLAN) must exist for the IBM Power Virtual Server; which is then connected to the subnet in the target network using IBM Cloud Direct Link.
+To arrange connection through to IBM Cloud or an on-premises network, a private subnet (and the allocated Private VLAN) must exist for the IBM {{site.data.keyword.powerSys_notm}}; which is then connected to the subnet in the target network using IBM Cloud Direct Link.
 
-On the target side (IBM Cloud networks or the on-premises network), it is required to perform the necessary configuration of the network security and permit connections to be established to/from IBM Power Virtual Servers. For example:
-- With a connection to IBM Cloud Classic Infrastructure, the Gateway Appliance firewall for the Classic Private VLAN (and Primary Subnet, or any other Subnets) must permit the ports where traffic will flow to/from IBM Power Virtual Servers
-- With a connection to an on-premises network, the outbound Firewall and DMZ should be configured to permit the ports where traffic will flow to/from IBM Power Virtual Servers
+On the target side (IBM Cloud networks or the on-premises network), it is required to perform the necessary configuration of the network security and permit connections to be established to/from IBM {{site.data.keyword.powerSys_notm}}s. For example:
+- With a connection to IBM Cloud Classic Infrastructure, the Gateway Appliance firewall for the Classic Private VLAN (and Primary Subnet, or any other Subnets) must permit the ports where traffic will flow to/from IBM {{site.data.keyword.powerSys_notm}}s
+- With a connection to an on-premises network, the outbound Firewall and DMZ should be configured to permit the ports where traffic will flow to/from IBM {{site.data.keyword.powerSys_notm}}s
 
 Depending on the subnet range used for the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} private subnet and the default OS routing configuration, manual routes on both sides may be required (e.g. a route added to the NAT Gateway of the target in the on-premises network).

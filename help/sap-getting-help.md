@@ -49,7 +49,7 @@ If you need support but are unable to log in to your account, start a chat by go
 
 If you need to open a support case, collect as much information as possible to help the {{site.data.keyword.cloud_notm}} Support team to analyze, triage and diagnose your problem as quickly as possible.
 
-### Requesting support for SAP-certified IBM Power Virtual Servers
+### Requesting support for SAP-certified IBM {{site.data.keyword.powerSys_notm}}s
 {: #ibm-power-support-case}
 
 All performance-related issues need to be checked by {{site.data.keyword.IBM_notm}} Power Systems and IBM Cloud support first, to establish whether any infrastructure-related issues exist, before a case of the software stack (SAP Workloads) can be opened.

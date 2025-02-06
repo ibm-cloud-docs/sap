@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -206,7 +206,7 @@ Within each environment is a separate networking design. The classic infrastruct
 Given these environment networks are different, configuring extra NIC throughput changes for the different infrastructure options:
 * **Bare Metal, on Classic Infrastructure network:**  To maximize performance and redundancy, the physical network interfaces (NIC) are provided with 10 Gbps and then provisioned with bonding using Link Aggregation Control Protocol (LACP). The switches are configured automatically when ordering redundancy on the physical NIC. _Additional NIC cards might be added, depending on the physical machine specificiation and physical switch availability of ports._
 * **Intel Virtual Server, on VPC Infrastructure network:** To maximize performance and redundancy, up to 5 network interfaces (vNIC) on multiple Subnets can be added.
-* **IBM Power Virtual Server, on IBM Power Infrastructure network:** To maximize performance redundancy, multiple network interfaces (vNIC) attached to different VLANs (and their respective Subnets) can be added.
+* **IBM {{site.data.keyword.powerSys_notm}}, on IBM Power Infrastructure network:** To maximize performance redundancy, multiple network interfaces (vNIC) attached to different VLANs (and their respective Subnets) can be added.
 * **VMware for SAP, on Classic Infrastructure network....**
     * **IBM Cloud for VMware Solutions, on Classic Infrastructure network:** redundant adapters for VMware are set up by the VMware vSphere Distributed Switch (VDS) using [VDS on NSX-T](/docs/vmwaresolutions?topic=vmwaresolutions-nsx-t-design#nsx-t-design-distr-switch), in accordance with current VMware best practices for SDDC. While subject to change, redundancy is configured by setting every distributed switch with the [Route Based on Originating Virtual Port](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-959E1CFE-2AE4-4A67-B4D4-2D2E13765715.html) load balancing algorithm. All port groups used by the algorithm should be configured to use teamings across 2 uplinks (Active: 0,1).
     * **IBM Cloud Bare Metal with VMware vSphere (manual configuration)**, on Classic Infrastructure network: adapters are suggested to utilise the best practices, however the vSwitch could use LACP bonding of the physical NIC adapters

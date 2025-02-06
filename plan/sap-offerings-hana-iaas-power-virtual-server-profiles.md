@@ -12,10 +12,10 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# SAP HANA certified instances on IBM Power Virtual Server
+# SAP HANA certified instances on IBM {{site.data.keyword.powerSys_notm}}
 {: #hana-iaas-offerings-profiles-power-vs}
 
-Provision SAP HANA on IBM Power Virtual Servers by selecting one of the certified profiles. A profile defines instance attributes, such as physical CPU cores and RAM, which determine the size and performance capabilities of the virtual server instance.
+Provision SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s by selecting one of the certified profiles. A profile defines instance attributes, such as physical CPU cores and RAM, which determine the size and performance capabilities of the virtual server instance.
 
 SAP HANA profile names follow a contextual and sequential naming convention.
 The following table illustrates an example of an SAP HANA certified instance profile:
@@ -44,14 +44,14 @@ The following table lists available profile families for IBM Power10 processor-b
 
 | Families | Description |
 | -------- | ----------- |
-| [Profiles with sr2 prefix](#sr2profiles) | Profiles with the prefix *sr2* are custom profiles that support selection of any combination of physical CPU cores and memory. Combinations that are certified by SAP for productive usage are documented in [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} and in [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;v:60ed2297-5cdd-4387-89c2-b0d3651d1206&sort=Latest%20Certification&sortDesc=true&id=s:2837). Custom profiles may be deployed through CLI or API only. |
+| [Profiles with sr2 prefix](#sr2profiles) | Profiles with the prefix *sr2* are custom profiles that support selection of any combination of physical CPU cores and memory. Combinations that are certified by SAP for productive usage are documented in [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://launchpad.support.sap.com/#/notes/2947579){: external} and in [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;v:60ed2297-5cdd-4387-89c2-b0d3651d1206&sort=Latest%20Certification&sortDesc=true&id=s:2837). Custom profiles may be deployed through CLI or API only. |
 | [Profiles with sh2 prefix](#sh2profiles) | Profiles with the prefix *sh2* support HANA database sizes up to 1900 GiB. |
 {: caption="Profile families for Power10 server generation" caption-side="top"}
 
 ## Certified profiles with the prefix sr2
 {: #sr2profiles}
 
-Refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} for up-to-date information on certified SAP HANA profiles.
+Refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://launchpad.support.sap.com/#/notes/2947579){: external} for up-to-date information on certified SAP HANA profiles.
 {: note}
 
 The following SAP HANA profiles with the prefix *sr2* are supported in **SMT4 mode**:
@@ -92,7 +92,7 @@ The following SAP HANA profiles with the prefix *sr2* on IBM {{site.data.keyword
 ## Certified profiles with the prefix sh2
 {: #sh2profiles}
 
-Refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external} for up-to-date information on certified SAP HANA profiles.{: note}
+Refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}sowerSys_notm}}s](https://launchpad.support.sap.com/#/notes/2947579){: external} for up-to-date information on certified SAP HANA profiles.{: note}
 
 The following SAP HANA profiles with the prefix *sh2* are supported in **SMT4 mode**:
 
@@ -155,7 +155,7 @@ The following profile families are available for IBM Power9 processor-based serv
 ## Certified profiles with the prefix cnp
 {: #cnpprofiles}
 
-{{site.data.keyword.IBM_notm}} IBM Power Virtual Servers provide fully customizable CPU cores and memory (RAM in GiB). Configure a virtual server instance by specifying a custom size for the IBM Power Virtual Server profile, following SAP HANA for IBM Power Systems best practices and SAP’s guidance for non-production SAP HANA instances.
+{{site.data.keyword.IBM_notm}} IBM {{site.data.keyword.powerSys_notm}}sowerSys_notm}}s provide fully customizable CPU cores and memory (RAM in GiB). Configure a virtual server instance by specifying a custom size for the IBM {{site.data.keyword.powerSys_notm}} profile, following SAP HANA for IBM Power Systems best practices and SAP’s guidance for non-production SAP HANA instances.
 
 Custom profiles are designed exclusively for non-production development or testing purposes. These profiles are not intended, supported, or certified for SAP production environments and cannot be used to move from a non-production environment to a production environment.
 
@@ -256,4 +256,4 @@ Each profile requires a minimum of two dedicated cores. For storage performance 
 Profile types marked with an asterisk `*` are not listed by SAP in the SAP HANA Hardware Directory, but are certified for SAP HANA production systems.
 The directory includes only the smallest, median, and largest sizes within each profile family.
 SAP implemented this approach to reduce the number of entries, as IBM Power hardware supports highly granular sizing.
-For more details, refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} Power Virtual Servers](https://launchpad.support.sap.com/#/notes/2947579){: external}.{: note}
+For more details, refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://launchpad.support.sap.com/#/notes/2947579){: external}.{: note}

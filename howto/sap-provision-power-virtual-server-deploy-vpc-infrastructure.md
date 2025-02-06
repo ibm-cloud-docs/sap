@@ -447,7 +447,7 @@ This ansible execution ensures that the NTP proxy is configured on the host for 
 ### Setting up IBM Cloud-native DNS service (DNS option 1)
 {: #power-vs-set-up-dns-service}
 
-You can use IBM Cloud DNS service that is directly reachable from IBM Power Virtual Servers over custom resolver. For more information, see the following links.
+You can use IBM Cloud DNS service that is directly reachable from IBM {{site.data.keyword.powerSys_notm}}s over custom resolver. For more information, see the following links.
 
 * [Setting up an instance](/docs/dns-svcs?topic=dns-svcs-setting-up-your-dns-instance)
 * [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones&interface=ui)

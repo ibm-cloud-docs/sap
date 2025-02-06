@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -27,7 +27,7 @@ Certified Infrastructure-as-a-Service for SAP HANA database servers and for SAP 
 
 For the official and full platform list of Infrastructure-as-a-Service from IBM that is SAP certified and supported for SAP HANA, see the [SAP Certified and Supported SAP HANA Hardware Directory - Certified IaaS Platforms - {{site.data.keyword.cloud_notm}}](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}. For an official list of SAP NetWeaver and SAP HANA supported bare metal and virtual servers, see [SAP Note 2927211](https://me.sap.com/notes/2927211){: external}.
 
-The documents provide detailed considerations and information for building your SAP environments at each layer for all offerings. However, if you are interested in quickly finding the information that is related specifically to one of the IaaS offerings, then you might consider using the Fast Path Site Maps for [Intel Bare Metal (Classic)](/docs/sap?topic=sap-fast-path-site-map-intel-bm), [Intel Bare Metal (VPC)](/docs/sap?topic=sap-fast-path-site-map-intel-bm-vpc), [Intel Virtual Servers (VPC)](/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2), [IBM Power Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-power-vs), and [VMware SDDC](/docs/sap?topic=sap-fast-path-site-map-vmware-sddc).
+The documents provide detailed considerations and information for building your SAP environments at each layer for all offerings. However, if you are interested in quickly finding the information that is related specifically to one of the IaaS offerings, then you might consider using the Fast Path Site Maps for [Intel Bare Metal (Classic)](/docs/sap?topic=sap-fast-path-site-map-intel-bm), [Intel Bare Metal (VPC)](/docs/sap?topic=sap-fast-path-site-map-intel-bm-vpc), [Intel Virtual Servers (VPC)](/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2), [IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-fast-path-site-map-power-vs), and [VMware SDDC](/docs/sap?topic=sap-fast-path-site-map-vmware-sddc).
 {: tip}
 
 
@@ -80,22 +80,22 @@ Because customization is controlled on bare metal servers, fast provisioning tim
 For more information about Bare Metal servers on VPC Infrastructure, see [Deploy {{site.data.keyword.cloud_notm}} Bare Metal Servers on VPC Infrastructure](https://www.ibm.com/products/bare-metal-servers/vpc){: external} on ibm.com and [About Bare Metal Servers for VPC](/docs/vpc?topic=vpc-about-bare-metal-servers){: external} on {{site.data.keyword.cloud_notm}} Docs.
 
 
-## IBM Power Virtual Server
+## IBM {{site.data.keyword.powerSys_notm}}
 {: #iaas-power-vs}
 
 This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
-{{site.data.keyword.IBM_notm}} Power Virtual Servers are virtual machine servers with enterprise-grade performance and extensive customization capabilities. These {{site.data.keyword.IBM_notm}} Power Virtual Servers are also known as an IBM Power Logical Partitions (LPARs).
+{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are virtual machine servers with enterprise-grade performance and extensive customization capabilities. These {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are also known as an IBM Power Logical Partitions (LPARs).
 {: shortdesc}
 
 The servers run on IBM PowerVM (Type 1 hypervisor) managed by {{site.data.keyword.IBM_notm}} Power Systems and facilitated by {{site.data.keyword.cloud_notm}} are a form of Infrastructure-as-a-Service (IaaS) provisioned with your choice of operating system (IBM AIX or Linux&reg;) image that is installed and infrastructure customization (such as dedicated CPU performance or shared CPU for optimized costs). By using the IBM PowerVM underneath, the customization of the Virtual Servers is flexible, with fast self-service provisioning available in worldwide locations - all with pay-as-you-use billing that makes it easier for you to scale up and out.
 
-{{site.data.keyword.IBM_notm}} Power Virtual Servers are colocated in the same {{site.data.keyword.cloud_notm}} data centers that are used by both {{site.data.keyword.cloud_notm}} Classic Infrastructure and VPC Infrastructure, but are separated from the rest of the {{site.data.keyword.cloud_notm}} servers with separate networks and storage. They can be connected to/from an on-premises network, the {{site.data.keyword.cloud_notm}} Classic Infrastructure or {{site.data.keyword.cloud_notm}} VPC Infrastructure networks by using {{site.data.keyword.dlc_full}}.
+{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are colocated in the same {{site.data.keyword.cloud_notm}} data centers that are used by both {{site.data.keyword.cloud_notm}} Classic Infrastructure and VPC Infrastructure, but are separated from the rest of the {{site.data.keyword.cloud_notm}} servers with separate networks and storage. They can be connected to/from an on-premises network, the {{site.data.keyword.cloud_notm}} Classic Infrastructure or {{site.data.keyword.cloud_notm}} VPC Infrastructure networks by using {{site.data.keyword.dlc_full}}.
 
-The {{site.data.keyword.IBM_notm}} Power Virtual Servers can be used for several workload scenarios such as disaster recovery, development environments, partial IT infrastructure moves and enabling you to stay competitive with flexible scaling of infrastructure capacity in a hybrid cloud deployment. This Infrastructure-as-a-Service (IaaS) offering is designed for large mission-critical workloads where scale-up over 12 TB of memory and density of 6,000 SAPS per CPU Core are required to meet performance.
+The {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s can be used for several workload scenarios such as disaster recovery, development environments, partial IT infrastructure moves and enabling you to stay competitive with flexible scaling of infrastructure capacity in a hybrid cloud deployment. This Infrastructure-as-a-Service (IaaS) offering is designed for large mission-critical workloads where scale-up over 12 TB of memory and density of 6,000 SAPS per CPU Core are required to meet performance.
 
-As the {{site.data.keyword.IBM_notm}} Power Virtual Servers are IaaS once provisioned are managed by the account holder; either you, your customer, or your services partner depending on your business operations model.
+As the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are IaaS once provisioned are managed by the account holder; either you, your customer, or your services partner depending on your business operations model.
 
 {{site.data.keyword.IBM_notm}} Power Systems clients who rely on on-premises data center deployments for their infrastructure, can now quickly and economically extend their IBM Power resources into the cloud in a matter of minutes. The {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s provide:
 - **Straightforward billing:** Hourly rates on Monthly Billing, with {{site.data.keyword.IBM_notm}} PowerLinux customers can use Bring-your-own-License (BYOL), to use their own licenses for the OS Images provided by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s and reduce costs of their Cloud environment.
@@ -115,10 +115,10 @@ For more explanation information about {{site.data.keyword.IBM_notm}} {{site.dat
 
 
 
-### Constructs for provisioning IBM Power Virtual Servers
+### Constructs for provisioning IBM {{site.data.keyword.powerSys_notm}}s
 {: #iaas-power-vs-constructs}
 
-As the IBM Power Virtual Server is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, it is accessed as an additional offering from the IBM Cloud catalog. To begin using IBM Power Virtual Servers, an instantiation of an IBM Power Virtual Server resource group must first be made.
+As the IBM {{site.data.keyword.powerSys_notm}} is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, it is accessed as an additional offering from the IBM Cloud catalog. To begin using IBM {{site.data.keyword.powerSys_notm}}s, an instantiation of an IBM {{site.data.keyword.powerSys_notm}} resource group must first be made.
 
 The below sections explain this in more detail.
 
@@ -145,18 +145,18 @@ For **shared** processors, you choose the number of CPUs that the new server is 
 
 For **dedicated** processors, the number of dedicated CPUs should correspond to the number of CPUs that were the result of your sizing.
 
-For more information about shared and dedicated processors, see [Assigning the appropriate processor entitled capacity](https://www.ibm.com/support/pages/assigning-appropriate-processor-entitled-capacity) and [Power Virtual Servers processor types](/docs/power-iaas?topic=power-iaas-powervs-faqs#processor){: external}.
+For more information about shared and dedicated processors, see [Assigning the appropriate processor entitled capacity](https://www.ibm.com/support/pages/assigning-appropriate-processor-entitled-capacity) and [{{site.data.keyword.powerSys_notm}}s processor types](/docs/power-iaas?topic=power-iaas-powervs-faqs#processor){: external}.
 
 Depending on the SAP workload, supported processor options are restricted. For more information, see [SAP Note 2855850](https://me.sap.com/notes/2855850){: external}.
 {: note}
 
 
-### SAP HANA and IBM Power Virtual Server
+### SAP HANA and IBM {{site.data.keyword.powerSys_notm}}
 {: #iaas-power-vs-hana}
 
-See [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579){: external} for SAP HANA support on {{site.data.keyword.IBM_notm}} Power Virtual Servers.
+See [SAP Note 2947579 - SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2947579){: external} for SAP HANA support on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
 
-SAP HANA workloads that use {{site.data.keyword.IBM_notm}} Power Virtual Servers run on IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the data sheet below:
+SAP HANA workloads that use {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s run on IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the data sheet below:
 
 **Data sheet:**
 - [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/documents/us-en/10a99803f42fd831){: external}
@@ -164,12 +164,12 @@ SAP HANA workloads that use {{site.data.keyword.IBM_notm}} Power Virtual Servers
 For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications-on-cloud).
 
 
-### SAP NetWeaver and IBM Power Virtual Server
+### SAP NetWeaver and IBM {{site.data.keyword.powerSys_notm}}
 {: #iaas-power-vs-netweaver}
 
-See [SAP Note 2855850 - SAP Applications on IBM Power Virtual Servers](https://me.sap.com/notes/2855850){: external} for SAP NetWeaver support on {{site.data.keyword.IBM_notm}} Power Virtual Servers.
+See [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external} for SAP NetWeaver support on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
 
-SAP NetWeaver and SAP AnyDB workloads that use {{site.data.keyword.IBM_notm}} Power Virtual Servers are run on IBM Power System S922 and IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the following data sheets:
+SAP NetWeaver and SAP AnyDB workloads that use {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are run on IBM Power System S922 and IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the following data sheets:
 
 **Data sheets:**
 * [IBM Power System S922 (9009-22A)](https://www.ibm.com/downloads/documents/us-en/107a02e959c8f4e8){: external}

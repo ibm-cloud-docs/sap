@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, backup, restore
 
@@ -10,7 +10,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Migrating SAP ECC on Oracle to IBM Power Virtual Server
+# Migrating SAP ECC on Oracle to IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-db-oracle}
 
 ## Preparation Steps on Source System
@@ -19,7 +19,7 @@ subcollection: sap
 ### Target Audience and Intent
 {: #sapmig-db-oracle-target-audience-intent}
 
-This documentation presents Oracle Database Administrators (DBA's) with two options, both based on Oracle RMAN to migrate AIX-based Oracle databases from IBM Power to IBM Power Virtual Server (IBM {{site.data.keyword.powerSys_notm}}).
+This documentation presents Oracle Database Administrators (DBA's) with two options, both based on Oracle RMAN to migrate AIX-based Oracle databases from IBM Power to IBM {{site.data.keyword.powerSys_notm}} (IBM {{site.data.keyword.powerSys_notm}}).
 
 The target audience consists of solution and infrastructure architects and Oracle database administrators.
 
@@ -101,7 +101,7 @@ Customer requirements and technical conditions affect the decision to select fro
         * Customers can benefit from specialized transfer tools that compress data before/during transfer, use high-throughput protocols and decompress data after transfer.
         * Access to IBM’s Aspera, which can greatly accelerate data transfers from on-premise to IBM {{site.data.keyword.powerSys_notm}} locations is advantageous.
 3. Availability of Skills to Execute.
-    *	Options provided in this document require experienced Database Administrator skills and the ability to work with infrastructure teams to migrate database content to a new target database on Power Virtual Server within an IBM {{site.data.keyword.powerSys_notm}} workspace.
+    *	Options provided in this document require experienced Database Administrator skills and the ability to work with infrastructure teams to migrate database content to a new target database on {{site.data.keyword.powerSys_notm}} within an IBM {{site.data.keyword.powerSys_notm}} workspace.
 
 Any migration procedures a Customer elects to use should be executed in the context of a detailed, well-rehearsed transfer and cutover plan.
 
@@ -886,7 +886,7 @@ Option 2 - RMAN Restore/Recovery
 {: #sapmig-db-oracle-restore-connect-prep}
 
 From the target instance command line, you can use the following RMAN procedure to perform a restore.
-1. Login as the user `oracle` to the AIX Power Virtual Server where you want to restore the database.
+1. Login as the user `oracle` to the AIX {{site.data.keyword.powerSys_notm}} where you want to restore the database.
 1. Confirm that:
     * Target IBM {{site.data.keyword.powerSys_notm}} system has a valid installation of the Oracle database software with the same version and patch level of software as in the source environment.
     * The device names for storage of Oracle datafiles and tablespace names are the same as with the source database. If not, `set newname` directives are required (steps are out of scope for this procedure)
@@ -953,7 +953,7 @@ At this point, you are ready to proceed with one of the following restore option
 ### Option 1 - RMAN Duplicate Database
 {: #sapmig-db-oracle-restore1}
 
-This procedure takes as input a consistent, Level 0 backup of the source database and restores the contents to a new Oracle instance on Power Virtual Server to create a duplicate database.
+This procedure takes as input a consistent, Level 0 backup of the source database and restores the contents to a new Oracle instance on {{site.data.keyword.powerSys_notm}} to create a duplicate database.
 
 The following steps should be executed as the oracle user:
 
@@ -1181,7 +1181,7 @@ This is necessary if you want to restore a 1-2-1 copy of your source database to
 ### Option 2 - RMAN Restore/Recover Database.
 {: #sapmig-db-oracle-restore2}
 
-This procedure establishes on Power Virtual Server an Oracle database from an initial inconsistent data set, then applies incremental backups and archived redo logs to create a recovered version of the database as of a specific point in time.
+This procedure establishes on {{site.data.keyword.powerSys_notm}} an Oracle database from an initial inconsistent data set, then applies incremental backups and archived redo logs to create a recovered version of the database as of a specific point in time.
 
 #### Start Target Database in NOMOUNT Mode
 {: #sapmig-db-oracle-restore2-start-db-nomount}
@@ -1438,4 +1438,4 @@ SQL> archive log list;
 ```
 {: codeblock}
 
-This concludes the Restore/Recover approach to database migration to Power Virtual Server.
+This concludes the Restore/Recover approach to database migration to {{site.data.keyword.powerSys_notm}}.

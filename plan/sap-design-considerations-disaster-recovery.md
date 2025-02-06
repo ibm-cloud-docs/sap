@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -21,7 +21,7 @@ This document outlines the design and implementation of a disaster recovery stra
 - The first step is to assess business needs, including identifying critical data, determine Recovery Time Objectives (RTOs), and set Recovery Point Objectives (RPOs).
 - Step two focuses on designing the disaster recovery strategy.
    This step includes consideration of data replication methods, backup locations, and failover and failback procedures.
-- The next step is implementation by using IBM Cloud services such as IBM Virtual Private Cloud (VPC), IBM Power Virtual Server, and IBM Cloud Object Storage.
+- The next step is implementation by using IBM Cloud services such as IBM Virtual Private Cloud (VPC), IBM {{site.data.keyword.powerSys_notm}}, and IBM Cloud Object Storage.
    These services facilitate automation, scalability, and improved redundancy.
 - Step four covers network and security configurations, focusing on VPCs, VPNs, direct links, access controls, and encryption.
 - Extensive documentation and regular testing (step five) and ongoing monitoring and maintenance (step six) are critical for the effectiveness and relevance of the disaster recovery plan.
@@ -55,7 +55,7 @@ Consider the following components.
 
 Select the appropriate data replication method (asynchronous or synchronous) based on your RTOs and RPOs.
 - The database layer of the SAP system can provide data replication by using technologies such as SAP HANA System Replication, IBM Db2 HADR, Oracle Data Guard.
-- [Global Replication Services (GRS)](/docs/power-iaas?topic=power-iaas-getting-started-GRS) in IBM Power Virtual Server provides asynchronous replication and advanced network configuration for fast data transfer to geographically dispersed locations.
+- [Global Replication Services (GRS)](/docs/power-iaas?topic=power-iaas-getting-started-GRS) in IBM {{site.data.keyword.powerSys_notm}} provides asynchronous replication and advanced network configuration for fast data transfer to geographically dispersed locations.
 - [File share replication](/docs/vpc?topic=vpc-file-storage-replication&interface=ui) in IBM Virtual Private Cloud (VPC) can create replicas of your file shares in another zone in the same geography.
    With the File Share Replication feature, you can keep a read-only copy of your file share in a different zone.
    If you have another VPC in the target region, you can also create a replica in another region in the same geography.
@@ -87,7 +87,7 @@ You can create a snapshot for a file share in VPC.
 A snapshot is a point-in-time copy of your file share data that is tied directly to the lifecycle of the file share.
 See [Planning File Storage for VPC snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning&interface=ui).
 
-### IBM Power Virtual Server
+### IBM {{site.data.keyword.powerSys_notm}}
 {: #disaster-recovery-design-considerations-implement-pvs}
 
 Deploy virtual servers in multiple regions to increase redundancy and availability.
@@ -105,7 +105,7 @@ It provides features for resiliency, durability, geographic redundancy, support 
 Cobalt Iron provides a secure, automated, and cost-effective solution for creating backups across multiple environments.
 It includes centralized management, advanced compliance features, and disaster recovery support.
 
-For more details about backup strategies in IBM Power Virtual Server, see [Secure automated backup with Compass for AIX and Linux](/docs/power-iaas?topic=power-iaas-backup-strategies#baas).
+For more details about backup strategies in IBM {{site.data.keyword.powerSys_notm}}, see [Secure automated backup with Compass for AIX and Linux](/docs/power-iaas?topic=power-iaas-backup-strategies#baas).
 
 ## Configuring networking and security
 {: #disaster-recovery-design-considerations-implement-network-security}

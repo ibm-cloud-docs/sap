@@ -63,7 +63,7 @@ For more information about {{site.data.keyword.cloud_notm}} availability zones /
 
 The {{site.data.keyword.IBM_notm}} Power Systems Infrastructure network, is built upon IBM Power's enterprise-grade secure networking hardware and connectivity; it can be bridged to the separate {{site.data.keyword.cloud_notm}} networks (either Classic Infrastructure network or VPC Infrastructure network).
 
-| IBM Power Virtual Server Group network on {{site.data.keyword.cloud_notm}} |
+| IBM {{site.data.keyword.powerSys_notm}} Group network on {{site.data.keyword.cloud_notm}} |
 | -- |
 | Global |
 | Resource Group |
@@ -109,7 +109,7 @@ When multiple network interfaces are used, two performance increases are possibl
 - Bonding of the network interfaces, creating a network path with the network throughput of both interfaces
 - Traffic segregation using two networks, then isolating high volumes of traffic to a specific network which avoids a single network becoming a bottleneck. For example, a network for storage I/O only
 
-With IBM Power Virtual Server as an example, a single threaded Linux network interface may reach 100% CPU Thread utilization even though the performance limits of the network path itself are still not reached. Additional network interfaces attached to another VLAN and Subnet will therefore increase performance
+With IBM {{site.data.keyword.powerSys_notm}} as an example, a single threaded Linux network interface may reach 100% CPU Thread utilization even though the performance limits of the network path itself are still not reached. Additional network interfaces attached to another VLAN and Subnet will therefore increase performance
 
 By default, your server has a Private IP address. If you use public subnets, a public IP address is assigned in addition.
 
@@ -129,9 +129,9 @@ If you need to connect to your virtual server through the public internet, in ot
 
 {{site.data.keyword.dlc_short}} is also used for closer integration into your backbone infrastructure, for more information, see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access).
 
-For more explanation information about {{site.data.keyword.IBM_notm}} Power Systems Infrastructure, see [IBM Power Virtual Servers](https://www.ibm.com/products/power-virtual-server){: external}.
+For more explanation information about {{site.data.keyword.IBM_notm}} Power Systems Infrastructure, see [IBM {{site.data.keyword.powerSys_notm}}s](https://www.ibm.com/products/power-virtual-server){: external}.
 
-Have your networking department contact the IBM Power Virtual Servers Support Team, handled by using [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) after you determine the layout of your landscape and the connectivity that is required on the SAP application layer.
+Have your networking department contact the IBM {{site.data.keyword.powerSys_notm}}s Support Team, handled by using [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) after you determine the layout of your landscape and the connectivity that is required on the SAP application layer.
 {: note}
 
 

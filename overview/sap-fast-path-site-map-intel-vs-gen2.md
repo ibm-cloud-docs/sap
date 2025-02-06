@@ -31,7 +31,7 @@ Certified Infrastructure-as-a-Service for SAP HANA database server is available 
 - [Infrastructure certified for SAP - IBM Intel Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-intel-vson-vpc)
 
 
-The following is an overview of the SAP-certified profiles with IBM Power Virtual Servers for SAP HANA and SAP NetWeaver. For more information:
+The following is an overview of the SAP-certified profiles with IBM {{site.data.keyword.powerSys_notm}}s for SAP HANA and SAP NetWeaver. For more information:
 - [IBM Cloud Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc)
 - [IBM Cloud Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
 - [Compute Profiles of SAP-certified IBM Cloud Intel Virtual Server](/docs/sap?topic=sap-compute-os-design-considerations#compute-vs-vpc)

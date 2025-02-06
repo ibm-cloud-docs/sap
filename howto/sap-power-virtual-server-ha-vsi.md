@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -190,7 +190,7 @@ You cannot create multiple custom roles with the same action set.
 Create a **custom role** in IAM.
 1. Click **Roles** > **Create**.
 1. Enter the **Name**, **ID**, and **Description** for the custom role.
-1. Select *Workspace for Power Virtual Server* from the **Service** drop-down list.
+1. Select *Workspace for {{site.data.keyword.powerSys_notm}}* from the **Service** drop-down list.
 1. Select *Manager* from the **View the actions for** drop-down list.
 1. In the **Actions** list, locate the following actions.
    Click **Add** for each of them.
@@ -217,7 +217,7 @@ You must grant access for the following actions.
 Create a **custom role** in IAM.
 1. Click **Roles** > **Create**.
 1. Enter the **Name**, **ID**, and **Description** for the custom role.
-1. Select *Workspace for Power Virtual Server* in the **Service** drop-down list.
+1. Select *Workspace for {{site.data.keyword.powerSys_notm}}* in the **Service** drop-down list.
 1. Select *Manager* from the **View the actions for** drop-down list.
 1. In the **Actions** list, locate the following actions.
    Click **Add** for each of them.

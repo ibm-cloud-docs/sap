@@ -309,7 +309,7 @@ When you create new storage volumes, keep the following points in mind:
 See [Benefits of flexible IOPS](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#IOPS-benefits) to learn more about flexible IOPS.
 {: note}
 
-The storage tier and capacity that is recommended for deployment of SAP S/4HANA on Power Virtual Server is described in this topic. These recommendations are based on the best practices and to meet the minimum performance criteria defined by HCMT.
+The storage tier and capacity that is recommended for deployment of SAP S/4HANA on {{site.data.keyword.powerSys_notm}} is described in this topic. These recommendations are based on the best practices and to meet the minimum performance criteria defined by HCMT.
 {: shortdesc}
 
 #### Recommendation for SAP HANA DB size 128 GB - 768 GB
@@ -559,7 +559,7 @@ Sample pricing calculation when you need a storage of 100 GB
 
 
 
-### Sample storage configuration for SAP NetWeaver that use the IBM Power Virtual Server
+### Sample storage configuration for SAP NetWeaver that use the IBM {{site.data.keyword.powerSys_notm}}
 {: #sample-power-netweaver}
 
 Table 1 is a sample storage configuration for a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} for SAP NetWeaver on Linux.
@@ -579,7 +579,7 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 {: caption="Sample storage layout for Linux" caption-side="top"}
 
 
-### Sample storage configuration for Oracle DB on IBM AIX that use the IBM Power Virtual Server
+### Sample storage configuration for Oracle DB on IBM AIX that use the IBM {{site.data.keyword.powerSys_notm}}
 {: #ample-power-anydb-oracle-aix}
 
 Table 2 is a sample configuration for an AIX {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} for an SAP NetWeaver application server that uses Oracle as the example.
@@ -612,7 +612,7 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 For more information, see [SAP Note 2172935](https://me.sap.com/notes/2172935){: external}.
 
 
-### Sample storage configuration for {{site.data.keyword.Db2_on_Cloud_short}} on IBM AIX that use the IBM Power Virtual Server
+### Sample storage configuration for {{site.data.keyword.Db2_on_Cloud_short}} on IBM AIX that use the IBM {{site.data.keyword.powerSys_notm}}
 {: #sample-power-anydb-ibm-db2-aix}
 
 Table 3 is a sample storage configuration for an AIX {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} for a {{site.data.keyword.Db2_on_Cloud_short}} server.

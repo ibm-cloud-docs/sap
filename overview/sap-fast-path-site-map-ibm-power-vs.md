@@ -10,7 +10,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Fast Path of IBM Power Virtual Server
+# Fast Path of IBM {{site.data.keyword.powerSys_notm}}
 {: #fast-path-site-map-power-vs}
 
 Use this collection of shortcuts to quickly access relevant documentation for each offering, excluding general information that applies to all offerings, such as SAP Solution sizing.
@@ -21,44 +21,44 @@ Use this collection of shortcuts to quickly access relevant documentation for ea
 
 An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated zone and or data center. For more information, see [{{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment introduction](/docs/sap?topic=sap-power-env-introduction).
 
-Certified IaaS for SAP HANA database server is available in many variants. Each variant has different capabilities and sizes to fit different SAP workload scenarios. For more information, see [Infrastructure that is certified for SAP - IBM Power Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs).
+Certified IaaS for SAP HANA database server is available in many variants. Each variant has different capabilities and sizes to fit different SAP workload scenarios. For more information, see [Infrastructure that is certified for SAP - IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs).
 
-The following links provide an overview of the SAP-certified profiles with IBM Power Virtual Servers for SAP HANA and SAP NetWeaver.
+The following links provide an overview of the SAP-certified profiles with IBM {{site.data.keyword.powerSys_notm}}s for SAP HANA and SAP NetWeaver.
 
-- [IBM Power Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
-- [IBM Power Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)
-- [Compute Profiles of SAP-certified IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#compute-power)
+- [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
+- [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)
+- [Compute Profiles of SAP-certified IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#compute-power)
 
 Your specific requirements determine the SAP solutions that are powered by the SAP HANA Database Server or SAP NetWeaver Application Server and determine how your applications run in the available infrastructure. For more information, see the following links.
 
-- [Mapping CPUs derived from SAPS to an IBM Power Virtual Server](/docs/sap?topic=sap-planning-your-system-landscape#selecting-iaas-power)
+- [Mapping CPUs derived from SAPS to an IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-planning-your-system-landscape#selecting-iaas-power)
 - [Monitoring for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-planning-your-system-landscape#monitoring-power)
-- [Connectivity options within the IBM Power Virtual Server network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-power)
+- [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-power)
 - [SAP license key with {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-bring-your-own-sap-product-license#byol-netweaver-powervs)
-- [Network Block Storage for IBM Power Virtual Servers](/docs/sap?topic=sap-storage-design-considerations#storage-performance-network-block-power)
+- [Network Block Storage for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-storage-design-considerations#storage-performance-network-block-power)
 - [Sample storage configurations on IBM Power Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-power)
 
 Your enterprise IT organization can select from various operating systems from {{site.data.keyword.cloud}} for SAP portfolio. For more information about available operating systems, see the following links.
 
-- [OS for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-power)
-- [OS - Bring your own image and or license for IBM Power Virtual Servers](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
+- [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-power)
+- [OS - Bring your own image and or license for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
 
 Depending on your scenarios, the following links provide helpful information.
 
 - [SAP NetWeaver - Configure high availability for IBM Power Infrastructure](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha-power)
-- [SAP on IBM Db2 by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-power-vs)
-- [SAP MaxDB by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-maxdb#anydb-sap-maxdb-power-vs)
-- [SAP ASE by using IBM Power Virtual Servers](/docs/sap?topic=sap-anydb-sap-ase#anydb-sap-ase-power-vs)
+- [SAP on IBM Db2 by using IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-power-vs)
+- [SAP MaxDB by using IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-anydb-sap-maxdb#anydb-sap-maxdb-power-vs)
+- [SAP ASE by using IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-anydb-sap-ase#anydb-sap-ase-power-vs)
 
 
 
 ## How to
 {: #fast-path-power-vs-how-to}
 
-For more information about provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver manually, see the following links.
+For more information about provisioning IBM {{site.data.keyword.powerSys_notm}} for SAP HANA and SAP NetWeaver manually, see the following links.
 
 - [Planning your deployment](/docs/sap?topic=sap-power-vs-planning-items)
-- [Deploying IBM Cloud VPC infrastructure that is used by SAP workloads that run on IBM Power Virtual Servers](/docs/sap?topic=sap-power-vs-set-up-vpc-infrastructure)
+- [Deploying IBM Cloud VPC infrastructure that is used by SAP workloads that run on IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-power-vs-set-up-vpc-infrastructure)
 - [Deploying IBM Cloud Power Virtual Services infrastructure that is used by SAP workloads](/docs/sap?topic=sap-power-vs-set-up-power-infrastructure)
 - [Deploying IBM {{site.data.keyword.powerSys_notm}} instances for SAP system](/docs/sap?topic=sap-power-vs-set-up-power-instances)
 
@@ -80,17 +80,17 @@ For more information about SAP hybrid cloud migration scenarios for SAP on IBM {
 - [Migrating SAP between on-premises and IBM Cloud on {{site.data.keyword.powerSysFull}} Overview](/docs/sap?topic=sap-sapmig-overview)
 - [Hybrid Cloud Network Considerations for SAP on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking)
 - [Migrating SAP S/4HANA using HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana)
-- [Migrating SAP ECC on Oracle to IBM Power Virtual Server](/docs/sap?topic=sap-sapmig-db-oracle)
-- [Migrating SAP ERP 6 on IBM Db2 to IBM Power Virtual Server](/docs/sap?topic=sap-sapmig-db-db2)
+- [Migrating SAP ECC on Oracle to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-oracle)
+- [Migrating SAP ERP 6 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-db2)
 
 ## Help
 {: #fast-path-power-vs-help}
 
 Use the following links if you need more help.
 
-- [Requesting support for SAP-certified IBM Power Virtual Servers](/docs/sap?topic=sap-help-support)
+- [Requesting support for SAP-certified IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-help-support)
 - [SAP ONE Support process for IBM Power](/docs/sap?topic=sap-help-support)
-- [FAQ - SAP-certified IBM Power Virtual Servers](/docs/sap?topic=sap-faq-ibm-cloud-for-sap#faq-sap-certified-power-vsi)
+- [FAQ - SAP-certified IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-faq-ibm-cloud-for-sap#faq-sap-certified-power-vsi)
 
 ## More resources for SAP HANA
 {: #power-vs-sles-hana-information_resources_hana}
