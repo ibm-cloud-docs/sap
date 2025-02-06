@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -16,7 +16,7 @@ Use the following information for SAP parameter determination, troubleshooting, 
 {: shortdesc}
 
 ## Determining SAP parameters
-{: #mon-determing-parameters}
+{: #mon-determining-parameters}
 
 Use the following commands to determine SAP parameters on your SAP HANA database and SAP application servers.
 
@@ -239,6 +239,7 @@ sapcontrol -nr <instance_nr> -function GetSystemInstanceList
 {: pre}
 
 ### View details about each running SAP instance on the SAP systems
+{: #mon-details-each-system }
 
 ```sh
 sapcontrol -nr <instance_nr> -function GetProcessList

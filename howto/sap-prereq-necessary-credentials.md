@@ -10,14 +10,7 @@ subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:faq: .faq}
+{{site.data.keyword.attribute-definition-list}}
 
 # Necessary account credentials for SAP and {{site.data.keyword.cloud_notm}}
 {: #necessary-credentials}

@@ -8,16 +8,7 @@ subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Introduction to IBM Cloud VPC and HANA db backup on Cloud Object Storage automation
 {: #sap-automate-intro-hana-db-backup-cos}

@@ -51,6 +51,7 @@ Enter the authorization credentials later on in the metric exporter configuratio
 1. Select your monitoring instance from the table and click **Open dashboard**.
 1. Click **Get started**. Your credential values are in the dashboard.
 1. Click **Optional: Connect your Prometheus Servers** to find the yaml-code with authorization credentials.
+
 These credentials are used by the Prometheus monitoring agent, which uses them to send metrics data to the dashboard.
 From this yaml code, you only need the URL value and the credentials values.
 These values are defined as the `<ibmcloud_monitoring_instance_url>` and `<ibmcloud_monitoring_authorization_credentials>`, which identify the monitoring instance.
@@ -65,6 +66,7 @@ The yaml code looks like the following example.
     {: codeblock}
 
 1. In the URL, replace the string `ingest.prws` with `ingest.prws.private` as the private ingestion endpoint.
+
 The new URL looks like the following example.
 
     ```yaml
@@ -73,6 +75,7 @@ The new URL looks like the following example.
     {: screen}
 
 1. For a list of all private ingestion endpoints per region, refer to the IBM Cloud documentation that is described in
+
 [Collecting metrics by using Prometheus remote write](/docs/monitoring?topic=monitoring-prometheus_remote_write#prometheus_remote_write_endpoints){: external}.
 
 ## Next steps

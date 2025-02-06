@@ -32,9 +32,8 @@ The following diagram shows deployed components.
 Workspaces for {{site.data.keyword.powerSys_notm}} host all the SAP instances that don't require direct internet access. All SAP NetWeaver and SAP HANA instances are deployed in the workspace for {{site.data.keyword.powerSys_notm}}. To create and configure this service, use the following steps.
 
 1. Deploy a new workspace for {{site.data.keyword.powerSys_notm}} in the same region where your IBM Cloud edge VPC is. For more information, see [Creating a Power Systems Virtual Server workspace](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-service).
-2. Optionally, you can upload your SSH public key to the workspace. SSH keys are distributed across all the workspaces that are in your account, so you generate the SSH key one time.
+1. Optionally, you can upload your SSH public key to the workspace. SSH keys are distributed across all the workspaces that are in your account, so you generate the SSH key one time.
    - Go to **SSH keys**, click `Create SSH key`, provide a unique name, and press **Add SSH key**.
-3. In the workspace, create a management and backup private networks. For more information, see [
-Configuring and adding a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet).
-4. Create two IBM Cloud Connections as described [here](/docs/power-iaas?topic=power-iaas-cloud-connections#create-cloud-connections). Make sure that you select to enable IBM Transit Gateway. Attach the management and backup networks to both IBM Cloud Connections.
-5. Connect Direct Links (named exactly as IBM Cloud Connections that you created) to the transit gateway as described [here](/docs/transit-gateway?topic=transit-gateway-adding-connections&interface=ui). You can now ping gateway IBM {{site.data.keyword.powerSys_notm}} private networks IP addresses from the access host.
+1. In the workspace, create a management and backup private networks. For more information, see [£Configuring and adding a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet).
+1. Create two IBM Cloud Connections as described [here](/docs/power-iaas?topic=power-iaas-cloud-connections#create-cloud-connections). Make sure that you select to enable IBM Transit Gateway. Attach the management and backup networks to both IBM Cloud Connections.
+1. Connect Direct Links (named exactly as IBM Cloud Connections that you created) to the transit gateway as described [here](/docs/transit-gateway?topic=transit-gateway-adding-connections&interface=ui). You can now ping gateway IBM {{site.data.keyword.powerSys_notm}} private networks IP addresses from the access host.

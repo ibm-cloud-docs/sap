@@ -2,23 +2,13 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Automation of Cross-Region Disaster Recovery Protection Enablement for SAP HANA in IBM Cloud VPC
 {: #automate-hana-db-crossregion-dr}
@@ -173,7 +163,7 @@ The script takes 40 minutes to complete after a fresh install of SAP HANA primar
     ##########################################################
     ```
 
-    ```
+    ```terraform
     REGION_DR = "eu-gb"
     ZONE_DR = "eu-gb-1"
     VPC_DR = "ic4sap-dr"
@@ -269,6 +259,7 @@ Follow these steps to enable cross-region DR protection for a non-HA SAP HANA Sy
     |DB_HOSTNAME_DR	|The hostname for SAP HANA secondary system that will be deployed in the VPC_DR.|
     |DB_PROFILE	|The instance profile of SAP HANA primary server.|
     |DB_IMAGE	|The OS image of SAP HANA primary server.|
+    {: caption="Required Variables" caption-side="bottom"}
 
     **{{site.data.keyword.cloud_notm}} resources input parameters (Optional):**
 
@@ -277,6 +268,7 @@ Follow these steps to enable cross-region DR protection for a non-HA SAP HANA Sy
     |ID_RSA_FILE_PATH	|The file path for PRIVATE_SSH_KEY. It will be automatically generated. Default value: `“ansible/id_rsa”`|
     |RESOURCE_GROUP	|The name of an existing resource group. Default value: “Default”|
     |HANA_SERVER_TYPE	|The type of SAP HANA server. Supported values: "virtual"|
+    {: caption="Optional Variables" caption-side="bottom"}
 
     **Required SAP input parameters:**
 
@@ -284,6 +276,7 @@ Follow these steps to enable cross-region DR protection for a non-HA SAP HANA Sy
     |-----|-----|
     |HANA_MAIN_PASSWORD	|HANA system master password (Sensitive* value). |
     |KIT_SAPHANA_FILE	|SAP HANA installation kit path.|
+    {: caption="Required Variables" caption-side="bottom"}
 
     For more detailed description of each parameters, check the GitHub repo [Readme](https://github.com/IBM-Cloud/sap-hana-dr/blob/main/README.md){: external} file, chapter “Input parameter file”. Also, ensure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". These parameters are marked as “sensitive” in the readme file, under the Input parameter file.
     Save each parameter that you modify.

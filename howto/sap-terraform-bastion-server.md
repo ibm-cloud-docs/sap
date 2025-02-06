@@ -8,14 +8,7 @@ subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deploying the SAP bastion server – SAP media storage repository
 {: #sap-bastion-server}
@@ -170,7 +163,7 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
 10. Review the log file to make sure that no errors occurred during the provisioning, modification, or deletion process.
 11. At the end of the log is information that you need to deploy different SAP products and databases. Copy and save this information for your deployments. For example:
 
-    ```
+    ```sh
     2024/09/16 12:01:08 Terraform refresh | FLOATING_IP = " xxx.xxx.xxx.xxx "
     2024/09/16 12:01:08 Terraform refresh | HOSTNAME = "myhost"
     2024/09/16 12:01:08 Terraform refresh | OVPN_FILE = "/root/OpenVPN.ovpn"

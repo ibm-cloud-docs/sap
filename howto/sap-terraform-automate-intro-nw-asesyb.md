@@ -8,16 +8,7 @@ subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Introduction to SAP NetWeaver and ASE SYB DB 2-tier and 3-tier on {{site.data.keyword.cloud_notm}} VPC
 {: #intro-automate-nw-asesyb-terraform-ansible}

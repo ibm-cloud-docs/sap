@@ -2,22 +2,13 @@
 
 copyright:
   years: 2024
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Introduction to {{site.data.keyword.cloud_notm}} VPC and HANA db cross-region DR automation
 {: #sap-automate-intro-hana-db-cross-region-dr}
@@ -70,7 +61,7 @@ SAP projects vary widely in scope and budget, but none are considered trivial. W
 
 In many SAP project scenarios, the deployment of an SAP system is often a key and repeated task. This project value guide covers the automated deployment of {{site.data.keyword.cloud_notm}} VPC and HANA db cross-regions DR. More information on [SAP NetWeaver of HANA database and Additional Application Server (AAS) to SAP instance and HANA instance](/docs/sap?topic=sap-intro-automate-aas-hana-anydb-terraform-ansible&interface=ui) is discussed in their respective sections.
 
-With this system being a key part of your SAP project, you want to enable a cross-regions Disaster Recovery architecure for your existing SAP HANA productive database.
+With this system being a key part of your SAP project, you want to enable a cross-regions Disaster Recovery architecture for your existing SAP HANA productive database.
 
 ## SAP HANA db cross-regions disaster recovery automation module
 {: #sap-hana-db-backup-dr}
@@ -81,7 +72,7 @@ SAP HANA Cloud offers options to replicate your SAP HANA Cloud database synchron
 
 With these options, you can set up a Highly Available (HA) architecture and/or a Disaster Recovery (DR) architecture in by running HANA DR cross-region automation module on top of an existing SAP product running on HANA db.
 
-In the diagrams below, SAP HANA database is represented as a HANA secondary passive. The synchronous and asynchronous replication architectures are illustrated for both HA and DR scenarious.
+In the diagrams below, SAP HANA database is represented as a HANA secondary passive. The synchronous and asynchronous replication architectures are illustrated for both HA and DR scenarios.
 
 ![Figure 1. HANA HA (with HSR Async replication)](../images/hana_ha_hsr_async_replication.svg "HANA HA (with HSR Async replication)"){: caption="HANA HA (with HSR Async replication)" caption-side="bottom"}
 
@@ -145,7 +136,7 @@ The inter-region latency dashboard provides the average network round-trip laten
 
 The results reported are measured. There are no performance guarantees implied by these dashboards. These statistics provide visibility into latency between all regions and zones to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance. These dashboards are not intended for use in troubleshooting. For more information, see [Network latency dashboards](/docs/vpc?topic=vpc-network-latency-dashboard).
 
-Manually deploying a VPC and configuring a HANA db as standby database with Async HSR replication cross-regions for enabiling a DR on a cloud platform can be time-consuming. The Terraform automation assures not only a quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
+Manually deploying a VPC and configuring a HANA db as standby database with Async HSR replication cross-regions for enabling a DR on a cloud platform can be time-consuming. The Terraform automation assures not only a quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
 
 ## Automation for SAP installation
 {: #sap-hana-db-dr-automation-install}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -83,7 +83,7 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
    - Specify a name for the separated cluster
    - Specify a data center
    - Specify the server (CPU and RAM), which does not need to use SAP certified host servers because this cluster hosts only the VMware components and tools (such as vCenter Server, vRealize).
-   - Specify the storage type. See more details on the detailed documention in the previous section.
+   - Specify the storage type. See more details on the detailed documentation in the previous section.
    - Specify the Network Interfaces and networks to be provisioned (such as Private network only)
    - Specify the VLANs. This option allows you to reuse any existing VLANs within the IBM Cloud Classic Infrastructure environment
 1. `For NSX-T only:` **Workload cluster:**
@@ -143,7 +143,7 @@ VMware vSAN for SAP HANA is not permitted. The description in [SAP Note 2718982 
 More information on NFS for VMware is shown on the following documents:
 - [Attached storage performance - Attached storage infrastructure design of IBM Cloud for VMware Solutions Dedicated](/docs/vmwaresolutions?topic=vmwaresolutions-storage-infra-design#storage-infra-design-perf)
 
-To expand and contract the storage capacity and performanc of individual mount points, see the following documents:
+To expand and contract the storage capacity and performance of individual mount points, see the following documents:
 - [Expanding File Share Capacity - IBM Cloud Classic Infrastructure File Storage](/docs/FileStorage?topic=FileStorage-expandCapacity)
 - [Adjusting IOPS - IBM Cloud Classic Infrastructure File Storage](/docs/FileStorage?topic=FileStorage-adjustingIOPS)
 

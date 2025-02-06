@@ -147,7 +147,7 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 1.	Log in to the Deployment Server by using `ssh`.
 2.	Clone the repository and change the path to the sap-s4hana folder.
 
-    ```
+    ```sh
 	git clone https://github.com/IBM-Cloud/sap-s4hana.git
 
 	cd sap-s4hana
@@ -169,7 +169,7 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 
     For more options for profile, see Instance Profiles. For more options for image, see Images. For descriptions of the variables, see the readme file.
 
-    ```
+    ```terraform
 	REGION          = ""
 	ZONE            = ""
 	VPC             = ""
@@ -191,7 +191,7 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 
 4.	Customize your SAP system configuration with the values to be passed to the Ansible playbooks for the automated deployment.
 
-    ```
+    ```terraform
     # S/4HANA version
     S4HANA_VERSION = ""
 
@@ -228,13 +228,13 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 
 5.	Initialize the Terraform CLI.
 
-    ```
+    ```sh
 	terraform init
     ```
 
 6.	Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
 
-    ```
+    ```sh
 	terraform plan --out plan1
     ```
 
@@ -248,7 +248,7 @@ Use these steps to deploy the SAP S/4HANA 3 tiers architecture on your existing 
 
 7.	Create the {{site.data.keyword.cloud_notm}} resources for S/4HANA and install the SAP system.
 
-    ```
+    ```sh
 	terraform apply "plan1"
     ```
 
@@ -287,6 +287,7 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
     |IBMCLOUD_API_KEY	|IBM Cloud API key or use a secret that is stored in Secrets Manager|
     |PRIVATE_SSH_KEY	|Input id_rsa private key content or use a secret stored in Secrets Manager|
     |SAP_MAIN_PASSWORD	|SAP main password or use a secret that is stored in Secrets Manager |
+    {: caption="Required Variables" caption-side="bottom"}
 
 4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-s4hana-ec60f4ee-c27d-4bcb-8aef-dee83a3f2659-global/readme/terraform/terraform/7265035e-c57d-41f4-b804-4e495ad4c4b7-global){: external}.
 
@@ -319,6 +320,7 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
     |SAP_CI_INSTANCE_NUMBER	|sap_ci_instance_number|
     |SAP_SID	|sap_sid|
     |S4HANA_VERSION	|The version of S/4HANA|
+    {: caption="Optional Variables" caption-side="bottom"}
 
 5.	Accept the license agreement.
 6.  Select **Install**. The deployment starts and you are directed to the Schematics page that displays the script log files for you to monitor the deployment progress.

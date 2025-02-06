@@ -1,21 +1,14 @@
 ---
 
 copyright:
-years: 2023, 2025
-lastupdated: "2025-02-05"
+    years: 2023, 2025
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deploying SAP AnyDB (non-SAP HANA) 2-tier and 3-tier distributed architecture on {{site.data.keyword.cloud}} VPC (Terraform)
 {: #create-terraform-multi-tier-vpc-anydb-sap}

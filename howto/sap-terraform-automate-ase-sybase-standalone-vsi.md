@@ -1,24 +1,14 @@
 ---
 
 copyright:
-years: 2025
-lastupdated: "2025-02-05"
+    years: 2023, 2025
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deploying SAP ASE Sybase stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC
 {: #automate-terraform-sap-ase-sybase-vsi}

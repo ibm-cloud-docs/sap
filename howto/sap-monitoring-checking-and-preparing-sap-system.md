@@ -180,7 +180,7 @@ Follow these steps for all `sapstartsrv` services.
    ```
    {: screen}
 
-  then, the following configuration is required.
+then, the following configuration is required.
 
 Add a line to the SAP default profile:
 

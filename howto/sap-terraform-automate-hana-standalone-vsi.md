@@ -2,23 +2,13 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deploying SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC
 {: #automate-terraform-sap-hana-vsi}
@@ -78,7 +68,7 @@ For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profile
 When you provision {{site.data.keyword.cloud}} virtual server instances for SAP HANA on VPC, you can select from three families of certified profiles: Memory Optimized, Very High Memory Optimized and Ultra High Memory Optimized. For more information about virtual server instances certified profiles for SAP HANA, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc).
 
 ### x86-64 bare metal server profiles
-{: x86-64-bare-metal-server-profiles}
+{: #x86-64-bare-metal-server-profiles}
 
 {{site.data.keyword.cloud_notm}} Bare Metal Servers on VPC Infrastructure are dedicated bare metal servers that provide enhanced networking and connectivity through [Virtual Private Cloud (VPC)](https://www.ibm.com/think/topics/vpc) capabilities. For more information on bare metal servers, see [IBM Cloud Bare Metal Servers](https://www.ibm.com/products/bare-metal-servers?_gl=1*164pqfh*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.80093343.964139216.1686574517-1543717111.1671726228){: external}.
 
@@ -265,7 +255,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     # Example: HANA_SYSNO = "01"
 
     HANA_SYSTEM_USAGE = "custom"
-    # System usage. Default: custom. Suported values: production, test, development, custom
+    # System usage. Default: custom. Supported values: production, test, development, custom
     # Example: HANA_SYSTEM_USAGE = "custom"
 
     HANA_COMPONENTS = "server"

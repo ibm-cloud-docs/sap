@@ -8,16 +8,8 @@ subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
+
 
 # Automating SAP workload SAP NetWeaver(ABAP) 7.5 on ASE Sybase HA deployment on IBM Cloud VPC with Terraform and Ansible
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-intro}
@@ -32,7 +24,7 @@ You have two deployment methods to choose from:
 * {{site.data.keyword.bpshort}} user interface accessed from your cloud dashboard menu.
 
 ## Terraform scripts include
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-scripts}
+{: #automate-sap-ase-sybase-ha-sz-deployment-scripts}
 {: terraform}
 
 The terraform scripts that are included for deploying are:
@@ -61,7 +53,7 @@ Ansible is started by Terraform and must be available on the same host.
 {: note}
 
 ## SAP Solution implemented
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-solution}
+{: #automate-sap-ase-sybase-ha-sz-deployment-solution}
 {: terraform}
 
 SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for ABAP and Java applications. The SAP system can be installed and configured in {{site.data.keyword.cloud}} for various system and database types.
@@ -77,7 +69,7 @@ The SAP installation media that is used for this deployment are the default medi
 An ERP system is used for demand-oriented business resource planning. It is used to control processes and to link departments and functional areas in a meaningful way. Individual modules include applications for accounting, sales, production, and marketing. More complex tasks in customer or supply chain management can also be done by ERP software. As the successor to the core product SAP ECC, SAP NetWeaver was presented as the intelligent ERP system of the new generation. Thanks to modern technologies, the Software-as-a-Service (SaaS) version is designed to help companies standardize processes and make the leap to digitalization.
 
 ## What is created
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-components}
+{: #automate-sap-ase-sybase-ha-sz-deployment-components}
 {: terraform}
 
 The scripts work in two phases. The first phase automates creating the resources for the VPC provisioning process in an existing VPC created when you deployed the bastion VSI. The second phase creates the SAP architecture in a distributed environment. This phase creates the:
@@ -101,7 +93,7 @@ During the first phase, the VPC is provisioned with these components:
 During the second phase, the Ansible Playbook is called and the SAP High availability architecture is installed for both dedicated VSIs SAP App VSI system and dedicated SAP ASE Sybase VSI box. The SAP architecture that is deployed is the SAP NetWeaver release on pacemaker cluster HA dedicated SAP ASE Sybase 16 SP0+VSI’s release as a distributed deployment model. For more information about this architecture, see [Automating SAP ASE Sybase stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](https://cloud.ibm.com/docs/sap?topic=sap-automate-terraform-sap-hana-vsi){: external}.
 
 ## Highly available system for SAP ASE Sybase database
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-database}
+{: #automate-sap-ase-sybase-ha-sz-deployment-database}
 {: terraform}
 
 ![Figure 1. SAP NetWeaver ASE Sybase HA on VPC distributed in two zones](../images/sapnw_ase_syb_ha_on_vpc_singlezone.svg "SAP NetWeaver ASE Sybase HA on VPC distributed in two zones"){: caption="SAP NetWeaver ASE Sybase HA on VPC distributed in two zones" caption-side="bottom"}
@@ -153,7 +145,7 @@ Before you deploy SAP NetWeaver High Availability on Single Zone or Multi Zone:
 * [Create or retrieve your SSH key ID](https://cloud.ibm.com/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial){: external}. You need the 40-digit UUID for the SSH key, not the SSH key name.
 
 ## Deploying SAP HA SAP NetWeaver by using Terraform with the bastion server CLI
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-bastion-server}
+{: #automate-sap-ase-sybase-ha-sz-deployment-bastion-server}
 {: terraform}
 
 Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in and use Terraform to install SAP HA SAP NetWeaver on your existing VPC. The scripts can take 1 - 2 hours to complete.
@@ -168,14 +160,13 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
     ```
 
 3. Specify your VPC. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your zone, VPC and component names, profile, and image.
-  You need your 40-digit SSH key ID for this file. The second SSH key is optional.
-
-  For more options for profile, see [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles){: external}.
-  For more options for images, see [Images](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images){: external}.
-  For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md){: external} file.
+   - You need your 40-digit SSH key ID for this file. The second SSH key is optional.
+   - For more options for profile, see [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles){: external}.
+   - For more options for images, see [Images](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images){: external}.
+   - For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md){: external} file.
 
 ### General VPC variables
-{: terraform}
+{: #terraform-general-vpc-vars}
 
 4. REGION = "eu-de"
    Region for the VSI. Supported regions: https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc
@@ -230,23 +221,23 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
    Example: SSH_KEYS = ["r010-8f72b994-c17f-4500-af8f-d05680374t3c", "r011-8f72v884-c17f-4500-af8f-d05900374t3c"]
 
 ### File share variables
-{: terraform}
+{: #fileshare-terraform-vars}
 
     share_profile = "tier-5iops"
     Enter the IOPs (IOPS per GB) tier for File Share storage. Valid values are 3, 5, and 10.
 
-  File shares sizes:
-  USRSAP_AS1      = "20"
-  USRSAP_AS2      = "20"
-  USRSAP_SAPASCS  = "20"
-  USRSAP_SAPERS   = "20"
-  USRSAP_SAPMNT   = "20"
-  USRSAP_SAPSYS   = "20"
-  USRSAP_TRANS    = "80"
-  Enter Custom File Shares sizes for SAP mounts.
+    File shares sizes:
+    USRSAP_AS1      = "20"
+    USRSAP_AS2      = "20"
+    USRSAP_SAPASCS  = "20"
+    USRSAP_SAPERS   = "20"
+    USRSAP_SAPMNT   = "20"
+    USRSAP_SAPSYS   = "20"
+    USRSAP_TRANS    = "80"
+    Enter Custom File Shares sizes for SAP mounts.
 
 ### DB VSI variables
-{: terraform}
+{: #db-vsi-terraform-vars}
 
 1. DB_HOSTNAME-1 = "sybdb-1"
    ASE Sybase Cluster VSI1 hostname.
@@ -267,7 +258,7 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
    Example: DB-IMAGE = "ibm-redhat-8-4-amd64-sap-hana-4"
 
 ### SAP APP VSI variables
-{: terraform}
+{: #sap-app-vsi-vars-terraform}
 
 1. APP_HOSTNAME-1 = "sapapp-1"
    SAP Cluster VSI1 hostname.
@@ -290,7 +281,7 @@ Use these steps to configure the {{site.data.keyword.cloud}} Provider plug-in an
 Customize your SAP system configuration. In `input.auto.tfvars` file, edit the SAP system configuration variables that are passed to the Ansible automated deployment. For descriptions of the variables, see the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md){: external} file.
 
 ## SAP system configuration
-{: terraform}
+{: #sap-system-config-terraform-ha}
 
 1. SAP_SID = "NWD"
    SAP System ID
@@ -316,7 +307,7 @@ Customize your SAP system configuration. In `input.auto.tfvars` file, edit the S
    Number of concurrent jobs used to load and/or extract archives to ASE Sybase Host
 
 ### SAP NetWeaver application kit paths
-{: terraform}
+{: #sap-terrafrom-ase-nw-kit-paths}
 
 1. KIT_SAPCAR_FILE = "/storage/NW75SYB/SAPCAR_1010-70006178.EXE"
 2. KIT_SWPM_FILE =  "/storage/NW75SYB/SWPM10SP38_0-20009701.SAR"
@@ -345,8 +336,7 @@ For SAP main password:
 
 9. Verify that the plan shows all the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the `input.auto.tfvars` file to correct resources and run terraform plan again.
 10. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
-11. `terraform apply "plan1"`
-The VPC and components are created and you see output similar to the terraform plan output.
+11. `terraform apply "plan1"` The VPC and components are created and you see output similar to the terraform plan output.
 12. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/docs/ABAP_PLATFORM_NEW/b1c834a22d05483b8a75710743b5ff26/9ad405e746ef43288755cb80a14be542.html){: external}.
 
 ## Deploying SAP NetWeaver(ABAP) 7.5 on ASE SYBASE High Availability on Single Zone or Multi Zone with the Schematics interface
@@ -393,6 +383,7 @@ Use these steps to configure the SAP NetWeaver(ABAP) 7.5 on ASE SYBASE High Avai
     |PRIVATE_SSH_KEY	|Input id_rsa private key content or use a secret stored in Secrets Manager|
     |SAP_MAIN_PASSWORD	|SAP main password or use a secret stored in Secrets Manager |
     |SAP_SID	|SAP sid |
+    {: caption="Required Variables" caption-side="bottom"}
 
     * Review and update the optional input variables. The Ansible scripts expect the SAP kits to be in the default locations listed. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md){: external}.
 
@@ -425,6 +416,7 @@ Use these steps to configure the SAP NetWeaver(ABAP) 7.5 on ASE SYBASE High Avai
     |USRSAP_SAPERS	|FS Size in GB for usrsap-sapers|
     |USRSAP_SAPSYS	|FS Size in GB for usrsap-sapsys|
     |USRSAP_TRANS	|FS Size in GB for usrsap-trans|
+    {: caption="Optional Variables" caption-side="bottom"}
 
 7.	On the workspace settings page, click **Generate plan**. Wait for the plan to complete.
 8.	Click **View log** to review the log files of your Terraform execution plan.

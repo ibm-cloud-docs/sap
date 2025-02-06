@@ -40,9 +40,9 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 1. The data centers displayed under **Location** depend on product availability within a particular data center. Select your data center.
 1. Click **All servers** > **SAP certified**. SAP HANA-certified servers are identified with an **.H** under CPU Model and SAP NetWeaver-certified are identified with an **.NW**.
 
-1. Select the appropriate SAP HANA-certified and SAP NetWeaver-certified server for your workload from the URLs in [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm),
-or 
-[Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm).
+1. Select the appropriate SAP HANA-certified and SAP NetWeaver-certified server for your workload from the URLs in [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm) or [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm)
+
+.
 
 1. **Server**, **RAM**, and your private storage option default based on your server selection and cannot be changed. {{site.data.keyword.IBM_notm}} {{site.data.keyword.blockstorageshort}} for {{site.data.keyword.cloud_notm}} or {{site.data.keyword.filestorage_full_notm}} are ordered after you have ordered your server.
 
@@ -99,6 +99,7 @@ Provisioning steps can be found under
 If you have decided on a public/private setup for your environment and plan to
     * Install multiple SAP systems that need to communicate with each other *or*
     * Choose a three-tier SAP setup (database and application instances on different hardware)
+
 Make sure that your name resolution reflects the internal and external addresses. The external address matches the hostname of the server resolved by its fully-qualified domain name (FQDN). The internal addresses will not appear in the domain name system (DNS). Since internal IPs should be used for communication between the servers, make sure you extend your `/etc/hosts` or Microsoft Windows "host" file accordingly. This information might also apply to the guest operating system of you VMware ESXi-based deployments.
 {: note}
 

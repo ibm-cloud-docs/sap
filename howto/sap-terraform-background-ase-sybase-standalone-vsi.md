@@ -8,14 +8,7 @@ subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Background for automating ASE Sybase stand-alone virtual server instance deployment in {{site.data.keyword.cloud}} VPC
 {: #sap-ase-sybase-vpc-background}

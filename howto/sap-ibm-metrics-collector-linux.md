@@ -2,23 +2,14 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
-
+lastupdated: "2020-12-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, SAP HANA, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS
 
 subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using {{site.data.keyword.IBM_notm}} Metrics Collector for SAP (IMCS) on Linux
 {: #ibm-metrics-collector-for-sap-linux}
@@ -65,7 +56,6 @@ You need to first create a Service ID and then the related API key. Use the foll
 1. Click **Access Policies** > **Assign Access**.
 1. Click **IAM Services** for **Assign Service ID additional access**.
 1. Select **VPC Infrastructure service** for **What type of access do you want to assign?**
-
 1. Leave the default **Account** for **in**
 1. Leave **All resource types** for **Resource type** and click **Viewer** for **Platform Access**.
 1. Click **Add** > **Assign**. The VPC Infrastructure Service policy is assigned to your Service ID.
@@ -98,28 +88,28 @@ The commands that are listed in this section were run on a Red Hat virtual serve
 Use the following steps to download the IMCS.
 
 1. [Download the IMCS](https://public.dhe.ibm.com/cloud/bluemix/sap/linux/){: external}.
-2. Select the appropriate `tar.gz` file. In most cases, use the current version. Connect as **guest**.
-3. Save the file to your internal Downloads folder and click **OK**.
-4. Move or copy the IMCS `tar.gz` file to your VPC virtual server instance.
-5. Extract the file and open the extracted folder.
+1. Select the appropriate `tar.gz` file. In most cases, use the current version. Connect as **guest**.
+1. Save the file to your internal Downloads folder and click **OK**.
+1. Move or copy the IMCS `tar.gz` file to your VPC virtual server instance.
+1. Extract the file and open the extracted folder.
 
-   ```
+   ```sh
    tar -xvf sap-metrics-collector-v1.3.tar.gz
    cd sap
    ```
    {: pre}
 
-6. Run the `install-linux.sh` file.
+1. Run the `install-linux.sh` file.
 
-   ```
+   ```sh
    ./install-linux.sh
    ```
    {: pre}
 
-7. Paste your [API key](#api-key) when prompted. If you don't have an API key, see [Getting an {{site.data.keyword.cloud_notm}} API key](#get-api-key).
-8. Check to make sure that the IMCS is running after the installation is complete. The service status displays `active` when it is ready.
+1. Paste your [API key](#api-key) when prompted. If you don't have an API key, see [Getting an {{site.data.keyword.cloud_notm}} API key](#get-api-key).
+1. Check to make sure that the IMCS is running after the installation is complete. The service status displays `active` when it is ready.
 
-   ```
+   ```sh
    sudo systemctl is-active sap-metrics-collector
    ```
    {: pre}
@@ -131,12 +121,12 @@ After the installation completes and the service is started, it can take time fo
 
 1. Run the following `curl` command for your localhost address to see your metrics:
 
-   ```
+   ```sh
    curl http://localhost:18181/sap/metrics
    ```
    {: pre}
 
-   ```
+   ```sh
     <metrics>
       <metric category="config" context="vm" device-id="" last-refresh="1607451781" refresh-interval="0" type="string" unit="none">
         <name>Data Provider Version</name>
@@ -174,12 +164,12 @@ Use the following troubleshooting tips for IMCS.
 
 1. Run the following command to uninstall IMCS if you have any issues during the installation process. Then, reinstall it.
 
-   ```
+   ```sh
    ./uninstall-linux.sh
    ```
    {: pre}
 
-   ```
+   ```sh
    Removing IBM Metric Collector for SAP...
    Successfully removed IBM Metric Collector for SAP.
    ```
@@ -192,12 +182,12 @@ No reported metrics message is often due to the port not assigned to SAP Metrics
 
 1. Use the following command to see whether the port is assigned to another application.
 
-   ```
+   ```sh
    nmap -sT -O localhost
    ```
    {: pre}
 
-   ```
+   ```sh
    Starting Nmap 6.40 (http://nmap.org) at (date and time)
    Nmap scan report for localhost (your localhost address)
    Host is up (0.0s latency).

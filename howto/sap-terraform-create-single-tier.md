@@ -8,14 +8,7 @@ subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating 2-tier VPC for SAP on {{site.data.keyword.cloud}} VPC with Terraform
 {: #create-terraform-single-tier-vpc-sap}
@@ -57,6 +50,7 @@ There are no warranties of any kind, and there is no service or technical suppor
 Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, re-adapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
 ## Before you begin
+{: #before-you-begin-single-tier}
 
 [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the IBM Cloud platform and to determine your permissions for IBM Cloud services.
 
@@ -83,7 +77,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
 4.	Edit the ``input.auto.tfvars`` file to customize your solution. Modify the file to specify your zone, VPC component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images).
 
-    ```
+    ```terraform
     ZONE			= "eu-de-1"
     VPC			    = "test-vpc"
     SECURITYGROUP	= "test-securitygroup"
@@ -98,13 +92,13 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
 5. Initialize the Terraform CLI.
 
-   ```
+   ```sh
    terraform init
    ```
 
 6. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the VPC instance in your account.
 
-   ```
+   ```sh
    terraform plan
    ```
 
@@ -112,7 +106,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
 8. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
-   ```
+   ```sh
    terraform apply
    ```
    The VPC and components are created and you see output similar to the terraform plan output.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
@@ -173,6 +173,7 @@ Use these steps to configure the SAP BW/4HANA on your existing VPC by using the 
     |IBMCLOUD_API_KEY	|IBM Cloud API key or use a secret stored in Secrets Manager|
     |PRIVATE_SSH_KEY	|Input id_rsa private key content or use a secret stored in Secrets Manager|
     |SAP_MAIN_PASSWORD	|SAP main password or use a secret stored in Secrets Manager|
+    {: caption="Required Variables" caption-side="bottom"}
 
 4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed.  For more detailed information, see the [Readme file - Input Parameters](https://cloud.ibm.com/catalog/content/content-ibm-sap-vpc-automation-bw4hana-e608642e-1d96-4a77-a401-1fb30307d2b9-global/readme/terraform/terraform/da22b12c-a034-4c00-aaeb-0dcaf9f3e8af-global){: external}.
 
@@ -200,6 +201,7 @@ Use these steps to configure the SAP BW/4HANA on your existing VPC by using the 
     |SAP_ASCS-INSTANCE_NUMBER	|Technical identifier for internal processes of ASCS|
     |SAP_CI_INSTANCE_NUMBER	|Technical identifier for internal processes of CI|
     |SAP_SID	|The SAP system ID identifies the entire SAP system|
+    {: caption="Optional Variables" caption-side="bottom"}
 
 5.	Accept the license agreement.
 6.  Select **Install**. The deployment starts and you are directed to the Schematics page that displays the script log files for you to monitor the deployment progress.
@@ -299,7 +301,7 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
 
 4.	In the same file (`input.auto.tfvars`), edit the SAP system configuration variables that are passed to the Ansible automated deployment.
 
-    ```
+    ```terraform
     #SAP HANA DB configuration
     HANA_SID = "BWH"
     HANA_SYSNO = "00"

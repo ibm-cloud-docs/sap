@@ -233,7 +233,7 @@ By the using the following setup, we open ports for standard widely used managem
     {: tab-title="Outbound security group rules"}
     {: tab-group="Security-Group-Workload-services-host-rules"}
 
-2. Create an ACL to restrict the access to the Workload VPC's subnets.
+1. Create an ACL to restrict the access to the Workload VPC's subnets.
 
     |**Rule priority**|**Allow or deny**|**Protocol**|**Source**               |**Destination**          |**Value**|**Rule's purpose**                                          |
     |-----------------|--------------|------------|-------------------------|-------------------------|---------|------------------------------------------------------------|
@@ -259,21 +259,20 @@ By the using the following setup, we open ports for standard widely used managem
     {: tab-title="Outbound ACL rules"}
     {: tab-group="ACL-Workload-services-host-rules"}
 
-3. Create a virtual server instance by using a Linux image. For more information, see [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
+1. Create a virtual server instance by using a Linux image. For more information, see [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
     * You can choose any of available Linux distributions. We recommend that you use the same OS release for all virtual server instances in the landscape. We verify the setup with newest versions of Red Hat Enterprise Linux (starting with RHEL 8.4) and of Suse Linux Enterprise Server (starting with SLES 15 SP3).
     * Analyze your DNS and LDAP performance requirements and ensure you choose an appropriate profile with enough virtual CPUs and memory.
     * We recommend attaching an extra storage disk to the instance, locate SAP installation files on this separate disk and export them over NFS. The disk size must be large enough to host all the data from IBM Cloud Object Storage that is relevant for all the installations and setups in this landscape.
-4. Attach the security group to the virtual server instance that you created previously. Detach the default security group.
-5. After some time, instance becomes status 'running'.
+1. Attach the security group to the virtual server instance that you created previously. Detach the default security group.
+1. After some time, instance becomes status 'running'.
 
 ## Connecting {{site.data.keyword.vpc_short}} services over transit gateway
 {: #power-vs-set-up-transit-gateway}
 
 To establish communication between virtual server instances that run in different {{site.data.keyword.vpc_short}} services, you must connect the private networks in the {{site.data.keyword.vpc_short}} services with each other.
 1. Create transit gateway. For more information, see [Creating a transit gateway by using the UI](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui).
-2. Connect all {{site.data.keyword.vpc_short}}s (management, edge, workload) to the transit gateway. For more information, see [Adding a connection](/docs/transit-gateway?topic=transit-gateway-adding-connections&interface=ui). Now you can connect with SSH over the access host with internet and private services hosts.
-3. Verify that you can successfully log in to the **host for internet services over the access host** and to the **host for workload services over the access host**. The floating IP address of the
-access host is specified as `ProxyCommand` parameter of your ssh command.
+1. Connect all {{site.data.keyword.vpc_short}}s (management, edge, workload) to the transit gateway. For more information, see [Adding a connection](/docs/transit-gateway?topic=transit-gateway-adding-connections&interface=ui). Now you can connect with SSH over the access host with internet and private services hosts.
+1. Verify that you can successfully log in to the **host for internet services over the access host** and to the **host for workload services over the access host**. The floating IP address of the access host is specified as `ProxyCommand` parameter of your ssh command.
 
 We recommend that you use two extra SSH client parameters for a more reliable SSH connection: `ServerAliveInterval=60` and `ServerAliveCountMax=600`. If you use a nondefault path to your SSH key, you must specify it by following SSH client parameter: `-i \<path_to_your_SSH_private_key\>`.
 {: tip}

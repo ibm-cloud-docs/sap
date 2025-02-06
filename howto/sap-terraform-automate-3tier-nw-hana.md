@@ -8,17 +8,7 @@ subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Automating SAP NetWeaver 7.x on HANA db 3-tier architecture on {{site.data.keyword.cloud}} VPC (Terraform and Ansible)
 {: #create-terraform-3tier-nw-hana-vpc-ansible}
@@ -134,11 +124,9 @@ Before you use the scripts:
 *  [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 *  [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
-## Before you begin
+## Before you deploy SAP NetWeaver ABAP or Java stack on HANA db
 {: #ui-3tier-nw-abap-hana-db}
 {: ui}
-
-Before you deploy SAP NetWeaver ABAP or Java stack on HANA db:
 
 *  Set up your account to access the VPC. Make sure that your account is upgraded to a [paid account](/docs/account?topic=account-upgrading-account).
 *  If you have not already, create a deployment server (bastion server) to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server). You need the Floating IP from your deployment server (bastion server) for deployment.
@@ -213,8 +201,9 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
       |IBMCLOUD_API_KEY	|IBM Cloud API key (Sensitive* value).|
       |PRIVATE_SSH_KEY	|Input your id_rsa private key pair content in OpenSSH format (Sensitive* value). This private key should be used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.|
       |SAP_MAIN_PASSWORD	|Common password for all users that are created during the installation. See Obs* section. |
+      {: caption="Required variables" caption-side="bottom"}
 
-   * **Optional input variables** - Review and update the optional parameters. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md){: external}.
+    * **Optional input variables** - Review and update the optional parameters. For more detailed information, see the [Readme file](https://github.com/IBM-Cloud/sap-netweaver-abap-hana/blob/main/README.md){: external}.
 
       |Parameter	|Description|
       |-----|-----|
@@ -242,6 +231,7 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
       |SAP_CI_INSTANCE_NUMBER	|Technical identifier for the internal processes of CI.|
       |SAP_SID	|The SAP system ID identifies the entire SAP system.|
       |HANA_TENANT |SAP HANA tenant name.|
+      {: caption="Optional Variables" caption-side="bottom"}
 
 6. Accept the license agreement.
 7. Select **Deploy**. The deployment starts and you are directed to the {{site.data.keyword.bpshort}} page that displays the script log files for you to monitor the deployment progress.

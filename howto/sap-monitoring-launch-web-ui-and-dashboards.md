@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -50,6 +50,6 @@ To duplicate a dashboard, use the following information.
 You can change the dashboard layout by duplicating the dashboard. For more information, see [Dashboard panels](https://docs.sysdig.com/en/docs/sysdig-monitor/dashboards/dashboard-panels/){: external}.
 
 ### Publishing dashboards
-{: #mon-pubishing-dashboards}
+{: #mon-publishing-dashboards}
 
 Public dashboard sharing allows external users to review a dashboard without a {{site.data.keyword.cloud}} login. For more information about sharing dashboards publicly, see [Enabling Public Sharing](https://docs.sysdig.com/en/docs/sysdig-monitor/dashboards/#enable-public-sharing){: external}.

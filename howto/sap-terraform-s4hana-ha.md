@@ -2,23 +2,13 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deploying SAP workload S/4HANA HA deployment on {{site.data.keyword.cloud}} VPC (Terraform and Ansible)
 {: #automate-s4hana-ha-terraform-ansible}
@@ -495,6 +485,7 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
     |PRIVATE_SSH_KEY	|Input id_rsa private key content or use a secret that is stored in Secrets Manager.|
     |SAP_MAIN_PASSWORD	|SAP main password or use a secret that is stored in Secrets Manager.|
     |SAP_SID  |SAP sid|
+    {: caption="Required Variables" caption-side="bottom"}
 
 4.  Review and update the optional parameters. The Ansible scripts expect the SAP kits to be in the default locations listed. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-s4hana-ha/blob/main/README.md#16-general-input-variables){: external}.
 
@@ -533,6 +524,7 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
     |USRSAP_SAPMNT |FS size in GB for usrsap-mnt|
     |USRSAP_SAPSYS |FS size in GB for usrsap-sapsys|
     |USRSAP_TRANS |FS size in GB for usrsap-trans|
+    {: caption="Optional Variables" caption-side="bottom"}
 
 5.	Accept the license agreement.
 6.	Select **Install**. The deployment starts and you are directed to the {{site.data.keyword.bpshort}} page that displays the script log files for you to monitor the deployment progress.

@@ -8,16 +8,7 @@ subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Automating SAP workload deployment on {{site.data.keyword.cloud}} VPC with Terraform and Ansible
 {: #intro-automate-deploy-vpc-terraform-ansible}
@@ -69,7 +60,7 @@ The SAP NetWeaver with HANA landscape deployment automation helps, if:
 This deployment automation helps the business who plans to migrate SAP databases to HANA while keeping SAP NetWeaver as the application layer. From deployment launch to SAP logon, you are only hours away from having test and target SAP systems.
 
 ### What does the automation deploy?
-{: #intro-automate-deploy-vpc-terraform-ansible-value-guide-delpoy}
+{: #intro-automate-deploy-vpc-terraform-ansible-value-guide-deploy}
 
 This deployment automation delivers two VSIs along with storage and secure network. You can choose the VSI profile size for HANA database and SAP NetWeaver application server.
 

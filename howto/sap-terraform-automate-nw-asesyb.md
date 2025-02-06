@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2025
 lastupdated: "2025-02-06"
-keyword:
+keywords:
 subcollection: sap
 
 ---
@@ -134,15 +134,16 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 2.	For Standard deployment:
     Clone the solution repository from https://github.com/IBM-Cloud/sap-netweaver-abap-ase-syb-standard and cd to the `sap-netweaver-abap-ase-syb-standard` folder.
 
-    ``` git
+    ```sh
     git clone https://github.com/IBM-Cloud/sap-netweaver-abap-ase-syb-standard.git
     cd sap-netweaver-abap-ase-syb-standard
+    ```
 
 3.  For Distributed deployment:
 
     Clone the solution repository from https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed and cd to the `sap-netweaver-abap-syb-distributed/cli` folder.
 
-    ``` git
+    ```sh
     git clone https://github.com/IBM-Cloud/sap-netweaver-abap-syb-distributed.git
     cd sap-netweaver-abap-syb-distributed/cli
 
@@ -222,12 +223,9 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
 6.	Remember, you must manually decompress the `kit_export_dir` file. Ansible decompresses the rest of the SAP kit files. For more information, see the readme file.
 
-7.	Initialize the Terraform CLI.
-    `terraform init`
+7.	Initialize the Terraform CLI `terraform init`
 
-8.	Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account.
-
-    `terraform plan --out plan1`
+8.	Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that are done to create the virtual private cloud instance in your account. `terraform plan --out plan1`
 
     Enter the SAP main password and your API key.
 
@@ -237,7 +235,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider plug-
 
 10.	Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
-	```teraform
+	```terraform
 	terraform apply "plan1"
 	```
 
@@ -301,7 +299,7 @@ If you need to rename your resources after they are created, modify the input.au
 If you need to remove the Netweaver 7.X and ASE SYB installation, go to your project folder and run `terraform destroy`. The `terraform destroy` command does not remove the VPC in this scenario because the VPC was created before these Terraform scripts were run.
 
 ## Related information
-{: #automate-nw-asesyb-releted}
+{: #automate-nw-asesyb-related}
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Getting started with Terraform on {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 

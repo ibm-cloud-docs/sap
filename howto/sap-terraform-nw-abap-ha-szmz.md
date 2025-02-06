@@ -8,17 +8,7 @@ subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Automating SAP NetWeaver(ABAP) 7.5 HA deployment on {{site.data.keyword.cloud}} VPC (Terraform and Ansible)
 {: #automate-sap-abap-sz-mz-ha-deployment-intro}

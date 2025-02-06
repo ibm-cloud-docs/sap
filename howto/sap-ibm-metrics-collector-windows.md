@@ -3,22 +3,12 @@
 copyright:
   years: 2020
 lastupdated: "2020-12-17"
-
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, SAP HANA, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS
-
 subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using {{site.data.keyword.IBM_notm}} Metrics Collector for SAP (IMCS) on Windows
 {: #ibm-metrics-collector-for-sap-windows}
@@ -82,21 +72,21 @@ The commands that are listed in this section were run in Windows PowerShell 5.1.
 Use the following steps to download the IMCS.
 
 1. [Download the IMCS](https://public.dhe.ibm.com/cloud/bluemix/sap/windows){: external}.
-2. Select the appropriate .zip. In most cases, use the current version. Connect as **guest**.
-3. Save the file to your internal Downloads folder and click **OK**.
-4. Move or copy the IMCS .zip file to your VPC virtual server instance.
-5. Extract the file and open the extracted folder.
-6. Run the `install-metric-collector.ps1` file. Right-click on the file and select 'Run with Powershell', or run the following command on the power shell:
+1. Select the appropriate .zip. In most cases, use the current version. Connect as **guest**.
+1. Save the file to your internal Downloads folder and click **OK**.
+1. Move or copy the IMCS .zip file to your VPC virtual server instance.
+1. Extract the file and open the extracted folder.
+1. Run the `install-metric-collector.ps1` file. Right-click on the file and select 'Run with Powershell', or run the following command on the power shell:
 
-   ```
+   ```sh
    .\install-metric-collector.ps1
    ```
    {: pre}
 
-7. Paste your [API key](#api-key) when prompted. If you don't have an API key, see [Getting an {{site.data.keyword.cloud_notm}} API key](#get-api-key-win).
-8. Check to make sure that the IMCS is running after the installation is complete. The service status displays `Running` when it is ready.
+1. Paste your [API key](#api-key) when prompted. If you don't have an API key, see [Getting an {{site.data.keyword.cloud_notm}} API key](#get-api-key-win).
+1. Check to make sure that the IMCS is running after the installation is complete. The service status displays `Running` when it is ready.
 
-   ```
+   ```sh
    Get-Service Telegraf
    Status   Name               DisplayName
    ------   ----               -----------
@@ -112,7 +102,7 @@ After the installation completes and the service is started, it can take time fo
 1. Open the browser of your choice.
 1. Open the following link: http://localhost:18181/sap/metrics
 
-   ```
+   ```sh
     <metrics>
       <metric category="config" context="vm" device-id="" last-refresh="1607451781" refresh-interval="0" type="string" unit="none">
         <name>Data Provider Version</name>
@@ -138,7 +128,7 @@ After the installation completes and the service is started, it can take time fo
      {: screen}
 
 You might experience a delay before your data is available.
-{:note}
+{ :note }
 
 ## Troubleshooting
 {: #troubleshooting-win}
@@ -150,12 +140,12 @@ Use the following troubleshooting tips for IMCS.
 
 1. Run the following command to uninstall IMCS if you have any issues during the installation process. Then, reinstall it.
 
-   ```
+   ```sh
    .\uninstall-metric-collector.ps1
    ```
    {: pre}
 
-   ```
+   ```sh
    Are you sure you want to uninstall Metric Collector for SAP? (Default is No)
    ( y / n ) : y
    Continuing uninstalling metric collector...
@@ -171,12 +161,12 @@ No reported metrics is often due to the port not assigned to SAP Metrics Collect
 
 1. Use the following command to see whether the port is assigned to another application.
 
-   ```
+   ```sh
    Get-NetTCPConnection -State listen
    ```
    {: pre}
 
-  ![Figure 1. Ports that are used by applications](../images/quickstudy-intel-vs-gen2-win-PS-Listen.png "Ports that are used by applications."){: caption="Ports that are used by applications" caption-side="bottom"}
+![Figure 1. Ports that are used by applications](../images/quickstudy-intel-vs-gen2-win-PS-Listen.png "Ports that are used by applications."){: caption="Ports that are used by applications" caption-side="bottom"}
 
 
 ## Additional information

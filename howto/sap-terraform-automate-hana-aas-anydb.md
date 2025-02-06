@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 subcollection: sap
 
@@ -112,7 +112,7 @@ For both server instances there are:
 *   Two SSH keys are configured to access SSH as `root`.
 *   Three storage volumes as described in the `input.auto.tfvars` file.
 
-## What is created
+## What is created for anydb
 {: #automate-hana-aas-anydb-what-created}
 {: terraform}
 
@@ -184,7 +184,7 @@ Use these steps to configure the SAP Additional Application Server (AAS) NetWeav
      *  Enter a name for the workspace.
      *  Select a **Resource group**.
      *  Select a **Location** for your workspace. The workspace location does not have to match the resource location.
-   *  Select **Next**.
+     *  Select **Next**.
 5. Select **Create** to create your workspace.
 6. On the workspace settings page, in the input variables section, review the default input variables and provide values that match your solution.
 
@@ -237,6 +237,7 @@ Use these steps to configure the SAP AAS NetWeaver (ABAP) on HANA on your existi
     |sap_ci_instance_number	|Technical identifier for the internal processes of the Central Instance.|
     |sap_sid	|The SAP system ID identifies the entire SAP system.|
     |sap_main_password	|Common password for all users that are created during the installation (See Obs*).|
+    {: caption="Required Variables" caption-side="bottom"}
 
    * **Optional variables** - Review and update the optional input variables. The Ansible scripts expect the SAP kits to be in the default locations listed. For more information, see the [Readme file - Input Parameters](https://github.com/IBM-Cloud/sap-abap-hana-aas/blob/main/README.md){: external}.
 
@@ -251,6 +252,7 @@ Use these steps to configure the SAP AAS NetWeaver (ABAP) on HANA on your existi
     |kit_swpm_file	|Path to the SWPM archive (SAR), as downloaded from SAP Support Portal.|
     |kit_saphostagent_file	|Path to the SAP Host Agent archive (SAR), as downloaded from SAP Support Portal.|
     |kit_hdbclient_file	|Path to the HANA DB client archive (SAR), as downloaded from SAP Support Portal.|
+    {: caption="Optional Variables" caption-side="bottom"}
 
 6. Accept the license agreement.
 7. Select **Deploy**. The deployment starts and you are directed to the {{site.data.keyword.bpshort}} page that displays the script log files for you to monitor the deployment progress.
