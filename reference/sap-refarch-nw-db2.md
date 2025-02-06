@@ -120,7 +120,7 @@ Architecture of SAP NetWeaver Application Server Java
 
 In a distributed system, there are multiple virtual server instances and every instance can run on a separate host:
 
-![Figure 3. Distribured installation](../images/refarch-sap-db2-dist-only.svg "SAP NetWeaver 7.x with Db2 distributed installation with AAS"){: caption="SAP NetWeaver 7.x with Db2 distributed installation with AAS" caption-side="bottom"}
+![Figure 3. Distributed installation](../images/refarch-sap-db2-dist-only.svg "SAP NetWeaver 7.x with Db2 distributed installation with AAS"){: caption="SAP NetWeaver 7.x with Db2 distributed installation with AAS" caption-side="bottom"}
 
 The components in a distributed system are the same as the components in a standard system, but there are restrictions as to which instances can go on which hosts.
 

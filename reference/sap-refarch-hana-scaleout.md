@@ -29,6 +29,7 @@ Figure 1 shows the network topology that is required for the {{site.data.keyword
 ![Figure 1. {{site.data.keyword.cloud_notm}} IaaS SAP HANA TDI scale-out network topology](../images/refarch-sap-bw-hana-scale-out-classic.png "{{site.data.keyword.cloud_notm}} Infrastructure as a Service SAP HANA TDI network topology"){: caption="{{site.data.keyword.cloud_notm}} Classic IaaS SAP HANA TDI scale-out network topology" caption-side="bottom"}
 
 ### Available SAP HANA certified {{site.data.keyword.cloud_notm}} configurations
+{: #reference-intel-bm}
 
 For Intel Bare Metal, the following solutions are certified to serve as OLAP or OLTP scale-out configuration SAP HANA nodes:
 
@@ -48,6 +49,7 @@ OLAP:
 Check [SAP' Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;iaas;ve:28;v:b046dad8-7aa0-457a-ade5-286ebaf88a2f&id=s:2014){: external} for details of the supported configurations.
 
 ### Network layout for Scale-out configurations
+{: #reference-intel-bm-scaleout-network}
 
 For Intel Bare Metal scale-out configurations, contact {{site.data.keyword.cloud_notm}} support for assisting you to set-up the required networking. Depending on the hardware used, the choice of networks might be restricted, or special configurations might have to be adapted. See the following diagram, for the layout to use. The diagram describes the use of three fully redundant (LACP config), physically separate networks, for:
 * Storage traffic,
@@ -57,6 +59,7 @@ For Intel Bare Metal scale-out configurations, contact {{site.data.keyword.cloud
 Use the network that holds the default route of your environment to pass the NFS traffic through it, the storage servers are reachable through that gateway, only.
 
 ### Storage for Scale-out configurations
+{: #reference-intel-bm-scaleout-storage}
 
 For scale-out configuration, the ability of storage volumes to be accessed from different server nodes is required for failover purposes. Thus, local storage is out of scope, and NFS volumes need to be deployed. The deployed volumes can vary in size and number (see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they have to comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}.
 
@@ -64,8 +67,10 @@ For scale-out configuration, the ability of storage volumes to be accessed from 
 
 
 ## Intel Virtual Servers in VPC Infrastructure (Gen2)
+{: #reference-intel-vsi}
 
 ### Available SAP HANA certified {{site.data.keyword.cloud_notm}} configurations
+{: #reference-intel-vsi-scaleout-olap}
 
 For Intel-based VSIs in VPC, the following configuration is available for OLAP scale-out configuration with SAP HANA:
 
@@ -77,6 +82,7 @@ Check [SAP' Certified and Supported SAP HANA Hardware Directory](https://www.sap
 These configurations can either be run on-top of dedicated hosts (DHs) or on shared hosts.
 
 ### Network layout for Scale-out configurations
+{: #reference-intel-vsi-scaleout-olap-network}
 
 For Intel Bare Metal scale-out configurations, contact {{site.data.keyword.cloud_notm}} support for assisting you to set-up the required networking. On the VPC (Gen2) infrastructure, underlying host systems are laid out for full redundance, no matter if they are dedicated or shared hosts. As a result, VSIs in VPC do not require for redundant network adapter. Throughput for all VSI level adapters in one VSI is limited to 60 Gbps, by default. A single adapter is limited to 25 Gbps maximum throughput. Therefore, the HANA network layout for scale-out configurations requires three separate networks, 3 adapters to be configured with a throughput of 20 Gbps, each. See the following diagram for the network layout for VSIs. Read the following chapter on storage before you decide on the details of your storage layout and the according networks to use.
 
@@ -85,6 +91,7 @@ Figure 2 shows the network topology that is required for the {{site.data.keyword
 ![Figure 2. {{site.data.keyword.cloud_notm}} VPC IaaS SAP HANA TDI scale-out network topology](../images/refarch-sap-bw-hana-scale-out-vpc-vm.svg "{{site.data.keyword.cloud_notm}} Infrastructure as a Service SAP HANA TDI network topology"){: caption="{{site.data.keyword.cloud_notm}} VPC IaaS SAP HANA TDI scale-out network topology for VSIs" caption-side="bottom"}
 
 ### Storage for Scale-out configurations
+{: #reference-intel-vsi-scaleout-olap-storage}
 
 For scale-out configuration, the ability of storage volumes to be accessed from different server nodes is required for failover purposes. Thus, local storage is out of scope, and NFS volumes need to be deployed. These shares are referred to as `file shares and their mount targets` in {{site.data.keyword.cloud_notm}} VPC. The shares can vary in size and number (see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they must comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}.
 

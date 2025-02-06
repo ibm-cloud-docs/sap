@@ -3,22 +3,12 @@
 copyright:
   years: 2020, 2022
 lastupdated: "2022-12-09"
-
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
-
 subcollection: sap
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) Infrastructure environment introduction
 {: #vpc-env-introduction}
@@ -63,7 +53,6 @@ The {{site.data.keyword.vpc_short}} infrastructure network, is robust, secure, a
 | {{site.data.keyword.cloud_notm}} VPC Infrastructure network |
 | -- |
 | Global |
-| Resource Group |
 | Region |
 | VPC |
 | Availability zone (with address prefix) |
