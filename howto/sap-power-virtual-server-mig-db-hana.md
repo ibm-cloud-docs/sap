@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 
@@ -231,7 +231,7 @@ The following document outlines the required storage configuration for the targe
 - [IBM System Storage Architecture and Configuration Guide for SAP HANA TDI](https://www.ibm.com/support/pages/ibm-system-storage-architecture-and-configuration-guide-sap-hana-tdi-0){: external}
 
 Consider the extra space that you need to create a file system mount point to store software executable files and the initial SAP HANA system backup.
-Depending on your planned IBM Cloud {{site.data.keyword.powerSys_notm}} infrastructure, you can create the file system as an NFS mount to export to other systems in the architecture.
+Depending on your planned IBM {{site.data.keyword.powerSys_notm}} infrastructure, you can create the file system as an NFS mount to export to other systems in the architecture.
 
 ### Creating the software repository file system and transfer the installation packages
 {: #mig-db-hana-target-system-software-transfer}
@@ -384,7 +384,7 @@ export SiteOnPrem=<PrimarySiteName>        # HANA System Replication Site Name 1
 export SiteOnCloud=<secondarySiteName>     # HANA System Replication Site Name 2 - Migration to On-Cloud - Target
 
 export NODE1=<Hostname 1>                  # Hostname of On-Prem Server
-export NODE2=<Hostname 2>                  # Hostname of IBM Cloud {{site.data.keyword.powerSys_notm}} Instance
+export NODE2=<Hostname 2>                  # Hostname of IBM Power Virtual Server Instance
 ```
 {: pre}
 
@@ -787,7 +787,7 @@ export SiteOnPrem=<PrimarySiteName>        # HANA System Replication Site Name 1
 export SiteOnCloud=<secondarySiteName>     # HANA System Replication Site Name 2 - Migration to On-Cloud - Target
 
 export NODE1=<Hostname 1>                  # Hostname of On-Prem Server
-export NODE2=<Hostname 2>                  # Hostname of IBM Cloud {{site.data.keyword.powerSys_notm}} Instance
+export NODE2=<Hostname 2>                  # Hostname of IBM Power Virtual Server Instance
 ```
 {: codeblock}
 

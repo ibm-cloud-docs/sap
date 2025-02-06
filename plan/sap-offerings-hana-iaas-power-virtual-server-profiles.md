@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -73,7 +73,7 @@ The following SAP HANA profiles with the prefix *sr2* are supported in SMT4 mode
 | sr2-80x14400 | 80 | 320 | 14,400 | 480,000 | OLTP scale-up, OLAP scale-up |
 {: caption="Certified profiles with sh2 prefix in SMT4 mode" caption-side="top"}
 
-The following SAP HANA profiles with the prefix *sr2* on IBM Cloud {{site.data.keyword.powerSys_notm}} are supported in SMT8 mode:
+The following SAP HANA profiles with the prefix *sr2* on IBM {{site.data.keyword.powerSys_notm}} are supported in SMT8 mode:
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
 | ------------------- | ------------- | ---------------- | ---------------- | -------- | ----------------- |
@@ -119,7 +119,7 @@ The following SAP HANA profiles with the prefix *sh2* are supported in SMT4 mode
 | sh2-25x1500 | 25 | 100 | 1,500 | 150,000 | OLTP scale-up, OLAP scale-up |
 {: caption="Certified profiles with sh2 prefix in SMT4 mode" caption-side="top"}
 
-The following SAP HANA profiles with the prefix *sh2* on IBM Cloud {{site.data.keyword.powerSys_notm}} are supported in SMT8 mode:
+The following SAP HANA profiles with the prefix *sh2* on IBM {{site.data.keyword.powerSys_notm}} are supported in SMT8 mode:
 
 | **Profile name(s)** | **CPU Cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **Workload Type** |
 | ------------------- | ------------- | ---------------- | ---------------- | -------- | ----------------- |
