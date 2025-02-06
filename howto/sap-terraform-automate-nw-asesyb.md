@@ -2,22 +2,13 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-05"
-
+lastupdated: "2025-02-06"
+keyword:
 subcollection: sap
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:ui: .ph data-hd-interface="ui"}
-{:terraform: .ph data-hd-interface="terraform"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deploying SAP NetWeaver 7.x and ASE SYB on an existing {{site.data.keyword.cloud_notm}} VPC (Terraform and Ansible)
 {: #automate-nw-asesyb-terraform-ansible}
