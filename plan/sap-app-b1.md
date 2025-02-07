@@ -63,7 +63,7 @@ These options are available if you're using SAP HANA or Microsoft SQL. See the [
 ## SAP Business One training information
 {: #b1-training}
 
-Training is available on the integration framework for SAP Business One. The self-paced, online course takes you through scenario design basics, the integration of SAP Business One, and integrating the SAP Business One database. For more information, see the [OpenSAP courses on SAP Business One](https://open.sap.com/courses/ifb1){: external}.
+Training is available on the integration framework for SAP Business One. The self-paced, online course takes you through scenario design basics, the integration of SAP Business One, and integrating the SAP Business One database. For more information, see the [OpenSAP courses on SAP Business One](https://learning.sap.com/opensap-course-migration){: external}.
 
 Training is also available on the different SAP Business One modules. For more information about courses, see [SAP Training for Business One](https://training.sap.com/businessone){: external} or the online training available with SAP Learning Hub.
 
