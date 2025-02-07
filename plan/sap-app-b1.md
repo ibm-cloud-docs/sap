@@ -18,11 +18,11 @@ subcollection: sap
 SAP Business One is an enterprise resource planning (ERP) software that is especially designed for small-to-medium enterprises. It integrates business management - accounting and financing, purchasing and inventory, sales and customer relationships, and project management and operations - into one application.
 {: shortdesc}
 
-The single application eliminates the need for multiple installations and interfaces across separate modules. As your business grows, you can expand SAP Business One to fit your needs by adding one of over 500 add-on solutions from SAP Partners. It runs on both the SAP HANA and Microsoft SQL Server platforms and helps with the day-to-day operations of your enterprise. For more information, see [SAP Business One](https://www.sap.com/products/business-one.html){: external}
+The single application eliminates the need for multiple installations and interfaces across separate modules. As your business grows, you can expand SAP Business One to fit your needs by adding one of over 500 add-on solutions from SAP Partners. It runs on both the SAP HANA and Microsoft SQL Server platforms and helps with the day-to-day operations of your enterprise. For more information, see [SAP Business One](https://www.sap.com/products/erp/business-one.html){: external}
 
 Several {{site.data.keyword.ibm_cloud_sap}} infrastructure options are certified to run SAP Business One.
 
-Before you implement SAP Business One, considerations need to be made how are you going to use the application. For example, how many concurrent users will use the application at one time? Do you need only the Financial Management and Sales and Customer Management modules to start? Maybe you need all the modules (for more information about modules, see [SAP Business One Features](https://www.sap.com/products/business-one/features.html){: external}).
+Before you implement SAP Business One, considerations need to be made how are you going to use the application. For example, how many concurrent users will use the application at one time? Do you need only the Financial Management and Sales and Customer Management modules to start? Maybe you need all the modules (for more information about modules, see [SAP Business One Features](https://www.sap.com/products/erp/business-one/features.html){: external}).
 
 ## SAP Business One installation guides
 {: #b1-installation-guides}
@@ -30,8 +30,8 @@ Before you implement SAP Business One, considerations need to be made how are yo
 You have the choice of working with an SAP partner or installing the software yourself onto Cloud IaaS.
 
 **The main documentation to read for SAP Business One are:**
-- [SAP Help Portal - SAP Business One on SAP HANA](https://help.sap.com/viewer/product/SAP_BUSINESS_ONE_VERSION_FOR_SAP_HANA/latest/en-US){: external}
-- [SAP Help Portal - SAP Business One on Microsoft SQL Server](https://help.sap.com/viewer/product/SAP_BUSINESS_ONE/latest/en-US){: external}
+- [SAP Help Portal - SAP Business One on SAP HANA](https://help.sap.com/docs/SAP_BUSINESS_ONE_VERSION_FOR_SAP_HANA){: external}
+- [SAP Help Portal - SAP Business One on Microsoft SQL Server](https://help.sap.com/docs/SAP_BUSINESS_ONE){: external}
 
 **After which, the administrator guides to read for SAP Business One are:**
 - [SAP Business One on SAP HANA Administrator Guide](https://help.sap.com/doc/4e7c047f2c9e4cbe97800ffaf7b68f8e/10.0/en-US/B1_for_SAP_HANA_Admin_Guide.pdf){: external}
@@ -49,7 +49,7 @@ More information on SAP HANA versions can be found in
 - [SAP Note 3328136 - Overview Note for SAP Business One 10.0 FP 2208 Hotfix 02, version for SAP HANA](https://launchpad.support.sap.com/#/notes/3328136){: external}.
 - [SAP Note 3284687 - Overview Note for SAP Business One 10.0 FP 2305, version for SAP HANA](https://launchpad.support.sap.com/#/notes/3284687){: external}.
 
-The [SAP Business One community page](https://community.sap.com/topics/business-one){: external} has links to blogs where community members share their experiences with implementing and running SAP Business One.
+The [SAP Business One community page](https://pages.community.sap.com/topics/business-one){: external} has links to blogs where community members share their experiences with implementing and running SAP Business One.
 
 ### SAP Business One upgrade guides
 {: #b1-upgrade-guides}

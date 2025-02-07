@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -45,7 +45,7 @@ Because ordering {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated
 Complete the following tasks before your initial provisioning. Additional information and detailed steps for these tasks can be found in [Setting up your environment for your first order of IBM Cloud for VMware](/docs/vmwaresolutions?topic=vmwaresolutions-completing_checklist)
 .
 
-1. [Create an IBM Cloud Classic Infrastructure API key](/docs/account?topic=account-classic_keys#create-classic-infrastructure-key). This task coordinates the infrastructure setup for the VMware SDDC (such as VLAN, Subnet, Bare Metal). If you request administrator access is requested, use the steps in [Locating an IAM account administrator](/docs/vmwaresolutions?topic=vmwaresolutions-iam_verify_permissions) and [verify/update your user permissions](/docs/vmwaresolutions?topic=vmwaresolutions-cloud-infra-acct-req).
+1. [Create an IBM Cloud Classic Infrastructure API key](/docs/account?topic=account-classic_keys#create-classic-infrastructure-key). This task coordinates the infrastructure setup for the VMware SDDC (such as VLAN, Subnet, Bare Metal). If you request administrator access is requested, use the steps in [Locating an IAM account administrator](/docs/vmwaresolutions?topic=vmwaresolutions-iam_verify_permissions) and [verify/update your user permissions](/docs/vmwaresolutions?topic=vmwaresolutions-getting-started#getting-started-prereqs).
 
 1. Convert your {{site.data.keyword.cloud_notm}} account to use [Virtual routing and forwarding (VRF) on IBM Cloud](/docs/direct-link?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud), using the steps described in [Converting to virtual routing and forwarding](/docs/direct-link?topic=direct-link-what-happens-during-the-account-conversion-process).
 
@@ -101,7 +101,7 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
    {: note}
 
 1. If you want to order an edge services cluster with Juniper vSRX included, select the **Edge services cluster** checkbox and configure the appropriate settings: the cluster name, the RAM selection, and the private NICs enablement.
-1. Complete the [network interface settings](/docs/vmwaresolutions?topic=vmwaresolutions-vc_orderinginstance#vc_orderinginstance-network-interface-settings).
+1. Complete the [network interface settings](/docs/vmwaresolutions?topic=vmwaresolutions-getting-started#getting-started-step3).
    - Enter the hostname prefix for the instance that you are provisioning, the subdomain label, and the root domain name. For a secondary instance, the domain name is automatically completed.
    - Specify the DNS configuration, that uses a single or high-availability Windows Active Directory
 1. _Optional:_ There are multiple services available from IBM Cloud for VMware, these can be provided during provisioning or afterward. There is detailed documentation on all of these services in addition.

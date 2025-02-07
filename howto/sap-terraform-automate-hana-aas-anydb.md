@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 
 subcollection: sap
 
@@ -399,7 +399,7 @@ If you need to remove the SAP Netweaver 7.X on HANA or AnyDB installation, go to
 If the resources created with the SAP deployment automation are removed, the Activity Tracker instance is also removed, if it is provisioned at the same time with the SAP solution (when ATR_PROVISION parameter is set to `true` during the deployment of the SAP solution).
 
 ## Related information
-{: #automate-nw-asesyb-related}
+{: #automate-hana-aas-anydb-related}
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Getting started with Terraform on {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 

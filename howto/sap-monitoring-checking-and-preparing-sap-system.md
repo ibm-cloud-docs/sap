@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -21,7 +21,7 @@ Use the following information to check and prepare your SAP system for monitorin
 Gather parameter values from an SAP system.
 The values are used to replace variables in the configuration files of the monitoring instance.
 The table [SAP variables description](#mon-vars-description) describes details about the values that are assigned to the corresponding variables.
-For more information, see [Determine SAP Parameters](/docs/sap?topic=sap-mon-parameter-harvesting-troubleshooting-maintenance#mon-determing-parameters).
+For more information, see [Determine SAP Parameters](/docs/sap?topic=sap-mon-parameter-harvesting-troubleshooting-maintenance#mon-determining-parameters).
 
 SAP variables description:
 {: #mon-vars-description}
@@ -111,7 +111,7 @@ Do not use a user with administrator privileges for monitoring of the SAP HANA d
 
 Run the following commands as the SAP HANA database system administrator user to create a new user for the monitoring role.
 Use the SAP HANA command line tool hdbsql and execute the commands for all databases.
-For more information, see the section [Determine SAP Parameters](/docs/sap?topic=sap-mon-parameter-harvesting-troubleshooting-maintenance#mon-determing-parameters).
+For more information, see the section [Determine SAP Parameters](/docs/sap?topic=sap-mon-parameter-harvesting-troubleshooting-maintenance#mon-determining-parameters).
 
 ```sh
 CREATE USER <sap_hana_sql_systemdb_user> PASSWORD <sap_hana_sql_systemdb_password> \

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -313,14 +313,14 @@ The storage tier and capacity that is recommended for deployment of SAP S/4HANA 
 {: shortdesc}
 
 #### Recommendation for SAP HANA DB size 128 GB - 768 GB
-{: #sap-recommended-db-memory-sizes-1 }
+{: #sap-recommended-db-memory-sizes-1}
 
 * Use 4 volumes of Fixed 5,000 IOPS storage for storing log files. Log files are usually up to 512 GB and need the high performance
 * Use 4 volumes of Tier 0 storage for data file system
 * Use 1 volume of Tier 3 storage for shared file system.
 
 #### Recommendations for SAP HANA DB size 960 GB - 22.5 TB
-{: #sap-recommended-db-memory-sizes-2 }
+{: #sap-recommended-db-memory-sizes-2}
 
 * Use 4 volumes of Tier 0 storage for storing log files. Log files are usually up to 512 GB and need the high performance
 * Use 4 volumes of Tier 3 storage for data file system

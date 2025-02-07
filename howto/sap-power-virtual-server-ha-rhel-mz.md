@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -256,7 +256,7 @@ Fence agent *fence_ibm_powervs* is the only supported agent for a STONITH device
 You must configure a fencing device for each of the two workspaces in the multizone region.
 The fence agent connects to the [Power Cloud API](https://cloud.ibm.com/apidocs/power-cloud){: external} by using the common `APIKEY` and `CLOUD_REGION` parameters.
 The parameters `IBMCLOUD_CRN_<n>`, `GUID_<n>`, and the instance ID `POWERVSI_<n>` are specific to the workspace.
-You can test the agent invocation by using the parameters that you gathered in the [Collecting parameters for configuring a RHEL HA Add-On cluster](#ha-rhel-collect-parameters-for-cluster-config) section.
+You can test the agent invocation by using the parameters that you gathered in the [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config) section.
 
 #### Identifying the virtual server instances for fencing
 {: #ha-rhel-mz-identify-virtual-instances-for-fencing}

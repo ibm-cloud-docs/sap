@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 subcollection: sap
 content-type: tutorial
@@ -258,7 +258,7 @@ Your next step is to [download and install your SAP software and applications](#
 {: #3-tier-wins}
 {: step}
 
-A more complex scenario involves installing two virtual servers. One server is the SAP NetWeaver Application Server (*sap-wapp*) and the other server (*sap-wdb*) is the database server for SAP NetWeaver. You can reuse the server *sap-wdb* that you provisioned in the previous sections and create the application server *sap-wapp* as described in sections [Creating a Virtual Server Instance](#new-vrtual-server-wins) and [Attaching a block storage volume](#attach-block-wins) previously, except that you use the **Balanced profile** *bx2-8x32* and *20* as **Size** for data volume *sap-app-vol*.  Also, follow the steps to retrieve the *Administrator* password of the new VSI.
+A more complex scenario involves installing two virtual servers. One server is the SAP NetWeaver Application Server (*sap-wapp*) and the other server (*sap-wdb*) is the database server for SAP NetWeaver. You can reuse the server *sap-wdb* that you provisioned in the previous sections and create the application server *sap-wapp* as described in sections [Creating a Virtual Server Instance](/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-wins#new-virtual-server-wins) and [Attaching a block storage volume](#attach-block-wins) previously, except that you use the **Balanced profile** *bx2-8x32* and *20* as **Size** for data volume *sap-app-vol*.  Also, follow the steps to retrieve the *Administrator* password of the new VSI.
 
 Both VSIs have one extra attached volume and a *Floating IP*. A smaller volume is attached to *sap-wapp*, which is the SAP primary application server (PAS). *sap-wdb* has a larger volume to host the RDBMS and the SAP Central Services (ASCS) instance.
 

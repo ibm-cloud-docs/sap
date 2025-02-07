@@ -106,7 +106,7 @@ Use the following steps to download the IMCS.
    ```
    {: pre}
 
-1. Paste your [API key](#api-key) when prompted. If you don't have an API key, see [Getting an {{site.data.keyword.cloud_notm}} API key](#get-api-key).
+1. Paste your API key when prompted. If you don't have an API key, see [Getting an {{site.data.keyword.cloud_notm}} API key](/docs/sap?topic=sap-ibm-metrics-collector-for-sap-linux#metrics-linux-get-api-key).
 1. Check to make sure that the IMCS is running after the installation is complete. The service status displays `active` when it is ready.
 
    ```sh

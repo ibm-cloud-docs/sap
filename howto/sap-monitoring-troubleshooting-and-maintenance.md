@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 
@@ -239,14 +239,14 @@ sapcontrol -nr <instance_nr> -function GetSystemInstanceList
 {: pre}
 
 ### View details about each running SAP instance on the SAP systems
-{: #mon-details-each-system }
+{: #mon-details-each-system}
 
 ```sh
 sapcontrol -nr <instance_nr> -function GetProcessList
 ```
 {: pre}
 
-You can also debug the status of SAP HANA database and application service by using the commands that are in [Determine SAP Parameters](#mon-determing-parameters).
+You can also debug the status of SAP HANA database and application service by using the commands that are in [Determine SAP Parameters](/docs/sap?topic=sap-mon-parameter-harvesting-troubleshooting-maintenance#mon-determining-parameters).
 
 ## Remove monitoring for an SAP system
 {: #mon-remove-exporter}

@@ -19,7 +19,7 @@ SAP HANA now has a non-volatile in-memory option on Bare Metal servers. Intel Op
 
 ![Figure 1. SAP HANA Intel Optane PMem](../images/sap-partners-intel-optane-pmem.svg "SAP HANA Intel Optane PMem Overview"){: caption="SAP HANA Intel Optane PMem[^Figure] overview" caption-side="bottom"}
 
-[^Figure]: This diagram originally appeared in the [SAP Community blog by Andreas Schuster](https://blogs.sap.com/2018/11/29/sap-hana-persistent-memory-2/){: external}
+[^Figure]: This diagram originally appeared in the [SAP Community blog by Andreas Schuster](https://community.sap.com/t5/technology-blogs-by-sap/sap-hana-persistent-memory/ba-p/13447253){: external}
 
 Many systems with large data storage and retrieval needs use DRAM for fast data retrieval. DRAM is costly and data does not persist when the server is rebooted or shutdown. On startup, data must be reloaded from storage.
 
