@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, backup, restore, Db2, IBM Db2, HADR
 
@@ -10,6 +10,7 @@ subcollection: sap
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # Migrating SAP ERP 6 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-db-db2}
