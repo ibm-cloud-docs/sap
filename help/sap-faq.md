@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 
@@ -18,6 +18,7 @@ subcollection: sap
 This FAQ provides answers for the following:
 - [{{site.data.keyword.ibm_cloud_sap}} portfolio questions](#faq-ibm-cloud-for-sap-portfolio)
 - [Licensing and pricing](#faq-licensing-pricing)
+- [RISE with SAP Subscription Model](#faq-rise-with-sap-subscription)
 - [SAP-certified IBM {{site.data.keyword.powerSys_notm}}s](#faq-sap-certified-power-vsi)
 - [SAP HANA generic questions](#faq-sap-hana)
 - [SAP NetWeaver generic questions](#faq-sap-nw-generic)
@@ -30,25 +31,21 @@ Due to their length on specific topics, there are separate FAQs for:
 {: #faq-ibm-cloud-for-sap-portfolio}
 
 
-### Can SAP be run on any {{site.data.keyword.cloud_notm}} server?
+### Can SAP workload be run on any {{site.data.keyword.cloud_notm}} server?
 {: #faq-sap-run-on-any-server}
 
-No, SAP HANA or SAP NetWeaver can run only on the server models that are SAP-certified. Using SAP-certified servers ensures that the SAP workloads function correctly, a critical consideration since these applications run entire businesses.
+No, SAP HANA or SAP NetWeaver can run only on SAP-certified. Using SAP-certified instances on IBM {{site.data.keyword.powerSys_notm}} and IBM Cloud instances.
 
-IBM and SAP are stringent in our certification checks. These checks are key to our 40+ year partnership that helps businesses to run and succeed with their SAP Business Applications.
+For POC or evaluation purposes, a non-certified server instance can be used to evaluate IBM Cloud without incurring the higher costs of the SAP-certified servers. However, on a non-certified server, the SAP software might not work as designed and is not supported by SAP.
 
-For POC or evaluation (for example, non-productive) purposes, a non-certified server can be used to evaluate {{site.data.keyword.cloud_notm}} without incurring the higher costs of the SAP-certified servers. However, on a non-certified server, the SAP software might not work as designed and is not supported by SAP.
-
-Production SAP systems **and** development and testing (dev/test) SAP systems are both considered productive systems by SAP Support. Dev/Test SAP systems are considered productive because they also require support from SAP if errors occur.
+Production SAP systems **and** development and testing(dev/test) SAP systems are both considered productive systems by SAP Support [SAP Note 2271345](https://me.sap.com/notes/2271345){: external}.
 {: note}
 
 
 ### Can I download the SAP software installation media and distributions directly from {{site.data.keyword.cloud_notm}}?
 {: #faq-download-sap-installation-media}
 
-All SAP software installation media is available from SAP directly, at [sap.com](https://support.sap.com/en/my-support/software-downloads.html){: external}. The single distribution point ensures the governance of licensing, compliance, and export control.
-
-Each customer needs to generate an SAP Software Download Center basket (optionally created through SAP Maintenance Planner) and download the software to their target server.
+All SAP software installation media is available from SAP directly, at [sap.com](https://support.sap.com/en/my-support/software-downloads.html){: external}.
 
 SAP ID credentials are required to download SAP software installation media.
 {: note}
@@ -57,11 +54,11 @@ SAP ID credentials are required to download SAP software installation media.
 ### Who is responsible for deployment of SAP software on {{site.data.keyword.cloud_notm}}?
 {: #faq-who-responsible-for-deployment}
 
-The {{site.data.keyword.ibm_cloud_sap}} portfolio is primarily Infrastructure-as-a-Service which is certified for SAP workloads. All IaaS is considered "customer-managed" by Cloud Service Providers. All changes to the OS and any applications that are deployed are the customer's responsibility (or the responsibility of a contracted Business Partner).
+IBM Cloud offers two deployment models for running your SAP workload: RISE with SAP on {{site.data.keyword.powerSys_notm}} – A Software as a Service from SAP, and SAP as an Infrastructure as a Service on IBM Cloud.
+
+IBM Cloud’s IaaS is considered "customer-managed" by Cloud Service Providers. All changes to the OS and any applications that are deployed are the customer's responsibility (or the responsibility of a contracted Business Partner).
 
 The customer (or contracted Business Partner) is responsible for the installation and configuration of SAP software on {{site.data.keyword.cloud_notm}}, which must follow SAP's guidance for the business scenario and usage.
-
-While {{site.data.keyword.cloud_notm}} does not provide SAP application-level services, the various {{site.data.keyword.cloud_notm}} Business Partners (including {{site.data.keyword.IBM_notm}} Services) do provide their service capabilities by using {{site.data.keyword.ibm_cloud_sap}} portfolio.
 
 This table shows a brief list of services and the Business Partner types who can provide the services for {{site.data.keyword.ibm_cloud_sap}}:
 
@@ -74,7 +71,7 @@ This table shows a brief list of services and the Business Partner types who can
 
 For example, some of the services that are available in partnership between {{site.data.keyword.cloud_notm}} and IBM Services include:
 - [GSI and IBM Services: SAP Consulting & Implementation Services](https://www.ibm.com/consulting/sap){: external}
-- AMS and IBM Services: SAP Application Management and Development Solutions
+- [AMS and IBM Services: SAP Application Management and Development Solutions](https://www.ibm.com/blogs/services/2019/05/08/unlocking-the-value-of-sap-applications-in-the-digital-cloud/){: external}
 - [MSP and IBM Services: Managed Applications for SAP](https://www.ibm.com/cloud/sap){: external}
 
 
@@ -86,10 +83,6 @@ Multiple SAP AnyDB options and SAP HANA are available for use with SAP NetWeaver
 Check [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external} regularly and also reference the [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external} for details.
 
 For more information about IBM Db2, see [SAP Note 2927211](https://me.sap.com/notes/2927211){: external} and **SAP on IBM Db2 for Linux&reg;, UNIX, and Windows (LUW)** on the [SAP Community page](https://pages.community.sap.com/topics/db2-for-linux-unix-windows){: external}.
-
-Pay close attention to the provided operating systems in the SAP Note because different sets of service packs are required by your database.
-{: note}
-
 
 ### Why was {{site.data.keyword.Db2_on_Cloud_short}} chosen for certification for {{site.data.keyword.cloud_notm}}?
 {: #faq-why-db2-for-certification}
@@ -113,30 +106,28 @@ RDBMs on Intel Bare Metal Servers in the older {{site.data.keyword.cloud_notm}} 
 {: #faq-achieve-sap-ha}
 
 High availability for SAP can be achieved for:
-- SAP NetWeaver High Availability
-- SAP HANA High Availability
+- SAP NetWeaver High Availability - [SAP NetWeaver design considerations for High Availability configuration](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha)
+- SAP HANA High Availability - [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview) and [SAP Note 2057595](https://me.sap.com/notes/2057595){: external}
+
 - SAP AnyDB High Availability (for example, IBM Db2, MS SQL etc.)
+   - [Db2](https://me.sap.com/notes/1612105/){: external}
+   - MaxDB
+   - [Oracle](https://me.sap.com/notes/527843/){: external}
+   - SQL Server
 
 You can set up high availability at either the:
 - SAP Technical Application layer (for example, system replication, system clustering)
 - Hardware layer (for example, storage replication)
 
-How you set up high availability differs depending on the infrastructure types and network types:
-- For Intel Bare Metal that uses Classic Infrastructure network
-- For Intel Virtual Servers that use VPC Infrastructure network _(does not currently support SAP NetWeaver high availability or SAP HANA high availability)_
-- For IBM {{site.data.keyword.powerSys_notm}}s, on {{site.data.keyword.cloud_notm}} that use IBM {{site.data.keyword.powerSys_notm}} Group network
-- For VMware that uses Classic Infrastructure network
-
 See the respective topics in the **_Get Started_** section for:
 * [SAP HANA design considerations for High Availability and Disaster Recovery (HA/DR)](/docs/sap?topic=sap-hana-design-considerations#hana-ha)
 * [SAP HANA backups - Storage impacts on Recovery Time Objective (RTO)](/docs/sap?topic=sap-storage-design-considerations#storage-performance-backup-rto)
-* [SAP NetWeaver design considerations for High Availability configuration](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha)
 
 
 ### How do I connect my SAP Systems running on {{site.data.keyword.cloud_notm}} to my on-premises systems?
 {: #faq-connect-sap-to-on-premises}
 
-You have several connectivity options to create secure connections between your on-premises systems and the {{site.data.keyword.cloud_notm}}. These options are your responsibility to configure, and {{site.data.keyword.cloud_notm}} operates the underlying services according to the configuration. For more information see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access).
+You have several connectivity options to create secure connections between your on-premises systems and the {{site.data.keyword.cloud_notm}}. For detailed information see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access).
 
 
 ## Licensing and pricing
@@ -147,8 +138,6 @@ You have several connectivity options to create secure connections between your 
 {: #faq-sap-licensing-for-sap-iaas}
 
 The {{site.data.keyword.cloud}} SAP-certified infrastructure uses the Bring Your Own License (BYOL) model. This model follows the industry standard of IaaS for SAP workloads and is the same approach that is used for many decades with SAP software.
-
-No {{site.data.keyword.ibm_cloud_sap}} portfolio offering contains any SAP licensing.
 
 This arrangement applies to:
 - SAP Business Application licenses (for example, SAP S/4HANA, SAP ECC)
@@ -172,14 +161,17 @@ For SAP-certified bare metal servers that are certified as HANA appliances, pric
 As an industry practice across Cloud Service Providers, virtual servers from {{site.data.keyword.ibm_cloud_sap}} use redundant network block or file storage. These storage costs might not be included in the initial price estimation. In addition, there are **no network bandwidth charges** for local network traffic to or from the virtual server host and the storage host on {{site.data.keyword.cloud_notm}}.
 {: note}
 
+## RISE with SAP Subscription Model
+{: #faq-rise-with-sap-subscription}
+
+Other than SAP software Bring Your own license model (BYOL) described above, RISE for SAP is a Software as a Service offering on IBM {{site.data.keyword.powerSys_notm}}. SAP software is offered by SAP and offered to the customers as Software as a Service.
+
+* [RISE with SAP on IBM {{site.data.keyword.powerSys_notm}}](https://www.ibm.com/cloud/rise-with-sap){: external} – As a new Hyperscaler offering, RISE with SAP is offered as a Software as a Service offering by SAP on a subscription bases running on IBM {{site.data.keyword.powerSys_notm}}. IBM Consulting and/or GSI Partners offering advisory, implementation, and migration services in a RISE for SAP construct.
+
+* [BREAKTHROUGH with IBM for RISE with SAP](https://www.ibm.com/consulting/rise-with-sap){: external} – A single partner offering through IBM, offering SAP RISE on IBM Cloud with IBM consulting providing advisory, implementation, and migration services in a RISE for SAP construct.
+
 ## SAP-certified IBM {{site.data.keyword.powerSys_notm}}s
 {: #faq-sap-certified-power-vsi}
-
-### Which version of Db2 can I use to run SAP NetWeaver on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s?
-{: #faq-which-db2-version-on-power}
-
-For information check [SAP Note 2855850](https://me.sap.com/notes/2855850){: external} regularly. You can also reference [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}.
-
 
 ### What are the operating system requirements for Db2, AIX and SAP NetWeaver?
 {: #faq-os-requirements-for-db2-and-netweaver}
@@ -247,8 +239,8 @@ Yes. For OLTP (i.e. SAP S/4HANA) see [SAP S/4HANA - Scale-up/Scale-out](/docs/sa
 
 Server backup isn't included with Cloud Infrastructure-as-a-Service (IaaS).
 
-You can add backup options during the ordering process from the {{site.data.keyword.cloud_notm}} catalog, or install your own backup solution onto regular {{site.data.keyword.cloud_notm}} IaaS options.
-
+* You can order Cobalt Iron backup option during the ordering process. For more details, see - [Backup for AIX and Linux instances](/docs/power-iaas?topic=power-iaas-backup-strategies#baas)
+* You can use the IBM backint agent for SAP HANA to backup data to IBM Cloud Object Storage.
 
 ### Is there a best practice configuration check for SAP HANA?
 {: #faq-sap-hana-best-practices}
