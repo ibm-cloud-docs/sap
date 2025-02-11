@@ -71,7 +71,7 @@ This table shows a brief list of services and the Business Partner types who can
 
 For example, some of the services that are available in partnership between {{site.data.keyword.cloud_notm}} and IBM Services include:
 - [GSI and IBM Services: SAP Consulting & Implementation Services](https://www.ibm.com/consulting/sap){: external}
-- [AMS and IBM Services: SAP Application Management and Development Solutions](https://www.ibm.com/blogs/services/2019/05/08/unlocking-the-value-of-sap-applications-in-the-digital-cloud/){: external}
+- [AMS and IBM Services: SAP Application Management and Development Solutions](https://www.ibm.com/new/announcements){: external}
 - [MSP and IBM Services: Managed Applications for SAP](https://www.ibm.com/cloud/sap){: external}
 
 
