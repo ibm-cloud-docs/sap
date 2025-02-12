@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-12"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 
@@ -9,6 +9,7 @@ subcollection: sap
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # Configuring an Active-Passive NFS Server in a Red Hat High Availability Cluster
 {: #ha-rhel-nfs}

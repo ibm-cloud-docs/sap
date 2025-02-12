@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-12"
 
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
@@ -10,6 +10,7 @@ subcollection: sap
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # Configuring High Availability for SAP S/4HANA (ASCS and ERS) in a RHEL HA Add-On Cluster in a Multizone Region Environment
 {: #ha-rhel-ensa-mz}
