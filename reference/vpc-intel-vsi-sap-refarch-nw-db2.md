@@ -1,14 +1,13 @@
 ---
-
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-13"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Db2
 subcollection: sap
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # SAP NetWeaver 7.x on UNIX with Db2 on {{site.data.keyword.cloud}} VPC
 {: #sap-refarch-nw-db2}

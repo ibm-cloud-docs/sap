@@ -342,7 +342,6 @@ For SAP main password:
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-schematics-interface}
 {: ui}
 
-
 Use these steps to configure the SAP NetWeaver(ABAP) 7.5 on ASE SYBASE High Availability on Single Zone or Multi Zone on your existing VPC by using the Schematics interface. The scripts can take 2 - 3 hours to complete. See the [readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file for recommended kits versions.
 
 1.	From the {{site.data.keyword.cloud_notm}} menu, select **{{site.data.keyword.bpshort}}**.

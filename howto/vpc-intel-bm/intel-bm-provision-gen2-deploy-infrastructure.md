@@ -1,24 +1,13 @@
 ---
-
 copyright:
   years: 2022, 2025
 lastupdated: "2025-02-13"
-
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
-
 subcollection: sap
-
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
+
 
 # Deploying your Infrastructure
 {: #bm-vpc-set-up-infrastructure}

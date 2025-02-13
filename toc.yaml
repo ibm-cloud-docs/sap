@@ -262,11 +262,11 @@ toc:
           - topicgroup:
               label: Infrastructure Reference Architectures for SAP
               topics:
-                - reference/sap-refarch-hana-scaleout.md
-                - reference/sap-refarch-nw-sybase.md
-                - reference/sap-refarch-nw-db2.md
-                - reference/sap-refarch-nw-mssql.md
-                - reference/sap-refarch-nw-hana.md
+                - reference/intel-sap-refarch-hana-scaleout.md
+                - reference/vpc-intel-vsi-sap-refarch-nw-sybase.md
+                - reference/vpc-intel-vsi-sap-refarch-nw-db2.md
+                - reference/vpc-intel-vsi-sap-refarch-nw-mssql.md
+                - reference/vpc-intel-vsi-sap-refarch-nw-hana.md
     - navgroup:
         id: help
         topics:
