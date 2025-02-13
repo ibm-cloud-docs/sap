@@ -2,7 +2,7 @@
 copyright:
   years: 2024, 2025
 lastupdated: "2025-02-13"
-keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
+keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Redhat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 subcollection: sap
 ---
 
