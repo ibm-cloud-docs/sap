@@ -1,15 +1,15 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-02-06"
+  years: 2020
+lastupdated: "2020-06-07"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 subcollection: sap
 content-type: tutorial
 completion-time: 90m
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using RHEL
 {: #quickstudy-bm-netweaver-rhel}
@@ -242,7 +242,7 @@ Use the following commands to create the required directories for installing the
 
 If you are planning to install a three-tier setup, the network needs to be set up correctly. In the example, a 192 GB database server (named "sdb192") and a 32 GB application server (named "e2e1270") are deployed. The database server also hosts the (A)SCS instance. Adding the IP addresses on the private network to your `/etc/hosts` helps with the upcoming steps and ensures that SAP internal network traffic goes through the right network.
 
-![Figure 1. Sample of three-tier setup](../images/quickstudy-network_2019-07-23.png "Sample of three-tier setup"){: caption="Sample of three-tier setup" caption-side="bottom"}
+![Figure 1. Sample of three-tier setup](../../images/classic-bm-quickstudy-network_2019-07-23.png "Sample of three-tier setup"){: caption="Sample of three-tier setup" caption-side="bottom"}
 
 Use the following steps to establish your network.
 

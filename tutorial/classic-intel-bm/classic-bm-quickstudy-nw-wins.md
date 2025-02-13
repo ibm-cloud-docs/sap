@@ -1,15 +1,15 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-02-06"
+  years: 2020
+lastupdated: "2020-06-07"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 subcollection: sap
 content-type: tutorial
 completion-time: 90m
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, when you are using Windows Server
 {: #quickstudy-bm-netweaver-wins}
@@ -227,7 +227,7 @@ The server does not require any further installation steps for storage.
 
 If you are installing a three-tier setup, you need to prepare the network setup. For the sample setup, a 192 GB database server (named "sdb192") and a 32 GB application server (named "e2e1270") are deployed. The database server also hosts the ABAP SAP Central Services (ASCS) instance. Adding the IPs on the private network to your hosts file helps with the upcoming steps and ensures that SAP internal network traffic goes through the right network.
 
-![Figure 1. Sample of three-tier setup](../images/quickstudy-network_2019-07-23.png "Sample of three-tier setup"){: caption="Sample of three-tier setup" caption-side="bottom"}
+![Figure 1. Sample of three-tier setup](../../images/classic-bm-quickstudy-network_2019-07-23.png "Sample of three-tier setup"){: caption="Sample of three-tier setup" caption-side="bottom"}
 
 The network setup of the deployed servers that are outlined in Figure 1 is found under Network Connections in Microsoft Windows. In the sample setup, `10.17.139.35` is the private IP of the database server that is found under Network Connections - Private Network-Teamed, and is one of the IP ranges from RFC 1597. You can determine the IP of the application server, too, and add both IPs to both servers' `host files` under `C:\Windows\System32\drivers\etc`.
 

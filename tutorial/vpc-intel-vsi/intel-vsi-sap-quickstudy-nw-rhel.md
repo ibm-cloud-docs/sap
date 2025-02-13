@@ -1,15 +1,15 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-02-06"
+  years: 2020
+lastupdated: "2020-06-07"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Quick Study Tutorial
 subcollection: sap
 content-type: tutorial
 completion-time: 90m
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure that uses RHEL
 {: #quickstudy-vs-gen2-netweaver-rhel}
@@ -26,7 +26,7 @@ The following information provides an introduction for customers who are new to 
 
 The first configuration sample is simple, a single node 128 GB, 32 vCPU server. The second is an advanced configuration of two nodes by adding a second virtual server to the landscape. The sample layouts might not be your preferred layout. The purpose of this guidance is to show you two possibilities if you are not experienced with the Linux&reg; operating system or with VPC Gen 2.
 
-![Figure 1. {{site.data.keyword.cloud_notm}} VPC](../images/quickstudy-intel-vs-gen2-image1.png "{{site.data.keyword.cloud_notm}} VPC Gen 2"){: caption="{{site.data.keyword.cloud_notm}} VPC" caption-side="bottom"}
+![Figure 1. {{site.data.keyword.cloud_notm}} VPC](../../images/vpc-intel-vsi-quickstudy-1.png "{{site.data.keyword.cloud_notm}} VPC Gen 2"){: caption="{{site.data.keyword.cloud_notm}} VPC" caption-side="bottom"}
 
 
 ## Securing Access
@@ -49,7 +49,7 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
 1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs** and click **New virtual private cloud** > **Create VPC for Gen 2**.
 
-![Figure 2. Creating a VPC](../images/quickstudy-intel-vs-gen2-image6.png "Creating a VPC"){: caption="Creating a VPC" caption-side="bottom"}
+![Figure 2. Creating a VPC](../../images/vpc-intel-vsi-quickstudy-6.png "Creating a VPC"){: caption="Creating a VPC" caption-side="bottom"}
 
 1. Enter a unique **Name** for the VPC, for example, *sap-test-inst*.
 1. Keep the default **Resource group**. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). For this example, you can use the default value.
@@ -109,14 +109,14 @@ Use the following steps to create a virtual server instance.
 1. The **Location** in which you created your subnets is already selected. The location consists of a region and a zone.
 1. Select **Catalog image** > **`ibm-redhat-7-6-amd64-sap-applications-1`** as the OS image.
 
-![Figure 3. Catalog image for SAP NetWeaver](../images/quickstudy-intel-vs-gen2-image8.png "Catalog image for SAP NetWeaver"){: caption="Catalog image for SAP NetWeaver" caption-side="bottom"}
+![Figure 3. Catalog image for SAP NetWeaver](../../images/vpc-intel-vsi-quickstudy-8.png "Catalog image for SAP NetWeaver"){: caption="Catalog image for SAP NetWeaver" caption-side="bottom"}
 
     For every SUSE Linux&reg; Enterprise and Red Hat&reg; Enterprise Linux&reg; version there are two different Catalog Images available each: one for SAP HANA and one for SAP NetWeaver (Applications). In these images, the specific repositories are enabled, so you can install the OS packages that are required to install SAP HANA or SAP NetWeaver.
     {: note}
 
 1. Click **All profiles** > **Balanced** and select *bx2-32x128*. For more information about SAP-certified profiles, see [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
 
-![Figure 4. Balanced Profiles for SAP NetWeaver](../images/quickstudy-intel-vs-gen2-image9.png "Balanced Profiles for SAP NetWeaver"){: caption="Balanced profiles for SAP NetWeaver" caption-side="bottom"}
+![Figure 4. Balanced Profiles for SAP NetWeaver](../../images/vpc-intel-vsi-quickstudy-9.png "Balanced Profiles for SAP NetWeaver"){: caption="Balanced profiles for SAP NetWeaver" caption-side="bottom"}
 
 ### Setting an SSH key
 {: #ssh-key}
@@ -148,7 +148,7 @@ To have file system space available beyond what is required by the operating sys
 1. Enter *10000* for **IOPS**. **Throughput** defaults to *156.25 MiBps*.
 1. Keep the **Encryption** and **Auto Delete** defaults.
 
-![Figure 5. Attaching a block storage volume](../images/quickstudy-intel-vs-gen2-image10.png "Attaching a block storage volume"){: caption="Attaching a block storage volume" caption-side="bottom"}
+![Figure 5. Attaching a block storage volume](../../images/vpc-intel-vsi-quickstudy-10.png "Attaching a block storage volume"){: caption="Attaching a block storage volume" caption-side="bottom"}
 
 1. Click **Attach**.
 1. Keep the **Network interfaces** default.
@@ -160,7 +160,7 @@ To have file system space available beyond what is required by the operating sys
 
 {{site.data.keyword.virtualmachineslong}} are accessed through IPsec connections into your VPC. Configuring IPsec-based access to virtual server instances is beyond the scope of this guidance. For simplicity, and to quickly access the deployed instance, you can assign a *Floating IP* to your virtual server instance. This IP is assigned to a gateway that forwards ports and protocols according to the defined security groups.
 
-![Figure 6. Floating IP](../images/quickstudy-intel-vs-gen2-image12.png "Floating IP"){: caption="Floating IP" caption-side="bottom"}
+![Figure 6. Floating IP](../../images/vpc-intel-vsi-quickstudy-12.png "Floating IP"){: caption="Floating IP" caption-side="bottom"}
 
 By assigning the IP, you can directly `ssh` into your virtual server instance - in our example, the command is
 ```sh
@@ -192,7 +192,7 @@ To prevent the {{site.data.keyword.cloud_notm}} `cloudinit` process from reverti
 
 Finally, you need to adapt your storage by creating a file system on the attached storage volume. You can identify the newly attached volume by its size by entering `/sbin/fdisk -l` and checking the sizes. To safely identify it, find the device ID by clicking **Device** on the Virtual server instances for VPC page.
 
-![Figure 7. Data volumes](../images/quickstudy-intel-vs-gen2-image13.png "Data volumes"){: caption="Data volumes" caption-side="bottom"}
+![Figure 7. Data volumes](../../images/vpc-intel-vsi-quickstudy-13.png "Data volumes"){: caption="Data volumes" caption-side="bottom"}
 
 1. On the Overview page, check the first 20 digits in **Device**, and find the same ID under `/dev/disk/by-id`. Our example device is `07a7-184b...`.
     ```sh
@@ -256,13 +256,13 @@ You're now ready to install the SAP product of your choice. Your next step is to
 
 A more complex scenario involves installing two virtual servers. One server is the SAP NetWeaver Application Server (`sap-app-vsi`) and the other server is the database server for SAP NetWeaver. Given that we have two virtual servers of the same layout, per the example, Figures 8 and 9 are an overview of the virtual servers.
 
-![Figure 8. Virtual server instances](../images/quickstudy-intel-vs-gen2-image14.png "Virtual server instances"){: caption="Virtual server instances" caption-side="bottom"}
+![Figure 8. Virtual server instances](../../images/vpc-intel-vsi-quickstudy-14.png "Virtual server instances"){: caption="Virtual server instances" caption-side="bottom"}
 
-![Figure 9. Block storage volumes for VPC](../images/quickstudy-intel-vs-gen2-image15.png "Block storage volumes for VPC"){: caption="Block storage volumes for VPC" caption-side="bottom"}
+![Figure 9. Block storage volumes for VPC](../../images/vpc-intel-vsi-quickstudy-15.png "Block storage volumes for VPC"){: caption="Block storage volumes for VPC" caption-side="bottom"}
 
 Both virtual servers have one extra attached volume and a *Floating IP*. A smaller volume is attached to `sap-app-vsi`, which is the application server. `sap-app2-vsi` has a slightly larger volume to host the RDBMS and the SAP Central Services (ASCS) instance. A second volume is needed on `sap-app2-vsi` to host the SAP NetWeaver stack. Create another volume from the Block storage volumes for VPC page and name it `sap-app2-vol2`. Attach `sap-app2-vol2` to our virtual server by selecting its details screen.
 
-![Figure 10. Block storage volumes for VPC](../images/quickstudy-intel-vs-gen2-image16.png "Block storage volumes for VPC"){: caption="Block storage volumes for VPC" caption-side="bottom"}
+![Figure 10. Block storage volumes for VPC](../../images/vpc-intel-vsi-quickstudy-16.png "Block storage volumes for VPC"){: caption="Block storage volumes for VPC" caption-side="bottom"}
 
 ## Preparing your network
 {: #prepare-network-3-tier}
@@ -274,15 +274,15 @@ Use Figure 11 as your guide to create a new subnet named `sap-test-net2`.
 
 Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **Subnets** and click **New subnet**.
 
-![Figure 11. Create a subnet](../images/quickstudy-intel-vs-gen2-image2.png "Create a subnet"){: caption="Create a subnet" caption-side="bottom"}
+![Figure 11. Create a subnet](../../images/vpc-intel-vsi-quickstudy-2.png "Create a subnet"){: caption="Create a subnet" caption-side="bottom"}
 
 After the new subnet is created, it is displayed on the Subnets for VPC page.
 
-![Figure 12. Subnets for VPC page](../images/quickstudy-intel-vs-gen2-image3.png "Subnets for VPC page"){: caption="Subnets for VPC page" caption-side="bottom"}
+![Figure 12. Subnets for VPC page](../../images/vpc-intel-vsi-quickstudy-3.png "Subnets for VPC page"){: caption="Subnets for VPC page" caption-side="bottom"}
 
 The two virtual servers need to connect to the new network. Go back to the virtual server overview and click **New interface**.
 
-![Figure 13. Data volumes](../images/quickstudy-intel-vs-gen2-image4.png "Data volumes"){: caption="Data volumes" caption-side="bottom"}
+![Figure 13. Data volumes](../../images/vpc-intel-vsi-quickstudy-4.png "Data volumes"){: caption="Data volumes" caption-side="bottom"}
 
 Maintain your `/etc/hosts` files according to the targeted setup. The following example is for `sap-app2-vsi`.
 
@@ -495,7 +495,7 @@ Depending on your network bandwidth and latency, you might need to run the SAP S
 
 -L option for local tunnels and connecting your browser to that localhost port, instead of the remote IP. Remember to add the ports that are required by your SAP application (example: ports 3200-3299, depending on your SAP NetWeaver instance number) to the security group. For more information about ports, see [SAP ports](https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16/616a3c0b1cc748238de9c0341b15c63c.html){: external} for details.
 
-![Figure 14. All security groups for VPC](../images/quickstudy-intel-vs-gen2-image5.png "All security groups for VPC"){: caption="All security groups for VPC" caption-side="bottom"}
+![Figure 14. All security groups for VPC](../../images/vpc-intel-vsi-quickstudy-5.png "All security groups for VPC"){: caption="All security groups for VPC" caption-side="bottom"}
 
 ### Installing SAP software
 {: #install-sap-software}

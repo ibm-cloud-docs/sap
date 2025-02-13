@@ -102,10 +102,10 @@ toc:
           - topicgroup:
               label: Quick Study Deployment of SAP
               topics:
-                - tutorial/sap-quickstudy-nw-bm-rhel.md
-                - tutorial/sap-quickstudy-nw-bm-wins.md
-                - tutorial/sap-quickstudy-nw-vs-gen2-rhel.md
-                - tutorial/sap-quickstudy-nw-vs-gen2-wins.md
+                - tutorial/classic-intel-bm/classic-bm-quickstudy-nw-rhel.md
+                - tutorial/classic-intel-bm/classic-bm-quickstudy-nw-wins.md
+                - tutorial/vpc-intel-vsi/intel-vsi-sap-quickstudy-nw-rhel.md
+                - tutorial/vpc-intel-vsi/intel-vsi-sap-quickstudy-nw-wins.md
     - navgroup:
         id: howto
         topics:
