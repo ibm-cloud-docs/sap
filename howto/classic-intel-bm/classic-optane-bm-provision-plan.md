@@ -1,24 +1,13 @@
 ---
-
 copyright:
   years: 2020
 lastupdated: "2021-05-05"
-
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
-
 subcollection: sap
-
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
+
 
 # Planning your deployment
 {: #bm-optane-planning-items}

@@ -118,23 +118,23 @@ toc:
           - topicgroup:
               label: Provisioning Intel Bare Metal for SAP HANA and SAP NetWeaver
               topics:
-                - howto/sap-provision-intel-bare-metal-plan-deploy.md
-                - howto/sap-provision-intel-bare-metal-deploy-infrastructure.md
+                - howto/classic-intel-bm/classic-intel-bm-provision-plan.md
+                - howto/classic-intel-bm/classic-intel-bm-provision-deploy.md
           - topicgroup:
               label: Provisioning Intel Bare Metal with Intel Optane DC PMEM for SAP HANA and SAP NetWeaver
               topics:
-                - howto/sap-provision-intel-bare-metal-optane-plan-deploy.md
-                - howto/sap-provision-intel-bare-metal-optane-deploy-infrastructure.md
+                - howto/classic-intel-bm/classic-optane-bm-provision-plan.md
+                - howto/classic-intel-bm/classic-optane-bm-provision-deploy.md
           - topicgroup:
               label: Provisioning Intel Bare Metal with Virtual Server (Gen2) for SAP HANA and SAP NetWeaver
               topics:
-                - howto/sap-provision-intel-bare-metal-vpc-gen2-plan-deploy.md
-                - howto/sap-provision-intel-bare-metal-vpc-gen2-deploy-infrastructure.md
+                - howto/vpc-intel-bm/intel-bm-provision-gen2-plan-deploy.md
+                - howto/vpc-intel-bm/intel-bm-provision-gen2-deploy-infrastructure.md
           - topicgroup:
               label: Provisioning Intel Virtual Server (Gen2) for SAP HANA and SAP NetWeaver
               topics:
-                - howto/sap-provision-intel-virtual-server-gen2-plan-deploy.md
-                - howto/sap-provision-intel-virtual-server-gen2-deploy-infrastructure.md
+                - howto/vpc-intel-vsi/intel-vsi-provision-gen2-plan-deploy.md
+                - howto/vpc-intel-vsi/intel-vsi-provision-gen2-deploy-infrastructure.md
                 - howto/sap-ibm-metrics-collector-linux.md
                 - howto/sap-ibm-metrics-collector-windows.md
           - topicgroup:

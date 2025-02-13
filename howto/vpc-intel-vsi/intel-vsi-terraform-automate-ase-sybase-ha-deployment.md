@@ -348,7 +348,6 @@ Use these steps to configure the SAP NetWeaver(ABAP) 7.5 on ASE SYBASE High Avai
 1.	From the {{site.data.keyword.cloud_notm}} menu, select **{{site.data.keyword.bpshort}}**.
 2.	Click **Create workspace**.
 3.	On the **Specify template** page:
-
     *   Enter the [GitHub repository URL](https://github.com/IBM-Cloud/sap-nwase-ha){: external} that contains the {{site.data.keyword.bpshort}} code for this offering.
     *   Select the **Terraform version**.
     *   Click **Next**.

@@ -1,15 +1,13 @@
 ---
-
 copyright:
-  years: 2020, 2025
+  years: 2020
 lastupdated: "2020-12-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, SAP HANA, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS
-
 subcollection: sap
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # Using {{site.data.keyword.IBM_notm}} Metrics Collector for SAP (IMCS) on Linux
 {: #ibm-metrics-collector-for-sap-linux}

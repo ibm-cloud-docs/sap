@@ -1,16 +1,13 @@
 ---
-
 copyright:
   years: 2020
 lastupdated: "2020-09-21"
-
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
-
 subcollection: sap
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # Setting up your {{site.data.keyword.cloud_notm}} account structure
 {: #account-structure}
