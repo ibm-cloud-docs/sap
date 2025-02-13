@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-13"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 
@@ -70,7 +70,7 @@ An SAP HANA system can be configured as either:
 
 A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components:
 
-![Figure 2. Standard installation](../images/refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
+![Figure 2. Standard installation](../images/vpc-intel-vsi-refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
 
 #### Architecture of SAP NetWeaver Application Server ABAP
 {: #sap-refarch-nw-hana-abap}
