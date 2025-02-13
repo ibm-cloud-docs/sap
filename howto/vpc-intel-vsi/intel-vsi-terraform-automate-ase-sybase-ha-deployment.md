@@ -342,12 +342,14 @@ For SAP main password:
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-schematics-interface}
 {: ui}
 
-Use these steps to configure the SAP NetWeaver(ABAP) 7.5 on ASE SYBASE High Availability on Single Zone or Multi Zone on your existing VPC by using the Schematics interface. The scripts can take 2 - 3 hours to complete. See the [readme](https://github.com/IBM-Cloud/sap-nwhana-ha/blob/main/README.md) file for recommended kits versions.
+
+Use these steps to configure the SAP NetWeaver(ABAP) 7.5 on ASE SYBASE High Availability on Single Zone or Multi Zone on your existing VPC by using the Schematics interface. The scripts can take 2 - 3 hours to complete. See the [readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file for recommended kits versions.
 
 1.	From the {{site.data.keyword.cloud_notm}} menu, select **{{site.data.keyword.bpshort}}**.
 2.	Click **Create workspace**.
 3.	On the **Specify template** page:
-    *   Enter the [GitHub repository URL](https://github.com/IBM-Cloud/sap-nwhana-ha){: external} that contains the {{site.data.keyword.bpshort}} code for this offering.
+
+    *   Enter the [GitHub repository URL](https://github.com/IBM-Cloud/sap-nwase-ha){: external} that contains the {{site.data.keyword.bpshort}} code for this offering.
     *   Select the **Terraform version**.
     *   Click **Next**.
 4.	On the **Workspace details** page:
