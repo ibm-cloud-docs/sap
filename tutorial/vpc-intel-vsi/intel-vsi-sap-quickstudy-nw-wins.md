@@ -335,7 +335,7 @@ SWPM is the component that guides you through the steps to successfully prepare 
 
 Follow the instructions in the [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2){: external}.
 
-![Figure 2. SAP Application instances](../images/vpc-intel-vsi-quickstudy-intel-vs-gen2-win-SingleHostSAPDb2.png "SAP Application instances"){: caption="SAP Application instances" caption-side="bottom"}
+![Figure 2. SAP Application instances](../../images/vpc-intel-vsi-quickstudy-intel-vs-gen2-win-SingleHostSAPDb2.png "SAP Application instances"){: caption="SAP Application instances" caption-side="bottom"}
 
 Figure 2 illustrates the basic SAP instances that will be installed to deploy the SAP NetWeaver ABAP application server onto one host. If you now want to complete the single server instance - i.e. just using VSI `sap-wdb`, you need to launch `sapinst` only one time on that server. In this case, you will first install the ABAP Central Services Instance (ASCS), then the Database Instance DB and finally the Primary Application Server (PAS).
 
