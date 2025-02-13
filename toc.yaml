@@ -140,10 +140,10 @@ toc:
           - topicgroup:
               label: Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver
               topics:
-                - howto/sap-provision-power-virtual-server-plan-deploy.md
-                - howto/sap-provision-power-virtual-server-deploy-vpc-infrastructure.md
-                - howto/sap-provision-power-virtual-server-deploy-power-infrastructure.md
-                - howto/sap-provision-power-virtual-server-deploy-power-instances.md
+                - howto/powervs/powervs-provision-plan-deploy.md
+                - howto/powervs/powervs-provision-deploy-vpc-infrastructure.md
+                - howto/powervs/powervs-provision-deploy-power-infrastructure.md
+                - howto/powervs/powervs-provision-deploy-power-instances.md
           - topicgroup:
               label: Provisioning VMware SDDC for SAP HANA and SAP NetWeaver for SAP HANA and SAP NetWeaver
               topics:
@@ -225,37 +225,37 @@ toc:
           - topicgroup:
               label: High Availability Scenarios on Power Virtual Server
               topics:
-                - howto/sap-power-virtual-server-ha-overview.md
-                - howto/sap-power-virtual-server-ha-rhel-refs.md
-                - howto/sap-power-virtual-server-ha-vsi.md
-                - howto/sap-power-virtual-server-ha-rhel.md
-                - howto/sap-power-virtual-server-ha-rhel-mz.md
-                - howto/sap-power-virtual-server-ha-rhel-hana-sr.md
-                - howto/sap-power-virtual-server-ha-rhel-hana-sr-co.md
-                - howto/sap-power-virtual-server-ha-rhel-hana-sr-aa.md
-                - howto/sap-power-virtual-server-ha-rhel-hana-sr-multitier.md
-                - howto/sap-power-virtual-server-ha-rhel-hana-sr-multitarget.md
-                - howto/sap-power-virtual-server-ha-rhel-ensa.md
-                - howto/sap-power-virtual-server-ha-rhel-ensa-mz.md
-                - howto/sap-power-virtual-server-ha-rhel-nfs.md
+                - howto/powervs/powervs-ha-overview.md
+                - howto/powervs/powervs-ha-rhel-refs.md
+                - howto/powervs/powervs-ha-vsi.md
+                - howto/powervs/powervs-ha-rhel.md
+                - howto/powervs/powervs-ha-rhel-mz.md
+                - howto/powervs/powervs-ha-rhel-hana-sr.md
+                - howto/powervs/powervs-ha-rhel-hana-sr-co.md
+                - howto/powervs/powervs-ha-rhel-hana-sr-aa.md
+                - howto/powervs/powervs-ha-rhel-hana-sr-multitier.md
+                - howto/powervs/powervs-ha-rhel-hana-sr-multitarget.md
+                - howto/powervs/powervs-ha-rhel-ensa.md
+                - howto/powervs/powervs-ha-rhel-ensa-mz.md
+                - howto/powervs/powervs-ha-rhel-nfs.md
           - topicgroup:
               label: SAP Migration from on-premises to PowerVS
               topics:
-                - howto/sap-power-virtual-server-mig-overview.md
-                - howto/sap-power-virtual-server-mig-hybrid-cloud-networking.md
-                - howto/sap-power-virtual-server-mig-db-hana.md
-                - howto/sap-power-virtual-server-mig-db-oracle.md
-                - howto/sap-power-virtual-server-mig-db-db2.md
+                - howto/powervs/powervs-migration-overview.md
+                - howto/powervs/powervs-migration-hybrid-cloud-networking.md
+                - howto/powervs/powervs-migration-db-hana.md
+                - howto/powervs/powervs-migration-db-oracle.md
+                - howto/powervs/powervs-migration-db-db2.md
           - topicgroup:
               label: SAP Monitoring with IBM Cloud Monitoring
               topics:
-                - howto/sap-monitoring-getting-started.md
-                - howto/sap-monitoring-checking-and-preparing-sap-system.md
-                - howto/sap-monitoring-creating-instance.md
-                - howto/sap-monitoring-exporter-setup-config.md
-                - howto/sap-monitoring-metric-forwarding-config.md
-                - howto/sap-monitoring-launch-web-ui-and-dashboards.md
-                - howto/sap-monitoring-troubleshooting-and-maintenance.md
+                - howto/powervs/powervs-monitoring-getting-started.md
+                - howto/powervs/powervs-monitoring-checking-and-preparing-sap-system.md
+                - howto/powervs/powervs-monitoring-creating-instance.md
+                - howto/powervs/powervs-monitoring-exporter-setup-config.md
+                - howto/powervs/powervs-monitoring-metric-forwarding-config.md
+                - howto/powervs/powervs-monitoring-launch-web-ui-and-dashboards.md
+                - howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md
     - navgroup:
         id: reference
         topics:
