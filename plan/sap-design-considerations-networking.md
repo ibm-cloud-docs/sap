@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-13"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 
@@ -180,7 +180,7 @@ If a HA failover is being designed within one site location, in almost all cases
 
 However, if designing High Availability for SAP HANA across multiple sites within a Region, or if designing Disaster Recovery across multiple Regions then the latency that uses the Round Trip Time (RTT) metric must be carefully tested and considered.
 
-This is because {{site.data.keyword.cloud_notm}} seeks to ensure high availability of the platform, by using geographically dispersed site locations with fault tolerance (for example, different risk assessments). More information available on [How IBM Cloud ensures high availability and disaster recovery](/docs/overview?topic=overview-zero-downtime).
+This is because {{site.data.keyword.cloud_notm}} seeks to ensure high availability of the platform, by using geographically dispersed site locations with fault tolerance (for example, different risk assessments). More information available on [How IBM Cloud ensures high availability and redundancy](/docs/resiliency?topic=resiliency-ha-redundancy).
 
 In particular, for VPC Infrastructure the Availability Zones are geographically dispersed locations within the Region. For most workloads, this design provides more redundancy across the Region. However, SAP HANA System Replication requires low network latency, which can become difficult to meet the necessary Round Trip Time (RTT) metric due to current technology physical data transfer limitations of cabling from a physics perspective (that is, speed of light over fiber Optic cable).
 
