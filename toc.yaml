@@ -147,8 +147,8 @@ toc:
           - topicgroup:
               label: Provisioning VMware SDDC for SAP HANA and SAP NetWeaver for SAP HANA and SAP NetWeaver
               topics:
-                - howto/sap-provision-vmware-sddc-plan-deploy.md
-                - howto/sap-provision-vmware-sddc-deploy-infrastructure.md
+                - howto/vmware/vmware-provision-sddc-plan-deploy.md
+                - howto/vmware/vmware-provision-sddc-deploy-infrastructure.md
           - topicgroup:
               label: Automating and deploying IBM Cloud architectures for SAP by using Terraform
               topics:
