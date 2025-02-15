@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-02-14"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -37,10 +37,10 @@ Review the following prerequisites.
    * Create and modify {{site.data.keyword.vpc_short}} services, virtual server instances, networks, network prefixes, storage volumes, ssh keys, and security groups of this VPC.
    * Create and modify {{site.data.keyword.powerSysShort}} services, virtual server instances, networks, storage volumes, ssh keys of this {{site.data.keyword.powerSysShort}}.
    * Create and modify {{site.data.keyword.cloud_notm}} direct links and IBM transit gateways.
-   * Access existing {site{.data.keyword.cos_short}} services.
+   * Access existing {{site.data.keyword.cos_short}} services.
 2. Make sure that you have an SSH key that you can use for authentication. This key is used to log in to all virtual server instances that you create. For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
-3. Upload SAP software installation packages and SAP maintenance planer XML files to an existing {site{.data.keyword.cos_short}} bucket. To configure access to these software packages from a running virtual server instance, you need following information:
-   * {site{.data.keyword.cos_short}} endpoint
+3. Upload SAP software installation packages and SAP maintenance planer XML files to an existing {{site.data.keyword.cos_short}} bucket. To configure access to these software packages from a running virtual server instance, you need following information:
+   * {{site.data.keyword.cos_short}} endpoint
    * {{site.data.keyword.cos_short}} bucket name
    * {{site.data.keyword.cos_short}} HMAC access key
    * {{site.data.keyword.cos_short}} HMAC secret access key
@@ -61,7 +61,7 @@ Review the following prerequisites.
     | Management VPC | Address prefix for VPC management network \n VPC management network for virtual server instances  | 172.10.0.0/16 \n 172.10.1.0/24 |
     | Workload VPC | Address prefix for VPC workload network \n VPC management network for virtual server instances | 172.11.0.0/16  \n 172.11.2.0/24 |
     | Edge VPC | Address prefix for VPC edge network \n VPC edge network for virtual server instances | 172.12.0.0/16  \n 172.11.1.0/24 |
-    | {{site.data.keyword.powerSys_notm}} workspace | {{site.data.keyword.powerSys_notm}} management network  \n {{site.data.keyword.powerSys_notm}} backup network  \n  \n Separate network for each SAP system on {{site.data.keyword.powerSys_notm}} and each SAP system or SAP component group on VPC \n SAP S4/HANA PRD \n SAP S4/HANA QA1 \n SAP Web Dispatchers on edge VPC | 10.10.10.0/24 \n 10.10.11.0/24 \n  \n  \n 10.10.20.0/24  \n 10.10.21.0/24 |
+    | {{site.data.keyword.powerSys_notm}} workspace | {{site.data.keyword.powerSys_notm}} management network  \n {{site.data.keyword.powerSys_notm}} backup network  \n  \n Separate network for each SAP system on {{site.data.keyword.powerSys_notm}} and each SAP system or SAP component group on VPC \n SAP S/4HANA PRD \n SAP S/4HANA QA1 \n SAP Web Dispatchers on edge VPC | 10.10.10.0/24 \n 10.10.11.0/24 \n  \n  \n 10.10.20.0/24  \n 10.10.21.0/24 |
     {: caption="Private networks IP address ranges" caption-side="bottom"}
 
 7. Define hostnames for all the virtual server instances and services that you deploy in the landscape. Map the hostnames to the IP addresses. Also, it's possible to deploy the virtual server instances and assign the IP address dynamically. Make sure that you clear DNS/IP picture before you start. You can use a DNS service of your choice. The only requirement is that this service must be reachable from the Virtual Private Cloud. In the example, IBM Cloud DNS service is used with the following hostname / IP address mappings.
