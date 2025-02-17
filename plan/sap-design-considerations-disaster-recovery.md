@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-12"
+lastupdated: "2025-02-17"
 
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 
@@ -43,8 +43,7 @@ The following list is an example of a resiliency tier categorization.
 - Tier 1: Continuous Availability (RTO <= 1 hour, RPO <= 1 hour)
 - Tier 2: Advanced Recovery (> 1 hour - <= 24 hours, RPO < 2 hours - <= 24 hours)
 - Tier 3: Standard Recovery (> 24 hours - <= 72 hours, RPO: Last Backup)
-- Tier 4: No Recovery (N/A, N/A)
-
+- Tier 4: No Recovery (Not applicable)
 ## Designing your disaster recovery strategy for IBM Cloud
 {: #disaster-recovery-design-considerations-strategy}
 
@@ -57,9 +56,8 @@ Consider the following components.
 Select the appropriate data replication method (asynchronous or synchronous) based on your RTOs and RPOs.
 - The database layer of the SAP system can provide data replication by using technologies such as SAP HANA System Replication, IBM Db2 HADR, Oracle Data Guard.
 - [Global Replication Services (GRS)](/docs/power-iaas?topic=power-iaas-getting-started-GRS) in IBM {{site.data.keyword.powerSys_notm}} provides asynchronous replication and advanced network configuration for fast data transfer to geographically dispersed locations.
-- [File share replication](/docs/vpc?topic=vpc-file-storage-replication&interface=ui) in IBM Virtual Private Cloud (VPC) can create replicas of your file shares in another zone in the same geography.
-   With the File Share Replication feature, you can keep a read-only copy of your file share in a different zone.
-   If you have another VPC in the target region, you can also create a replica in another region in the same geography.
+- [File share replication](/docs/vpc?topic=vpc-file-storage-replication&interface=ui) in IBM Virtual Private Cloud (VPC) creates a replica for your file share.
+   With the File Share Replication feature, you create a read-only copy of your file share in another zone or region in the same geography.
 
 ### Backup and restore
 {: #disaster-recovery-design-considerations-backup}
@@ -104,7 +102,7 @@ It provides features for resiliency, durability, geographic redundancy, support 
 {: #disaster-recovery-design-considerations-implement-cobalt-iron}
 
 Cobalt Iron provides a secure, automated, and cost-effective solution for creating backups across multiple environments.
-It includes centralized management, advanced compliance features, and disaster recovery support.
+It includes a centralized management of the backup policies, advanced compliance features, and disaster recovery support.
 
 For more details about backup strategies in IBM {{site.data.keyword.powerSys_notm}}, see [Secure automated backup with Compass for AIX and Linux](/docs/power-iaas?topic=power-iaas-backup-strategies#baas).
 
@@ -170,7 +168,7 @@ The drills contribute to a more robust and effective DR strategy.
 
 Performance testing in the DR environment is essential for several reasons.
 - Performance testing helps validate that the DR infrastructure can handle the expected workload and recover within the defined Recovery Time Objective (RTO).
-   It ensures that critical applications and services can be restored quickly, minimizing the downtime and the costs associated with it.
+   This ensures that the critical applications and services can be restored quickly, minimizing the downtime and the costs associated with it.
 - Performance testing helps identify potential bottlenecks or limitations in the DR environment, allowing for necessary adjustments and optimizations before a real disaster occurs.
    A proactive approach can prevent unexpected issues during an actual recovery scenario.
 - Performance testing provides valuable insight into the actual recovery time and data loss, helping to refine the Recovery Point Objective (RPO) and ensure it is aligned with your organization's risk tolerance.

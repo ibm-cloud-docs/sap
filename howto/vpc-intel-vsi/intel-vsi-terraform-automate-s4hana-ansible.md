@@ -2,7 +2,7 @@
 copyright:
   years: 2024
 lastupdated: "2024-06-20"
-keywords:
+keywords: S4HANA, automation, ansible, VPC, terraform, Schematics, Catalog
 subcollection: sap
 ---
 

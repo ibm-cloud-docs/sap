@@ -201,7 +201,10 @@ toc:
                     topics:
                       - howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-hana-db-backup-cos.md
                       - howto/vpc-intel-vsi/intel-vsi-terraform-automate-hana-db-backup-cos-proc.md
-                - howto/vpc-intel-vsi/intel-vsi-terraform-automate-s4hana-ansible.md
+                - topicgroup:
+                    label: SAP S/4HANA workload deployment on IBM Cloud VPC
+                    topics: 
+                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-s4hana-ansible.md
                 - topicgroup:
                     label: SAP HANA DB cross-region DR automation on IBM Cloud VPC
                     topics:
