@@ -1,16 +1,13 @@
 ---
-
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-06"
-
-keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
-
+lastupdated: "2025-02-17"
+keywords: Powervs, Certified Profile, Netweaver, {{site.data.keyword.powerSys_notm}},
 subcollection: sap
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # SAP NetWeaver certified instances on IBM {{site.data.keyword.powerSys_notm}}
 {: #nw-iaas-offerings-profiles-power-vs}
@@ -30,4 +27,4 @@ For SAP applications the following virtual server configurations are supported. 
 SAP NetWeaver certified instances on E1050 are currently not supported.
 {: note}
 
-For more information, see [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://launchpad.support.sap.com/#/notes/2855850){: external}
+For more information, see [SAP Note 2855850 - SAP Applications on IBM s](https://launchpad.support.sap.com/#/notes/2855850){: external}

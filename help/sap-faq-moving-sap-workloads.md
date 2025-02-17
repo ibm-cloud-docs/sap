@@ -1,13 +1,13 @@
 ---
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
+  years: 2020, 2025
+lastupdated: "2025-02-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # FAQ of Moving SAP Workloads
 {: #faq-moving-sap-workloads}

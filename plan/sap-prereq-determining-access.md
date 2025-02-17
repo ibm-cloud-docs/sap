@@ -1,25 +1,14 @@
 ---
-
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
-
+  years: 2020, 2025
+lastupdated: "2025-02-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP NetWeaver, SAP HANA, Interconnectivity, Connectivity, Direct Link, VPC, VPN, Gateway
 
 subcollection: sap
-
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:important: .important}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
+
 
 # Connectivity to your SAP system landscape
 {: #determine-access}

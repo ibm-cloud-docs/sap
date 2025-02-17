@@ -1,16 +1,13 @@
 ---
-
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
-
+  years: 2020, 2025
+lastupdated: "2020-07-21"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
-
 subcollection: sap
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # {{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment introduction
 {: #power-env-introduction}

@@ -2,9 +2,7 @@
 copyright:
   years: 2024, 2025
 lastupdated: "2025-02-17"
-
-keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
-
+keywords: SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
 
@@ -44,6 +42,7 @@ The following list is an example of a resiliency tier categorization.
 - Tier 2: Advanced Recovery (> 1 hour - <= 24 hours, RPO < 2 hours - <= 24 hours)
 - Tier 3: Standard Recovery (> 24 hours - <= 72 hours, RPO: Last Backup)
 - Tier 4: No Recovery (Not applicable)
+
 ## Designing your disaster recovery strategy for IBM Cloud
 {: #disaster-recovery-design-considerations-strategy}
 

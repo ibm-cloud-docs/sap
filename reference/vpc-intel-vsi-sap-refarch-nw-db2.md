@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-02-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Db2
 subcollection: sap
 ---
@@ -42,7 +42,7 @@ The three installation types for SAP NetWeaver Application Server are:
 
 This diagram shows the SAP NetWeaver 7.X on Db2 integrated with {{site.data.keyword.cloud_notm}} on the SAP NetWeaver 7.x architecture:
 
-![Figure 1. Sample reference architecture](../images/refarch-sap-db2-std-all.svg "SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC"){: caption="SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC" caption-side="bottom"}
+![Figure 1. Sample reference architecture](../images/vpc-intel-vsi-db2-std-all.svg "SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC"){: caption="SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC" caption-side="bottom"}
 
 ## Access from an external network
 {: #sap-refarch-nw-db2-access}
@@ -61,7 +61,7 @@ A jump host is used to access, manage, and administer SAP virtual server instanc
 
 In a standard system, all main instances run on a single virtual server instance within a private subnet. For more information, see [About virtual server instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers). The virtual server instance has these components:
 
-![Figure 2. Standard installation](../images/refarch-sap-db2-std-only.svg "SAP NetWeaver 7.x with Db2 standard installation with AAS"){: caption="SAP NetWeaver 7.x with Db2 standard installation with AAS" caption-side="bottom"}
+![Figure 2. Standard installation](../images/vpc-intel-vsi-db2-std-only.svg "SAP NetWeaver 7.x with Db2 standard installation with AAS"){: caption="SAP NetWeaver 7.x with Db2 standard installation with AAS" caption-side="bottom"}
 
 Architecture of SAP NetWeaver Application Server ABAP
 {: #sap-refarch-nw-db2-as-abap}
@@ -119,7 +119,7 @@ Architecture of SAP NetWeaver Application Server Java
 
 In a distributed system, there are multiple virtual server instances and every instance can run on a separate host:
 
-![Figure 3. Distributed installation](../images/refarch-sap-db2-dist-only.svg "SAP NetWeaver 7.x with Db2 distributed installation with AAS"){: caption="SAP NetWeaver 7.x with Db2 distributed installation with AAS" caption-side="bottom"}
+![Figure 3. Distributed installation](../images/vpc-intel-vsi-db2-dist-only.svg "SAP NetWeaver 7.x with Db2 distributed installation with AAS"){: caption="SAP NetWeaver 7.x with Db2 distributed installation with AAS" caption-side="bottom"}
 
 The components in a distributed system are the same as the components in a standard system, but there are restrictions as to which instances can go on which hosts.
 

@@ -24,7 +24,7 @@ The IMCS collects performance-related data from {{site.data.keyword.vsi_is_full}
 
 You need to successfully create an {{site.data.keyword.vpc_full}} and {{site.data.keyword.vsi_is_short}} by using the appropriate catalog image for SAP. Check [SAP Note 2927211](https://me.sap.com/notes/2927211){: external} to make sure that the selected operating system is supported by SAP. The Metrics Collector runs specifically on {{site.data.keyword.vsi_is_short}} to gather required SAP metrics. Figure 1 outlines the data sources that are used by {{site.data.keyword.IBM_notm}} Metrics Collector for SAP.
 
-![Figure 1. Data sources for {{site.data.keyword.IBM_notm}} Metrics Collector for SAP](../images/imcs-data-sources.svg "Data sources for IBM Metrics Collector for SAP"){: caption="Data sources for {{site.data.keyword.IBM_notm}} Metrics Collector for SAP" caption-side="bottom"}
+![Figure 1. Data sources for {{site.data.keyword.IBM_notm}} Metrics Collector for SAP](../images/vpc-intel-vsi-imcs-data-sources.svg "Data sources for IBM Metrics Collector for SAP"){: caption="Data sources for {{site.data.keyword.IBM_notm}} Metrics Collector for SAP" caption-side="bottom"}
 
 
 ## Getting an {{site.data.keyword.cloud_notm}} API key
@@ -47,7 +47,7 @@ You need to first create a Service ID and then the related API key. Use the foll
 
    Figure 2. Open the Access (IAM page)
 
-   ![Figure 2. Open the Access (IAM) page](../images/imcs-ibmcloud-access-iam.png "Open the Access (IAM) page"){: caption="Open the Access (IAM) page" caption-side="bottom"}
+   ![Figure 2. Open the Access (IAM) page](../images/vpc-intel-vsi-imcs-ibmcloud-access-iam.png "Open the Access (IAM) page"){: caption="Open the Access (IAM) page" caption-side="bottom"}
 
 1. Click **Services IDs** > **Create**.
 1. Enter a **Name** and **Description** for the Service ID and click **Create**. You can assign the Access Policy after your Service ID is created.

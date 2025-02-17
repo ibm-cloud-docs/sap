@@ -1,22 +1,13 @@
 ---
-
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
-
+lastupdated: "2025-02-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, downloading SAP software, installing SAP software, SAP Download Manager
-
 subcollection: sap
-
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
+{{site.data.keyword.attribute-definition-list}}
+
 
 # Download and install SAP software and applications
 {: #download-install-media}

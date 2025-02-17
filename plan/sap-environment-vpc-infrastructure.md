@@ -10,6 +10,7 @@ subcollection: sap
 
 {{site.data.keyword.attribute-definition-list}}
 
+
 # {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) Infrastructure environment introduction
 {: #vpc-env-introduction}
 

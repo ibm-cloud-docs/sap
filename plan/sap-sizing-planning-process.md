@@ -1,23 +1,13 @@
 ---
-
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-06"
-
-keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP NetWeaver, SAP HANA, SAP Application Performance Standard, SAPS, SAP Quick Sizer
-
+lastupdated: "2025-02-17"
+keywords: SAP Application Performance Standard, SAPS, SAP Quick Sizer
 subcollection: sap
-
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
+
 
 # Sizing process for SAP Systems
 {: #sizing}

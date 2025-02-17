@@ -1,21 +1,12 @@
 ---
-
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-05"
-
+lastupdated: "2025-02-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP NetWeaver, BYOL, bring your own license, SAP certified, SAP License, SAP license key, saplikey, OEM, ASL, SAP OEM
-
 subcollection: sap
-
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # Bring your own SAP product license

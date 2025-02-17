@@ -1,16 +1,13 @@
 ---
-
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-11"
-
-keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
-
+lastupdated: "2025-02-17"
+keywords: {{site.data.keyword.cloud_notm}} SAP-Certified HANA profiles, umh, sh2, Rise, bh1, mh1, cnp, sr2, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # SAP HANA certified instances on IBM {{site.data.keyword.powerSys_notm}}
 {: #hana-iaas-offerings-profiles-power-vs}

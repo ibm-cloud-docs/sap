@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-02-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -42,7 +42,7 @@ The three installation types for SAP NetWeaver Application Server are:
 
 This diagram shows the SAP NetWeaver 7.X on SAP HANA Server database integrated with {{site.data.keyword.cloud_notm}} on the SAP NetWeaver 7.x architecture:
 
-![Figure 1. Standard installation](../images/refarch-sap-hana-single-host-all.svg "SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS"){: caption="SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS" caption-side="bottom"}
+![Figure 1. Standard installation](../images/vpc-intel-vsi-hana-single-host-all.svg "SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS"){: caption="SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS" caption-side="bottom"}
 
 ## Access from an external network
 {: #sap-refarch-nw-hana-access}
@@ -140,7 +140,7 @@ A multiple-host system is a system with more than one host, which can be configu
 
 This diagram shows a multiple-host system configuration:
 
-![Figure 3. Distributed installation](../images/refarch-sap-hana-multiple-host-only.svg "SAP NetWeaver 7.x SAP HANA multiple-host installation with AAS"){: caption="SAP NetWeaver 7.x SAP HANA multiple-host installation with AAS" caption-side="bottom"}
+![Figure 3. Distributed installation](../images/vpc-intel-vsi-hana-multiple-host-only.svg "SAP NetWeaver 7.x SAP HANA multiple-host installation with AAS"){: caption="SAP NetWeaver 7.x SAP HANA multiple-host installation with AAS" caption-side="bottom"}
 
 The SAP components in a multi-host SAP HANA system are the same as the components in a single-host SAP HANA system, the difference consists of multiple connected hosts for the SAP HANA database.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-02-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -44,7 +44,7 @@ The three installation types for SAP NetWeaver Application Server are:
 
 This diagram shows the SAP NetWeaver 7.X on MS SQL Server database integrated with {{site.data.keyword.cloud_notm}} on the SAP NetWeaver 7.x architecture:
 
-![Figure 1. Standard installation](../images/refarch-sap-mssql-std-all.svg "SAP NetWeaver 7.x with MS SQL Server standard installation with AAS"){: caption="SAP NetWeaver 7.x with MS SQL Server standard installation with AAS" caption-side="bottom"}
+![Figure 1. Standard installation](../images/vpc-intel-vsi-mssql-std-all.svg "SAP NetWeaver 7.x with MS SQL Server standard installation with AAS"){: caption="SAP NetWeaver 7.x with MS SQL Server standard installation with AAS" caption-side="bottom"}
 
 ## Access from an external network
 {: #sap-refarch-nw-mssql-access}
@@ -64,7 +64,7 @@ A jumphost is used to access, manage, and administer SAP virtual server instance
 In a standard system, all main instances run on a single virtual server instance within a private subnet.
 The virtual server instance has these components:
 
-![Figure 2. Standard installation](../images/refarch-sap-mssql-std-only.svg "SAP NetWeaver 7.x MS SQL Server standard installation with AAS"){: caption="SAP NetWeaver 7.x MS SQL Server standard installation with AAS" caption-side="bottom"}
+![Figure 2. Standard installation](../images/vpc-intel-vsi-mssql-std-only.svg "SAP NetWeaver 7.x MS SQL Server standard installation with AAS"){: caption="SAP NetWeaver 7.x MS SQL Server standard installation with AAS" caption-side="bottom"}
 
 #### Architecture of SAP NetWeaver Application Server ABAP
 {: #sap-refarch-nw-mssql-abap}
@@ -137,7 +137,7 @@ Optionally, you can install the ASCS instance with an integrated:
 
 In a distributed system, there are multiple virtual server instances and every instance can run on a separate host:
 
-![Figure 3. Distributed installation](../images/refarch-sap-mssql-dist-only.svg "SAP NetWeaver 7.x MS SQL Server distributed installation with AAS"){: caption="SAP NetWeaver 7.x MS SQL Server distributed installation with AAS" caption-side="bottom"}
+![Figure 3. Distributed installation](../images/vpc-intel-vsi-mssql-dist-only.svg "SAP NetWeaver 7.x MS SQL Server distributed installation with AAS"){: caption="SAP NetWeaver 7.x MS SQL Server distributed installation with AAS" caption-side="bottom"}
 
 The components in a distributed system are the same as the components in a standard system, but there are restrictions as to which instances can go on which hosts.
 
