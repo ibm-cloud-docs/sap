@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-02-20"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -121,6 +121,8 @@ subscription-manager repos \
     --enable="rhel-9-for-ppc64le-highavailability-e4s-rpms"
 ```
 {: pre}
+
+
 
 ```sh
 dnf clean all

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2025-02-13"
+  years: 2024, 2025
+lastupdated: "2025-02-20"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -141,6 +141,8 @@ dnf clean all
 dnf repolist
 ```
 {: pre}
+
+
 
 #### Installing the RHEL HA Add-On software packages
 {: #ha-rhel-mz-install-ha-software-packages}

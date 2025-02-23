@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-02-20"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Hybrid Cloud, Migration, AIX, Linux, RHEL, SuSE
 subcollection: sap
 ---
@@ -45,13 +45,13 @@ Multiple options to migrate SAP S/4HANA between sites are possible. The followin
 Different alternatives to migrate an SAP system on Oracle database are available. The documented solution optimizes Oracle licenses costs and migration efforts.
 The following steps describe how to migrate an SAP ERP 6.0 Core Component (ECC) System on Oracle.
 1. Start with the [Preparation Steps on Source System](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-source-prep) section.
-1. Next, [Backup the Source Oracle Database using RMAN](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-backup).
+1. Next, [Backup the Source Oracle Database by using RMAN](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-backup).
 1. Finalize the migration with steps that are described in section [Restore the Oracle Database on Target System](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-restore).
 
-## Migrating SAP ERP 6 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}
+## Migrating SAP ERP 6.0 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-migrating-sap-erp-db2}
 
-Multiple options to migrate SAP on IBM Db2 are technically possible. The chapter [Migrating SAP ERP 6 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-db2) describes these two major options:
+Multiple options to migrate SAP on IBM Db2 are technically possible. The chapter [Migrating SAP ERP 6.0 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-db2) describes these two major options:
 
 - [Migration option 1 - Back up and restore](/docs/sap?topic=sap-sapmig-db-db2#sapmig-db-db2-option1-backup-restore) is the easier migration option with downtime during the complete migration
 - [Migration option 2 - IBM Db2 high availability and disaster recovery (HADR)](/docs/sap?topic=sap-sapmig-db-db2#sapmig-db-db2-option2-backup-restore-hadr) is a downtime-optimized version, more complex but with minimum downtime.

@@ -1,8 +1,8 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-13"
-keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, SAP ERP, SAP ECC, Linux, Redhat, RHEL, SuSE, backup, restore
+lastupdated: "2025-02-20"
+keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, SAP ERP, SAP ECC, Linux, Red Hat, RHEL, SuSE, backup, restore
 subcollection: sap
 ---
 
