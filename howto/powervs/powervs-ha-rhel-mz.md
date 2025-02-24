@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-02-24"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Implementing a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}} in a Multizone Region Environment
+# Implementing a RHEL HA Add-On cluster in a Multizone Region Environment
 {: #ha-rhel-mz}
 
 Use the following information and procedures to implement a Red Hat Enterprise Linux (RHEL) High Availability (HA) cluster in a multizone region environment.
