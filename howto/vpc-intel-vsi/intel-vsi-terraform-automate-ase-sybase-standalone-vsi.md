@@ -12,9 +12,6 @@ subcollection: sap
 # Deploying SAP ASE Sybase stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC
 {: #automate-terraform-sap-ase-sybase-vsi}
 
-As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
-{: important}
-
 You can use Terraform scripts to create a VPC and SAP ASE Sybase database single VSI infrastructure in the VPC. The Terraform scripts use the information that you provide and then call the Ansible playbooks to create the SAP architecture in the specified VPC.
 {: terraform}
 
@@ -181,14 +178,6 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     # This private key is used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.
     # It must contain the relative or absoute path from your Bastion.
     # Examples: "ansible/id_rsa_abap_syb_dst" , "~/.ssh/id_rsa_abap_syb_dst" , "/root/.ssh/id_rsa".
-
-    ##########################################################
-    # Activity Tracker variables:
-    ##########################################################
-
-    ATR_NAME="Activity-Tracker-SAP-eu-de"
-    # The name of the Activity Tracker instance, in the same region chosen for SAP system deployment.
-    # Example: ATR_NAME="Activity-Tracker-SAP-eu-de"
 
     ##########################################################
     # DB VSI variables:

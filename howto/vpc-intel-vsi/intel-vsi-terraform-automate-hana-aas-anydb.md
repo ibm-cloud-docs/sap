@@ -12,9 +12,6 @@ subcollection: sap
 # VPC with Additional Application Server (AAS) ABAP on Linux for SAP HANA
 {: #automate-hana-aas-anydb-terraform-ansible}
 
-As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
-{: important}
-
 You can use Terraform scripts to create a single-tier VPC and create the AAS to HANA and AnyDB infrastructure on the VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbook to create the SAP architecture on the specified VPC. Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and more Intel&reg; technologies.
 
 You have two deployment methods to choose from:
@@ -62,11 +59,6 @@ During the first phase of [Automate SAP bastion server – SAP media storage rep
 During the second phase, the Ansible Playbooks is called and the SAP architecture is installed for both dedicated virtual server instance (VSI) SAP application; VSI system and dedicated SAP HANA VSI box. The SAP architecture that is deployed on the SAP NetWeaver 7.x release is a stand-alone dedicated SAP HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud_notm}}® VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
 
 You can provision only one instance of the service per {{site.data.keyword.cloud_notm}} region.
-
-{{site.data.keyword.cloud_notm}} Activity Tracker provides a solution for administrators to capture, store, view, search, and monitor API activity in a single place. It also offers a notification feature to alert you by using any of the supported notification channels.
-
-{{site.data.keyword.cloud_notm}} Activity Tracker collects and stores audit records for API calls made to resources that run in the {{site.data.keyword.cloud_notm}}. You can archive these events on {{site.data.keyword.cloud_notm}} for long-term storage.
-{: note}
 
 ## Schematics deployment
 {: #ui-automate-hana-aas-anydb-schematics-deployment}
@@ -384,8 +376,6 @@ The script takes 1 - 2 hours to complete.
 If you need to rename your resources after they are created, modify the input.auto.tfvars file to change the names and run `terraform plan` and `terraform apply` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
 
 If you need to remove the SAP Netweaver 7.X on HANA or AnyDB installation, go to your project folder and run `terraform destroy`. The `terraform destroy` command does not remove the VPC in this scenario because the VPC was created before these Terraform scripts were run.
-
-If the resources created with the SAP deployment automation are removed, the Activity Tracker instance is also removed, if it is provisioned at the same time with the SAP solution (when ATR_PROVISION parameter is set to `true` during the deployment of the SAP solution).
 
 ## Related information
 {: #automate-hana-aas-anydb-related}

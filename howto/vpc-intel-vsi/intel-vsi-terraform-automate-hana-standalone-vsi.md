@@ -12,9 +12,6 @@ subcollection: sap
 # Deploying SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC
 {: #automate-terraform-sap-hana-vsi}
 
-As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
-{: important}
-
 You can use Terraform scripts to create a single-tier SAP HANA DB on VSI or Bare Metal Server in a VPC. The Terraform scripts use the VPC information that you provide and then call the Ansible playbooks to create the SAP architecture on the specified VPC.
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware by using Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
@@ -159,7 +156,6 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     * HANA_SERVER_TYPE – The type of SAP HANA server: "virtual" server instance or "bare metal" server.
     * DB_HOSTNAME - The hostname of the SAP HANA server, up to 13 characters. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md){: external} file.
     * DB_PROFILE – The server certified profile to be used for SAP HANA. See the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md){: external} file.
-    * ATR_NAME – The name of an existing Activity Tracker in the same region as the SAP HANA server.
 
     ``` terraform
     ######################################################
@@ -227,13 +223,6 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     # OS image for DB Server. Validated OS images for SAP HANA Server: ibm-redhat-8-6-amd64-sap-hana-5, ibm-redhat-8-4-amd64-sap-hana-9, ibm-sles-15-4-amd64-sap-hana-6, ibm-sles-15-3-amd64-sap-hana-9.
     # The list of available VPC Operating Systems supported by SAP: SAP note '2927211 - SAP Applications on IBM Virtual Private Cloud (VPC) Infrastructure environment' https://me.sap.com/notes/2927211; The list of all available OS images: https://cloud.ibm.com/docs/vpc?topic=vpc-about-images
     # Example: DB_IMAGE = "ibm-sles-15-4-amd64-sap-hana-6"
-    ##########################################################
-    # Activity Tracker variables:
-    ##########################################################
-
-    ATR_NAME = ""
-    # The name of an existent Activity Tracker instance, in the same region chosen for SAP system deployment.
-    # Example: ATR_NAME="Activity-Tracker-SAP-eu-de"
     ```
 
     The hostname must be up to 13 characters as required by SAP. For more information about the rules that apply to hostnames for SAP systems, see SAP Note 611361 - Hostnames of SAP ABAP Platform servers.
@@ -321,7 +310,6 @@ Use these steps to configure the SAP HANA DB single VSI on your existing VPC by 
     * Hostname
     * Profile
     * Image
-    * Existing Activity Tracker name
     * SAP HANA SID
     * SAP HANA main password - must be at least 10 characters, upper, and lowercase letters, a number, and a special character, not an exclamation point.
     * SAP HANA system number
