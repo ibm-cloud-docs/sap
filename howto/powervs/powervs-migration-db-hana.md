@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-03-10"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 subcollection: sap
 ---
@@ -572,7 +572,7 @@ Do you want to add hosts to the system? (y/n) [`n`]:
 ```
 {: screen}
 
-Enter `n' for no additional systems.
+Enter `n` for no additional systems.
 Check the source SAP HANA database system parameters:
 
    - source SAP HANA `SID`

@@ -79,7 +79,7 @@ Each VLAN is associated with a single Subnet, for example:
 - Private VLAN
     - Private Subnet
 
-A **Public Subnet** is the quickest and simplest way to connect to a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} instance. The public network is protected by a firewall and only the following network protocols are allowed:
+A **Public Subnet** is the quickest and simplest way to connect to an {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} instance. The public network is protected by a firewall and only the following network protocols are allowed:
 * SSH (port 22)
 * HTTPS (port 443)
 * Ping (ICMP)
@@ -132,7 +132,7 @@ Within {{site.data.keyword.IBM_notm}} Power Systems Infrastructure, there are tw
 - Block Storage Tier 1 (storage for mission critical application with best characteristics, e.g. NVMe flash storage)
 - Block Storage Tier 3 (default storage type with optimized price/performance, e.g. SSD flash storage)
 
-Do not mix storage types on a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}.
+Do not mix storage types on an {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}.
 {: note}
 
 Block Storage is provided with your {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s and storage requirements are defined using input/output operations per second (IOPS) and the capacity (GB). High performance block storage is ideal for storage-intensive applications with high I/O needs, such as an OS, and database and application software. For SAP HANA workloads, Tier 1 of block storage is supported only.

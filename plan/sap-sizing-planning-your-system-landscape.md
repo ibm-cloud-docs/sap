@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-10"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -115,7 +115,7 @@ RDBMs on Intel Bare Metal Servers in the older IBM Cloud Classic Infrastructure 
 This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
 {: note}
 
-When you create a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} by using the {{site.data.keyword.cloud_notm}} console:
+When you create an {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} by using the {{site.data.keyword.cloud_notm}} console:
 - For SAP NetWeaver, you select the number of CPUs of your server
 - For SAP HANA, you select an instance profile with a predefined number of CPUs and memory size that suits your workload
 
@@ -125,7 +125,7 @@ To find SAP certified profiles for Cloud IaaS, see [SAP Certified and Supported 
 
 To find SAP certified {{site.data.keyword.IBM_notm}} Power Systems Hardware, see [SAP Certified and Supported SAP HANA Hardware Directory - {{site.data.keyword.IBM_notm}} Power Systems](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=power){: external}.
 
-For more information, see [Creating a {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server). For information about the pricing difference between CPU types, see [Pricing for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers on {{site.data.keyword.cloud}}](/docs/power-iaas?topic=power-iaas-pricing-virtual-server-on-cloud). For a description of the technical differences between dedicated, shared capped, and shared uncapped CPUs, see [this FAQ](/docs/power-iaas?topic=power-iaas-powervs-faqs#processor).
+For more information, see [Creating an {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server). For information about the pricing difference between CPU types, see [Pricing for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers on {{site.data.keyword.cloud}}](/docs/power-iaas?topic=power-iaas-pricing-virtual-server-on-cloud). For a description of the technical differences between dedicated, shared capped, and shared uncapped CPUs, see [this FAQ](/docs/power-iaas?topic=power-iaas-powervs-faqs#processor).
 
 ## Monitoring your system with SAP tools
 {: #monitoring}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-03-07"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -51,7 +51,7 @@ Review the general requirements, product documentation, support articles, and SA
 
 - The virtual hostnames for the *ASCS* and *ERS* instances must meet the requirements as documented in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
    Make sure that the virtual IP addresses for the SAP instances are assigned to a network adapter and that they can communicate in the network.
-- SAP application server instances require a common shared file system *SAPMNT* `/sapmnt/<SID>` with *read and write* access, and other shared file systems such as *SAPTRANS* `/usr/sap/trans`.
+- SAP application server instances require a common shared file system *sapmnt* `/sapmnt/<SID>` with *read and write* access, and other shared file systems such as *saptrans* `/usr/sap/trans`.
    These file systems are typically provided by an external NFS server.
    The NFS server must be high-available and must not be installed on virtual servers that are part of the *ENSA2* cluster.
 

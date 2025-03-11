@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-03-07"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 subcollection: sap
 ---
@@ -659,12 +659,12 @@ chattr +i /sapmnt/${SID} \
 Mount the NFS shares.
 
 ```sh
-mount -t nfs -o vers=4,sec=sys ${NFS_VH}:/saptrans /usr/sap/trans
+mount -t nfs4 -o sec=sys ${NFS_VH}:/saptrans /usr/sap/trans
 ```
 {: pre}
 
 ```sh
-mount -t nfs -o vers=4,sec=sys ${NFS_VH}:/sap${SID}/sapmnt /sapmnt/${SID}
+mount -t nfs4 -o sec=sys ${NFS_VH}:/sap${SID}/sapmnt /sapmnt/${SID}
 ```
 {: pre}
 
@@ -701,8 +701,8 @@ Add the new file systems to `/etc/fstab`.
 
 ```sh
 cat >> /etc/fstab << EOT
-​${NFS_VH}:/saptrans /usr/sap/trans  nfs vers=4,sec=sys  0  0
-${NFS_VH}:/sap${SID}/sapmnt /sapmnt/${SID}  nfs vers=4,sec=sys  0  0
+​${NFS_VH}:/saptrans /usr/sap/trans  nfs4 sec=sys  0  0
+${NFS_VH}:/sap${SID}/sapmnt /sapmnt/${SID}  nfs4 sec=sys  0  0
 EOT
 ```
 {: pre}
@@ -755,7 +755,7 @@ chattr +i /sapmnt/${SID} \
 Mount the NFS shares to create the required subdirectories, change the ownership, and change the permissions.
 
 ```sh
-mount -t nfs -o vers=4,sec=sys ${NFS_VH}:/saptrans /mnt
+mount -t nfs4 -o sec=sys ${NFS_VH}:/saptrans /mnt
 ```
 {: pre}
 
@@ -775,7 +775,7 @@ umount /mnt
 {: pre}
 
 ```sh
-mount -t nfs -o vers=4,sec=sys ${NFS_VH}:/sap${SID} /mnt
+mount -t nfs4 -o sec=sys ${NFS_VH}:/sap${SID} /mnt
 ```
 {: pre}
 
@@ -803,11 +803,11 @@ Add the new file systems to `/etc/fstab`.
 
 ```sh
 cat >> /etc/fstab < EOT
-​${NFS_VH}:/saptrans /usr/sap/trans  nfs vers=4,sec=sys  0  0
-${NFS_VH}:/sap${SID}/sapmnt /sapmnt/${SID}  nfs vers=4,sec=sys  0  0
-${NFS_VH}:/sap${SID}/ASCS /usr/sap/${SID}/ASCS${ASCS_INSTNO} nfs vers=4,sec=sys  0  0
-${NFS_VH}:/sap${SID}/ERS  /usr/sap/${SID}/ERS${ERS_INSTNO} nfs vers=4,sec=sys  0  0
-${NFS_VH}:/sap${SID}/SYS  /usr/sap/${SID}/SYS  nfs vers=4,sec=sys  0  0
+​${NFS_VH}:/saptrans /usr/sap/trans  nfs4 sec=sys  0  0
+${NFS_VH}:/sap${SID}/sapmnt /sapmnt/${SID}  nfs4 sec=sys  0  0
+${NFS_VH}:/sap${SID}/ASCS /usr/sap/${SID}/ASCS${ASCS_INSTNO} nfs4 sec=sys  0  0
+${NFS_VH}:/sap${SID}/ERS  /usr/sap/${SID}/ERS${ERS_INSTNO} nfs4 sec=sys  0  0
+${NFS_VH}:/sap${SID}/SYS  /usr/sap/${SID}/SYS  nfs4 sec=sys  0  0
 EOT
 ```
 {: pre}

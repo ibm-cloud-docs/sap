@@ -250,6 +250,7 @@ toc:
                 - howto/powervs/powervs-migration-db-hana.md
                 - howto/powervs/powervs-migration-db-oracle.md
                 - howto/powervs/powervs-migration-db-db2.md
+                - howto/powervs/powervs-migration-sum-dmo.md
           - topicgroup:
               label: SAP Monitoring with IBM Cloud Monitoring
               topics:

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-03-10"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -466,7 +466,7 @@ If you use your own DNS service, its IP must be reachable from VPC for workload 
 
 3. Make sure that the required DNS software is available. On SUSE: `zypper update -y; zypper install -y bind`. On RHEL: `yum update -y; yum install epel-release; yum install -y bind`.
 4. Modify file `/etc/named.conf`:
-   * Add the following lines at the beginning of the file direct after the starting comment (before the `options` section starts). Replace \<pvs_mgmt_cidr\> with {{site.data.keyword.powerSys_notm}} management CIDR block (network segment)
+   * Add the following lines at the beginning of the file direct after the starting comment (before the `options` section starts). Replace `\<pvs_mgmt_cidr\>` with {{site.data.keyword.powerSys_notm}} management CIDR block (network segment)
 
       ```yaml
       acl allowed_clients {

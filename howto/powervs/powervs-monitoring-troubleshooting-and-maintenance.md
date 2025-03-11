@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-03-10"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 ---
@@ -165,7 +165,7 @@ ss -tulpen | grep sap
 ```
 {: pre}
 
-### Test the `hanadb_exporter' manually
+### Test the `hanadb_exporter` manually
 {: #mon-manual-test-hanadb-exporter}
 
 To manually test the `hanabd_exporter`, use the following command.

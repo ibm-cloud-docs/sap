@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-03-07"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Fast Path of IBM {{site.data.keyword.powerSys_notm}}
+# Fast path of IBM {{site.data.keyword.powerSys_notm}}
 {: #fast-path-site-map-power-vs}
 
 Use this collection of shortcuts to quickly access relevant documentation for each offering, excluding general information that applies to all offerings, such as SAP Solution sizing.
@@ -26,7 +26,7 @@ The following links provide an overview of the SAP-certified profiles with IBM {
 
 - [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
 - [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)
-- [Compute Profiles of SAP-certified IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#compute-power)
+- [Compute Profiles of SAP-certified IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-compute-os-design-considerations#compute-power)
 
 Your specific requirements determine the SAP solutions that are powered by the SAP HANA Database Server or SAP NetWeaver Application Server and determine how your applications run in the available infrastructure. For more information, see the following links.
 
@@ -77,9 +77,10 @@ For more information about implementing high availability scenarios for SAP on I
 For more information about SAP hybrid cloud migration scenarios for SAP on IBM {{site.data.keyword.powerSysFull}} moving to {{site.data.keyword.powerSys_notm}}, see the following links.
 - [Migrating SAP between on-premises and IBM Cloud on {{site.data.keyword.powerSysFull}} Overview](/docs/sap?topic=sap-sapmig-overview)
 - [Hybrid Cloud Network Considerations for SAP on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking)
-- [Migrating SAP S/4HANA using HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana)
+- [Migrating SAP S/4HANA by using HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana)
 - [Migrating SAP ERP 6.0 on Oracle to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-oracle)
 - [Migrating SAP ERP 6.0 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-db2)
+- [Migrating from SAP ERP 6.0 to S/4HANA to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-sum-dmo)
 
 ## Help
 {: #fast-path-power-vs-help}

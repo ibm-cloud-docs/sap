@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-03-10"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -292,7 +292,7 @@ systemctl status chronyd
 
 Adapt the `chrony.conf` configuration according to the description in the section [Setting up chrony for a system in an isolated network](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/configuring-time-synchronization_configuring-basic-system-settings#setting-up-chrony-for-a-system-in-an-isolated-network_using-chrony){: external}.
 
-The following is a sample configuration for `chrony.conf':
+The following is a sample configuration for `chrony.conf`:
 
 ```sh
 

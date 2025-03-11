@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-03-10"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 ---
@@ -51,4 +51,4 @@ You can change the dashboard layout by duplicating the dashboard. For more infor
 ### Publishing dashboards
 {: #mon-publishing-dashboards}
 
-Public dashboard sharing allows external users to review a dashboard without a {{site.data.keyword.cloud}} login. For more information about sharing dashboards publicly, see [Enabling Public Sharing](https://docs.sysdig.com/en/docs/sysdig-monitor/dashboards/#enable-public-sharing){: external}.
+Public dashboard sharing allows external users to review a dashboard without an {{site.data.keyword.cloud}} login. For more information about sharing dashboards publicly, see [Enabling Public Sharing](https://docs.sysdig.com/en/docs/sysdig-monitor/dashboards/#enable-public-sharing){: external}.

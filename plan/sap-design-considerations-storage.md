@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-10"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -341,7 +341,7 @@ For more information, see [SAP Note 2172935](https://me.sap.com/notes/2172935){:
 ### Sample storage configuration for {{site.data.keyword.Db2_on_Cloud_short}} on IBM AIX that use the IBM {{site.data.keyword.powerSys_notm}}
 {: #sample-power-anydb-ibm-db2-aix}
 
-Table 3 is a sample storage configuration for an AIX {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} for a {{site.data.keyword.Db2_on_Cloud_short}} server.
+Table 3 is a sample storage configuration for an AIX {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} for an {{site.data.keyword.Db2_on_Cloud_short}} server.
 
 The storage cannot be combined within the same {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, and can be either Tier 1 or Tier 3. The recommendations are to provision three more disks to enable separation between the OS, database, and application layer. Disk size depends on whether the installation is Greenfield or the server is a copy of an "on-premises" AIX server that you decided to use as a sizing reference.
 
@@ -364,9 +364,9 @@ The naming convention for the LVM entries is optional, but the advice is to incl
 | | | `lv{SID}saptmp` | `/db2/{SID}/saptemp1` |
 | | | `lv{SID}db2sw` | `/db2/db2/<DBSID>/db2_sw` |
 | Db2 database storage II | `<sid>db2datvg` | `lv{SID}sapdata1` | `/db2/{SID}/sapdata1` |
-| | | ``lv{SID}sapdata2` | `/db2/{SID}/sapdata2` |
-| | | ``lv{SID}sapdata3` | `/db2/{SID}/sapdata3` |
-| | | ``lv{SID}sapdata4` | `/db2/{SID}/sapdata4` |
+| | | `lv{SID}sapdata2` | `/db2/{SID}/sapdata2` |
+| | | `lv{SID}sapdata3` | `/db2/{SID}/sapdata3` |
+| | | `lv{SID}sapdata4` | `/db2/{SID}/sapdata4` |
 {: caption="Sample storage layout for Db2 on Cloud" caption-side="top"}
 
 For more information, see [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/docs/SLTOOLSET/4fbd902c7c76410bb82c6311dd4dc94b/713eb64f45c6448c8dbe8a51b85680ee.html?version=CURRENT_VERSION){: external} and [SAP Note 1707361](https://me.sap.com/notes/1707361){: external}.

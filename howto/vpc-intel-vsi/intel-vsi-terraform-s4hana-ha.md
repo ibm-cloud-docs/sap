@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-03-10"
 keywords:
 subcollection: sap
 ---
@@ -463,11 +463,11 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
 
     |Parameter	|  Description  |
     |-----|-----|
-    |APP_HOSTNAME_1	|APP VSI HOSTNAME 1 in SAP APP Cluster. The hostname should be up to 13 characters. Obs: When the default value is used, the virtual hostname will automatically be changed based on <SAP_SID> to "sapapp-<sap_sid>-1"|
-    |APP_HOSTNAME_2	|APP VSI HOSTNAME 2 in SAP APP Cluster. The hostname should be up to 13 characters. Obs: When the default value is used, the virtual hostname will automatically be changed based on <SAP_SID> to "sapapp-<sap_sid>-2"|
+    |APP_HOSTNAME_1	|APP VSI HOSTNAME 1 in SAP APP Cluster. The hostname should be up to 13 characters. Obs: When the default value is used, the virtual hostname will automatically be changed based on `<SAP_SID>` to `sapapp-<sap_sid>-1`|
+    |APP_HOSTNAME_2	|APP VSI HOSTNAME 2 in SAP APP Cluster. The hostname should be up to 13 characters. Obs: When the default value is used, the virtual hostname will automatically be changed based on `<SAP_SID>` to `sapapp-<sap_sid>-2`|
     |BASTION_FLOATING_IP	|Input the floating IP of the bastion server you created before you started this deployment. For more information, see Automate SAP bastion server - SAP media storage repository.|
-    |DB_HOSTNAME_1	|HANA DB VSI HOSTNAME 1 in SAP HANA Cluster. The hostname should be up to 13 characters. Obs: When the default value is used, the virtual hostname will automatically be changed based on <HANA_SID> to "hanadb-<hana_sid>-1"|
-    |DB_HOSTNAME_2	|HANA DB VSI HOSTNAME 2 in SAP HANA Cluster. The hostname should be up to 13 characters. Obs: When the default value is used, the virtual hostname will automatically be changed based on <HANA_SID> to "hanadb-<hana_sid>-2"|
+    |DB_HOSTNAME_1	|HANA DB VSI HOSTNAME 1 in SAP HANA Cluster. The hostname should be up to 13 characters. Obs: When the default value is used, the virtual hostname will automatically be changed based on `<HANA_SID>` to `hanadb-<hana_sid>-1`|
+    |DB_HOSTNAME_2	|HANA DB VSI HOSTNAME 2 in SAP HANA Cluster. The hostname should be up to 13 characters. Obs: When the default value is used, the virtual hostname will automatically be changed based on `<HANA_SID>` to `hanadb-<hana_sid>-2`|
     |DOMAIN_NAME  |The Domain Name used for DNS and ALB. Duplicates are not allowed. The list with DNS resources can be found here: https://cloud.ibm.com/resources.|
     |REGION	| Cloud Region where resources are deployed.|
     |RESOURCE_GROUP	|Existing Resource Group for VSIs and Volumes|

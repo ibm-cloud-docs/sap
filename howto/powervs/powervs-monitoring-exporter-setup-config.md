@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-03-10"
 keywords: SAP Monitoring, {{site.data.keyword.cloud_notm}}, SAP Workloads
 subcollection: sap
 ---
@@ -300,7 +300,7 @@ The configuration consists of two configuration files:
    * `config.json` contains `sap_hana_ip`, `sap_hana_sql_systemdb_port`, and `hdbuserkey`
 
 To avoid needing administrator privileges on the database, use the ReadOnly SQL user from the hdbuserstore.
-The specific parameters are added to the configuration file by replacing the placeholders <…>.
+The specific parameters are added to the configuration file by replacing the placeholders `<…>`.
 
 1. Create the configuration file as user root with the file name `/etc/hanadb_exporter/config-<sap_monitoring_nr>-SQL.json` by using the following command:
 
