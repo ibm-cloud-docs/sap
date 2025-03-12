@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -40,26 +40,28 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 ### Profiles hosted on Intel Sapphire Rapids CPU
 {: #nw-iaas-intel-bm-sr-vpc-list}
 
-| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
-| --- | --- | --- | --- |
-| **Compute Optimized** | | | |
-| cx3d-metal-48x128 | 48 | 128 | 62,029|
-| cx3d-metal-64x128 | 64 | 128 | 63,950|
-| **Balanced** | | | |
-| bx3d-metal-48x256 | 48 | 256 | 93,670 |
-| bx3d-metal-64x256 | 64 | 256 | 124,520 |
-| bx3d-metal-192x1024 | 192 | 1.024 | 297,770 |
-| **Memory Optimized** | | | |
-| mx3d-metal-16x128 | 16 | 128 | 30,030 |
-| mx3d-metal-48x512 | 48 | 512 | 97,830 |
-| mx3d-metal-64x512 | 64 | 512 | 128,750 |
-| mx3d-metal-96x1024 | 96 | 1.024 | 182,670 |
-| mx3d-metal-128x1024 | 128 | 1.024 | 239,300 |
-| **Very High Memory Optimized** | | | |
-| vx3d-metal-16x256 | 16 | 256 | 35,520 |
-| **Ultra High Memory Optimized** | | | |
-| ux3d-metal-16x512 | 16 | 512 | 34,320 |
-{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-    side="bottom"}
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS<sup>(1)</sup>** |
+| --- | --- | --- | --- | --- |
+| **Compute Optimized** | | | | |
+| cx3d-metal-48x128 | 48 | 128 | 62,029| n/a |
+| cx3d-metal-64x128 | 64 | 128 | 63,950| n/a |
+| **Balanced** | | | | |
+| bx3d-metal-48x256 | 48 | 256 | 93,670 | 18,400 |
+| bx3d-metal-64x256 | 64 | 256 | 124,520 | 24,600 |
+| bx3d-metal-192x1024 | 192 | 1.024 | 297,770 | 57,400 |
+| **Memory Optimized** | | | | |
+| mx3d-metal-16x128 | 16 | 128 | 30,030 | n/a |
+| mx3d-metal-48x512 | 48 | 512 | 97,830 | 18,700 |
+| mx3d-metal-64x512 | 64 | 512 | 128,750 | 24,200 |
+| mx3d-metal-96x1024 | 96 | 1.024 | 182,670 | 33,700 |
+| mx3d-metal-128x1024 | 128 | 1.024 | 239,300 | 46,000 |
+| **Very High Memory Optimized** | | | | |
+| vx3d-metal-16x256 | 16 | 256 | 35,520 | n/a |
+| **Ultra High Memory Optimized** | | | | |
+| ux3d-metal-16x512 | 16 | 512 | 34,320 | n/a |
+{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-side="bottom"}
+
+<sup>(1)</sup>: aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment]    (https://me.sap.com/notes/2927211){: external}.
 
@@ -73,15 +75,15 @@ With {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC, the profile fa
 
 For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile).
 
-The first letter of the profile name indicates the profile family:
+The first letter of the profile name indicates the profile family mentioned above. One of the key instance attributes is the ratio of core (*number of vCPUs*) to RAM (*amount of GiB*):
 
 | **First letter** | **Characteristics of the related profile family** | **Ratio Cascade Lake** | **Ratio Sapphire Rapids** |
 | --- | --- | --- | --- |
 | c | *Compute Optimized* family | 1:2 | 1:2 or 1:2.67 |
 | b | *Balanced* family | 1:4 | 1:4 or 1:5.33 |
 | m | *Memory Optimized* family| 1:8 | 1:8 or 1:10.67 |
-| u | *Ultra High Memory Optimized* family | 1:27.43 | from 1:21.33 to 1:42.67 |
 | v | *Very High Memory Optimized* family | 1:27.43 | 1:16 |
+| u | *Ultra High Memory Optimized* family | 1:27.43 | 1:32 |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
 

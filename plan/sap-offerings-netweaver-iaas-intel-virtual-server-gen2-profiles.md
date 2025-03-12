@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -135,15 +135,15 @@ With {{site.data.keyword.vsi_is_full}}, the profile families that are certified 
 For more information, see chapter [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 
-The first letter of the profile name indicates the profile family mentioned above:
+The first letter of the profile name indicates the profile family mentioned above. One of the key instance attributes is the ratio of core (*number of vCPUs*) to RAM (*amount of GiB*):
 
-| First letter | Characteristics of the related profile family |
-| --- | --- |
-| c | *Compute Optimized* family, vCPU to memory ratio 1:2 or 1:2.5 |
-| b | *Balanced* family, vCPU to memory ratio 1:4 or 1:5 |
-| m | *Memory Optimized* family, higher vCPU to memory ratio 1:8 or 1:10 |
-| v | *Very High Memory Optimized*  family, very high vCPU to memory ratio 1:14 |
-| u | *Ultra High Memory Optimized* family, ultra high vCPU to memory ratio 1:28 |
+| **First letter** | **Characteristics of the related profile family** | **Ratio Cascade Lake** | **Ratio Sapphire Rapids** |
+| --- | --- | --- | --- |
+| c | *Compute Optimized* family | 1:2 | 1:2.5 |
+| b | *Balanced* family | 1:4 | 1:5 |
+| m | *Memory Optimized* family | 1:8 | 1:10 |
+| v | *Very High Memory Optimized*  family | 1:14 | n/a |
+| u | *Ultra High Memory Optimized* family | 1:28 | n/a |
 {: caption="{{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
 
 

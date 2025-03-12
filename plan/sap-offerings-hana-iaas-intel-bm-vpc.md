@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -30,6 +30,25 @@ The following table gives you an overview of the SAP-certified profiles with bar
 | ux2d-metal-224x6144 | 224 | 6,144 | 294,730 | OLTP/OLAP (\*) |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA" caption-side="bottom"}
 
+
+### Profiles hosted on Intel Sapphire Rapids CPU
+{: #hana-iaas-intel-bm-sr-vpc-list}
+
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS<sup>(1)</sup>** | **SAP HANA\nProcessing Type** |
+| --- | --- | --- | --- | --- | --- |
+| **Balanced** | | | | | |
+| bx3d-metal-48x256 | 48 | 256 | 93,670 | 18,400 | OLTP/OLAP (\*) |
+| bx3d-metal-64x256 | 64 | 256 | 124,520 | 24,600 | OLTP/OLAP (\*) |
+| bx3d-metal-192x1024 | 192 | 1.024 | 297,770 | 57,400 | OLTP/OLAP (\*) |
+| **Memory Optimized** | | | | | |
+| mx3d-metal-48x512 | 48 | 512 | 97,830 | 18,700 | OLTP/OLAP (\*) |
+| mx3d-metal-64x512 | 64 | 512 | 128,750 | 24,200 | OLTP/OLAP (\*) |
+| mx3d-metal-96x1024 | 96 | 1.024 | 182,670 | 33,700 | OLTP/OLAP (\*) |
+| mx3d-metal-128x1024 | 128 | 1.024 | 239,300 | 46,000 | OLTP/OLAP (\*) |
+{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-side="bottom"}
+
+<sup>(1)</sup>: aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.
+
 (\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions\n
 SLES 12 SP5, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5, SLES 15 SP6
 
@@ -52,14 +71,15 @@ With {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC, the profile fa
 
 For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile).
 
-The first letter of the profile name indicates the profile family:
+The first letter of the profile name determines the profile family. 
+The ratio of cores (*number of vCPUs*) to RAM (*amount of GiB*) is one of the key attributes of a profile family.
 
-| First letter | Characteristics of the related profile family |
-| --- | --- |
-| c | *Compute Optimized* family, vCPU to memory ratio 1:2 |
-| b | *Balanced* family, vCPU to memory ratio 1:4 |
-| m | *Memory Optimized* family, higher vCPU to memory ratio 1:8 |
-| u | *Ultra High Memory Optimized* family, even higher vCPU to memory ratio 1:27.43 |
+| **First letter** | **Characteristics of the related profile family** | **Ratio Cascade Lake** | **Ratio Sapphire Rapids** |
+| --- | --- | --- | --- |
+| c | *Compute Optimized* family | 1:2 | n/a |
+| b | *Balanced* family | 1:4 | 1:4 or 1:5.33 |
+| m | *Memory Optimized* family| 1:8 | 1:8 or 1:10.67 |
+| u | *Ultra High Memory Optimized* family | 1:27.43 | n/a |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
 The bare metal server profile names are contextual and sequential. See the following example:
@@ -67,8 +87,8 @@ The bare metal server profile names are contextual and sequential. See the follo
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
 | mx2d-metal-96x768 | m | *Memory Optimized* family |
-| | x | Intel x86_64 CPU Architecture |
-| | 2 | The generation for the underlying hardware |
+| | x | Intel x86_64 CPU architecture |
+| | ? \n   2 \n   3 | The Intel generation for the underlying hardware \n   Cascade Lake \n   Sapphire Rapids |
 | | d | the optional 'd' in the name indicates that the server is equipped with one or more SSD storage devices |
 | | — | *spacer* |
 | | metal | *metal* in the name indicates that this is a bare metal server |

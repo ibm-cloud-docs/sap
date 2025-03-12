@@ -1,15 +1,13 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-
-{{site.data.keyword.attribute-definition-list}}
 
 # AnyDB - Microsoft SQL Server
 {: #anydb-ms-sql-server}

@@ -1,8 +1,8 @@
 ---
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
-keywords:
+  years: 2020, 2025
+lastupdated: "2025-03-12"
+keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
 
@@ -24,7 +24,7 @@ The following table is an overview of the SAP-certified profiles with either:
 
 
 
-| **Profile** | **CPU Cores** | **CPU Threads (also known as. vCPU)** | **Memory (RAM GB)** | **SAPS  (after VMware hypervisor 10%)** |
+| **Profile** | **CPU Cores** | **CPU Threads (also known as. vCPU)** | **Memory (RAM GiB)** | **SAPS  (after VMware hypervisor 10%)** |
 | --- | --- | --- | --- | --- |
 | BI.S3.NW192 (VMware) | 36 | 72 | 192 GB | 70,965 |
 | BI.S3.NW384 (VMware) | 36 | 72 | 384 GB | 71,487 |
@@ -44,11 +44,8 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP HA
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
-| BI.S3.H8401 | BI | {{site.data.keyword.cloud_notm}} Infrastructure |
-| | S3 | Series 3 (processor generation)  \n * S3 is Intel Skylake/Kaby Lake\n *S4 is Intel Cascade Lake |
-| | H | HANA-certified server |
-| | 8 | 8-socket server |
-| | 4 | 4 TB RAM |
-| | 01 | Revision number (00 is launch, 01 is first revision, and so on) |
-| | A or B | Available as appliances with preconfigured built-in disks (A) or as boot servers only (B) |
+| BI.S3.NW768 | BI | {{site.data.keyword.cloud_notm}} Infrastructure |
+| | S3 | Series 3 (processor generation)  \n * S3 is Intel Skylake/Kaby Lake\n * S4 is Intel Cascade Lake |
+| | NW | NetWeaver-certified server |
+| | ### | ### GiB RAM (rounded, exact RAM amount is in the table)|
 {: caption="Profile naming for SAP NetWeaver" caption-side="top"}

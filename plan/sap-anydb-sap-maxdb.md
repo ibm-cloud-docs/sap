@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -48,7 +48,7 @@ See [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure env
 
 See [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external} for supported SAP MaxDB versions.
 
-### SAP MaxDB using IBM {{site.data.keyword.powerSys_notm}}s)
+### SAP MaxDB using IBM {{site.data.keyword.powerSys_notm}}s
 {: #anydb-sap-maxdb-power-vs}
 
 See [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external} for supported SAP MaxDB versions.
