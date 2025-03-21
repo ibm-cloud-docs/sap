@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-03-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Creating Instances for a RHEL HA Add-On Cluster
+# Creating Instances for a High Availability Cluster
 {: #ha-vsi}
 
 Use the following information and procedures to create the {{site.data.keyword.powerSys_notm}} instances that are required for a high availability cluster implementation.
@@ -62,7 +62,7 @@ The PER solution creates a direct connection to the IBM Cloud Multi Protocol Lab
 For more information, see [Getting started with the Power Edge Router](/docs/power-iaas?topic=power-iaas-per).
 
 Otherwise, create {{site.data.keyword.cloud}} connections to connect your {{site.data.keyword.powerSys_notm}} instances to other {{site.data.keyword.cloud_notm}} resources within your account.
-{{site.data.keyword.cloud_notm}} connections are not required to configure a Red Hat High Availability cluster in {{site.data.keyword.powerSys_notm}}.
+{{site.data.keyword.cloud_notm}} connections are not required to configure a high availability cluster in {{site.data.keyword.powerSys_notm}}.
 They might be required for integration scenarios with the {{site.data.keyword.cloud_notm}} Classic network and Virtual Private Cloud (VPC) infrastructures.
 For more information, see [IBM {{site.data.keyword.powerSys_notm}} Cloud Connections](/docs/power-iaas?topic=power-iaas-cloud-connections){: external}.
 
@@ -258,7 +258,7 @@ In the *Access policies* section, click **Assign access**  again and follow the 
 ### Creating an API key for the Service ID
 {: #ha-vsi-create-service-api-key}
 
-When you configure the *fencing agent* in the *Red Hat HA cluster* or the *powervs-subnet* resource agent in a multizone region implementation, you must specify an *API key*.
+When you configure the *fencing agent* in a high availability cluster or the *powervs-subnet* resource agent in a multizone region implementation, you must specify an *API key*.
 The *API key* authorizes the fencing agent or resource agent to use the IBM Power Cloud API to perform the actions that are defined in the *Service ID*.
 
 Create the **API Key** for the **Service ID** in the IAM.
@@ -276,7 +276,7 @@ The key is available for 300 seconds.
 After 300 seconds, you won't be able to view or retrieve the key.
 {: important}
 
-## Collecting parameters for configuring a RHEL HA Add-On cluster
+## Collecting parameters for configuring a high availability cluster
 {: #ha-rhel-collect-parameters-for-cluster-config}
 
 Several parameters are required to set up a specific high availability scenario.

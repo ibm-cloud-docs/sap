@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-03-07"
+lastupdated: "2025-03-13"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, heterogeneous migration, Linux, Red Hat, RHEL, SuSE, Db2, Oracle, HANA, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize, sum, software update manager, dmo, database migration option, dmove2s4, Software Provisioning Manager, SWPM
 subcollection: sap
 ---
@@ -99,7 +99,7 @@ Every migration project must consider multiple dependencies that are not in the 
 The migration options that are described are not necessarily specific to IBM PowerVS migrations.
 SAP basis and SAP functional admins are expected to understand the full scope of SAP Upgrades and the migration option that uses SUM/DMO - including details that are not explicitly stated.
 
-SAP Software Update Manager is an SAP product. For more information, see [Database Migration Option: Target Database SAP HANA](https://help.sap.com/viewer/c4ebc2b5d928446180d9ad2667f11faa/1.0/en-US/404d4617367948f0be1c41ec2254ae37.html){: external}.
+SAP Software Update Manager is an SAP product. For more information, see [Database Migration Option: Target Database SAP HANA](https://help.sap.com/docs/help/c4ebc2b5d928446180d9ad2667f11faa/404d4617367948f0be1c41ec2254ae37.html){: external}.
 
 ## Migration considerations
 {: #sapmig-ibm-dmo-mig-considerations}
@@ -173,7 +173,7 @@ Read the subsections of this SAP support article to get the full list of variant
 [Feature Scope Description - SAP Readiness Check)](https://help.sap.com/docs/SAP_READINESS_CHECK/a281af437b3e4ef4a187c7f35a9093e9/b47054d8bb6a47738b874cefc0b9f561.html?locale=en-US){: external}.
 
 You need to implement SAP notes to install the "SAP Readiness Check for SAP S/4HANA" tool.
-These notes are listed in the section [Associated SAP notes and documentation for the SAP readiness check](/docs/sap?topic=sap-sapmig-ibm-dmo-mig-doc-sap-readiness-additional).
+These notes are listed in the section [Associated SAP notes and documentation for the SAP readiness check](/docs/sap?topic=sap-sapmig-sum-dmo#sapmig-ibm-dmo-mig-doc-sap-readiness-additional).
 The data collector framework together with the data collectors are implemented on the source system.
 These collectors are then activated to collect statistical data and collect a limited set of configuration
 data from your system.
@@ -520,7 +520,7 @@ DMO user guides for different target database systems are available.
 * [SAP Note 1912445 - ABAP custom code migration for SAP HANA - recommendations](https://me.sap.com/notes/1912445){: external}
 
 ### Links for the SAP Software Update Manager data migration option
-{: #sapmig-dmo-links}
+{: #sapmig-dmo-sum-links}
 
 * [Database Migration Option: Target Database SAP HANA](https://help.sap.com/docs/help/c4ebc2b5d928446180d9ad2667f11faa/404d4617367948f0be1c41ec2254ae37.html?locale=en-US){: external}
 

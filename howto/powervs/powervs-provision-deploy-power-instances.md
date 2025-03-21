@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-10"
+lastupdated: "2025-03-19"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -292,7 +292,7 @@ systemctl status chronyd
 
 Adapt the `chrony.conf` configuration according to the description in the section [Setting up chrony for a system in an isolated network](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/configuring-time-synchronization_configuring-basic-system-settings#setting-up-chrony-for-a-system-in-an-isolated-network_using-chrony){: external}.
 
-The following is a sample configuration for `chrony.conf`:
+The following is a sample configuration for `/etc/chrony.conf`:
 
 ```sh
 
@@ -315,8 +315,8 @@ systemctl restart chronyd.service
 ### Configuring a DNS client
 {: #power-vs-configure-dns-client-manual}
 
-A DNS server should be configured after the {{site.data.keyword.powerSys_notm}} instance is created.
-The `/etc/resolv.conf` file contains all the DNS server configurations, there is no need to modify this file.
+The public Domain Name Service (DNS) servers of IBM Cloud are configured as default, there is no need to modify the DNS configuration for them.
+If you create a private DNS server for your environment, you must configure it after the {{site.data.keyword.powerSys_notm}} instance is created.
 
 ### Configuring an NFS client
 {: #power-vs-configure-nfs-client-manual}
@@ -348,8 +348,9 @@ Use the following steps to manually configure an NFS client.
 
 3. After the NFS client service starts, you can mount the shared NFS directory by using the mount command.
 
+
    ```sh
-   mount -t nfs4 -o sec=sys,nfsvers=4.1 <NFS_SERVER_IP>:<NFS_DIRECTORY_PATH>
+   mount -t nfs4 -o sec=sys <NFS_SERVER_IP>:<NFS_DIRECTORY_PATH>
    ```
    {: pre}
 
@@ -487,6 +488,11 @@ mkdir -p ${mount}
 ```
 {: pre}
 
+```sh
+mount /dev/mapper/${vg_name}-${lv_name} ${mount}
+```
+{: pre}
+
 Run the same commands to create storage volumes for `/hana/log` and `/hana/shared`.
 Change `lv_name` to `hana_log_lv`, `vg_name` to `hana_log_vg` and `mount` to `/hana/log`.
 
@@ -512,7 +518,7 @@ Use the same approach for `/hana/shared`.
 Make sure that the variable `pv_size` has different values for `/hana/data`, `/hana/log` and `/hana/shared`, before running the `export` command, otherwise the whole setup will not work.
 {: important}
 
-If you don't use multipath aliases, replace the line (starting with `devices=$()` that is used to identify devices.
+If you don't use multipath aliases, replace the line starting with `devices=$()` that is used to identify devices.
 Instead, use following line: `devices=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$2}' | tr '\n' ' ')`
 
 ### Checking the storage volumes
@@ -543,7 +549,7 @@ The following is a sample output of this command:
 ```
 {: screen}
 
-Check if the entries for `/hana/data`, `/hana/log` and `/hana/shared` exist in the `/etc/fstab` file:
+Add the file systems `/hana/data`, `/hana/log` and `/hana/shared` to the file systems table `/etc/fstab`, unless there is already an entry for each of them.
 
 ```sh
 cat /etc/fstab

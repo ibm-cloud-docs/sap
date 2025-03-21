@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-07"
+lastupdated: "2025-03-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -63,7 +63,7 @@ For more information about provisioning IBM {{site.data.keyword.powerSys_notm}} 
 For more information about implementing high availability scenarios for SAP on IBM {{site.data.keyword.powerSysFull}}, see the following links.
 
 - [Implementing High Availability for SAP Applications on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-overview)
-- [Creating instances for a high availability cluster on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-vsi)
+- [Creating Instances for a High Availability Cluster](/docs/sap?topic=sap-ha-vsi)
 - [Implementing a RHEL HA Add-On cluster on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-ha-rhel)
 - [Implementing a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}} in a Multizone Region Environment](/docs/sap?topic=sap-ha-rhel-mz)
 - [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr)

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-11"
+lastupdated: "2025-03-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -34,15 +34,11 @@ Review the general requirements, product documentation, support articles, and SA
 ## Prerequisites
 {: #ha-rhel-ensa-mz-prerequisites}
 
-
-
 - This information describes a setup that uses NFS mounted storage for the instance directories.
    - The *ASCS* instance uses the mount point `/usr/sap/<SID>/ASCS<INSTNO>`.
    - The *ERS* instance uses the mount point `/usr/sap/<SID>/ERS<INSTNO>`.
    - Both instances use the `/sapmnt/<SID>` mount point with shared *read and write* access.
    - Other shared file systems such as *saptrans* `/usr/sap/trans` might be needed.
-
-
 
    Make sure that a highly available NFS server is configured to serve these shares.
    The NFS server must not be installed on a virtual server that is part of the *ENSA2* cluster.
@@ -155,14 +151,10 @@ export NFS_OPTIONS="rw,sec=sys"      # Sample NFS client mount options
 
 On both nodes, run the following command to create the mount points for the instance file systems.
 
-
-
 ```sh
 mkdir -p /usr/sap/${SID}/{ASCS${ASCS_INSTNO},ERS${ERS_INSTNO}} /sapmnt/${SID}
 ```
 {: pre}
-
-
 
 ## Installing and setting up the RHEL HA Add-On cluster
 {: #ha-rhel-ensa-mz-set-up}
@@ -175,8 +167,6 @@ Configure and test the cluster fencing as described in [Creating the fencing dev
 {: #ha-rhel-ensa-mz-clres-ascs-ers}
 
 Make sure that the RHEL HA Add-On cluster is running on both virtual server instances and that node fencing has been tested.
-
-
 
 ### Configuring the cluster resource for sapmnt
 {: #ha-rhel-ensa-mz-cfg-shared}
@@ -193,11 +183,8 @@ pcs resource create fs_sapmnt Filesystem \
 ```
 {: pre}
 
-
-
 ### Preparing to install the ASCS instance on NODE1
 {: #ha-rhel-ensa-mz-cfg-ascs-rg-prp}
-
 
 On NODE1, run the following command to create a *Filesystem* cluster resource that mounts the *ASCS* instance directory.
 
@@ -236,11 +223,8 @@ pcs resource create ${sid}_vip_ascs${ASCS_INSTNO} powervs-subnet \
 {: pre}
 
 
-
-
 ### Preparing to install the ERS instance on NODE2
 {: #ha-rhel-ensa-mz-cfg-ers-rg-prp}
-
 
 On NODE1, run the following command to create a *Filesystem* cluster resource to mount the *ERS* instance directory.
 
@@ -278,7 +262,6 @@ pcs resource create ${sid}_vip_ers${ERS_INSTNO} powervs-subnet \
 ```
 {: pre}
 
-
 ### Verifying the cluster configuration
 {: #ha-rhel-ensa-mz-verify-cluster-config-before-sap-install}
 
@@ -290,7 +273,6 @@ pcs status --full
 {: pre}
 
 Sample output:
-
 
 ```sh
 # pcs status --full
@@ -335,8 +317,6 @@ Daemon Status:
   pcsd: active/enabled
 ```
 {: screen}
-
-
 
 Make sure that the `${sid}_ascs${ASCS_INSTNO}_group` cluster resource group runs on NODE1 and the `${sid}_ers${ERS_INSTNO}_group` cluster resource group runs on NODE2.
 If necessary, use the `pcs resource move <resource_group_name>` command to move the resource group to the correct node.
@@ -410,11 +390,7 @@ Up to this point, the following are assumed:
 ### Configuring the ASCS cluster resource group
 {: #ha-rhel-ensa-mz-cfg-ascs-rg}
 
-
-
 On NODE1, run the following commands to create a cluster resource for managing the *ASCS* instance.
-
-
 
 ```sh
 pcs resource create ${sid}_ascs${ASCS_INSTNO} SAPInstance \
@@ -430,7 +406,6 @@ pcs resource create ${sid}_ascs${ASCS_INSTNO} SAPInstance \
 ```
 {: pre}
 
-
 The `meta resource-stickiness=5000` option is used to balance the failover constraint with ERS so that the resource stays on the node where it started and doesn't migrate uncontrollably in the cluster.
 {: note}
 
@@ -445,10 +420,7 @@ pcs resource meta ${sid}_ascs${ASCS_INSTNO}_group \
 ### Configuring the ERS cluster resource group
 {: #ha-rhel-ensa-mz-cfg-ers-rg}
 
-
-
 On NODE2, run the following command to create a resource for managing the *ERS* instance.
-
 
 ```sh
 pcs resource create ${sid}_ers${ERS_INSTNO} SAPInstance \
@@ -462,8 +434,6 @@ pcs resource create ${sid}_ers${ERS_INSTNO} SAPInstance \
     --group ${sid}_ers${ERS_INSTNO}_group
 ```
 {: pre}
-
-
 
 ### Configuring the cluster constraints
 {: #ha-rhel-ensa-mz-cfg-constraints}
@@ -489,7 +459,6 @@ pcs constraint order start \
 ```
 {: pre}
 
-
 The following two order constraints ensure that the *SAPMNT* file system mounts before `${sid}_ascs${ASCS_INSTNO}_group` and `${sid}_ers${ERS_INSTNO}_group` start.
 
 ```sh
@@ -503,7 +472,6 @@ pcs constraint order fs_sapmnt-clone then ${sid}_ers${ERS_INSTNO}_group
 {: pre}
 
 
-
 ## Conclusion
 {: #ha-rhel-ensa-mz-conclusion}
 
@@ -512,8 +480,6 @@ This completes the *ENSA2* cluster implementation in a multizone region environe
 You should now proceed with testing the cluster, similar to the tests described in [Testing an SAP ENSA2 cluster](/docs/sap?topic=sap-ha-rhel-ensa#ha-rhel-ensa-test-sap-ensa-cluster).
 
 The following is a sample output of the `pcs status` command for a completed *ENSA2* cluster in a multi-zone region implementation.
-
-
 
 ```sh
 Cluster name: SAP_S01

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-03-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -36,7 +36,7 @@ Review the general requirements, product documentation, support articles, and SA
 ## Creating virtual server instances for the cluster
 {: #ha-rhel-mz-create-virtual-server-instances}
 
-Use the instructions in [Creating Instances for a High Availability Cluster on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
+Use the instructions in [Creating Instances for a High Availability Cluster](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
 
 Create two workspaces in two zones of a multizone region.
 Create a [Transit Gateway](/docs/transit-gateway) and add both workspaces to the connections.
@@ -92,7 +92,7 @@ export POWERVSI_2=<POWERVSI_2>           # Virtual server instance id
 ```
 {: codeblock}
 
-To find the settings for the `APIKEY`, `IBMCLOUD_CRN_?`, `GUID_?`, and `POWERVSI_?` variables, follow the steps in [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config).
+To find the settings for the `APIKEY`, `IBMCLOUD_CRN_?`, `GUID_?`, and `POWERVSI_?` variables, follow the steps in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config).
 
 ## Installing and configuring a RHEL HA Add-On cluster
 {: #ha-rhel-mz-install-and-configure-rhel-ha-cluster}
@@ -257,7 +257,7 @@ Fence agent *fence_ibm_powervs* is the only supported agent for a STONITH device
 You must configure a fencing device for each of the two workspaces in the multizone region.
 The fence agent connects to the [Power Cloud API](https://cloud.ibm.com/apidocs/power-cloud){: external} by using the common `APIKEY` and `CLOUD_REGION` parameters.
 The parameters `IBMCLOUD_CRN_<n>`, `GUID_<n>`, and the instance ID `POWERVSI_<n>` are specific to the workspace.
-You can test the agent invocation by using the parameters that you gathered in the [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config) section.
+You can test the agent invocation by using the parameters that you gathered in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config) section.
 
 #### Identifying the virtual server instances for fencing
 {: #ha-rhel-mz-identify-virtual-instances-for-fencing}

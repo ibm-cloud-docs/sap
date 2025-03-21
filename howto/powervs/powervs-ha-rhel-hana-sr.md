@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-03-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -93,7 +93,7 @@ Set the `VIP`environment variable to the reserved IP address.
 #### Setting extra environment variables for a multizone region implementation
 {: #ha-rhel-hana-sr-mz-prepare-environment-variables}
 
-Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, `POWERVSI_?` variables as described in [Collecting parameters for configuring a RHEL HA Add-On cluster](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
+Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, `POWERVSI_?` variables as described in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
 Set the `API_TYPE` variable to `private` to communicate with the IBM Cloud IAM and IBM Power Cloud API via private endpoints.
 The `SUBNET_NAME` variable contains the name of the subnet.
 The `CIDR` variable represents the *Classless Inter-Domain Routing (CIDR)* notation for the subnet in the format `<IPv4_address>/number`.
