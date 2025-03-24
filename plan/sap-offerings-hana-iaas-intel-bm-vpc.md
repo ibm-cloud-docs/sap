@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-12"
+lastupdated: "2025-03-24"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -71,7 +71,7 @@ With {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC, the profile fa
 
 For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile).
 
-The first letter of the profile name determines the profile family. 
+The first letter of the profile name determines the profile family.
 The ratio of cores (*number of vCPUs*) to RAM (*amount of GiB*) is one of the key attributes of a profile family.
 
 | **First letter** | **Characteristics of the related profile family** | **Ratio Cascade Lake** | **Ratio Sapphire Rapids** |
