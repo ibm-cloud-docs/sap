@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-03-21"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -112,7 +112,7 @@ RDBMS on Intel Bare Metal Servers in the IBM Cloud Classic Infrastructure that c
 
 High availability for SAP can be achieved for:
 - SAP NetWeaver High Availability - [SAP NetWeaver design considerations for High Availability configuration](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha)
-- SAP HANA High Availability - [Implementing High Availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview) and [SAP Note 2057595](https://me.sap.com/notes/2057595){: external}
+- SAP HANA High Availability - [Implementing high availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview) and [SAP Note 2057595](https://me.sap.com/notes/2057595){: external}
 
 - SAP AnyDB High Availability (for example, IBM Db2, MS SQL, and so on.)
    - [Db2](https://me.sap.com/notes/1612105/){: external}

@@ -20,13 +20,18 @@ toc:
           - overview/sap-getting-started.md
           - overview/sap-offerings-overview.md
           - topicgroup:
-              label: Fast Path Site Maps
+              label: Fast path site maps
               topics:
-                - overview/sap-fast-path-site-map-intel-bm.md
-                - overview/sap-fast-path-site-map-vmware-sddc.md
-                - overview/sap-fast-path-site-map-intel-bm-vpc.md
-                - overview/sap-fast-path-site-map-intel-vs-gen2.md
-                - overview/sap-fast-path-site-map-ibm-power-vs.md
+                - navtitle: Intel virtual servers on VPC
+                  topic: overview/sap-fast-path-site-map-intel-vs-gen2.md
+                - navtitle: Power Virtual Server
+                  topic: overview/sap-fast-path-site-map-ibm-power-vs.md
+                - navtitle: Intel Bare Metal servers on VPC
+                  topic: overview/sap-fast-path-site-map-intel-bm-vpc.md
+                - navtitle: Intel Bare Metal servers on Classic
+                  topic: overview/sap-fast-path-site-map-intel-bm.md
+                - navtitle: VMware on Classic
+                  topic: overview/sap-fast-path-site-map-vmware-sddc.md
           - link:
               label: Executive solution brief of IBM Cloud for SAP
               href: https://www.ibm.com/cloud/smartpapers/accelerate-SAP/
@@ -36,251 +41,381 @@ toc:
           - topicgroup:
               label: Infrastructure environments
               topics:
-                - plan/sap-environment-classic-infrastructure.md
-                - plan/sap-environment-vpc-infrastructure.md
-                - plan/sap-environment-power-infrastructure.md
-          - plan/sap-offerings-certified-iaas.md
+                - navtitle: Classic infrastructure
+                  topic: plan/sap-environment-classic-infrastructure.md
+                - navtitle: VPC infrastructure
+                  topic: plan/sap-environment-vpc-infrastructure.md
+                - navtitle: Power Virtual Server infrastructure
+                  topic: plan/sap-environment-power-infrastructure.md
+          - navtitle: SAP certified infrastructure
+            topic: plan/sap-offerings-certified-iaas.md
           - topicgroup:
               label: Infrastructure profiles for SAP HANA database servers
               topics:
-                - plan/sap-offerings-hana-iaas-intel-bare-metal-profiles.md
-                - plan/sap-offerings-hana-iaas-intel-virtual-server-gen2-profiles.md
-                - plan/sap-offerings-hana-iaas-power-virtual-server-profiles.md
-                - plan/sap-offerings-hana-iaas-vmware-sddc-profiles.md
-                - plan/sap-offerings-hana-iaas-intel-bm-vpc.md
+                - navtitle: Intel Bare Metal server certified profiles for SAP HANA on Classic infrastructure
+                  topic: plan/sap-offerings-hana-iaas-intel-bare-metal-profiles.md
+                - navtitle: Intel virtual server certified profiles  for SAP HANA on VPC infrastructure
+                  topic: plan/sap-offerings-hana-iaas-intel-virtual-server-gen2-profiles.md
+                - navtitle: Power Virtual Server certified instances for SAP HANA
+                  topic: plan/sap-offerings-hana-iaas-power-virtual-server-profiles.md
+                - navtitle: VMware SDDC certified profiles for SAP HANA
+                  topic: plan/sap-offerings-hana-iaas-vmware-sddc-profiles.md
+                - navtitle: Bare Metal server certified profiles for SAP HANA on VPC infrastructure 
+                  topic: plan/sap-offerings-hana-iaas-intel-bm-vpc.md
           - topicgroup:
-              label: Infrastructure profiles for SAP NetWeaver Application Servers
+              label: Infrastructure profiles for SAP NetWeaver-based application servers
               topics:
-                - plan/sap-offerings-netweaver-iaas-intel-bare-metal-profiles.md
-                - plan/sap-offerings-netweaver-iaas-amd-bare-metal-profiles.md
-                - plan/sap-offerings-netweaver-iaas-intel-virtual-server-gen2-profiles.md
-                - plan/sap-offerings-netweaver-iaas-power-virtual-server-profiles.md
-                - plan/sap-offerings-netweaver-iaas-vmware-sddc-profiles.md
-                - plan/sap-offerings-netweaver-iaas-intel-bm-vpc.md
+                - navtitle: Intel Bare Metal server certified profiles for SAP NetWeaver on Classic infrastructure
+                  topic: plan/sap-offerings-netweaver-iaas-intel-bare-metal-profiles.md
+                - navtitle: AMD Bare Metal server certified profiles for SAP NetWeaver on Classic infrastructure 
+                  topic: plan/sap-offerings-netweaver-iaas-amd-bare-metal-profiles.md
+                - navtitle: Intel virtual server certified profiles for SAP NetWeaver on VPC infrastructure
+                  topic: plan/sap-offerings-netweaver-iaas-intel-virtual-server-gen2-profiles.md
+                - navtitle: Power Virtual Server certified instances for SAP NetWeaver
+                  topic: plan/sap-offerings-netweaver-iaas-power-virtual-server-profiles.md
+                - navtitle: VMware SDDC certified profiles for SAP NetWeaver
+                  topic: plan/sap-offerings-netweaver-iaas-vmware-sddc-profiles.md
+                - navtitle: Bare Metal server certified profiles for SAP NetWeaver on VPC infrastructure
+                  topic: plan/sap-offerings-netweaver-iaas-intel-bm-vpc.md
           - topicgroup:
               label: Plan your SAP workloads
               topics:
-                - plan/sap-sizing-planning-process.md
-                - plan/sap-sizing-planning-your-system-landscape.md
-                - plan/sap-prereq-determining-access.md
-                - plan/sap-prereq-software.md
-                - plan/sap-prereq-byol.md
+                - navtitle: Sizing process for SAP solutions
+                  topic: plan/sap-sizing-planning-process.md
+                - navtitle: Defining your SAP system landscape
+                  topic: plan/sap-sizing-planning-your-system-landscape.md
+                - navtitle: Connecting to your SAP system landscape
+                  topic: plan/sap-prereq-determining-access.md
+                - navtitle: Download and install SAP software and applications
+                  topic: plan/sap-prereq-software.md
+                - navtitle: Bring your own SAP product license
+                  topic: plan/sap-prereq-byol.md
           - topicgroup:
               label: Infrastructure for SAP design considerations
               topics:
-                - plan/sap-design-considerations-networking.md
-                - plan/sap-design-considerations-storage.md
-                - plan/sap-design-considerations-compute-os.md
-                - plan/sap-design-considerations-disaster-recovery.md
-          - plan/sap-design-considerations-sap-hana.md
-          - plan/sap-design-considerations-sap-netweaver.md
+                - navtitle: Network
+                  topic: plan/sap-design-considerations-networking.md
+                - navtitle: Storage
+                  topic: plan/sap-design-considerations-storage.md
+                - navtitle: Compute and operating system
+                  topic: plan/sap-design-considerations-compute-os.md
+                - navtitle: Disaster recovery
+                  topic: plan/sap-design-considerations-disaster-recovery.md
+          - navtitle: SAP HANA database design considerations
+            topic: plan/sap-design-considerations-sap-hana.md
+          - navtitle: SAP NetWeaver design considerations
+            topic: plan/sap-design-considerations-sap-netweaver.md
           - topicgroup:
-              label: SAP Business Applications additional design considerations
+              label: SAP Business Applications extra design considerations
               topics:
-                - plan/sap-app-s4hana.md
-                - plan/sap-app-bw4hana.md
-                - plan/sap-app-commerce.md
-                - plan/sap-app-b1.md
+                - navtitle: SAP S/4HANA
+                  topic: plan/sap-app-s4hana.md
+                - navtitle: SAP BW/4HANA
+                  topic: plan/sap-app-bw4hana.md
+                - navtitle: SAP Commerce
+                  topic: plan/sap-app-commerce.md
+                - navtitle: SAP Business One (B1)
+                  topic: plan/sap-app-b1.md
           - topicgroup:
-              label: SAP AnyDB and SAP HANA extra additional design considerations
+              label: SAP AnyDB and SAP HANA extra design considerations
               topics:
-                - plan/sap-anydb-ibm-db2.md
-                - plan/sap-anydb-ms-sql.md
-                - plan/sap-anydb-sap-maxdb.md
-                - plan/sap-anydb-sap-ase.md
-                - plan/sap-anydb-sap-iq.md
-                - plan/sap-anydb-sap-hana.md
+                - navtitle: IBM Db2
+                  topic: plan/sap-anydb-ibm-db2.md
+                - navtitle: Microsoft SQL Server
+                  topic: plan/sap-anydb-ms-sql.md
+                - navtitle: SAP MaxDB
+                  topic: plan/sap-anydb-sap-maxdb.md
+                - navtitle: SAP ASE
+                  topic: plan/sap-anydb-sap-ase.md
+                - navtitle: SAP IQ
+                  topic: plan/sap-anydb-sap-iq.md
+                - navtitle: SAP HANA
+                  topic: plan/sap-anydb-sap-hana.md
           - topicgroup:
-              label: SAP Partner certified solutions
+              label: SAP partner certified solutions
               topics:
-                - plan/sap-partners-veeam.md
-                - plan/sap-partners-ibm-security-services.md
-                - plan/sap-partners-intel-optane-pmem.md
+                - navtitle: Veeam for SAP HANA backups
+                  topic: plan/sap-partners-veeam.md
+                - navtitle: IBM Security services for SAP
+                  topic: plan/sap-partners-ibm-security-services.md
+                - navtitle: SAP HANA with Intel Optane Persistent Memory (PMEM)
+                  topic: plan/sap-partners-intel-optane-pmem.md
     - navgroup:
         id: tutorial
         topics:
           - topicgroup:
-              label: Quick Study Deployment of SAP
+              label: Quick study deployment of SAP
               topics:
-                - tutorial/classic-intel-bm/classic-bm-quickstudy-nw-rhel.md
-                - tutorial/classic-intel-bm/classic-bm-quickstudy-nw-wins.md
-                - tutorial/vpc-intel-vsi/intel-vsi-sap-quickstudy-nw-rhel.md
-                - tutorial/vpc-intel-vsi/intel-vsi-sap-quickstudy-nw-wins.md
+                - navtitle: SAP NetWeaver deployment with RHEL on Bare Metal on Classic infrastructure
+                  topic: tutorial/classic-intel-bm/classic-bm-quickstudy-nw-rhel.md
+                - navtitle: SAP NetWeaver deployment with Windows Server on Bare Metal on Classic infrastructure,
+                  topic: tutorial/classic-intel-bm/classic-bm-quickstudy-nw-wins.md
+                - navtitle: SAP NetWeaver deployment with RHEL on Intel virtual server on VPC Infrastructure
+                  topic: tutorial/vpc-intel-vsi/intel-vsi-sap-quickstudy-nw-rhel.md
+                - navtitle: SAP NetWeaver deployment with Windows Server on Intel virtual server on VPC infrastructure
+                  topic: tutorial/vpc-intel-vsi/intel-vsi-sap-quickstudy-nw-wins.md
     - navgroup:
         id: howto
         topics:
           - include: ../overview/ui.md
           - topicgroup:
-              label: Pre-Requisites for SAP Workloads
+              label: Prerequisites for SAP workloads
               topics:
-                - howto/sap-prereq-necessary-credentials.md
-                - howto/sap-prereq-account-structure.md
+                - navtitle: Necessary account credentials for SAP and IBM Cloud
+                  topic: howto/sap-prereq-necessary-credentials.md
+                - navtitle: Setting up your IBM Cloud account structure
+                  topic: howto/sap-prereq-account-structure.md
           - topicgroup:
               label: Provisioning Intel Bare Metal for SAP HANA and SAP NetWeaver
               topics:
-                - howto/classic-intel-bm/classic-intel-bm-provision-plan.md
-                - howto/classic-intel-bm/classic-intel-bm-provision-deploy.md
+                - navtitle: Planning your deployment
+                  topic: howto/classic-intel-bm/classic-intel-bm-provision-plan.md
+                - navtitle: Deploying your infrastructure
+                  topic: howto/classic-intel-bm/classic-intel-bm-provision-deploy.md
           - topicgroup:
               label: Provisioning Intel Bare Metal with Intel Optane DC PMEM for SAP HANA and SAP NetWeaver
               topics:
-                - howto/classic-intel-bm/classic-optane-bm-provision-plan.md
-                - howto/classic-intel-bm/classic-optane-bm-provision-deploy.md
+                - navtitle: Planning your deployment
+                  topic: howto/classic-intel-bm/classic-optane-bm-provision-plan.md
+                - navtitle: Deploying your infrastructure
+                  topic: howto/classic-intel-bm/classic-optane-bm-provision-deploy.md
           - topicgroup:
-              label: Provisioning Intel Bare Metal with Virtual Server (Gen2) for SAP HANA and SAP NetWeaver
+              label: Provisioning Intel Bare Metal with virtual server (Gen2) for SAP HANA and SAP NetWeaver
               topics:
-                - howto/vpc-intel-bm/intel-bm-provision-gen2-plan-deploy.md
-                - howto/vpc-intel-bm/intel-bm-provision-gen2-deploy-infrastructure.md
+                - navtitle: Planning your deployment
+                  topic: howto/vpc-intel-bm/intel-bm-provision-gen2-plan-deploy.md
+                - navtitle: Deploying your infrastructure
+                  topic: howto/vpc-intel-bm/intel-bm-provision-gen2-deploy-infrastructure.md
           - topicgroup:
-              label: Provisioning Intel Virtual Server (Gen2) for SAP HANA and SAP NetWeaver
+              label: Provisioning Intel virtual server (Gen2) for SAP HANA and SAP NetWeaver
               topics:
-                - howto/vpc-intel-vsi/intel-vsi-provision-gen2-plan-deploy.md
-                - howto/vpc-intel-vsi/intel-vsi-provision-gen2-deploy-infrastructure.md
-                - howto/sap-ibm-metrics-collector-linux.md
-                - howto/sap-ibm-metrics-collector-windows.md
+                - navtitle: Planning your deployment
+                  topic: howto/vpc-intel-vsi/intel-vsi-provision-gen2-plan-deploy.md
+                - navtitle: Deploying your infrastructure
+                  topic: howto/vpc-intel-vsi/intel-vsi-provision-gen2-deploy-infrastructure.md
+                - navtitle: Using IBM Metrics Collector for SAP (IMCS) on Linux
+                  topic: howto/sap-ibm-metrics-collector-linux.md
+                - navtitle: Using IBM Metrics Collector for SAP (IMCS) on Windows
+                  topic: howto/sap-ibm-metrics-collector-windows.md
           - topicgroup:
-              label: Provisioning IBM Power Virtual Server for SAP HANA and SAP NetWeaver
+              label: Provisioning IBM Power Virtual Server instances for SAP HANA and SAP NetWeaver
               topics:
-                - howto/powervs/powervs-provision-plan-deploy.md
-                - howto/powervs/powervs-provision-deploy-vpc-infrastructure.md
-                - howto/powervs/powervs-provision-deploy-power-infrastructure.md
-                - howto/powervs/powervs-provision-deploy-power-instances.md
+                - navtitle: Planning your deployment
+                  topic: howto/powervs/powervs-provision-plan-deploy.md
+                - navtitle: Deploying VPC infrastructure for Power Virtual Server SAP workloads
+                  topic: howto/powervs/powervs-provision-deploy-vpc-infrastructure.md
+                - navtitle: Deploying Power Virtual Server infrastructure
+                  topic: howto/powervs/powervs-provision-deploy-power-infrastructure.md
+                - navtitle: Deploying SAP applications on Power Virtual Server
+                  topic: howto/powervs/powervs-provision-deploy-power-instances.md
           - topicgroup:
-              label: Provisioning VMware SDDC for SAP HANA and SAP NetWeaver for SAP HANA and SAP NetWeaver
+              label: Provisioning VMware SDDC for SAP HANA and SAP NetWeaver
               topics:
-                - howto/vmware/vmware-provision-sddc-plan-deploy.md
-                - howto/vmware/vmware-provision-sddc-deploy-infrastructure.md
+                - navtitle: Planning your deployment
+                  topic: howto/vmware/vmware-provision-sddc-plan-deploy.md
+                - navtitle: Deploying your infrastructure
+                  topic: howto/vmware/vmware-provision-sddc-deploy-infrastructure.md
           - topicgroup:
-              label: Automating and deploying IBM Cloud architectures for SAP by using Terraform
+              label: Terraform solutions for SAP on VPC
               topics:
-                - howto/vpc-intel-vsi/intel-vsi-terraform-landing.md
-                - howto/vpc-intel-vsi/intel-vsi-terraform-bastion-server.md
-                - howto/vpc-intel-vsi/intel-vsi-terraform-create-single-tier.md
-                - howto/vpc-intel-vsi/intel-vsi-terraform-multi-tier-anydb-nonhana.md
+                - navtitle: Terraform deployment templates
+                  topic: howto/vpc-intel-vsi/intel-vsi-terraform-landing.md
+                - navtitle: Deploying the SAP bastion server – SAP media storage repository
+                  topic: howto/vpc-intel-vsi/intel-vsi-terraform-bastion-server.md
+                - navtitle: Creating 2-tier VPC for SAP on VPC with terraform
+                  topic: howto/vpc-intel-vsi/intel-vsi-terraform-create-single-tier.md
+                - navtitle: Deploying SAP AnyDB (non-SAP HANA) 2-tier and 3-tier distributed architecture on IBM Cloud® VPC (Terraform)
+                  topic: howto/vpc-intel-vsi/intel-vsi-terraform-multi-tier-anydb-nonhana.md
                 - topicgroup:
-                    label: SAP NetWeaver and Db2 2-tier on IBM Cloud VPC
+                    label: SAP NetWeaver and Db2 2-tier on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-overview-nw-db2-ansible.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-nw-db2-ansible-existing-vpc.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-overview-nw-db2-ansible.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-nw-db2-ansible-existing-vpc.md
                 - topicgroup:
-                    label: SAP NetWeaver and Db2 3-tier on IBM Cloud VPC
+                    label: SAP NetWeaver and Db2 3-tier on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-overview-3tier-nw-db2-ansible.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-3tier-nw-db2.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-overview-3tier-nw-db2-ansible.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-3tier-nw-db2.md
                 - topicgroup:
-                    label: SAP HANA stand-alone VSI on IBM Cloud VPC
+                    label: SAP HANA stand-alone VSI on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-background-hana-standalone-vsi.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-hana-standalone-vsi.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-background-hana-standalone-vsi.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-hana-standalone-vsi.md
                 - topicgroup:
-                    label: SAP AAS for SAP HANA and AnyDB on IBM Cloud VPC
+                    label: SAP AAS for SAP HANA and AnyDB on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-hana-aas-anydb.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-hana-aas-anydb.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-hana-aas-anydb.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-hana-aas-anydb.md
                 - topicgroup:
-                    label: SAP NetWeaver and ASE SYB on IBM Cloud VPC
+                    label: SAP NetWeaver and ASE SYB on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-nw-asesyb.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-nw-asesyb.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-nw-asesyb.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-nw-asesyb.md
                 - topicgroup:
-                    label: SAP NetWeaver(ABAP) on ASE SYBASE HA deployment on IBM Cloud VPC
+                    label: SAP NetWeaver(ABAP) on ASE SYBASE HA deployment on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-ha-deployment.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-ase-sybase-ha-deployment.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-ha-deployment.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-ase-sybase-ha-deployment.md
                 - topicgroup:
-                    label: SAP S/4HANA HA deployment on IBM Cloud VPC
+                    label: SAP S/4HANA HA deployment on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-ha-overview.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-s4hana-ha.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-ha-overview.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-s4hana-ha.md
                 - topicgroup:
-                    label: SAP NetWeaver HA deployment on IBM Cloud VPC
+                    label: SAP NetWeaver HA deployment on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-nw-abap-ha-szmz-overview.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-nw-abap-ha-szmz.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-nw-abap-ha-szmz-overview.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-nw-abap-ha-szmz.md
                 - topicgroup:
                     label: SAP HANA DB backup to Cloud Object Storage
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-hana-db-backup-cos.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-hana-db-backup-cos-proc.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-hana-db-backup-cos.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-hana-db-backup-cos-proc.md
                 - topicgroup:
-                    label: SAP S/4HANA workload deployment on IBM Cloud VPC
+                    label: SAP S/4HANA workload deployment on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-s4hana-ansible.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-s4hana-ansible.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-s4hana-ansible.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-s4hana-ansible.md
                 - topicgroup:
-                    label: SAP HANA DB cross-region DR automation on IBM Cloud VPC
+                    label: SAP HANA DB cross-region DR automation on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-hana-db-crossregion-dr.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-hana-db-crossregion-dr.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-hana-db-crossregion-dr.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-hana-db-crossregion-dr.md
                 - topicgroup:
-                    label: SAP BW/4HANA 3-tier on IBM Cloud VPC
+                    label: SAP BW/4HANA 3-tier on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-bw-4hana-overview.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-bw-4hana.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-bw-4hana-overview.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-bw-4hana.md
                 - topicgroup:
-                    label: SAP NetWeaver 7.x on HANA db 3-tier on IBM Cloud VPC
+                    label: SAP NetWeaver 7.x on HANA db 3-tier on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-3tier-nw-hana.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-3tier-nw-hana.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-3tier-nw-hana.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-3tier-nw-hana.md
                 - topicgroup:
-                    label: SAP ASE Sybase standalone database instance on IBM Cloud VPC
+                    label: SAP ASE Sybase standalone database instance on VPC
                     topics:
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-background-ase-sybase-standalone-vsi.md
-                      - howto/vpc-intel-vsi/intel-vsi-terraform-automate-ase-sybase-standalone-vsi.md
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-background-ase-sybase-standalone-vsi.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-ase-sybase-standalone-vsi.md
           - topicgroup:
-              label: High Availability Scenarios on Power Virtual Server
+              label: High availability scenarios on Power Virtual Server
               topics:
-                - howto/powervs/powervs-ha-overview.md
-                - howto/powervs/powervs-ha-rhel-refs.md
-                - howto/powervs/powervs-ha-vsi.md
-                - howto/powervs/powervs-ha-rhel.md
-                - howto/powervs/powervs-ha-rhel-mz.md
-                - howto/powervs/powervs-ha-rhel-hana-sr.md
-                - howto/powervs/powervs-ha-rhel-hana-sr-co.md
-                - howto/powervs/powervs-ha-rhel-hana-sr-aa.md
-                - howto/powervs/powervs-ha-rhel-hana-sr-multitier.md
-                - howto/powervs/powervs-ha-rhel-hana-sr-multitarget.md
-                - howto/powervs/powervs-ha-rhel-ensa.md
-                - howto/powervs/powervs-ha-rhel-ensa-mz.md
-                - howto/powervs/powervs-ha-rhel-nfs.md
+                - navtitle: Overview
+                  topic: howto/powervs/powervs-ha-overview.md
+                - navtitle: References
+                  topic: howto/powervs/powervs-ha-rhel-refs.md
+                - navtitle: Creating instances for a high availability cluster
+                  topic: howto/powervs/powervs-ha-vsi.md
+                - topicgroup:
+                    label: Implementing a RHEL HA Add-On cluster for SAP solutions
+                    topics:
+                      - navtitle: Implementing a basic cluster
+                        topic: howto/powervs/powervs-ha-rhel.md
+                      - navtitle: Implementing a basic cluster in a multizone region environment
+                        topic: howto/powervs/powervs-ha-rhel-mz.md
+                      - navtitle: Configuring SAP HANA scale-up system replication
+                        topic: howto/powervs/powervs-ha-rhel-hana-sr.md
+                      - navtitle: Configuring SAP HANA cost-optimized scale-up system replication
+                        topic: howto/powervs/powervs-ha-rhel-hana-sr-co.md
+                      - navtitle: Configuring SAP HANA Active/Active (Read Enabled) system replication
+                        topic: howto/powervs/powervs-ha-rhel-hana-sr-aa.md
+                      - navtitle: Configuring SAP HANA multitier system replication
+                        topic: howto/powervs/powervs-ha-rhel-hana-sr-multitier.md
+                      - navtitle: Configuring SAP HANA multitarget system replication
+                        topic: howto/powervs/powervs-ha-rhel-hana-sr-multitarget.md
+                      - navtitle: Configuring SAP S/4HANA (ASCS and ERS)
+                        topic: howto/powervs/powervs-ha-rhel-ensa.md
+                      - navtitle: Configuring SAP S/4HANA (ASCS and ERS) in a multizone region environment
+                        topic: howto/powervs/powervs-ha-rhel-ensa-mz.md
+                      - navtitle: Configuring an active-passive NFS server
+                        topic: howto/powervs/powervs-ha-rhel-nfs.md
           - topicgroup:
-              label: SAP Migration from on-premises to PowerVS
+              label: SAP migration from on-premises to Power Virtual server
               topics:
-                - howto/powervs/powervs-migration-overview.md
-                - howto/powervs/powervs-migration-hybrid-cloud-networking.md
-                - howto/powervs/powervs-migration-db-hana.md
-                - howto/powervs/powervs-migration-db-oracle.md
-                - howto/powervs/powervs-migration-db-db2.md
-                - howto/powervs/powervs-migration-sum-dmo.md
+                - navtitle: Overview
+                  topic: howto/powervs/powervs-migration-overview.md
+                - navtitle: Hybrid cloud network consideration for SAP applications on Power Virtual Server
+                  topic: howto/powervs/powervs-migration-hybrid-cloud-networking.md
+                - navtitle: Migrating SAP S/4HANA to Power Virtual Server
+                  topic: howto/powervs/powervs-migration-db-hana.md
+                - navtitle: Migrating SAP ERP 6.0 on Oracle to Power Virtual Server
+                  topic: howto/powervs/powervs-migration-db-oracle.md
+                - navtitle: Migrating SAP ERP 6.0 on IBM Db2 to Power Virtual Server
+                  topic: howto/powervs/powervs-migration-db-db2.md
+                - navtitle: Migration from SAP ERP 6.0 to S/4HANA on Power Virtual Server considerations
+                  topic: howto/powervs/powervs-migration-sum-dmo.md
           - topicgroup:
-              label: SAP Monitoring with IBM Cloud Monitoring
+              label: SAP monitoring with IBM Cloud Monitoring
               topics:
-                - howto/powervs/powervs-monitoring-getting-started.md
-                - howto/powervs/powervs-monitoring-checking-and-preparing-sap-system.md
-                - howto/powervs/powervs-monitoring-creating-instance.md
-                - howto/powervs/powervs-monitoring-exporter-setup-config.md
-                - howto/powervs/powervs-monitoring-metric-forwarding-config.md
-                - howto/powervs/powervs-monitoring-launch-web-ui-and-dashboards.md
-                - howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md
+                - navtitle: Overview
+                  topic: howto/powervs/powervs-monitoring-getting-started.md
+                - navtitle: Checking and preparing SAP system for monitoring
+                  topic: howto/powervs/powervs-monitoring-checking-and-preparing-sap-system.md
+                - navtitle: Creating a monitoring instance
+                  topic: howto/powervs/powervs-monitoring-creating-instance.md
+                - navtitle: Setting up and configuring a monitoring host
+                  topic: howto/powervs/powervs-monitoring-exporter-setup-config.md
+                - navtitle: Configuring Prometheus server metric forwarding
+                  topic: howto/powervs/powervs-monitoring-metric-forwarding-config.md
+                - navtitle: Launching the monitoring UI and working with dashboards
+                  topic: howto/powervs/powervs-monitoring-launch-web-ui-and-dashboards.md
+                - navtitle: Parameter harvesting, troubleshooting, and maintenance
+                  topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md
     - navgroup:
         id: reference
         topics:
           - topicgroup:
-              label: Infrastructure Reference Architectures for SAP
+              label: Infrastructure reference architectures for SAP
               topics:
-                - reference/intel-sap-refarch-hana-scaleout.md
-                - reference/vpc-intel-vsi-sap-refarch-nw-sybase.md
-                - reference/vpc-intel-vsi-sap-refarch-nw-db2.md
-                - reference/vpc-intel-vsi-sap-refarch-nw-mssql.md
-                - reference/vpc-intel-vsi-sap-refarch-nw-hana.md
+                - navtitle: SAP HANA scale-out on Intel
+                  topic: reference/intel-sap-refarch-hana-scaleout.md
+                - navtitle: SAP NetWeaver 7.x on UNIX with Sybase on VPC
+                  topic: reference/vpc-intel-vsi-sap-refarch-nw-sybase.md
+                - navtitle: SAP NetWeaver 7.x on UNIX with Db2 on VPC
+                  topic: reference/vpc-intel-vsi-sap-refarch-nw-db2.md
+                - navtitle: SAP NetWeaver 7.x on Windows Servers with MS SQL on VPC
+                  topic: reference/vpc-intel-vsi-sap-refarch-nw-mssql.md
+                - navtitle: SAP NetWeaver 7.x with SAP HANA on VPC
+                  topic: reference/vpc-intel-vsi-sap-refarch-nw-hana.md
     - navgroup:
         id: help
         topics:
-          - help/sap-getting-help.md
+          - navtitle: Getting help and support
+            topic: help/sap-getting-help.md
           - topicgroup:
               label: FAQs
               topics:
-                - help/sap-faq.md
-                - help/sap-faq-moving-sap-workloads.md
+                - navtitle: FAQ of IBM Cloud for SAP
+                  topic: help/sap-faq.md
+                - navtitle: FAQ of moving SAP workloads
+                  topic: help/sap-faq-moving-sap-workloads.md
           - link:
-              label: Documentation Changelog
+              label: Documentation changelog
               href: https://github.com/ibm-cloud-docs/sap/commits/

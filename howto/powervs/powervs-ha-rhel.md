@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-21"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -9,10 +9,10 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Implementing a RHEL HA Add-On Cluster
+# Implementing a Red Hat Enterprise Linux High Availability Add-On cluster
 {: #ha-rhel}
 
-Use the following information and procedures to implement a Red Hat Enterprise Linux (RHEL) High Availability (HA) cluster.
+Use the following information and procedures to implement a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster.
 The cluster uses instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 
 The information describes how to transform the individual virtual server instances into a cluster.

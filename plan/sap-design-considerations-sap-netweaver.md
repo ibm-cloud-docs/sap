@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-21"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -145,7 +145,7 @@ Bonding interfaces are used for Linux and teaming adapters are used for Microsof
 These setups provide a logical interface for redundancy and increased bandwidth.
 
 When you deploy IBM Cloud for VMware Solutions, redundant adapters for VMware are set up using an NSX-T distributed switch.
-This is in line with current VMware best practices for the _Software-Defined Data Center_ (see [VMware NSX-T design](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-nsx-t-design)){: external}.
+This is in line with current VMware best practices for the _Software-Defined Data Center_ (see [VMware NSX-T design](/docs/vmwaresolutions?topic=vmwaresolutions-nsx-t-design).
 Although subject to change, redundancy is configured by setting each _Distributed Switch_ to use the [Route Based on Originating Virtual Port](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/6-7/vsphere-networking-6-7.html){: external} load balancing algorithm.
 All included port groups use teaming over 2 uplinks (active: 0,1).
 

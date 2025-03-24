@@ -1,8 +1,8 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-19"
-keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
+lastupdated: "2025-03-21"
+keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
 
@@ -10,7 +10,7 @@ subcollection: sap
 
 
 # Deploying SAP applications on {{site.data.keyword.powerSys_notm}}
-{: #power-vs-set-up-power-instances}
+{: #powervs-set-up-power-instances}
 
 The following information explains how to deploy {{site.data.keyword.powerSys_notm}} instances for SAP HANA database and SAP application server (NetWeaver) on Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES).
 
@@ -29,13 +29,13 @@ The following diagram shows SAP applications already deployed on {{site.data.key
 {: external download="deploy-arch-ibm-pvs-sap-s4hana-bw4hana.svg"}
 
 ## Deploying a separate private network for SAP systems
-{: #power-vs-set-up-power-sap-network}
+{: #powervs-set-up-power-sap-network}
 
 For each SAP system that you deploy, create a separate private network for communication between the virtual server instances.
-Follow [Configuring a private network subnet](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-configuring-subnet) to configure a separate private network for the SAP system.
+Follow [Configuring a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet) to configure a separate private network for the SAP system.
 
 ## Deploying {{site.data.keyword.powerSys_notm}} instances for SAP on {{site.data.keyword.cloud}}
-{: #power-vs-memory-sizing-and-subscription-concepts}
+{: #powervs-memory-sizing-and-subscription-concepts}
 
 It is recommended to perform a memory sizing of SAP applications before deploying them on {{site.data.keyword.powerSys_notm}} instances.
 See the [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing) and [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
@@ -48,7 +48,7 @@ The available subscription alternatives are:
 * **Client supplied subscription**, where you use your own subscription with IBM stock OS images or custom images.
    This feature is called "Bring Your Own License" (BYOL).
    Custom images are imported by users as boot images into {{site.data.keyword.powerSys_notm}}.
-   Therefore, if you plan to use your own subscription, select the OS image that has a suffix of -BYOL under the "Client supplied subscription" when deploying {{site.data.keyword.powerSys_notm}} instances in the step [Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP HANA](#power-vs-set-up-power-hana-instance).
+   Therefore, if you plan to use your own subscription, select the OS image that has a suffix of -BYOL under the "Client supplied subscription" when deploying {{site.data.keyword.powerSys_notm}} instances in the step [Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP HANA](#powervs-set-up-power-hana-instance).
 
 For deploying and setting up the {{site.data.keyword.powerSys_notm}} instances for SAP applications, we focus on the **IBM provided subscription** for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) images.
 {: note}
@@ -72,13 +72,11 @@ It is recommended to perform a memory sizing of SAP applications before deployin
 See the [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing) and [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
 
 ### Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP HANA
-{: #power-vs-set-up-power-hana-instance}
+{: #powervs-set-up-power-hana-instance}
 
-To deploy an {{site.data.keyword.powerSys_notm}} instance for SAP HANA database, select a previously created workspace from the list of [Workspaces](https://cloud.ibm.com/power/workspaces){: external} on the left navigation page.
-Then click **Virtual server instances** on the left page.
-To create a new instance, click **Create instance** on the right side.
-Complete the following steps:
-
+1. To deploy an {{site.data.keyword.powerSys_notm}} instance for SAP HANA database, select a previously created workspace from the list of [Workspaces](https://cloud.ibm.com/power/workspaces){: external} on the left navigation page.
+1. Click **Virtual server instances** on the left page.
+1. Create a new instance, click **Create instance** on the right side.
 1. In the **General** section, make the following selections:
 
    | Field | Details |
@@ -91,22 +89,22 @@ Complete the following steps:
    | SSH key | Choose an existing SSH key that was created previously. |
    {: caption="Table 1. SAP HANA general selections" caption-side="top"}
 
-2. In the **Boot image** section, make the following selections:
+1. In the **Boot image** section, make the following selections:
 
    | Field | Details |
    | ----- | ------- |
-   | Operating system | Select the IBM provided subscription 'Linux for SAP (HANA)'. See the explanation of differences in the section [Deploying {{site.data.keyword.powerSys_notm}} instances for SAP on {{site.data.keyword.cloud}}](#power-vs-memory-sizing-and-subscription-concepts) |
+   | Operating system | Select the IBM provided subscription 'Linux for SAP (HANA)'. See the explanation of differences in the section [Deploying {{site.data.keyword.powerSys_notm}} instances for SAP on {{site.data.keyword.cloud}}](#powervs-memory-sizing-and-subscription-concepts) |
    | Image | Select an operating system and a version. Make sure that you use the same operating system and version for all deployments. |
    | Tier | Choose a tier that best meets your needs, for more information, see [Storage tiers](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#storage-tiers). |
    | Storage pool | Select the storage pool that you need. |
    | Advanced configurations | Enable toggle buttons to support more settings. |
    {: caption="Table 2. SAP HANA boot image selections" caption-side="top"}
 
-3. In the **Profile** section, make the following selection:
+1. In the **Profile** section, make the following selection:
     * Select a profile that meets your needs. For more information, see [SAP HANA profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
-4. In the **Storage volumes** section, make the following selection:
+1. In the **Storage volumes** section, make the following selection:
     * For SAP HANA, the attached volumes are on different storage tiers 'Tier 1' and 'Tier 3'. You can't mix storage tiers during the instance creation process, so you need to attach storage volumes later. Leave this list empty.
-5. In the **Networking** section, make the following selections:
+1. In the **Networking** section, make the following selections:
     * Leave **Public networks** deactivated.
     * Attach both private networks (management and backup) and any separate private networks. Enter the IP addresses as entered in the DNS configuration for the corresponding host names. If the IP addresses are assigned dynamically, you need to adapt the DNS entries for the host names of this system.
 
@@ -123,10 +121,10 @@ An alternative solution for connecting to the VPC instance is to use a VPN serve
 See more details in the tutorial [Connect by using a client-to-site VPN](/docs/sap-powervs?topic=sap-powervs-solution-connect-client-vpn).
 
 ### Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver
-{: #power-vs-set-up-power-netweaver-instance}
+{: #powervs-set-up-power-netweaver-instance}
 
 To deploy an {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver, go to your [workspace for {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-power-vs-set-up-power-infrastructure) and create an {{site.data.keyword.powerSys_notm}} instance as described in [Configuring a {{site.data.keyword.powerSys_notm}} instance](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#configuring-instance).
-Use the information in [Deploying SAP HANA on {{site.data.keyword.powerSys_notm}}](#power-vs-set-up-power-hana-instance) to complete the configuration for **General**, **Profile**, **Storage volumes**, **Networking** sections.
+Use the information in [Deploying SAP HANA on {{site.data.keyword.powerSys_notm}}](#powervs-set-up-power-hana-instance) to complete the configuration for **General**, **Profile**, **Storage volumes**, **Networking** sections.
 For the **Boot image** section, specify the IBM provided subscription 'Linux for SAP (NetWeaver)' selection.
 
 After creating an {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver, wait for the instance to become active.
@@ -142,7 +140,7 @@ ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand="ssh
 Alternatively, connect by using a VPN client, as described in the tutorial [Connect by using a client-to-site VPN](/docs/sap-powervs?topic=sap-powervs-solution-connect-client-vpn).
 
 ### Deploying an optional {{site.data.keyword.powerSys_notm}} instance for SAP shared file systems
-{: #power-vs-set-up-sap-shared-file-system}
+{: #powervs-set-up-sap-shared-file-system}
 
 Each deployment of an SAP NetWeaver-based application server, contains file systems that are shared between multiple application server instances.
 It is a good practice to set up a separate virtual service instance for the shared file systems.
@@ -156,7 +154,7 @@ After deploying the {{site.data.keyword.powerSys_notm}} instance for shared file
 How to set up the NFS server is described in the [Deploying an NFS server](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_using_network_file_services/deploying-an-nfs-server_configuring-and-using-network-file-services#services-required-on-an-nfs-server_deploying-an-nfs-server){: external} for [RHEL]{: tag-red} and [Sharing file systems with NFS](https://documentation.suse.com/sles/15-SP6/html/SLES-all/cha-nfs.html){: external} for [SLES]{: tag-green}.
 
 ### Creating extra storage volumes for SAP HANA {{site.data.keyword.powerSys_notm}}
-{: #power-vs-set-up-power-hana-volumes}
+{: #powervs-set-up-power-hana-volumes}
 
 Modify {{site.data.keyword.powerSys_notm}} SAP HANA instance and attach extra storage volumes as described in [Managing your storage volumes](/docs/power-iaas?topic=power-iaas-modifying-instance#modifying-volume-network).
 
@@ -172,23 +170,21 @@ In accordance with the SAP sizing guidelines, you should add the following volum
 
 * You can add more volumes for backup or export.
 
-For more information, see [Block Storage for VPC profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers){: external}.
-
 Continue with the configuration of {{site.data.keyword.powerSys_notm}} instances for SAP applications, which can be done by manual or automated setup.
 You can choose one of the following setup sections:
 
-* [Configuring {{site.data.keyword.powerSys_notm}} instances manually](#power-vs-set-up-powervs-manually-os-config).
+* [Configuring {{site.data.keyword.powerSys_notm}} instances manually](#powervs-set-up-powervs-manually-os-config).
 
-* [Configuring {{site.data.keyword.powerSys_notm}} instances by using Ansible automation playbooks](#power-vs-configure-with-ansible-automation).
+* [Configuring {{site.data.keyword.powerSys_notm}} instances by using Ansible automation playbooks](#powervs-configure-with-ansible-automation).
 
 
 ## Configuring {{site.data.keyword.powerSys_notm}} instances manually
-{: #power-vs-set-up-powervs-manually-os-config}
+{: #powervs-set-up-powervs-manually-os-config}
 
 Complete the following steps on your {{site.data.keyword.powerSys_notm}} instances.
 
 ### Checking IBM subscription for an operating system image
-{: #power-vs-register-os}
+{: #powervs-register-os}
 
 To ensure that the OS subscription is set up correctly, check a subscription manager by running:
 
@@ -236,27 +232,15 @@ zypper update -y
 
 
 ### Configuring a proxy endpoint
-{: #power-vs-configure-proxy}
+{: #powervs-configure-proxy}
 
 To use proxy and cache services for HTTP, FTP, and other popular network protocols, you must to export a proxy server endpoint.
 Run the following commands to export a `SQUID_PROXY_SERVER` proxy endpoint:
 
 ```sh
 export http_proxy=http://<SQUID_PROXY_SERVER>:3128
-```
-{: pre}
-
-```sh
 export https_proxy=http://<SQUID_PROXY_SERVER>:3128
-```
-{: pre}
-
-```sh
 export HTTP_PROXY=http://<SQUID_PROXY_SERVER>:3128
-```
-{: pre}
-
-```sh
 export HTTPS_PROXY=http://<SQUID_PROXY_SERVER>:3128
 ```
 {: pre}
@@ -265,7 +249,7 @@ To keep these exported variables persistent across multiple sessions, these entr
 These files ensure that new sessions use the exported variables as environment variables.
 
 ### Configuring a NTP client
-{: #power-vs-configure-ntp-client-manually}
+{: #powervs-configure-ntp-client-manually}
 
 If an NTP server is already configured, you must install the chrony package by using the following command.
 
@@ -313,13 +297,13 @@ systemctl restart chronyd.service
 {: pre}
 
 ### Configuring a DNS client
-{: #power-vs-configure-dns-client-manual}
+{: #powervs-configure-dns-client-manual}
 
 The public Domain Name Service (DNS) servers of IBM Cloud are configured as default, there is no need to modify the DNS configuration for them.
 If you create a private DNS server for your environment, you must configure it after the {{site.data.keyword.powerSys_notm}} instance is created.
 
 ### Configuring an NFS client
-{: #power-vs-configure-nfs-client-manual}
+{: #powervs-configure-nfs-client-manual}
 
 Use the following steps to manually configure an NFS client.
 
@@ -339,15 +323,14 @@ Use the following steps to manually configure an NFS client.
    ```
    {: pre}
 
-2. To enable NFS client service, use the following command.
+1. To enable NFS client service, use the following command.
 
    ```sh
    systemctl start nfs-client
    ```
    {: pre}
 
-3. After the NFS client service starts, you can mount the shared NFS directory by using the mount command.
-
+1. After the NFS client service starts, you can mount the shared NFS directory by using the mount command.
 
    ```sh
    mount -t nfs4 -o sec=sys <NFS_SERVER_IP>:<NFS_DIRECTORY_PATH>
@@ -357,7 +340,7 @@ Use the following steps to manually configure an NFS client.
    `NFS_SERVER_IP` is an IP address of a loadbalancer, `NFS_DIRECTORY_PATH` is the path of the NFS file storage share.
 
 ### Creating file systems manually
-{: #power-vs-create-file-systems-manual}
+{: #powervs-create-file-systems-manual}
 
 For shared SAP file systems, you must create a file system to store SAP data and distribute them to all SAP instances.
 You can use extra file systems for other purposes.
@@ -390,7 +373,7 @@ The output of the `multipath -ll` command corresponds to the World Wide Names 
 Log on to the {{site.data.keyword.cloud}} console and go to the [Storage volumes](https://cloud.ibm.com/power/workspaces){: external}, select a workspace and a Virtual server instance where storage volumes are defined.
 You might notice that the WWNs on the {{site.data.keyword.cloud}} are in uppercase, while they are in lowercase in the operating system.
 
-To create a file system, use the `/hana/data` example that is decribed below.
+To create a file system, use the `/hana/data` example that is described below.
 The same procedure is repeated for `/hana/log` and `/hana/shared` and all other file systems.
 For example, a storage volume named `dm-6` has a WWN of `6005076813810214200000000000a7a8` and a size of 60G.
 The `3` at the beginning is ignored.
@@ -522,7 +505,7 @@ If you don't use multipath aliases, replace the line starting with `devices=$()`
 Instead, use following line: `devices=$(multipath -ll | grep -B 1 $pv_size | grep dm- | awk '{print "/dev/"$2}' | tr '\n' ' ')`
 
 ### Checking the storage volumes
-{: #power-vs-checking-of-storage-volumes}
+{: #powervs-checking-of-storage-volumes}
 
 After you create the storage volumes, verify that they were created correctly by running the following commands:
 
@@ -567,10 +550,10 @@ Sample output:
 {: screen}
 
 It might be necessary to reboot the operating system.
-Then check that the LV setup is still correct and proceed to the [Preparing for SAP Installation](#power-vs-prepare-sap-installation) section.
+Then check that the LV setup is still correct and proceed to the [Preparing for SAP Installation](#powervs-prepare-sap-installation) section.
 
 ## Configuring {{site.data.keyword.powerSys_notm}} instances by using Ansible automation playbooks
-{: #power-vs-configure-with-ansible-automation}
+{: #powervs-configure-with-ansible-automation}
 
 To configure {{site.data.keyword.powerSys_notm}} instances for SAP applications, use Ansible automation playbooks on both [RHEL]{: tag-red} and [SLES]{: tag-green}.
 Download and install the `ibm.power_linux_sap` Ansible Galaxy collection:
@@ -583,7 +566,7 @@ ansible-galaxy collection install ibm.power_linux_sap
 This [Ansible Galaxy collection](https://galaxy.ansible.com/ui/repo/published/ibm/power_linux_sap/docs/) is used on both operating systems, RHEL and SLES without changing any specific OS settings.
 
 ### Configuring network management services
-{: #power-vs-configure-network-services-client-ansible}
+{: #powervs-configure-network-services-client-ansible}
 
 The `configure_network_management_services` Ansible role installs and configures a proxy endpoint, NTP, DNS, and NFS network services in a virtual server instance.
 For more details, see the [full role description](https://galaxy.ansible.com/ui/repo/published/ibm/power_linux_sap/content/role/configure_network_management_services/) on Ansible Galaxy.
@@ -621,13 +604,13 @@ ansible-playbook --connection=local -i "localhost," playbooks/sample-configure-n
 {: pre}
 
 ### Creating the file systems
-{: #power-vs-create-files-system-ansible}
+{: #powervs-create-files-system-ansible}
 
 The Ansible role, `powervs_storage_and_swap_setup` is used to create file systems for SAP HANA, SAP NetWeaver, or for a SAP shared file systems instance.
 This role performs tasks such as creating file systems for `/hana/data`, `/hana/log` and `/hana/shared`, mounting these file systems on provided mount points, adding an entry to `/etc/fstab` for automount on reboot, and other tasks.
 For more details, see the description of [`powervs_storage_and_swap_setup` on Ansible Galaxy](https://galaxy.ansible.com/ui/repo/published/ibm/power_linux_sap/content/role/powervs_storage_and_swap_setup/).
 
-Before running a playbook for a storage setup, identify the WWNs as described in the [Manually creating file systems](#power-vs-create-file-systems-manual) section.
+Before running a playbook for a storage setup, identify the WWNs as described in the [Manually creating file systems](#powervs-create-file-systems-manual) section.
 Add the WWNs to the `sample-variables-powervs-storage-setup.yml` variable file.
 For an explanation of the variable file, see the [Edit parameters in the configuration file](https://galaxy.ansible.com/ui/repo/published/ibm/power_linux_sap/content/role/powervs_storage_and_swap_setup/) section.
 
@@ -638,16 +621,16 @@ ansible-playbook --connection=local -i "localhost," playbooks/sample-powervs-sto
 ```
 {: pre}
 
-To see if all file systems have been created and mounted correctly, use the [Checking of storage volumes](#power-vs-checking-of-storage-volumes) section.
-Continue to [Preparing for SAP installation](#power-vs-prepare-sap-installation), if the `/hana/data`, `/hana/log`, and `/hana/shared` are mounted correctly.
+To see if all file systems have been created and mounted correctly, use the [Checking of storage volumes](#powervs-checking-of-storage-volumes) section.
+Continue to [Preparing for SAP installation](#powervs-prepare-sap-installation), if the `/hana/data`, `/hana/log`, and `/hana/shared` are mounted correctly.
 
 ## Preparing for SAP software installation
-{: #power-vs-prepare-sap-installation}
+{: #powervs-prepare-sap-installation}
 
 Preparation for SAP software installation is required for SAP HANA and SAP NetWeaver, but is not needed on the {{site.data.keyword.powerSys_notm}} instance for SAP shared file systems.
 
 ### Configuring SLES for SAP applications
-{: #power-vs-using-saptune-sles-sap}
+{: #powervs-using-saptune-sles-sap}
 
 [SLES]{: tag-green}
 
@@ -664,35 +647,35 @@ For more information about saptune, see [SAP Note 1275776 - Linux: Preparing S
     ```
     {: pre}
 
-2. Verify that the saptune version is at least 3.
+1. Verify that the saptune version is at least 3.
 
     ```sh
     saptune version
     ```
     {: pre}
 
-3. List all available solutions. Numbered entries represent integrated SAP Notes for each of the solutions.
+1. List all available solutions. Numbered entries represent integrated SAP Notes for each of the solutions.
 
     ```sh
     saptune solution list
     ```
     {: pre}
 
-4. Get an overview of saptune options.
+1. Get an overview of saptune options.
 
     ```sh
     saptune --help
     ```
     {: pre}
 
-5. Enable and start the saptune.service. This command also disables sapconf and tuned, which isn't used since saptune version 3.
+1. Enable and start the saptune.service. This command also disables sapconf and tuned, which isn't used since saptune version 3.
 
     ```sh
     saptune service takeover
     ```
     {: pre}
 
-6. Simulate the changes before applying them (optional).
+1. Simulate the changes before applying them (optional).
 
     For SAP HANA:
 
@@ -708,7 +691,7 @@ For more information about saptune, see [SAP Note 1275776 - Linux: Preparing S
     ```
     {: pre}
 
-7. Apply the saptune solution.
+1. Apply the saptune solution.
 
     For SAP HANA:
 
@@ -724,14 +707,14 @@ For more information about saptune, see [SAP Note 1275776 - Linux: Preparing S
     ```
     {: pre}
 
-8. Check the saptune status.
+1. Check the saptune status.
 
     ```sh
     saptune status
     ```
     {: pre}
 
-9. Verify if the saptune is set up correctly.
+1. Verify if the saptune is set up correctly.
 
     ```sh
     saptune check
@@ -739,7 +722,7 @@ For more information about saptune, see [SAP Note 1275776 - Linux: Preparing S
     {: pre}
 
 ### Configuring RHEL for SAP applications
-{: #power-vs-configure-RHEL-system-roles-sap}
+{: #powervs-configure-RHEL-system-roles-sap}
 
 [RHEL]{: tag-red}
 
@@ -793,14 +776,14 @@ ansible-playbook -i /root/inventory /root/sap-netweaver.yml
 ```
 {: pre}
 
-For more information about customizing the operationg system, see the following documentation.
+For more information about customizing the operating system, see the following documentation.
 * [SAP Note 2772999 "Red Hat Enterprise Linux 8.x: Installation and Configuration"](https://me.sap.com/notes/2772999){: external}
 * [SAP Note 2777782 "SAP HANA DB: Recommended OS Settings for RHEL8"](https://me.sap.com/notes/2777782){: external}
 * [SAP Note 2382421 "Optimizing the Network Configuration on HANA- and OS-Level"](https://me.sap.com/notes/2382421){: external}
 * [Red Hat Enterprise Linux System Roles for SAP](https://access.redhat.com/sites/default/files/attachments/rhel_system_roles_for_sap_1.pdf){: external}
 
 ### Configuring jumbo frames
-{: #power-vs-fnetwork-configurations-sles-rhel}
+{: #powervs-fnetwork-configurations-sles-rhel}
 
 Jumbo frames should be enabled by setting `MTU='9000'`.
 
@@ -813,7 +796,7 @@ In the `/etc/sysconfig/network-scripts` directory, check that the `ifcfg-env0`, 
 In the `/etc/sysconfig/network` directory, check the content of the files such as `ifcfg-eth0`, `ifcfg-eth1`, etc.
 
 ### Checking the NUMA layout
-{: #power-vs-numa-layout}
+{: #powervs-numa-layout}
 
 Check that the CPU and memory placement is optimized for SAP HANA by running the `chk_numa_lpm.py` script.
 The `chk_numa_lpm.py` script performs the following actions.
@@ -844,6 +827,6 @@ The `chk_numa_lpm.py` script performs the following actions.
     {: pre}
 
 ## Next Steps
-{: #power-vs-set-up-power-next_steps}
+{: #powervs-set-up-power-next_steps}
 
 Your infrastructure is now ready to install the SAP software.

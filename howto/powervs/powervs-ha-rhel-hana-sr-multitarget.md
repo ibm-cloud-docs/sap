@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-03-21"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -9,10 +9,10 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Configuring SAP HANA Multitarget System Replication in a RHEL HA Add-On Cluster
+# Configuring SAP HANA multitarget system replication in a Red Hat Enterprise Linux High Availability Add-On cluster
 {: #ha-rhel-hana-sr-multitarget}
 
-The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) HA add-on cluster for managing *SAP HANA&reg system replication* in a multitarget replication scenario.
+The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster for managing *SAP HANA&reg system replication* in a multitarget replication scenario.
 The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 
 You can connect multiple systems in an SAP HANA multitarget system replication topology to achieve a higher level of availability.
@@ -39,8 +39,8 @@ Review the general requirements, product documentation, support articles, and SA
 
 - A Red Hat High Availability cluster is deployed on two virtual server instances in one workspace in {{site.data.keyword.powerSys_notm}}.
    Follow the instructions in the following documents.
-   - [Implementing a RHEL HA Add-On Cluster on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
-   - [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
+   - [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel).
+   - [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
 - A third virtual server instance is deployed in another workspace in {{site.data.keyword.powerSys_notm}}.
 - SAP HANA is installed on the third virtual server instance with the same `SID` and `Instance Number`.
 - Optional - you can reserve a virtual IP address for the system on NODE3 as described in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses).
@@ -49,7 +49,7 @@ Review the general requirements, product documentation, support articles, and SA
 ## Setting up a multitarget scenario
 {: #ha-rhel-hana-sr-mtgt-setup}
 
-A multitarget scenario is an extension of the setup that is described in [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
+A multitarget scenario is an extension of the setup that is described in [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
 Make sure that you complete the setup for the system replication cluster before you continue with the following steps.
 
 To simplify the cluster operations, you can set the `AUTOMATED_REGISTER` cluster attribute of the `SAPHana` resource to `true`.

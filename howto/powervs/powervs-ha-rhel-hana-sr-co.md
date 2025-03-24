@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-03-21"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -9,10 +9,10 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Configuring SAP HANA Cost-Optimized Scale-Up System Replication in a RHEL HA Add-On Cluster
+# Configuring SAP HANA cost-optimized scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster
 {: #ha-rhel-hana-sr-cost-optimized}
 
-The following information describes the configuration of a Red Hat Enterprise Linux 8 (RHEL) HA Add-On cluster for managing *SAP HANA&reg Cost-Optimized Scale-Up System Replication*.
+The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster for managing *SAP HANA&reg Cost-Optimized Scale-Up System Replication*.
 The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 {: shortdesc}
 
@@ -36,7 +36,7 @@ Review the general requirements, product documentation, support articles, and SA
 {: #ha-rhel-hana-sr-co-prerequisites}
 
 - A Red Hat High Availability cluster is deployed on two virtual server instances in {{site.data.keyword.powerSys_notm}}.
-   - Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On Cluster on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
+   - Install and set up the RHEL HA Add-On cluster according to [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel).
    - Configure and verify fencing as described in the preceding document.
 - The virtual server instances need to fulfill hardware and resource requirements for the SAP HANA systems in scope.
    Follow the guidelines in the [Planning your deployment](/docs/sap?topic=sap-power-vs-planning-items) document.
@@ -52,7 +52,7 @@ Review the general requirements, product documentation, support articles, and SA
 ## Setting up the cost optimized scenario
 {: #ha-rhel-hana-sr-co-setup}
 
-The cost optimized scenario is an extension of the setup that is described in [Configuring SAP HANA Scale-Up System Replication in a RHEL HA Add-On Cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
+The cost optimized scenario is an extension of the setup that is described in [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
 Complete the setup for the production system System Replication cluster before you continue with the following steps.
 
 ### Preparing environment variables

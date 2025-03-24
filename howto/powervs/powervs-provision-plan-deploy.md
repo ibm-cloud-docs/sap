@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-02-14"
+  years: 2023, 2025
+lastupdated: "2025-03-21"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -10,7 +10,7 @@ subcollection: sap
 
 
 # Planning your deployment
-{: #power-vs-planning-items}
+{: #powervs-planning-items}
 
 SAP for {{site.data.keyword.powerSys_notm}}s is a complementary offering from {{site.data.keyword.powerSysFull}} with low latency access to {{site.data.keyword.cloud}} services.
 {: note}
@@ -19,15 +19,16 @@ Make sure that you're familiar with the fundamental components and options that 
 {: shortdesc}
 
 ## Before you begin
-{: #power-vs-before-you-begin}
+{: #powervs-before-you-begin}
 
+You will be creating a {{site.data.keyword.vpc_short}} Infrastructure to host the management services (Bastion host, proxy, NTP, DNS and NFS services) and a {{site.data.keyword.powerSys_notm}} Infrastructure to host SAP workloads (SAP HANA Database and SAP NetWeaver).
 To help make sure that your first deployment is a success, read [Fast path of IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-fast-path-site-map-power-vs) including the following sections:
 * [IBM Power Systems Infrastructure environment introduction](/docs/sap?topic=sap-power-env-introduction) for the basic understanding about the environment.
 * [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-power)
 * [Sample storage configurations on IBM Power Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-power)
 
 ## Prerequisites
-{: #power-vs-prereqs}
+{: #powervs-prereqs}
 
 Review the following prerequisites.
 
@@ -58,9 +59,8 @@ Review the following prerequisites.
 
     | Service | Private network | IP address ranges |
     | --- | --- | --- |
-    | Management VPC | Address prefix for VPC management network \n VPC management network for virtual server instances  | 172.10.0.0/16 \n 172.10.1.0/24 |
-    | Workload VPC | Address prefix for VPC workload network \n VPC management network for virtual server instances | 172.11.0.0/16  \n 172.11.2.0/24 |
-    | Edge VPC | Address prefix for VPC edge network \n VPC edge network for virtual server instances | 172.12.0.0/16  \n 172.11.1.0/24 |
+    | Edge VPC | Address prefix for VPC access host network \n VPC management network for virtual server instances  | 172.10.0.0/16 \n 172.10.1.0/24 |
+    | Edge VPC | Address prefix for VPC network management services \n VPC network services for virtual server instances | 172.11.0.0/16  \n 172.11.2.0/24 |
     | {{site.data.keyword.powerSys_notm}} workspace | {{site.data.keyword.powerSys_notm}} management network  \n {{site.data.keyword.powerSys_notm}} backup network  \n  \n Separate network for each SAP system on {{site.data.keyword.powerSys_notm}} and each SAP system or SAP component group on VPC \n SAP S/4HANA PRD \n SAP S/4HANA QA1 \n SAP Web Dispatchers on edge VPC | 10.10.10.0/24 \n 10.10.11.0/24 \n  \n  \n 10.10.20.0/24  \n 10.10.21.0/24 |
     {: caption="Private networks IP address ranges" caption-side="bottom"}
 

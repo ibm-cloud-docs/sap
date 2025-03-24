@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-07"
+lastupdated: "2025-03-21"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 subcollection: sap
 ---
@@ -9,10 +9,10 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Configuring an Active-Passive NFS Server in a RHEL HA Add-On Cluster
+# Configuring an active-passive NFS Server in a Red Hat Enterprise Linux High Availability Add-On cluster
 {: #ha-rhel-nfs}
 
-The following information describes the configuration of an active-passive NFS server in a Red Hat Enterprise Linux (RHEL) HA Add-On cluster.
+The following information describes the configuration of an active-passive NFS server in a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster.
 The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 {: shortdesc}
 
@@ -327,7 +327,7 @@ Reboot both nodes.
 
 Use the following instructions to perform the initial cluster configuration.
 
-- Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On Cluster on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rhel).
+- Install and set up the RHEL HA Add-On cluster according to [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel).
 - Configure and test fencing as described in [Creating the fencing device](/docs/sap?topic=sap-ha-rhel#ha-rhel-create-fencing-device).
 
 Sample output of the cluster status at this stage.
