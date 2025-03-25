@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-24"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -30,7 +30,7 @@ It is recommended that you install the SAP database instance and other SAP appli
 ## Before you begin
 {: #ha-rhel-ensa-begin}
 
-Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ## Prerequisites
 {: #ha-rhel-ensa-prerequisites}

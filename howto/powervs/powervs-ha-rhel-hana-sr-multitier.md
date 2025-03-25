@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-24"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -12,7 +12,7 @@ subcollection: sap
 # Configuring SAP HANA multitier system replication in a Red Hat Enterprise Linux High Availability Add-On cluster
 {: #ha-rhel-hana-sr-multitier}
 
-The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster for managing *SAP HANA&reg system replication* in a multitier replication scenario.
+The following information describes the configuration of a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster for managing *SAP HANA system replication* in a multitier replication scenario.
 The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 
 You can connect multiple systems in an SAP HANA multitier system replication topology to achieve a higher level of availability.
@@ -35,7 +35,7 @@ This information is intended for architects and specialists that are planning a 
 ## Before you begin
 {: #ha-rhel-hana-sr-mt-begin}
 
-Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ## Prerequisites
 {: #ha-rhel-hana-sr-mt-prerequisites}

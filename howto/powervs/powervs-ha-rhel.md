@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-24"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -26,12 +26,12 @@ This information is intended for architects and specialists who are planning a h
 ## Before you begin
 {: #ha-rhel-begin}
 
-Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ## Creating virtual server instances for the cluster
 {: #ha-rhel-create-virtual-server-instances}
 
-Use the instructions in [Creating Instances for a High Availability Cluster](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
+Use the instructions in [Creating instances for a high availability cluster](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
 
 ## Preparing the nodes for RHEL HA Add-On installation
 {: #ha-rhel-prepare-nodes-for-rhel-ha-installation}
@@ -85,7 +85,7 @@ To find the settings for the `APIKEY`, `IBMCLOUD_CRN_1`, `GUID_1`, and `POWERVSI
 
 Use the following steps to set up a two-node cluster for an IBM {{site.data.keyword.powerSys_notm}}.
 
-The instructions are based on the Red Hat product documentation and articles that are listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+The instructions are based on the Red Hat product documentation and articles that are listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 You need to perform some steps on both nodes and some steps on either NODE1 or on NODE2.
 {: tip}

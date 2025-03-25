@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-24"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC landing zone, NTP, NFS, DNS, Proxy, Squid, Terraform, Deployable architecture, Edge VPC, SSH
 subcollection: sap
 ---
@@ -315,6 +315,6 @@ This ansible execution ensures that the DNS forwarder services are configured on
 To create other VPC resources, such as load balancer, and other resources, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 
 ## Terraform automation - Deploying the VPC landing zone for {{site.data.keyword.powerSys_notm}}
-{: #powervs-vpc-landing-zone-automation}
+{: #vpc-landing-zone-automation}
 
 All the above steps are automated using terraform and ansible and is available as a Deployable Architecture Solution in IBM Cloud Catalog. To configure and deploy check the [link](/docs/powervs-vpc?topic=powervs-vpc-deploy-arch-ibm-pvs-inf-standard) for further details.

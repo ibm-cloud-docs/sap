@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-24"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -24,7 +24,7 @@ This information is intended for architects and specialists that are planning a 
 ## Before you begin
 {: #ha-rhel-hana-sr-begin}
 
-Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ## Prerequisites
 {: #ha-rhel-hana-sr-prerequisites}
@@ -42,7 +42,7 @@ Review the general requirements, product documentation, support articles, and SA
 ## Configuring SAP HANA System Replication in a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-rhel-hana-sr-configure-sr}
 
-The instructions are based on the Red Hat product documentation and articles that are listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+The instructions are based on the Red Hat product documentation and articles that are listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ### Preparing environment variables
 {: #ha-rhel-hana-sr-prepare-environment-variables}

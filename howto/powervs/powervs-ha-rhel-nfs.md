@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-24"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 subcollection: sap
 ---
@@ -23,12 +23,12 @@ HA-LVM makes sure that the volume group is active on one node at a time.
 In the example setup, one shared volume group `nfssharevg` contains three logical volumes `nfssharelv`, `sap${SID}lv`, and `saptranslv`.
 XFS file systems are created on those logical volumes and are mounted on `/nfsshare`, `/nfshare/export/sap${SID}`, `/nfsshare/export/saptrans`.
 
-The instructions are based on the Red Hat product documentation and articles that are listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+The instructions are based on the Red Hat product documentation and articles that are listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ## Before you begin
 {: #ha-rhel-nfs-begin}
 
-Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ## Prerequisites
 {: #ha-rhel-nfs-prerequisites}

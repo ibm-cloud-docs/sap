@@ -166,55 +166,58 @@ toc:
                 - navtitle: Setting up your IBM Cloud account structure
                   topic: howto/sap-prereq-account-structure.md
           - topicgroup:
-              label: Provisioning Intel Bare Metal for SAP HANA and SAP NetWeaver
+              label: Provisioning SAP HANA and SAP NetWeaver
               topics:
-                - navtitle: Planning your deployment
-                  topic: howto/classic-intel-bm/classic-intel-bm-provision-plan.md
-                - navtitle: Deploying your infrastructure
-                  topic: howto/classic-intel-bm/classic-intel-bm-provision-deploy.md
-          - topicgroup:
-              label: Provisioning Intel Bare Metal with Intel Optane DC PMEM for SAP HANA and SAP NetWeaver
-              topics:
-                - navtitle: Planning your deployment
-                  topic: howto/classic-intel-bm/classic-optane-bm-provision-plan.md
-                - navtitle: Deploying your infrastructure
-                  topic: howto/classic-intel-bm/classic-optane-bm-provision-deploy.md
-          - topicgroup:
-              label: Provisioning Intel Bare Metal with virtual server (Gen2) for SAP HANA and SAP NetWeaver
-              topics:
-                - navtitle: Planning your deployment
-                  topic: howto/vpc-intel-bm/intel-bm-provision-gen2-plan-deploy.md
-                - navtitle: Deploying your infrastructure
-                  topic: howto/vpc-intel-bm/intel-bm-provision-gen2-deploy-infrastructure.md
-          - topicgroup:
-              label: Provisioning Intel virtual server (Gen2) for SAP HANA and SAP NetWeaver
-              topics:
-                - navtitle: Planning your deployment
-                  topic: howto/vpc-intel-vsi/intel-vsi-provision-gen2-plan-deploy.md
-                - navtitle: Deploying your infrastructure
-                  topic: howto/vpc-intel-vsi/intel-vsi-provision-gen2-deploy-infrastructure.md
-                - navtitle: Using IBM Metrics Collector for SAP (IMCS) on Linux
-                  topic: howto/sap-ibm-metrics-collector-linux.md
-                - navtitle: Using IBM Metrics Collector for SAP (IMCS) on Windows
-                  topic: howto/sap-ibm-metrics-collector-windows.md
-          - topicgroup:
-              label: Provisioning IBM Power Virtual Server instances for SAP HANA and SAP NetWeaver
-              topics:
-                - navtitle: Planning your deployment
-                  topic: howto/powervs/powervs-provision-plan-deploy.md
-                - navtitle: Deploying VPC infrastructure for Power Virtual Server SAP workloads
-                  topic: howto/powervs/powervs-provision-deploy-vpc-infrastructure.md
-                - navtitle: Deploying Power Virtual Server infrastructure
-                  topic: howto/powervs/powervs-provision-deploy-power-infrastructure.md
-                - navtitle: Deploying SAP applications on Power Virtual Server
-                  topic: howto/powervs/powervs-provision-deploy-power-instances.md
-          - topicgroup:
-              label: Provisioning VMware SDDC for SAP HANA and SAP NetWeaver
-              topics:
-                - navtitle: Planning your deployment
-                  topic: howto/vmware/vmware-provision-sddc-plan-deploy.md
-                - navtitle: Deploying your infrastructure
-                  topic: howto/vmware/vmware-provision-sddc-deploy-infrastructure.md
+                - topicgroup:
+                    label: Intel Virtual Server on VPC
+                    topics:
+                      - navtitle: Planning your deployment
+                        topic: howto/vpc-intel-vsi/intel-vsi-provision-gen2-plan-deploy.md
+                      - navtitle: Deploying your infrastructure
+                        topic: howto/vpc-intel-vsi/intel-vsi-provision-gen2-deploy-infrastructure.md
+                      - navtitle: Using IBM Metrics Collector for SAP (IMCS) on Linux
+                        topic: howto/sap-ibm-metrics-collector-linux.md
+                      - navtitle: Using IBM Metrics Collector for SAP (IMCS) on Windows
+                        topic: howto/sap-ibm-metrics-collector-windows.md
+                - topicgroup:
+                    label: Intel Bare Metal on VPC
+                    topics:
+                      - navtitle: Planning your deployment
+                        topic: howto/vpc-intel-bm/intel-bm-provision-gen2-plan-deploy.md
+                      - navtitle: Deploying your infrastructure
+                        topic: howto/vpc-intel-bm/intel-bm-provision-gen2-deploy-infrastructure.md
+                - topicgroup:
+                    label: Intel Bare Metal on Classic
+                    topics:
+                      - navtitle: Planning your deployment
+                        topic: howto/classic-intel-bm/classic-intel-bm-provision-plan.md
+                      - navtitle: Deploying your infrastructure
+                        topic: howto/classic-intel-bm/classic-intel-bm-provision-deploy.md
+                - topicgroup:
+                    label: Intel Bare Metal with Intel Optane DC PMEM on Classic
+                    topics:
+                      - navtitle: Planning your deployment
+                        topic: howto/classic-intel-bm/classic-optane-bm-provision-plan.md
+                      - navtitle: Deploying your infrastructure
+                        topic: howto/classic-intel-bm/classic-optane-bm-provision-deploy.md
+                - topicgroup:
+                    label: Power Virtual Server instances
+                    topics:
+                      - navtitle: Planning your deployment
+                        topic: howto/powervs/powervs-provision-plan-deploy.md
+                      - navtitle: Deploying VPC infrastructure for Power Virtual Server SAP workloads
+                        topic: howto/powervs/powervs-provision-deploy-vpc-infrastructure.md
+                      - navtitle: Deploying Power Virtual Server infrastructure
+                        topic: howto/powervs/powervs-provision-deploy-power-infrastructure.md
+                      - navtitle: Deploying SAP applications on Power Virtual Server
+                        topic: howto/powervs/powervs-provision-deploy-power-instances.md
+                - topicgroup:
+                    label: VMware SDDC
+                    topics:
+                      - navtitle: Planning your deployment
+                        topic: howto/vmware/vmware-provision-sddc-plan-deploy.md
+                      - navtitle: Deploying your infrastructure
+                        topic: howto/vmware/vmware-provision-sddc-deploy-infrastructure.md
           - topicgroup:
               label: Terraform solutions for SAP on VPC
               topics:
@@ -255,7 +258,7 @@ toc:
                       - navtitle: Deploying
                         topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-hana-aas-anydb.md
                 - topicgroup:
-                    label: SAP NetWeaver and ASE SYB on VPC
+                    label: SAP NetWeaver and ASE SYBASE on VPC
                     topics:
                       - navtitle: Overview
                         topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-nw-asesyb.md

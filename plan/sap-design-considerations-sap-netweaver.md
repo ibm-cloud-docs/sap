@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-24"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -170,4 +170,4 @@ In this case, the same information applies as in [Configuring high availability 
 ### Configuring high availability for IBM {{site.data.keyword.powerSys_notm}}
 {: #netweaver-ha-power}
 
-To implement high availability scenarios for SAP applications on IBM {{site.data.keyword.powerSys_notm}}, see [Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview){: external}.
+To implement high availability scenarios for SAP applications on IBM {{site.data.keyword.powerSys_notm}}, see [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview){: external}.

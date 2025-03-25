@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2025-02-13"
+  years: 2024, 2025
+lastupdated: "2025-03-24"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Implementing High Availability for SAP Applications on IBM {{site.data.keyword.powerSys_notm}} References
+# Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References
 {: #ha-rhel-refs}
 
 The following is a comprehensive list of product documentation, Red Hat Knowledge Base articles, and SAP notes that you need to review before you implement high availability for SAP solutions.
