@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-03-25"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -153,7 +153,7 @@ For a multizone region deployment, repeat the same steps to create the second vi
 {: #ha-vsi-prepare-sap-install}
 
 If you deployed a virtual server instance from a stock image, you need to perform extra configuration tasks before you can install SAP software.
-For more information, see [Configuring a {{site.data.keyword.powerSys_notm}} instance](/docs/sap?topic=sap-power-vs-set-up-power-instances#power-vs-set-up-powervs-manually-os-config).
+For more information, see [Configuring a {{site.data.keyword.powerSys_notm}} instance](/docs/sap?topic=sap-powervs-set-up-power-instances#powervs-set-up-powervs-manually-os-config).
 
 ## Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}
 {: #ha-vsi-create-role-and-service-id}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-03-25"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -25,7 +25,7 @@ To assist your project's planning phase, the following sections provide {{site.d
 
 The {{site.data.keyword.ibm_cloud_sap}} portfolio is ideal for practically all SAP use case scenarios. You can use your servers for mission-critical workloads, as your test environment, or your business continuity disaster recovery (BCDR) site.
 
-### SAP NetWeaver work processes scheduling and scaling
+### SAP application server work processes scheduling and scaling
 {: #compute-workprocesses}
 
 
@@ -58,13 +58,13 @@ Some {{site.data.keyword.ibm_cloud_sap}} Bare Metal profiles do allow alteration
 {: #compute-power}
 
 The [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings) compute options provide different variations of capabilities and sizing for SAP workloads.
-SAP HANA database servers and SAP NetWeaver applications run on {{site.data.keyword.IBM_notm}} Power Systems using [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
+SAP HANA database servers and SAP application servers run on {{site.data.keyword.IBM_notm}} Power Systems using [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
 For more information, see [SAP HANA and IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs-hana), [SAP NetWeaver and IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs-netweaver), and [SAP NetWeaver certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs).
 
 The {{site.data.keyword.cloud_notm}} SAP-certified Infrastructure-as-a-Service (IaaS) offerings are available on {{site.data.keyword.cloud_notm}} in many {{site.data.keyword.IBM_notm}} data centers around the world.
 See the current data centers in [IBM Cloud regions](/docs/power-iaas?topic=power-iaas-ibm-cloud-reg).
 
-All SAP NetWeaver Application Server ABAP-based products and SAP NetWeaver Application Server Java-based products are supported on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s. For SAP NetWeaver-based SAP products, see [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external}.
+All SAP application server ABAP-based products and SAP application server Java-based products are supported on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s. For SAP application server-based SAP products, see [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external}.
 
 All SAP HANA-based products are supported on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s. For support requirements, see [SAP Note 2923984 - SAP on IBM {{site.data.keyword.powerSys_notm}}s: Support prerequisites](https://me.sap.com/notes/2923984){: external}.
 
@@ -76,7 +76,7 @@ For all other software components or third-party products, contact [SAP Support]
 VMware runs on the same SAP-certified Bare Metals. Therefore, the VMware vSphere (ESXi) installation on the certified hardware enables the VMware-SAP certification and agreements to be valid. Therefore, all VMware-SAP certification guidance must be followed (as described in SAP Notes for VMware-SAP).
 {: note}
 
-VMware SDDC is available as a customer-controlled root-access hypervisor, which is certified to run SAP workloads. Providing VMware SDDC does not automatically provide a pre-sized virtual machine for SAP HANA or SAP NetWeaver upon provisioning either the OS image with VMware vSphere (ESXi) for the Bare Metal or the fully automated setup from {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated. You choose how to size and configure your SAP Workloads (for SAP HANA, size and configuration is under the SAP HANA TDI delivery model).
+VMware SDDC is available as a customer-controlled root-access hypervisor, which is certified to run SAP workloads. Providing VMware SDDC does not automatically provide a pre-sized virtual machine for SAP HANA or SAP application server upon provisioning either the OS image with VMware vSphere (ESXi) for the Bare Metal or the fully automated setup from {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated. You choose how to size and configure your SAP Workloads (for SAP HANA, size and configuration is under the SAP HANA TDI delivery model).
 
 When you run SAP workloads on VMware, you have significant flexibility and the full capabilities which VMware built to run SAP workloads over decades is available to use.
 
@@ -111,14 +111,14 @@ The {{site.data.keyword.ibm_cloud_sap}} portfolio provides various Operating Sys
 ### Operating Systems supported
 {: #os-supported}
 
-You need to consult [SAP Note 2414097](https://me.sap.com/notes/2414097){: external} for a list of guest operating systems (OS) to deploy SAP HANA and SAP NetWeaver-based systems. An SAP S-user ID is required to access the SAP Note.
+You need to consult [SAP Note 2414097](https://me.sap.com/notes/2414097){: external} for a list of guest operating systems (OS) to deploy SAP HANA and SAP application server-based systems. An SAP S-user ID is required to access the SAP Note.
 
 For the Operating System, the SAP HANA certified servers are available with the following operating systems:
 * Red Hat Enterprise Linux for SAP HANA
 * SUSE Linux Enterprise Server for SAP HANA
 * VMware vSphere hypervisor (ESXi) + created Guest OS with RHEL/SLES
 
-For the Operating System, the SAP NetWeaver certified servers are available with the following operating systems:
+For the Operating System, the SAP application server certified servers are available with the following operating systems:
 * IBM AIX
 * Red Hat Enterprise Linux for SAP Applications
 * SUSE Linux Enterprise Server for SAP Applications
@@ -127,7 +127,7 @@ For the Operating System, the SAP NetWeaver certified servers are available with
 
 For SAP HANA release versions (including SPS and Revision and Patch numbers), support is only available for pre-defined and specific major.minor releases of an Operating System (for example, RHEL 7.6). This information is shown in [SAP 2235581 - SAP HANA: Supported Operating Systems](https://me.sap.com/notes/2235581){: external}. An example is available in the SAP Note attachment `SAP_HANA_OS_Release_Support_Matrix.pdf`.
 
-For SAP NetWeaver release versions, support is available for each major release of an Operating System (for example, SLES 12) meaning each subsequent release is available for use (example: SLES 12 SPS4, SLES 12 SP5, and so on). This information is shown in the [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}.
+For SAP application server release versions, support is available for each major release of an Operating System (for example, SLES 12) meaning each subsequent release is available for use (example: SLES 12 SPS4, SLES 12 SP5, and so on). This information is shown in the [SAP Product Availability Matrix (PAM)](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630){: external}.
 
 
 ### OS configuration for SAP
@@ -144,7 +144,7 @@ Therefore, for OS images, you need to perform the following actions.
 ### OS for Virtual Servers on VPC Infrastructure
 {: #os-vs-vpc}
 
-For a list of operating systems and databases available for SAP NetWeaver-based system deployments, see [SAP Note 2927211](https://me.sap.com/notes/2927211){: external}.
+For a list of operating systems and databases available for SAP application server-based system deployments, see [SAP Note 2927211](https://me.sap.com/notes/2927211){: external}.
 
 An SAP S-user ID is required to access the SAP Note.
 {: note}
@@ -152,15 +152,11 @@ An SAP S-user ID is required to access the SAP Note.
 ### OS for IBM {{site.data.keyword.powerSys_notm}}s
 {: #os-power}
 
-For the Linux&reg; versions to deploy for SAP HANA, see [SAP Note 2947579 - SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2947579){: external}. An SAP S-user ID is required to access the SAP Note. The OS image is provided by {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s, and the licensing for Linux is covered through a "bring your own license" (BYOL) model.
+For the Linux&reg; versions to deploy for SAP HANA, see [SAP Note 2947579 - SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2947579){: external}. An SAP S-user ID is required to access the SAP Note.
 
-For the version of IBM AIX or Linux on Power to deploy for SAP NetWeaver-based systems, see [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external}. An SAP S-user ID is required to access the SAP Note. License fees for AIX are covered by your monthly billing rate.
+For the version of IBM AIX or Linux on Power to deploy for SAP application server-based systems, see [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external}. An SAP S-user ID is required to access the SAP Note. License fees for AIX are covered by your monthly billing rate.
 
-OS Packages update server with IBM Power {{site.data.keyword.powerSys_notm}}s:
-* For SAP NetWeaver you can use publicly available AIX SUMA or SUSE update repositories, or use your own AIX NIM or SUSE RMT servers.
-* For SAP HANA you can use publicly available SUSE update repositories, or use your own private SUSE RMT servers.
-
-| Operating system for SAP HANA | Operating system image (Bring your own license) | Operating system image (IBM subscription) |
+| Operating system for SAP HANA | Image name (Client supplied subscription) | Image name (IBM provided subscription) |
 |---------|---------|---------|
 | Red Hat Enterprise Linux (RHEL) 8.4 | RHEL8-SP4-SAP-BYOL| RHEL8-SP4-SAP |
 | Red Hat Enterprise Linux (RHEL) 8.6 | RHEL8-SP6-SAP-BYOL| RHEL8-SP6-SAP |
@@ -174,7 +170,7 @@ OS Packages update server with IBM Power {{site.data.keyword.powerSys_notm}}s:
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | SLES15-SP5-SAP-BYOL  | SLES15-SP5-SAP |
 {: caption="Operating systems for IBM {{site.data.keyword.powerSys_notm}}s on SAP HANA" caption-side="bottom"}
 
-| Operating system for SAP NetWeaver | Operating system image (Bring your own license) | Operating system image (IBM subscription) |
+| Operating system for SAP application server | Image name (Client supplied subscription) | Image name (IBM provided subscription) |
 |---------|---------|---------|
 | Red Hat Enterprise Linux (RHEL) 8.4 | RHEL8-SP4-SAP-NETWEAVER-BYOL | RHEL8-SP4-SAP-NETWEAVER |
 | Red Hat Enterprise Linux (RHEL) 8.6 | RHEL8-SP6-SAP-NETWEAVER-BYOL | RHEL8-SP6-SAP-NETWEAVER |
@@ -186,13 +182,9 @@ OS Packages update server with IBM Power {{site.data.keyword.powerSys_notm}}s:
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | SLES15-SP3-SAP-NETWEAVER-BYOL | SLES15-SP3-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | SLES15-SP4-SAP-NETWEAVER-BYOL | SLES15-SP4-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | SLES15-SP5-SAP-NETWEAVER-BYOL | SLES15-SP5-SAP-NETWEAVER |
-| AIX 7.2 | 7200-05-08 or later |
-| AIX 7.3 | 7300-02-01 or later |
-{: caption="Operating systems for IBM {{site.data.keyword.powerSys_notm}}s on SAP NetWeaver" caption-side="bottom"}
-
-Update on new SAP HANA large t-shirt profiles feature
-IBM supports SLES15 SP4 for SAP and RHEL8.6 for SAP OS images with all other features on all t-shirt profiles with fewer than 64 cores. These SLES15 SP4 for SAP and RHEL8.6 for SAP OS images while they are updating to support the larger t-shirt profiles. Until further notice, use the larger t-shirt profiles with the SLES15 SP3 for SAP OS image or the RHEL8.4 for SAP OS image.
-{: note}
+| AIX 7.2 |  | 7200-05-08 or later |
+| AIX 7.3 |  | 7300-02-01 or later |
+{: caption="Operating systems for IBM {{site.data.keyword.powerSys_notm}}s on SAP application server" caption-side="bottom"}
 
 ### OS when you use VMware SDDC
 {: #os-vmware}
@@ -220,11 +212,11 @@ Refer to [Installing VMware vSphere ESXi by using Remote Console and Virtual Med
 
 When you have your own operating system image and license, it can be used with {{site.data.keyword.cloud_notm}} and the OS install based on the vendor's instructions.
 
-| Infrastructure | BYOS | SAP workloads support |
+| Infrastructure | Bring your own OS documentation | SAP supported workloads  |
 | -- | -- | -- |
 | Intel {{site.data.keyword.baremetal_short}} on Classic Infrastructure | OS BYOL and custom image (BYOS) by using the ["no OS" option during provisioning](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os) | SAP HANA by using TDI deployment  \n SAP NetWeaver AS |
 | Intel Virtual Servers (Gen2) on VPC Infrastructure | OS BYOL and Custom image (BYOS) by using [Importing and managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui) | SAP HANA by using TDI deployment  \n SAP NetWeaver AS |
-| {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} in the IBM Power Infrastructure environment | Linux OS BYOL and Custom Image (BYOS) by using [Capturing and importing an RHEL image](/docs/power-iaas?topic=power-iaas-linux-with-powervs#import-rhel-image) and [Capturing and importing a SLES image](/docs/power-iaas?topic=power-iaas-using-linux#preparing-linux-image)  | Not supported for SAP HANA or SAP NetWeaver workloads, available for non-SAP workloads |
+| {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} in the IBM Power Infrastructure environment | Linux OS BYOL and Custom Image (BYOS) by using [Capturing and importing an RHEL image](/docs/power-iaas?topic=power-iaas-linux-with-powervs#import-rhel-image) and [Capturing and importing a SLES image](/docs/power-iaas?topic=power-iaas-using-linux#preparing-linux-image)  | SAP HANA, SAP application server |
 | {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} in the IBM Power Infrastructure environment | Unix OS BYOL and Custom Image (BYOS) by using [Importing a boot image for IBM AIX or IBM i](/docs/power-iaas?topic=power-iaas-importing-boot-image#console-import-image) | SAP NetWeaver AS |
 | VMware SDDC on IBM Cloud |  OS BYOL and custom image (BYOS) by using standard Virtual Machine Guest OS guidance from VMware documentation | Supported according to SAP-VMware guidance |
 {: caption="Bring your own customized OS image and BYOL License" caption-side="bottom"}
