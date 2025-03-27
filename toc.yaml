@@ -396,6 +396,11 @@ toc:
                   topic: howto/powervs/powervs-monitoring-launch-web-ui-and-dashboards.md
                 - navtitle: Parameter harvesting, troubleshooting, and maintenance
                   topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md
+          - topicgroup:
+              label: Backup strategies
+              topics:
+                - navtitle: Power Virtual Server
+                  topic: howto/powervs/powervs-backup-strategies.md
     - navgroup:
         id: reference
         topics:
