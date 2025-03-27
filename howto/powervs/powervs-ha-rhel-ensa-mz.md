@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-03-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -370,8 +370,7 @@ Use SWPM to install both instances.
 ## Preparing the ASCS and ERS instances for cluster integration
 {: #ha-rhel-ensa-mz-prepare-ascs-ers}
 
-The preparation steps for integrating the *ASCS* and *ERS* instances in a cluster are same whether the cluster is installed in a single workspace or in a multizone region environment.
-Follow all the steps described in [Preparing ASCS and ERS instances for the cluster integration](/docs/sap?topic=sap-ha-rhel-ensa#ha-rhel-ensa-prepare-ascs-ers).
+{{../../_include-segments/powervs-ha-rhel-ensa-prepare-for-cluster.md}}
 
 ## Configuring the ASCS and ERS cluster resources
 {: #ha-rhel-ensa-mz-cfg-ascs-ers}

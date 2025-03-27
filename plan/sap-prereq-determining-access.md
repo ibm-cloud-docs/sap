@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP NetWeaver, SAP HANA, Interconnectivity, Connectivity, Direct Link, VPC, VPN, Gateway
 
 subcollection: sap
@@ -23,11 +23,8 @@ You can securely connect to your infrastructure in multiple ways by using variou
     * VMware solutions
 
 * **[VPC Infrastructure](/docs/sap?topic=sap-vpc-env-introduction) network**
-    * ~~Intel Virtual Servers (Generation 1), formerly known as VPC on Classic~~ `no longer available, not SAP certified`
     * Intel Virtual Servers (Generation 2)
 
-* **[IBM Power](/docs/sap?topic=sap-power-env-introduction) Virtual Server network, connection through {{site.data.keyword.cloud}}**
-    * IBM {{site.data.keyword.powerSys_notm}}s, connection through {{site.data.keyword.cloud}}. _This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems_
 
 
 ## Interconnectivity between {{site.data.keyword.cloud_notm}} network
@@ -93,17 +90,38 @@ All options require upgrading the {{site.data.keyword.cloud_notm}} account to be
 
 For more information on VPC access to Classic Infrastructure, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure). For more information on {{site.data.keyword.tg_short}}, see [Getting started with {{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gateway-getting-started).
 
+## Network connectivity and network security for SAP systems running in IBM {{site.data.keyword.powerSys_notm}}
+{: #powervs-network-connectivity-and-security}
 
-## Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through {{site.data.keyword.cloud_notm}}
-{: #determine-access-connectivity-options-power}
+### Network connectivity
+{: #powervs-network-connectivity}
 
-This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with low latency access to {{site.data.keyword.cloud_notm}} services
-{: note}
+To arrange connection through to IBM Cloud or an on-premises network, a private subnet must exist for the IBM {{site.data.keyword.powerSys_notm}}.
 
-To arrange connection through to IBM Cloud or an on-premises network, a private subnet (and the allocated Private VLAN) must exist for the IBM {{site.data.keyword.powerSys_notm}}; which is then connected to the subnet in the target network using IBM Cloud Direct Link.
+- {{site.data.keyword.powerSys_notm}} workspace will be connected over [Transit gateway](/docs/transit-gateway?topic=transit-gateway-getting-started) to:
+   1. The Virtual Private Cloud(VPC) with VPC instances (Windows, HANA Studio)
+   1. Other {{site.data.keyword.powerSys_notm}} workspaces
+   1. On-premises networks through [Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl).
 
-On the target side (IBM Cloud networks or the on-premises network), it is required to perform the necessary configuration of the network security and permit connections to be established to/from IBM {{site.data.keyword.powerSys_notm}}s. For example:
-- With a connection to IBM Cloud Classic Infrastructure, the Gateway Appliance firewall for the Classic Private VLAN (and Primary Subnet, or any other Subnets) must permit the ports where traffic will flow to/from IBM {{site.data.keyword.powerSys_notm}}s
-- With a connection to an on-premises network, the outbound Firewall and DMZ should be configured to permit the ports where traffic will flow to/from IBM {{site.data.keyword.powerSys_notm}}s
+- By using **local** transit gateway, the networks in the **same region** are connected. In order to connect networks from **another** regions, **global** transit gateway must be used.
 
-Depending on the subnet range used for the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} private subnet and the default OS routing configuration, manual routes on both sides may be required (e.g. a route added to the NAT Gateway of the target in the on-premises network).
+- Other IBM Cloud services may be reached directly through public IBM Cloud service IPs or hostnames or over [Virtual Private Endpoints](/docs/overview?topic=overview-endpoints-support) configured in connected VPC (like IBM Cloud Object Storage etc.)
+
+### Network connectivity over VPN
+{: #powervs-network-connectivity-vpn}
+
+IBM {{site.data.keyword.powerSys_notm}} do not support a native VPN Service. However, IBM Cloud provides two [VPN services](/docs/vpc?topic=vpc-vpn-overview):
+1. VPN for VPC offers site-to-site gateways, which connect your on-premises network to the IBM Cloud VPC network.
+2. Client VPN for VPC offers client-to-site servers, which allow clients on the internet to connect to VPN servers, while still maintaining secure connectivity.
+
+- Once connectivity to VPC Network is established, it is then easier to reach the IBM {{site.data.keyword.powerSys_notm}} instances provided that the VPC and {{site.data.keyword.powerSys_notm}} workspace are attached to same Transit Gateway.
+- Outgoing public internet and external network traffic from {{site.data.keyword.powerSys_notm}} instances goes over the internet proxy service running on Virtual Server Instance (VSI) in VPC.
+- Incoming public internet and external network traffic to {{site.data.keyword.powerSys_notm}} instances are achieved using [Cloud Internet Service](/docs/cis?topic=cis-getting-started) and [Load Balancer Service](/docs/vpc?topic=vpc-nlb-vs-elb)
+
+
+### Network Security
+{: #powervs-network-security}
+
+By considering all network connectivity options, we differentiate between connections coming to {{site.data.keyword.powerSys_notm}} workspace over VPC and directly through transit gateway.
+
+On the target side (IBM Cloud networks or the on-premises network), it is required to perform the necessary configuration of the network security and permit connections to be established to/from IBM {{site.data.keyword.powerSys_notm}}s.

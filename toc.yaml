@@ -22,15 +22,15 @@ toc:
           - topicgroup:
               label: Fast path site maps
               topics:
-                - navtitle: Intel virtual servers on VPC
+                - navtitle: Intel virtual servers in VPC
                   topic: overview/sap-fast-path-site-map-intel-vs-gen2.md
                 - navtitle: Power Virtual Server
                   topic: overview/sap-fast-path-site-map-ibm-power-vs.md
-                - navtitle: Intel Bare Metal servers on VPC
+                - navtitle: Intel Bare Metal servers in VPC
                   topic: overview/sap-fast-path-site-map-intel-bm-vpc.md
-                - navtitle: Intel Bare Metal servers on Classic
+                - navtitle: Intel Bare Metal servers in Classic
                   topic: overview/sap-fast-path-site-map-intel-bm.md
-                - navtitle: VMware on Classic
+                - navtitle: VMware in Classic
                   topic: overview/sap-fast-path-site-map-vmware-sddc.md
           - link:
               label: Executive solution brief of IBM Cloud for SAP
@@ -154,6 +154,11 @@ toc:
                   topic: tutorial/vpc-intel-vsi/intel-vsi-sap-quickstudy-nw-rhel.md
                 - navtitle: SAP NetWeaver deployment with Windows Server on Intel virtual server on VPC infrastructure
                   topic: tutorial/vpc-intel-vsi/intel-vsi-sap-quickstudy-nw-wins.md
+          - topicgroup:
+              label: VPC infrastructure integration scenarios
+              topics:
+                - navtitle: Accessing a VPC file storage share from IBM Power Virtual Server instances
+                  topic: tutorial/powervs/powervs-ha-nfs-tutorial.md
     - navgroup:
         id: howto
         topics:

@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Creating 2-tier VPC for SAP on {{site.data.keyword.cloud}} VPC with Terraform
+# Creating single-tier VPC for SAP
 {: #create-terraform-single-tier-vpc-sap}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud_notm}} VPC infrastructure resources so that you can rapidly build complex, cloud environments. {{site.data.keyword.cloud_notm}} VPC infrastructure consists of SAP certified hardware using Intel&reg; Xeon CPUs and additional Intel&reg; technologies.
@@ -62,7 +62,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
 1.	If you do not have Terraform installed, [Install the Terraform CLI and the {{site.data.keyword.cloud_notm}} Provider plug-in](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-setup_cli).
 
-    If you are using Terraform 0.13 and higher, you do not need to install the {{site.data.keyword.cloud_notm}} Provider Plug-in. You modify the configuration files provided on the 1-Tier VPC for SAP GitHub repository to specify the plug-in version to use.
+    If you are using Terraform 0.13 and higher, you do not need to install the {{site.data.keyword.cloud_notm}} Provider Plug-in. You modify the configuration files provided on the single-tier VPC for SAP GitHub repository to specify the plug-in version to use.
 
     If you are using Terraform 1.12.x and earlier, follow these {{site.data.keyword.cloud_notm}} Provider Plug-in [installation instructions](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-setup_cli#install-provider-v12). Do not configure the plug-in.
 

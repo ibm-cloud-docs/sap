@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-25"
+lastupdated: "2025-03-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -56,8 +56,8 @@ Depending on your scenarios, the following links provide helpful information.
 For more information about provisioning IBM {{site.data.keyword.powerSys_notm}} for SAP HANA and SAP NetWeaver manually, see the following links.
 
 - [Planning your deployment](/docs/sap?topic=sap-powervs-planning-items)
-- [Deploying IBM Cloud VPC infrastructure that is used by SAP workloads that run on IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-power-vs-set-up-vpc-infrastructure)
-- [Deploying IBM Cloud Power Virtual Services infrastructure that is used by SAP workloads](/docs/sap?topic=sap-power-vs-set-up-power-infrastructure)
+- [Deploying IBM Cloud VPC infrastructure that is used by SAP workloads that run on IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-powervs-set-up-vpc-infrastructure)
+- [Deploying IBM Cloud Power Virtual Services infrastructure that is used by SAP workloads](/docs/sap?topic=sap-powervs-set-up-power-infrastructure)
 - [Deploying IBM {{site.data.keyword.powerSys_notm}} instances for SAP system](/docs/sap?topic=sap-powervs-set-up-power-instances)
 
 For more information about implementing high availability scenarios for SAP on IBM {{site.data.keyword.powerSysFull}}, see the following links.
