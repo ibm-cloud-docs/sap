@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-27"
 keywords: SAP-Certified HANA profiles, umh, sh2, Rise, bh1, mh1, cnp, sr2, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -331,6 +331,111 @@ The following SAP HANA profiles with prefix **sh2** on IBM {{site.data.keyword.p
 {: tab-title="Shared File System"}
 
 
+
+### bh2 - Certified Profiles
+{: #bh2-profiles}
+
+The following SAP HANA profiles with prefix **bh2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
+
+
+| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)**       |  **Workload Type**  |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | ---------------------------------| ------------------- |
+| bh2-35x3000         | 35            | 280              | 3000             | 266,000  |  SMT8                            |     OLTP/OLAP       |
+| bh2-35x3900         | 35            | 280              | 3900             | 266,000  |  SMT8                            |     OLTP/OLAP       |
+{: class="simple-tab-table"}
+{: tab-group="bh2-table"}
+{: caption="P10 Certified Instance profiles with bh2 prefix" caption-side="bottom"}
+{: #bh2-profiles-instance}
+{: tab-title="Instance Profile"}
+
+| bh2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
+|------------------------|---------------|-------------------------|----------------------|---------------|--------------------------------------------|
+| bh2-35x3000            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| bh2-35x3900            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+{: class="simple-tab-table"}
+{: tab-group="bh2-table"}
+{: caption="Sample log file system configurations for SAP HANA profiles with bh2 prefix" caption-side="bottom"}
+{: #bh2-profiles-log}
+{: tab-title="Log File System"}
+
+
+| bh2\nCertified profile  | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
+|-------------------------|---------------|-------------------------|----------------------|---------------|--------------------------------------------|
+|  bh2-35x3000            | 8,000         | 4 x 1208 GB             | Tier 3               | 14,499        |                                            |
+|  bh2-35x3900            | 8,000         | 4 x 1570 GB             | Tier 3               | 18,846        |                                            |
+{: class="simple-tab-table"}
+{: tab-group="bh2-table"}
+{: caption="Sample data file system configurations for SAP HANA profiles with bh2 prefix" caption-side="bottom"}
+{: #bh2-profiles-data}
+{: tab-title="Data File System"}
+
+
+| bh2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration    |
+|------------------------|---------------|-------------------------|----------------------|---------------|------------------------------|
+|    bh2-35x3000         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|    bh2-35x3900         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+{: class="simple-tab-table"}
+{: tab-group="bh2-table"}
+{: caption="Sample shared file system configurations for SAP HANA profiles with bh2 prefix" caption-side="bottom"}
+{: #bh2-profiles-shared}
+{: tab-title="Shared File System"}
+
+
+### ch2 - Certified Profiles
+{: #ch2-profiles}
+
+The following SAP HANA profiles with prefix **ch2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
+
+
+| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)**       |  **Workload Type**  |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | ---------------------------------| ------------------- |
+| ch2-87x6000         | 87            | 696              | 6,000            | 661,200  |  SMT8                            |     OLTP/OLAP       |
+| ch2-80x6144         | 80            | 640              | 6,144            | 608,000  |  SMT8                            |     OLTP/OLAP       |
+| ch2-87x7000         | 87            | 696              | 7,000            | 661,200  |  SMT8                            |     OLTP/OLAP       |
+| ch2-87x7600         | 87            | 696              | 7,600            | 661,200  |  SMT8                            |     OLTP/OLAP       |
+{: class="simple-tab-table"}
+{: tab-group="ch2-table"}
+{: caption="P10 Certified Instance profiles with ch2 prefix" caption-side="bottom"}
+{: #ch2-profiles-instance}
+{: tab-title="Instance Profile"}
+
+| ch2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
+|------------------------|---------------|-------------------------|----------------------|---------------|--------------------------------------------|
+| ch2-87x6000            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| ch2-80x6144            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| ch2-87x7000            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| ch2-87x7600            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+{: class="simple-tab-table"}
+{: tab-group="ch2-table"}
+{: caption="Sample log file system configurations for SAP HANA profiles with ch2 prefix" caption-side="bottom"}
+{: #ch2-profiles-log}
+{: tab-title="Log File System"}
+
+
+| ch2\nCertified profile  | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
+|-------------------------|---------------|-------------------------|----------------------|---------------|--------------------------------------------|
+|  ch2-87x6000            | 8,000         | 4 x 2416 GB             | Tier 3               | 28,998        |                                            |
+|  ch2-80x6144            | 8,000         | 4 x 2474 GB             | Tier 3               | 29,691        |                                            |
+|  ch2-87x7000            | 8,000         | 4 x 2819 GB             | Tier 3               | 33,831        |                                            |
+|  ch2-87x7600            | 8,000         | 4 x 3060 GB             | Tier 3               | 36,729        |                                            |
+{: class="simple-tab-table"}
+{: tab-group="ch2-table"}
+{: caption="Sample data file system configurations for SAP HANA profiles with ch2 prefix" caption-side="bottom"}
+{: #ch2-profiles-data}
+{: tab-title="Data File System"}
+
+
+| ch2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration    |
+|------------------------|---------------|-------------------------|----------------------|---------------|------------------------------|
+|    ch2-87x6000         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|    ch2-80x6144         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|    ch2-87x7000         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|    ch2-87x7600         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+{: class="simple-tab-table"}
+{: tab-group="ch2-table"}
+{: caption="Sample shared file system configurations for SAP HANA profiles with ch2 prefix" caption-side="bottom"}
+{: #ch2-profiles-shared}
+{: tab-title="Shared File System"}
 
 ## IBM Power9 Certified Instances for SAP HANA
 {: #sap-hana-iaas-offerings-profiles-power9-families}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-26"
+lastupdated: "2025-03-27"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -32,7 +32,7 @@ Your specific requirements determine the SAP solutions that are powered by the S
 
 - [Mapping CPUs derived from SAPS to an IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-planning-your-system-landscape#selecting-iaas-power)
 - [Monitoring for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-planning-your-system-landscape#monitoring-power)
-- [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-power)
+- [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#powervs-network-connectivity-and-security)
 - [SAP license key with {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-bring-your-own-sap-product-license#byol-netweaver-powervs)
 - [Sample storage configurations on IBM Power Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-power)
 

@@ -66,7 +66,7 @@ For detailed installation and configuration steps refer to the [SAP HANA agent s
 ### Pricing
 {: #powervs-backup-compass-pricing}
 
-When you use the Backup Offering, you are billed monthly through {{site.data.keyword.BluSoftlayer_notm}} for the amount of data backed up for the region and are billed hourly. For more information about pricing plans, see [Cobalt Iron - Secure Automated Backup](https://cloud.ibm.com/catalog/services/cobalt-iron---secure-automated-backup-){: external} page accessible from the {{site.data.keyword.BluSoftlayer_notm}} [catalog](https://cloud.ibm.com/catalog){: external}. You can generate an estimate of the cost based on your expected usage from the **Summary** pane.
+When you use the Backup Offering, you are billed monthly through {{site.data.keyword.BluSoftlayer_notm}} for the amount of data backed up for the region and are billed hourly. For more information about pricing plans, see [Cobalt Iron - Secure Automated Backup](https://cloud.ibm.com/catalog/services/cobalt-iron---secure-automated-backup-with-compass?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjYWxsX3Byb2R1Y3Rz){: external} page accessible from the {{site.data.keyword.BluSoftlayer_notm}} [catalog](https://cloud.ibm.com/catalog){: external}. You can generate an estimate of the cost based on your expected usage from the **Summary** pane.
 
 {{../../../power-iaas/backup-strategies.md#baas-dcs}}
 
