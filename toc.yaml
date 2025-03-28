@@ -164,13 +164,6 @@ toc:
         topics:
           - include: ../overview/ui.md
           - topicgroup:
-              label: Prerequisites for SAP workloads
-              topics:
-                - navtitle: Necessary account credentials for SAP and IBM Cloud
-                  topic: howto/sap-prereq-necessary-credentials.md
-                - navtitle: Setting up your IBM Cloud account structure
-                  topic: howto/sap-prereq-account-structure.md
-          - topicgroup:
               label: Provisioning SAP HANA and SAP NetWeaver
               topics:
                 - topicgroup:
@@ -365,22 +358,25 @@ toc:
                       - navtitle: Configuring an active-passive NFS server
                         topic: howto/powervs/powervs-ha-rhel-nfs.md
           - topicgroup:
-              label: SAP migration from on-premises to Power Virtual server
+              label: SAP Migration
               topics:
-                - navtitle: Overview
-                  topic: howto/powervs/powervs-migration-overview.md
-                - navtitle: Hybrid cloud network consideration for SAP applications on Power Virtual Server
-                  topic: howto/powervs/powervs-migration-hybrid-cloud-networking.md
-                - navtitle: Migrating SAP S/4HANA to Power Virtual Server
-                  topic: howto/powervs/powervs-migration-db-hana.md
-                - navtitle: Migrating SAP ERP 6.0 on Oracle to Power Virtual Server
-                  topic: howto/powervs/powervs-migration-db-oracle.md
-                - navtitle: Migrating SAP ERP 6.0 on IBM Db2 to Power Virtual Server
-                  topic: howto/powervs/powervs-migration-db-db2.md
-                - navtitle: Migration from SAP ERP 6.0 to S/4HANA on Power Virtual Server considerations
-                  topic: howto/powervs/powervs-migration-sum-dmo.md
+                - topicgroup:
+                    label: From on-premises to Power Virtual server
+                    topics:
+                      - navtitle: Overview
+                        topic: howto/powervs/powervs-migration-overview.md
+                      - navtitle: Hybrid cloud network consideration for SAP applications on Power Virtual Server
+                        topic: howto/powervs/powervs-migration-hybrid-cloud-networking.md
+                      - navtitle: Migrating SAP S/4HANA
+                        topic: howto/powervs/powervs-migration-db-hana.md
+                      - navtitle: Migrating SAP ERP 6.0 on Oracle
+                        topic: howto/powervs/powervs-migration-db-oracle.md
+                      - navtitle: Migrating SAP ERP 6.0 on IBM Db2
+                        topic: howto/powervs/powervs-migration-db-db2.md
+                      - navtitle: Migration from SAP ERP 6.0 to S/4HANA on Power Virtual Server considerations
+                        topic: howto/powervs/powervs-migration-sum-dmo.md
           - topicgroup:
-              label: SAP monitoring with IBM Cloud Monitoring
+              label: Monitoring
               topics:
                 - navtitle: Overview
                   topic: howto/powervs/powervs-monitoring-getting-started.md
