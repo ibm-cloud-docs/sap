@@ -41,10 +41,10 @@ toc:
           - topicgroup:
               label: Infrastructure environments
               topics:
-                - navtitle: Classic infrastructure
-                  topic: plan/sap-environment-classic-infrastructure.md
                 - navtitle: VPC infrastructure
                   topic: plan/sap-environment-vpc-infrastructure.md
+                - navtitle: Classic infrastructure
+                  topic: plan/sap-environment-classic-infrastructure.md
                 - navtitle: Power Virtual Server infrastructure
                   topic: plan/sap-environment-power-infrastructure.md
           - navtitle: SAP certified infrastructure
@@ -52,31 +52,31 @@ toc:
           - topicgroup:
               label: Infrastructure profiles for SAP HANA database servers
               topics:
-                - navtitle: Intel Bare Metal server certified profiles for SAP HANA on Classic
-                  topic: plan/sap-offerings-hana-iaas-intel-bare-metal-profiles.md
                 - navtitle: Intel virtual server certified profiles for SAP HANA on VPC
                   topic: plan/sap-offerings-hana-iaas-intel-virtual-server-gen2-profiles.md
+                - navtitle: Intel Bare Metal server certified profiles for SAP HANA on VPC
+                  topic: plan/sap-offerings-hana-iaas-intel-bm-vpc.md
+                - navtitle: Intel Bare Metal server certified profiles for SAP HANA on Classic
+                  topic: plan/sap-offerings-hana-iaas-intel-bare-metal-profiles.md
+                - navtitle: VMware SDDC certified profiles for SAP HANA on Classic
+                  topic: plan/sap-offerings-hana-iaas-vmware-sddc-profiles.md
                 - navtitle: Power Virtual Server certified instances for SAP HANA
                   topic: plan/sap-offerings-hana-iaas-power-virtual-server-profiles.md
-                - navtitle: VMware SDDC certified profiles for SAP HANA
-                  topic: plan/sap-offerings-hana-iaas-vmware-sddc-profiles.md
-                - navtitle: Bare Metal server certified profiles for SAP HANA on VPC
-                  topic: plan/sap-offerings-hana-iaas-intel-bm-vpc.md
           - topicgroup:
               label: Infrastructure profiles for SAP NetWeaver-based application servers
               topics:
+                - navtitle: Intel virtual server certified profiles for SAP NetWeaver on VPC
+                  topic: plan/sap-offerings-netweaver-iaas-intel-virtual-server-gen2-profiles.md
+                - navtitle: Intel Bare Metal server certified profiles for SAP NetWeaver on VPC
+                  topic: plan/sap-offerings-netweaver-iaas-intel-bm-vpc.md
                 - navtitle: Intel Bare Metal server certified profiles for SAP NetWeaver on Classic
                   topic: plan/sap-offerings-netweaver-iaas-intel-bare-metal-profiles.md
                 - navtitle: AMD Bare Metal server certified profiles for SAP NetWeaver on Classic
                   topic: plan/sap-offerings-netweaver-iaas-amd-bare-metal-profiles.md
-                - navtitle: Intel virtual server certified profiles for SAP NetWeaver on VPC
-                  topic: plan/sap-offerings-netweaver-iaas-intel-virtual-server-gen2-profiles.md
+                - navtitle: VMware SDDC certified profiles for SAP NetWeaver on Classic
+                  topic: plan/sap-offerings-netweaver-iaas-vmware-sddc-profiles.md
                 - navtitle: Power Virtual Server certified instances for SAP NetWeaver
                   topic: plan/sap-offerings-netweaver-iaas-power-virtual-server-profiles.md
-                - navtitle: VMware SDDC certified profiles for SAP NetWeaver
-                  topic: plan/sap-offerings-netweaver-iaas-vmware-sddc-profiles.md
-                - navtitle: Bare Metal server certified profiles for SAP NetWeaver on VPC
-                  topic: plan/sap-offerings-netweaver-iaas-intel-bm-vpc.md
           - topicgroup:
               label: Plan your SAP workloads
               topics:
@@ -146,14 +146,14 @@ toc:
           - topicgroup:
               label: Quick study deployment of SAP
               topics:
-                - navtitle: SAP NetWeaver deployment with RHEL on Bare Metal on Classic infrastructure
-                  topic: tutorial/classic-intel-bm/classic-bm-quickstudy-nw-rhel.md
-                - navtitle: SAP NetWeaver deployment with Windows Server on Bare Metal on Classic infrastructure,
-                  topic: tutorial/classic-intel-bm/classic-bm-quickstudy-nw-wins.md
-                - navtitle: SAP NetWeaver deployment with RHEL on Intel virtual server on VPC Infrastructure
+                - navtitle: SAP NetWeaver deployment with RHEL on Intel virtual server in VPC
                   topic: tutorial/vpc-intel-vsi/intel-vsi-sap-quickstudy-nw-rhel.md
-                - navtitle: SAP NetWeaver deployment with Windows Server on Intel virtual server on VPC infrastructure
+                - navtitle: SAP NetWeaver deployment with Windows Server on Intel virtual server in VPC
                   topic: tutorial/vpc-intel-vsi/intel-vsi-sap-quickstudy-nw-wins.md
+                - navtitle: SAP NetWeaver deployment with RHEL on Bare Metal in Classic
+                  topic: tutorial/classic-intel-bm/classic-bm-quickstudy-nw-rhel.md
+                - navtitle: SAP NetWeaver deployment with Windows Server on Bare Metal in Classic
+                  topic: tutorial/classic-intel-bm/classic-bm-quickstudy-nw-wins.md
           - topicgroup:
               label: VPC infrastructure integration scenarios
               topics:
@@ -206,6 +206,13 @@ toc:
                       - navtitle: Deploying your infrastructure
                         topic: howto/classic-intel-bm/classic-optane-bm-provision-deploy.md
                 - topicgroup:
+                    label: VMware SDDC in Classic
+                    topics:
+                      - navtitle: Planning your deployment
+                        topic: howto/vmware/vmware-provision-sddc-plan-deploy.md
+                      - navtitle: Deploying your infrastructure
+                        topic: howto/vmware/vmware-provision-sddc-deploy-infrastructure.md
+                - topicgroup:
                     label: Power Virtual Server instances
                     topics:
                       - navtitle: Planning your deployment
@@ -216,13 +223,6 @@ toc:
                         topic: howto/powervs/powervs-provision-deploy-power-infrastructure.md
                       - navtitle: Deploying SAP applications on Power Virtual Server
                         topic: howto/powervs/powervs-provision-deploy-power-instances.md
-                - topicgroup:
-                    label: VMware SDDC
-                    topics:
-                      - navtitle: Planning your deployment
-                        topic: howto/vmware/vmware-provision-sddc-plan-deploy.md
-                      - navtitle: Deploying your infrastructure
-                        topic: howto/vmware/vmware-provision-sddc-deploy-infrastructure.md
           - topicgroup:
               label: Terraform for SAP solutions on Intel VPC
               topics:
@@ -399,8 +399,11 @@ toc:
           - topicgroup:
               label: Backup strategies
               topics:
-                - navtitle: Power Virtual Server
-                  topic: howto/powervs/powervs-backup-strategies.md
+                - topicgroup:
+                    label: Power Virtual Server
+                    topics:
+                      - navtitle: SAP HANA DB
+                        topic: howto/powervs/powervs-backup-strategies.md
     - navgroup:
         id: reference
         topics:
