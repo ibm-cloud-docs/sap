@@ -54,8 +54,8 @@ The following table lists available profile families for IBM Power10 processor-b
 | -------- | ----------- |
 | [Profiles with sr2 prefix](#sr2-profiles) | Profiles with the prefix *sr2* are custom profiles that support selection of any combination of physical CPU cores and memory. Combinations that are certified by SAP for productive usage are documented in [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://launchpad.support.sap.com/#/notes/2947579){: external} and in [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;v:60ed2297-5cdd-4387-89c2-b0d3651d1206&sort=Latest%20Certification&sortDesc=true&id=s:2837). Custom profiles may be deployed through CLI or API only. |
 | [Profiles with sh2 prefix](#sh2-profiles) | Profiles with the prefix *sh2* support HANA database sizes up to 1900 GiB. |
-| [Profiles with bh2 prefix](#bh2profiles) | Profiles with the prefix *bh2* are balanced profiles and are best suited for midsize databases and common cloud applications with moderate traffic. |
-| [Profiles with ch2 prefix](#ch2profiles)  | Profiles with the prefix *ch2* are compute intensive profiles and are best suited for moderate to high web traffic workloads. Compute profiles are best suited for cpu-intensive workloads, such as heavy web traffic, production batch processing, and front-end web servers. |
+| [Profiles with bh2 prefix](#bh2-profiles) | Profiles with the prefix *bh2* are balanced profiles and are best suited for midsize databases and common cloud applications with moderate traffic. |
+| [Profiles with ch2 prefix](#ch2-profiles)  | Profiles with the prefix *ch2* are compute intensive profiles and are best suited for moderate to high web traffic workloads. Compute profiles are best suited for cpu-intensive workloads, such as heavy web traffic, production batch processing, and front-end web servers. |
 {: caption="Profile families for Power10 server generation" caption-side="bottom"}
 
 ### sr2 - Certified Profiles
