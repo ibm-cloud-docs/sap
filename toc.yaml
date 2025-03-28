@@ -358,7 +358,7 @@ toc:
                       - navtitle: Configuring an active-passive NFS server
                         topic: howto/powervs/powervs-ha-rhel-nfs.md
           - topicgroup:
-              label: SAP Migration
+              label: Migration
               topics:
                 - topicgroup:
                     label: From on-premises to Power Virtual server
