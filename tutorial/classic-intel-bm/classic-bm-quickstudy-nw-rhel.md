@@ -528,7 +528,7 @@ If you install an SAP NetWeaver-based SAP application on IBM Db2, you must creat
 {: #prereq-RPM}
 {: step}
 
-An SAP installation requires certain prerequisites for the packages that are installed on the OS and the OS daemons that are running. Refer to the latest [installation guides)](https://support.sap.com/en/my-support/software-downloads.html){: external}. Click **Access downloads** under **Installations & Upgrades** (requires an [SAP S-user ID](/docs/sap?topic=sap-necessary-credentials). Also, refer to the latest [support notes)](https://support.sap.com/en/my-support/knowledge-base.html){: external} (requires an SAP S-user ID) from SAP for an up-to-date list of these prerequisites.
+An SAP installation requires certain prerequisites for the packages that are installed on the OS and the OS daemons that are running. Refer to the latest [installation guides)](https://support.sap.com/en/my-support/software-downloads.html){: external}. Click **Access downloads** under **Installations & Upgrades**. This requires an SAP S-user ID. Also, refer to the latest [support notes)](https://support.sap.com/en/my-support/knowledge-base.html){: external} (requires an SAP S-user ID) from SAP for an up-to-date list of these prerequisites.
 
 Two more packages need to be installed:
 * compat-sap-c++: Generally achieves compatibility of the C++ runtime with the compilers that are used by SAP. Because Red Hat Enterprise Linux for SAP Business Application 7.X was selected as the OS for both the 32 GB application server and the 192 GB database server, you use compat-sap-c++-7.

@@ -38,8 +38,6 @@ Before you install the SAP software components on {{site.data.keyword.cloud_notm
 * SAP S-User ID to review the relevant SAP documentation and download SAP installation media
 * IBM ID to create an {{site.data.keyword.cloud_notm}} account
 
-This information is covered in the *Pre-requisites for SAP Workloads* topic group, under [Necessary account credentials for SAP and {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-necessary-credentials).
-
 ## Summary of an SAP landscape installation onto Cloud IaaS
 {: #summary-steps}
 

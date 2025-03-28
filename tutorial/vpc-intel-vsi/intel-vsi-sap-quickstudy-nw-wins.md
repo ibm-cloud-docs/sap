@@ -26,7 +26,7 @@ The following information provides an introduction for customers who are new to 
 
 The first configuration sample is simple, a single node 128 GB, 32 vCPU virtual server instance (VSI). The second is an advanced configuration of two nodes by adding a second VSI to the landscape. The sample layouts might not be your preferred layout. The purpose of this guidance is to show you two possibilities if you are not experienced with the Windows&reg; operating system or with VPC.
 
-Although we want to start quickly, you first must be able to log in to {{site.data.keyword.cloud_notm}} and make sure that you have access to important SAP resources. Read the *Pre-Requisites for SAP Workloads* topic group, under [Necessary account credentials for SAP and {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-necessary-credentials).
+Although we want to start quickly, you first must be able to log in to {{site.data.keyword.cloud_notm}} and make sure that you have access to important SAP resources.
 
 This tutorial contains instructions to complete the deployment - a detailed explanation of the navigation through the {{site.data.keyword.cloud_notm}} console and all available options that you can use, you find in the topic [Deploying your infrastructure](/docs/sap?topic=sap-vs-set-up-infrastructure).
 {: note}

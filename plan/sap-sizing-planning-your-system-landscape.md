@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-10"
+lastupdated: "2025-03-28"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -16,7 +16,7 @@ Your business and functional requirements determine the SAP solutions that are p
 
 Your requirements have an influence on how you size your server. You have a wide selection of SAP NetWeaver-based applications (which may use SAP HANA) to choose from, including SAP S/4HANA, SAP ERP Central Component (ECC), SAP BW/4HANA, SAP BW and many more solutions for different business operations.
 
-For a complete list of solutions, see [ABAP Platform and SAP NetWeaver](https://help.sap.com/docs/SAP_NETWEAVER){: external}. For information about supported operating systems and database platforms, see [SAP Product Availability Matrix (PAM)](https://userapps.support.sap.com/sap/support/pam){: external}. Search for Product Availability Matrix. An [SAP S-User ID](/docs/sap?topic=sap-necessary-credentials){: external} is required.
+For a complete list of solutions, see [ABAP Platform and SAP NetWeaver](https://help.sap.com/docs/SAP_NETWEAVER){: external}. For information about supported operating systems and database platforms, see [SAP Product Availability Matrix (PAM)](https://userapps.support.sap.com/sap/support/pam){: external}. Search for Product Availability Matrix. An SAP S-User ID is required.
 
 ## Determining your SAP applications
 {: #determine-apps}
