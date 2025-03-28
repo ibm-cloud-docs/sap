@@ -169,9 +169,9 @@ toc:
                 - topicgroup:
                     label: Intel Virtual Server in VPC
                     topics:
-                      - navtitle: Planning your deployment
+                      - navtitle: Planning
                         topic: howto/vpc-intel-vsi/intel-vsi-provision-gen2-plan-deploy.md
-                      - navtitle: Deploying your infrastructure
+                      - navtitle: Deploying
                         topic: howto/vpc-intel-vsi/intel-vsi-provision-gen2-deploy-infrastructure.md
                       - navtitle: Using IBM Metrics Collector for SAP (IMCS) on Linux
                         topic: howto/sap-ibm-metrics-collector-linux.md
@@ -180,35 +180,35 @@ toc:
                 - topicgroup:
                     label: Intel Bare Metal in VPC
                     topics:
-                      - navtitle: Planning your deployment
+                      - navtitle: Planning
                         topic: howto/vpc-intel-bm/intel-bm-provision-gen2-plan-deploy.md
-                      - navtitle: Deploying your infrastructure
+                      - navtitle: Deploying
                         topic: howto/vpc-intel-bm/intel-bm-provision-gen2-deploy-infrastructure.md
                 - topicgroup:
                     label: Intel Bare Metal in Classic
                     topics:
-                      - navtitle: Planning your deployment
+                      - navtitle: Planning
                         topic: howto/classic-intel-bm/classic-intel-bm-provision-plan.md
-                      - navtitle: Deploying your infrastructure
+                      - navtitle: Deploying
                         topic: howto/classic-intel-bm/classic-intel-bm-provision-deploy.md
                 - topicgroup:
                     label: Intel Bare Metal with Intel Optane DC PMEM in Classic
                     topics:
-                      - navtitle: Planning your deployment
+                      - navtitle: Planning
                         topic: howto/classic-intel-bm/classic-optane-bm-provision-plan.md
-                      - navtitle: Deploying your infrastructure
+                      - navtitle: Deploying
                         topic: howto/classic-intel-bm/classic-optane-bm-provision-deploy.md
                 - topicgroup:
                     label: VMware SDDC in Classic
                     topics:
-                      - navtitle: Planning your deployment
+                      - navtitle: Planning
                         topic: howto/vmware/vmware-provision-sddc-plan-deploy.md
-                      - navtitle: Deploying your infrastructure
+                      - navtitle: Deploying
                         topic: howto/vmware/vmware-provision-sddc-deploy-infrastructure.md
                 - topicgroup:
                     label: Power Virtual Server instances
                     topics:
-                      - navtitle: Planning your deployment
+                      - navtitle: Planning
                         topic: howto/powervs/powervs-provision-plan-deploy.md
                       - navtitle: Deploying VPC infrastructure for Power Virtual Server SAP workloads
                         topic: howto/powervs/powervs-provision-deploy-vpc-infrastructure.md
