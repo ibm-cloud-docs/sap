@@ -24,14 +24,14 @@ toc:
               topics:
                 - navtitle: Intel virtual servers in VPC
                   topic: overview/sap-fast-path-site-map-intel-vs-gen2.md
-                - navtitle: Power Virtual Server
-                  topic: overview/sap-fast-path-site-map-ibm-power-vs.md
                 - navtitle: Intel Bare Metal servers in VPC
                   topic: overview/sap-fast-path-site-map-intel-bm-vpc.md
                 - navtitle: Intel Bare Metal servers in Classic
                   topic: overview/sap-fast-path-site-map-intel-bm.md
                 - navtitle: VMware in Classic
                   topic: overview/sap-fast-path-site-map-vmware-sddc.md
+                - navtitle: Power Virtual Server
+                  topic: overview/sap-fast-path-site-map-ibm-power-vs.md
           - link:
               label: Executive solution brief of IBM Cloud for SAP
               href: https://www.ibm.com/cloud/smartpapers/accelerate-SAP/
