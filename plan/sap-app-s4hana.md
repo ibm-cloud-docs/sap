@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-31"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -82,7 +82,7 @@ Awards for these SAP Partners are shown on the [SAP Partners information page](h
 
 These choices particularly affect how your SAP S/4HANA "AnyPremise" Edition on Cloud IaaS is deployed, operated, and maintained. For example, a GSI has exceeding depth of experience in implementation, functional configuration and development - with the flexibility to create a bespoke solution for the business requirements. However, the GSI has less experience in maintenance. Conversely, an MSP has more restrictions on the implementation to ensure more successful maintenance.
 
-Given the division of skills in traditional on-premises data center implementations of SAP workloads during previous decades, there were multiple tasks handled by the Data Center Provider. It is suggested to consider the skills of your SAP Partners in the following areas because the Cloud Service Provider is not responsible for those activities previously fullfilled by the Data Center Provider:
+Given the division of skills in traditional on-premises data center implementations of SAP workloads during previous decades, there were multiple tasks handled by the Data Center Provider. It is suggested to consider the skills of your SAP Partners in the following areas because the Cloud Service Provider is not responsible for those activities previously fulfilled by the Data Center Provider:
 
 * Cloud Account and IAM setup
 * Networking setup (including security)

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-03-31"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -37,7 +37,7 @@ Before you start deploying the SAP HANA database, ensure that:
 * An SAP HANA system comprises multiple isolated databases and may consist of one host or a cluster of several hosts.
 * An SAP HANA system is identified by a single system ID (SID) and contains one or more tenant databases and one system database. Databases are identified by a SID and a database name. From the administration perspective, there is a distinction between tasks performed at system level and those performed at database level. Database clients, such as the SAP HANA cockpit, connect to specific databases.
 * The SAP HANA XS advanced application server is a layer on top of SAP HANA that provides the platform for running SAP HANA-based Web applications. It is an integral part of the SAP HANA system.
-* A system may consist of one host or a cluster of several hosts. This is referred to as a muliple-host, distributed system, or scale-out system and supports scalability and availability.
+* A system may consist of one host or a cluster of several hosts. This is referred to as a multiple-host, distributed system, or scale-out system and supports scalability and availability.
 * The following sections provide overview information about these aspects of system architecture.
 
 You can find a complete list of all SAP HANA components and the corresponding SAP HANA hardware and software requirements in the Product Availability Matrix (PAM), in the SAP HANA Hardware Directory, and in the SAP Community Network.
@@ -52,7 +52,7 @@ SAP HANA hardware and software requirements are described in the SAP HANA Master
 
 SAP HANA support on SAP-certified Cloud IaaS:
 
-* [Certified and Supported SAP HANA Hardware – Ceritified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}
+* [Certified and Supported SAP HANA Hardware – Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}
 
 SAP HANA and SAP NetWeaver on UNIX/Linux:
 
