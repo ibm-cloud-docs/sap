@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-25"
+lastupdated: "2025-03-31"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 subcollection: sap
 ---
@@ -137,7 +137,7 @@ You can use the following SAP Note to interpret the results.
 ### Scheduling an SAP HANA sizing report on the source system
 {: #sapmig-db-hana-pre-steps-source-sizing}
 
-If you plan to migrate an existing SAP system from an on-premise site to your {{site.data.keyword.cloud}} environment, you need fristto run an SAP Sizing report.
+If you plan to migrate an existing SAP system from an on-premise site to your {{site.data.keyword.cloud}} environment, you need to first run an SAP Sizing report.
 The current version for the SAP HANA memory sizing report is `Advanced correction version 17`.
 
 * [SAP Note 3338309 HANA memory Sizing report - Advanced correction 17](https://me.sap.com/notes/3338309){: external}
