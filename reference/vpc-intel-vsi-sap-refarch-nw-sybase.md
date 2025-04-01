@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-04-01"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Sybase
 subcollection: sap
 ---
@@ -42,7 +42,7 @@ The three installation types for SAP NetWeaver Application Server are:
 
 This diagram shows the SAP NetWeaver 7.X on Sybase DB integrated with {{site.data.keyword.cloud_notm}} on the SAP NetWeaver 7.x architecture:
 
-![Figure 1. Sample reference architecture](../images/vpc-intel-vsi-syb-std-all.svg "SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}"){: caption="SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+![Figure 1. Sample reference architecture](../images/vpc-intel-vsi-sap-nw-ase-sybase-arch.svg "SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}"){: caption="SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
 ## Access from an external network
 {: #sap-refarch-nw-sybase-access}
