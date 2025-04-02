@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-31"
+lastupdated: "2025-04-02"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 subcollection: sap
 ---
@@ -191,7 +191,7 @@ If, for example, you forget the passwords and proceed with the SAP HANA System R
 
 
 
-## Creating the Target SAP HANA System on IBM {{site.data.keyword.powerSys_notm}}
+## Creating the target SAP HANA system on IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-db-hana-presteps-target}
 
 ### Planning the IBM {{site.data.keyword.powerSys_notm}} deployment
@@ -1346,7 +1346,7 @@ Run the SAP HANA DB Management Client Console `hdbcons` with the following comma
    ```
    {: pre}
 
-##### Option 4. Sql script
+##### Option 4. SQL script
 {: #sapmig-db-hana-sr-sql-script}
 
 The fourth alternative uses an SQL statement that can be run, for example, in SAP HANA studio or cockpit.

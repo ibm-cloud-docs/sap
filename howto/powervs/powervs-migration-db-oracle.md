@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-04-02"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, SAP ERP, SAP ECC, Linux, Red Hat, RHEL, SuSE, backup, restore
 subcollection: sap
 ---
@@ -12,10 +12,10 @@ subcollection: sap
 # Migrating SAP ERP 6.0 on Oracle to IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-db-oracle}
 
-## Preparation Steps on Source System
+## Preparation steps on the source system
 {: #sapmig-db-oracle-source-prep}
 
-### Target Audience and Intent
+### Target audience and intent
 {: #sapmig-db-oracle-target-audience-intent}
 
 This documentation presents Oracle Database Administrators (DBA's) with two options, both based on Oracle RMAN to migrate AIX-based Oracle databases from IBM Power to IBM {{site.data.keyword.powerSys_notm}} (IBM {{site.data.keyword.powerSys_notm}}).
@@ -26,7 +26,7 @@ The intent is to present representative steps to execute plans and procedures to
 
 In this documentation, the generic term *Discovery* indicates that the customers own Oracle DBA's responsibility to *Discover* and *document* their current Oracle/SAP infrastructure. This is useful should the customer have the need to raise incidents to report issues.
 
-### Scope and Coverage
+### Scope and coverage
 {: #sapmig-db-oracle-scope-coverage}
 
 All following procedures require network connectivity between the source and the target system, and a sufficient network bandwidth for the data transfer and/or data replication.
@@ -59,10 +59,10 @@ The Customer is responsible for reviewing these representative procedures in the
 The Oracle Database migration options that are described are not necessarily specific to IBM {{site.data.keyword.powerSys_notm}} migrations. Oracle technical experts should recognize the procedures that are used, and understand that not every technical detail or consideration have been explicitly identified.
 The Oracle Database Admins executing the procedures are expected to understand the full scope of Oracle database backup and recovery methods - including those details that are not explicitly stated.
 
-### Discovery and Migration Option Selection.
+### System discovery and selection of the migration option
 {: #sapmig-db-oracle-discovery-migration}
 
-#### Discovery Process
+#### System discovery process
 {: #sapmig-db-oracle-discovery-process}
 
 This document assumes that a detailed discovery has been previously collected:
@@ -73,10 +73,10 @@ This document assumes that a detailed discovery has been previously collected:
     * The target environment has been evaluated and deployed consistent with source system capacity/performance/availability as found in the discovery process.
 
 
-#### Migration Options Covered By this Document.
+#### Migration options covered by this document
 {: #sapmig-db-oracle-discovery-options}
 
-The following flowchart illustrates the three options that are covered by this document:
+The following flowchart illustrates the three options that are covered in this document:
 
 
 * *Option 1*: Consistent RMAN backup from source, with generated files to be used by the RMAN Duplicate Database procedure to restore to IBM {{site.data.keyword.powerSys_notm}}.
@@ -85,7 +85,7 @@ The following flowchart illustrates the three options that are covered by this d
 
 ![Figure 1. Collect relevant metrics](../../images/powervs-migration-db-oracle-mig-options.png "Image showing Preparation - Collect relevant metrics"){: caption="Collect relevant metrics" caption-side="bottom"}
 
-#### Selected Considerations
+#### Selecting the migration option
 {: #sapmig-db-oracle-selected-considerations}
 
 Customer requirements and technical conditions affect the decision to select from the presented options.
@@ -105,7 +105,7 @@ Customer requirements and technical conditions affect the decision to select fro
 Any migration procedures a Customer elects to use need be executed in the context of a detailed, well-rehearsed transfer and cutover plan.
 
 
-### Technical Details and Considerations
+### Considerations and technical details for the backup
 {: #sapmig-db-oracle-details-considerations}
 
 The RMAN BACKUP command supports backing up the following types of files:
@@ -158,7 +158,7 @@ Documentation of an mksysb procedure might be found at:
 
 Discovery has confirmed or identified the following preparation steps.
 
-#### Documentation of the current Source Database Sizing
+#### Document the source database size and configuration
 {: #sapmig-db-oracle-prep-sizing}
 
 Document current sizing and performance metrics related to compute, IOPS, and storage, of one or more source Oracle instances.
@@ -166,7 +166,7 @@ Document current sizing and performance metrics related to compute, IOPS, and st
 * Very important on the target system to select disk tier and disk capacity to meet IOPS requirements.
 * This discovery process should include execution of a performance test tool against the source database to capture metrics for future reference and comparison to target system deployment.
 
-#### Confirm a Recent, Successful Backup Exists
+#### Provide a recent and successful backup of the source database
 {: #sapmig-db-oracle-prep-backup}
 
 Confirm, by using your standard backup tools, that a recent, successful, full backup of the source Oracle system exists.
@@ -175,13 +175,13 @@ You must be able to completely restore the source system.
 * If you cannot confirm it, the migration/discovery team should review RMAN backup procedures.
 * In addition, the discovery team should work with customer DBA's or SMEs to validate database integrity and/or identify any existing corrupt blocks or schema problems.
 
-#### Document Your Source Database
+#### Document the source database
 {: #sapmig-db-oracle-prep-doc-source-db}
 
 Document the location of source database instances and known credentials for DBA administration access.
 
 
-#### Document RMAN Configuration
+#### Document the RMAN configuration
 {: #sapmig-db-oracle-prep-rman}
 
 Document the current Oracle Recovery Manager (RMAN) configuration that is used to perform backups, per instance.
@@ -262,7 +262,7 @@ CONFIGURE SNAPSHOT CONTROLFILE NAME TO '/oracle/EXX/19/dbs/snapcf_EXX.f'; # defa
 ```
 {: screen}
 
-#### Verify Disk Space
+#### Verify disk space
 {: #sapmig-db-oracle-prep-disk-space}
 
 Confirm that enough disk space is available, formatted, and mounted to accept the compressed *migration* database backup sets.
@@ -279,7 +279,7 @@ Confirm that enough disk space is available, formatted, and mounted to accept th
 Depending on network/access speed, it can be desirable to copy files from NFS mount to local storage.
 {: note}
 
-#### File System for Backup Sets on Source
+#### File system for backup sets on source
 {: #sapmig-db-oracle-prep-fs-bk-source}
 
 A dedicated local file system e. g. `/backup/rman` for the migration backup sets is referenced.
@@ -291,7 +291,7 @@ df -g /backup/rman
 ```
 {: pre}
 
-#### File System for Backup Sets on Target
+#### File system for backup sets on target
 {: #sapmig-db-oracle-prep-fs-bk-target}
 
 The database duplication or restore/recover procedures require access to the set of backup files, via one of the following options:
@@ -305,7 +305,7 @@ The database duplication or restore/recover procedures require access to the set
 
 
 
-## Back up the Source Oracle Database by using RMAN
+## Back up the source Oracle database by using RMAN
 {: #sapmig-db-oracle-backup}
 
 In this section, we cover the generation of the RMAN backup set presenting two options.
@@ -338,7 +338,7 @@ High compression also requires the Advanced Compression License.
 Incremental backup, without database block change tracking activated, performs a full scan of all data files, which translates into a high reading workload.
 Although enabling block change tracking is not expected to impact the performance of a running DB, testing should be performed in the Customer environment to validate this.
 
-### Network Transfer - Standard Protocols versus IBM Aspera
+### Network transfer comparison between standard protocols and IBM Aspera
 {: #sapmig-db-oracle-standard-protocols-aspera}
 
 A slower version of data transfer is using standard protocols such as scp/sftp. Backup files can be transferred either directly to an IBM AIX LPAR in {{site.data.keyword.powerSys_notm}}, or to IBM Cloud Object Storage (COS). Using scp/sftp with IBM COS assumes that you are using an IBM FileManage Gateway service or have installed and configured a sftp server within or next to the target IBM {{site.data.keyword.powerSys_notm}} environment to receive the transfer.
@@ -352,19 +352,19 @@ Documentation for IBM Aspera can be found here:
 This reference also contains the [Accelerated network transfer migration guide](https://cloud.ibm.com/media/docs/downloads/power-iaas/accelerated_migration.pdf){: external}.
 {: tip}
 
-### Backup Procedure Options
+### Backup procedure options
 {: #sapmig-db-oracle-backup-procedures}
 
 ![Figure 2. IBM Aspera backup procedure](../../images/powervs-migration-db-oracle-mig-timings.png "Image showing IBM Aspera backup procedure"){: caption="IBM Aspera backup procedure" caption-side="bottom"}
 
 Procedures specific to both options are presented now.
 
-### RMAN Option 1 - Offline Backup / Duplicate Database
+### RMAN option 1 - Offline backup / duplicate database
 {: #sapmig-db-oracle-rman-option1-aspera}
 
 The following procedure is executed with the database offline and will produce a full consistent backup.
 
-#### Application and Database Shutdown
+#### Application and database shutdown
 {: #sapmig-db-oracle-rman1-shutdown}
 
 Use standard operational procedures to shut down the SAP system and the Oracle database before performing the backup procedure.
@@ -375,14 +375,14 @@ More information can be found in:
 * [About Performing Operations on CDBs and PDBs.](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/starting-interacting-with-rman-client.html#GUID-01DF892F-FED5-4ADE-9152-9C3CF0921DBA){: external}
 
 
-#### Ensure that RMAN Configuration is Documented
+#### Ensure that RMAN configuration is documented
 {: #sapmig-db-oracle-rman1-rman-conf-dok}
 
 As described in the preparation section [Document RMAN Configuration](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-prep-rman), be sure to save or document the current RMAN configuration and associated parameters, before modifying them.
 
 The original RMAN configuration and parameters will be required again to continue with normal scheduled backup operations, after the special backup for migration was completed.
 
-#### Backup Option 1 - Create Target Directory
+#### Backup option 1 - Create target directory
 {: #sapmig-db-oracle-rman1-create-fs-bk}
 
 Login as the `oracle` user and execute the following commands to create the target backup directory to match the backup script that is described in the next section.
@@ -404,7 +404,7 @@ setenv ORACLE_SID <SID>
 
 You can of course use any target location as long as the oracle user can write to it and you modify the backup script from the next step to use your target directory.
 
-#### Backup Option 1 - Backup Script
+#### Backup option 1 - Backup script
 {: #sapmig-db-oracle-rman1-backup-skript}
 
 The RMAN script is used to perform the backup option 1. The commands used in this script are discussed after the script. Copy and paste the script and make the necessary adjustments for your environment.
@@ -438,7 +438,7 @@ RMAN backs up data to the configured default device for the type of backup reque
 
 The following are the main components of the RMAN script used:
 
-##### Database Shutdown and Start in Mount Mode
+##### Database shutdown and start in mount mode
 {: #sapmig-db-oracle-rman1-shutdown-start}
 
 The database must be cleanly shut down and then started in “mount mode” for the offline backup option 1.
@@ -451,7 +451,7 @@ STARTUP MOUNT
 ```
 {: codeblock}
 
-##### Backup Control File
+##### Backup control file
 {: #sapmig-db-oracle-rman1-backup-control-file}
 
 The database control file contains the RMAN catalog that is required to restore the backup pieces into a functioning database.
@@ -463,7 +463,7 @@ BACKUP AS compressed BACKUPSET section size 6000M DEVICE TYPE DISK DATABASE TAG 
 ```
 Note that the `CONFIGURE CHANNEL DEVICE TYPE DISK` and `CONFIGURE CONTROLFILE AUTOBACKUP FORMAT` for `DEVICE TYPE DISK` commands in the previous mentioned script include the backup file system location!
 
-##### Backup Parallelism
+##### Backup parallelism
 {: #sapmig-db-oracle-rman1-backup-parallelism}
 
 Set disk device parallelism - likely to speed up the backup and to reduce the backupt time window. The optimal parallelism depends on several factors:
@@ -477,7 +477,7 @@ CONFIGURE DEVICE TYPE DISK PARALLELISM 8 BACKUP TYPE TO BACKUPSET;
 ```
 {: codeblock}
 
-##### Backup Compression
+##### Backup compression
 {: #sapmig-db-oracle-rman1-backup-compression}
 
 Set backup file compression. MEDIUM compression is advised for most customers. However HIGH compression has been tested also, as HIGH could be an option under certain circumstances. The use of 'MEDIUM' and 'HIGH' requires the Oracle Advanced Compression license!
@@ -512,7 +512,7 @@ alter database open;
 ```
 {: codeblock}
 
-##### Backup Validation and Cross Check
+##### Backup validation and cross check
 {: #sapmig-db-oracle-rman1-backup-validation}
 
 When the backup is complete, use some of the following RMAN commands to validate and cross-check the results.
@@ -565,7 +565,7 @@ For this *Option 1* we have created ONE backup to be transferred to and restored
 At this point, to be consistent with a migration scenario, the source database should be shut down and not used any longer.
 
 
-### RMAN Option 2 - Online Backups
+### RMAN option 2 - Online backups
 {: #sapmig-db-oracle-rman-option2-online-backup}
 
 The following backup procedure is executed with the database online, and will produce a single RMAN Level 0 and one or more Level 1 (incremental) backups. It is required that the databases be in *archive log mode* and that it is ensured that all required archived *redo logs* are included in the backups.
@@ -584,7 +584,7 @@ More information can be found in:
 [Performing Operations on CDBs/PDBs](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/starting-interacting-with-rman-client.html#GUID-2C7C92ED-41ED-4A51-848E-34E695B107D4){: external}
 
 
-#### Check Database Size
+#### Check database size
 {: #sapmig-db-oracle-rman2-db-size}
 
 Remember to make sure that you have enough space that is allocated on the filesystem to be able to back up the database.
@@ -595,13 +595,13 @@ SELECT SUM (bytes)/1024/1024/1024 AS GB FROM dba_segments;
 ```
 {: pre}
 
-#### Ensure that RMAN Configuration is Documented
+#### Ensure that RMAN configuration is documented
 {: #sapmig-db-oracle-rman2-rman-conf-dok}
 
 As described in the preparation section [Document RMAN Configuration](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-prep-rman), be sure to record current RMAN configuration and associated parameters. After completing special backups for migration, you want to ensure RMAN configuration is left as before so normally scheduled backup operations continue.
 
 
-#### Backup Option 2 - Create Target Directories
+#### Backup option 2 - Create target directories
 {: #sapmig-db-oracle-rman2-create-fs-bk}
 
 Execute the following commands as the `oracle` user.
@@ -616,10 +616,10 @@ setenv ORACLE_SID <SID>
 ```
 {: pre}
 
-#### Backup Option 2 - Backup Scripts
+#### Backup option 2 - Backup scripts
 {: #sapmig-db-oracle-rman2-backup-skripts}
 
-##### Full Online Backup - level 0
+##### Full online backup - level 0
 {: #sapmig-db-oracle-rman2-full-onl-backup}
 
 The first RMAN script `option2_backup_full.rman` configures the RMAN environment and creates the initial level 0 (full) online backup.
@@ -725,7 +725,7 @@ BACKUP  tag '<Your TAG here>' incremental level 0 AS compressed BACKUPSET sectio
 
 For additional incremental backups we suggest replacing occurrences of “inc1 / INC1” with corresponding “incN / INCN” in the following backup script. Note that it is suggested to store each incremental set of backup files into its own directory for easier management.
 
-##### Incremental Online Backup - level 1
+##### Incremental online backup - level 1
 {: #sapmig-db-oracle-rman2-inc-onl-backup}
 
 The second RMAN script `option2_backup_inc1.rman` configures the RMAN environment and creates the initial level 0 (full) online backup.
@@ -771,7 +771,7 @@ The incremental level 1 scripts differ from the previously discussed level 0 RMA
 
 The final incremental backup requires extra preparation steps to determine the date/time stamp to use in the final database recovery step for the destination environment. The time stamp *highlighted* in the *blue* box in the next step is the date/time the database will be recovered to. Any changes after that date/time will be discarded!
 
-##### Inspect Server Time and Date
+##### Inspect server time and date
 {: #sapmig-db-oracle-rman2-inspect}
 
 Connect to the database as sysdba and execute the commands, as shown instructed.
@@ -788,7 +788,7 @@ The second SQL command seen in the following image is forcing Oracle to write to
 Execute the final incremental backup via RMAN.
 
 
-##### Validate and Cross-Check Backups
+##### Validate and cross-check backups
 {: #sapmig-db-oracle-rman2-validate}
 
 When backup is complete, within RMAN, you can utilize some of the commands listed after this to validate and cross-check results.
@@ -843,13 +843,13 @@ At this point, to be consistent with a migration scenario, the source database s
 
 
 
-## Restore the Oracle Database on Target System
+## Restore the Oracle database on the target system
 {: #sapmig-db-oracle-restore}
 
 Different options and steps to restore the database on the target system are covered in this section.
 {: shortdesc}
 
-### Two RMAN Restore Options
+### Two RMAN restore options
 {: #sapmig-db-oracle-restore-options}
 
 Two methods to restore an Oracle Database to the target system are provided:
@@ -881,7 +881,7 @@ Option 2 - RMAN Restore/Recovery
 1.  All required backup files are accessible to the RMAN duplicate/restore/recover process.
 
 
-### Connectivity and Preparation – Oracle on IBM {{site.data.keyword.powerSys_notm}}
+### Connectivity and preparation – Oracle on IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-db-oracle-restore-connect-prep}
 
 From the target instance command line, you can use the following RMAN procedure to perform a restore.
@@ -900,7 +900,7 @@ Reference the version-specific Oracle Database Installation Guide for AIX on Pow
 
 [Grid Infrastructure Documentation (Version 19c)](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwaix/installing-oracle-grid-infrastructure.html#GUID-D4E3FADF-360E-49EB-89A2-E4CBBB9CC61F){: external}
 
-### Check Backup File Sets on Target Server
+### Check backup file sets on target server
 {: #sapmig-db-oracle-restore-bkup-file-sets}
 
 Here is a sample view of backup files that have been staged in the `/backup/rman` folder:
@@ -912,7 +912,7 @@ Displayed in a separate folder are miscellaneous files directly copied from the 
 
 ![Figure 6. Backup folder tree](../../images/powervs-migration-db-oracle-backup-folder-tree.png "Image showing backup folder tree"){: caption="Backup folder tree" caption-side="bottom"}
 
-### Check Configuration
+### Check configuration
 {: #sapmig-db-oracle-restore-configuration}
 
 The Oracle PFILE configuration is now viewed and settings from this file are verified.
@@ -928,14 +928,14 @@ If the file locations in the target server do not match the source environment a
 
 ![Figure 7. Audit file destination](../../images/powervs-migration-db-oracle-audit-file-dest-sap.png "Image showing audit file destination"){: caption="Audit file destination" caption-side="bottom"}
 
-#### Check Audit Directory
+#### Check audit directory
 {: #sapmig-db-oracle-restore-bkup-cfg-auditdir}
 
  Check and confirm that the audit file directory is present on the target server and as listed in the PFILE and give the proper ownership and mode.
 
 ![Figure 8. Backup folder tree](../../images/powervs-migration-db-oracle-audit-file-dest-create.png "Image showing backup folder tree"){: caption="Backup folder tree" caption-side="bottom"}
 
-#### Check ASM Disk Groups and other Directory Definitions
+#### Check ASM disk groups and other directory definitions
 {: #sapmig-db-oracle-restore-bkup-cfg-asm}
 
 Confirm that ASM disk groups that are referenced in the PFILE exist on target and have sufficient free space.
@@ -949,7 +949,7 @@ If ASM groups are not used, review the PFILE and verify that referenced director
 At this point, you are ready to proceed with one of the following restore options.
 
 
-### Option 1 - RMAN Duplicate Database
+### Option 1 - RMAN duplicate database
 {: #sapmig-db-oracle-restore1}
 
 This procedure takes as input a consistent, Level 0 backup of the source database and restores the contents to a new Oracle instance on {{site.data.keyword.powerSys_notm}} to create a duplicate database.
@@ -957,7 +957,7 @@ This procedure takes as input a consistent, Level 0 backup of the source databas
 The following steps should be executed as the oracle user:
 
 
-### Start Target Database in NOMOUNT Mode
+### Starting the target database in NOMOUNT mode
 {: #sapmig-db-oracle-restore1-strt-db}
 
 Ensure the `ORACLE_SID` environment is set.
@@ -993,7 +993,7 @@ spfile               string          /oracle/EC6/19/dbs/spfileEC6.ora
 ```
 {: screen}
 
-### Script to Restore Database with RMAN - Option 1
+### Script to restore database with RMAN - Option 1
 {: #sapmig-db-oracle-restore1-script}
 
 Create an RMAN Duplicate Database script referencing the appropriate backup location. The file in this case is stored in the home directory of the ‘oracle’ user.
@@ -1126,7 +1126,7 @@ Current log sequence           1
 {: screen}
 
 
-### Restart Database in Archive Mode
+### Restarting the database in archive mode
 {: #sapmig-db-oracle-restore1-restart-db-archmode}
 
 Still in SQL*Plus as sysdba, shut down the database instance by using the NORMAL, IMMEDIATE, or TRANSACTIONAL option:
@@ -1163,7 +1163,7 @@ Finally create a new database backup on this target system that will also includ
 As described previously in the section [Back up the Source Oracle Database by using RMAN](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-backup)
 
 
-#### Why are `nofilenamecheck` and `noredo` Options Used With `duplicate database`
+#### Reasons for choosing using the options `nofilenamecheck` and `noredo` with `duplicate database`
 {: #sapmig-db-oracle-restore-noredo-nofilenamecheck}
 
 `nofilenamecheck`
@@ -1177,12 +1177,12 @@ This is necessary if you want to restore a 1-2-1 copy of your source database to
 
 
 
-### Option 2 - RMAN Restore/Recover Database.
+### Option 2 - RMAN restore/recover database
 {: #sapmig-db-oracle-restore2}
 
 This procedure establishes an Oracle database on {{site.data.keyword.powerSys_notm}} from an initial inconsistent data set. It then applies incremental backups and archived redo logs to recover a version of the database at a specific point in time.
 
-#### Start Target Database in NOMOUNT Mode
+#### Starting the target database in NOMOUNT mode
 {: #sapmig-db-oracle-restore2-start-db-nomount}
 
 The following steps should be executed as the user `oracle`.
@@ -1215,7 +1215,7 @@ spfile               string          /oracle/EC6/19/dbs/spfileEC6.ora
 ```
 {: screen}
 
-#### Determine Configuration File Path in Backup File Set
+#### Getting the configuration file path in the backup file set
 {: #sapmig-db-oracle-restore2-ctrl-file}
 
 The control file (cf) had been included in the full backup (level 0).
@@ -1235,7 +1235,7 @@ The find command prints all filenames including path that match the name pattern
 
 If no output is given, refer to the backup you created with the option 2 level 0 procedure for the control file location and check if and where the backup file set is on the target server.
 
-### Script to Restore Database Level 0 Backup with RMAN - Option 2
+### Script to restore database level 0 backup with RMAN - Option 2
 {: #sapmig-db-oracle-restore2-script1}
 
 Modify the recovery script after this to reflect the correct control file and then execute the RMAN script to restore the DB from level 0 backup and also apply any archived redo logs included in that backup via `recover database` as the `restore database` does not apply archived redo logs.
@@ -1260,7 +1260,7 @@ run {
 ```
 {: codeblock}
 
-#### Explanation of Restore Script
+#### Description of the restore script
 {: #sapmig-db-oracle-restore2-script1-explanation}
 
 Substitute the correct locations for `archive`, `redologs`, and `controlfiles` that are relevant to your Oracle Environment/Installation.
@@ -1295,7 +1295,7 @@ recover database;
 ```
 {: codeblock}
 
-#### Execute Restore Database Level0 Script
+#### Running the restore database level0 script
 {: #sapmig-db-oracle-restore2-exec-script1}
 
 Ensure that the database instance was started with `startup nomount`
@@ -1309,13 +1309,13 @@ rman @restore_option2_lev0.rman
 Sample output is extensive and not listed here.
 
 
-### Restore Incremental Backups (level 1)
+### Restoring the incremental backups (level 1)
 {: #sapmig-db-oracle-restore2-exec-script}
 
 The RMAN full backup level 0 was restored successfully.
 The next step is restoring all incremental level 1 backup set.
 
-#### Restore Incremental Backups (level 1) - All Except the Last One
+#### Restoring the incremental backups (level 1) - except the final one
 {: #sapmig-db-oracle-restore2-inc-intermediate}
 
 Catalog the remainder of the incremental level 1 backupsets and archived logs in the target directory. If multiple incremental backups are provided, this is an iterative process.
@@ -1328,7 +1328,7 @@ recover database ;
 
 With this step(s) the incremental backup set(s) are cataloged.
 
-#### Catalog Final Incremental Backup (level 1)
+#### Catalog the final incremental backup (level 1)
 {: #sapmig-db-oracle-restore2-inc-cat-final}
 
 The final incremental backup requires that the recovery is only until a specific time to be able to open the database!
@@ -1376,7 +1376,7 @@ cataloging done
 {: screen}
 
 
-#### Restore Final Incremental Backup (level 1) to Point in Time
+#### Restoring the final incremental backup (level 1) to a given point in time
 {: #sapmig-db-oracle-restore2-recover-point-in-time}
 
 For all incremental backups, EXCEPT the final, you can then execute in RMAN:
@@ -1404,7 +1404,7 @@ RMAN> recover database until time '13-01-2024 11:52:12';
 ```
 {: codeblock}
 
-### Start Database
+### Starting the database
 {: #sapmig-db-oracle-restore2-start-db}
 
 After all interim archived REDO logs and the final RMAN increment level 1 have been cataloged and recovered as described, the database can be opened.
@@ -1420,7 +1420,7 @@ SQL> alter database open resetlogs ;
 ```
 {: codeblock}
 
-### Check Database Mode
+### Checking the database mode
 {: #sapmig-db-oracle-restore2-check-db-mode}
 
 Check to make sure that after the database has been restored that the *Archive Mode* is now enabled.

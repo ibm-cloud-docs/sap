@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-04-02"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, heterogeneous migration, Linux, Red Hat, RHEL, SuSE, Db2, Oracle, HANA, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize, sum, software update manager, dmo, database migration option, dmove2s4, Software Provisioning Manager, SWPM
 subcollection: sap
 ---
@@ -280,7 +280,7 @@ Use the following steps to prepare the target system landscape.
 1. Make sure that an active network connection between source and target systems with sufficient line speed is available.
     [Hybrid Cloud Network Considerations for SAP applications on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking). Keep in mind that SAP demands a network latency less than 20 ms, and a bandwidth higher than 400 Mbps for this migration scenario.
 
-### Requirements for using the System Move option
+### Requirements for using the system move option
 {: #sapmig-ibm-dmo-mig-doc-req-system-move-option}
 
 See the following requirement for using System Move.
@@ -387,7 +387,7 @@ If you plan to install SAP HANA database version 2.00.082, a newer compiler vers
 
 For earlier versions of the SAP HANA Database, see [SAP Note 3216146 - Linux: Running SAP applications compiled with GCC 11.x](https://me.sap.com/notes/3216146){: external}.
 
-### Next steps before you install SAP HANA Database
+### Next steps before installing the SAP HANA database
 {: #next-steps-install-hana-db}
 
 Before you install SAP HANA Database, make sure that you perform the following items.
@@ -402,7 +402,7 @@ In the next phase, the stack and software packaging XML file is required, which 
 * Which upgrades are required on the source SAP system.
 * Which software stack to apply to prepare the target servers.
 
-## Using Maintenance Planner to create the system software stack
+## Using SAP Maintenance Planner to create the system software stack
 {: #sapmig-ibm-dmo-mig-doc-maint-stack}
 
 If the source system is already registered in the SAP "Solution Manager Landscape", continue with the next section.
@@ -455,7 +455,7 @@ Backup the source SAP system before the SAP migration is started by using the fo
     * `.dbenv.*`
     * `.sapsrc_<hostname>.*`
 
-## Enable DMO with System Migration
+## Enabling DMO with system migration
 {: #sapmig-ibm-dmo-mig-enable-dmo}
 
 See the following overview for the SAP "System Move": Enabling DMO with System Migration
