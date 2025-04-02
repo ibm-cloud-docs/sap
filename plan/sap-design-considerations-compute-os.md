@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-25"
+lastupdated: "2025-04-02"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -168,6 +168,7 @@ For the version of IBM AIX or Linux on Power to deploy for SAP application serve
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | SLES15-SP3-SAP-BYOL | SLES15-SP3-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | SLES15-SP4-SAP-BYOL | SLES15-SP4-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | SLES15-SP5-SAP-BYOL  | SLES15-SP5-SAP |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP6 | SLES15-SP6-SAP-BYOL  | SLES15-SP6-SAP |
 {: caption="Operating systems for IBM {{site.data.keyword.powerSys_notm}}s on SAP HANA" caption-side="bottom"}
 
 | Operating system for SAP application server | Image name (Client supplied subscription) | Image name (IBM provided subscription) |
@@ -182,6 +183,7 @@ For the version of IBM AIX or Linux on Power to deploy for SAP application serve
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | SLES15-SP3-SAP-NETWEAVER-BYOL | SLES15-SP3-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | SLES15-SP4-SAP-NETWEAVER-BYOL | SLES15-SP4-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | SLES15-SP5-SAP-NETWEAVER-BYOL | SLES15-SP5-SAP-NETWEAVER |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP6 | SLES15-SP6-SAP-NETWEAVER-BYOL | SLES15-SP6-SAP-NETWEAVER |
 | AIX 7.2 |  | 7200-05-08 or later |
 | AIX 7.3 |  | 7300-02-01 or later |
 {: caption="Operating systems for IBM {{site.data.keyword.powerSys_notm}}s on SAP application server" caption-side="bottom"}
