@@ -1,7 +1,7 @@
 ---
 copyright:
    years: 2025
-lastupdated: "2025-03-26"
+lastupdated: "2025-04-03"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, NFS, File Storage Share, Network Load Balancer
 subcollection: sap
 content-type: tutorial
@@ -13,7 +13,7 @@ completion-time: 2h
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Accessing a VPC file storage share from IBM {{site.data.keyword.powerSys_notm}} instances
+# Accessing File Storage for VPC from IBM {{site.data.keyword.powerSys_notm}} instances
 {: #ha-nlb-rt-nfs-intro}
 {: toc-content-type="tutorial"}
 {: toc-services="vpc, transit-gateway, power-iaas, sap"}
@@ -23,7 +23,7 @@ This tutorial might incur costs.
 Use the [Cost Estimator](/estimator) to generate a cost estimate based on your projected usage.
 {: tip}
 
-In this tutorial, you learn how to mount a VPC file storage share on an IBM {{site.data.keyword.powerSys_notm}} server instance.
+In this tutorial, you learn how to mount a file share on an IBM {{site.data.keyword.powerSys_notm}} server instance.
 You cannot directly mount a file storage share on IBM {{site.data.keyword.powerSys_notm}} instances and must instead use a path through a network load balancer (NLB).
 You create a file storage share and a mount target in IBM VPC.
 You create a network load balancer with routing mode, and a route table in IBM VPC.
@@ -41,7 +41,7 @@ The network load balancer (NLB) with routing mode has two IP addresses (active a
 When a failover occurs, the route mode updates all routing rules that are created for the VPC with a `next_hop` of the standby IP.
 Both the active IP and the standby IP are used during the lifetime of an NLB with route mode.
 
-![Architecture overview diagram](../../images/powervs-ha-nlb-rt-nfs.svg){: figure caption="A diagram that shows the architecture for accessing VPC file storage."}
+![Architecture overview diagram](../../images/powervs-ha-nlb-rt-nfs.svg){: figure caption="A diagram that shows the architecture for accessing File Storage for VPC."}
 
 ## Before you begin
 {: #ha-nlb-rt-nfs-prereqs}
@@ -88,7 +88,7 @@ Create a security group and configure inbound rules for the SSH (22) and NFS (20
    | UDP        | Any  | Any              | Any         |
    {: caption="Outbound rules" caption-side="bottom"}
 
-### Provisioning a VPC file storage share
+### Provisioning a file storage share
 {: #ha-nlb-rt-nfs-create-fs-share}
 
 1. Browse to [File storage shares for VPC](/infrastructure/storage/fileShares).
@@ -223,12 +223,12 @@ If an ingress routing table exists for the IBM Cloud Transit Gateway source, add
 1. Click **Create**.
 1. Select the zone for your route in the **Zone** field.
 1. Enter `nfs-server` in the **Name** field.
-1. Using CIDR notation, enter the primary IP address of the VPC file storage share as **Destination CIDR**.
+1. Using CIDR notation, enter the primary IP address of the file share as **Destination CIDR**.
 1. Select `Deliver` as the **Action**.
 1. Enter the `IP address of the network load balancer` as the **Next hop (IP address)**.
 1. Click **Save** to add the route to the table.
 
-## Mounting the file storage share on the server instance in IBM {{site.data.keyword.powerSys_notm}}
+## Mounting the file share on the IBM {{site.data.keyword.powerSys_notm}} instance
 {: #ha-nlb-rt-nfs-mount-file-share}
 {: step}
 

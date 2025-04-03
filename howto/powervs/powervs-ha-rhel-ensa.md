@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-26"
+lastupdated: "2025-04-03"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -505,6 +505,8 @@ Use the SAP Software Provisioning Manager (SWPM) to install both instances.
 Install and set up the RHEL HA Add-On cluster according to [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel).
 
 Configure and test fencing as described in [Creating the fencing device](/docs/sap?topic=sap-ha-rhel#ha-rhel-create-fencing-device).
+
+
 
 ## Preparing the ASCS and ERS instances for cluster integration
 {: #ha-rhel-ensa-prepare-ascs-ers}

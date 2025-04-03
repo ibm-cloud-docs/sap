@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-26"
+lastupdated: "2025-04-03"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -167,6 +167,8 @@ Configure and test the cluster fencing as described in [Creating the fencing dev
 {: #ha-rhel-ensa-mz-clres-ascs-ers}
 
 Make sure that the RHEL HA Add-On cluster is running on both virtual server instances and that node fencing has been tested.
+
+
 
 ### Configuring the cluster resource for sapmnt
 {: #ha-rhel-ensa-mz-cfg-shared}

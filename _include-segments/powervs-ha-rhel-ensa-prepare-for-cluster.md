@@ -42,7 +42,7 @@ If the entries for ASCS and ERS are in `classic` format, then modify the `/usr/s
 On both nodes, remove or comment out the `sapstartsrv` entries for both *ASCS* and *ERS* in the *SAP services* file.
 
 ```sh
-sed -i -e 's/^LD_LIBRARY_PATH=/#LD_LIBRARY_PATH=/ sapservices
+sed -i -e 's/^LD_LIBRARY_PATH=/#LD_LIBRARY_PATH=/' /usr/sap/sapservices
 ```
 {: pre}
 

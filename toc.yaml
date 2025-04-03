@@ -157,7 +157,7 @@ toc:
           - topicgroup:
               label: VPC infrastructure integration scenarios
               topics:
-                - navtitle: Accessing a VPC file storage share from IBM Power Virtual Server instances
+                - navtitle: Accessing File Storage for VPC from IBM Power Virtual Server instances
                   topic: tutorial/powervs/powervs-ha-nfs-tutorial.md
     - navgroup:
         id: howto
