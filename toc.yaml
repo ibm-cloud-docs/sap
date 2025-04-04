@@ -17,8 +17,10 @@ toc:
     - navgroup:
         id: overview
         topics:
-          - overview/sap-getting-started.md
-          - overview/sap-offerings-overview.md
+          - navtitle: Get started
+            topic: overview/sap-getting-started.md
+          - navtitle: Overview of IBM Cloud for SAP
+            topic: overview/sap-offerings-overview.md
           - topicgroup:
               label: Fast path site maps
               topics:

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-04-04"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Intel Bare Metal server certified profiles on Classic infrastructure for SAP NetWeaver
+# Intel Bare Metal server certified profiles on Classic infrastructure for SAP Application Server
 {: #nw-iaas-offerings-profiles-intel-bm}
 
 ## Profiles list for Intel servers
@@ -32,9 +32,7 @@ The following is an overview of the SAP-certified profiles with Bare Metal Intel
 | BI.S4.NW768_v3 | 16 | 32 | 768 GB |  60,420 |
 | BI.S4.NW1500 | 56 | 112 | 1.5 TB | 147,220 |
 | BI.S4.NW3000 | 56 | 112 | 3 TB | 135,127 |
-| BI.S5.H2.1000 | 96 | 192 | 1 TB | 297.370 |
-| BI.S5.H2.2001 | 96 | 192 | 2 TB | 297.370 |
-{: caption="SAP NetWeaver Intel servers" caption-side="top"}
+{: caption="Intel servers certified for SAP Application Server" caption-side="top"}
 
 
 See also [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}.
@@ -43,16 +41,16 @@ See also [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructur
 ## Understanding Bare Metal profile names
 {: #nw-iaas-intel-bm-names}
 
-The Bare Metal profile names are contextual and sequential, below uses an SAP NetWeaver certified server as an example:
+The Bare Metal profile names are contextual and sequential, below uses a server that is certified for SAP Application Server as an example:
 
 | Profile name | Naming convention component | What it means |
 | --- | --- | --- |
 | BI.S3.NW384 | BI | {{site.data.keyword.cloud_notm}} Infrastructure |
 | | S3 | Series 3 (CPU generation)\n* S3: Intel Skylake/Kaby Lake\n * S4: Intel Cascade Lake\n * S5: Intel Sapphire Rapids |
-| | NW | NetWeaver-certified server |
-| | H2 | HANA-(*) and NetWeaver-certified server, 2 sockets  |
+| | NW | SAP Application Server (NetWeaver) certified server |
+| | H2 | HANA-(*) and SAP Application Server certified server, 2 sockets  |
 | | 384 | 384 GB RAM |
-{: caption="Profile naming for SAP NetWeaver Intel servers" caption-side="top"}
+{: caption="Profile naming for Intel servers certified for SAP Application Server" caption-side="top"}
 
 (*) Only the servers that are listed in the [SAP Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external} are supported for HANA workloads.
 {: note}

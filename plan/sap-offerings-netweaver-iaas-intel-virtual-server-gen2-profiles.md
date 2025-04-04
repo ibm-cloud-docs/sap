@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-12"
+lastupdated: "2025-04-04"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver
+# Intel Virtual Server certified profiles on VPC infrastructure for SAP Application Server
 {: #nw-iaas-offerings-profiles-intel-vs-vpc}
 
 ## Profiles list
@@ -80,46 +80,60 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 ### SAP-certified profiles hosted on Intel Sapphire Rapids CPUs
 {: #certified-profiles-intel-sapphire-rapids}
 
-| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** |
-| --- | --- | --- | --- |
-| **Compute Optimized** | | | |
-| cx3d-2x5 | 2 | 5 | 2,661 |
-| cx3d-4x10 | 4 | 10 |  5,321 |
-| cx3d-8x20 | 8 | 20 | 10,642 |
-| cx3d-16x40 | 16 | 40 | 21,284 |
-| cx3d-24x60 | 24 | 60 | 31,926 |
-| cx3d-32x80 | 32 | 80 | 42,568 |
-| cx3d-48x120 | 48 | 120 | 63,852 |
-| cx3d-64x160 | 64 | 160 | 85,136 |
-| cx3d-96x240 | 96 | 240 | 127,703 |
-| cx3d-128x320 | 128 | 320 | 170,270 |
-| cx3d-176x440 | 176 | 440 | 234,120 |
-| **Balanced** | | | |
-| bx3d-2x10 | 2 | 10 | 2,616 |
-| bx3d-4x20 | 4 | 20 |  5,232 |
-| bx3d-8x40 | 8 | 40 |  10,463 |
-| bx3d-16x80 | 16 | 80 | 20,926 |
-| bx3d-24x120 | 24 | 120 | 31,388 |
-| bx3d-32x160 | 32 | 160 | 41,850 |
-| bx3d-48x240 | 48 | 240 | 62,775 |
-| bx3d-64x320 | 64 | 320 | 83,699 |
-| bx3d-96x480 | 96 | 480 | 125,548 |
-| bx3d-128x640 | 128 | 640 | 167,397 |
-| bx3d-176x880 | 176 | 880 | 230,170 |
-| **Memory Optimized** | | | |
-| mx3d-2x20 | 2 | 20 | 2,590 |
-| mx3d-4x40 | 4 | 40 | 5,180 |
-| mx3d-8x80 | 8 | 80 | 10,359 |
-| mx3d-16x160 | 16 | 160 | 20,718 |
-| mx3d-24x240 | 24 | 240 | 31,076 |
-| mx3d-32x320 | 32 | 320 | 41,434 |
-| mx3d-48x480 | 48 | 480 | 62,150 |
-| mx3d-64x640 | 64 | 640 | 82,866 |
-| mx3d-96x960 | 96 | 960 | 124,299 |
-| mx3d-128x1280 | 128 | 1,280 | 165,731 |
-| mx3d-176x1760 | 176 | 1,760 | 227,880 |
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS (1)** |
+| --- | --- | --- | --- | --- |
+| **Compute Optimized** | | | | |
+| cx3d-2x5 | 2 | 5 | 2,661 | |
+| cx3d-4x10 | 4 | 10 |  5,321 | |
+| cx3d-8x20 | 8 | 20 | 10,642 | |
+| cx3d-16x40 | 16 | 40 | 21,284 | |
+| cx3d-24x60 | 24 | 60 | 31,926 | |
+| cx3d-32x80 | 32 | 80 | 42,568 | |
+| cx3d-48x120 | 48 | 120 | 63,852 | |
+| cx3d-64x160 | 64 | 160 | 85,136 | |
+| cx3d-96x240 | 96 | 240 | 127,703 | |
+| cx3d-128x320 | 128 | 320 | 170,270 | |
+| cx3d-176x440 | 176 | 440 | 234,120 | |
+| **Balanced** | | | | |
+| bx3d-2x10 | 2 | 10 | 2,616 | |
+| bx3d-4x20 | 4 | 20 |  5,232 | |
+| bx3d-8x40 | 8 | 40 |  10,463 | |
+| bx3d-16x80 | 16 | 80 | 20,926 | |
+| bx3d-24x120 | 24 | 120 | 31,388 | |
+| bx3d-32x160 | 32 | 160 | 41,850 | |
+| bx3d-48x240 | 48 | 240 | 62,775 | |
+| bx3d-64x320 | 64 | 320 | 83,699 | |
+| bx3d-96x480 | 96 | 480 | 125,548 | |
+| bx3d-128x640 | 128 | 640 | 167,397 | |
+| bx3d-176x880 | 176 | 880 | 230,170 | |
+| **Memory Optimized** | | | | |
+| mx3d-2x20 | 2 | 20 | 2,590 | |
+| mx3d-4x40 | 4 | 40 | 5,180 | |
+| mx3d-8x80 | 8 | 80 | 10,359 | |
+| mx3d-16x160 | 16 | 160 | 20,718 | |
+| mx3d-24x240 | 24 | 240 | 31,076 | |
+| mx3d-32x320 | 32 | 320 | 41,434 | |
+| mx3d-48x480 | 48 | 480 | 62,150 | |
+| mx3d-64x640 | 64 | 640 | 82,866 | |
+| mx3d-96x960 | 96 | 960 | 124,299 | |
+| mx3d-128x1280 | 128 | 1,280 | 165,731 | |
+| mx3d-176x1760 | 176 | 1,760 | 227,880 | |
+| **Very High Memory Optimized** | | | | |
+| vx3d-2x32 | 2 | 32 | 2,513 | 485 |
+| vx3d-4x64 | 4 | 64 | 5,026 | 969 |
+| vx3d-8x128 | 8 | 128 | 10,051 | 1,937 |
+| vx3d-16x256 | 16 | 256 | 20,102 | 3,873 |
+| vx3d-24x384 | 24 | 384 | 30,153 | 5,810 |
+| vx3d-32x512 | 32 | 512 | 40,204 | 7,746 |
+| vx3d-48x768 | 48 | 768 | 60,306 | 11,619 |
+| vx3d-64x1024 | 64 | 1,024 | 80,408 | 15,491 |
+| vx3d-88x1408 | 88 | 1,408 | 110,560 | 21,300 |
+| vx3d-96x1536 | 96 | 1,536 | 120,611 | 23,237 |
+| vx3d-128x2048 | 128 | 2,048 | 160,815 | 30,982 |
+| vx3d-176x2816 | 176 | 2,816 | 221,120 | 42,600 |
 {: caption="{{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} hosted on Intel Sapphire Rapids CPUs" caption-side="bottom"}
 
+<sup>(1)</sup>: aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}.
 
@@ -142,7 +156,7 @@ The first letter of the profile name indicates the profile family mentioned abov
 | c | *Compute Optimized* family | 1:2 | 1:2.5 |
 | b | *Balanced* family | 1:4 | 1:5 |
 | m | *Memory Optimized* family | 1:8 | 1:10 |
-| v | *Very High Memory Optimized*  family | 1:14 | n/a |
+| v | *Very High Memory Optimized*  family | 1:14 | 1:16 |
 | u | *Ultra High Memory Optimized* family | 1:28 | n/a |
 {: caption="{{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
 
@@ -182,7 +196,7 @@ When the virtual server profiles for SAP HANA are initially provisioned, the ser
 | `/boot` | `vda2` | Pre-configured boot volume | 0.25 | 3,000 |
 {: caption="Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
 
-To fulfill the size and I/O requirements for SAP NetWeaver or SAP AnyDB, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.
+To fulfill the size and I/O requirements for SAP Application Server or SAP AnyDB, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.
 
 Block Storage Volumes for Virtual Servers can be created based on different **volume profiles** that provide different levels of IOPS per gigabyte (IOPS/GB). For more information, see [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) for details.
 
@@ -190,6 +204,6 @@ You must consider the total IOPS required for your installation and the performa
 
 For an overview of all available storage profiles, see [VPC Block Storage Profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 
-For SAP NetWeaver and SAP AnyDB, a minimum of 5 IOPS/GB is recommended.
+For SAP Application Server and SAP AnyDB, a minimum of 5 IOPS/GB is recommended.
 
 Samples of storage configurations that use Intel Virtual Server (Gen2) profiles are available under [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations).

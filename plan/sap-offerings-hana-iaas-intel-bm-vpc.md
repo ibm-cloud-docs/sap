@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-04-04"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -28,13 +28,13 @@ The following table gives you an overview of the SAP-certified profiles with bar
 | **Ultra High Memory Optimized** | | | |
 | ux2d-metal-112x3072 | 112 | 3,072 | 140,730 | OLTP/OLAP (\*) |
 | ux2d-metal-224x6144 | 224 | 6,144 | 294,730 | OLTP/OLAP (\*) |
-{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA" caption-side="bottom"}
+{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA - Intel Cascade Lake CPU" caption-side="bottom"}
 
 
 ### Profiles hosted on Intel Sapphire Rapids CPU
 {: #hana-iaas-intel-bm-sr-vpc-list}
 
-| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS<sup>(1)</sup>** | **SAP HANA\nProcessing Type** |
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS (1)** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- | --- |
 | **Balanced** | | | | | |
 | bx3d-metal-48x256 | 48 | 256 | 93,670 | 18,400 | OLTP/OLAP (\*) |
@@ -45,9 +45,9 @@ The following table gives you an overview of the SAP-certified profiles with bar
 | mx3d-metal-64x512 | 64 | 512 | 128,750 | 24,200 | OLTP/OLAP (\*) |
 | mx3d-metal-96x1024 | 96 | 1.024 | 182,670 | 33,700 | OLTP/OLAP (\*) |
 | mx3d-metal-128x1024 | 128 | 1.024 | 239,300 | 46,000 | OLTP/OLAP (\*) |
-{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP NetWeaver - Intel Sapphire Rapids CPU" caption-side="bottom"}
+{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA - Intel Sapphire Rapids CPU" caption-side="bottom"}
 
-<sup>(1)</sup>: aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.
+(1): aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.
 
 (\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions\n
 SLES 12 SP5, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5, SLES 15 SP6

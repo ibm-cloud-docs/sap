@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-12"
+lastupdated: "2025-04-04"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -34,7 +34,7 @@ The following table is an overview of the SAP-certified profiles with either:
 | BI.S4.NW768 (VMware) | 40 | 80 | 768 GB | 101,547 |
 | BI.S4.NW1500 (VMware) | 56 | 112 | 1536 GB | 132,498 |
 | BI.S4.NW3000 (VMware) | 56 | 112 | 3072 GB | 121,614 |
-{: caption="SAP NetWeaver servers" caption-side="top"}
+{: caption="Intel servers certified for SAP Application Server" caption-side="top"}
 
 
 ## Understanding Bare Metal profile names
@@ -46,6 +46,6 @@ The Bare Metal profile names are contextual and sequential, below uses an SAP HA
 | --- | --- | --- |
 | BI.S3.NW768 | BI | {{site.data.keyword.cloud_notm}} Infrastructure |
 | | S3 | Series 3 (processor generation)  \n * S3 is Intel Skylake/Kaby Lake\n * S4 is Intel Cascade Lake |
-| | NW | NetWeaver-certified server |
+| | NW | SAP Application Server (NetWeaver) certified server |
 | | ### | ### GiB RAM (rounded, exact RAM amount is in the table)|
-{: caption="Profile naming for SAP NetWeaver" caption-side="top"}
+{: caption="Profile naming for Intel servers certified for SAP Application Server" caption-side="top"}
