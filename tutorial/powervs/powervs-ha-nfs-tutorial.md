@@ -1,7 +1,7 @@
 ---
 copyright:
    years: 2025
-lastupdated: "2025-04-03"
+lastupdated: "2025-04-08"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, NFS, File Storage Share, Network Load Balancer
 subcollection: sap
 content-type: tutorial
@@ -34,8 +34,8 @@ The following architecture overview diagram illustrates this scenario.
 
 The virtual server instance in IBM {{site.data.keyword.powerSys_notm}} sends a request through a transit gateway to the file storage share.
 According to the rule in the routing table of the VPC, the network traffic to the file storage share is directed to the network load balancer.
-The network load balancer has *Routing_mode* is enabled.
-It bypasses a back-end pool and sends requests directly to the destination IBM Prerequisite Scanner.
+The network load balancer has *Routing_mode* enabled.
+It bypasses a back-end pool and sends requests directly to the destination IP address.
 The file storage share responds and the response is sent directly to the virtual server instance in IBM {{site.data.keyword.powerSys_notm}}.
 The network load balancer (NLB) with routing mode has two IP addresses (active and standby).
 When a failover occurs, the route mode updates all routing rules that are created for the VPC with a `next_hop` of the standby IP.
