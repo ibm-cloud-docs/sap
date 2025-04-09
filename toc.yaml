@@ -21,6 +21,8 @@ toc:
             topic: overview/sap-getting-started.md
           - navtitle: Overview of IBM Cloud for SAP
             topic: overview/sap-offerings-overview.md
+          - navtitle: Release notes
+            topic: overview/sap-release-notes.md
           - topicgroup:
               label: Fast path site maps
               topics:
