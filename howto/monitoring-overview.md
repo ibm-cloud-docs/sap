@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-07"
+lastupdated: "2025-04-08"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 ---
@@ -52,7 +52,7 @@ SAP system dashboard displays the following metrics from the virtual server runn
 ## Architecture
 {: #monitoring-architecture}
 
-![Figure 1. {{site.data.keyword.cloud}} Monitoring for SAP systems](../../images/monitoring-architecture.svg "{{site.data.keyword.cloud}} Monitoring for SAP systems"){: caption="{{site.data.keyword.cloud}} Monitoring for SAP systems" caption-side="bottom"}
+![Figure 1. {{site.data.keyword.cloud}} Monitoring for SAP systems](../images/monitoring-architecture.svg "{{site.data.keyword.cloud}} Monitoring for SAP systems"){: caption="{{site.data.keyword.cloud}} Monitoring for SAP systems" caption-side="bottom"}
 {: external download="sap-monitoring-in-ibm-cloud.svg"}
 
 - The metrics of SAP systems running on x86_64 VSI in {{site.data.keyword.vpc_short}} are collected by an application that is **only supported** on **SUSE Linux Enterprise Server (SLES)** running on x86_64 VSI in {{site.data.keyword.vpc_short}}.

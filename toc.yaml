@@ -381,7 +381,7 @@ toc:
               label: Monitoring
               topics:
                 - navtitle: Overview
-                  topic: howto/powervs/powervs-monitoring-getting-started.md
+                  topic: howto/monitoring-overview.md
                 - navtitle: Checking and preparing SAP system for monitoring
                   topic: howto/powervs/powervs-monitoring-checking-and-preparing-sap-system.md
                 - navtitle: Creating a monitoring instance
