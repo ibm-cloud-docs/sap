@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-04-09"
+lastupdated: "2025-04-11"
 keywords: SAP
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 # Release notes
-{: #sap-relnotes}
+{: #release-notes}
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}

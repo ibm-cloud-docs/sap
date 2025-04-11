@@ -36,7 +36,7 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 ### Connectivity to IBM {{site.data.keyword.powerSys_notm}}
 {: #fast-path-power-vs-plan-connectivity}
 
-- [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#powervs-network-connectivity-and-security)  
+- [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#powervs-network-connectivity-and-security)
 
 ### Deployment
 {: #fast-path-power-vs-plan-deploy}
@@ -49,18 +49,26 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
    - [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-power)
    - [Bring-your-own-OS (custom OS image and BYOL License)](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
 
+
+
 - Storage
    - [General storage configurations on IBM Power Virtual Server Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-power)
+
+
 
 ### High availability
 {: #fast-path-power-vs-plan-high-availability}
 
 - [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview)
 
+
+
 ### Disaster recovery
 {: #fast-path-power-vs-plan-disaster-recovery}
 
 - [Planning Disaster Recovery for SAP solutions on IBM Cloud](/docs/sap?topic=sap-disaster-recovery-design-considerations-overview)
+
+
 
 ## Tutorials
 {: #fast-path-power-vs-tutorial}
@@ -85,6 +93,8 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 - Running the deployment
    - [Deploying SAP applications on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-set-up-power-instances)
    - [SAP license key with {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-bring-your-own-sap-product-license#byol-netweaver-powervs)
+
+
 
 ### High availability
 {: #fast-path-power-vs-how-to-high-availability}
@@ -111,6 +121,8 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 
 - [Backup strategies for SAP HANA on IBM Power Virtual Server](/docs/sap?topic=sap-powervs-backup-strategies)
 
+
+
 ### Monitoring
 {: #fast-path-power-vs-how-to-monitoring}
 
@@ -134,6 +146,8 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 - [Migrating SAP ERP 6.0 on Oracle to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-oracle)
 - [Migrating SAP ERP 6.0 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-db2)
 - [Migrating from SAP ERP 6.0 to S/4HANA to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-sum-dmo)
+
+
 
 ## Help
 {: #fast-path-power-vs-help}
