@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-27"
+lastupdated: "2025-04-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -12,72 +12,125 @@ subcollection: sap
 # Fast path of IBM {{site.data.keyword.powerSys_notm}}
 {: #fast-path-site-map-power-vs}
 
-Use this collection of shortcuts to quickly access relevant documentation for each offering, excluding general information that applies to all offerings, such as SAP Solution sizing.
+Use this collection of shortcuts for rapid access to key documentation about SAP solutions on IBM {{site.data.keyword.powerSys_notm}}.
 {: shortdesc}
 
-## Learn
+## Overview
 {: #fast-path-power-vs-learn}
 
-An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated zone and or data center. For more information, see [{{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment introduction](/docs/sap?topic=sap-power-env-introduction).
+An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, network, and virtualization components from a specified region (such as the US) and a designated zone or data center.
+For more information, see [Architecture for IBM {{site.data.keyword.powerSys_notm}} in IBM data center](/docs/power-iaas?topic=power-iaas-on-cloud-architecture).
+For information about the zones, see [IBM Cloud regions](/docs/power-iaas?topic=power-iaas-ibm-cloud-reg).
 
-Certified IaaS for SAP HANA database server is available in many variants. Each variant has different capabilities and sizes to fit different SAP workload scenarios. For more information, see [Infrastructure that is certified for SAP - IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-iaas-offerings#iaas-power-vs).
+## Planning
+{: #fast-path-power-vs-plan}
 
-The following links provide an overview of the SAP-certified profiles with IBM {{site.data.keyword.powerSys_notm}}s for SAP HANA and SAP NetWeaver.
+### SAP solution architecture
+{: #fast-path-power-vs-plan-sap-architecture}
 
-- [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
-- [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)
-- [Compute Profiles of SAP-certified IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-compute-os-design-considerations#compute-power)
+Your business and functional requirements determine the scope for your SAP solutions.
+Consider your nonfunctional requirements in addition, and map the application components to the infrastructure components.
 
-Your specific requirements determine the SAP solutions that are powered by the SAP HANA Database Server or SAP NetWeaver Application Server and determine how your applications run in the available infrastructure. For more information, see the following links.
+Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a reference architecture that details how to host SAP solutions on IBM {{site.data.keyword.powerSys_notm}}.
 
-- [Mapping CPUs derived from SAPS to an IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-planning-your-system-landscape#selecting-iaas-power)
-- [Monitoring for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-planning-your-system-landscape#monitoring-power)
-- [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#powervs-network-connectivity-and-security)
-- [SAP license key with {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-bring-your-own-sap-product-license#byol-netweaver-powervs)
-- [Sample storage configurations on IBM Power Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-power)
+### Connectivity to IBM {{site.data.keyword.powerSys_notm}}
+{: #fast-path-power-vs-plan-connectivity}
 
-Your enterprise IT organization can select from various operating systems from {{site.data.keyword.cloud}} for SAP portfolio. For more information about available operating systems, see the following links.
+- [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#powervs-network-connectivity-and-security)  
 
-- [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-power)
-- [OS - Bring your own image and or license for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
+### Deployment
+{: #fast-path-power-vs-plan-deploy}
 
-Depending on your scenarios, the following links provide helpful information.
+- Compute
+   - [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing)
+   - [Mapping CPUs derived from SAPS to an IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-planning-your-system-landscape#selecting-iaas-power)
+   - [SAP HANA certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
+   - [SAP NetWeaver certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)
+   - [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-power)
+   - [Bring-your-own-OS (custom OS image and BYOL License)](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
 
-- [SAP NetWeaver - Configure high availability for IBM Power Infrastructure](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha-power)
-- [SAP on IBM Db2 by using IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-power-vs)
-- [SAP MaxDB by using IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-anydb-sap-maxdb#anydb-sap-maxdb-power-vs)
-- [SAP ASE by using IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-anydb-sap-ase#anydb-sap-ase-power-vs)
+- Storage
+   - [General storage configurations on IBM Power Virtual Server Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-power)
 
+### High availability
+{: #fast-path-power-vs-plan-high-availability}
 
+- [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview)
+
+### Disaster recovery
+{: #fast-path-power-vs-plan-disaster-recovery}
+
+- [Planning Disaster Recovery for SAP solutions on IBM Cloud](/docs/sap?topic=sap-disaster-recovery-design-considerations-overview)
+
+## Tutorials
+{: #fast-path-power-vs-tutorial}
+
+### Deployment
+{: #fast-path-power-vs-tutorial-deploy}
+
+- [Accessing File Storage for VPC from IBM {{site.data.keyword.powerSys_notm}} instances](/docs/sap?topic=sap-ha-nlb-rt-nfs-intro)
 
 ## How to
 {: #fast-path-power-vs-how-to}
 
-For more information about provisioning IBM {{site.data.keyword.powerSys_notm}} for SAP HANA and SAP NetWeaver manually, see the following links.
+### Deployment
+{: #fast-path-power-vs-how-to-deploy}
 
-- [Planning your deployment](/docs/sap?topic=sap-powervs-planning-items)
-- [Deploying IBM Cloud VPC infrastructure that is used by SAP workloads that run on IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-powervs-set-up-vpc-infrastructure)
-- [Deploying IBM Cloud Power Virtual Services infrastructure that is used by SAP workloads](/docs/sap?topic=sap-powervs-set-up-power-infrastructure)
-- [Deploying IBM {{site.data.keyword.powerSys_notm}} instances for SAP system](/docs/sap?topic=sap-powervs-set-up-power-instances)
+- Preparing the deployment
+   - [Planning your deployment](/docs/sap?topic=sap-powervs-planning-items)
+   - [Custom OS image build process on RHEL for SAP solutions on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-custom-os-image-build-rhel-overview)
+   - [Deploying IBM Cloud VPC infrastructure for {{site.data.keyword.powerSys_notm}} workloads](/docs/sap?topic=sap-powervs-set-up-vpc-infrastructure)
+   - [Deploying SAP {{site.data.keyword.powerSys_notm}} workloads](/docs/sap?topic=sap-powervs-set-up-power-infrastructure)
 
-For more information about implementing high availability scenarios for SAP on IBM {{site.data.keyword.powerSysFull}}, see the following links.
+- Running the deployment
+   - [Deploying SAP applications on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-set-up-power-instances)
+   - [SAP license key with {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-bring-your-own-sap-product-license#byol-netweaver-powervs)
 
-- [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview)
-- [Creating instances for a high availability cluster](/docs/sap?topic=sap-ha-vsi)
-- [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel)
-- [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz)
-- [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr)
-- [Configuring SAP HANA cost-optimized scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-cost-optimized)
-- [Configuring SAP HANA active/active (read enabled) system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa)
-- [Configuring SAP HANA multitier system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitier)
-- [Configuring SAP HANA multitarget system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitarget)
-- [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-ensa)
-- [onfiguring an active-passive NFS Server in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-nfs)
+### High availability
+{: #fast-path-power-vs-how-to-high-availability}
 
-For more information about SAP hybrid cloud migration scenarios for SAP on IBM {{site.data.keyword.powerSysFull}} moving to {{site.data.keyword.powerSys_notm}}, see the following links.
-- [Migrating SAP between on-premises and IBM Cloud on {{site.data.keyword.powerSysFull}} Overview](/docs/sap?topic=sap-sapmig-overview)
-- [Hybrid Cloud Network Considerations for SAP on {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking)
-- [Migrating SAP S/4HANA by using HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana)
+- General preparation steps
+   - [Creating instances for a high availability cluster](/docs/sap?topic=sap-ha-vsi)
+
+- Cluster deployment in a single {{site.data.keyword.powerSys_notm}} workspace
+   - [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel)
+   - [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr)
+   - [Configuring SAP HANA cost-optimized scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-cost-optimized)
+   - [Configuring SAP HANA active/active (read enabled) system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa)
+   - [Configuring SAP HANA multitier system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitier)
+   - [Configuring SAP HANA multitarget system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitarget)
+   - [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-ensa)
+   - [Configuring an active-passive NFS server in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-nfs)
+
+- Cluster deployment in a multizone region environment
+   - [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz)
+   - [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a Red Hat Enterprise Linux High Availability Add-On cluster in a multizone region environment](/docs/sap?topic=sap-ha-rhel-ensa-mz)
+
+### Backup and restore
+{: #fast-path-power-vs-how-to-backup-restore}
+
+- [Backup strategies for SAP HANA on IBM Power Virtual Server](/docs/sap?topic=sap-powervs-backup-strategies)
+
+### Monitoring
+{: #fast-path-power-vs-how-to-monitoring}
+
+- Overview
+   - [Getting started with IBM Cloud Monitoring for SAP systems](/docs/sap?topic=sap-mon-getting-started)
+   - [Monitoring for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-planning-your-system-landscape#monitoring-power)
+
+- Setting-up
+   - [Checking and preparing SAP system for monitoring](/docs/sap?topic=sap-mon-preparing-system)
+   - [Creating a monitoring instance in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-mon-create-instance)
+   - [Setup and configuration of a monitoring host](/docs/sap?topic=sap-mon-exporter-setup-config)
+   - [Configuration of Prometheus server metric forwarding](/docs/sap?topic=sap-mon-metric-forwarding)
+   - [Launching the monitoring UI and working with dashboards](/docs/sap?topic=sap-mon-launch-web-ui-dashboards)
+
+### Migration
+{: #fast-path-power-vs-how-to-migration}
+
+- [Overview - Migrating SAP servers between on-premises and {{site.data.keyword.cloud}} on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-overview)
+- [Hybrid Cloud Network Consideration for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking)
+- [Migrating SAP S/4HANA to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-hana)
 - [Migrating SAP ERP 6.0 on Oracle to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-oracle)
 - [Migrating SAP ERP 6.0 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-db2)
 - [Migrating from SAP ERP 6.0 to S/4HANA to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-sum-dmo)
@@ -85,79 +138,5 @@ For more information about SAP hybrid cloud migration scenarios for SAP on IBM {
 ## Help
 {: #fast-path-power-vs-help}
 
-Use the following links if you need more help.
-
-- [Requesting support for SAP-certified IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-help-support)
-- [SAP ONE Support process for IBM Power](/docs/sap?topic=sap-help-support)
-- [FAQ - SAP-certified IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-faq-ibm-cloud-for-sap#faq-sap-certified-power-vsi)
-
-## More resources for SAP HANA
-{: #power-vs-sles-hana-information_resources_hana}
-
-The following links can help you install and configure your {{site.data.keyword.powerSys_notm}} instances with SAP HANA on Linux&reg;. Links with numerals in the title lead to the SAP for Me portal.
-
-### Operating systems – Linux
-{: #power-vs-sles-hana-snote-os_linux}
-
-For more information about SAP on Linux, see the following table.
-
-| Link | Description |
-| ---- | ----------- |
-| [SAP Note 2378874 - Installation SAP Solutions on Linux on {{site.data.keyword.IBM_notm}} Power Systems (little endian)](https://me.sap.com/notes/2378874){: external} | Installing SAP solutions on {{site.data.keyword.IBM_notm}} Power Systems                       |
-| [SAP Note 2235581 - SAP HANA: Supported Operating Systems](https://me.sap.com/notes/2235581){: external}                               | Supported operating systems for SAP HANA                            |
-| [SAP Note 2369910 - SAP Software on Linux: General information](https://me.sap.com/notes/2369910){: external}                          | General information about SAP software on Linux                       |
-| [SAP Note 765424 - Linux: Released IBM Hardware - POWER-based servers](https://me.sap.com/notes/765424){: external}                    | IBM Power-based servers                                             |
-| [SAP Note 1122387 - Linux: SAP Support in virtualized environments](https://me.sap.com/notes/1122387){: external}                      | SAP support in virtualized environments                             |
-| [SAP Note 936887 - End of maintenance for Linux distributions](https://me.sap.com/notes/936887){: external}                            | Maintenance calendar and product maturity                           |
-| [SAP Note 2679703 - Linux on {{site.data.keyword.IBM_notm}} Power Systems - SAP monitoring recommendations](https://me.sap.com/notes/2679703){: external}        | SAP monitoring recommendations                                      |
-| [SAP Note 187864 - Linux: Locale Support on Linux](https://me.sap.com/notes/187864){: external}                                        | Locale support for Linux                                            |
-| [SAP Note 2382421 - Optimizing the Network Configuration on HANA- and OS-Level](https://me.sap.com/notes/2382421){: external}          | Increasing efficiency on network for operating systems and SAP HANA |
-| [SAP Note 401162 - Linux: Avoiding TCP/IP port conflicts and start problems](https://me.sap.com/notes/401162){: external}              | Avoiding network-related start issues         |
-| [SAP on {{site.data.keyword.IBM_notm}} Power Systems running Linux](https://pages.community.sap.com/topics/linux/sap-on-ibm-power-systems-on-linux){: external}     | Useful information about running Linux on Power                     |
-{: caption="Operating systems – general Linux" caption-side="top"}
-
-### Operating systems – SUSE Linux Enterprise Server (SLES)
-{: #power-vs-sles-hana-snote-suse_linux}
-
-For more information about SAP on SUSE Linux, see the following table.
-
-| Link | Description |
-| ---- | ----------- |
-| [SAP Note 2205917 - SAP HANA DB: Recommended OS settings for SLES 12 / SLES for SAP Applications 12](https://me.sap.com/notes/2205917){: external}| SLES 12 recommended operating system settings |
-| [SAP Note 1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://me.sap.com/notes/1984787){: external}| SLES 12 installation note |
-| [SAP Note 2684254 - SAP HANA DB: Recommended OS settings for SLES 15 / SLES for SAP Applications 15](https://me.sap.com/notes/2684254){: external}| SLES 15 recommended operating system settings |
-| [SAP Note 2578899 - SUSE Linux Enterprise Server 15: Installation Note](https://me.sap.com/notes/2578899){: external}| SLES 15 installation note |
-| [SAP Note 2790462 - HANA Server connection is not available or timed out after you upgrade to SUSE 15 from SUSE 12](https://me.sap.com/notes/2790462){: external}| Known issue when you upgrade from 12 to 15      |
-| [SAP Note 1275776 - Linux: Preparing SLES for SAP environments](https://me.sap.com/notes/1275776){: external}                                                | Preparing SLES for SAP environments           |
-| [SUSE Best Practices Library](https://documentation.suse.com/sbp/sap-15/){: external}                                                                  | A useful collection of SUSE documentation     |
-| [SUSE Enterprise Server for IBM POWER](https://www.suse.com/products/power/){: external}                                                                             | IBM and SUSE                                  |
-{: caption="Operating systems – SUSE Linux&reg;" caption-side="top"}
-
-### Operating systems – Red Hat Enterprise Linux (RHEL)
-{: #power-vs-rhel-hana-snote-redhat_linux}
-
-For more information about SAP on RHEL, see the following table.
-
-| Link | Description |
-| ---- | ----------- |
-| [SAP Note 2772999 RHEL 8.x: Installation and Configuration](https://me.sap.com/notes/2772999){: external}           | - |
-| [SAP Note 2777782 SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782){: external}                                       | - |
-| [SAP Note 3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302){: external}                                       | - |
-| [SAP Note 2382421 Optimizing the Network Configuration on HANA and OS-Level](https://me.sap.com/notes/2578899){: external}                                        | SLES 15 installation note                     |
-| [RHEL System Roles for SAP](https://access.redhat.com/sites/default/files/attachments/rhel_system_roles_for_sap_1.pdf){: external}| - |
-{: caption="Operating systems – Red Hat Linux" caption-side="top"}
-
-### SAP HANA-related information
-{: #power-vs-sles-hana-snote-hana_info}
-
-For more information about SAP HANA, see the following table.
-
-| Link | Description |
-| ---- | ----------- |
-| [SAP Note 2000003 - FAQ: SAP HANA](https://me.sap.com/notes/2000003){: external}                               | Extensive overview of SAP HANA                     |
-| [SAP Note 1999880 - FAQ: SAP HANA System Replication](https://me.sap.com/notes/1999880){: external}            | HSR central note                     |
-| [SAP Note 2000002 - FAQ: SAP HANA SQL Optimization](https://me.sap.com/notes/2000002){: external}              | Useful tips to improve SQL processing times        |
-| [SAP Note 2380291 - SAP HANA 2.0 Cockpit Central Release Note](https://me.sap.com/notes/2380291){: external}               | SAP HANA Cockpit central note                      |
-| [SAP HANA Platform Landing page](https://help.sap.com/docs/SAP_HANA_PLATFORM?locale=en-US){: external}| Useful for installation guides and upgrade guides |
-| [SAP Guide Finder](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?locale=en-US){: external}                    | Useful to locate user guides and information on updates     |
-{: caption="SAP HANA-related information" caption-side="top"}
+- [Getting help and support from {{site.data.keyword.cloud_notm}} or SAP](/docs/sap?topic=sap-help-support)
+- [SAP-certified IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-faq-ibm-cloud-for-sap#faq-sap-certified-power-vsi)
