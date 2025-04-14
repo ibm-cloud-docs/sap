@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-04-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, SAP ERP, SAP ECC, Linux, Red Hat, RHEL, SuSE, backup, restore
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Migrating SAP ERP 6.0 on Oracle to IBM {{site.data.keyword.powerSys_notm}}
+# Migrating SAP ERP 6.0 with Oracle to IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-db-oracle}
 
 ## Preparation steps on the source system

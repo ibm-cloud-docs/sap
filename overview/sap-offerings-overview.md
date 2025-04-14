@@ -77,6 +77,7 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 - SAP Secure Logon Server (SLS)
 - AnyDB - IBM Db2
 - AnyDB - Microsoft SQL Server
+   
 - AnyDB - SAP MaxDB
 - AnyDB - SAP ASE
 - ...more

@@ -36,7 +36,7 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 ### Connectivity to IBM {{site.data.keyword.powerSys_notm}}
 {: #fast-path-power-vs-plan-connectivity}
 
-- [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#powervs-network-connectivity-and-security)
+- [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#powervs-network-connectivity-and-security)  
 
 ### Deployment
 {: #fast-path-power-vs-plan-deploy}
@@ -143,8 +143,8 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 - [Overview - Migrating SAP servers between on-premises and {{site.data.keyword.cloud}} on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-overview)
 - [Hybrid Cloud Network Consideration for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-hybrid-cloud-networking)
 - [Migrating SAP S/4HANA to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-hana)
-- [Migrating SAP ERP 6.0 on Oracle to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-oracle)
-- [Migrating SAP ERP 6.0 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-db2)
+- [Migrating SAP ERP 6.0 with Oracle to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-oracle)
+- [Migrating SAP ERP 6.0 with IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-db2)
 - [Migrating from SAP ERP 6.0 to S/4HANA to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-sum-dmo)
 
 

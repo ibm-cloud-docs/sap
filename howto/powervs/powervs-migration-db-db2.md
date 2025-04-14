@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-04-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, backup, restore, Db2, IBM Db2, HADR
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Migrating SAP ERP 6.0 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}
+# Migrating SAP ERP 6.0 with IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-db-db2}
 
 Use the following guide to migrate your SAP Enterprise Resource Planning 6 (ERP) system from an IBM Db2 to an IBM {{site.data.keyword.powerSys_notm}}. You have different options to migrate IBM Db2 databases to a target system.
@@ -18,7 +18,7 @@ Use the following guide to migrate your SAP Enterprise Resource Planning 6 (ERP)
 ## IBM Db2 SAP migration options
 {: #sapmig-db-db2-options}
 
-For SAP ERP on IBM Db2, you have two migration options:
+For SAP ERP with IBM Db2, you have two migration options:
 
 - [Migration option 1 - Back up and restore](/docs/sap?topic=sap-sapmig-db-db2#sapmig-db-db2-option1-backup-restore) is based on standard administrative tasks such as start, stop, backup, and restore. It is a less complicated approach, but it requires downtime during migration.
 
@@ -563,7 +563,7 @@ The same commands are required on the target server as noted in [Restoring the d
 {: #sapmig-db-db2-option2-archive-logging}
 
 IBM Db2 High Availability and Disaster Recovery (HADR) requires `archive logging` to be enabled.
-`circular logging` is enabled by default after you install IBM Db2 HADR. Most SAP systems on IBM Db2 have `archive logging` enabled.
+`circular logging` is enabled by default after you install IBM Db2 HADR. Most SAP systems with IBM Db2 have `archive logging` enabled.
 
 #### Checking the archive logging methods
 {: #sapmig-db-db2-option2-archive-logging-check}

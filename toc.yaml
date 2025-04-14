@@ -373,9 +373,9 @@ toc:
                         topic: howto/powervs/powervs-migration-hybrid-cloud-networking.md
                       - navtitle: Migrating SAP S/4HANA
                         topic: howto/powervs/powervs-migration-db-hana.md
-                      - navtitle: Migrating SAP ERP 6.0 on Oracle
+                      - navtitle: Migrating SAP ERP 6.0 with Oracle
                         topic: howto/powervs/powervs-migration-db-oracle.md
-                      - navtitle: Migrating SAP ERP 6.0 on IBM Db2
+                      - navtitle: Migrating SAP ERP 6.0 with IBM Db2
                         topic: howto/powervs/powervs-migration-db-db2.md
                       - navtitle: Migration from SAP ERP 6.0 to S/4HANA on Power Virtual Server considerations
                         topic: howto/powervs/powervs-migration-sum-dmo.md
@@ -395,7 +395,7 @@ toc:
                 - navtitle: Launching the monitoring UI and working with dashboards
                   topic: howto/powervs/powervs-monitoring-launch-web-ui-and-dashboards.md
                 - navtitle: Parameter harvesting, troubleshooting, and maintenance
-                  topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md
+                  topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md 
           - topicgroup:
               label: Backup strategies
               topics:

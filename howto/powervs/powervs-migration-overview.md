@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-07"
+lastupdated: "2025-04-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Hybrid Cloud, Migration, AIX, Linux, RHEL, SuSE
 subcollection: sap
 ---
@@ -12,7 +12,7 @@ subcollection: sap
 # Overview - Migrating SAP servers between on-premises and {{site.data.keyword.cloud}} on IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-overview}
 
-When you run SAP S/4HANA or SAP ERP 6.0 on IBM {{site.data.keyword.powerSysFull}} in a hybrid cloud environment, you have the following benefits:
+When you run SAP S/4HANA or SAP ERP 6.0 with IBM {{site.data.keyword.powerSysFull}} in a hybrid cloud environment, you have the following benefits:
 
 - A flexible infrastructure
 - Consistent platform for SAP HANA-based and traditional applications
@@ -39,21 +39,21 @@ Multiple options to migrate SAP S/4HANA between sites are possible. The followin
 1. Migrate the application data according to [Migrating SAP S/4HANA by using SAP HANA System Replication](/docs/sap?topic=sap-sapmig-db-hana#sapmig-db-hana-replication).
 1. Perform an [SAP HANA System Replication Takeover](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/123f2c8579fd452da2e7debf7cc2bd93.html){: external} to activate services on the target site and make sure that clients connect to the new location.
 
-## Migrating SAP ERP 6.0 on Oracle to IBM {{site.data.keyword.powerSys_notm}}
+## Migrating SAP ERP 6.0 with Oracle to IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-overview-migrating-sap-erp-oracle}
 
-Different alternatives to migrate an SAP system on Oracle database are available. The documented solution optimizes Oracle licenses costs and migration efforts.
+Different alternatives to migrate an SAP system with Oracle database are available. The documented solution optimizes Oracle licenses costs and migration efforts.
 
-Use the following steps to migrate an SAP ERP 6.0 Core Component (ECC) System on Oracle.
+Use the following steps to migrate an SAP ERP 6.0 Core Component (ECC) System with Oracle.
 
 1. Start with the [Preparation Steps on Source System](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-source-prep) section.
 1. [Back up the Source Oracle Database by using RMAN](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-backup).
 1. Finalize the migration with steps that are described in section [Restore the Oracle Database on Target System](/docs/sap?topic=sap-sapmig-db-oracle#sapmig-db-oracle-restore).
 
-## Migration options for SAP ERP 6.0 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}
+## Migration options for SAP ERP 6.0 with IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}
 {: #sapmig-overview-migrating-sap-erp-db2}
 
-Multiple options to migrate SAP on IBM Db2 are possible. [Migrating SAP ERP 6.0 on IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-db2) describes two major options:
+Multiple options to migrate SAP with IBM Db2 are possible. [Migrating SAP ERP 6.0 with IBM Db2 to IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-sapmig-db-db2) describes two major options:
 
 - [Migration option 1 - Back up and restore](/docs/sap?topic=sap-sapmig-db-db2#sapmig-db-db2-option1-backup-restore) is the easier migration option, but has greater downtime during the complete migration.
 - [Migration option 2 - IBM Db2 high availability and disaster recovery (HADR)](/docs/sap?topic=sap-sapmig-db-db2#sapmig-db-db2-option2-backup-restore-hadr) is a downtime-optimized version. This option is more complex, but it has minimum downtime.
