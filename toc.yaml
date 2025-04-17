@@ -178,9 +178,9 @@ toc:
                       - navtitle: Deploying
                         topic: howto/vpc-intel-vsi/intel-vsi-provision-gen2-deploy-infrastructure.md
                       - navtitle: Using IBM Metrics Collector for SAP (IMCS) on Linux
-                        topic: howto/sap-ibm-metrics-collector-linux.md
+                        topic: howto/vpc-intel-vsi/intel-vsi-metrics-collector-linux.md
                       - navtitle: Using IBM Metrics Collector for SAP (IMCS) on Windows
-                        topic: howto/sap-ibm-metrics-collector-windows.md
+                        topic: howto/vpc-intel-vsi/intel-vsi-metrics-collector-windows.md
                 - topicgroup:
                     label: Intel Bare Metal in VPC
                     topics:
@@ -384,8 +384,8 @@ toc:
               topics:
                 - navtitle: Overview
                   topic: howto/monitoring-overview.md
-                - navtitle: Checking and preparing SAP system for monitoring
-                  topic: howto/powervs/powervs-monitoring-checking-and-preparing-sap-system.md
+                - navtitle: Prerequisites
+                  topic: howto/monitoring-prerequisites.md
                 - navtitle: Creating a monitoring instance
                   topic: howto/powervs/powervs-monitoring-creating-instance.md
                 - navtitle: Setting up and configuring a monitoring host

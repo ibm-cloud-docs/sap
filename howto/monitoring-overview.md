@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-08"
+lastupdated: "2025-04-17"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 ---
@@ -18,6 +18,8 @@ Monitoring for SAP system refers to the tools, techniques, and practices used to
 
 {{site.data.keyword.cloud}} Monitoring offers predefined SAP dashboards from {{site.data.keyword.cloud}} dashboard library free of charge.
 {: shortdesc}
+
+This monitoring solution applies to SAP workloads hosted on **x86_64 Virtual Server Instance and {{site.data.keyword.powerSys_notm}} Instances**.
 
 ## Dashboard features
 {: #monitoring-dashboard}
@@ -55,9 +57,9 @@ SAP system dashboard displays the following metrics from the virtual server runn
 ![Figure 1. {{site.data.keyword.cloud}} Monitoring for SAP systems](../images/monitoring-architecture.svg "{{site.data.keyword.cloud}} Monitoring for SAP systems"){: caption="{{site.data.keyword.cloud}} Monitoring for SAP systems" caption-side="bottom"}
 {: external download="sap-monitoring-in-ibm-cloud.svg"}
 
-- The metrics of SAP systems running on x86_64 VSI in {{site.data.keyword.vpc_short}} are collected by an application that is **only supported** on **SUSE Linux Enterprise Server (SLES)** running on x86_64 VSI in {{site.data.keyword.vpc_short}}.
-- The metrics of SAP systems running on {{site.data.keyword.powerSys_notm}} instance are collected by an application that is **only supported** on **SUSE Linux Enterprise Server (SLES)** running on x86_64 VSI in {{site.data.keyword.vpc_short}}.
-- The collected metrics from the application running on x86_64 VSI in {{site.data.keyword.vpc_short}} are then pushed to the [{{site.data.keyword.mon_full}}] instance using the [collector endpoints](/docs/monitoring?topic=monitoring-endpoints#endpoints_ingestion) where they are rendered on the dashboard.
+- The metrics of **SAP systems running on x86_64 VSI** in {{site.data.keyword.vpc_short}} are collected by an application that is **only supported** on **SUSE Linux Enterprise Server (SLES)** running on **x86_64 VSI in {{site.data.keyword.vpc_short}}**.
+- The metrics of **SAP systems running on {{site.data.keyword.powerSys_notm}}** instance are collected by an application that is **only supported** on **SUSE Linux Enterprise Server (SLES)** running on **x86_64 VSI in {{site.data.keyword.vpc_short}}**.
+- The collected metrics from the application running on **x86_64 VSI in {{site.data.keyword.vpc_short}}** are then pushed to the {{site.data.keyword.mon_full}} instance using the [collector endpoints](/docs/monitoring?topic=monitoring-endpoints#endpoints_ingestion) where they are rendered on the dashboard.
 
 The detailed information about {{site.data.keyword.mon_full}} is described in [Collecting metrics by using Prometheus remote write](/docs/monitoring?topic=monitoring-about-monitor){: external}.
 
@@ -69,7 +71,7 @@ This setup does not support SAP systems in a High Availability setup.
 
 To set up SAP monitoring, you must perform the following tasks.
 
-- [Checking and preparing SAP system for monitoring](/docs/sap?topic=sap-mon-preparing-system)
+- [Prerequisites](/docs/sap?topic=sap-monitoring-prereqs)
 - [Creating of monitoring instance in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-mon-create-instance)
 - [Setup and configuration of a monitoring host](/docs/sap?topic=sap-mon-exporter-setup-config)
 - [Configuration of Prometheus server metric forwarding](/docs/sap?topic=sap-mon-metric-forwarding)
