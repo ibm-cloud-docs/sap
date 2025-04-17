@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2025-02-13"
+lastupdated: "2025-04-16"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 ---
@@ -56,7 +56,7 @@ From this yaml code, you only need the URL value and the credentials values.
 These values are defined as the `<ibmcloud_monitoring_instance_url>` and `<ibmcloud_monitoring_authorization_credentials>`, which identify the monitoring instance.
 The yaml code looks like the following example.
 
-   ```yaml
+    ```yaml
     remote_write:
     - url: "https://ingest.prws.eu-de.monitoring.cloud.ibm.com/prometheus/remote/write"
       authorization:
