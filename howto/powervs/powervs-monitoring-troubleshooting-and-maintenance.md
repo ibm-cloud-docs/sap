@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-17"
+lastupdated: "2025-04-22"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 ---
@@ -221,7 +221,7 @@ systemctl status firewalld
 
 To show the SAP exporter metrics on the monitoring host, use the following command.
 
-Use the variables `<sap_monitoring_nr>` and the last two digits (default: 01) for service "Prometheus agent" that are in [Table 2](/docs/sap?topic=sap-monitoring-planning#monitoring-exposed-ports).
+Use the variables `<sap_monitoring_nr>` and the last two digits (default: 01) for service "Prometheus agent" that are in [Table 2](/docs/sap?topic=sap-monitoring-prereqs#monitoring-prereqs-exposed-ports).
 
 ```sh
 curl http://localhost:5${sap_monitoring_nr}01/metrics
