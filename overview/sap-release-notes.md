@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-04-11"
+lastupdated: "2025-04-29"
 keywords: SAP
 subcollection: sap
 ---
@@ -13,6 +13,13 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+## April 2025
+{: #sap-2025-04}
+
+- Enhanced the [fast path for Power Virtual Server](/docs/sap?topic=sap-fast-path-site-map-power-vs) with improved headings, intuitive navigation, and enriched informational content.
+- Introduced 3 new [x86_64 Bare Metal certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-list) for SAP HANA on IBM Cloud Classic
+- Introduced 12 new [x86_64 VSI  certified profiles (vx3*)](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc#certified-profiles-intel-sapphire-rapids) for SAP HANA on IBM Cloud VPC
 
 ## March 2025
 {: #sap-2025-03}

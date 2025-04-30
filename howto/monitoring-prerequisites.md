@@ -1,12 +1,9 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-17"
+lastupdated: "2025-04-29"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, {{site.data.keyword.powerSys_notm}}, Monitoring
 subcollection: sap
-content-type: tutorial
-services: IBM Cloud Monitoring Instance, SAP HANA system, firewall
-completion-time: 1h
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -14,9 +11,6 @@ completion-time: 1h
 
 # Prerequisites
 {: #monitoring-prereqs}
-{: toc-content-type="tutorial"}
-{: toc-services="IBM Cloud Monitoring Instance, SAP HANA system, firewall"}
-{: toc-completion-time="1h"}
 
 Prerequisite is a running SAP HANA system. This guide doesn't detail the installation of SAP HANA database and SAP NetWeaver solution.
 {: note}
@@ -25,7 +19,6 @@ This document outlines the necessary steps a user must follow to successfully im
 
 ## Gather SAP parameters
 {: #monitoring-prereqs-gather-sap-parameters}
-{: step}
 
 Gather the below parameter values from an existing SAP system running in IBM cloud. These values are required by the [SAP HANA DB exporter](https://github.com/SUSE/hanadb_exporter){: external} which will be installed and confiured on the x86_64 Virtual Server Instance runnning in {{site.data.keyword.vpc_short}}.
 
@@ -49,16 +42,7 @@ For more information, see [Determine SAP Parameters](/docs/sap?topic=sap-mon-par
 1. [HTTP port](/docs/sap?topic=sap-mon-parameter-harvesting-troubleshooting-maintenance#mon-list-https-port-of-sap-instance) of the sapstartsrv web service on the server where the SAP PAS instance is running.
 1. [HTTP port](/docs/sap?topic=sap-mon-parameter-harvesting-troubleshooting-maintenance#mon-list-https-port-of-sap-instance) of the sapstartsrv web service on the server where the SAP AAS instance is running(if any).
 
-### Parameters from IBM Cloud Monitoring instance
-{: #monitoring-prereqs-monitoring-instance}
-
-If you do not have an existing {{site.data.keyword.mon_full_notm}} Instance, follow the guide [Creating an {{site.data.keyword.mon_full_notm}} instance](/docs/sap?topic=sap-mon-create-instance) to create.
-
-1. Ingestion endpoint URL of the {{site.data.keyword.mon_full_notm}} instance for Prometheus remote write. The keyword `private.` is added to the URL and is used in the Prometheus agent configuration. Example `https://ingest.prws.private.eu-de.monitoring.cloud.ibm.com/prometheus/remote/write`.
-1. Access key of the {{site.data.keyword.mon_full_notm}} instance which will be used for authentication by Prometheus agent.
-
-
-The following port numbers will be exposed from the x86_64 virtual server instance running in {{site.data.keyword.vpc_short}} acting as monitoring host.
+The following port numbers will be exposed from the **x86_64 virtual server instance** running in {{site.data.keyword.vpc_short}} which servers as a **monitoring host**.
 The corresponding services are based on the [SAP HANA Database exporter](https://github.com/SUSE/hanadb_exporter/tree/main){: external} variables.
 
 | Exposed port numbers      | Service description                                                |
@@ -80,7 +64,6 @@ That is, the names of the `systemd` processes and the numbers of the locally exp
 
 ## Check firewall settings on the SAP system
 {: #monitoring-prereqs-check-firewall-settings}
-{: step}
 
 {{site.data.keyword.cloud}} provides configured ACLs (Access Control Lists) and security groups for each subnet.
 
@@ -101,7 +84,6 @@ That is, the names of the `systemd` processes and the numbers of the locally exp
 
 ## Creating an SAP HANA database monitoring user with ReadOnly permission(Optional)
 {: #monitoring-create-readonly-hdb-user}
-{: step}
 
 Skip this step if you already have a read only user and you are okay to use the same SAP HANA database user for monitoring role.
 
@@ -125,7 +107,6 @@ GRANT HANADB_EXPORTER_ROLE TO <sap_hana_sql_systemdb_user>;
 
 ## Setting Up passwordless authentication for SAP monitoring
 {: #monitoring-passwordless-authentication}
-{: step}
 
 Configure your SAP System to allow the monitoring queries without user and password authentication.
 {: shortdesc}
