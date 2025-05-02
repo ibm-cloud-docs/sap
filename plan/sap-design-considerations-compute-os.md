@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-04"
+lastupdated: "2025-05-02"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -42,7 +42,7 @@ CPU thread consumption affects the following processes.
 
 
 ### Compute Profiles of SAP-certified Bare Metal on Classic Infrastructure
-{: #compute-baremetal}
+{: #compute-baremetal-classic}
 
 You are offered SAP-certified servers, which have various pre-configured combinations of the amount of RAM and number of CPUs.
 
@@ -56,7 +56,7 @@ For more information, see [Intel Bare Metal servers on Classic Infrastructure](/
 
 
 ### Compute Profiles of SAP-certified Bare Metal on VPC Infrastructure
-{: #compute-baremetal}
+{: #compute-baremetal-vpc}
 
 SAP HANA database servers and SAP Application Servers run on {{site.data.keyword.cloud_notm}} VPC using [Intel Virtual Server certified profiles on Classic infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm).
 In addition, SAP Application Servers run on {{site.data.keyword.cloud_notm}} Classic using [Intel Bare Metal server certified profiles on Classic infrastructure for SAP Application Server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm).
