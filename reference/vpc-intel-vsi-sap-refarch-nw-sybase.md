@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-05-05"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Sybase
 subcollection: sap
 ---
@@ -67,15 +67,15 @@ The virtual server instance has these components:
 #### Architecture of SAP NetWeaver Application Server ABAP
 {: #sap-refarch-nw-as-abap}
 
-SAP tools create a PAS Instance and an ASCS Instance. This method is the standard for Java Stack (System) and is now standard for ABAP Stack.
+SAP tools create a PAS instance and an ASCS instance. This method is the standard for Java Stack (System) and is now standard for ABAP Stack.
 
 1. The Primary Application Server (PAS) - An instance is an administrative unit that contains various components of an SAP system. The components of an instance are parameterized in a shared instance profile. Each instance is identified by a system ID and an instance number and includes:
 
-   * [SAP Web Dispatcher](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) & Work Process (DIA,BTC,UPD,SPOOL) - The SAP Web Dispatcher lies between the internet and your SAP system. The SAP Web Dispatcher is the entry point for HTTP and HTTPs requests into your system, which consists of one or more SAP NetWeaver application servers. As a “software web switch”, the SAP Web dispatcher can reject or accept connections. When it accepts a connection, it balances the load to ensure an even distribution across the servers. The SAP Web Dispatcher contributes to security and also balances the load in your SAP system.
+   * [SAP Web Dispatcher](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm){: external} & Work Process (DIA,BTC,UPD,SPOOL) - The SAP Web Dispatcher lies between the internet and your SAP system. The SAP Web Dispatcher is the entry point for HTTP and HTTPs requests into your system, which consists of one or more SAP NetWeaver application servers. As a “software web switch”, the SAP Web dispatcher can reject or accept connections. When it accepts a connection, it balances the load to ensure an even distribution across the servers. The SAP Web Dispatcher contributes to security and also balances the load in your SAP system.
 
-     You can use the SAP Web Dispatcher in ABAP and Java systems, in pure Java systems, and in pure ABAP systems.
+    You can use the SAP Web Dispatcher in ABAP and Java systems, in pure Java systems, and in pure ABAP systems.
 
-   * [SAP Gateway Service](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) - The SAP Gateway carries out RFC services within the SAP world, which are based on [TCP/IP](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/35/26b431afab52b9e10000009b38f974/content.htm){: external}. These services enable SAP Systems and external programs to communicate with one another. RFC services can be used either in the ABAP program or for the external programs that use the interfaces. RFC can be used between processes of an instance or a system, or between systems.
+   * [SAP Gateway Service](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm){: external} - The SAP Gateway carries out RFC services within the SAP world, which are based on [TCP/IP](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/35/26b431afab52b9e10000009b38f974/content.htm){: external}. These services enable SAP Systems and external programs to communicate with one another. RFC services can be used either in the ABAP program or for the external programs that use the interfaces. RFC can be used between processes of an instance or a system, or between systems.
 
    * [ICM (Internet Communication Manager)](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) Service - Application server component that receives and dispatches Web requests (HTTP(S), SMTP, …). ICM evaluates the URL and forwards requests to AS ABAP or AS Java.
    *  IGS (Internet Graphic Server)
