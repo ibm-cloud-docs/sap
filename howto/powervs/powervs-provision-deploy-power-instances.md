@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-26"
+lastupdated: "2025-05-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
@@ -186,7 +186,7 @@ Complete the following steps on your {{site.data.keyword.powerSys_notm}} instanc
 ### Checking IBM subscription for an operating system image
 {: #powervs-register-os}
 
-To ensure that the OS subscription is set up correctly, check a subscription manager by running:
+To ensure that the OS subscription is set up correctly, check for a subscription by running:
 
 [RHEL]{: tag-red}:
 
@@ -200,8 +200,6 @@ subscription-manager list
 ```
 {: pre}
 
-[SLES]{: tag-green}:
-
 ```sh
 yum repolist
 ```
@@ -214,7 +212,9 @@ subscription-manager status
 ```
 {: pre}
 
-Then run a system update.
+
+
+Then run a system update. This will also update the installed Power Tools.
 
 [RHEL]{: tag-red}:
 
