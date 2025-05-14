@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-05-12"
+lastupdated: "2025-05-14"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
@@ -212,7 +212,35 @@ subscription-manager status
 ```
 {: pre}
 
+[SLES]{: tag-green}:
 
+```sh
+SUSEConnect --status
+```
+{: pre}
+
+Enable the IBM Power Tools repository using:
+
+```sh
+/opt/ibm/lop/configure
+```
+{: pre}
+
+check if repo is enabled:
+
+[RHEL]{: tag-red}:
+
+```sh
+yum repolist enabled
+```
+{: pre}
+
+[SLES]{: tag-green}:
+
+```sh
+zypper lr
+```
+{: pre}
 
 Then run a system update. This will also update the installed Power Tools.
 
@@ -548,6 +576,12 @@ Sample output:
 /dev/mapper/sharedvg-sharedlv /hana/shared xfs defaults,nofail 0 0
 ```
 {: screen}
+
+On RHEL 8.8 and RHEL 8.10 please run the following command as a workaround to prevent the logical volumes from becoming inactive after reboot:
+
+```sh
+dracut --force --verbose
+```
 
 It might be necessary to reboot the operating system.
 Then check that the LV setup is still correct and proceed to the [Preparing for SAP Installation](#powervs-prepare-sap-installation) section.
