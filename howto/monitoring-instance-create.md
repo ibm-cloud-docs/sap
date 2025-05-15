@@ -1,6 +1,6 @@
 ---
 copyright:
-  years: 2024, 2025
+  years: 2024, [{CURRENT_YEAR}]
 lastupdated: "2025-05-15"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
@@ -10,7 +10,6 @@ completion-time: 10m
 ---
 
 {{site.data.keyword.attribute-definition-list}}
-
 
 # Creating an {{site.data.keyword.mon_full_notm}} instance
 {: #monitoring-instance}
@@ -56,26 +55,25 @@ Retrieve the authorization credentials after you create the {{site.data.keyword.
 1. Select your monitoring instance from the table and click **Open dashboard**.
 1. Click **Get started**. Your credential values are in the dashboard.
 1. Click **Optional: Connect your Prometheus Servers** to find the yaml-code with authorization credentials.
+1. From this yaml code, you only need the URL value and the credentials values.
+   The yaml code looks like the following example.
 
-From this yaml code, you only need the URL value and the credentials values.
-The yaml code looks like the following example.
-
-   ```yaml
-    remote_write:
-    - url: "https://ingest.prws.eu-de.monitoring.cloud.ibm.com/prometheus/remote/write"
-      authorization:
-        credentials: "123-abcdh-xxx-456"
-   ```
-   {: codeblock}
+      ```yaml
+      remote_write:
+      - url: "https://ingest.prws.eu-de.monitoring.cloud.ibm.com/prometheus/remote/write"
+         authorization:
+         credentials: "123-abcdh-xxx-456"
+      ```
+      {: codeblock}
 
 1. In the URL, replace the string `ingest.prws` with `ingest.prws.private` as the private ingestion endpoint.
 
-The new URL looks like the following example.
+   The new URL looks like the following example.
 
-   ```yaml
-    https://ingest.prws.private.<region>.monitoring.cloud.ibm.com/prometheus/remote/write
-   ```
-   {: screen}
+      ```yaml
+      https://ingest.prws.private.<region>.monitoring.cloud.ibm.com/prometheus/remote/write
+      ```
+      {: screen}
 
 1. For a list of all private ingestion endpoints per region, refer to the IBM Cloud documentation that is described in
 

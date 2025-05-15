@@ -387,7 +387,7 @@ toc:
                 - navtitle: Prerequisites
                   topic: howto/monitoring-prerequisites.md
                 - navtitle: IBM Cloud Monitoring instance
-                  topic: howto/powervs/powervs-monitoring-creating-instance.md
+                  topic: howto/monitoring-instance-create.md
                 - navtitle: Setting up and configuring a monitoring host
                   topic: howto/powervs/powervs-monitoring-exporter-setup-config.md
                 - navtitle: Configuring Prometheus server metric forwarding
@@ -395,7 +395,7 @@ toc:
                 - navtitle: Launching the monitoring UI and working with dashboards
                   topic: howto/powervs/powervs-monitoring-launch-web-ui-and-dashboards.md
                 - navtitle: Parameter harvesting, troubleshooting, and maintenance
-                  topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md 
+                  topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md
           - topicgroup:
               label: Backup strategies
               topics:
