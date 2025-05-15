@@ -386,7 +386,7 @@ toc:
                   topic: howto/monitoring-overview.md
                 - navtitle: Prerequisites
                   topic: howto/monitoring-prerequisites.md
-                - navtitle: Creating a monitoring instance
+                - navtitle: IBM Cloud Monitoring instance
                   topic: howto/powervs/powervs-monitoring-creating-instance.md
                 - navtitle: Setting up and configuring a monitoring host
                   topic: howto/powervs/powervs-monitoring-exporter-setup-config.md
