@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, [{CURRENT_YEAR}]
-lastupdated: "2025-05-15"
+  years: 2024, 2025
+lastupdated: "2025-05-19"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 content-type: tutorial
@@ -10,6 +10,7 @@ completion-time: 10m
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # Creating an {{site.data.keyword.mon_full_notm}} instance
 {: #monitoring-instance}

@@ -220,6 +220,8 @@ toc:
                         topic: howto/powervs/powervs-provision-deploy-power-infrastructure.md
                       - navtitle: Deploying SAP applications on Power Virtual Server
                         topic: howto/powervs/powervs-provision-deploy-power-instances.md
+                      - navtitle: Building custom OS images for RHEL for SAP solutions on Power Virtual Server
+                        topic: howto/powervs/powervs-custom-os-image-build-rhel.md
           - topicgroup:
               label: Terraform for SAP solutions on Intel VPC
               topics:
@@ -395,7 +397,7 @@ toc:
                 - navtitle: Launching the monitoring UI and working with dashboards
                   topic: howto/powervs/powervs-monitoring-launch-web-ui-and-dashboards.md
                 - navtitle: Parameter harvesting, troubleshooting, and maintenance
-                  topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md
+                  topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md 
           - topicgroup:
               label: Backup strategies
               topics:
