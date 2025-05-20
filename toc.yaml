@@ -332,6 +332,18 @@ toc:
                       - navtitle: Deploying
                         topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-ase-sybase-standalone-vsi.md
           - topicgroup:
+              label: SAP workloads in VPC
+              topics:
+                - navtitle: Introduction to SAP workloads in VPC
+                  topic: howto/vpc-intel-vsi/intel-vsi-terraform-sap-workloads-vpc-overview.md
+                - topicgroup:
+                    label: SAP NetWeaver with Db2
+                    topics:
+                      - navtitle: Overview
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-nw-db2-rhel-overview.md
+                      - navtitle: Deploying
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-nw-db2-rhel-deploy.md
+          - topicgroup:
               label: High availability scenarios on Power Virtual Server
               topics:
                 - navtitle: Overview
