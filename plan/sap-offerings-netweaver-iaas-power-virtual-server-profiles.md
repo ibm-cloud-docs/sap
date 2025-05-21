@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-20"
+lastupdated: "2025-05-21"
 keywords: Powervs, Certified Profile, Netweaver, {{site.data.keyword.powerSys_notm}},
 subcollection: sap
 ---
@@ -54,30 +54,30 @@ SAP Application Server profile names follow a contextual and sequential naming c
 
 The following predefined SAP Application Server profiles with prefix **sr2** on IBM {{site.data.keyword.powerSys_notm}} are available. Profiles with **sr2** prefix are custom profiles that may be deployed through **CLI or API only**.
 
-| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS**  | **SMT Mode** |  **Workload Type**                    |
+| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS**  | **SMT Mode**               |  **Workload Type**                    |
 | ------------------- | ------------- | ---------------- | ---------------- | --------- | -------------------------- | ------------------------------------- |
-| sr2-2x32	          | 2	            |      16	         |  32	            |  15,200	  | SMT8	                     |  SAP Application Server/SAP NetWeaver |
-| sr2-3x64	          | 3	            |      24	         |  64	            |  22,800	  | SMT8	                     |  SAP Application Server/SAP NetWeaver |
-| sr2-4x64	          | 4	            |      32	         |  64	            |  30,400	  | SMT8	                     |  SAP Application Server/SAP NetWeaver |
-| sr2-6x128	          | 6	            |      48	         |  128	            |  45,600	  | SMT8	                     |  SAP Application Server/SAP NetWeaver |
-| sr2-8x128	          | 8	            |      64	         |  128	            |  60,800	  | SMT8	                     |  SAP Application Server/SAP NetWeaver |
-| sr2-12x256	        | 12            |      96	         |  256	            |  91,200	  | SMT8	                     |  SAP Application Server/SAP NetWeaver |
-| sr2-16x256	        | 16            |      128         |	256	            |  121,600	| SMT8                       |  SAP Application Server/SAP NetWeaver |
+| sr2-2x32            | 2	            |      16          |  32              |  15,200   | SMT8                       |  SAP Application Server/SAP NetWeaver |
+| sr2-3x64            | 3	            |      24          |  64              |  22,800   | SMT8                       |  SAP Application Server/SAP NetWeaver |
+| sr2-4x64            | 4	            |      32          |  64              |  30,400   | SMT8                       |  SAP Application Server/SAP NetWeaver |
+| sr2-6x128           | 6	            |      48          |  128             |  45,600   | SMT8                       |  SAP Application Server/SAP NetWeaver |
+| sr2-8x128	          | 8	            |      64          |  128             |  60,800   | SMT8                       |  SAP Application Server/SAP NetWeaver |
+| sr2-12x256          | 12            |      96          |  256             |  91,200   | SMT8                       |  SAP Application Server/SAP NetWeaver |
+| sr2-16x256          | 16            |      128         |  256             |  121,600  | SMT8                       |  SAP Application Server/SAP NetWeaver |
 {: class="simple-tab-table"}
 {: tab-group="sr2-nw-table"}
 {: caption="P10 predefined Instance profiles with sr2 prefix for SAP Application Servers" caption-side="bottom"}
 {: #sr2-nw-profiles-instance}
 {: tab-title="Instance Profile"}
 
-| Profile\nname          | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained|
-|----------------------- |-------------- |------------------------ |----------------------|---------------|
-|   sr2-2x32	           |       -	     |  1 x 50GB	             | Tier 0	              |    1,250      |
-|   sr2-3x64	           |       -	     |  1 x 50GB	             | Tier 0	              |    1,250      |
-|   sr2-4x64	           |       -	     |  1 x 50GB	             | Tier 0	              |    1,250      |
-|   sr2-6x128	           |       -	     |  1 x 50GB	             | Tier 0	              |    1,250      |
-|   sr2-8x128	           |       -	     |  1 x 50GB	             | Tier 0	              |    1,250      |
-|   sr2-12x256	         |       -	     |  1 x 50GB	             | Tier 0	              |    1,250      |
-|   sr2-16x256	         |       -	     |  1 x 50GB	             | Tier 0	              |    1,250      |
+| Profile\nname          | Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained|
+|----------------------- |------------------------ |----------------------|---------------|
+|   sr2-2x32             |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr2-3x64             |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr2-4x64             |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr2-6x128            |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr2-8x128            |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr2-12x256           |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr2-16x256           |  1 x 50GB               | Tier 0               |    1,250      |
 {: class="simple-tab-table"}
 {: tab-group="sr2-nw-table"}
 {: caption="Sample file system configurations for SAP Application Server profiles with sr2 prefix" caption-side="bottom"}
