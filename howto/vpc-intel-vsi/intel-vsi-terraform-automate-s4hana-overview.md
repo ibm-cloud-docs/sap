@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-27"
+lastupdated: "2025-05-22"
 keywords: S4HANA, automation, ansible, VPC
 subcollection: sap
 ---
