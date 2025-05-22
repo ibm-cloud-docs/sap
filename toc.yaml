@@ -335,14 +335,14 @@ toc:
               label: SAP workloads in VPC
               topics:
                 - navtitle: Introduction to SAP workloads in VPC
-                  topic: howto/vpc-intel-vsi/intel-vsi-terraform-sap-workloads-vpc-overview.md
+                  topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-vpc-overview.md
                 - topicgroup:
                     label: SAP NetWeaver with Db2
                     topics:
                       - navtitle: Overview
-                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-nw-db2-rhel-overview.md
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-db2-rhel-overview.md
                       - navtitle: Deploying
-                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-nw-db2-rhel-deploy.md
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-db2-rhel-deploy.md
           - topicgroup:
               label: High availability scenarios on Power Virtual Server
               topics:
@@ -409,7 +409,7 @@ toc:
                 - navtitle: Launching the monitoring UI and working with dashboards
                   topic: howto/powervs/powervs-monitoring-launch-web-ui-and-dashboards.md
                 - navtitle: Parameter harvesting, troubleshooting, and maintenance
-                  topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md 
+                  topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md
           - topicgroup:
               label: Backup strategies
               topics:

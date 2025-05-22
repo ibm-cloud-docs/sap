@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-20"
+lastupdated: "2025-05-22"
 keywords:
 subcollection: sap
 ---
@@ -123,12 +123,12 @@ For more information and procedures regarding IBM Cloud VPC file share resource,
 ## File system preparation
 {: #file system-prep}
 
-The installation of the SAP NetWeaver 7.5 with Db2 on RHEL 9.4 is performed based on the  file system layout:
+The installation of the SAP NetWeaver 7.5 with Db2 on RHEL 9.4 is performed based on the file system layout:
 
 | Disk name| Disk size (GB) | Physical volume | Volume group | Logical volume name | Logical volumn size (GB) | File system | Mount point |
 | - | - | - | - | - | - | - | - |
 | vdb | 256 | /dev/vdb | dtw_data_vg | dtw_db2_lv \n dtw_db2software_lv \n dtw_db2dump_lv \n dtw_sapdata1_lv \n dtw_sapdata2_lv \n dtw_sapdata3_lv \n dtw_sapdata4_lv \n dtw_saptmp1_lv \n dtw_saptmp2_lv \n dtw_saptmp3_lv \n dtw_saptmp4_lv | 2 \n 5 \n 5 \n 25 \n 25 \n 25 \n 25 \n 5 \n 5 \n 5 \n 5 |  /dev/dtw_data_vg/dtw_db2_lv \n /dev/dtw_data_vg/dtw_db2software_lv \n /dev/dtw_data_vg/dtw_db2dump_lv \n /dev/dtw_data_vg/dtw_sapdata1_lv \n /dev/dtw_data_vg/dtw_sapdata2_lv \n /dev/dtw_data_vg/dtw_sapdata3_lv \n /dev/dtw_data_vg/dtw_sapdata4_lv \n /dev/dtw_data_vg/dtw_saptmp1_lv \n /dev/dtw_data_vg/dtw_saptmp2_lv \n /dev/dtw_data_vg/dtw_saptmp3_lv \n /dev/dtw_data_vg/dtw_saptmp4_lv | /db2/DTW \n /db2/db2dtw \n /db2/db2dtw \n /db2/DTW/db2dump \n /db2/DTW/sapdata1 \n /db2/DTW/sapdata2 \n /db2/DTW/sapdata3 \n /db2/DTW/sapdata4 \n /db2/DTW/saptmp1 \n /db2/DTW/saptmp2 \n /db2/DTW/saptmp3 \n /db2/DTW/saptmp4 |
-| vdc | 64 | /dev/vdb | dtw_arch_vg | dtw_archlog_lv | 50 | /dev/dtw_arch_vg/dtw_archlog_lv | /db2/DTW/log_archive |
+| vdc | 64 | /dev/vdc | dtw_arch_vg | dtw_archlog_lv | 50 | /dev/dtw_arch_vg/dtw_archlog_lv | /db2/DTW/log_archive |
 | vdd | 32 | /dev/vdd | dtw_log_vg | dtw_log_lv | 25 | /dev/dtw_log_vg/dtw_log_lv | /db2/DTW/log_dir |
 | vde | 128 | /dev/vde | dtw_app_vg | dtw_sap_lv \n dtw_sapmnt_lv \n dtw_saptrans_lv \n dtw_usrsap_lv | 20 \n 20 \n 50 \n 5 | /dev/dtw_app_vg/dtw_sap_lv \n /dev/dtw_app_vg/dtw_sapmnt_lv \n /dev/dtw_app_vg/dtw_saptrans_lv \n /dev/dtw_app_vg/dtw_usrsap_lv | /usrsap \n /sapmnt/DTW \n /usr/sap/trans \n /usr/sap/DTW |
 | vdf | 64 | /dev/vdf | dtw_swap_vg | dtw_swap_lv | 60 | /dev/dtw_swap_vg/dtw_swap_lv | [SWAP] |

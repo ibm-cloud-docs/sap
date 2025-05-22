@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-22"
 keywords: SAP
 subcollection: sap
 ---
@@ -14,12 +14,19 @@ subcollection: sap
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
 
+## May 2025
+{: #sap-2025-05}
+
+- You can deploy [SAP Application Server/SAP NetWeaver sr2 profiles](docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs) on IBM {{site.data.keyword.powerSys_notm}}s.
+- New documentation: [Custom OS image build process](/docs/sap?topic=sap-custom-os-image-build-rhel-overview) on RHEL for SAP solutions on IBM {{site.data.keyword.powerSys_notm}}.
+- New documentation: [SAP NetWeaver with Db2](/docs/sap?topic=sap-overview-sap-db2) on RHEL x86_64 Virtual Server Instance in {{site.data.keyword.vpc_short}}.
+
 ## April 2025
 {: #sap-2025-04}
 
 - Enhanced the [fast path for Power Virtual Server](/docs/sap?topic=sap-fast-path-site-map-power-vs) with improved headings, intuitive navigation, and enriched informational content.
-- Introduced 3 new [x86_64 Bare Metal certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-list) for SAP HANA on IBM Cloud Classic
-- Introduced 12 new [x86_64 VSI  certified profiles (vx3*)](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc#certified-profiles-intel-sapphire-rapids) for SAP HANA on IBM Cloud VPC
+- Introduced 3 new [x86_64 Bare Metal certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-list) for SAP HANA on IBM Cloud Classic.
+- Introduced 12 new [x86_64 VSI  certified profiles (vx3*)](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc#certified-profiles-intel-sapphire-rapids) for SAP HANA on IBM Cloud VPC.
 
 ## March 2025
 {: #sap-2025-03}
