@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-05-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -176,9 +176,6 @@ Use of scale-out is primarily designed for SAP BW/4HANA or SAP BW on HANA. The [
 
 It is important to note that if your SAP HANA database server nodes or SAP NetWeaver application server components are distributed across multiple availability zones and data centers, SAP will not support your SAP HANA scale-out cluster (also known as, SAP HANA multi-node system).
 {: note}
-
-{{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s does not support scale-out for either OLAP or OLTP processing types.
-{: important}
 
 #### Networking
 {: #hana-system-type-scale-out-networking}
