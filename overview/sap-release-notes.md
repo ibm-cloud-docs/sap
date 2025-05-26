@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-22"
+lastupdated: "2025-05-26"
 keywords: SAP
 subcollection: sap
 ---
@@ -17,7 +17,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 ## May 2025
 {: #sap-2025-05}
 
-- You can deploy [SAP Application Server/SAP NetWeaver sr2 profiles](docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs) on IBM {{site.data.keyword.powerSys_notm}}s.
+- You can deploy [SAP Application Server/SAP NetWeaver sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs) on IBM {{site.data.keyword.powerSys_notm}}s.
 - New documentation: [Custom OS image build process](/docs/sap?topic=sap-custom-os-image-build-rhel-overview) on RHEL for SAP solutions on IBM {{site.data.keyword.powerSys_notm}}.
 - New documentation: [SAP NetWeaver with Db2](/docs/sap?topic=sap-overview-sap-db2) on RHEL x86_64 Virtual Server Instance in {{site.data.keyword.vpc_short}}.
 

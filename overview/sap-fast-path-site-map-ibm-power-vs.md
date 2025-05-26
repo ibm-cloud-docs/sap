@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-22"
+lastupdated: "2025-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -131,7 +131,7 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 
 - Setting-up
    - [Prerequisites](/docs/sap?topic=sap-monitoring-prereqs)
-   - [Creating a monitoring instance in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-mon-create-instance)
+   - [Creating a monitoring instance in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-monitoring-instance)
    - [Setup and configuration of a monitoring host](/docs/sap?topic=sap-mon-exporter-setup-config)
    - [Configuration of Prometheus server metric forwarding](/docs/sap?topic=sap-mon-metric-forwarding)
    - [Launching the monitoring UI and working with dashboards](/docs/sap?topic=sap-mon-launch-web-ui-dashboards)

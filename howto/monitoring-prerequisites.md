@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-26"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, {{site.data.keyword.powerSys_notm}}, Monitoring
 subcollection: sap
 ---
@@ -222,4 +222,4 @@ Add a line to the SAP default profile:
 ## Next steps
 {: #monitoring-prereqs-next-steps}
 
-After the prerequisites are met, you can proceed to the next step [Creating an {{site.data.keyword.mon_full_notm}} Instance](/docs/sap?topic=sap-mon-create-instance).
+After the prerequisites are met, you can proceed to the next step [Creating an {{site.data.keyword.mon_full_notm}} Instance](/docs/sap?topic=sap-monitoring-instance).

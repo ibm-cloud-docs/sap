@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-17"
+lastupdated: "2025-05-26"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 ---
@@ -72,7 +72,7 @@ This setup does not support SAP systems in a High Availability setup.
 To set up SAP monitoring, you must perform the following tasks.
 
 - [Prerequisites](/docs/sap?topic=sap-monitoring-prereqs)
-- [Creating of monitoring instance in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-mon-create-instance)
+- [Creating an {{site.data.keyword.mon_full_notm}} Instance](/docs/sap?topic=sap-monitoring-instance)
 - [Setup and configuration of a monitoring host](/docs/sap?topic=sap-mon-exporter-setup-config)
 - [Configuration of Prometheus server metric forwarding](/docs/sap?topic=sap-mon-metric-forwarding)
 - [Launch the monitoring web UI and work with dashboards](/docs/sap?topic=sap-mon-launch-web-ui-dashboards)
