@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-22"
+lastupdated: "2025-05-23"
 keywords:
 subcollection: sap
 ---
@@ -18,7 +18,7 @@ The deployment for SAP NetWeaver 7.5 with Db2 on RHEL 9.4 is performed in phases
 2. [Cloud resource deployment](/docs/sap?topic=sap-deploy-sap-db2#cloud-resource-deploy)
 3. [File system preparation](/docs/sap?topic=sap-deploy-sap-db2#file)
 4. [Operating system preparation](/docs/sap?topic=sap-deploy-sap-db2#os-prep)
-5. [Installation of SAP NetWeaver 7.5 with DB2 on RHEL 9.4 with Software Provisioning Manager (SWPM)](/docs/sap?topic=sap-deploy-sap-db2#install-sapnw-db2)
+5. [Installation of SAP NetWeaver 7.5 with Db2 on RHEL 9.4 with Software Provisioning Manager (SWPM)](/docs/sap?topic=sap-deploy-sap-db2#install-sapnw-db2)
 
 ## Cloud infrastructure planning
 {: #cloud-infra-plan}
@@ -121,7 +121,7 @@ For demonstration purposes, the file system `/usr/sap/trans` is used in two diff
 For more information and procedures regarding IBM Cloud VPC file share resource, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
 
 ## File system preparation
-{: #file system-prep}
+{: #file-system-prep}
 
 The installation of the SAP NetWeaver 7.5 with Db2 on RHEL 9.4 is performed based on the file system layout:
 

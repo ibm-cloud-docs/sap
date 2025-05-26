@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-23"
+lastupdated: "2025-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -129,7 +129,7 @@ For expert sizing, the following steps are likely to be performed (source: [Sizi
 
 Supported hardware for SAP HANA depends on the deployment method. The TDI deployment method uses **custom-defined hardware** by SAP-certified hardware partners that use flexible OS or SAP HANA versions; these can be configured to any size (under the maximum configuration tested by SAP).
 
-Partners (such as Cloud Service Providers) offer TDI with various configuration options and redundancy options. Thes options depend on whether you select scale-up or scale-out sizing, and must be installed by an appointed SAP HANA certified administrator. These **_may_** include:
+Partners (such as Cloud Service Providers) offer TDI with various configuration options and redundancy options. These options depend on whether you select scale-up or scale-out sizing, and must be installed by an appointed SAP HANA certified administrator. These **_may_** include:
 
 * Redundant power supplies and fans and uninterrupted power supply (UPS)
 * Enterprise grade error-correcting memories
@@ -139,7 +139,7 @@ Partners (such as Cloud Service Providers) offer TDI with various configuration 
 
 SAP and a cloud service provider agree to support the customer for a selected scale-up or scale-out sizing by using SAP-certified IaaS for SAP HANA with the TDI deployment method:
 
-- This provides different system design options regarding scale-up and scale-out variations; the SAP HANA database must then be validated before use in Production systems that use the SAP HANA Hardware Configuration Check Tool for TDI testing when requested by the SAP Support organization.
+- This provides different system design options regarding scale-up and scale-out variations; the SAP HANA database must then be validated before use in Production systems that use the SAP HANA Hardware and Cloud Measurement Tool (HCMT) for TDI testing when requested by the SAP Support organization.
 - To maximize performance and throughput, SAP recommends that you scale up as far as possible (acquire the configuration with the highest processor and memory specification for the application workload) before scaling out (for deployments with greater data volume requirements).
 
 ## SAP HANA Deployment Types
@@ -148,15 +148,15 @@ SAP and a cloud service provider agree to support the customer for a selected sc
 SAP HANA can be deployed in various layouts, with various configurations of abstraction and logical separation of database schemas. Different deployment types are designed for different use cases, and SAP defines those which are approved (with/without restrictions) for production SAP Systems and those which are not approved. See detailed information here on [SAP HANA Deployment Types - SAP HANA Server Installation and Update Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/6483b71787f2439c907bd99036559e72.html){: external} and a summary of this information:
 
 * Approved for production
-    * Dedicated also known as. Single Application on One SAP HANA System (SCOS)
+    * Dedicated also known as. single application on one SAP HANA System (SCOS)
     * Multitenant Database Containers (MDC)
 * Approved for production (with restrictions)
     * Virtualized Single Tenant - restrictions to the hypervisor; see [SAP Note 1788665 - SAP HANA Support for virtualized / partitioned (multi-tenant) environments](https://me.sap.com/notes/1788665){: external}
-    * Multiple Applications on One SAP HANA System (MCOD) - supported only for approved applications; see [SAP Note 1661202 - Support multiple applications one SAP HANA database / tenant DB](https://me.sap.com/notes/1661202){: external}
-    * Multiple SAP HANA Systems on One Host (MCOS)
+    * Multiple applications on one SAP HANA System (MCOD) - supported only for approved applications; see [SAP Note 1661202 - Support multiple applications one SAP HANA database / tenant DB](https://me.sap.com/notes/1661202){: external}
+    * Multiple SAP HANA Systems on one host (MCOS)
 
-Multi-SID hosted with the same physical host, requires significant attention to detailed tasks related to system administration and performance management. For more information, see [SAP Note 1681092 - Multiple SAP HANA systems (SIDs) on the same underlying servers](https://me.sap.com/notes/1681092){: external}
-{: note}
+    Multi-SID hosted with the same physical host, requires significant attention to detailed tasks related to system administration and performance management. For more information, see [SAP Note 1681092 - Multiple SAP HANA systems (SIDs) on the same underlying servers](https://me.sap.com/notes/1681092){: external}
+    {: note}
 
 ## SAP HANA System Type
 {: #hana-system-type}
@@ -167,7 +167,7 @@ System Types are listed by SAP on [SAP HANA System Types](https://help.sap.com/d
 
 A single-host system is the simplest system installation type. It is possible to run an SAP HANA system entirely on one host server and then scale the system up as needed.
 
-A multi-node / distributed / scale-out cluster is a system installation across multiple host servers with a limit on the CPU/RAM for each host node and a limit on the number of host nodes that can be used. _Information on the maximum scale-out configurations, is listed in the [SAP HANA Hardware Directory - Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas){: external}._
+A multi-node / distributed / scale-out cluster is a system installation across multiple host servers with a limit on the CPU/RAM for each host node and a limit on the number of host nodes that can be used. _Information on the maximum scale-out configurations, is listed in the [SAP Note 3557729 - Understanding the Maximum Number of Nodes in SAP HANA TDI Scale-Out System](https://me.sap.com/notes/3557729/E){: external}._
 
 ### SAP HANA scale-out cluster
 {: #hana-system-type-scale-out}

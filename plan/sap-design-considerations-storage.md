@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-10"
+lastupdated: "2025-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -40,7 +40,9 @@ For example:
 
 With any SAP HANA certified profile that is listed as Appliance, storage is already provided or must be attached precisely as described.
 
-When you provision more storage for an SAP HANA instance, you must adhere to mandatory TDI storage requirements. For more information, see [IBM System Storage Architecture and Configuration Guide for SAP HANA TDI v2.31.pdf](https://www.ibm.com/support/pages/system/files/inline-files/IBM%20System%20Storage%20Architecture%20and%20Configuration%20Guide%20for%20SAP%20HANA%20TDI%20v2.31.pdf){: external}.
+When you provision more storage for an SAP HANA instance, you must adhere to mandatory TDI storage requirements. See the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external}, [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external}, [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}, and follow the instructions of the [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}. Additional guidance you may find [here](https://learning.sap.com/learning-journeys/installing-and-administering-sap-hana/outlining-how-to-use-the-hardware-measurement-tool){: external}.
+
+For more information for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}, see [IBM System Storage Architecture and Configuration Guide for SAP HANA TDI v2.31.pdf](https://www.ibm.com/support/pages/system/files/inline-files/IBM%20System%20Storage%20Architecture%20and%20Configuration%20Guide%20for%20SAP%20HANA%20TDI%20v2.31.pdf){: external}.
 
 The requirements include multiple volumes that are assigned to the DATA and LOG LVMs, with the striping and multipath enhancements increase I/O performance. For more information, see the following documents:
 - [SAP HANA Tailored Data Center Integration (TDI) Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external}

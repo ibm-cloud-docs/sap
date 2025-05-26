@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-04"
+lastupdated: "2025-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -22,37 +22,37 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 
 | **Profile** | **CPU Cores** | **CPU Threads (aka. vCPU)** | **Memory (RAM GB)** | **SAPS** | **SAP HANA Processing Type** |
 | --- | --- | --- | --- | --- | --- |
-| [BI.S3.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=823){: external} | 36 | 72 | 192 GB | 78,850 | OLAP/OLTP (1)\nSAP Business One (3) |
-| [BI.S3.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=825){: external} | 36 | 72 | 384 GB | 79,430 | OLAP/OLTP (1)\nSAP Business One (3) |
-| [BI.S3.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=827){: external} | 36 | 72 | 768 GB | 79,630 | OLAP/OLTP (1)\nSAP Business One (3) |
-| [BI.S4.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1087){: external} | 32 | 64 | 192 GB | 82,470 | OLAP/OLTP (2)\nSAP Business One (3) |
-| [BI.S4.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1091){: external} | 32 | 64 | 384 GB | 85,130 | OLAP/OLTP (2)\nSAP Business One (3) |
-| BI.S4.H2.384_v3 Appliance | 16 | 32 | 384 GB | 60,420 | OLAP/OLTP (2) |
-| [BI.S4.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1095){: external} | 40 | 80 | 768 GB | 112,830 | OLAP/OLTP (2)\nSAP Business One (3) |
-| BI.S4.H2.768_v2 Appliance | 48 | 96 | 768 GB | 124,620 | OLAP/OLTP (2) |
-| BI.S4.H2.768_v3 Appliance | 16 | 32 | 768 GB | 60,420 | OLAP/OLTP (2) |
-| [BI.S4.H2.1500 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1099){: external} | 56 | 112 | 1536 GB | 147,220 | OLAP/OLTP (2) |
-| [BI.S4.H2.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1103){: external} | 56 | 112 | 3072 GB | 135,127 | OLAP/OLTP (2) |
-| [BI.S4.H4.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1117){: external} | 112 | 224 | 3072 GB | 285,970 | OLAP/OLTP (2) |
-| [BI.S4.H4.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1113){: external} | 112 | 224 | 6144 GB | 285,970 | OLAP/OLTP (2) |
-| [BI.S4.H8.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1121){: external} | 224 | 448 | 6144 GB | 550,670 | OLAP/OLTP (2) |
-| [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1129){: external} | 224 | 448 | 12288 GB | 550,670 | OLAP/OLTP (2) |
-| BI.S5.H2.1000 Appliance | 96 | 192 | 1 TB | 297,370 | OLAP/OLTP (4) |
-| BI.S5.H2.2001 Appliance | 96 | 192 | 2 TB | 297,370 | OLAP/OLTP (4) |
-| BI.S5.H2.2000 Appliance | 120 | 240 | 2 TB | 322,550 | OLAP/OLTP (4) |
-| BI.S5.H2.3000 Appliance | 120 | 240 | 3 TB | 327,295 | OLAP/OLTP (4) |
-| BI.S5.H2.4000 Appliance | 120 | 240 | 4 TB | 329,350 | OLAP/OLTP (4) |
+| [BI.S3.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=823){: external} | 36 | 72 | 192 GB | 78,850 | OLAP/OLTP ⁽¹⁾\nSAP Business One ⁽³⁾ |
+| [BI.S3.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=825){: external} | 36 | 72 | 384 GB | 79,430 | OLAP/OLTP ⁽¹⁾\nSAP Business One ⁽³⁾ |
+| [BI.S3.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=827){: external} | 36 | 72 | 768 GB | 79,630 | OLAP/OLTP ⁽¹⁾\nSAP Business One ⁽³⁾ |
+| [BI.S4.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1087){: external} | 32 | 64 | 192 GB | 82,470 | OLAP/OLTP ⁽²⁾\nSAP Business One ⁽³⁾ |
+| [BI.S4.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1091){: external} | 32 | 64 | 384 GB | 85,130 | OLAP/OLTP ⁽²⁾\nSAP Business One ⁽³⁾ |
+| BI.S4.H2.384_v3 Appliance | 16 | 32 | 384 GB | 60,420 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1095){: external} | 40 | 80 | 768 GB | 112,830 | OLAP/OLTP ⁽²⁾\nSAP Business One ⁽³⁾ |
+| BI.S4.H2.768_v2 Appliance | 48 | 96 | 768 GB | 124,620 | OLAP/OLTP ⁽²⁾ |
+| BI.S4.H2.768_v3 Appliance | 16 | 32 | 768 GB | 60,420 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H2.1500 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1099){: external} | 56 | 112 | 1536 GB | 147,220 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H2.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1103){: external} | 56 | 112 | 3072 GB | 135,127 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H4.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1117){: external} | 112 | 224 | 3072 GB | 285,970 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H4.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1113){: external} | 112 | 224 | 6144 GB | 285,970 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H8.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1121){: external} | 224 | 448 | 6144 GB | 550,670 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1129){: external} | 224 | 448 | 12288 GB | 550,670 | OLAP/OLTP ⁽²⁾ |
+| BI.S5.H2.1000 Appliance | 96 | 192 | 1 TB | 297,370 | OLAP/OLTP ⁽⁴⁾ |
+| BI.S5.H2.2001 Appliance | 96 | 192 | 2 TB | 297,370 | OLAP/OLTP ⁽⁴⁾ |
+| BI.S5.H2.2000 Appliance | 120 | 240 | 2 TB | 322,550 | OLAP/OLTP ⁽⁴⁾ |
+| BI.S5.H2.3000 Appliance | 120 | 240 | 3 TB | 327,295 | OLAP/OLTP ⁽⁴⁾ |
+| BI.S5.H2.4000 Appliance | 120 | 240 | 4 TB | 329,350 | OLAP/OLTP ⁽⁴⁾ |
 {: caption="Certified {{site.data.keyword.cloud_notm}} {{site.data.keyword.baremetal_short}} for SAP HANA" caption-side="bottom"}
 
-<sup>(1)</sup>: RHEL 7.4 for SAP Solutions, RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions\n
+⁽¹⁾: RHEL 7.4 for SAP Solutions, RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions\n
 SLES 12 SP2, SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3
 
-<sup>(2)</sup>: RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.2 for SAP Solutions \n
+⁽²⁾: RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.2 for SAP Solutions \n
 SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
-<sup>(3)</sup>: SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
+⁽³⁾: SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
-<sup>(4)</sup>: RHEL 8.10 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions \n
+⁽⁴⁾: RHEL 8.10 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions \n
 SLES 15, SLES 15 SP1 , SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
 
 Please regard the supported operated systems mentioned in the footnotes.

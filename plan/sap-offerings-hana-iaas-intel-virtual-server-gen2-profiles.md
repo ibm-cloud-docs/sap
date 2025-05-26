@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -120,7 +120,7 @@ For an overview of all available storage profiles, see [VPC Block Storage Profil
 ### Storage for SAP HANA - single-node
 {: #hana-iaas-intel-vs-vpc-storage-specs-sap-hana}
 
-To fulfill the KPIs defined by SAP HANA, each profile needs different storage volumes that are listed in details in the following sections. **These configurations are mandatory storage configurations, not sample storage configurations**, because they are the tested and certified storage layouts that comply with **SAP HANA Tailored Data Center Integration** (TDI) Phase 5. It is highly recommended to stick to these specific specifications.
+To fulfill the KPIs defined by SAP HANA, each profile needs different storage volumes that are listed in details in the following sections. **These configurations are mandatory storage configurations, not sample storage configurations**, because they are the tested and certified storage layouts that comply with **SAP HANA Tailored Data Center Integration**. It is highly recommended to stick to these specific guidelines.
 
 Customers who want to choose different layouts are advised to follow the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} when they order different storage sizes and types. Then, they must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}.
 {: important}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-04"
+lastupdated: "2025-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Bare Metal Server certified profiles on VPC Infrastructure for SAP Application Server
+# Bare Metal Server certified profiles on VPC Infrastructure for SAP application server
 {: #nw-iaas-offerings-profiles-intel-bm-vpc}
 
 ## Profiles list
@@ -35,12 +35,12 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 | **Ultra High Memory Optimized** | | | |
 | ux2d-metal-112x3072 | 112 | 3,072 | 140,730 |
 | ux2d-metal-224x6144 | 224 | 6,144 | 294,730 |
-{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP Application Server - Intel Cascade Lake CPU" caption-side="bottom"}
+{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP application server - Intel Cascade Lake CPU" caption-side="bottom"}
 
 ### Profiles hosted on Intel Sapphire Rapids CPU
 {: #nw-iaas-intel-bm-sr-vpc-list}
 
-| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS<sup>(1)</sup>** |
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS⁽¹⁾** |
 | --- | --- | --- | --- | --- |
 | **Compute Optimized** | | | | |
 | cx3d-metal-48x128 | 48 | 128 | 62,029| n/a |
@@ -59,9 +59,9 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 | vx3d-metal-16x256 | 16 | 256 | 35,520 | n/a |
 | **Ultra High Memory Optimized** | | | | |
 | ux3d-metal-16x512 | 16 | 512 | 34,320 | n/a |
-{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP Application Server - Intel Sapphire Rapids CPU" caption-side="bottom"}
+{: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP application server - Intel Sapphire Rapids CPU" caption-side="bottom"}
 
-<sup>(1)</sup>: aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.
+⁽¹⁾: aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment]    (https://me.sap.com/notes/2927211){: external}.
 
@@ -101,7 +101,7 @@ The Bare Metal Server profile names are contextual and sequential. See the follo
 | | 96 | 96 vCPU |
 | | x | *spacer* |
 | | 768 | 768 GiB RAM |
-{: caption="Profile naming for SAP Application Server" caption-side="top"}
+{: caption="Profile naming for SAP application server" caption-side="top"}
 
 
 ## Profiles available on Hourly Consumption Billing
@@ -112,7 +112,7 @@ All {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC are available wi
 ## Storage specifications
 {: #nw-iaas-intel-bm-vpc-storage-specs}
 
-When the bare metal server profiles for SAP Application Server are initially provisioned, the servers have one or more pre-configured disks attached.
+When the bare metal server profiles for SAP application server are initially provisioned, the servers have one or more pre-configured disks attached.
 
 1. Servers that are hosted on Cascade Lake CPU have one disk (sda) with the following basic layout:
 
@@ -131,7 +131,7 @@ When the bare metal server profiles for SAP Application Server are initially pro
 ### Internal Storage
 {: #nw-iaas-intel-bm-vpc-int-storage}
 
-Your bare metal server on VPC comes with a number of internal NVMEs, depending on its size. For SAP Application Server based deployment, you can use the NVMEs that are listed as block devices to the operating system. The NVMEs are under “/dev/nvmeXn1” (X from 0 to the number of NVMEs in total, minus 1). Use the NVMEs according to your requirements and needs. However, to increase failure resilience, you might have to install Linux Logical Volume Manager (LVM) to add RAID configuration, like RAID1 or RAID5. Since NVMEs are provisioned, performance considerations are mostly not an issue.
+Your bare metal server on VPC comes with a number of internal NVMEs, depending on its size. For SAP application server based deployment, you can use the NVMEs that are listed as block devices to the operating system. The NVMEs are under “/dev/nvmeXn1” (X from 0 to the number of NVMEs in total, minus 1). Use the NVMEs according to your requirements and needs. However, to increase failure resilience, you might have to install Linux Logical Volume Manager (LVM) to add RAID configuration, like RAID1 or RAID5. Since NVMEs are provisioned, performance considerations are mostly not an issue.
 
 ### External Storage
 {: #nw-iaas-intel-bm-vpc-ext-storage}

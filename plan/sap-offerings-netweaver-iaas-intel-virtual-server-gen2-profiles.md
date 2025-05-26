@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-04"
+lastupdated: "2025-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Intel Virtual Server certified profiles on VPC infrastructure for SAP Application Server
+# Intel Virtual Server certified profiles on VPC infrastructure for SAP application server
 {: #nw-iaas-offerings-profiles-intel-vs-vpc}
 
 ## Profiles list
@@ -80,7 +80,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 ### SAP-certified profiles hosted on Intel Sapphire Rapids CPUs
 {: #certified-profiles-intel-sapphire-rapids}
 
-| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS (1)** |
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS⁽¹⁾** |
 | --- | --- | --- | --- | --- |
 | **Compute Optimized** | | | | |
 | cx3d-2x5 | 2 | 5 | 2,661 | |
@@ -133,7 +133,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 | vx3d-176x2816 | 176 | 2,816 | 221,120 | 42,600 |
 {: caption="{{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} hosted on Intel Sapphire Rapids CPUs" caption-side="bottom"}
 
-<sup>(1)</sup>: aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.
+⁽¹⁾: aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}.
 
@@ -196,7 +196,7 @@ When the virtual server profiles for SAP HANA are initially provisioned, the ser
 | `/boot` | `vda2` | Pre-configured boot volume | 0.25 | 3,000 |
 {: caption="Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
 
-To fulfill the size and I/O requirements for SAP Application Server or SAP AnyDB, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.
+To fulfill the size and I/O requirements for SAP application server or SAP AnyDB, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.
 
 Block Storage Volumes for Virtual Servers can be created based on different **volume profiles** that provide different levels of IOPS per gigabyte (IOPS/GB). For more information, see [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) for details.
 
@@ -204,6 +204,6 @@ You must consider the total IOPS required for your installation and the performa
 
 For an overview of all available storage profiles, see [VPC Block Storage Profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 
-For SAP Application Server and SAP AnyDB, a minimum of 5 IOPS/GB is recommended.
+For SAP application server and SAP AnyDB, a minimum of 5 IOPS/GB is recommended.
 
 Samples of storage configurations that use Intel Virtual Server (Gen2) profiles are available under [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations).
