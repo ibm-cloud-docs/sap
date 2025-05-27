@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-31"
+lastupdated: "2025-05-27"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -43,7 +43,7 @@ Within each of the software operational models, multiple software deployment opt
    - SAP S/4HANA Public Cloud **Essentials (ES)** Edition, _SaaS provided by SAP along with SAP Partner subcontractors_
    - SAP S/4HANA Private Cloud, _SaaS extension of SAP HANA Enterprise Cloud (HEC) provided by SAP along with SAP Partner subcontractors_
 
-More information on the variants of SAP S/4HANA software is available from SAP. A concise explanation on the variants of SAP S/4HANA is available from SAP America, see [SAP Community Blogs - Product Information - SAP S/4HANA Cloud Deployment Options (June 17, 2019)](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-sap/sap-s-4hana-cloud-deployment-options/ba-p/13406848){: external}.
+More information on the variants of SAP S/4HANA software is available from SAP. A concise explanation on the variants of SAP S/4HANA is available from SAP America, see [SAP Community Blogs - Product Information - SAP S/4HANA Cloud Deployment Options (June 17, 2019)](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/sap-s-4hana-cloud-deployment-options/ba-p/13406848){: external}.
 
 Regarding SAP S/4HANA, the {{site.data.keyword.ibm_cloud_sap}} portfolio documentation refers to SAP HANA and SAP NetWeaver installations as using SAP-certified Cloud Infrastructure-as-a-Service options for running SAP S/4HANA "AnyPremise" deployment to Cloud IaaS. All further descriptions in the following sections refer to SAP S/4HANA "AnyPremise".
 {: note}

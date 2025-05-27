@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-05-27"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -50,8 +50,8 @@ There are additional SAP analytics solutions, each with different software deplo
 - SAP Data Intelligence 3.x, using Kubernetes _`(released in 2019 to replace SAP Data Hub 2.x)`_
 
 More information on the variants of SAP analytics solutions is available from SAP:
-- [SAP.com - Business Analytics Tools and Solutions](https://www.sap.com/products/technology-platform/analytics.html){: external}
-- [SAP Community Blogs - Technical Articles - SAP (HANA) Cheat Sheet](https://community.sap.com/t5/technology-blogs-by-sap/sap-hana-cheat-sheet/ba-p/13437403){: external}
+- [SAP.com - Business Analytics Tools and Solutions](https://www.sap.com/products/data-cloud/analytics.html){: external}
+- [SAP Community Blogs - Technical Articles - SAP (HANA) Cheat Sheet](https://community.sap.com/t5/technology-blog-posts-by-sap/sap-hana-cheat-sheet/ba-p/13437403){: external}
 
 Regarding SAP BW/4HANA, the {{site.data.keyword.ibm_cloud_sap}} portfolio documentation refers to SAP HANA and SAP NetWeaver installations as using SAP-certified Cloud Infrastructure-as-a-Service options for running SAP BW/4HANA deployment to Cloud IaaS.
 {: note}

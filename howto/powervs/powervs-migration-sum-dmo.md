@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-05-27"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, heterogeneous migration, Linux, Red Hat, RHEL, SuSE, Db2, Oracle, HANA, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize, sum, software update manager, dmo, database migration option, dmove2s4, Software Provisioning Manager, SWPM
 subcollection: sap
 ---
@@ -82,7 +82,7 @@ Technical Downtime Optimization App (TDOA)
     If detailed planning is required for business downtime, TDOA can help minimize downtime and helps provide a more
     simple maintenance experience.
 :   [SAP Note 2881515 - Introduction to the Technical Downtime Optimization App](https://me.sap.com/notes/2881515){: external}
-:   [SAP Community Blog - TDOA](https://community.sap.com/t5/technology-blogs-by-sap/downtime-optimization-get-insights-using-the-new-tdo-app/ba-p/13461177){: external}
+:   [SAP Community Blog - TDOA](https://community.sap.com/t5/technology-blog-posts-by-sap/downtime-optimization-get-insights-using-the-new-tdo-app/ba-p/13461177){: external}
 
 ### Disclaimer
 {: #sapmig-ibm-dmo-disclaimer}
@@ -245,7 +245,7 @@ You can use the ABAP Sizing report to correctly size for brownfield configuratio
 
 The following link demonstrates how to run a sizing report:
 
-   * [How to install and run the ABAP on HANA Sizing report](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-sap/how-to-install-run-the-abap-on-hana-sizing-report-sap-note-1872170-a-step/ba-p/13500140){: external}
+   * [How to install and run the ABAP on HANA Sizing report](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/how-to-install-run-the-abap-on-hana-sizing-report-sap-note-1872170-a-step/ba-p/13500140){: external}
 
 Consider the system growth factors, the data-aging residence time in days, and the maximum age of database statistics.
 They are the typical criteria in the report to plan for system growth.
@@ -272,7 +272,7 @@ Review the existing migration documentation for your database software version a
 
 Use the following steps to prepare the target system landscape.
 
-1. Access the most recent version of "Database Migration Option: Target Database SAP HANA" from [Database Migration Option: Target Database SAP HANA](https://help.sap.com/doc/38301960cfe4484587f9cedb8c6a740f/dmosum20.latest/en-US/dmo_of_sum2_to_hana.pdf), then select **Download Link**.
+1. Access the most recent version of "Database Migration Option: Target Database SAP HANA" from [Database Migration Option: Target Database SAP HANA](https://help.sap.com/doc/38301960cfe4484587f9cedb8c6a740f/dmosum20.23/en-US/dmo_of_sum2_to_hana.pdf), then select **Download Link**.
 
    This migration scenario uses the "System Move" option. A single stack SAP Netweaver DB/Application is moved to a separate S/4HANA 2023 Application Server and a dedicated server for the SAP HANA database.
    {: note}
@@ -547,7 +547,7 @@ An SAP *S-User* access is required to access the following links.
 
 The following document outlines the DMO steps for a migration of an SAP system from anyDB to an SAP HANA Database.
 
-* [Database Migration Option: Target Database SAP HANA](https://help.sap.com/doc/38301960cfe4484587f9cedb8c6a740f/dmosum20.latest/en-US/dmo_of_sum2_to_hana.pdf){: external}
+* [Database Migration Option: Target Database SAP HANA](https://help.sap.com/doc/38301960cfe4484587f9cedb8c6a740f/dmosum20.23/en-US/dmo_of_sum2_to_hana.pdf){: external}
 
 * [Software Logistics Toolset](https://support.sap.com/en/tools/software-logistics-tools.html){: external}
 

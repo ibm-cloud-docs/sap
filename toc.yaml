@@ -258,7 +258,7 @@ toc:
                     label: SAP AAS for SAP HANA and AnyDB in VPC
                     topics:
                       - navtitle: Overview
-                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-intro-aas-hana-anydb-overview.md
+                        topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-aas-hana-anydb-overview.md
                       - navtitle: Deploying
                         topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-aas-hana-anydb-deploy.md
                 - topicgroup:

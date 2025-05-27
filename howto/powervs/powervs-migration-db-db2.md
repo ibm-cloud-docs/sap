@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-11"
+lastupdated: "2025-05-27"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, backup, restore, Db2, IBM Db2, HADR
 subcollection: sap
 ---
@@ -119,7 +119,7 @@ Set the following environment variables according to your needs.
    ```
    {: pre}
 
-   This backup directory needs enough space to store the compressed backup files. Determine the current IBM Db2 database size by calling the `GET_DBSIZE_INFO` procedure. For more information, see the [GET_DBSIZE_INFO procedure](https://www.ibm.com/docs/en/db2/11.5?topic=views-get-dbsize-info-database-size-capacity){: external}.
+   This backup directory needs enough space to store the compressed backup files. Determine the current IBM Db2 database size by calling the `GET_DBSIZE_INFO` procedure. For more information, see the [GET_DBSIZE_INFO procedure](https://www.ibm.com/docs/en/db2/11.5.x?topic=views-get-dbsize-info-database-size-capacity){: external}.
    {: tip}
 
 ### Shutting down the SAP application and deactivating the database on the source server
@@ -556,7 +556,7 @@ The same commands are required on the target server as noted in [Restoring the d
    ```
    {: pre}
 
-   This backup directory needs enough space to store the compressed backup files. Determine the current IBM Db2 database size by calling the `GET_DBSIZE_INFO` procedure. For more information, see [GET_DBSIZE_INFO procedure](https://www.ibm.com/docs/en/db2/11.5?topic=views-get-dbsize-info-database-size-capacity){: external}.
+   This backup directory needs enough space to store the compressed backup files. Determine the current IBM Db2 database size by calling the `GET_DBSIZE_INFO` procedure. For more information, see [GET_DBSIZE_INFO procedure](https://www.ibm.com/docs/en/db2/11.5.x?topic=views-get-dbsize-info-database-size-capacity){: external}.
    {: tip}
 
 ### Making sure that IBM Db2 archive logging is enabled
@@ -874,14 +874,14 @@ HADR needs the following set of configurations.
 | HADR_REMOTE_SVC    | db2th1ha_r                | db2th1ha_r                | Remote port as defined in `/etc/services` |
 | HADR_REMOTE_INST   | \<db2 instance name\>     | \<db2 instance name\>     | The other node's IBM Db2 instance name (not the database name) |
 | LOGINDEXBUILD      | `ON`                      | `ON`                      | Set to `ON` on for both hosts             |
-| HADR_SYNCMODE      | \<a valid sync mode\>     | \<a valid sync mode\>     | See [HADR Synchronization Mode](https://www.ibm.com/docs/en/db2/11.5?topic=hadr-synchronization-mode){: external} |
+| HADR_SYNCMODE      | \<a valid sync mode\>     | \<a valid sync mode\>     | See [HADR Synchronization Mode](https://www.ibm.com/docs/en/db2/11.5.x?topic=hadr-synchronization-mode){: external} |
 {: caption="HADR parameter overview, both servers" caption-side="bottom"}
 
 Local and remote hostnames (`HADR_LOCAL_HOST` and `HADR_REMOTE_HOST`) must be turned on for both systems. `HADR_LOCAL_HOST` is always the hostname of the node. The configuration command is run on and the remote host is the hostname of the respective other system.
 
 Local and remote service entries (`HADR_LOCAL_SVC` and `HADR_REMOTE_SVC`) are identical because the switch is already configured in `/etc/services`.
 
-[High availability disaster recovery (HADR) synchronization mode](https://www.ibm.com/docs/en/db2/11.5?topic=hadr-synchronization-mode){: external} explains different IBM Db2 HADR synchronization options and their benefits.
+[High availability disaster recovery (HADR) synchronization mode](https://www.ibm.com/docs/en/db2/11.5.x?topic=hadr-synchronization-mode){: external} explains different IBM Db2 HADR synchronization options and their benefits.
 {: note}
 
 Use the following commands to configure both systems:
@@ -931,7 +931,7 @@ Use the following commands to configure both systems:
    {: pre}
 
 1. Define the HADR synchronization mode.
-   The value `async` is an example, change it to match the [HADR Synchronization Mode](https://www.ibm.com/docs/en/db2/11.5?topic=hadr-synchronization-mode){: external} suitable for your environment:
+   The value `async` is an example, change it to match the [HADR Synchronization Mode](https://www.ibm.com/docs/en/db2/11.5.x?topic=hadr-synchronization-mode){: external} suitable for your environment:
 
    ```sh
    db2 "update db cfg for $DBNAME using HADR_SYNCMODE async"
@@ -1015,7 +1015,7 @@ Adjust the SAP system DNS record to point to the target SAP server. This adjustm
    ```
    {: pre}
 
-   The takeover command has an option `by force` that can help if the source system wasn't cleanly shut down. For more information, see [TAKEOVER HADR command](https://www.ibm.com/docs/en/db2/11.5?topic=commands-takeover-hadr){: external}.
+   The takeover command has an option `by force` that can help if the source system wasn't cleanly shut down. For more information, see [TAKEOVER HADR command](https://www.ibm.com/docs/en/db2/11.5.x?topic=commands-takeover-hadr){: external}.
    {: tip}
 
 1. As `$DB2ADM` on the target server. Verify that the IBM Db2 HADR role changed from `standby` to `primary` by using the following command:
