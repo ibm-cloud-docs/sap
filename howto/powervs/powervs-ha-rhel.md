@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-05-27"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -448,7 +448,7 @@ pcs stonith fence ${NODE1}
 
 NODE1 stops.
 
-Activate NODE2, then start the cluster on the node.
+Activate NODE1, then start the cluster on the node.
 
 On NODE1, run the following command.
 

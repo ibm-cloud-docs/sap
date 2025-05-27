@@ -17,7 +17,7 @@ SAP BW/4HANA is the leading enterprise data warehouse (EDW) software, which is d
 
 SAP BW/4HANA is a major release of EDW software from SAP designed to use the analytical capabilities of the SAP HANA database exclusively. Previous major releases of EDW from SAP were known as SAP BW, which might use various relational database vendors. SAP BW/4HANA acts as the insights engine for large enterprises with upgraded UX, data integration, and technologies upgrades to enable real-time decision making and digital business processes.
 
-For more information, see [SAP BW/4HANA](https://www.sap.com/products/technology-platform/bw4hana-data-warehousing.html){: external}.
+For more information, see [SAP BW/4HANA](https://www.sap.com/products/data-cloud/sap-bw-migration.html){: external}.
 
 {{site.data.keyword.ibm_cloud_sap}} infrastructure options are certified to SAP NetWeaver application server and SAP HANA database server, which run the SAP BW/4HANA business application.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-23"
+lastupdated: "2025-05-27"
 keywords:
 subcollection: sap
 ---
@@ -16,7 +16,7 @@ The deployment for SAP NetWeaver 7.5 with Db2 on RHEL 9.4 is performed in phases
 
 1. [Cloud infrastructure planning](/docs/sap?topic=sap-deploy-sap-db2#cloud-infra-plan)
 2. [Cloud resource deployment](/docs/sap?topic=sap-deploy-sap-db2#cloud-resource-deploy)
-3. [File system preparation](/docs/sap?topic=sap-deploy-sap-db2#file)
+3. [File system preparation](/docs/sap?topic=sap-deploy-sap-db2#file-system-prep)
 4. [Operating system preparation](/docs/sap?topic=sap-deploy-sap-db2#os-prep)
 5. [Installation of SAP NetWeaver 7.5 with Db2 on RHEL 9.4 with Software Provisioning Manager (SWPM)](/docs/sap?topic=sap-deploy-sap-db2#install-sapnw-db2)
 
@@ -99,7 +99,7 @@ Selecting the **Image** and **Profiles** is an important step during the VSI cre
 
 ![Figure 4. Server Configuration](../../images/vpc-intel-vsi-server-config.png "Server Configuration"){: caption="Server Configuration" caption-side="bottom"}
 
-In the Storage section, additional data volumes are added to align with the [File system layout](/docs/sap?topic=sap-deploy-sap-db2#filesystem-prep).
+In the Storage section, additional data volumes are added to align with the [File system layout](/docs/sap?topic=sap-deploy-sap-db2#file-system-prep).
 
 ![Figure 5. VSI details](../../images/vpc-intel-vsi-dtdb2nw.png "VSI details"){: caption="VSI details" caption-side="bottom"}
 
@@ -136,7 +136,7 @@ The installation of the SAP NetWeaver 7.5 with Db2 on RHEL 9.4 is performed base
 {: caption="File system preparation" caption-side="bottom"}
 
 ### Creating file system at operating system level
-{: #create-file system}
+{: #create-file-system}
 
 A proper file system layout is necessary for a correct installation of any SAP solution within the IBM Cloud VPC.
 
@@ -456,12 +456,12 @@ After you download the installation media, follow the standard SAP installation 
 ## Related information
 {: #related-info-db2}
 
-* [Db2 Recommended file systems](https://www.ibm.com/docs/en/db2/12.1?topic=databases-recommended-file-systems){: external}
+* [Db2 Recommended file systems](https://www.ibm.com/docs/en/db2/12.1.0?topic=databases-recommended-file-systems){: external}
 * [Release notes for IBM Cloud VPC](/docs/vpc?topic=vpc-release-notes&interface=ui)
 * [IBM Cloud® File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about)
 * [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html?anchorId=section_1969201630){: external}
 * [Db2 Database Administration Guide](https://help.sap.com/doc/7367f81b468e4480b3c550669b3534aa/CURRENT_VERSION/en-US/DB6_Admin_Guide.pdf){: external}
-* [Preparing to install Db2 database servers](https://www.ibm.com/docs/en/db2/12.1?topic=servers-preparing-install-db2-database){: external}
+* [Preparing to install Db2 database servers](https://www.ibm.com/docs/en/db2/12.1.0?topic=servers-preparing-install-db2-database){: external}
 * [SAP Note 405827 - Linux: Recommended file systems](https://me.sap.com/notes/405827/E){: external}
 * [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 * [SAP Note 1597355 - Swap-space recommendation for Linux](https://me.sap.com/notes/1597355){: external}
@@ -490,7 +490,7 @@ After you download the installation media, follow the standard SAP installation 
 * [SAP on IBM Cloud VPC reference architecture](/docs/pattern-sap-on-vpc?topic=pattern-sap-on-vpc-sap-on-vpc){: external}
 
 **IBM Db2 support on SAP-certified Cloud IaaS:**
-* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1?topic=database-support-db2-public-clouds){: external}
+* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1.0?topic=database-support-db2-public-clouds){: external}
 * [SAP Note 101809 - DB6: Supported Db2 Versions and Fix Pack Levels](https://me.sap.com/notes/101809){: external}
 * [General IBM Db2 prerequisites on UNIX and Linux®](https://www.ibm.com/docs/en/SSEPGG_11.5.0/com.ibm.db2.luw.qb.server.doc/doc/c0059823.html){: external}
 
