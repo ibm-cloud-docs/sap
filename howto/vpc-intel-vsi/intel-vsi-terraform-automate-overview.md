@@ -14,8 +14,8 @@ subcollection: sap
 
 IBM provides several templates with scripts to deploy different SAP NetWeaver and SAP HANA architectures:
 
-*   [Deploying  SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server&interface=terraform)
-*   [Deploying single-tier VPC for SAP on IBM Cloud VPC  (Terraform)](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap&interface=terraform)
+*   [Deploying SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server&interface=terraform)
+*   [Deploying single-tier VPC for SAP on IBM Cloud VPC (Terraform)](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap&interface=terraform)
 *   [Deploying SAP AnyDB (non-SAP HANA) 2-tier and 3-tier distributed architecture on IBM Cloud VPC (Terraform)](/docs/sap?topic=sap-create-terraform-multi-tier-vpc-anydb-sap&interface=terraform)
 *   SAP NetWeaver and Db2 single-tier on IBM Cloud VPC
     *   [Overview SAP workload deployment on IBM Cloud® Virtual Private Cloud (VPC) (Terraform and Ansible)](/docs/sap?topic=sap-components-terraform-nw-db2-terraform&interface)
@@ -28,7 +28,7 @@ IBM provides several templates with scripts to deploy different SAP NetWeaver an
     *   [Deploying SAP HANA stand-alone virtual server instance on IBM Cloud VPC (Terraform)](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi&interface=terraform)
 *   SAP NetWeaver and ASE SYB on IBM Cloud VPC
     *   [Introduction to SAP NetWeaver and ASE SYB](/docs/sap?topic=sap-intro-automate-nw-asesyb-terraform-ansible&interface=terraform)
-    *   [Deploying SAP NetWeaver 7.x and ASE SYB on an existing IBM Cloud VPC  (Terraform and Ansible)](/docs/sap?topic=sap-automate-nw-asesyb-terraform-ansible&interface=terraform)
+    *   [Deploying SAP NetWeaver 7.x and ASE SYB on an existing IBM Cloud VPC (Terraform and Ansible)](/docs/sap?topic=sap-automate-nw-asesyb-terraform-ansible&interface=terraform)
 *   SAP AAS for SAP HANA and AnyDB on IBM Cloud VPC
     *   [Introduction to IBM Cloud VPC and Additional Application Server (AAS) to HANA and AnyDB](/docs/sap?topic=sap-intro-automate-aas-hana-anydb-terraform-ansible&interface=terraform)
     *   [Deploying Additional Application Server (AAS) to SAP HANA and AnyDB on an existing IBM Cloud VPC (Terraform)](/docs/sap?topic=sap-automate-hana-aas-anydb-terraform-ansible&interface=terraform)

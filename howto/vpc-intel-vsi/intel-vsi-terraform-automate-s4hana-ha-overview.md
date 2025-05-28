@@ -136,7 +136,7 @@ The ALB has a default of 50 seconds for client and server timeout, so after 50 s
 ### {{site.data.keyword.dns_short}} with VPC
 {: #automate-sap-ha-dns-services}
 
-[{{site.data.keyword.dns_full_notm}}](/docs/vpc?topic=vpc-about-dns-srvcs) provides private DNS to VPC users. Private DNS zones are resolvable only on {{site.data.keyword.cloud_notm}}, and only from explicitly [permitted networks](/docs/dns-svcs?topic=dns-svcs-dns-concepts#permitted-networks) in an account. To get started, create a {{site.data.keyword.dns_short}} instance using the {{site.data.keyword.cloud_notm}} console.
+[{{site.data.keyword.dns_full_notm}}](/docs/vpc?topic=vpc-about-dns-srvcs) provides private DNS to VPC users. Private DNS zones are resolvable only on {{site.data.keyword.cloud_notm}}, and only from explicitly [permitted networks](/docs/dns-svcs?topic=dns-svcs-dns-concepts#permitted-networks) in an account. To get started, create a {{site.data.keyword.dns_short}} instance by using the {{site.data.keyword.cloud_notm}} console.
 
 {{site.data.keyword.dns_short}} allow you to:
 * Create private DNS zones that are collections for holding domain names.
@@ -147,9 +147,9 @@ The ALB has a default of 50 seconds for client and server timeout, so after 50 s
 
 Resource records and zones that are configured through {{site.data.keyword.dns_short}} are:
 * Separated from the wider, public DNS and their publicly accessible records.
-* Hidden from machines outside of and not part of the {{site.data.keyword.cloud_notm}} private network.
-* Accessible only from machines that you authorize on the {{site.data.keyword.cloud_notm}} private network.
-* Resolvable only via the resolvers provided by the service.
+* Hidden from systems outside of and not part of the {{site.data.keyword.cloud_notm}} private network.
+* Accessible only from systems that you authorize on the {{site.data.keyword.cloud_notm}} private network.
+* Resolvable only through the resolvers provided by the service.
 
 The DNS service maps the FQDN of each ALB to the virtual hostnames of the ASCS, ERS, and HANA that are used by SAP applications.
 
@@ -158,9 +158,9 @@ The DNS service maps the FQDN of each ALB to the virtual hostnames of the ASCS, 
 ### Network latency between VPC Zones and Regions
 {: #automate-sap-ha-network-latency}
 
-For network latency between VPC zones and regions, see the [VPC Network latency dashboards](https://cloud.ibm.com/docs/vpc?topic=vpc-network-latency-dashboard){: external} topic and run your own measurement according with SAP note "500235 - Network Diagnosis with NIPING" to perform a latency check using SAP tool niping.
+For network latency between VPC zones and regions, see the [VPC Network latency dashboards](https://cloud.ibm.com/docs/vpc?topic=vpc-network-latency-dashboard){: external} topic and run your own measurement according with SAP note "500235 - Network Diagnosis with NIPING" to perform a latency check by using SAP tool niping.
 
-The results reported are as measured. There are no performance guarantees implied by these measurement. These statistics provide visibility into latency between all regions and zones to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance.
+The results reported are as measured. There are no performance guarantees implied by these measurements. These statistics provide visibility into latency between all regions and zones to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance.
 
 ## Highly available system for SAP HANA database
 {: #automate-sap-ha-hana-database}
@@ -174,7 +174,7 @@ At the most basic level, a standard HA HANA cluster in an active-passive configu
 
 ![Figure 9. SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) in a Single Zone architecture](../../images/vpc-intel-vsi-sap-hana-ha-sz-sap-layer.svg "SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) in a Single Zone architecture"){: caption="SAP HA for SAP applications cluster nodes PAS (Active) and AAS (Active) in a Single Zone architecture" caption-side="bottom"}
 
-The cluster is set with a virtual hostname IP (hostname is mapped to the FQDN of the HANA ALB through DNS, which is the same as explained previously for SAP ASCS and ERS instances). App instances (PAS and AAS), these are the details to be used on the SAP profiles to call that particular component. The cluster assigns that virtual IP to the active node and uses a heartbeat monitor to confirm the availability of the components. If the primary node stops responding, it triggers the automatic failover mechanism that calls the standby node to step up to become the primary node. The ALB detects the change, redirects the traffic to the new active node, and assigns the virtual IP to it, restoring the component availability. After the failed node is fixed, it comes online as a standby node.
+The cluster is set with a virtual hostname IP (hostname is mapped to the FQDN of the HANA ALB through DNS, which is the same as explained previously for SAP ASCS and ERS instances). Application instances (PAS and AAS), these are the details to be used on the SAP profiles to call that particular component. The cluster assigns that virtual IP to the active node and uses a heartbeat monitor to confirm the availability of the components. If the primary node stops responding, it triggers the automatic failover mechanism that calls the standby node to step up to become the primary node. The ALB detects the change, redirects the traffic to the new active node, and assigns the virtual IP to it, restoring the component availability. After the failed node is fixed, it comes online as a standby node.
 
 ### Synchronous on disk (sync) HANA database replication mechanism supported by SAP
 {: #automate-sap-ha-hana-sync}

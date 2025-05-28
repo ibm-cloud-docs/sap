@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-05-22"
+lastupdated: "2025-05-28"
 keywords:
 subcollection: sap
 ---
@@ -100,7 +100,7 @@ For CLI deployment, Ansible is started by Terraform and both must be available o
 ## SAP Kits
 {: #automate-s4hana-ha-sap-kits}
 
-It is your responsibility to download the necessary SAP and DB kits to your Deployment Server (bastion server).All file archives are decompressed by Ansible during the automation deployment process. For more information, see the readme file.
+It is your responsibility to download the necessary SAP and DB kits to your Deployment Server (bastion server). All file archives are decompressed by Ansible during the automation deployment process. For more information, see the readme file.
 
 ## Terraform deployment overview
 {: #automate-s4hana-ha-terraform-deployment}
@@ -115,8 +115,8 @@ Edit the input parameter file `input.auto.tfvars`, and modify the variables to m
 *    ZONE_1 - Availability zone for DB_HOSTNAME_1 and APP_HOSTNAME_1 VSIs
 *    ZONE_2 - Availability zone for DB_HOSTNAME_2 and APP_HOSTNAME_2VSIs
 *    SECURITY_GROUP - Existing Security Group, previously created by the user in the same VPC.
-*    SUBNET_1 - The name of an existing subnet, in the same VPC, ZONE_1, where DB_HOSTNAME_1 and APP_HOSTNAME_1 VSIs will be created.
-*    SUBNET_2 - The name of an existing subnet, in the same VPC, ZONE_2, where DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs will be created.
+*    SUBNET_1 - The name of an existing subnet, in the same VPC, ZONE_1, where DB_HOSTNAME_1 and APP_HOSTNAME_1 VSIs are created.
+*    SUBNET_2 - The name of an existing subnet, in the same VPC, ZONE_2, where DB_HOSTNAME_2 and APP_HOSTNAME_2 VSIs are created.
 *    RESOURCE_GROUP - Existing resource group, previously created by the user.
 *    SSH_KEYS - List of SSH Key UUIDs that are allowed to SSH as `root` to the VSIs.
 *    ID_RSA_FILE_PATH - `id_rsa` private key file path in OpenSSH format with 0600 permissions
@@ -425,7 +425,7 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     terraform plan --out plan1
     ```
 
-    You will be asked for the following sensitive variables:
+    You are asked for the following sensitive variables:
     `'IBMCLOUD_API_KEY', 'SAP_MAIN_PASSWORD' HANA_MAIN_PASSWORD, and 'HA_PASSWORD'`.
 
 
@@ -443,7 +443,7 @@ The supported versions available for S/4HANA are 2020, 2021, 2022, and 2023. For
     ```terraform
     terraform destroy
     ```
-    You will be asked for the following sensitive variables as a destroy confirmation phase:
+    You are asked for the following sensitive variables as a destroy confirmation phase:
     `'IBMCLOUD_API_KEY', 'SAP_MAIN_PASSWORD' HANA_MAIN_PASSWORD, and 'HA_PASSWORD'`.
 
 
@@ -500,11 +500,11 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
     |HANA_SYSNO	|The instance number of the SAP HANA system.|
     |HANA_SYSTEM_USAGE	|System Usage. Default: "custom". Valid values: "production", "test", "development", "custom".|
     |HDB_CONCURRENT_JOBS	|Number of concurrent jobs used to load and/or extract archives to HANA Host.|
-    |KIT_HDBCLIENT_FILE	|Path to HANA DB client archive (SAR), as downloaded from SAP Support Portal.|
+    |KIT_HDBCLIENT_FILE	|Path to the HANA DB client archive (SAR), as downloaded from SAP Support Portal.|
     |KIT_IGSEXE_FILE	|Path to IGS archive (SAR), as downloaded from SAP Support Portal.|
-    |KIT_IGSHELPER_FILE	|Path to IGS Helper archive (SAR), as downloaded from SAP Support Portal.|
-    |KIT_S4HANA_EXPORT	|Path to S/4HANA Installation Export dir. The archives downloaded from SAP Support Portal should be present in this path.|
-    |KIT_SAPCAR_FILE	|Path to sapcar binary, as downloaded from SAP Support Portal.|
+    |KIT_IGSHELPER_FILE	|Path to the IGS Helper archive (SAR), as downloaded from SAP Support Portal.|
+    |KIT_S4HANA_EXPORT	|Path to S/4HANA Installation Export dir. The archives that are downloaded from SAP Support Portal should be present in this path.|
+    |KIT_SAPCAR_FILE	|Path to the sapcar binary, as downloaded from SAP Support Portal.|
     |KIT_SAPEXE_FILE	|Path to SAP Kernel OS archive (SAR), as downloaded from SAP Support Portal.|
     |KIT_SAPEXEDB_FILE	|Path to SAP Kernel DB archive (SAR), as downloaded from SAP Support Portal.|
     |KIT_SAPHANA_FILE	|Path to SAP HANA ZIP file, as downloaded from SAP Support Portal.|
@@ -512,8 +512,8 @@ Use these steps to configure the SAP HA SZ or MZ S/4HANA on your existing VPC by
     |KIT_SWPM_FILE	|Path to SWPM archive (SAR), as downloaded from SAP Support Portal.|
     |SAP_AAS_INSTANCE_NUMBER	|The SAP additional application server instance number. Technical identifier for internal processes of AAS. Consists of a two-digit number from 00 to 97. Must be unique on a host. Must follow the SAP rules for instance number naming.|
     |SAP_ASCS_INSTANCE_NUMBER	|The central ABAP service instance number. Technical identifier for internal processes of ASCS. Consists of a two-digit number from 00 to 97. Must be unique on a host. Must follow the SAP rules for instance number naming.|
-    |SAP_CI_INSTANCE_NUMBER	|The SAP central instance number. Technical identifier for internal processes of PAS. Consists of a two-digit number from 00 to 97. Must be unique on a host. Must follow the SAP rules for instance number naming.|
-    |SAP_ERS_INSTANCE_NUMBER	|The enqueue replication server instance number. Technical identifier for internal processes of ERS. Consists of a two-digit number from 00 to 97. Must be unique on a host. Must follow the SAP rules for instance number naming.|
+    |SAP_CI_INSTANCE_NUMBER	|The SAP central instance number. Technical identifier for internal processes of PAS. Consists of a two-digit number from 00 to 97. Must be unique on a host. Must follow the SAP rules, for instance,  number naming.|
+    |SAP_ERS_INSTANCE_NUMBER	|The enqueue replication server instance number. Technical identifier for internal processes of ERS. Consists of a two-digit number from 00 to 97. Must be unique on a host. Must follow the SAP rules, for instance,  number naming.|
     |SHARE_PROFILE	|Enter the IOPs (IOPS per GB) tier for File Share storage. Valid values are 3, 5, and 10.|
     |S4HANA_VERSION	|The version of S/4HANA. Supported values: 2023, 2022, 2021, and 2020.|
     |USRSAP_AS1 |FS size in GB for usrsap-as1|

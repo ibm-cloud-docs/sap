@@ -16,22 +16,22 @@ You can use Terraform scripts to create a single-tier VPC and also create SAP an
 {: shortdesc}
 
 You have two deployment methods to choose from:
-*   Terraform scripts run from the CLI on your deployment server (bastion server).
-*   {{site.data.keyword.bpshort}} user interface accessed from your cloud dashboard menu.
+* Terraform scripts run from the CLI on your deployment server (bastion server).
+* {{site.data.keyword.bpshort}} user interface accessed from your cloud dashboard menu.
 
 You can create either:
 
-*   SAP NetWeaver 7.x on SAP HANA-based ABAP stack
-*   SAP NetWeaver 7.x on SAP HANA-based Java stack
+* SAP NetWeaver 7.x on SAP HANA-based ABAP stack
+* SAP NetWeaver 7.x on SAP HANA-based Java stack
 
 ## SAP Solution implemented
 {: #terraform-3tier-nw-hana-solution}
 
 Many SAP enterprise solutions are built on SAP’s extensive platform, SAP NetWeaver, including:
-*  SAP HANA as Primary Persistence for SAP NetWeaver-Based Applications
-*  SAP Business Suite applications (ERP, CRM, and SCM, and other applications)
-*  SAP Business Warehouse (BW), and
-*  Other SAP enterprise solutions
+* SAP HANA as Primary Persistence for SAP NetWeaver-Based Applications
+* SAP Business Suite applications (ERP, CRM, and SCM, and other applications)
+* SAP Business Warehouse (BW), and
+* Other SAP enterprise solutions
 
 SAP NetWeaver (SAP NW) uses mainly ABAP and Java programming languages. Many applications that are built on SAP NetWeaver’s ABAP or Java (or both) application servers can run “on” SAP HANA. In this instance, SAP HANA serves as the sole database in the architecture.
 

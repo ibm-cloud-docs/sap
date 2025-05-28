@@ -34,7 +34,7 @@ SAP NetWeaver is the core foundation of the SAP technology stacks and is the pla
 
 
 
-Manually deploying a VPC and installing an SAP system can be time-consuming. The Terraform automation assures not only a much quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
+Manually deploying a VPC and installing an SAP system can be time-consuming. The Terraform automation assures not only a quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
 
 The Terraform scripts solution provides the automated deployment of a single host with SAP NetWeaver with either ASE SYB or SAP HANA db on the Red Hat Enterprise Linux® 8.4 and SUSE 15.x for SAP Applications.
 
@@ -43,7 +43,7 @@ The SAP installation media that are used for this deployment are the default med
 ## SAP Project Value Guide – SAP NetWeaver with HANA landscape deployment
 {: #intro-automate-deploy-vpc-terraform-ansible-value-guide}
 
-SAP projects vary widely in scope and budget, but none are considered trivial. Whether you are delivering a new SAP system or implementing changes to an existing one, the requirements for error-free execution and reducing the project time to realized benefits are always present.
+SAP projects vary widely in scope and budget, but none are considered trivial. Whether you are delivering a new SAP system or implementing changes to an existing one, the requirements for error-free execution and reducing the project time to realize benefits are always present.
 
 In many SAP project scenarios, the deployment of an SAP system is often a key and repeated task. This project value guide covers the automated deployment of SAP NetWeaver (ABAP) with HANA database on {{site.data.keyword.cloud_notm}} VPC. We will also discuss [Additional Application Server (AAS) to SAP instance and HANA instance](/docs/sap?topic=sap-intro-automate-aas-hana-anydb-terraform-ansible&interface=ui) and [Backing up the HANA database IBM Cloud Object Storage](/docs/sap?topic=sap-sap-automate-intro-hana-db-backup-cos&interface=ui) in their respective sections.
 
@@ -53,15 +53,15 @@ In many SAP project scenarios, the deployment of an SAP system is often a key an
 The SAP NetWeaver with HANA landscape deployment automation helps, if:
 
 * You are an early adopter of the HANA database and deployed SAP Suite on HANA.
-* You would like to run the SAP NetWeaver with HANA on cloud.
-* Migration of SAP database(s) to HANA is part of your SAP NetWeaver implementation plan.
+* You would like to run the SAP NetWeaver with HANA on the cloud.
+* Migration of SAP databases to HANA is part of your SAP NetWeaver implementation plan.
 
 This deployment automation helps the business who plans to migrate SAP databases to HANA while keeping SAP NetWeaver as the application layer. From deployment launch to SAP logon, you are only hours away from having test and target SAP systems.
 
 ### What does the automation deploy?
 {: #intro-automate-deploy-vpc-terraform-ansible-value-guide-deploy}
 
-This deployment automation delivers two VSIs along with storage and secure network. You can choose the VSI profile size for HANA database and SAP NetWeaver application server.
+This deployment automation delivers two VSIs along with storage and a secure network. You can choose the VSI profile size for HANA database and SAP NetWeaver application server.
 
 Prerequisites to deploy the automation:
 
@@ -98,5 +98,5 @@ After bastion VPC deployment is complete, you must download the SAP kits to the 
 
 To save costs, the bastion server, with its SAP media dedicated storage, can be decommissioned after the SAP solutions are successfully implemented on {{site.data.keyword.cloud_notm}} VPC. Or, you can keep the bastion server and use it as a jump host for that specific region.
 
-This automation is offered free of charge however, the provisioned infrastructure comes at cost.
+However, this automation is offered free of charge , the provisioned infrastructure comes at a cost.
 {: note}
