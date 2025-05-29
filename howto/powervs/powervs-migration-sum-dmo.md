@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-05-28"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, heterogeneous migration, Linux, Red Hat, RHEL, SuSE, Db2, Oracle, HANA, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize, sum, software update manager, dmo, database migration option, dmove2s4, Software Provisioning Manager, SWPM
 subcollection: sap
 ---
@@ -543,7 +543,7 @@ An SAP *S-User* access is required to access the following links.
 {: note}
 
 * [Database Migration Option (DMO of SUM in a nutshell)](https://support.sap.com/en/tools/software-logistics-tools/software-update-manager/database-migration-option-dmo.html){: external}
-* [How to optimize DMO performance to reduce downtime)](https://support.sap.com/en/tools/software-logistics-tools/software-update-manager/dmo_performance_optimization.html){: external}
+* *Downtime-Optimized DMO: Introduction* PDF file attached to [SAP Note 2547309 - Downtime-optimized DMO with SUM 2.0](https://me.sap.com/notes/2547309/E){: external}
 
 The following document outlines the DMO steps for a migration of an SAP system from anyDB to an SAP HANA Database.
 
