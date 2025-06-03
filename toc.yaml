@@ -344,7 +344,7 @@ toc:
                       - navtitle: Deploying
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-db2-rhel-deploy.md
                 - topicgroup:
-                    label: SAP NetWeaver with ASE Sybase
+                    label: SAP NetWeaver with ASE
                     topics:
                       - navtitle: Overview
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-ase-sybase-overview.md

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-28"
+lastupdated: "2025-06-02"
 keywords:
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Deploying SAP NetWeaver 7.5 with ASE Sybase on RHEL 9.4
+# Deploying SAP NetWeaver 7.5 with ASE on RHEL 9.4
 {: #deploy-sap-ase}
 
 The deployment for SAP NetWeaver 7.5 with ASE Sybase on RHEL 9.4 is performed in phases:

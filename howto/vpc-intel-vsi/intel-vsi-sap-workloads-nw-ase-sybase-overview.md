@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-28"
+lastupdated: "2025-06-02"
 keywords:
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Overview of SAP NetWeaver 7.5 with ASE Sybase
+# Overview of SAP NetWeaver 7.5 with ASE
 {: #overview-sap-ase}
 
 This document describes the overview and the architecture of the SAP NetWeaver 7.5 solution with Adaptive Server Enterprise (ASE) Sybase as the underlying database running on Red Hat Enterprise Linux&reg; 9.4 operating system in the IBM Cloud VPC environment.
