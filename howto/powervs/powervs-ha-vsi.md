@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-25"
+lastupdated: "2025-06-10"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -149,7 +149,7 @@ The deployment of the virtual server instances starts.
 
 For a multizone region deployment, repeat the same steps to create the second virtual server instance in a different workspace.
 
-## Preparing the operating system for installating an SAP solution
+## Preparing the operating system for installing an SAP solution
 {: #ha-vsi-prepare-sap-install}
 
 If you deployed a virtual server instance from a stock image, you need to perform extra configuration tasks before you can install SAP software.
