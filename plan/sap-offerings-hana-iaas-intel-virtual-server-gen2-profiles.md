@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-06-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -23,7 +23,7 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- |
 | **Memory Optimized** | | | | |
-| mx2-8x64 \n mx2d-8x64 | 8 | 64 | 10,280 | SAP Business One (\*\*) |
+| mx2-8x64 \n mx2d-8x64 | 8 | 64 | 10,283 | SAP Business One (\*\*) |
 | mx2-16x128 \n mx2d-16x128 | 16 | 128 | 20,565 | OLTP (\*)\nSAP Business One (\*\*) |
 | mx2-32x256 \n mx2d-32x256 | 32 | 256 | 41,130 | OLTP (\*)\nSAP Business One (\*\*)  |
 | mx2-48x384 \n mx2d-48x384 | 48 | 384 | 56,970 | OLTP (\*)\nSAP Business One (\*\*)  |

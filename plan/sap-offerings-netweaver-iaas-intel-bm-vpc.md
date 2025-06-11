@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-06-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -48,17 +48,17 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 | **Balanced** | | | | |
 | bx3d-metal-48x256 | 48 | 256 | 93,670 | 18,400 |
 | bx3d-metal-64x256 | 64 | 256 | 124,520 | 24,600 |
-| bx3d-metal-192x1024 | 192 | 1.024 | 297,770 | 57,400 |
+| bx3d-metal-192x1024 | 192 | 1,024 | 297,770 | 57,400 |
 | **Memory Optimized** | | | | |
 | mx3d-metal-16x128 | 16 | 128 | 30,030 | n/a |
 | mx3d-metal-48x512 | 48 | 512 | 97,830 | 18,700 |
 | mx3d-metal-64x512 | 64 | 512 | 128,750 | 24,200 |
-| mx3d-metal-96x1024 | 96 | 1.024 | 182,670 | 33,700 |
-| mx3d-metal-128x1024 | 128 | 1.024 | 239,300 | 46,000 |
+| mx3d-metal-96x1024 | 96 | 1,024 | 182,670 | 33,700 |
+| mx3d-metal-128x1024 | 128 | 1,024 | 239,300 | 46,000 |
 | **Very High Memory Optimized** | | | | |
 | vx3d-metal-16x256 | 16 | 256 | 35,520 | n/a |
 | **Ultra High Memory Optimized** | | | | |
-| ux3d-metal-16x512 | 16 | 512 | 34,320 | n/a |
+| ux3d-metal-16x512 | 16 | 512 | 34,320 | 6,900 |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP application server - Intel Sapphire Rapids CPU" caption-side="bottom"}
 
 ⁽¹⁾: aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.

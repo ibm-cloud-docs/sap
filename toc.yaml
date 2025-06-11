@@ -459,6 +459,18 @@ toc:
                 - navtitle: Parameter harvesting, troubleshooting, and maintenance
                   topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md
           - topicgroup:
+              label: SCC Workload Protection
+              id: "sap-scc-workload-protection"
+              topics:
+                - navtitle: Overview
+                  topic: howto/scc-wp-overview.md
+                - navtitle: Creating a Workload Protection instance
+                  topic: howto/scc-wp-creating-instance.md
+                - navtitle: Agent Setup
+                  topic: howto/scc-wp-agent-setup.md
+                - navtitle: Dashboard Overview
+                  topic: howto/scc-wp-dashboard-overview.md
+          - topicgroup:
               label: Backup strategies
               id: "sap-backup-strategies"
               topics:

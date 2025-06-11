@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-06-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -20,7 +20,7 @@ The published names are subject to change.
 
 This table provides an overview of the SAP-certified profiles with Intel Bare Metal:
 
-| **Profile** | **CPU Cores** | **CPU Threads (aka. vCPU)** | **Memory (RAM GB)** | **SAPS** | **SAP HANA Processing Type** |
+| **Profile** | **CPU Cores** | **CPU Threads (aka. vCPU)** | **Memory (RAM)** | **SAPS** | **SAP HANA Processing Type** |
 | --- | --- | --- | --- | --- | --- |
 | [BI.S3.H2.192 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=823){: external} | 36 | 72 | 192 GB | 78,850 | OLAP/OLTP ⁽¹⁾\nSAP Business One ⁽³⁾ |
 | [BI.S3.H2.384 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1045&presetId=825){: external} | 36 | 72 | 384 GB | 79,430 | OLAP/OLTP ⁽¹⁾\nSAP Business One ⁽³⁾ |
@@ -31,12 +31,12 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 | [BI.S4.H2.768 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13475&packageId=1109&presetId=1095){: external} | 40 | 80 | 768 GB | 112,830 | OLAP/OLTP ⁽²⁾\nSAP Business One ⁽³⁾ |
 | BI.S4.H2.768_v2 Appliance | 48 | 96 | 768 GB | 124,620 | OLAP/OLTP ⁽²⁾ |
 | BI.S4.H2.768_v3 Appliance | 16 | 32 | 768 GB | 60,420 | OLAP/OLTP ⁽²⁾ |
-| [BI.S4.H2.1500 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1099){: external} | 56 | 112 | 1536 GB | 147,220 | OLAP/OLTP ⁽²⁾ |
-| [BI.S4.H2.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1103){: external} | 56 | 112 | 3072 GB | 135,127 | OLAP/OLTP ⁽²⁾ |
-| [BI.S4.H4.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1117){: external} | 112 | 224 | 3072 GB | 285,970 | OLAP/OLTP ⁽²⁾ |
-| [BI.S4.H4.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1113){: external} | 112 | 224 | 6144 GB | 285,970 | OLAP/OLTP ⁽²⁾ |
-| [BI.S4.H8.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1121){: external} | 224 | 448 | 6144 GB | 550,670 | OLAP/OLTP ⁽²⁾ |
-| [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1129){: external} | 224 | 448 | 12288 GB | 550,670 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H2.1500 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1099){: external} | 56 | 112 | 1,536 GB | 147,220 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H2.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1109&presetId=1103){: external} | 56 | 112 | 3,072 GB | 135,127 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H4.3000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1117){: external} | 112 | 224 | 3,072 GB | 285,970 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H4.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1117&presetId=1113){: external} | 112 | 224 | 6,144 GB | 285,970 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H8.6000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1121){: external} | 224 | 448 | 6,144 GB | 550,670 | OLAP/OLTP ⁽²⁾ |
+| [BI.S4.H8.12000 Appliance](https://cloud.ibm.com/gen1/infrastructure/provision/bm?imageItemId=13467&packageId=1119&presetId=1129){: external} | 224 | 448 | 12,288 GB | 550,670 | OLAP/OLTP ⁽²⁾ |
 | BI.S5.H2.1000 Appliance | 96 | 192 | 1 TB | 297,370 | OLAP/OLTP ⁽⁴⁾ |
 | BI.S5.H2.2001 Appliance | 96 | 192 | 2 TB | 297,370 | OLAP/OLTP ⁽⁴⁾ |
 | BI.S5.H2.2000 Appliance | 120 | 240 | 2 TB | 322,550 | OLAP/OLTP ⁽⁴⁾ |

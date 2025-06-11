@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-06-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -89,19 +89,19 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 | cx3d-16x40 | 16 | 40 | 21,284 | |
 | cx3d-24x60 | 24 | 60 | 31,926 | |
 | cx3d-32x80 | 32 | 80 | 42,568 | |
-| cx3d-48x120 | 48 | 120 | 63,852 | |
-| cx3d-64x160 | 64 | 160 | 85,136 | |
-| cx3d-96x240 | 96 | 240 | 127,703 | |
+| cx3d-48x120 | 48 | 120 | 63,851 | |
+| cx3d-64x160 | 64 | 160 | 85,135 | |
+| cx3d-96x240 | 96 | 240 | 127,702 | |
 | cx3d-128x320 | 128 | 320 | 170,270 | |
 | cx3d-176x440 | 176 | 440 | 234,120 | |
 | **Balanced** | | | | |
 | bx3d-2x10 | 2 | 10 | 2,616 | |
 | bx3d-4x20 | 4 | 20 |  5,232 | |
 | bx3d-8x40 | 8 | 40 |  10,463 | |
-| bx3d-16x80 | 16 | 80 | 20,926 | |
-| bx3d-24x120 | 24 | 120 | 31,388 | |
+| bx3d-16x80 | 16 | 80 | 20,925 | |
+| bx3d-24x120 | 24 | 120 | 31,387 | |
 | bx3d-32x160 | 32 | 160 | 41,850 | |
-| bx3d-48x240 | 48 | 240 | 62,775 | |
+| bx3d-48x240 | 48 | 240 | 62,774 | |
 | bx3d-64x320 | 64 | 320 | 83,699 | |
 | bx3d-96x480 | 96 | 480 | 125,548 | |
 | bx3d-128x640 | 128 | 640 | 167,397 | |
@@ -110,9 +110,9 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 | mx3d-2x20 | 2 | 20 | 2,590 | |
 | mx3d-4x40 | 4 | 40 | 5,180 | |
 | mx3d-8x80 | 8 | 80 | 10,359 | |
-| mx3d-16x160 | 16 | 160 | 20,718 | |
-| mx3d-24x240 | 24 | 240 | 31,076 | |
-| mx3d-32x320 | 32 | 320 | 41,434 | |
+| mx3d-16x160 | 16 | 160 | 20,717 | |
+| mx3d-24x240 | 24 | 240 | 31,075 | |
+| mx3d-32x320 | 32 | 320 | 41,433 | |
 | mx3d-48x480 | 48 | 480 | 62,150 | |
 | mx3d-64x640 | 64 | 640 | 82,866 | |
 | mx3d-96x960 | 96 | 960 | 124,299 | |
