@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-06-12"
 keywords: SAP, SAP SCC Workload Protection, {{site.data.keyword.sysdigsecure_full_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 content-type: tutorial
@@ -75,7 +75,6 @@ For API endpoint, make sure to note it down **with** preceding `https://` but **
 
 For Ingestion endpoint, make sure to note it down **without** preceeding `https://`and **without** any subdirectories. Example:
 * Ingestion endpoint: `ingest.private.us-south.security-compliance-secure.cloud.ibm.com`
-{: note}
 
 ## Agent installation and Setup
 {: #scc-wp-agent-setup-install-setup}

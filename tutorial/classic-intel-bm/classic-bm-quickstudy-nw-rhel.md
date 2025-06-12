@@ -63,7 +63,7 @@ The sample layouts might not be your preferred layout. The purpose of this guida
 
 1. Under **Type**, select *RAID 10*.
 2. **Disks**, **Hot Spare**, and **Disk Media** have default values. Select a **Disk size** that covers the total amount of storage you need.
-3. Click the Menu icon ![Menu icon](../../icons/action-menu-icon.svg) > **Advanced configuration** and leave **Controller** cleared. Click **OK**.
+3. Click the Menu icon ![Menu icon](../../../icons/action-menu-icon.svg) > **Advanced configuration** and leave **Controller** cleared. Click **OK**.
 
 ### Network interface
 {: #network-interface-32GB}
@@ -91,7 +91,7 @@ The sample layouts might not be your preferred layout. The purpose of this guida
 
 You are redirected to a page with your order number. The page is your order receipt; print a copy for your records. You also receive a confirmation email with the subject *Your {{site.data.keyword.cloud_notm}} Order ## has been approved*. The ## is your order number.
 
-Depending on your order, server is available for use within one to four hours after your order is submitted. You can check the Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your device's Hostname and Domain to see its status.
+Depending on your order, server is available for use within one to four hours after your order is submitted. You can check the Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your device's Hostname and Domain to see its status.
 
 ### Bring your own license
 {: #byol-32GB-rhel}
@@ -170,7 +170,7 @@ Use the following steps to configure your database server and OS.
 
 Use the following steps to add a second 2 TB SATA drive to your database server.
 
-1. For **Disk 1**, click the Menu icon ![Menu icon](../../icons/action-menu-icon.svg) > **Advanced configuration** > and verify that Primary disk partition** is set to the default of *Windows Basic*. Click **OK**.
+1. For **Disk 1**, click the Menu icon ![Menu icon](../../../icons/action-menu-icon.svg) > **Advanced configuration** > and verify that Primary disk partition** is set to the default of *Windows Basic*. Click **OK**.
 2. Click **Add new**.
 3. **Disks**, **Hot Spare**, and **Disk Media** have default values. Select a **Disk Size** that covers the total amount of storage you need.
 
@@ -205,7 +205,7 @@ Use the following steps to set up the network interface for your database server
 
 You are redirected to a page with your order number. The page is your receipt; print the page for your records. You also receive a confirmation email with the subject *Your {{site.data.keyword.cloud_notm}} Order ## has been approved*. The ## is your order number.
 
- Depending on your order, the server is available for use within one to four hours after the order is submitted. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
+ Depending on your order, the server is available for use within one to four hours after the order is submitted. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
 
 ### Bring your own license
 {: #byol}
@@ -359,7 +359,7 @@ External storage can be added to your provisioned server or servers. You can use
 {: step}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external} with your unique credentials.
-2. Expand the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) and select *Classic Infrastructure*.
+2. Expand the Menu icon ![Menu icon](../../../icons/icon_hamburger.svg) and select *Classic Infrastructure*.
 3. Select *Storage* > *Block Storage* > *Order Block Storage*.
 4. Select the specifics for your storage needs. Table 1 contains recommended values, including 10 IOPS/GB for a demanding database workload.
 
@@ -382,7 +382,7 @@ External storage can be added to your provisioned server or servers. You can use
 {: step}
 
 1. Select **Storage** > **Block Storage**.
-2. Highlight your LUN and expand the Action menu ![Action menu](../../icons/action-menu-icon.svg) and select **Authorize Host**.
+2. Highlight your LUN and expand the Action menu ![Action menu](../../../icons/action-menu-icon.svg) and select **Authorize Host**.
 3. Select *Bare Metal Server* for **Device Type**.
 4. Click **Hardware** to load available devices and select the hostname of your database server.
 5. Click **Save**.

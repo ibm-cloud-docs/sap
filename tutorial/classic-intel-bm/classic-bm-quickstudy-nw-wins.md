@@ -65,7 +65,7 @@ Select your SAP-certified server and OS.
 
 1. Under **Type**, select *RAID 10*.
 2. **Disks**, **Hot Spare**, and **Disk Media** have default values that are based on your selection. Select a **Disk Size** that covers the total amount of storage you need.
-3. Click the Menu icon ![Menu icon](../../icons/action-menu-icon.svg) > **Advanced configuration** and leave **Controller** cleared. Click **OK**.
+3. Click the Menu icon ![Menu icon](../../../icons/action-menu-icon.svg) > **Advanced configuration** and leave **Controller** cleared. Click **OK**.
 
 ### Network interface
 {: #network-options-32GB}
@@ -93,7 +93,7 @@ Select your SAP-certified server and OS.
 
 You are redirected to a page with your order number. Print the page because it is your receipt. You also receive a confirmation email with the subject *Your {{site.data.keyword.cloud_notm}} Order ## has been approved*. The ## is your order number.
 
-Depending on your order, the server is available for use within one to four hours after the order is submitted. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your device's hostname and domain to see its status.
+Depending on your order, the server is available for use within one to four hours after the order is submitted. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your device's hostname and domain to see its status.
 
 ### Bring your own license
 {: #byol-32GB}
@@ -163,7 +163,7 @@ Use the following steps to configure your database server and its OS.
 
 Use the following steps to add a 2 TB SATA drive for your database server.
 
-1. For **Disk 1**, click the Menu icon ![Menu icon](../../icons/action-menu-icon.svg) > **Advanced configuration** and verify that **Primary disk partition** is set to the default of *Windows Basic*. Click **OK**.
+1. For **Disk 1**, click the Menu icon ![Menu icon](../../../icons/action-menu-icon.svg) > **Advanced configuration** and verify that **Primary disk partition** is set to the default of *Windows Basic*. Click **OK**.
 2. Click **Add new**.
 3. **Disks**, **Hot Spare**, and **Disk Media** have default values. Select a **Disk Size** that covers the total amount of storage you need.
 
@@ -198,7 +198,7 @@ Use the following steps to set up the network interface for your database server
 
 You are redirected to a page with your order number. Print the page because it is your receipt. You also receive a confirmation email with the subject *Your {{site.data.keyword.cloud_notm}} Order ## has been approved*. The ## is your order number.
 
-Depending on your order, the server is available for use within one to four hours after the order is submitted. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your given hostname and Domain to see its status.
+Depending on your order, the server is available for use within one to four hours after the order is submitted. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../../icons/icon_hamburger.svg) > Resource List > Devices) for the status of the provisioning steps. Click the **Device Name** that matches your given hostname and Domain to see its status.
 
 ### Bring your own license
 {: #byol-192GB}
@@ -231,7 +231,7 @@ If you are installing a three-tier setup, you need to prepare the network setup.
 
 The network setup of the deployed servers that are outlined in Figure 1 is found under Network Connections in Microsoft Windows. In the sample setup, `10.17.139.35` is the private IP of the database server that is found under Network Connections - Private Network-Teamed, and is one of the IP ranges from RFC 1597. You can determine the IP of the application server, too, and add both IPs to both servers' `host files` under `C:\Windows\System32\drivers\etc`.
 
-In the {{site.data.keyword.cloud}} console, you can find the private IP of the database server under Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Resource List > Devices. Select the applicable device and the IP address is displayed in the respective column.
+In the {{site.data.keyword.cloud}} console, you can find the private IP of the database server under Menu icon ![Menu icon](../../../icons/icon_hamburger.svg) > Resource List > Devices. Select the applicable device and the IP address is displayed in the respective column.
 
 
 ## Adding external storage to your server
@@ -248,7 +248,7 @@ External storage can be added to your provisioned server, or servers. You can us
 {: step}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external} with your unique credentials.
-2. Expand the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) and select **Classic Infrastructure**.
+2. Expand the Menu icon ![Menu icon](../../../icons/icon_hamburger.svg) and select **Classic Infrastructure**.
 3. Select **Storage** > **Block Storage** > **Order Block Storage**.
 4. Select the specifics for your storage needs. Table 1 contains recommended values, including 10 IOPS/GB for a demanding database workload.
 
@@ -270,7 +270,7 @@ External storage can be added to your provisioned server, or servers. You can us
 {: step}
 
 1. Select **Storage** > **Block Storage**.
-2. Highlight your LUN and expand the Action menu ![Action menu](../../icons/action-menu-icon.svg) and select **Authorize Host**.
+2. Highlight your LUN and expand the Action menu ![Action menu](../../../icons/action-menu-icon.svg) and select **Authorize Host**.
 3. Select a **Device Type** of *Bare Metal Server*.
 4. Click **Hardware** to load available devices and select the hostname of your database server.
 5. Click **Save**.

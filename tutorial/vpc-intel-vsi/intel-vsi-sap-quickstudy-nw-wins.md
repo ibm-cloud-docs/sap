@@ -50,7 +50,7 @@ You use security groups to restrict access to and from IP ranges, protocols, and
 {{site.data.keyword.cloud}} compute resources are kept in a global region within a VPC. Use the following steps to create a VPC and its subnet.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} with your unique credentials.
-1. Click **Menu icon** ![Menu icon](../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
+1. Click **Menu icon** ![Menu icon](../../../icons/icon_hamburger.svg) > **VPC Infrastructure** > **Network** > **VPCs**
 1. Click **Create**.
 1. Enter a unique **Name** for the VPC, for example, *sap-test-vpc*.
 1. Select a **Resource group**. Use resource groups to organize your account resources for access control and billing purposes. **Leave the value default**.
@@ -189,7 +189,7 @@ Take note of the password.
 
 To quickly access the deployed instance, you can assign a *Floating IP* to your VSI. To add this IP to your server, complete the following steps:
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 1. Click the name of the Windows VSI - *sap-wdb*.
 1. On the Instance details page, find the **Network interfaces** section.
 1. By default, the first interface is named *eth0*.
