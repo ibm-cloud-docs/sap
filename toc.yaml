@@ -386,6 +386,14 @@ toc:
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-ase-sybase-overview.md
                       - navtitle: Deploying
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-ase-sybase-deploy.md
+                - topicgroup:
+                    label: SAP NetWeaver with HANA
+                    id: "sap-workloads-in-vpc-sap-netweaver-with-hana"
+                    topics:
+                      - navtitle: SAP S/4HANA HA
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-s4hana-ha-config.md
+                      - navtitle: SAP NetWeaver 7.x HA
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-hana-ha-config.md
           - topicgroup:
               label: High availability scenarios on Power Virtual Server
               id: "sap-ha-scenarios-on-power-virtual-server"
