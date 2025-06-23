@@ -387,8 +387,8 @@ toc:
                       - navtitle: Deploying
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-ase-sybase-deploy.md
                 - topicgroup:
-                    label: SAP NetWeaver with HANA
-                    id: "sap-workloads-in-vpc-sap-netweaver-with-hana"
+                    label: SAP Reference architectures
+                    id: "sap-workloads-in-vpc-sap-ref-arch"
                     topics:
                       - navtitle: SAP S/4HANA HA
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-s4hana-ha-config.md
