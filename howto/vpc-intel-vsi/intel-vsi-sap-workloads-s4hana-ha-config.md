@@ -19,7 +19,7 @@ SAP HANA is one of several databases that can be deployed on SAP NetWeaver in th
 ## SAP S/4 HANA deployment in HA configuration multi-zone
 {: #multi-zone-s4hana}
 
-![Figure 1. SAP S/4 HANA deployment in HA configuration multi-zone](../images/vpc-intel-sap-s4hana-arch-multizone.svg "SAP S/4 HANA deployment in HA configuration multi-zone"){: caption="SAP S/4 HANA deployment in HA configuration multi-zone" caption-side="bottom"}
+![Figure 1. SAP S/4 HANA deployment in HA configuration multi-zone](../../images/vpc-intel-sap-s4hana-arch-multizone.svg "SAP S/4 HANA deployment in HA configuration multi-zone"){: caption="SAP S/4 HANA deployment in HA configuration multi-zone" caption-side="bottom"}
 
 The deployment of the SAP system in a High Availability is based on two pacemaker cluster configurations:
 * one cluster protects one single point of failure of the SAP applications and the Central Services.
@@ -78,7 +78,7 @@ Instead of a number of filesystems needed per SAP system plus a number of filesy
 Both NFS shares with instance directories can be mounted statically on all nodes at boot time, using standard OS mechanisms such as systemd or fstab. Also,the “/usr/sap/sapservices” file resides locally on each cluster node.
 For some kind of compatibility with earlier HA setups, this reference architecture still uses the "old" filesystem layout but most fileshares are mounted on both nodes to implementing the simple mount approach.
 
-![Figure 2. Simple Mount Architecture in SUSE Linux](../images/vpc-intel-simple-mount-suse-linux.png "Simple Mount Architecture in SUSE Linux"){: caption="Simple Mount Architecture in SUSE Linux" caption-side="bottom"}
+![Figure 2. Simple Mount Architecture in SUSE Linux](../../images/vpc-intel-simple-mount-suse-linux.png "Simple Mount Architecture in SUSE Linux"){: caption="Simple Mount Architecture in SUSE Linux" caption-side="bottom"}
 
 **SAP Standalone Enqueue Server 1 (ENSA1) and Standalone Enqueue Server 2 (ENSA2)**
 To protect one of the critical components of the SAP System an one of the single points of failure, the enqueue table, there is a need to have a separate installation of the Enqueue Replication Server instance (ERS) which holds a copy of the enqueue table.
@@ -103,7 +103,8 @@ Deploying resources across multiple zones within a region enables high availabil
 
 However, deploying the resources in a HA configuration is also possible by using a single-zone inside a region.
 
-![Figure 3. SAP S/4 HANA deployment in HA configuration single-zone](../images/vpc-intel-sap-s4hana-arch-singlezone.svg "SAP S/4 HANA deployment in HA configuration single-zone"){: caption="SAP S/4 HANA deployment in HA configuration single-zone" caption-side="bottom"}
+![Figure 3. SAP S/4 HANA deployment in HA configuration single-zone](../../images/vpc-intel-sap-s4hana-arch-singlezone.svg "SAP S/4 HANA deployment in HA configuration single-zone"){: caption="SAP S/4 HANA deployment in HA configuration single-zone" caption-side="bottom"}
+
 
 * There is only one private subnet deployed.
 * SAP HANA is a two node cluster in the same network segment.

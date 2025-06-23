@@ -16,12 +16,12 @@ The IBM Cloud® architecture provides superior technical capabilities, such as a
 
 SAP HANA is one of several databases that can be deployed on SAP NetWeaver in the IBM Cloud®. SAP HANA is an in-memory database installed on a dedicated database server. The main architecture deployments for SAP HANA are single-host or multiple-host systems. IBM Cloud is certified for running SAP NetWeaver application servers ABAP, Java, and SAP products based on these application server stacks.
 
-## SAP Netweaver 7.x deployment in HA configuration single-zone and multi-zone
-{: #single-multi-zone}
+## SAP Netweaver 7.x deployment in HA configuration multi-zone
+{: #multi-zone-nw}
 
 The below reference architecture describes High Availability implementations in IBM Cloud VPC, considering SAP Netweaver Application Servers with SAP HANA Database workloads running on Virtual Server Instances.
 
-![Figure 1. SAP Netweaver deployment in HA configuration multi-zone](../images/vpc-intel-sap-nw-arch-multizone.svg "SAP Netweaver deployment in HA configuration multi-zone"){: caption="SAP Netweaver deployment in HA configuration multi-zone" caption-side="bottom"}
+![Figure 1. SAP Netweaver deployment in HA configuration multi-zone](../../images/vpc-intel-sap-nw-arch-multizone.svg "SAP Netweaver deployment in HA configuration multi-zone"){: caption="SAP Netweaver deployment in HA configuration multi-zone" caption-side="bottom"}
 
 The deployment of the SAP system in a High Availability is based on two pacemaker cluster configurations:
 * one cluster protects one single point of failure of the SAP Applications and the Central services.
@@ -81,7 +81,7 @@ Instead of a number of filesystems needed per SAP system plus a number of filesy
 Both NFS shares with instance directories can be mounted statically on all nodes at boot time, using standard OS mechanisms such as systemd or fstab. Also,the “/usr/sap/sapservices” file resides locally on each cluster node.
 For some kind of compatibility with earlier HA setups, this reference architecture still uses the "old" filesystem layout but most fileshares are mounted on both nodes to implementing the simple mount approach.
 
-![Figure 2. Simple Mount Architecture in SUSE Linux](../images/vpc-intel-simple-mount-suse-linux.png "Simple Mount Architecture in SUSE Linux"){: caption="Simple Mount Architecture in SUSE Linux" caption-side="bottom"}
+![Figure 2. Simple Mount Architecture in SUSE Linux](../../images/vpc-intel-simple-mount-suse-linux.png "Simple Mount Architecture in SUSE Linux"){: caption="Simple Mount Architecture in SUSE Linux" caption-side="bottom"}
 
 ### SAP HANA system replication scale-up (High Availability scenarios)
 {: #replication-scaleup-nw}
@@ -105,7 +105,7 @@ However, deploying the resources in a HA configuration is also possible by using
 
 A Power placement group together with a placement strategy provides supplementary protection for VMs in a single zone and it guarantees that  each instance is placed on computer hosts with separate power supplies and network devices. See the information from IBM Cloud regarding placement groups.
 
-![Figure 3. SAP NetWeaver 7.x HANA deployment in HA configuration single-zone](../images/vpc-intel-sap-nw-arch-singlezone.svg "SAP NetWeaver 7.x HANA deployment in HA configuration single-zone"){: caption="SAP NetWeaver 7.x HANA deployment in HA configuration single-zone" caption-side="bottom"}
+![Figure 3. SAP NetWeaver 7.x HANA deployment in HA configuration single-zone](../../images/vpc-intel-sap-nw-arch-singlezone.svg "SAP NetWeaver 7.x HANA deployment in HA configuration single-zone"){: caption="SAP NetWeaver 7.x HANA deployment in HA configuration single-zone" caption-side="bottom"}
 
 ## Related information
 {: #related-info-nw}
