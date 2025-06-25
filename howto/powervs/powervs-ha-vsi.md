@@ -1,8 +1,8 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-10"
-keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
+lastupdated: "2025-06-24"
+keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn, SLES HAE
 subcollection: sap
 ---
 
@@ -18,7 +18,9 @@ Use the following information and procedures to create the {{site.data.keyword.p
 ## Before you begin
 {: #ha-vsi-begin}
 
-Review the general requirements, product documentation, support articles, and SAP notes listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+Review the general requirements, product documentation, support articles, and SAP notes for your operating system:
+- Red Hat Enterprise Linux (RHEL) [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs)
+- SUSE Linux Enterprise Server (SLES) [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} SLES References](/docs/sap?topic=sap-ha-sles-refs)
 
 ## Creating a workspace
 {: #ha-vsi-create-workspace}

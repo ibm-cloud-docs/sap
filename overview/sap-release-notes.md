@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-06-25"
 keywords: SAP
 subcollection: sap
 ---
@@ -13,6 +13,13 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+## June 2025
+{: #sap-2025-06}
+
+- New documentation: [SAP S/4HANA running on HA configuration](/docs/sap?topic=sap-sap-s4hana-intro) for SAP workloads in VPC.
+- New documentation: [SAP Application/NetWeaver 7.x running on HA configuration](/docs/sap?topic=sap-sap-nw-hana-intro) for SAP workloads in VPC.
+- New documentation: [{{site.data.keyword.sysdigsecure_full}} instance](/docs/sap?topic=sap-scc-wp-getting-started) installation and configuration tutorial for SAP systems on {{site.data.keyword.powerSysFull}} and x86_64 Virtual Server Instance in {{site.data.keyword.vpc_short}}
 
 ## May 2025
 {: #sap-2025-05}
