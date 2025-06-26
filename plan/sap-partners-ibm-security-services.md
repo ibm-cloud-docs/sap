@@ -42,7 +42,7 @@ For more information, see [IBM.com - IBM Security - SAP Security and GRC Strateg
 
 To begin with IBM Security Services for SAP, use either:
 - Live Chat with IBM Security Sales, by using [IBM.com - IBM Security](https://www.ibm.com/services/sap-security){: external} and click `Let's talk` in the botttom-left
-- [Email with IBM Security Sales](https://www.ibm.com/account/reg/us-en/signup?formid=MAIL-security){: external}
+- [Email with IBM Security Sales](https://www.ibm.com/account/reg/us-en/signup?formid=MAIL-automation){: external}
 
 
 ### Procedure to request IBM Security Services for SAP, directly from IBM Cloud for VMware Solutions

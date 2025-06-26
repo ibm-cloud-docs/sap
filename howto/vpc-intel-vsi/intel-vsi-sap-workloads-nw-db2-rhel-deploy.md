@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-28"
+lastupdated: "2025-06-26"
 keywords:
 subcollection: sap
 ---
@@ -490,7 +490,7 @@ After you download the installation media, follow the standard SAP installation 
 * [SAP on IBM Cloud VPC reference architecture](/docs/pattern-sap-on-vpc?topic=pattern-sap-on-vpc-sap-on-vpc){: external}
 
 **IBM Db2 support on SAP-certified Cloud IaaS:**
-* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1.0?topic=database-support-db2-public-clouds){: external}
+* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1.0?topic=SSEPGG_12.1.0/com.ibm.db2.luw.licensing.doc/doc/r_suprt_db2_pblik_clouds.htm){: external}
 * [SAP Note 101809 - DB6: Supported Db2 Versions and Fix Pack Levels](https://me.sap.com/notes/101809){: external}
 * [General IBM Db2 prerequisites on UNIX and Linux®](https://www.ibm.com/docs/en/SSEPGG_11.5.0/com.ibm.db2.luw.qb.server.doc/doc/c0059823.html){: external}
 

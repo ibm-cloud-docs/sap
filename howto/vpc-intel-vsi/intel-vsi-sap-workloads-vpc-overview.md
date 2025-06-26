@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-22"
+lastupdated: "2025-06-26"
 keywords:
 subcollection: sap
 ---
@@ -77,7 +77,7 @@ The Infrastructure-as-a-Service (IaaS) server types within the {{site.data.keywo
 * SUSE Linux Enterprise Server (SLES) version 12 SP4 or higher.
 * Microsoft Windows Server 2016, 2019, and 2022.
 
-For more information on valid DB/OS combinations please consult the SAP [Product Availability Matrix (PAM)](https://apps.support.sap.com/sap/support/pam){: external}.
+For more information on valid DB/OS combinations please consult the SAP [Product Availability Matrix (PAM)](https://userapps.support.sap.com/sap/support/pam){: external}.
 
 ### Prerequisites
 {: #prerequisites-sap-vpc}

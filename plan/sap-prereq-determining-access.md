@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-26"
+lastupdated: "2025-06-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP NetWeaver, SAP HANA, Interconnectivity, Connectivity, Direct Link, VPC, VPN, Gateway
 
 subcollection: sap
@@ -50,8 +50,9 @@ You can securely connect to your infrastructure in multiple ways by using variou
 {{site.data.keyword.cloud}} Classic Infrastructure offers firewalls that can provide your {{site.data.keyword.baremetal_short}} with a layer of security that is provisioned on demand and designed to eliminate service interruptions.
 
 Within the Classic Infrastructure network, there are many Gateway Appliance and Firewalls to help prevent unwanted traffic from hitting your server, help reduce your attack vulnerability, and let your server resource be dedicated for its use. Based on your specific performance and feature requirements, you can choose one of the following options:
-- Shared firewall (multiple options, see [Getting Started Hardware Shared Firewall](/docs/hardware-firewall-shared?topic=hardware-firewall-shared-getting-started)),
-- [Fortinet FortiGate security appliance](/docs/fortigate-10g?topic=fortigate-10g-getting-started).
+- [Hardware Firewall - shared](/docs/hardware-firewall-shared?topic=hardware-firewall-shared-getting-started),
+- [Vyatta Virtual Router Appliance (VRA) - dedicated](/docs/virtual-router-appliance?topic=virtual-router-appliance-about-the-vra),
+- [Fortinet FortiGate security hardware appliance - dedicated](/docs/fortigate-10g?topic=fortigate-10g-getting-started).
 
 
 ## Connectivity options within the {{site.data.keyword.cloud_notm}} VPC Infrastructure network

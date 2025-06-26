@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-06-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, persistent memory, PMEM
 subcollection: sap
 ---
@@ -62,7 +62,7 @@ Standard HANA sizing rules apply to a 1:1 ratio configured server. The PMem size
 ## Post-provisioning
 {: #sap-partner-intel-optane-post-provisioning}
 
-When you order your Bare Metal server with persistent memory, regions are created by the provisioning engine. As part of post-provisioning, you create the namespaces that you need. For more information, see [Deploying your infrastructure](https://test.cloud.ibm.com/docs/sap?topic=sap-bm-optane-set-up-infrastructure){: external}.
+When you order your Bare Metal server with persistent memory, regions are created by the provisioning engine. As part of post-provisioning, you create the namespaces that you need. For more information, see [Deploying your infrastructure](/docs/sap?topic=sap-bm-optane-set-up-infrastructure).
 
 ### Backup, recovery, and system replication
 {: #baremetal-backup-recovery-replication}

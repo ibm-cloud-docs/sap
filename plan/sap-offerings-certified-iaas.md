@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-06-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -146,7 +146,7 @@ Depending on the SAP workload, supported processor options are restricted. For m
 
 See [SAP Note 2947579 - SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2947579){: external} for SAP HANA support on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
 
-SAP HANA workloads that use {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s run on IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the data sheet below:
+SAP HANA workloads that use {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s run on IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/solutions/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the data sheet below:
 
 **Data sheet:**
 - [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/documents/us-en/10a99803f42fd831){: external}
@@ -159,7 +159,7 @@ For further information, see [hardware specifications for {{site.data.keyword.IB
 
 See [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2855850){: external} for SAP NetWeaver support on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s.
 
-SAP NetWeaver and SAP AnyDB workloads that use {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are run on IBM Power System S922 and IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the following data sheets:
+SAP NetWeaver and SAP AnyDB workloads that use {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are run on IBM Power System S922 and IBM Power System E980, with Block Storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/solutions/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the following data sheets:
 
 **Data sheets:**
 * [IBM Power System S922 (9009-22A)](https://www.ibm.com/downloads/documents/us-en/107a02e959c8f4e8){: external}

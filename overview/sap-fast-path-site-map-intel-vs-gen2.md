@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-06-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -43,7 +43,8 @@ Your business and functional requirements determine the SAP solutions powered by
 Your enterprise IT organization can select from a variety of operating systems from the IBM Cloud for SAP portfolio. For more information:
 - [OS Bring your Own Image/License for VPC Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
 
-
+Depending on your scenarios, the following information may be also relevant:
+- [SAP to IBM Cloud Migration Acceleration Program](https://www.ibm.com/cloud/smartpapers/accelerate-SAP){: external}
 
 
 ## Tutorials

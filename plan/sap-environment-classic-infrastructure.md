@@ -177,9 +177,12 @@ All {{site.data.keyword.cloud_notm}} {{site.data.keyword.blockstorageshort}} or 
 
 IOPS are measured based on 16 KB block size with a 50/50 read/write mix. To achieve a maximum I/O throughput, it's advisable to look at the tier and custom profiles available for storage and find the optimal combination of size and IOPS.
 
+Block Storage for Classic volumes can be provisioned from 20 GB to 12 TB with two options:
+- **Endurance** volumes that feature pre-defined performance levels (tiered IOPS profiles)
+- **Performance** volumes that have custom IOPS
+[See details here.](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui)
 
-
-If you need more than the initially provisioned storage in your virtual server, you can attach extra volumes to a virtual server later. Contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
+If you need more than the initially provisioned storage in your server, you can attach extra volumes later. Contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
 
 For more information, see [Getting started with {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-getting-started#getting-started) and [Getting started with {{site.data.keyword.filestorage_full_notm}}](/docs/FileStorage?topic=FileStorage-getting-started#getting-started).
 

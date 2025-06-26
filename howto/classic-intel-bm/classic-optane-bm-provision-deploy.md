@@ -33,7 +33,7 @@ The App Dir mode uses regions, and namespaces to represent persistent memory dev
 
 Regions are created as part of the provisioning process. You must create the namespaces, create mount points, and mount the PMem devices.
 
-
+For more information about regions and namespaces, see [Persistent Memory Provisioning Introduction](https://www.intel.com/content/www/us/en/developer/articles/guide/qsg-intro-to-provisioning-pmem.html){: external}.
 
 1. Log in to the Bare Metal server as **root**.
 

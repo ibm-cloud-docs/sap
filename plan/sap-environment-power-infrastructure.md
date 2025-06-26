@@ -139,7 +139,7 @@ Block Storage is provided with your {{site.data.keyword.IBM_notm}} {{site.data.k
 
 All Block Storage is selected based on capacity (GB), currently the performance (IOPS) measurement cannot be fine-tuned.
 
-Block Storage for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s is powered underneath by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/storage){: external} connected through the Fibre Channel protocol.
+Block Storage for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s is powered underneath by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/solutions/storage){: external} connected through the Fibre Channel protocol.
 
 For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications-on-cloud).
 

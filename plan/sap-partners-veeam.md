@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-06-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Veeam Backup & Replication, Veeam Plug-in, SAP HANA Backup, SAP HANA Backint, SAP NetWeaver Backup, Backups, {{site.data.keyword.cloud_notm}} storage, {{site.data.keyword.blockstorageshort}}
 subcollection: sap
 ---
@@ -15,7 +15,7 @@ subcollection: sap
 This document is out of date, it is being updated for Veeam 10.x and replaced in November-2020 with new content.
 {: deprecated}
 
-Veeam Backup & Replication can be provisioned and deployed from the {{site.data.keyword.cloud_notm}} catalog to provide protection for SAP HANA workloads on certified {{site.data.keyword.ibm_cloud_sap}} infrastructure. Veeam performs SAP HANA `Backint`-based backup and restore of databases and logs, and is lisited on the [SAP Certified Solutions Directory](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions){: external}.
+Veeam Backup & Replication can be provisioned and deployed from the {{site.data.keyword.cloud_notm}} catalog to provide protection for SAP HANA workloads on certified {{site.data.keyword.ibm_cloud_sap}} infrastructure. Veeam performs SAP HANA `Backint`-based backup and restore of databases and logs, and is lisited on the [SAP Certified Solutions Directory](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=backint){: external}.
 {: shortdesc}
 
 ## Veeam overview and considerations

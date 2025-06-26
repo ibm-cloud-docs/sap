@@ -127,6 +127,8 @@ toc:
                   topic: plan/sap-app-commerce.md
                 - navtitle: SAP Business One (B1)
                   topic: plan/sap-app-b1.md
+                - navtitle: SAP Content Server
+                  topic: plan/sap-app-content-server.md
           - topicgroup:
               label: SAP AnyDB and SAP HANA extra design considerations
               id: "sap-anydb-and-hana-design-considerations"
