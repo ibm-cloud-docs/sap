@@ -180,6 +180,7 @@ IOPS are measured based on 16 KB block size with a 50/50 read/write mix. To achi
 Block Storage for Classic volumes can be provisioned from 20 GB to 12 TB with two options:
 - **Endurance** volumes that feature pre-defined performance levels (tiered IOPS profiles)
 - **Performance** volumes that have custom IOPS
+
 [See details here.](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui)
 
 If you need more than the initially provisioned storage in your server, you can attach extra volumes later. Contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
