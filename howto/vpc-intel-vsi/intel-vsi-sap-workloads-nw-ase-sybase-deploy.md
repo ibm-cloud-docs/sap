@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-06-02"
+lastupdated: "2025-06-26"
 keywords:
 subcollection: sap
 ---
@@ -380,6 +380,7 @@ If the installation scenario requires, then export one or more file systems. For
 ## Operating system preparation
 {: #os-prep-ase}
 
+[RHEL]{: tag-red}
 The operating system is prepared according to [SAP note 3108316](https://me.sap.com/notes/3108316/E){: external}. The OS packages are installed using the command: `# dnf install uuidd libnsl tcsh nfs-utils`
 
 1. After successful installation, check if the `uuidd` daemon is running using: `# systemctl status uuidd`
@@ -437,6 +438,36 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
     * `# dnf install tuned-profiles-sap`
 
     * `# tuned-adm profile sap-netweaver`
+
+[SLES]{: tag-green}
+The operating system is prepared according to [SAP note 1275776](https://me.sap.com/notes/1275776/E){: external}
+
+To check or install the package “saptune”, run the following commands:
+
+`# zypper info saptune`
+
+`# saptune service enablestart`
+
+The “saptune” service is enabled and started - `# saptune solution list`
+
+As you will be running both SAP NetWeaver and SAP ASE on the same VSI, you need to enable the solution “NETWEAVER” and additionally the SAP note **1680803** (which is the only difference between the two solutions).
+
+`# saptune solution apply NETWEAVER`
+
+SAP note “1680803” - `# saptune note apply 1680803`
+
+After successful installation of the “saptune”, check and configure the operating system installation according to SAP Note 2578899. The commands are:
+
+* Check I/O scheduler - `# grep . /sys/block/*/queue/scheduler`
+
+* Check User TasksMax - `# systemctl --version`
+
+    No changes are done for version 254.24
+    {: note}
+
+* Setting of “kernel.pid_max” - `# sysctl -a | grep kernel.pid_max`. Set according to SAP note “2578899”.
+
+* Check the status for “sysstat” - `# systemctl status sysstat`
 
 ## Installation of SAP NetWeaver 7.5 with ASE on RHEL 9.4 with SWPM
 {: #install-sapnw-ase}
