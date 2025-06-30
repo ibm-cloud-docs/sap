@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-06-30"
 keywords:
 subcollection: sap
 ---
@@ -381,6 +381,7 @@ If the installation scenario requires, then export one or more file systems. For
 {: #os-prep-ase}
 
 [RHEL]{: tag-red}
+
 The operating system is prepared according to [SAP note 3108316](https://me.sap.com/notes/3108316/E){: external}. The OS packages are installed using the command: `# dnf install uuidd libnsl tcsh nfs-utils`
 
 1. After successful installation, check if the `uuidd` daemon is running using: `# systemctl status uuidd`
@@ -440,21 +441,22 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
     * `# tuned-adm profile sap-netweaver`
 
 [SLES]{: tag-green}
+
 The operating system is prepared according to [SAP note 1275776](https://me.sap.com/notes/1275776/E){: external}
 
-To check or install the package “saptune”, run the following commands:
+* Run the following commands to check or install the package “saptune”:
 
-`# zypper info saptune`
+    `# zypper info saptune`
 
-`# saptune service enablestart`
+    `# saptune service enablestart`
 
-The “saptune” service is enabled and started - `# saptune solution list`
+* The “saptune” service is enabled and started using the command: `# saptune solution list`
 
-As you will be running both SAP NetWeaver and SAP ASE on the same VSI, you need to enable the solution “NETWEAVER” and additionally the SAP note **1680803** (which is the only difference between the two solutions).
+As you will be running both SAP NetWeaver and SAP ASE on the same VSI, you need to enable the solution "NetWeaver" and additionally the SAP note **1680803** (which is the only difference between the two solutions).
 
 `# saptune solution apply NETWEAVER`
 
-SAP note “1680803” - `# saptune note apply 1680803`
+* SAP note “1680803” - `# saptune note apply 1680803`
 
 After successful installation of the “saptune”, check and configure the operating system installation according to SAP Note 2578899. The commands are:
 
@@ -468,6 +470,50 @@ After successful installation of the “saptune”, check and configure the oper
 * Setting of “kernel.pid_max” - `# sysctl -a | grep kernel.pid_max`. Set according to SAP note “2578899”.
 
 * Check the status for “sysstat” - `# systemctl status sysstat`
+
+* Check the status for “sysctl” monitoring - `# systemctl status sysctl-logger.service`
+
+* Check the status for the “UUID daemon” - `# systemctl status uuidd.socket`
+
+* Check that “Polkit” is installed - `# zypper info polkit`
+
+* Check values for “vm.dirty_background_bytes/vm.dirty_bytes”
+
+    `# sysctl -a | grep vm.dirty_background_bytes`
+
+    `# sysctl -a | grep vm.dirty_bytes`
+
+This is already taken care by “saptune”
+
+* Install package “insserv-compat”
+
+    `# zypper in insserv-compat`
+
+    `# zypper info insserv-compat`
+
+* If the VSI is part of a domain, verify that the short hostname and FQDN are reported correctly by the following OS level commands:
+
+    `# hostname`
+
+    `# hostname -s`
+
+    `# hostname -f`
+
+* Check the status of “chronyd” - `# systemctl status chronyd`
+
+* Check the version for package “glibc” - `# zypper info glibc`
+
+According to SAP note 3425215, there is no issue using SAP ASE 16.0 SP04 PL06.
+
+* Initialize **TMPFS.**
+
+* Resize TMPFS according to SAP Note 941735 (filesystem /dev/shm): - `# mount -o remount,size=43G /dev/shm`
+
+43GB is represents 70% of RAM + SWAP
+{: note}
+
+To make the new size for the “TMPFS” permanent, add the following entry in the “/etc/fstab” file:
+Check the new size of “TMPFS” with the following command: - `# df -h /dev/shm`
 
 ## Installation of SAP NetWeaver 7.5 with ASE on RHEL 9.4 with SWPM
 {: #install-sapnw-ase}
