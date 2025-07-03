@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-07-03"
 keywords:
 subcollection: sap
 ---
@@ -378,6 +378,8 @@ If the installation scenario requires, we can export one or more file systems (f
 ## Operating system preparation
 {: #os-prep}
 
+[RHEL]{: tag-red}
+
 The operating system is prepared according to [SAP note 3108316](https://me.sap.com/notes/3108316/E){: external}. The OS packages are installed using the command: `# dnf install uuidd libnsl tcsh nfs-utils`
 
 1. After successful installation, check if the `uuidd` daemon is running using: `# systemctl status uuidd`
@@ -447,6 +449,75 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
     * `# dnf install tuned-profiles-sap`
 
     * `# tuned-adm profile sap-netweaver`
+
+[SLES]{: tag-green}
+
+The operating system is prepared according to [SAP note 1275776](https://me.sap.com/notes/1275776/E){: external}
+
+1. Install the package “saptune”.
+
+    `# zypper info saptune`
+    `# saptune service enablestart`
+    `# saptune solution apply NETWEAVER`
+    `# saptune solution verify NETWEAVER`
+
+2. Configure the operating system installation according to SAP Note 2578899.
+
+3. Check the Input Output scheduler
+    `# grep . /sys/block/*/queue/scheduler`
+
+4. Check the User TasksMax
+    `# systemctl –version`
+
+5. Use the command to set the “kernel.pid_max”
+    `# sysctl -a | grep kernel.pid_max`
+
+6. Check the status of "Sysstat” using the commands:
+    `# systemctl enable sysstat`
+    `# systemctl status sysstat`
+
+7. Check the status of “Sysctl” monitoring - `# systemctl status sysctl-logger.service`
+
+8. Check the status of “UUID” daemon - `# systemctl status uuidd.socket`
+
+9. Check the status of “Polkit” - `# zypper info polkit`
+
+10. Check the parameters “vm.dirty_background_bytes / vm.dirty_bytes” using the commands:
+    `# sysctl -a | grep vm.dirty_background_bytes`
+    `# sysctl -a | grep vm.dirty_bytes`
+
+11. Check the package “insserv-compat” using the commands:
+    `# zypper in insserv-compat`
+    `# zypper info insserv-compat`
+
+12. Reboot the VSI.
+
+13. Check the configured OS SWAP space using the command - `# free -m`
+
+14. If the VSI is part of a domain, verify that the short hostname and FQDN are reported correctly by the using the following OS level commands:
+    `# hostname`
+    `# hostname -s`
+    `# hostname -f`
+
+15. The Linux service “chronyd” is enabled by default. Check by running the command - `# systemctl status chronyd`
+
+16. For the IBM Db2 database version 11.5 the following packages are also needed for both Servers and Clients:
+
+    `# zypper in mksh binutils libstdc++6-32bit net-tools-deprecated libnuma1`
+
+17. For the IBM Db2 database version 12.1 the following packages are also needed for both Servers and Clients:
+
+    `# zypper in mksh binutils libstdc++6-32bit`
+
+18. Check IBM Db2 11.5.9 server and client prerequisites using the script named “db2prereqcheck” located in the “[db2_kit_zip]/LINUXX86_64/ESE/disk1”:
+
+    `# ./db2prereqcheck -v 11.5.9.0`
+    `# ./db2prereqcheck -c -v 11.5.9.0`
+
+19. For IBM Db2 12.1.0, check the server and client prerequisites using the script named “db2prereqcheck” located in the “[db2_kit_zip]/LINUXX86_64/ESE/disk1”:
+
+    `# ./db2prereqcheck -v 12.1.0.0`
+    `# ./db2prereqcheck -c -v 12.1.0.0`
 
 ## Installation of SAP NetWeaver 7.5 with Db2 on RHEL 9.4 with SWPM
 {: #install-sapnw-db2}
