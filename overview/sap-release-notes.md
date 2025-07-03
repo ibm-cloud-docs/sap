@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-06-25"
+lastupdated: "2025-07-03"
 keywords: SAP
 subcollection: sap
 ---
@@ -20,6 +20,8 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 - New documentation: [SAP S/4HANA running on HA configuration](/docs/sap?topic=sap-sap-s4hana-intro) for SAP workloads in VPC.
 - New documentation: [SAP Application/NetWeaver 7.x running on HA configuration](/docs/sap?topic=sap-sap-nw-hana-intro) for SAP workloads in VPC.
 - New documentation: [{{site.data.keyword.sysdigsecure_full}} instance](/docs/sap?topic=sap-scc-wp-getting-started) installation and configuration tutorial for SAP systems on {{site.data.keyword.powerSysFull}} and x86_64 Virtual Server Instance in {{site.data.keyword.vpc_short}}
+- New documentation: [Implementing a SUSE Linux Enterprise Server high availability cluster](/docs/sap?topic=sap-ha-sles) on {{site.data.keyword.powerSysFull}}.
+- New documentation: [Configuring SAP HANA scale-up system replication in a SUSE Linux Enterprise High Availability Extension cluster](/docs/sap?topic=sap-ha-sles-hana-sr) on {{site.data.keyword.powerSysFull}}.
 
 ## May 2025
 {: #sap-2025-05}

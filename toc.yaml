@@ -430,6 +430,16 @@ toc:
                         topic: howto/powervs/powervs-ha-rhel-ensa-mz.md
                       - navtitle: Configuring an active-passive NFS server
                         topic: howto/powervs/powervs-ha-rhel-nfs.md
+                - topicgroup:
+                    label: Implementing SLES HA Cluster Extension for SAP solutions
+                    id: "sap-ha-scenarios-on-power-virtual-server-with-sles"
+                    topics:
+                      - navtitle: Implementing a basic cluster
+                        topic: howto/powervs/powervs-ha-sles.md
+                      - navtitle: Configuring SAP HANA scale-up system replication
+                        topic: howto/powervs/powervs-ha-sles-hana-sr.md
+                      - navtitle: SLES References
+                        topic: howto/powervs/powervs-ha-sles-refs.md
           - topicgroup:
               label: Migration
               id: "sap-migration-to-power-virtual-server"
