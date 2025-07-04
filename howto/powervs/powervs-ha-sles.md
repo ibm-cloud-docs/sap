@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-04"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, SAP HANA, SAP HANA System Replication, high availability, HA, Linux, Pacemaker, SLES, SUSE, SLES High Availability Extension, SLES HAE
 subcollection: sap
 ---
@@ -451,14 +451,12 @@ To test the STONITH configuration, you need to manually trigger a fencing action
    ```
    {: pre}
 
-1. Enter `y` and press Enter to proceed when prompted with the following message.
+1. Enter `y` and press Enter to proceed when prompted with the following message, which will stop NODE2:
 
    ```screen
    Fencing ths-4 will shut down the node and migrate any resources that are running on it! Do you want to fence ths-4  (y/n)? y
    ```
    {: screen}
-
-   As a result, NODE2 stops.
 
 1. Activate NODE2, wait for it to rejoin the cluster, and test fencing from the opposite direction.
 
@@ -470,13 +468,11 @@ To test the STONITH configuration, you need to manually trigger a fencing action
    {: pre}
 
 1. When both nodes appear as `Online` in the cluster status, wait for about one minute to help ensure stability.
-   Then, from NODE2, initiate a fencing action on NODE1 by running the following command.
+   Then, from NODE2, initiate a fencing action on NODE1 by running the following command which will stop NODE1:
 
    ```sh
    crm node fence ${NODE1}
    ```
    {: pre}
-
-   NODE1 stops.
 
 1. Activate NODE1, then start the cluster services on the node.
