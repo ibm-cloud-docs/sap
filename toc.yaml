@@ -476,6 +476,8 @@ toc:
                   topic: howto/powervs/powervs-monitoring-metric-forwarding-config.md
                 - navtitle: Launching the monitoring UI and working with dashboards
                   topic: howto/powervs/powervs-monitoring-launch-web-ui-and-dashboards.md
+                - navtitle: Alerting and Notification
+                  topic: howto/powervs/powervs-monitoring-alerting-and-notification.md
                 - navtitle: Parameter harvesting, troubleshooting, and maintenance
                   topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md
           - topicgroup:
