@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-09"
 keywords: SAP, SAP Monitoring, SAP Monitoring Alerting, Monitoring Notification {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 ---
