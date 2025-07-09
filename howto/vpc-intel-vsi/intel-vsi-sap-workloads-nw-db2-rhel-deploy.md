@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-09"
 keywords:
 subcollection: sap
 ---
@@ -49,7 +49,7 @@ For compute component, based on the estimated user load for the SAP system, it i
 
 Also, for any deployment it is important to choose the right OS image for your VSI. Multiple options are available to choose from a selection of SAP certified RHEL, SUSE, or Windows images or custom images. For more information, see the [Catalog images on VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#catalog-images-sap-nw-db2-rhel).
 
-The storage component is also a important part of any VSI deployment process and choosing the right block storage volume or deciding to use the NFS-based file storage is an important decision for any SAP deployment. For more information, see [Block Storage for Virtual Server Instances on VPC Infrastructure](/docs/sap?topic=sap-intro-sap-cloud-vpc#block-storage-vpc-sap).
+The storage component is also an important part of any VSI deployment process and choosing the right block storage volume or deciding to use the NFS-based file storage is an important decision for any SAP deployment. For more information, see [Block Storage for Virtual Server Instances on VPC Infrastructure](/docs/sap?topic=sap-intro-sap-cloud-vpc#block-storage-vpc-sap).
 
 ## Cloud resource deployment
 {: #cloud-resource-deploy}
@@ -65,7 +65,7 @@ For instance, the following example data is of a VPC created in Germany with dat
 
 ![Figure 1. VPC details](../../images/vpc-intel-vsi-vpc-details.png "VPC details"){: caption="VPC details" caption-side="bottom"}
 
-The Resource Group where the VPC was previously created, “wes-automation” will hold and group other necessary components (VSIs, and so on).”
+The Resource Group where the VPC was previously created, “wes-automation” will hold and group other necessary components (VSIs, and so on).
 {: note}
 
 The following subnets are defined and available for the example VPC:
@@ -116,7 +116,7 @@ For more information on NFS-based file storage for VSI on VPC infrastructure, se
 
 For demonstration purposes, the file system `/usr/sap/trans` is used in two different scenarios:
 * as a local file system
-* as a NFS-based file system, using the File storage share service available in the IBM Cloud VPC.
+* as a NFS-based file system, by using the File storage share service available in the IBM Cloud VPC.
 
 For more information and procedures regarding IBM Cloud VPC file share resource, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
 
@@ -145,11 +145,11 @@ For the presented example, the SAP SID is DWT, thus the naming for the volume gr
 
 At the operating system level, physical volumes, volume groups, logical volumes, and file systems are created in a specific sequence.
 
-1. List the available disk using the command: `# lsblk`
+1. List the available disk by using the command: `# lsblk`
 
-2. To use LVM, the Linux&reg; package "lvm2" must be installed using the command: `# dnf install lvm2`
+2. To use LVM, the Linux&reg; package "lvm2" must be installed by using the command: `# dnf install lvm2`
 
-3. Create the required physical volumes using the following commands:
+3. Create the required physical volumes by using the following commands:
 
     ```pre
     # pvcreate /dev/vdb
@@ -159,7 +159,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # pvcreate /dev/vdf
     ```
 
-4. Create the required volume groups using the following commands:
+4. Create the required volume groups by using the following commands:
 
     ```pre
     # vgcreate dtw_data_vg /dev/vdb
@@ -169,7 +169,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # vgcreate dtw_swap_vg /dev/vdf
     ```
 
-5. Create the Db2 logical volumes using the following commands:
+5. Create the Db2 logical volumes by using the following commands:
 
     ```pre
     # lvcreate -L 2G -n dtw_db2_lv dtw_data_vg
@@ -187,7 +187,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # lvcreate -L 25G -n dtw_log_lv dtw_log_vg
     ```
 
-6. Create the SAP application logical volumes using the following commands:
+6. Create the SAP application logical volumes by using the following commands:
 
     ```pre
     # lvcreate -L 20G -n dtw_sap_lv dtw_app_vg
@@ -198,7 +198,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
 
 7. Create the logical volume for the OS SWAP using the following command: `# lvcreate -L 60G -n dtw_swap_lv dtw_swap_vg`
 
-8. Create the Db2 file systems using the following commands:
+8. Create the Db2 file systems by using the following commands:
 
     ```pre
     # mkfs.ext4 /dev/dtw_data_vg/dtw_db2_lv
@@ -216,7 +216,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # mkfs.ext4 /dev/dtw_log_vg/dtw_log_lv
     ```
 
-9. The SAP application file systems are created using the following commands:
+9. The SAP application file systems are created by using the following commands:
 
     ```pre
     # mkfs.ext4 /dev/dtw_app_vg/dtw_sap_lv
@@ -232,7 +232,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # swapon /dev/dtw_swap_vg/dtw_swap_lv
     ```
 
-11. After creating all the required file system, you can create the necessary mount points using the following commands:
+11. After creating all the required file system, you can create the necessary mount points by using the following commands:
 
     ```pre
     # mkdir -p /db2/DTW
@@ -297,10 +297,10 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     tmpfs /dev/shm tmpfs size=70G,rw,nosuid,nodev 0 0
     ```
 
-### NFS file system using IBM Cloud VPC File Shares
+### NFS file system by using IBM Cloud VPC File Shares
 {: #nfs-application-vpc}
 
-[IBM Cloud File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about) is used to make SAP-specific directories accessible to the SAP system, by using technologies like NFS, shared disks, and cluster file system. When using an HA solution for your SAP system, ensure that you address the HA requirements for SAP file systems properly.
+[IBM Cloud File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about) is used to make SAP-specific directories accessible to the SAP system, by using technologies like NFS, shared disks, and cluster file system. When using an HA solution for your SAP system, can ensure that you address the HA requirements for SAP file systems properly.
 
 For SAP HA multi-zone applications, file shares are mounted as permanent NFS file systems on both cluster nodes.
 
@@ -310,9 +310,9 @@ For SAP HA multi-zone applications, file shares are mounted as permanent NFS fil
 
 * `/usr/sap/trans`
 
-In some HA or distributed environment, using NFS to store the application or database data may be necessary. In such case, you can create NFS file systems as file-shares using them as mount points for SAP application data.
+In some HA or distributed environment, using NFS to store the application or database data may be necessary. In such case, you can create NFS file systems as file-shares by using them as mount points for SAP application data.
 
-Following is an example where `/usr/sap/trans` file system is defined as an IBM Cloud VPC file share and mounted accordingly to the SAP system VSI:
+The following is an example where `/usr/sap/trans` file system is defined as an IBM Cloud VPC file share and mounted to the SAP system VSI:
 
 * **File storage share for VPC**
 
@@ -361,32 +361,32 @@ If the installation scenario requires, we can export one or more file systems (f
 
 1. Install the NFS package on the source VSI using the command: `dnf list nfs-utils`
 
-2. Check the status using the command: `systemctl status rpcbind`
+2. Check the status by using the command: `systemctl status rpcbind`
 
-3. Enable the NFS package using the command: `systemctl enable –now nfs-server`
+3. Enable the NFS package by using the command: `systemctl enable –now nfs-server`
 
 4. For example, export the “/usr/sap/trans” directory, by adding the following line in the “/etc/exports” file: `/usr/sap/trans 10.243.0.180(rw,sync,no_root_squash)`
 
-5. Apply configuration and activate exports using the command: `exportfs -arv`
+5. Apply configuration and activate exports by using the command: `exportfs -arv`
 
 6. After completion, see the export list (and options) by using one of the following commands: `exportfs -s` or `showmount -e`
 
 7. On the target VSI, mount the “/usr/sap/trans” through NFS using the command: `mount --types nfs4 10.243.64.10:/usr/sap/trans /usr/sap/trans`
 
-8. Verify the mount file system using the command: `df -hT /usr/sap/trans`
+8. Verify the mount file system by using the command: `df -hT /usr/sap/trans`
 
 ## Operating system preparation
 {: #os-prep}
 
 [RHEL]{: tag-red}
 
-The operating system is prepared according to [SAP note 3108316](https://me.sap.com/notes/3108316/E){: external}. The OS packages are installed using the command: `# dnf install uuidd libnsl tcsh nfs-utils`
+The operating system is prepared according to [SAP note 3108316](https://me.sap.com/notes/3108316/E){: external}. The OS packages are installed by using the command: `# dnf install uuidd libnsl tcsh nfs-utils`
 
-1. After successful installation, check if the `uuidd` daemon is running using: `# systemctl status uuidd`
+1. After successful installation, check if the `uuidd` daemon is running by using: `# systemctl status uuidd`
 
 2. Next, `SELinux` needs to be set to “permissive”. Open the configuration file “/etc/selinux/config” and set the following: `SELinux=permissive`
 
-3. Once the changes are saved, restart the VSI and verify the above settings using the command: `# getenforce`
+3. Once the changes are saved, restart the VSI and verify the above settings by using the command: `# getenforce`
 
 4. Verify the short hostname and FQDN by using the OS level commands:
 
@@ -394,14 +394,14 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
     * `# hostname -s`
     * `# hostname -f`
 
-5. Verify if the Linux&reg; service `chronyd` is running correctly (enabled by default in RHEL9.4) using the command: `# systemctl status chronyd`
+5. Verify whether the Linux&reg; service `chronyd` is running correctly (enabled by default in RHEL9.4) using the command: `# systemctl status chronyd`
 
-6. Next, check if the firewall is disabled.
+6. Next, check whether the firewall is disabled.
 
     If the customer-specific security rules are required, then it can be enabled and configured to allow the communication ports of the SAP System.
     {: note}
 
-7. Check the status of the firewall using the command: `# systemctl status firewall.d`
+7. Check the status of the firewall by using the command: `# systemctl status firewall.d`
 
 8. Configure the required Linux&reg; Kernel parameters by creating a file named “sap.conf” in the directory “/etc/sysctl.d”. The file content is:
 
@@ -411,7 +411,7 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
 
 9. No process limits are configured as you run “systemd” higher than 239 and SAP kernel 7.54. Check the “systemd” version by running the command: `# systemctl –version`
 
-    Regarding “temp files” we need to ensure we create a file “sap.conf” under the directory `/etc/tmpfiles.d`, and add the following lines, inside the file:
+    Regarding “temp files” we need to ensure that we create a file “sap.conf” under the directory `/etc/tmpfiles.d`, and add the following lines, inside the file:
 
     ```pre
     # systemd.tmpfiles exclude file for SAP
@@ -422,7 +422,7 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
     x /tmp/.trex*lock
     ```
 
-10. Next, check if the following Linux&reg; kernel parameters have the values:
+10. Next, check whether the following Linux&reg; kernel parameters have the values:
 
     ```pre
     # sysctl kernel.shmmax kernel.shmall
@@ -430,13 +430,13 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
     kernel.shmall = 18446744073692774399
        ```
 
-11. Finally, check the OS SWAP space using the command: `# free -m`
+11. Finally, check the OS SWAP space by using the command: `# free -m`
 
     For the IBM Db2 database, for both 11.5 and 12.1 versions, the following packages are needed for servers and clients. Install `mksh` as replacement for `pdksh`. See https://access.redhat.com/solutions/178913{: external}.
 
     `# dnf install mksh pam.i686 libstdc++.i686`
 
-12. For IBM Db2 11.5.9 version, check IBM Db2 11.5.9 server and client prerequisites by using the script named `db2prereqcheck` located in the `<db2_kit_zip>/LINUXX86_64/ESE/disk1` path:
+12. For IBM Db2 11.5.9 version, check IBM Db2 11.5.9 server and client prerequisites by using the script that is named `db2prereqcheck` located in the `<db2_kit_zip>/LINUXX86_64/ESE/disk1` path:
 
     `# ./db2prereqcheck -v 11.5.9.0`
 
@@ -444,7 +444,7 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
 
     `# ./db2prereqcheck -v 12.1.0.0`
 
-14. Once all the OS preconfigure activities (according to [SAP Note 3108316 - Red Hat Enterprise Linux&reg; 9.x: Installation and Configuration](https://me.sap.com/notes/3108316){: external}) and the Db2 prerequisites checks are successfully completed, then the operating system needs to be tuned for running SAP NetWeaver Applications. This is done by installing and activating the `tuned-profiles-sap` using the following commands:
+14. Once all the OS preconfigures activities (according to [SAP Note 3108316 - Red Hat Enterprise Linux&reg; 9.x: Installation and Configuration](https://me.sap.com/notes/3108316){: external}) and the Db2 prerequisites checks are successfully completed, then the operating system needs to be tuned for running SAP NetWeaver Applications. This is done by installing and activating the `tuned-profiles-sap` using the following commands:
 
     * `# dnf install tuned-profiles-sap`
 
@@ -463,14 +463,11 @@ The operating system is prepared according to [SAP note 1275776](https://me.sap.
 
 2. Configure the operating system installation according to SAP Note 2578899.
 
-3. Check the Input Output scheduler
-    `# grep . /sys/block/*/queue/scheduler`
+3. Check the input/output scheduler - `# grep . /sys/block/*/queue/scheduler`
 
-4. Check the User TasksMax
-    `# systemctl –version`
+4. Check the User TasksMax - `# systemctl –version`
 
-5. Use the command to set the “kernel.pid_max”
-    `# sysctl -a | grep kernel.pid_max`
+5. Use the command to set the “kernel.pid_max” - `# sysctl -a | grep kernel.pid_max`
 
 6. Check the status of "Sysstat” using the commands:
     `# systemctl enable sysstat`
@@ -490,9 +487,9 @@ The operating system is prepared according to [SAP note 1275776](https://me.sap.
     `# zypper in insserv-compat`
     `# zypper info insserv-compat`
 
-12. Reboot the VSI.
+12. Restart the VSI.
 
-13. Check the configured OS SWAP space using the command - `# free -m`
+13. Check the configured OS SWAP space by using the command - `# free -m`
 
 14. If the VSI is part of a domain, verify that the short hostname and FQDN are reported correctly by the using the following OS level commands:
     `# hostname`
@@ -501,20 +498,20 @@ The operating system is prepared according to [SAP note 1275776](https://me.sap.
 
 15. The Linux service “chronyd” is enabled by default. Check by running the command - `# systemctl status chronyd`
 
-16. For the IBM Db2 database version 11.5 the following packages are also needed for both Servers and Clients:
+16. For the IBM Db2 database version 11.5 the following packages are also needed for both servers and clients:
 
     `# zypper in mksh binutils libstdc++6-32bit net-tools-deprecated libnuma1`
 
-17. For the IBM Db2 database version 12.1 the following packages are also needed for both Servers and Clients:
+17. For the IBM Db2 database version 12.1 the following packages are also needed for both servers and clients:
 
     `# zypper in mksh binutils libstdc++6-32bit`
 
-18. Check IBM Db2 11.5.9 server and client prerequisites using the script named “db2prereqcheck” located in the “[db2_kit_zip]/LINUXX86_64/ESE/disk1”:
+18. Check IBM Db2 11.5.9 server and client prerequisites by using the script that is named “db2prereqcheck” located in the “[db2_kit_zip]/LINUXX86_64/ESE/disk1”:
 
     `# ./db2prereqcheck -v 11.5.9.0`
     `# ./db2prereqcheck -c -v 11.5.9.0`
 
-19. For IBM Db2 12.1.0, check the server and client prerequisites using the script named “db2prereqcheck” located in the “[db2_kit_zip]/LINUXX86_64/ESE/disk1”:
+19. For IBM Db2 12.1.0, check the server and client prerequisites by using the script that is named “db2prereqcheck” located in the “[db2_kit_zip]/LINUXX86_64/ESE/disk1”:
 
     `# ./db2prereqcheck -v 12.1.0.0`
     `# ./db2prereqcheck -c -v 12.1.0.0`
@@ -522,7 +519,7 @@ The operating system is prepared according to [SAP note 1275776](https://me.sap.
 ## Installation of SAP NetWeaver 7.5 with Db2 on RHEL 9.4 with SWPM
 {: #install-sapnw-db2}
 
-After you download the installation media, follow the standard SAP installation procedure documented in the SAP installation guides for your SAP version and components. Also, review the corresponding SAP notes. For more information about SAP NetWeaver installation using Db2 as the RDBMS, see [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2).
+After you download the installation media, follow the standard SAP installation procedure that is documented in the SAP installation guides for your SAP version and components. Also, review the corresponding SAP notes. For more information about SAP NetWeaver installation by using Db2 as the RDBMS, see [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2).
 
 ## Related information
 {: #related-info-db2}

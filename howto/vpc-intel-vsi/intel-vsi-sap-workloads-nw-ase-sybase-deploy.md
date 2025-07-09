@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-09"
 keywords:
 subcollection: sap
 ---
@@ -23,7 +23,7 @@ The deployment for SAP NetWeaver 7.5 with ASE Sybase on RHEL 9.4 is performed in
 ## Cloud infrastructure planning
 {: #cloud-infra-plan-ase}
 
-Before performing any deployment, it is important to plan the cloud infrastructure requirements and ensure that all the required components are deployed on cloud VPC level. Learn about the cloud components that are required for deploying the SAP NetWeaver 7.5 with ASE solution:
+Before performing any deployment, it is important to plan the cloud infrastructure requirements and can ensure that all the required components are deployed on cloud VPC level. Learn about the cloud components that are required for deploying the SAP NetWeaver 7.5 with ASE solution:
 
 ### Virtual Private Cloud (VPC) deployment
 {: #vpc-deploy-ase}
@@ -38,7 +38,7 @@ A VPC subnet is created as part of the network space in which SAP and database d
 ### VPC security group
 {: #vpc-security-ase}
 
-A VPC Security Group is created to meet the security demands and standards. By specifying the specific inbound and outbound rules, the VSIs assigned to this security group will be protected against threats. For more information, see [Security Group for VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#security-group-sap-vpc).
+A VPC Security Group is created to meet the security demands and standards. By specifying the specific inbound and outbound rules, the VSIs assigned to this security group is protected against threats. For more information, see [Security Group for VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#security-group-sap-vpc).
 
 ### VPC Virtual Server Instance (VSI)
 {: #vpc-vsi-ase}
@@ -113,7 +113,7 @@ Create the **Data volume** one by one according to the requirements of SAP and A
 * SAP applications – 128GB
 * Data file disk – 256GB
 
-After creating the data volume, the output will be displayed as shown below:
+After creating the data volume, the output is displayed as shown:
 
 ![Figure 7. Data Volumes](../../images/vpc-intel-vsi-server-datavolumes-ase.png "Data Volumes"){: caption="Data Volumes" caption-side="bottom"}
 
@@ -129,7 +129,7 @@ For successfully mounting the file storage share through NFS, we need to note do
 
 For demonstration purposes, the file system `/usr/sap/trans` is used in two different scenarios:
 * as a local file system
-* as a NFS-based file system, using the File storage share service available in the IBM Cloud VPC.
+* as a NFS-based file system, by using the File storage share service available in the IBM Cloud VPC.
 
 For more information and procedures regarding IBM Cloud VPC file share resource, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
 
@@ -158,11 +158,11 @@ For the presented example, the SAP SID is BOG, thus the naming for the volume gr
 
 At the operating system level, physical volumes, volume groups, logical volumes, and file systems are created in a specific sequence.
 
-1. List the available disk using the command: `# lsblk`
+1. List the available disk by using the command: `# lsblk`
 
-2. To use LVM, the Linux package "lvm2" must be installed using the command: `# dnf install lvm2`
+2. To use LVM, the Linux package "lvm2" must be installed by using the command: `# dnf install lvm2`
 
-3. Create the required physical volumes using the following commands:
+3. Create the required physical volumes by using the following commands:
 
     ```pre
     # pvcreate /dev/vdb
@@ -172,7 +172,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # pvcreate /dev/vdf
     ```
 
-4. Create the required volume groups using the following commands:
+4. Create the required volume groups by using the following commands:
 
     ```pre
     # vgcreate bog_swap_vg /dev/vdb
@@ -182,7 +182,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # vgcreate bog_data_vg /dev/vdf
     ```
 
-5. Create the ASE logical volumes using the following commands:
+5. Create the ASE logical volumes by using the following commands:
 
     ```pre
     # lvcreate -L 8G -n bog_sybsoftware_lv bog_syb_vg
@@ -201,7 +201,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # lvcreate -L 7G -n bog_saplog4_lv bog_log_vg
     ```
 
-6. Create the SAP application logical volumes using the following commands:
+6. Create the SAP application logical volumes by using the following commands:
 
     ```pre
     # lvcreate -L 5G -n bog_usrsap_lv bog_app_vg
@@ -212,7 +212,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
 
 7. Create the logical volume for the OS SWAP using the following command: `# lvcreate -L 32G -n bog_swap_lv bog_swap_vg`
 
-8. Create the ASE file systems using the following commands:
+8. Create the ASE file systems by using the following commands:
 
     ```pre
     # mkfs.ext4 /dev/bog_syb_vg/bog_sybsoftware_lv
@@ -231,7 +231,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # mkfs.ext4 /dev/bog_log_vg/bog_saplog4_lv
     ```
 
-9. The SAP application file systems are created using the following commands:
+9. The SAP application file systems are created by using the following commands:
 
     ```pre
     # mkfs.ext4 /dev/bog_app_vg/bog_usrsap_lv
@@ -240,14 +240,14 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # mkfs.ext4 /dev/bog_app_vg/bog_saptrans_lv
     ```
 
-10. Finally, create and enable the OS SWAP using the following commands:
+10. Finally, create and enable the OS SWAP by using the following commands:
 
     ```pre
     # mkswap /dev/bog_swap_vg/bog_swap_lv
     # swapon /dev/bog_swap_vg/bog_swap_lv
     ```
 
-11. After creating all the required file system, you can create the necessary mount points using the following commands:
+11. After creating all the required file system, you can create the necessary mount points by using the following commands:
 
     ```pre
     # mkdir -p /sybase/BOG
@@ -315,7 +315,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     tmpfs /dev/shm tmpfs size=47G,rw,nosuid,nodev 0 0
     ```
 
-### NFS file system using IBM Cloud VPC File Shares
+### NFS file system by using IBM Cloud VPC File Shares
 {: #nfs-application-vpc-ase}
 
 [IBM Cloud File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about) is used to make SAP-specific directories accessible to the SAP system, by using technologies like NFS, shared disks, and cluster file system. When using an HA solution for your SAP system, ensure that you address the HA requirements for SAP file systems properly.
@@ -328,7 +328,7 @@ For SAP HA multi-zone applications, file shares are mounted as permanent NFS fil
 
 * `/usr/sap/trans`
 
-In some HA or distributed environment, using NFS to store the application or database data may be necessary. In such case, you can create NFS file systems as file-shares using them as mount points for SAP application data. For more information, see [Creating file shares and mount targets](https://test.cloud.ibm.com/docs/vpc?topic=vpc-file-storage-create&interface=ui).
+In some HA or distributed environment, by using NFS to store the application or database data may be necessary. In such case, you can create NFS file systems as file-shares by using them as mount points for SAP application data. For more information, see [Creating file shares and mount targets](https://test.cloud.ibm.com/docs/vpc?topic=vpc-file-storage-create&interface=ui).
 
 The following is an example where `/usr/sap/trans` file system is defined as an IBM Cloud VPC file share and mounted to the SAP system VSI:
 
@@ -356,39 +356,39 @@ Use this path to mount the FileShare over the `/usr/sap/trans` file system. Add 
 
 `10.243.0.20:/41677eaf_e50c_4478_8d5c_6158ff397eb5 /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys 0 0`
 
-### Shared application file systems using classic NFS
+### Shared application file systems by using classic NFS
 {: #shared-fs-classic-ase}
 
 If the installation scenario requires, then export one or more file systems. For example, “/usr/sap/trans” between various VSIs, thus between various SAP Applications.
 
 1. Install the NFS package on the source VSI using the command: `dnf list nfs-utils`
 
-2. Check the status using the command: `systemctl status rpcbind`
+2. Check the status by using the command: `systemctl status rpcbind`
 
-3. Enable the NFS package using the command: `systemctl enable –now nfs-server`
+3. Enable the NFS package by using the command: `systemctl enable –now nfs-server`
 
 4. For example, export the “/usr/sap/trans” directory, by adding the following line in the “/etc/exports” file: `/usr/sap/trans 10.243.0.180(rw,sync,no_root_squash)`
 
-5. Apply configuration and activate exports using the command: `exportfs -arv`
+5. Apply configuration and activate exports by using the command: `exportfs -arv`
 
 6. After completion, see the export list (and options) by using one of the following commands: `exportfs -s` or `showmount -e`
 
 7. On the target VSI, mount the “/usr/sap/trans” through NFS using the command: `mount --types nfs4 10.243.64.10:/usr/sap/trans /usr/sap/trans`
 
-8. Verify the mount file system using the command: `df -hT /usr/sap/trans`
+8. Verify the mount file system by using the command: `df -hT /usr/sap/trans`
 
 ## Operating system preparation
 {: #os-prep-ase}
 
 [RHEL]{: tag-red}
 
-The operating system is prepared according to [SAP note 3108316](https://me.sap.com/notes/3108316/E){: external}. The OS packages are installed using the command: `# dnf install uuidd libnsl tcsh nfs-utils`
+The operating system is prepared according to [SAP note 3108316](https://me.sap.com/notes/3108316/E){: external}. The OS packages are installed by using the command: `# dnf install uuidd libnsl tcsh nfs-utils`
 
-1. After successful installation, check if the `uuidd` daemon is running using: `# systemctl status uuidd`
+1. After successful installation, check if the `uuidd` daemon is running by using: `# systemctl status uuidd`
 
 2. Next, `SELinux` needs to be set to “permissive”. Open the configuration file “/etc/selinux/config” and set the following: `SELinux=permissive`
 
-3. Once the changes are saved, restart the VSI and verify the above settings using the command: `# getenforce`
+3. Once the changes are saved, restart the VSI and verify the above settings by using the command: `# getenforce`
 
 4. Verify the short hostname and FQDN by using the OS level commands:
 
@@ -403,7 +403,7 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
     If the customer-specific security rules are required, then it can be enabled and configured to allow the communication ports of the SAP System.
     {: note}
 
-7. Check the status of the firewall using the command: `# systemctl status firewall.d`
+7. Check the status of the firewall by using the command: `# systemctl status firewall.d`
 
 8. Configure the required Linux Kernel parameters by creating a file named “sap.conf” in the directory “/etc/sysctl.d”. The file content is:
 
@@ -432,7 +432,7 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
     kernel.shmall = 18446744073692774399
        ```
 
-11. Finally, check the OS SWAP space using the command: `# free -m`
+11. Finally, check the OS SWAP space by using the command: `# free -m`
 
 14. Once all the OS preconfigures activities (according to [SAP Note 3108316 - Red Hat Enterprise Linux 9.x: Installation and Configuration](https://me.sap.com/notes/3108316){: external}) and the ASE prerequisites checks are successfully completed, then the operating system needs to be tuned for running SAP NetWeaver Applications. This is done by installing and activating the `tuned-profiles-sap` using the following commands:
 
@@ -450,9 +450,9 @@ The operating system is prepared according to [SAP note 1275776](https://me.sap.
 
     `# saptune service enablestart`
 
-* The “saptune” service is enabled and started using the command: `# saptune solution list`
+* The “saptune” service is enabled and by using the command: `# saptune solution list`
 
-As you will be running both SAP NetWeaver and SAP ASE on the same VSI, you need to enable the solution "NetWeaver" and additionally the SAP note **1680803** (which is the only difference between the two solutions).
+As you are running both SAP NetWeaver and SAP ASE on the same VSI, you need to enable the solution "NetWeaver" and additionally the SAP note **1680803** (which is the only difference between the two solutions).
 
 `# saptune solution apply NETWEAVER`
 
@@ -460,9 +460,9 @@ As you will be running both SAP NetWeaver and SAP ASE on the same VSI, you need 
 
 After successful installation of the “saptune”, check and configure the operating system installation according to SAP Note 2578899. The commands are:
 
-* Check I/O scheduler - `# grep . /sys/block/*/queue/scheduler`
+* Check input/output scheduler - `# grep . /sys/block/*/queue/scheduler`
 
-* Check User TasksMax - `# systemctl --version`
+* Check user TasksMax - `# systemctl --version`
 
     No changes are done for version 254.24
     {: note}
@@ -503,13 +503,13 @@ This is already taken care by “saptune”
 
 * Check the version for package “glibc” - `# zypper info glibc`
 
-According to SAP note 3425215, there is no issue using SAP ASE 16.0 SP04 PL06.
+According to SAP note 3425215, there is no issue by using SAP ASE 16.0 SP04 PL06.
 
 * Initialize **TMPFS.**
 
-* Resize TMPFS according to SAP Note 941735 (filesystem /dev/shm): - `# mount -o remount,size=43G /dev/shm`
+* Resize TMPFS according to SAP Note 941735 (file system /dev/shm): - `# mount -o remount,size=43G /dev/shm`
 
-43GB is represents 70% of RAM + SWAP
+43GB represents 70% of RAM + SWAP
 {: note}
 
 To make the new size for the “TMPFS” permanent, add the following entry in the “/etc/fstab” file:
