@@ -474,8 +474,8 @@ toc:
                   topic: howto/powervs/powervs-monitoring-exporter-setup-config.md
                 - navtitle: Configuring Prometheus server metric forwarding
                   topic: howto/powervs/powervs-monitoring-metric-forwarding-config.md
-                - navtitle: Launching the monitoring UI and working with dashboards
-                  topic: howto/powervs/powervs-monitoring-launch-web-ui-and-dashboards.md
+                - navtitle: Working with dashboards
+                  topic: howto/monitoring-launch-web-ui-and-dashboards.md
                 - navtitle: Alerting and Notification
                   topic: howto/monitoring-alerting-and-notification.md
                 - navtitle: Parameter harvesting, troubleshooting, and maintenance

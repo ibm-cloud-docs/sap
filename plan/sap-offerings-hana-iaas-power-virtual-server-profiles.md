@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-28"
+lastupdated: "2025-07-11"
 keywords: SAP-Certified HANA profiles, umh, sh2, Rise, bh1, mh1, cnp, sr2, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -87,6 +87,13 @@ The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.p
 | sr2-80x9216         | 80            | 320              | 9,216            | 480,000   |  SMT4                            |     OLTP/OLAP                               |
 | sr2-80x12288        | 80            | 320              | 12,288           | 480,000   |  SMT4                            |     OLTP/OLAP                               |
 | sr2-80x14400        | 80            | 320              | 14,400           | 480,000   |  SMT4                            |     OLTP/OLAP                               |
+| sr2-128x16000       | 128           | 512              | 16,000           | 768,000   |  SMT4                            |     OLTP/OLAP                               |
+| sr2-128x18000       | 128           | 512              | 18,000           | 768,000   |  SMT4                            |     OLTP/OLAP                               |
+| sr2-128x20000       | 128           | 512              | 20,000           | 768,000   |  SMT4                            |     OLTP/OLAP                               |
+| sr2-165x22000       | 165           | 1,320            | 22,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP                               |
+| sr2-165x24000       | 165           | 1,320            | 24,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP                               |
+| sr2-165x26000       | 165           | 1,320            | 26,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP                               |
+| sr2-165x28000       | 165           | 1,320            | 28,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP                               |
 | sr2-165x30500       | 165           | 1,320            | 30,500           | 1,254,000 |  SMT8                            |     OLTP/OLAP/OLTP scale-out (up to 4 nodes)|
 {: class="simple-tab-table"}
 {: tab-group="sr2-table"}
@@ -119,6 +126,13 @@ The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.p
 | sr2-80x9216            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
 | sr2-80x12288           | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
 | sr2-80x14400           | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| sr2-128x16000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| sr2-128x18000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| sr2-128x20000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| sr2-165x22000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| sr2-165x24000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| sr2-165x26000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| sr2-165x28000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
 | sr2-165x30500          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
 {: class="simple-tab-table"}
 {: tab-group="sr2-table"}
@@ -151,6 +165,13 @@ The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.p
 |  sr2-80x9216            | 8,000         | 4 x 3711 GB             | Tier 3               | 44,538        |                                            |
 |  sr2-80x12288           | 8,000         | 4 x 4948 GB             | Tier 3               | 59,385        |                                            |
 |  sr2-80x14400           | 8,000         | 4 x 5799 GB             | Tier 3               | 69,594        |                                            |
+|  sr2-128x16000          | 8,000         | 4 x 6444 GB             | Tier 3               | 77,328        |                                            |
+|  sr2-128x18000          | 8,000         | 4 x 7250 GB             | Tier 3               | 87,000        |                                            |
+|  sr2-128x20000          | 8,000         | 4 x 8055 GB             | Tier 3               | 96,660        |                                            |
+|  sr2-165x22000          | 8,000         | 4 x 8861 GB             | Tier 3               | 106,332       |                                            |
+|  sr2-165x24000          | 8,000         | 4 x 9666 GB             | Tier 3               | 115,992       |                                            |
+|  sr2-165x26000          | 8,000         | 4 x 10472 GB            | Tier 3               | 125,664       |                                            |
+|  sr2-165x28000          | 8,000         | 4 x 11277 GB            | Tier 3               | 135,324       |                                            |
 |  sr2-165x30500          | 8,000         | 4 x 12283 GB            | Tier 3               | 147,405       |                                            |
 {: class="simple-tab-table"}
 {: tab-group="sr2-table"}
@@ -182,6 +203,13 @@ The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.p
 |    sr2-80x9216         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
 |    sr2-80x12288        | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
 |    sr2-80x14400        | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|    sr2-128x16000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|    sr2-128x18000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|    sr2-128x20000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|    sr2-165x22000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|    sr2-165x24000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|    sr2-165x26000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|    sr2-165x28000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
 |    sr2-165x30500       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
 {: class="simple-tab-table"}
 {: tab-group="sr2-table"}
