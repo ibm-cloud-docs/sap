@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-07-14"
 keywords: SAP Application Performance Standard, SAPS, SAP Quick Sizer
 subcollection: sap
 ---
@@ -163,7 +163,7 @@ Beyond the topic group "Sizing and Planning SAP Workloads", there are individual
     - [SAP BW/4HANA](/docs/sap?topic=sap-bw4hana)
     - [SAP Commerce](/docs/sap?topic=sap-commerce)
     - [SAP Business One (B1)](/docs/sap?topic=sap-b1)
-    
+
 - **SAP Technical Applications**
     - [SAP Content Server](/docs/sap?topic=sap-content-server)
 

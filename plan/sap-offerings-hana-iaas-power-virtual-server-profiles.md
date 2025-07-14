@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-11"
+lastupdated: "2025-07-14"
 keywords: SAP-Certified HANA profiles, umh, sh2, Rise, bh1, mh1, cnp, sr2, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -90,10 +90,10 @@ The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.p
 | sr2-128x16000       | 128           | 512              | 16,000           | 768,000   |  SMT4                            |     OLTP/OLAP                               |
 | sr2-128x18000       | 128           | 512              | 18,000           | 768,000   |  SMT4                            |     OLTP/OLAP                               |
 | sr2-128x20000       | 128           | 512              | 20,000           | 768,000   |  SMT4                            |     OLTP/OLAP                               |
-| sr2-165x22000       | 165           | 1,320            | 22,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP                               |
-| sr2-165x24000       | 165           | 1,320            | 24,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP                               |
-| sr2-165x26000       | 165           | 1,320            | 26,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP                               |
-| sr2-165x28000       | 165           | 1,320            | 28,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP                               |
+| sr2-165x22000       | 165           | 1,320            | 22,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP/OLTP scale-out (up to 4 nodes)|
+| sr2-165x24000       | 165           | 1,320            | 24,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP/OLTP scale-out (up to 4 nodes)|
+| sr2-165x26000       | 165           | 1,320            | 26,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP/OLTP scale-out (up to 4 nodes)|
+| sr2-165x28000       | 165           | 1,320            | 28,000           | 1,254,000 |  SMT8                            |     OLTP/OLAP/OLTP scale-out (up to 4 nodes)|
 | sr2-165x30500       | 165           | 1,320            | 30,500           | 1,254,000 |  SMT8                            |     OLTP/OLAP/OLTP scale-out (up to 4 nodes)|
 {: class="simple-tab-table"}
 {: tab-group="sr2-table"}

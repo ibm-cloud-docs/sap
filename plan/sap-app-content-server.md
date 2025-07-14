@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-07-14"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -18,7 +18,7 @@ The SAP Content Server is a stand-alone component for storing large quantities o
 The SAP Content Server uses the SAP MaxDB database and one of the following operating systems:
 * Windows Server
 * SUSE Linux&reg;
-* Red Hat Linux  
+* Red Hat Linux
 
 For more information about these supported operating systems releases, see the [SAP Product Availability Matrix (PAM)](https://userapps.support.sap.com/sap/support/pam){: external}.
 
