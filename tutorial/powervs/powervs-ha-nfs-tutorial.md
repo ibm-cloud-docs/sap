@@ -1,7 +1,7 @@
 ---
 copyright:
    years: 2025
-lastupdated: "2025-04-08"
+lastupdated: "2025-07-25"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, NFS, File Storage Share, Network Load Balancer
 subcollection: sap
 content-type: tutorial
@@ -118,9 +118,11 @@ Create a security group and configure inbound rules for the SSH (22) and NFS (20
 1. Browse to [File storage shares for VPC](/infrastructure/storage/fileShares).
 1. Click the **Name** `nfs-server`.
 1. In the **Mount targets** section, click the **Name** of the mount target in the VPC to view the mount target details.
-1. Make a note of the **primary IP** and the **Mount path**.
+1. Make a note of the **Mount path**.
+      In the example, the mount path is `10.20.30.40:/73a1ff96_4861_4463_aa09_8c8128b8e277fsf`.
+      The first part of the mount path is the **Primary IP** of the mount target: `10.20.30.40`.
 
-Later, the **Destination** parameter in the VPC route entry is set to the **Primary IP** of the file storage share.
+Later, the **Destination** parameter in the VPC route entry is set to the **Primary IP** of the mount target.
 The **Mount path** parameter is used as an argument to the `mount` command on the IBM {{site.data.keyword.powerSys_notm}} instance.
 
 ## Creating the private network load balancer with routing mode
@@ -259,6 +261,6 @@ Log on as the `root` user to the server instance in IBM {{site.data.keyword.powe
 
    ```sh
    mkdir /mnt/test
-   mount -t nfs4 -o rw,sec=sys 10.30.40.5:/73a1ff96_4861_4463_aa09_8c8128b8e277fsf /mnt/test
+   mount -t nfs4 -o rw,sec=sys 10.20.30.40:/73a1ff96_4861_4463_aa09_8c8128b8e277fsf /mnt/test
    ```
    {: codeblock}
