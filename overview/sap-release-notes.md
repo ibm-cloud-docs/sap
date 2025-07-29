@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-29"
 keywords: SAP
 subcollection: sap
 ---
@@ -13,6 +13,15 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+## July 2025
+{: #sap-2025-07}
+
+- Introduced new [bh2, ch2 and mh2 OLAP/OLTP/OLTP upto 4N profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#bh2-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
+- Introduced new [sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr2-nw-profiles) for SAP NetWeaver/Application Servers on {{site.data.keyword.powerSysFull}}.
+- New documentation: [Accessing File Storage for VPC from {{site.data.keyword.powerSysFull}} Instances](/docs/sap?topic=sap-ha-nlb-rt-nfs-intro)
+- New documentation: [Alerting and notification in IBM Cloud Monitoring](/docs/sap?topic=sap-mon-alerting-notification)
+- Updated [architecuture diagram](/docs/sap?topic=sap-mon-getting-started#monitoring-architecture) for {{site.data.keyword.mon_full_notm}} solution.
 
 ## June 2025
 {: #sap-2025-06}
