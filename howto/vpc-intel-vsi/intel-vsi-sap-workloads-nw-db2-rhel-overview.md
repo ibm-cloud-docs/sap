@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-28"
+lastupdated: "2025-07-30"
 keywords:
 subcollection: sap
 ---
@@ -44,4 +44,4 @@ Following are the deployment phases:
 2. [Cloud resource deployment](/docs/sap?topic=sap-deploy-sap-db2#cloud-resource-deploy)
 3. [Filesystems preparation](/docs/sap?topic=sap-deploy-sap-db2#file-system-prep)
 4. [Operating system preparation](/docs/sap?topic=sap-deploy-sap-db2#os-prep)
-5. [Installation of SAP NetWeaver 7.5 with Db2 on RHEL 9.4 with Software Provisioning Manager (SWPM)](/docs/sap?topic=sap-deploy-sap-db2#install-sapnw-db2)
+5. [Installation of SAP NetWeaver 7.5 with Db2 with Software Provisioning Manager (SWPM)](/docs/sap?topic=sap-deploy-sap-db2#install-sapnw-db2)

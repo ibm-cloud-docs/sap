@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-07-30"
 keywords:
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Deploying SAP NetWeaver 7.5 with Db2 on RHEL 9.4
+# Deploying SAP NetWeaver 7.5 with Db2
 {: #deploy-sap-db2}
 
 The deployment for SAP NetWeaver 7.5 with Db2 on RHEL 9.4 is performed in phases:
@@ -18,7 +18,7 @@ The deployment for SAP NetWeaver 7.5 with Db2 on RHEL 9.4 is performed in phases
 2. [Cloud resource deployment](/docs/sap?topic=sap-deploy-sap-db2#cloud-resource-deploy)
 3. [File system preparation](/docs/sap?topic=sap-deploy-sap-db2#file-system-prep)
 4. [Operating system preparation](/docs/sap?topic=sap-deploy-sap-db2#os-prep)
-5. [Installation of SAP NetWeaver 7.5 with Db2 on RHEL 9.4 with Software Provisioning Manager (SWPM)](/docs/sap?topic=sap-deploy-sap-db2#install-sapnw-db2)
+5. [Installation of SAP NetWeaver 7.5 with Db2 with Software Provisioning Manager (SWPM)](/docs/sap?topic=sap-deploy-sap-db2#install-sapnw-db2)
 
 ## Cloud infrastructure planning
 {: #cloud-infra-plan}
@@ -516,7 +516,7 @@ The operating system is prepared according to [SAP note 1275776](https://me.sap.
     `# ./db2prereqcheck -v 12.1.0.0`
     `# ./db2prereqcheck -c -v 12.1.0.0`
 
-## Installation of SAP NetWeaver 7.5 with Db2 on RHEL 9.4 with SWPM
+## Installation of SAP NetWeaver 7.5 with Db2 with SWPM
 {: #install-sapnw-db2}
 
 After you download the installation media, follow the standard SAP installation procedure that is documented in the SAP installation guides for your SAP version and components. Also, review the corresponding SAP notes. For more information about SAP NetWeaver installation by using Db2 as the RDBMS, see [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2).

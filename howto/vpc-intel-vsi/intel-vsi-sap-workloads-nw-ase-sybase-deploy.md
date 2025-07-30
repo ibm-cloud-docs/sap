@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-07-30"
 keywords:
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Deploying SAP NetWeaver 7.5 with ASE on RHEL 9.4
+# Deploying SAP NetWeaver 7.5 with ASE
 {: #deploy-sap-ase}
 
 The deployment for SAP NetWeaver 7.5 with ASE Sybase on RHEL 9.4 is performed in phases:
@@ -18,7 +18,7 @@ The deployment for SAP NetWeaver 7.5 with ASE Sybase on RHEL 9.4 is performed in
 2. [Cloud resource deployment](/docs/sap?topic=sap-deploy-sap-ase#cloud-resource-deploy-ase)
 3. [File system preparation](/docs/sap?topic=sap-deploy-sap-ase#file-system-prep-ase)
 4. [Operating system preparation](/docs/sap?topic=sap-deploy-sap-ase#os-prep-ase)
-5. [Installation of SAP NetWeaver 7.5 with ASE on RHEL 9.4 with Software Provisioning Manager (SWPM)](/docs/sap?topic=sap-deploy-sap-ase#install-sapnw-ase)
+5. [Installation of SAP NetWeaver 7.5 with ASE with Software Provisioning Manager (SWPM)](/docs/sap?topic=sap-deploy-sap-ase#install-sapnw-ase)
 
 ## Cloud infrastructure planning
 {: #cloud-infra-plan-ase}
@@ -515,7 +515,7 @@ According to SAP note 3425215, there is no issue by using SAP ASE 16.0 SP04 PL06
 To make the new size for the “TMPFS” permanent, add the following entry in the “/etc/fstab” file:
 Check the new size of “TMPFS” with the following command: - `# df -h /dev/shm`
 
-## Installation of SAP NetWeaver 7.5 with ASE on RHEL 9.4 with SWPM
+## Installation of SAP NetWeaver 7.5 with ASE with SWPM
 {: #install-sapnw-ase}
 
 After you download the installation media, follow the standard SAP installation procedure that is documented in the SAP installation guides for your SAP version and components. Also, review the corresponding SAP notes.

@@ -1,7 +1,7 @@
 ---
 copyright:
    years: 2025
-lastupdated: "2025-07-25"
+lastupdated: "2025-07-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, NFS, File Storage Share, Network Load Balancer
 subcollection: sap
 content-type: tutorial
@@ -73,20 +73,13 @@ Create a security group and configure inbound rules for the SSH (22) and NFS (20
 1. Select the same **Resource group** as the VPC resource group.
 1. Select your VPC in the **Virtual private cloud** list.
 1. Add the **Inbound rules** as shown in the following table.
+   Define an inbound rule for each NFS client by specifying its virtual instance IP address to restrict file share access to authorized sources only.
+   If all instances within a subnet are permitted, specify the subnet using CIDR notation instead.
 
-   | Protocol   | Port range | Source type | Destination type |
-   |------------|------------|-------------|------------------|
-   | TCP        | 22-22      | Any         | Any              |
-   | TCP        | 2049-2049  | Any         | Any              |
+   | Protocol   | Port range | Source type         | Destination type |
+   |------------|------------|---------------------|------------------|
+   | TCP        | 2049-2049  | {source IP address} | Any              |
    {: caption="Inbound rules" caption-side="bottom"}
-
-1. Add the **Outbound rules** as shown in the following table, then click **Create security group**.
-
-   | Protocol   | Port | Destination type | Source type |
-   |------------|------|------------------|-------------|
-   | TCP        | Any  | Any              | Any         |
-   | UDP        | Any  | Any              | Any         |
-   {: caption="Outbound rules" caption-side="bottom"}
 
 ### Provisioning a file storage share
 {: #ha-nlb-rt-nfs-create-fs-share}
