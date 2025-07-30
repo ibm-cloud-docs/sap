@@ -17,6 +17,8 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 ## July 2025
 {: #sap-2025-07}
 
+- Introduced new bare metal profiles for SAP NetWeaver/Application Servers for supported [OS](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm#nw-iaas-intel-bm-sr-list) and [VMware] options (docs/sap?topic=sap-nw-iaas-offerings-profiles-vmware#nw-iaas-vmware-sr-list) on {{site.data.keyword.cloud_notm}} Classic Infrastructure.
+- Introduced new {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} [vx3d OLTP profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-sr-vpc-list) for SAP HANA.
 - Introduced new [bh2, ch2 and mh2 OLAP/OLTP/OLTP upto 4N profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#bh2-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
 - Introduced new [sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr2-nw-profiles) for SAP NetWeaver/Application Servers on {{site.data.keyword.powerSysFull}}.
 - New documentation: [Accessing File Storage for VPC from {{site.data.keyword.powerSysFull}} Instances](/docs/sap?topic=sap-ha-nlb-rt-nfs-intro)

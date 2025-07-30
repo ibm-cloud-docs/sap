@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-07-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -15,7 +15,11 @@ subcollection: sap
 ## Profiles list for Intel servers
 {: #nw-iaas-intel-bm-list}
 
-The following is an overview of the SAP-certified profiles with Bare Metal Intel servers:
+The following tables provide an overview of the SAP-certified profiles with Bare Metal Intel servers.
+
+### Profiles hosted on Intel Cascade Lake CPU
+{: #nw-iaas-intel-bm-cl-list}
+
 
 | **Profile** | **CPU Cores** | **CPU Threads (aka. vCPU)** | **Memory (RAM GB)** | **SAPS** |
 | --- | --- | --- | --- | --- |
@@ -33,6 +37,18 @@ The following is an overview of the SAP-certified profiles with Bare Metal Intel
 | BI.S4.NW1500 | 56 | 112 | 1.5 TB | 147,220 |
 | BI.S4.NW3000 | 56 | 112 | 3 TB | 135,127 |
 {: caption="Intel servers certified for SAP application server" caption-side="top"}
+
+### Profiles hosted on Intel Sapphire Rapids CPU
+{: #nw-iaas-intel-bm-sr-list}
+
+| **Profile** | **CPU Cores** | **CPU Threads (aka. vCPU)** | **Memory (RAM GB)** | **SAPS** | **aSAPS ⁽¹⁾** |
+| --- | --- | --- | --- | --- | --- |
+| BI.S5.NW256 | 36 | 72 | 256 GB | 132,630 |  25,300 |
+| BI.S5.NW512 | 36 | 72 | 512 GB | 128,750 |  24,600 |
+| BI.S5.NW1024 | 36 | 72 | 1,024 GB | 125,920 |  24,600 |
+{: caption="Intel servers certified for SAP application server" caption-side="top"}
+
+⁽¹⁾: aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.
 
 
 See also [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}.

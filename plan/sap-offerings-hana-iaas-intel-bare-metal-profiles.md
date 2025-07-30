@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-07-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -14,9 +14,6 @@ subcollection: sap
 
 ## Profiles list
 {: #hana-iaas-intel-bm-list}
-
-The published names are subject to change.
-{: note}
 
 This table provides an overview of the SAP-certified profiles with Intel Bare Metal:
 
@@ -44,16 +41,16 @@ This table provides an overview of the SAP-certified profiles with Intel Bare Me
 | BI.S5.H2.4000 Appliance | 120 | 240 | 4 TB | 329,350 | OLAP/OLTP ⁽⁴⁾ |
 {: caption="Certified {{site.data.keyword.cloud_notm}} {{site.data.keyword.baremetal_short}} for SAP HANA" caption-side="bottom"}
 
-⁽¹⁾: RHEL 7.4 for SAP Solutions, RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions\n
+⁽¹⁾: RHEL 7.4 for SAP Solutions, RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions \n
 SLES 12 SP2, SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3
 
 ⁽²⁾: RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.2 for SAP Solutions \n
-SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
+SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
 
-⁽³⁾: SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
+⁽³⁾: SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
 
 ⁽⁴⁾: RHEL 8.10 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions \n
-SLES 15, SLES 15 SP1 , SLES 15 SP2, SLES 15 SP3, SLES 15 SP4
+SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
 
 Please regard the supported operated systems mentioned in the footnotes.
 {: note}

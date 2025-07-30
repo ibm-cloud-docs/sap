@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-07-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -14,9 +14,6 @@ subcollection: sap
 
 ## Profiles list
 {: #nw-iaas-amd-bm-list}
-
-The published names are subject to change.
-{: note}
 
 The following is an overview of the SAP-certified profiles with AMD Bare Metal:
 

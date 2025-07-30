@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-07-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -15,8 +15,6 @@ subcollection: sap
 ## Profiles list
 {: #nw-iaas-intel-vs-vpc-list}
 
-The published names are subject to change.
-{: note}
 
 The following tables provide an overview of the SAP-certified profiles for {{site.data.keyword.vsi_is_short}}:
 {: #nw-iaas-offerings-profiles-intel-vs-vpc-full-list}

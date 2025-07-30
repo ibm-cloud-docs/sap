@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-12"
+lastupdated: "2025-07-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -15,15 +15,12 @@ subcollection: sap
 ## Profiles list
 {: #hana-iaas-vmware-list}
 
-The published names are subject to change.
-{: note}
-
 The following table is an overview of the SAP-certified profiles with either:
 - Intel Bare Metal and VMware vSphere (ESXi), manual VMware setup and configuration
 - {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated, automated VMware SDDC setup and configuration
 
 
-| **Profile** | **CPU Cores** | **CPU Threads (also known as. vCPU)** | **Memory (RAM GiB)** | **SAPS  (after VMware hypervisor 10%)** | **SAP HANA Processing Type** |
+| **Profile** | **CPU Cores** | **CPU Threads (also known as. vCPU)** | **Memory (RAM GiB)** | **SAPS (after VMware hypervisor 10%)** | **SAP HANA Processing Type** |
 | --- | --- | --- | --- | --- | --- |
 | BI.S3.H2.192 (VMware) | 36 | 72 | 192 GB | 70,965 | OLAP/OLTP |
 | BI.S3.H2.384 (VMware) | 36 | 72 | 384 GB | 71,487 | OLAP/OLTP |

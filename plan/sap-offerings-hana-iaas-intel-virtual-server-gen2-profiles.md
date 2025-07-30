@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-07-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -15,10 +15,11 @@ subcollection: sap
 ## Profiles list
 {: #hana-iaas-intel-vs-vpc-list}
 
-The published names are subject to change.
-{: note}
+The following tables give you an overview of the SAP-certified profiles with {{site.data.keyword.vsi_is_short}}.
 
-The following list gives you an overview of the SAP-certified profiles with {{site.data.keyword.vsi_is_short}}:
+### Profiles hosted on Intel Cascade Lake CPU
+{: #hana-iaas-intel-vs-cl-vpc-list}
+
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- |
@@ -41,7 +42,16 @@ The following list gives you an overview of the SAP-certified profiles with {{si
 | ux2d-72x2016 | 72 | 2,016 | 77,606 | OLTP (\*) |
 | ux2d-100x2800 | 100 | 2,800 | 107,785 | OLTP (\*) |
 | ux2d-200x5600 | 200 | 5,600 | 215,570 | OLTP (\*) |
-{: caption="{{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA" caption-side="bottom"}
+{: caption="{{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA - Intel Cascade Lake CPU" caption-side="bottom"}
+
+### Profiles hosted on Intel Sapphire Rapids CPU
+{: #hana-iaas-intel-vs-sr-vpc-list}
+
+| **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS ⁽¹⁾** | **SAP HANA\nProcessing Type** |
+| --- | --- | --- | --- | --- | --- |
+| vx3d-88x1408-spl | 88 | 1408 | 110,560 | 21,300 | OLTP (\*) |
+| vx3d-176x2816 | 176 | 2816 | 221,120 | 42,600 | OLTP (\*) |
+{: caption="{{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA - Intel Sapphire Rapids CPU" caption-side="bottom"}
 
 (\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.1 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions\n
 SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5, SLES 15 SP6\n

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-07-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -15,7 +15,11 @@ subcollection: sap
 ## Profiles list
 {: #hana-iaas-intel-bm-vpc-list}
 
-The following table gives you an overview of the SAP-certified profiles with bare metal servers for VPC. The vCPUs in this list are CPU cores and their secondary threads. The term vCPU is kept for comparison with their virtual counterparts.
+These tables give you an overview of the SAP-certified bare metal profiles for VPC that represent dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 96 vCPU = 48 physical cores). The term vCPU is kept for comparison with their virtual counterparts.
+
+### Profiles hosted on Intel Cascade Lake CPU
+{: #hana-iaas-intel-bm-cl-vpc-list}
+
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- |
@@ -52,7 +56,7 @@ The following table gives you an overview of the SAP-certified profiles with bar
 (\*): RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions\n
 SLES 12 SP5, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5, SLES 15 SP6
 
-(\*\*): SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
+(\*\*): SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5, SLES 15 SP6
 
 
 For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}.
