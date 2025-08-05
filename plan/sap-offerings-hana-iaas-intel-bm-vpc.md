@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-08-04"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -49,6 +49,10 @@ These tables give you an overview of the SAP-certified bare metal profiles for V
 | mx3d-metal-64x512 | 64 | 512 | 128,750 | 24,200 | OLTP/OLAP (\*) |
 | mx3d-metal-96x1024 | 96 | 1,024 | 182,670 | 33,700 | OLTP/OLAP (\*) |
 | mx3d-metal-128x1024 | 128 | 1,024 | 239,300 | 46,000 | OLTP/OLAP (\*) |
+| **Very High Memory Optimized** | | | | | |
+| vx3d-metal-16x256 | 16 | 256 | 35,520 | 6,900 | OLTP (\*) |
+| **Ultra High Memory Optimized** | | | | | |
+| ux3d-metal-16x512 | 16 | 512 | 34,320 | 6,900 | OLTP (\*) |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC certified for SAP HANA - Intel Sapphire Rapids CPU" caption-side="bottom"}
 
 ⁽¹⁾: aSAPS is the metric that is derived from the [SAP quote-to-cash (Q2C) Benchmark](https://www.sap.com/about/benchmark/appbm/q2c.html){: external}.
