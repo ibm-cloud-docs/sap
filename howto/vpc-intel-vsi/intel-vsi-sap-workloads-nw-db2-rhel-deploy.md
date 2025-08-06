@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-30"
+lastupdated: "2025-08-05"
 keywords:
 subcollection: sap
 ---
@@ -271,7 +271,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # mount /dev/dtw_app_vg/dtw_sapmnt_lv /sapmnt/DTW
     ```
 
-12. Resize the TMPFS according to [SAP Note 941735 - SAP memory management system for 64-bit Linux&reg; systems](https://accounts.sap.com/saml2/idp/sso){: external} (file system /dev/shm) using the following command: `# mount -o remount,size=70G /dev/shm`
+12. Resize the TMPFS according to [SAP Note 941735 - SAP memory management system for 64-bit Linux&reg; systems](https://me.sap.com/notes/941735/E){: external} (file system /dev/shm) using the following command: `# mount -o remount,size=70G /dev/shm`
 
 13. Add the following entries in the `/etc/fstab` file to create all the permanent mounts:
 
@@ -558,7 +558,7 @@ After you download the installation media, follow the standard SAP installation 
 * [SAP on IBM Cloud VPC reference architecture](/docs/pattern-sap-on-vpc?topic=pattern-sap-on-vpc-sap-on-vpc){: external}
 
 **IBM Db2 support on SAP-certified Cloud IaaS:**
-* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1.0?topic=SSEPGG_12.1.0/com.ibm.db2.luw.licensing.doc/doc/r_suprt_db2_pblik_clouds.htm){: external}
+* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1.0?topic=clouds-public-cloud-support-sap-db2){: external}
 * [SAP Note 101809 - DB6: Supported Db2 Versions and Fix Pack Levels](https://me.sap.com/notes/101809){: external}
 * [General IBM Db2 prerequisites on UNIX and Linux®](https://www.ibm.com/docs/en/SSEPGG_11.5.0/com.ibm.db2.luw.qb.server.doc/doc/c0059823.html){: external}
 

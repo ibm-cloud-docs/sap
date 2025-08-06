@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-08-05"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -79,9 +79,7 @@ Using VMware for SAP workloads on {{site.data.keyword.cloud_notm}} is certified.
 
 For VMware clusters, where SAP workloads are run across multiple VMware vSphere hypervisor nodes, storage must be shared across these hypervisor nodes.
 
-VMware is available to work with Block storage or File storage from {{site.data.keyword.cloud_notm}}. To help you select Block storage or File storage for running SAP on VMware, see [VMware Technical Paper on Storage Protocol Comparison](https://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html){: external}.
-
-When you are using Network Block or File storage, do not expect that certification performance benchmarks to remain the same. Particularly after factoring in the hypervisor overheads as described in [Compute Profiles of SAP-certified VMware on Classic Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#compute-power).
+VMware is available to work with Block storage or File storage from {{site.data.keyword.cloud_notm}}. When you are using Network Block or File storage, do not expect that certification performance benchmarks to remain the same. Particularly after factoring in the hypervisor overheads as described in [Compute Profiles of SAP-certified VMware on Classic Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#compute-power).
 
 For VMware datastores (where the virtual machine .VMDK virtual disks are located), the recommendations are:
 - For SAP HANA, use Local SDD disks for the datastore in a RAID10 configuration

@@ -33,7 +33,7 @@ For more information, see [Managing VPC Infrastructure (IAM)](/docs/vpc?topic=vp
 
 With availability zones across North and South America, Europe, Asia, and Australia, you can provision cloud resources where (and when) you need them. Many regions are available globally, with multiple availability zones in each region. Each availability zone is connected to the {{site.data.keyword.cloud_notm}} global private network, making data transfers faster and more efficient anywhere in the world.
 
-For more information about {{site.data.keyword.cloud_notm}} availability zones, data centers, and Points of Presence (PoPs), see the [global regions, availability zones, and data centers map](https://www.ibm.com/cloud/data-centers){: external}.
+For more information about {{site.data.keyword.cloud_notm}} availability zones, data centers, and Points of Presence (PoPs), see the [global regions, availability zones, and data centers map](https://www.ibm.com/solutions/cloud-data-centers){: external}.
 
 ## Compute Resources
 {: #vpc-env-compute}

@@ -44,7 +44,7 @@ You can choose from multiple data centers globally.
 
 Each data center with IBM Power Infrastructure uses a separate enterprise-grade network which is connected using {{site.data.keyword.cloud_notm}} Direct Link to the {{site.data.keyword.cloud_notm}} global private network, making data transfers faster and more efficient anywhere in the world.
 
-For more information about {{site.data.keyword.cloud_notm}} availability zones / data centers and points of presence (PoPs) where IBM Power Infrastructure can be connected to, see the [global regions and availability zones / data centers map](https://www.ibm.com/cloud/data-centers){: external}.
+For more information about {{site.data.keyword.cloud_notm}} availability zones / data centers and points of presence (PoPs) where IBM Power Infrastructure can be connected to, see the [global regions and availability zones / data centers map](https://www.ibm.com/solutions/cloud-data-centers){: external}.
 
 
 ## Networking

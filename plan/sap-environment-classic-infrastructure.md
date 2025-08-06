@@ -32,7 +32,7 @@ For more information, see [Managing {{site.data.keyword.IBM_notm}} {{site.data.k
 
 With data centers across North and South America, Europe, Asia, and Australia, you can provision cloud resources where (and when) you need them. You can choose from many regions globally, and each region has multiple data centers. Each data center is connected to the {{site.data.keyword.cloud_notm}} global private network, making data transfers faster and more efficient anywhere in the world.
 
-For more information about {{site.data.keyword.cloud_notm}} availability zones, data centers, and points of presence (PoPs), see the [global regions and availability zones and data centers map](https://www.ibm.com/cloud/data-centers){: external}.
+For more information about {{site.data.keyword.cloud_notm}} availability zones, data centers, and points of presence (PoPs), see the [global regions and availability zones and data centers map](https://www.ibm.com/solutions/cloud-data-centers){: external}.
 
 ## Networking
 {: #classic-env-networking}
