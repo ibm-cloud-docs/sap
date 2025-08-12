@@ -32,8 +32,6 @@ With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to m
 
 SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for ABAP and Java applications. The SAP system can be installed and configured in {{site.data.keyword.cloud_notm}} for various system and database types.
 
-
-
 Manually deploying a VPC and installing an SAP system can be time-consuming. The Terraform automation assures not only a quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
 
 The Terraform scripts solution provides the automated deployment of a single host with SAP NetWeaver with either ASE SYB or SAP HANA db on the Red Hat Enterprise Linux® 8.4 and SUSE 15.x for SAP Applications.

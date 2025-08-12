@@ -380,6 +380,8 @@ toc:
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-db2-rhel-overview.md
                       - navtitle: Deploying
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-db2-rhel-deploy.md
+                      - navtitle: Backup
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-db2-rhel-backup.md
                 - topicgroup:
                     label: SAP NetWeaver with ASE
                     id: "sap-workloads-in-vpc-sap-netweaver-with-ase"
@@ -388,6 +390,8 @@ toc:
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-ase-sybase-overview.md
                       - navtitle: Deploying
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-ase-sybase-deploy.md
+                      - navtitle: Backup
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-ase-sybase-backup.md
                 - topicgroup:
                     label: SAP Reference architectures
                     id: "sap-workloads-in-vpc-sap-ref-arch"

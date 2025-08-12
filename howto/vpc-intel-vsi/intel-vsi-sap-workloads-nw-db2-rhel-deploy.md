@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-08-05"
+lastupdated: "2025-08-12"
 keywords:
 subcollection: sap
 ---
@@ -558,9 +558,10 @@ After you download the installation media, follow the standard SAP installation 
 * [SAP on IBM Cloud VPC reference architecture](/docs/pattern-sap-on-vpc?topic=pattern-sap-on-vpc-sap-on-vpc){: external}
 
 **IBM Db2 support on SAP-certified Cloud IaaS:**
-* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1.0?topic=clouds-public-cloud-support-sap-db2){: external}
+
+* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1.0?topic=SSEPGG_12.1.0/com.ibm.db2.luw.licensing.doc/doc/r_suprt_db2_pblik_clouds.htm)
 * [SAP Note 101809 - DB6: Supported Db2 Versions and Fix Pack Levels](https://me.sap.com/notes/101809){: external}
-* [General IBM Db2 prerequisites on UNIX and Linux®](https://www.ibm.com/docs/en/SSEPGG_11.5.0/com.ibm.db2.luw.qb.server.doc/doc/c0059823.html){: external}
+* [General IBM Db2 prerequisites on UNIX and Linux®](https://www.ibm.com/docs/en/db2/12.1.0?topic=servers-prerequisites-db2-database-server-installation-linux-unix){: external}
 
 **IBM Db2 and SAP NetWeaver on UNIX or Linux:**
 * [Installation of SAP Systems based on the Application Server ABAP of SAP NetWeaver 7.1 to 7.52 on UNIX: IBM Db2 LUW](https://help.sap.com/docs/SLTOOLSET/ce9e270ad34949969c16d09d1b099a26/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}

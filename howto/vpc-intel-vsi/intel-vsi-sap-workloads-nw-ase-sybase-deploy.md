@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-30"
+lastupdated: "2025-08-12"
 keywords:
 subcollection: sap
 ---
@@ -79,7 +79,7 @@ The following subnets are defined and available for the example VPC:
 
 ![Figure 2. Subnets](../../images/vpc-intel-vsi-subnets-ase.png "Subnets"){: caption="Subnets" caption-side="bottom"}
 
-Security group `bastion-sg-bog-bast-de` is used for this example. During the planning phase, it is important to leverage the IBM Cloud VPC security resources and services (Security groups) by using inbound and outbound rules governing traffic to and from specific VSIs. The user can easily manage access and align with any security standards the business requires.
+Security group `bastion-sg-bog-bast-de` is used for this example. During the planning phase, it is important to use the IBM Cloud VPC security resources and services (Security groups) by using inbound and outbound rules governing traffic to and from specific VSIs. The user can easily manage access and align with any security standards the business requires.
 
 Before you begin the deployment of the required VSI, note the following IBM Cloud VPC resource parameters:
 
