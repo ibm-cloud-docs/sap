@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-08-15"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -30,10 +30,10 @@ The following tables give you an overview of the SAP-certified profiles with {{s
 | mx2-48x384 \n mx2d-48x384 | 48 | 384 | 56,970 | OLTP (\*)\nSAP Business One (\*\*)  |
 | **Very High Memory Optimized** | | | | |
 | vx2d-16x224 | 16 | 224 | 17,046 | OLTP (\*) |
-| vx2d-44x616 | 44 | 616 | 46,875 | OLAP/OLTP (\*) |
-| vx2d-88x1232 | 88 | 1,232 | 93,750 | OLAP/OLTP (\*) |
-| vx2d-144x2016 | 144 | 2,016 | 153,410 | OLAP/OLTP (\*) |
-| vx2d-176x2464 | 176 | 2,464 | 187,500 | OLAP/OLTP (\*) |
+| vx2d-44x616 | 44 | 616 | 46,875 | OLAP, OLTP (\*) |
+| vx2d-88x1232 | 88 | 1,232 | 93,750 | OLAP, OLTP (\*) |
+| vx2d-144x2016 | 144 | 2,016 | 153,410 | OLAP, OLTP (\*) |
+| vx2d-176x2464 | 176 | 2,464 | 187,500 | OLAP, OLTP (\*) |
 | **Ultra High Memory Optimized** | | | | |
 | ux2d-8x224 | 8 | 224 | 8,623 | OLTP (\*) |
 | ux2d-16x448 | 16 | 448 | 17,246 | OLTP (\*) |
@@ -49,13 +49,14 @@ The following tables give you an overview of the SAP-certified profiles with {{s
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS ⁽¹⁾** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- | --- |
-| vx3d-88x1408-spl | 88 | 1408 | 110,560 | 21,300 | OLTP (\*) |
-| vx3d-176x2816 | 176 | 2816 | 221,120 | 42,600 | OLTP (\*) |
+| vx3d-88x1408-spl | 88 | 1408 | 110,560 | 21,300 | OLAP, OLTP (\*) |
+| vx3d-176x2816 | 176 | 2816 | 221,120 | 42,600 | OLAP, OLTP (\*) |
 {: caption="{{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA - Intel Sapphire Rapids CPU" caption-side="bottom"}
 
-(\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.1 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions\n
-SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5, SLES 15 SP6\n
-\n
+(\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.1 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions
+
+SLES 12 SP4, SLES 12 SP5, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5, SLES 15 SP6
+
 (\*\*): SLES 12 SP4, SLES 15, SLES 15 SP1, SLES 15 SP2, SLES 15 SP3, SLES 15 SP4, SLES 15 SP5
 
 Please, regard the supported operated systems that are mentioned in the footnotes.
@@ -84,7 +85,6 @@ The first letter of the profile name indicates the profile family that is mentio
 {: caption="{{site.data.keyword.vsi_is_full}} Profile Families" caption-side="top"}
 
 
-\n
 The Virtual Server profile names are contextual and sequential. See the following example:
 
 | Profile name | Naming convention component | What it means |
@@ -214,9 +214,9 @@ The following table shows the required volumes and related volume groups, if nec
 ### vx2d-* profiles - Setup Instructions
 {: #hana-iaas-intel-vs-vpc-vx2-setup}
 
-See the step by step instructions for setting up the file systems here. The according volume sizes are captured in the table 6. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks are governed by the Linux Logical Volume Manager LVM or lvm2.
+See the step by step instructions for setting up the file systems here. The according volume sizes are captured in the table 7. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks are governed by the Linux Logical Volume Manager LVM or lvm2.
 
-For each profile, consider the specified volume sizes in table 6 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` shows which disk is to the volume, for example `/dev/vde`.
+For each profile, consider the specified volume sizes in table 7 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` shows which disk is to the volume, for example `/dev/vde`.
 {: note}
 
 
@@ -299,7 +299,7 @@ For each profile, consider the specified volume sizes in table 6 and always make
     [root@vx2d-144x2016 ~]# lvcreate -i 3 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
     ```
 
-3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-ux2-setup-small).
+3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](#hana-iaas-intel-vs-vpc-ux2-setup-small).
 
 
 ### ux2d-* profiles - Storage Layouts
@@ -363,9 +363,9 @@ The following table shows the required volumes and related volume groups, if nec
 ### ux2d-* profiles - Setup Instructions
 {: #hana-iaas-intel-vs-vpc-ux2-setup}
 
-See the step by step instructions for setting up the file systems here. The according volume sizes are captured in the table 7. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks are governed by the Linux Logical Volume Manager LVM or lvm2.
+See the step by step instructions for setting up the file systems here. The according volume sizes are captured in the table 8. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks are governed by the Linux Logical Volume Manager LVM or lvm2.
 
-For each profile, consider the specific volume sizes in table 7 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` shows which disk has been mapped to the volume, for example `/dev/vde`.
+For each profile, consider the specific volume sizes in table 8 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` shows which disk has been mapped to the volume, for example `/dev/vde`.
 {: note}
 
 
@@ -436,6 +436,78 @@ For each profile, consider the specific volume sizes in table 7 and always make 
     ```
 
 3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-ux2-setup-small).
+
+
+### vx3d-* profiles - Storage Layouts
+{: #hana-iaas-intel-vs-vpc-vx3-profiles}
+
+The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
+
+| Profile            | File\nsystem    | Logical\nVolume  | LV Size          | Volume Group.  | Physical\nVolume | PV Size          |
+| ------------------ | --------------- | ---------------- | ---------------- | -------------- | ---------------- | ---------------- |
+| `vx3d-88-1408-spl` | `/hana/shared`  |                  | `n/a`            |                | `vdj`            | 1.46 TB          |
+|                    | `/hana/data`    | `hana_data_lv`   | 2 TB or larger   | `hana_data_vg` | `vdf`            | 1 TB or larger.  |
+|                    |                 |                  |                  |                | `vdg`            | 1 TB or larger.  |
+|                    | `/hana/log`     | `hana_log_lv`    | 512 GB or larger | `hana_log_vg`  | `vdh`            | 256 GB or larger |
+|                    |                 |                  |                  |                | `vdi`            | 256 GB or larger |
+| ------------------ | --------------- | ---------------- | ---------------- | -------------- | ---------------- | ---------------- |
+|`vx3d-176x2816`.    | `/hana/shared`  |                  | `n/a`            |                | `vdj`            | 2.8 TB           |
+|                    | `/hana/data`    | `hana_data_lv`   | 6 TB or larger   | `hana_data_vg` | `vdf`            | 2.9 TB or larger |
+|                    |                 |                  |                  |                | `vdg`            | 2.9 TB or larger |
+|                    | `/hana/log`     | `hana_log_lv`    | 512 GB or larger | `hana_log_vg`  | `vdh`            | 256 GB or larger |
+|                    |                 |                  |                  |                | `vdi`            | 256 GB or larger |
+{: caption="Storage for vx3* profile based virtual servers" caption-side="top"}
+
+
+### vx3d-* profiles - Setup Instructions
+{: #hana-iaas-intel-vs-vpc-vx3-setup}
+
+See the step by step instructions for setting up the file systems here. The according volume sizes are captured in the table 9. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some volumes are governed by the Linux Logical Volume Manager LVM or lvm2.
+
+For each profile, consider the specified volume sizes in table 9 and always make sure that the correct volume names are given for the respective commands. The Linux command `fdisk -l` shows which disk is to the volume, for example `/dev/vde`.
+{: note}
+
+
+#### vx3d-88-1408-spl and vx3d-176x2816
+{: #hana-iaas-intel-vs-vpc-vx3-setup-large}
+
+1. Create the volume group for LVM.
+
+    ```shell
+    [root@vx3d ~]# pvcreate /dev/vdf /dev/vdg /dev/vdh /dev/vdi
+    [root@vx3d ~]# vgcreate hana_data_vg /dev/vdf /dev/vdg
+    [root@vx3d ~]# vgcreate hana_log_vg /dev/vdh /dev/vdi
+    ```
+
+2. After the volume group is created, three logical volumes are defined on top. These logical volumes reflect the file system size requirements for SAP HANA.
+
+    ```shell
+    [root@vx3d ~]# lvcreate -i 2 -I 256 -l 100%VG -n hana_data_lv hana_data_vg
+    [root@vx3d ~]# lvcreate  -i 2 -I 64 -l 100%VG -n hana_log_lv hana_log_vg
+    ```
+
+3. Next, add these entries to /etc/fstab
+
+    ```shell
+    LABEL=HANA_SHARED /hana/shared xfs defaults,inode64 0 0
+    LABEL=HANA_LOG /hana/log xfs defaults,swalloc,inode64 0 0
+    LABEL=HANA_DATA /hana/data xfs defaults,largeio,swalloc,inode64 0 0
+    ```
+
+4. Finally, a file system needs to be created on top of each volume group and then mounted:
+
+    ```shell
+    [root@vx3d ~]# mkfs.xfs -L HANA_SHARED /dev/vdj
+    [root@vx3d ~]# mkfs.xfs -L HANA_LOG /dev/mapper/hana_log_vg-hana_log_lv
+    [root@vx3d ~]# mkfs.xfs -L HANA_DATA /dev/mapper/hana_data_vg-hana_data_lv
+
+    [root@vx3d ~]# mkdir -p /hana/shared
+    [root@vx3d ~]# mkdir -p /hana/log
+    [root@vx3d ~]# mkdir -p /hana/data
+
+    [root@vx3d ~]# mount -a
+    ```
+
 
 ### Storage for SAP HANA - multi-node
 {: #hana-iaas-intel-vs-vpc-vx2-storage-multi}

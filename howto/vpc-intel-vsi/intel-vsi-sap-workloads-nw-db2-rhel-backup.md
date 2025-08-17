@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-08-12"
+lastupdated: "2025-08-14"
 keywords:
 subcollection: sap
 ---
@@ -65,7 +65,7 @@ You can create a snapshot by calling the VPC API. Before you start, gather the f
 
 For more information, see [Creating a snapshot with the API](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=api).
 
-### Creating a snapshot with Terraform
+### Creating a snapshot with the Terraform
 {: #snapshot-block-storage-terraform}
 
 You can create a snapshot by using Terraform. Before you start, gather the following information:
@@ -93,7 +93,7 @@ You can create volumes from various pages in the IBM Cloud console. Restoring fr
 
 For more information, see [Restoring volumes from snapshots in the console](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-ui).
 
-### Restoring a volume from a snapshot from the CLI
+### Restoring a volume from a snapshot from CLI
 {: #snapshot-block-storage-restore-cli}
 
 Restoring from a bootable snapshot creates a boot volume that you can use to provision a virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Data volumes are created and can be attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
@@ -102,7 +102,7 @@ Restoring from a bootable snapshot creates a boot volume that you can use to pro
 
 For more information, see [Restoring a volume from a snapshot from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=cli#snapshots-vpc-restore-CLI).
 
-### Restoring a volume from a snapshot with the API
+### Restoring a volume from a snapshot with API
 {: #snapshot-block-storage-restore-api}
 
 You can programmatically restore a volume during instance provisioning by calling the /instances method in the VPC API as shown in the following sample request. You can also create a stand-alone volume by calling the /volumes method in the VPC API.
@@ -118,13 +118,11 @@ For more information, see [Restoring a volume from a snapshot with the API](/doc
 VPC infrastructure services use a specific regional endpoint, which targets to us-south by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the provider.tf file.
 For more information, see [Restoring a volume from a snapshot with Terraform](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=terraform#snapshots-vpc-restore-terraform).
 
-
 ## Db2 Advanced Copy Services (ACS) for snapshot backups
 {: #snapshot-backup-acs}
 
 Db2 Advanced Copy Services (ACS) enables you to use the fast-copying technology of a storage device to perform the data copying part of backup and restore operations.
 In a traditional backup or restore operation, the database manager copies data to or from disk or a storage device using operating system calls. Being able to use the storage device to perform the data copying makes the backup and restore operations much faster. A backup operation that uses Db2 ACS is called a snapshot backup.
-
 
 For more information, see [Db2 Advanced Copy Services (ACS) for snapshot backups](https://www.ibm.com/docs/en/db2/12.1.0?topic=recovery-db2-advanced-copy-services-acs).
 

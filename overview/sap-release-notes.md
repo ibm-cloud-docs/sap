@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-08-05"
+lastupdated: "2025-08-15"
 keywords: SAP
 subcollection: sap
 ---
@@ -19,7 +19,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 
 - Introduced new [bare metal profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm#nw-iaas-intel-bm-sr-list) and [VMware profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vmware#nw-iaas-vmware-sr-list) for SAP NetWeaver/Application Servers on {{site.data.keyword.cloud_notm}} Classic Infrastructure.
 - Introduced new [vx3d OLTP profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-sr-vpc-list) for SAP HANA on {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}}.
-- Introduced new [bh2, ch2 and mh2 OLAP/OLTP/OLTP upto 4N profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#bh2-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
+- Introduced new [bh2, ch2 and mh2 (OLAP, OLTP, and OLTP upto 4N) profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#bh2-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
 - Introduced new [sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr2-nw-profiles) for SAP NetWeaver/Application Servers on {{site.data.keyword.powerSysFull}}.
 - New documentation: [Accessing File Storage for VPC from {{site.data.keyword.powerSysFull}} Instances](/docs/sap?topic=sap-ha-nlb-rt-nfs-intro)
 - New documentation: [Alerting and notification in IBM Cloud Monitoring](/docs/sap?topic=sap-mon-alerting-notification)
