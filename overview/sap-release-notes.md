@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-08-15"
+lastupdated: "2025-08-18"
 keywords: SAP
 subcollection: sap
 ---
@@ -13,6 +13,8 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+
 
 ## July 2025
 {: #sap-2025-07}

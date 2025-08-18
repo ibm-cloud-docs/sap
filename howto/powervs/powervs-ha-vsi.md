@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-24"
+lastupdated: "2025-08-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn, SLES HAE
 subcollection: sap
 ---
@@ -121,6 +121,7 @@ Complete the following steps to create the virtual server instances that you wan
 1. Click **Virtual server instances** > **Create Instance**.
    You need to step through the subsections **General**, **Boot Image**, **Profile**, **Storage Volume**, **Network Interfaces**.
 1. In subsection **General**, enter the **Instance name**.
+
 1. For a singlezone implementation, click **+** to increase the **Number of instances** to 2.
    Select **Numerical postfix** as *Instance naming convention*, and select **Different server** as *Placement group colocation policy*.
    A placement group with colocation policy *Different server* is automatically created as part of the virtual server instances deployment.

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-08-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 subcollection: sap
 ---
@@ -84,7 +84,8 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 - [Available Fencing Types and Fencing Agents for a Red Hat High-Availability Cluster](https://access.redhat.com/articles/2295961){: external}
 - [Configuring a RHEL HA Cluster Fence Agent for an IBM {{site.data.keyword.powerSys_notm}}](https://access.redhat.com/articles/6966644){: external}
 - [How to configure HA-LVM Cluster by using system_id in RHEL 8 and above](https://access.redhat.com/solutions/3796221){: external}
-
+- [Exploring RHEL High Availability's Components - sbd and fence_sbd](https://access.redhat.com/articles/2943361){: external}
+- [Design Guidance for RHEL High Availability Clusters - sbd Considerations](https://access.redhat.com/articles/2941601){: external}
 
 ## Red Hat Enterprise Linux for SAP cluster knowledge base articles
 {: #ha-rhel-refs-sap-cluster-articles}

@@ -47,11 +47,11 @@ toc:
               label: Infrastructure environments
               id: "infrastructure-envs"
               topics:
-                - navtitle: VPC infrastructure
+                - navtitle: VPC
                   topic: plan/sap-environment-vpc-infrastructure.md
-                - navtitle: Classic infrastructure
+                - navtitle: Classic
                   topic: plan/sap-environment-classic-infrastructure.md
-                - navtitle: Power Virtual Server infrastructure
+                - navtitle: Power Virtual Server
                   topic: plan/sap-environment-power-infrastructure.md
           - navtitle: SAP certified infrastructure
             topic: plan/sap-offerings-certified-iaas.md
@@ -434,6 +434,8 @@ toc:
                         topic: howto/powervs/powervs-ha-rhel-ensa-mz.md
                       - navtitle: Configuring an active-passive NFS server
                         topic: howto/powervs/powervs-ha-rhel-nfs.md
+                      - navtitle: Implementing SBD poison-pill fencing
+                        topic: howto/powervs/powervs-ha-rhel-sbd.md
                 - topicgroup:
                     label: Implementing SLES HA Cluster Extension for SAP solutions
                     id: "sap-ha-scenarios-on-power-virtual-server-with-sles"
