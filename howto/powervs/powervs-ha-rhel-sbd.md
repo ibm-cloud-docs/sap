@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-08-19"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -626,9 +626,9 @@ Run the following commands on both cluster nodes to implement the software watch
    Sample output:
    ```text
    # pcs stonith sbd device setup \
-        device=${SBD_DEV_1} \
-        device=${SBD_DEV_2} \
-        device=${SBD_DEV_3} \
+        device=/dev/disk/by-id/scsi-3600140500874d3cfa724e728b77046a3 \
+        device=/dev/disk/by-id/scsi-3600140517566c8197884fb9b643b470a \
+        device=/dev/disk/by-id/scsi-36001405c2ed12b15b0a4c7f8d311ab49 \
         watchdog-timeout=30 \
         msgwait-timeout=60
 
@@ -672,9 +672,9 @@ Run the following commands on both cluster nodes to implement the software watch
    Sample output:
    ```text
    # pcs stonith sbd enable \
-       device=${SBD_DEV_1} \
-       device=${SBD_DEV_2} \
-       device=${SBD_DEV_3} \
+       device=/dev/disk/by-id/scsi-3600140500874d3cfa724e728b77046a3 \
+       device=/dev/disk/by-id/scsi-3600140517566c8197884fb9b643b470a \
+       device=/dev/disk/by-id/scsi-36001405c2ed12b15b0a4c7f8d311ab49 \
        SBD_WATCHDOG_TIMEOUT=60 \
        SBD_STARTMODE=clean \
        SBD_DELAY_START=yes
@@ -729,13 +729,13 @@ Run the following commands on both cluster nodes to implement the software watch
       <node name>: <installed> | <enabled> | <running>
       cl1n2: YES | YES |  NO
       cl1n1: YES | YES | YES
-      Messages list on device '/dev/disk/by-id/scsi-360014059ccb372b4eca43d1b5174f5bc':
+      Messages list on device '/dev/disk/by-id/scsi-3600140500874d3cfa724e728b77046a3':
       0       cl1n1        clear
       1       cl1n2        clear
-      Messages list on device '/dev/disk/by-id/scsi-36001405218e6f5380264cb5bf3e98700':
+      Messages list on device '/dev/disk/by-id/scsi-3600140517566c8197884fb9b643b470a':
       0       cl1n2        clear
       1       cl1n1        clear
-      Messages list on device '/dev/disk/by-id/scsi-3600140563753b6cac47491facdaa856d':
+      Messages list on device '/dev/disk/by-id/scsi-36001405c2ed12b15b0a4c7f8d311ab49':
       0       cl1n2        clear
       1       cl1n1        clear
       ```

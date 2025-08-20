@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-08-19"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn, SLES HAE
 subcollection: sap
 ---
@@ -114,13 +114,14 @@ Before you begin, make sure that the OVA image is loaded in the storage bucket.
 ## Creating virtual server instances for the cluster
 {: #ha-vsi-create-virtual-server-instances}
 
-Complete the following steps to create the virtual server instances that you want to use as high availability cluster nodes.
+Follow these steps to create the virtual server instances that will serve as nodes in your high availability cluster.
 
 1. Log in to [Workspaces](https://cloud.ibm.com/power/workspaces){: external}.
-1. Click the **workspace** name and **View virtual servers**.
+1. Select the desired **workspace**, then click **View virtual servers**.
 1. Click **Virtual server instances** > **Create Instance**.
-   You need to step through the subsections **General**, **Boot Image**, **Profile**, **Storage Volume**, **Network Interfaces**.
-1. In subsection **General**, enter the **Instance name**.
+   - You’ll be guided through the following configuration steps: **General**, **Boot Image**, **Profile**, **Storage Volume**, and **Network Interfaces**.
+1. In the **General** section:
+   - Enter the **Instance name**.
 
 1. For a singlezone implementation, click **+** to increase the **Number of instances** to 2.
    Select **Numerical postfix** as *Instance naming convention*, and select **Different server** as *Placement group colocation policy*.
@@ -142,11 +143,12 @@ Complete the following steps to create the virtual server instances that you wan
    These volumes must be created later for the individual server instances after their deployment is complete.
    {: important}
 
-8. In the **Network Interfaces** subsection, it is preferable that the cluster nodes are not directly accessible from a public network, so leave the *Public networks* configuration as **Off**.
-9. Click **Attach** to attach the virtual server instances to an existing subnet.
-10. In the *Attach an existing network* screen, select one of the *Existing networks*. You can either select **Automatically assign IP address from IP range**, or **Manually specify an IP address from IP range** to specify an available IP address.
-11. Click **Attach.**
-12. Click **Finish**, check the *I agree to the Terms and Conditions* flag, and click **Create**.
+1. In the **Network Interfaces** section, it is preferable that the cluster nodes are not directly accessible from a public network, so leave the *Public networks* configuration as **Off**.
+1. Click **Attach** to attach the virtual server instances to an existing subnet.
+1. In the *Attach an existing network* screen, select one of the *Existing networks*.
+   You can either select **Automatically assign IP address from IP range**, or **Manually specify an IP address from IP range** to specify an available IP address.
+1. Click **Attach.**
+1. Click **Finish**, check the *I agree to the Terms and Conditions* flag, and click **Create**.
 
 The deployment of the virtual server instances starts.
 
