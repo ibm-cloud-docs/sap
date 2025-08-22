@@ -1,7 +1,7 @@
 ---
 copyright:
    years: 2025
-lastupdated: "2025-07-30"
+lastupdated: "2025-08-21"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, NFS, File Storage Share, Network Load Balancer
 subcollection: sap
 content-type: tutorial
@@ -65,26 +65,38 @@ Both the active IP and the standby IP are used during the lifetime of an NLB wit
 ### Creating a security group to allow NFS V4 traffic
 {: #ha-nlb-rt-nfs-create-sg}
 
-Create a security group and configure inbound rules for the SSH (22) and NFS (2049) ports.
+Create a security group and configure rules for the SSH (22) and NFS (2049) ports.
 
-1. Browse to [Security groups for VPC](/infrastructure/network/securityGroups) and click **Create**.
+1. Go to [Security groups for VPC](/infrastructure/network/securityGroups) and click **Create**.
 1. Verify or set the **Geography** and **Region** fields.
-1. Enter `nfs-server-sg` for the **Name**.
+1. **Name**: Enter `nfs-server-sg`.
 1. Select the same **Resource group** as the VPC resource group.
 1. Select your VPC in the **Virtual private cloud** list.
-1. Add the **Inbound rules** as shown in the following table.
-   Define an inbound rule for each NFS client by specifying its virtual instance IP address to restrict file share access to authorized sources only.
-   If all instances within a subnet are permitted, specify the subnet using CIDR notation instead.
-
-   | Protocol   | Port range | Source type         | Destination type |
-   |------------|------------|---------------------|------------------|
-   | TCP        | 2049-2049  | {source IP address} | Any              |
-   {: caption="Inbound rules" caption-side="bottom"}
+1. Create an inbound rule for each virtual server instance (NFS client).
+   1. In the **Inbound rules** section, click **Create**.
+   1. Configure the rule as follows:
+      - **Protocol**: Select **TCP**.
+      - **Port**: Select **Port range**, and enter `2049` for both **Port min** and **Port max**.
+      - **Source type**: Select **IP or CIDR**.
+         - Enter the IP address of each virtual server instance.
+         - If your instances are in a subnet and you want to allow access from all members of the subnet, enter the subnet's CIDR block.
+      - **Destination type**: Select **Any**.
+   1. Click **Create** to save the rule.
+1. Create a common outbound rule.
+   1. In the **Outbound rules** section, click **Create**.
+   1. Configure the rule as follows:
+      - **Protocol**: Select **TCP**.
+      - **Port**: Select **Any**.
+      - **Destination type**: Select **Any**.
+      - **Source type**: Select **Any**.
+   1. Click **Create** to save the rule.
+1. Finalize the security group.
+   - Click **Create security group** to apply the configuration.
 
 ### Provisioning a file storage share
 {: #ha-nlb-rt-nfs-create-fs-share}
 
-1. Browse to [File storage shares for VPC](/infrastructure/storage/fileShares).
+1. Go to [File storage shares for VPC](/infrastructure/storage/fileShares).
 1. Click **Create** > **Create file share**.
 1. In the **Location** section, select the same **Geography**, **Region**, and **Zone** as the virtual private cloud.
 1. Enter `nfs-server` in the **Name** field.
@@ -108,7 +120,7 @@ Create a security group and configure inbound rules for the SSH (22) and NFS (20
 {: #ha-nlb-rt-nfs-get-mount-path}
 {: step}
 
-1. Browse to [File storage shares for VPC](/infrastructure/storage/fileShares).
+1. Go to [File storage shares for VPC](/infrastructure/storage/fileShares).
 1. Click the **Name** `nfs-server`.
 1. In the **Mount targets** section, click the **Name** of the mount target in the VPC to view the mount target details.
 1. Make a note of the **Mount path**.
@@ -140,7 +152,7 @@ To support routing mode, you must first create a *service-to-service* authentica
 ### Creating the network load balancer
 {: #ha-nlb-rt-nfs-create-nlb}
 
-1. Browse to the [Load balancers for VPC](/infrastructure/network/loadBalancers) page and click **Create**.
+1. Go to [Load balancers for VPC](/infrastructure/network/loadBalancers) and click **Create**.
 1. Select **Network Load Balancer (NLB)** as the **Load balancer type**.
 1. In the **Location** section, select the same **Geography** and **Region** that is used for the virtual private cloud.
 1. Enter `nfs-server-nlb` in the **Name** field.
@@ -172,7 +184,7 @@ However, you cannot define the back-end pool `Failsafe policy` directly, and it 
 Update the `Failsafe policy` for the `nfs-server-fwd-pool` back-end pool.
 The network load balancer then bypasses the back-end pool and sends requests directly to the destination IPs.
 
-1. Browse to [Load balancers for VPC](/infrastructure/network/loadBalancers).
+1. Go to [Load balancers for VPC](/infrastructure/network/loadBalancers).
 1. Click the load balancer `nfs-server-nlb`.
 1. Click the **Back-end pools** tab and select the pool `nfs-server-fwd-pool`.
 1. Click `nfs-server-fwd-pool` and then `Edit`.
@@ -183,7 +195,7 @@ The network load balancer then bypasses the back-end pool and sends requests dir
 {: #ha-nlb-rt-nfs-get-nlb-ip-addresses}
 {: step}
 
-1. Browse to [Load balancers for VPC](/infrastructure/network/loadBalancers).
+1. Go to [Load balancers for VPC](/infrastructure/network/loadBalancers).
 1. Click `nfs-server-nlb`.
 1. In the **Load balancer details - Private IPs** section, make a note of the first IP address entry in the list.
 
@@ -202,7 +214,7 @@ Only one custom routing table is associated with an ingress source.
 If an ingress routing table exists for the IBM Cloud Transit Gateway source, add the **route** to that table.
 {: note}
 
-1. Browse to [Routing tables for VPC](/infrastructure/network/routingTables).
+1. Go to [Routing tables for VPC](/infrastructure/network/routingTables).
 1. Click **Create**.
 1. In the **Location** section, select the same **Geography** and **Region** that is used for the virtual private cloud.
 1. Enter `nfs-server-routing` in the **Name** field.
@@ -213,7 +225,7 @@ If an ingress routing table exists for the IBM Cloud Transit Gateway source, add
 ### Creating a route
 {: #ha-nlb-rt-nfs-create-route}
 
-1. Browse to [Routing tables for VPC](/infrastructure/network/routingTables).
+1. Go to [Routing tables for VPC](/infrastructure/network/routingTables).
 1. Click the name `nfs-server-routing`.
 1. Click **Create**.
 1. Select the zone for your route in the **Zone** field.

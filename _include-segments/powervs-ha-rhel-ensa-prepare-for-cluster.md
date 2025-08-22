@@ -55,6 +55,7 @@ Example:
 
 Proceed to [Installing permanent SAP license keys](#ha-rhel-ensa-install-lic-key).
 
+
 #### Disabling systemd services of the ASCS and the ERS instances
 {: #ha-rhel-ensa-disable-systemd-services}
 
