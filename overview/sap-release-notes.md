@@ -15,6 +15,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 {: shortdesc}
 
 
+
 ## August 2025
 {: #sap-2025-08}
 

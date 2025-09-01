@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-03"
+lastupdated: "2025-09-01"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -1182,7 +1182,7 @@ Use *SAP Control* commands to move the *ASCS* instance to the other node for mai
 Log in to NODE1 and run `sapcontrol` to move the *ASCS* instance to the other node.
 
 ```sh
-sudo -i -u ${sid}adm -- sh -c "sapcontrol -nr ${ASCS_INSTNO} -function HAFailoverToNode"
+sudo -i -u ${sid}adm -- sh -c "sapcontrol -nr ${ASCS_INSTNO} -function HAFailoverToNode $NODE2"
 ```
 {: pre}
 
