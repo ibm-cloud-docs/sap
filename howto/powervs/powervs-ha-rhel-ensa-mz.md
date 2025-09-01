@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-03"
+lastupdated: "2025-08-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -326,7 +326,7 @@ If necessary, use the `pcs resource move <resource_group_name>` command to move 
 ### Changing the ownership of the ASCS and ERS mount points
 {: #ha-rhel-ensa-mz-verify-change-mountpoint-owner}
 
-The *ASCS* and *ERS* mount points must be owned by the *sidadm* user.
+The *ASCS* and *ERS* mount points must be owned by the *\<sid\>adm* user.
 You must define the required users and groups and set the mount point ownership before you can start the instance installation.
 
 On both nodes, use the following steps to set the required owner.

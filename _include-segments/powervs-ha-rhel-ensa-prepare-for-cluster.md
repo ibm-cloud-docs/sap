@@ -1,9 +1,9 @@
-Use the following steps to prepare the SAP instances for the cluster integration.
+Use the following steps to prepare the SAP instances for cluster integration.
 
 ### Disabling the automatic start of the SAP instance agents for ASCS and ERS
 {: #ha-rhel-ensa-disable-agents}
 
-You must disable the automatic start of the `sapstartsrv` instance agents for both *ASCS* and *ERS* instances after a reboot.
+Disable the automatic start of the `sapstartsrv` instance agents for both *ASCS* and *ERS* instances after a system reboot.
 
 #### Verifying the SAP instance agent integration type
 {: #ha-rhel-ensa-verify-sap-services}
@@ -17,7 +17,7 @@ cat /usr/sap/sapservices
 ```
 {: pre}
 
-In the `systemd` format, the lines start with `systemctl` entries.
+In the `systemd` format, entries begin with `systemctl` commands.
 
 Example:
 
@@ -26,9 +26,8 @@ systemctl --no-ask-password start SAPS01_01 # sapstartsrv pf=/usr/sap/S01/SYS/pr
 ```
 {: screen}
 
-If the entries for ASCS and ERS are in `systemd` format, continue with the steps in [Disabling systemd services of the ASCS and the ERS SAP instance](#ha-rhel-ensa-disable-systemd-services).
-
-In the `classic` format, the lines start with `LD_LIBRARY_PATH` entries.
+If the ASCS and ERS entries use `systemd` format, continue with the steps in [Registering the ASCS and the ERS instances](#ha-rhel-ensa-register-instances).
+In the `classic` format, entries begin with `LD_LIBRARY_PATH` definitions.
 
 Example:
 
@@ -37,9 +36,9 @@ LD_LIBRARY_PATH=/usr/sap/S01/ASCS01/exe:$LD_LIBRARY_PATH;export LD_LIBRARY_PATH;
 ```
 {: screen}
 
-If the entries for ASCS and ERS are in `classic` format, then modify the `/usr/sap/sapservices` file to prevent the automatic start of the `sapstartsrv` instance agent for both *ASCS* and *ERS* instances after a reboot.
+If the entries for ASCS and ERS are in `classic` format, modify the `/usr/sap/sapservices` file to prevent the automatic start of the `sapstartsrv` instance agents for both *ASCS* and *ERS* instances after a system reboot.
 
-On both nodes, remove or comment out the `sapstartsrv` entries for both *ASCS* and *ERS* in the *SAP services* file.
+On both nodes, remove or comment out the `sapstartsrv` entries for *ASCS* and *ERS* in the *SAP services* file.
 
 ```sh
 sed -i -e 's/^LD_LIBRARY_PATH=/#LD_LIBRARY_PATH=/' /usr/sap/sapservices
@@ -55,18 +54,40 @@ Example:
 
 Proceed to [Installing permanent SAP license keys](#ha-rhel-ensa-install-lic-key).
 
+#### Registering the ASCS and the ERS instances
+{: #ha-rhel-ensa-register-instances}
+
+Register the SAP instances on both nodes.
+
+1. Login as the `root` user on both nodes.
+
+1. Set the `LD_LIBRARY_PATH` environment variable to include the ASCS instance executable directory, and register the ASCS instance.
+
+   ```shell
+   export LD_LIBRARY_PATH=/usr/sap/${SID}/ASCS${ASCS_INSTNO}/exe && \
+   /usr/sap/${SID}/ASCS${ASCS_INSTNO}/exe/sapstartsrv \
+      pf=/usr/sap/${SID}/SYS/profile/${SID}_ASCS${ASCS_INSTNO}_${ASCS_VH} -reg
+   ```
+
+1. Repeat the registration step for the ERS instance by using the ERS profile.
+
+   ```shell
+   export LD_LIBRARY_PATH=/usr/sap/${SID}/ERS${ERS_INSTNO}/exe && \
+   /usr/sap/${SID}/ERS${ERS_INSTNO}/exe/sapstartsrv \
+      pf=/usr/sap/${SID}/SYS/profile/${SID}_ERS${ERS_INSTNO}_${ERS_VH} -reg
+   ```
 
 #### Disabling systemd services of the ASCS and the ERS instances
 {: #ha-rhel-ensa-disable-systemd-services}
 
-On both nodes, disable the instance agent for the ASCS.
+On both nodes, disable the systemd service for the ASCS instance agent.
 
 ```sh
 systemctl disable --now SAP${SID}_${ASCS_INSTNO}.service
 ```
 {: pre}
 
-On both nodes, disable the instance agent for the ERS.
+Then, disable the systemd service for the ERS instance agent.
 
 ```sh
 systemctl disable --now SAP${SID}_${ERS_INSTNO}.service
@@ -76,9 +97,9 @@ systemctl disable --now SAP${SID}_${ERS_INSTNO}.service
 #### Disabling `systemd` restart of a crashed ASCS or ERS instance
 {: #ha-rhel-ensa-disable-crash-restart}
 
-`Systemd` has its own mechanisms for restarting a crashed service.
-In a high availability setup, only the HA cluster is responsible for managing the SAP ASCS and ERS instances.
-Create `systemd drop-in files` on both cluster nodes to prevent `systemd` from restarting a crashed SAP instance.
+`Systemd` includes built-in mechanisms for restarting crashed services.
+In a high availability setup, only the HA cluster should manage the SAP *ASCS* and *ERS* instances.
+To prevent `systemd` from automatically restarting these instances, create drop-in configuration files on both cluster nodes.
 
 On both nodes, create the directories for the drop-in files.
 
@@ -92,7 +113,7 @@ mkdir /etc/systemd/system/SAP${SID}_${ERS_INSTNO}.service.d
 ```
 {: pre}
 
-On both nodes, create the drop-in files for ASCS and ERS.
+On both nodes, create the drop-in files for *ASCS* and *ERS*.
 
 ```sh
 cat >> /etc/systemd/system/SAP${SID}_${ASCS_INSTNO}.service.d/HA.conf << EOT
@@ -123,10 +144,10 @@ systemctl daemon-reload
 ### Installing permanent SAP license keys
 {: #ha-rhel-ensa-install-lic-key}
 
-When the SAP *ASCS* instance is installed on a {{site.data.keyword.powerSys_notm}} instance, the SAP license mechanism relies on the partition UUID.
-For more information, see [SAP note 2879336 - Hardware key based on unique ID](https://me.sap.com/notes/2879336){: external}.
+When the SAP *ASCS* instance runs on a {{site.data.keyword.powerSys_notm}} instance, the SAP license mechanism uses the partition UUID to generate the hardware key.
+For details, see [SAP note 2879336 - Hardware key based on unique ID](https://me.sap.com/notes/2879336){: external}.
 
-On both nodes, run the following command as user `<sid>adm` to identify the `HARDWARE KEY` of the node.
+On both nodes, run the following command as the `<sid>adm` user to retrieve the hardware key.
 
 ```sh
 sudo -i -u ${sid}adm -- sh -c 'saplikey -get'
@@ -142,10 +163,10 @@ saplikey: HARDWARE KEY = H1428224519
 ```
 {: screen}
 
-Note the `HARDWARE KEY` of each node.
+Record the `HARDWARE KEY` from each node.
 
-You need both hardware keys to request two different SAP license keys.
-Check the following SAP notes for more information about requesting SAP license keys:
+You need the hardware keys from both nodes to request separate SAP license keys.
+For guidance on requesting license keys for failover systems, refer to the following SAP Notes:
 - [2879336 - Hardware key based on unique ID](https://me.sap.com/notes/2879336){: external}
 - [2662880 - How to request SAP license keys for failover systems](https://me.sap.com/notes/2662880){: external}
 
@@ -153,20 +174,19 @@ Check the following SAP notes for more information about requesting SAP license 
 {: #ha-rhel-ensa-install-sap-resource-agents}
 
 Install the required software packages.
-The `resource-agents-sap` includes the *SAPInstance cluster resource agent* for managing the SAP instances.
+The `resource-agents-sap` package provides the *SAPInstance cluster resource agent* that is used to manage SAP instances.
 
-Unless `sap_cluster_connector` is configured for the SAP instance, the RHEL HA Add-On cluster considers any state change of the instance as an issue.
-If other SAP tools such as `sapcontrol` are used to manage the instance, then `sap_cluster_connector` grants permission to control SAP instances that are running inside the cluster.
-If the SAP instances are managed by only cluster tools, the implementation of `sap_cluster_connector`
-is not necessary.
+If `sap_cluster_connector` is not configured for the SAP instance, the RHEL HA Add-On cluster treats any state change as a potential issue.
+When external SAP tools such as `sapcontrol` are used to manage the instance, `sap_cluster_connector` enables safe interaction with SAP instances running inside the cluster.
+If SAP instances are managed exclusively by cluster tools, `sap_cluster_connector` is not required.
 
-Install the packages for the resource agent and the *SAP Cluster Connector* library.
-For more information, see [How to enable the SAP HA Interface for SAP ABAP application server instances managed by the RHEL HA Add-On](https://access.redhat.com/solutions/3606101){: external}
+Install the packages for the cluster resource agent and the *SAP Cluster Connector* library.
+For details, see [How to enable the SAP HA Interface for SAP ABAP application server instances managed by the RHEL HA Add-On](https://access.redhat.com/solutions/3606101){: external}
 
 On both nodes, run the following commands.
 
-If needed, use `subscription-manager` to enable the SAP NetWeaver repository.
-The [RHEL for SAP Subscriptions and Repositories](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/rhel_for_sap_subscriptions_and_repositories/asmb_enable_repo_rhel-for-sap-subscriptions-and-repositories-8#con_hana_rhel-for-sap-subscriptions-and-repositories-8){: external} documentation describes how to enable the required repositories.
+If necessary, use `subscription-manager` to enable the SAP NetWeaver repository.
+For instructions, refer to the [RHEL for SAP Subscriptions and Repositories](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html/rhel_for_sap_subscriptions_and_repositories/asmb_enable_repo_rhel-for-sap-subscriptions-and-repositories-8#con_hana_rhel-for-sap-subscriptions-and-repositories-8){: external} documentation.
 
 ```sh
 subscription-manager repos --enable="rhel-8-for-ppc64le-sap-netweaver-e4s-rpms"
@@ -176,16 +196,14 @@ subscription-manager repos --enable="rhel-8-for-ppc64le-sap-netweaver-e4s-rpms"
 Install the required packages.
 
 ```sh
-dnf install -y resource-agents-sap  sap-cluster-connector
+dnf install -y resource-agents-sap sap-cluster-connector
 ```
 {: pre}
 
 ### Configuring SAP Cluster Connector
 {: #ha-rhel-ensa-configure-sap-cluster-connector}
 
-Add user `${sid}adm` to the `haclient` group.
-
-On both nodes, run the following command.
+Add the `<sid>adm` user to the `haclient` group on both nodes.
 
 ```sh
 usermod -a -G haclient ${sid}adm
@@ -195,18 +213,18 @@ usermod -a -G haclient ${sid}adm
 ### Adapting the SAP instance profiles
 {: #ha-rhel-ensa-modify-sap-profiles}
 
-Modify the start profiles of all SAP instances that are managed by *SAP tools* outside the cluster.
-Both *ASCS* and *ERS* instances can be controlled by the RHEL HA Add-On cluster and its resource agents.
-Adjust the SAP instance profiles to prevent an automatic restart of instance processes.
+Modify the start profiles of SAP instances that are managed by *SAP tools* outside the cluster.
+The RHEL HA Add-On cluster and its resource agents can control both *ASCS* and *ERS* instances.
+To prevent automatic restarts of instance processes, adjust the SAP instance profiles accordingly.
 
-On NODE1, navigate to the SAP profile directory.
+On NODE1, change to the SAP profile directory.
 
 ```sh
 cd /sapmnt/${SID}/profile
 ```
 {: pre}
 
-Change all occurrences of `Restart_Program` to `Start_Program` in the instance profile of both *ASCS* and *ERS*.
+Replace all `Restart_Program` entries with `Start_Program` in the *ASCS* and *ERS* instance profiles.
 
 ```sh
 sed -i -e 's/Restart_Program_\([0-9][0-9]\)/Start_Program_\1/' ${SID}_ASCS${ASCS_INSTNO}_${ASCS_VH}
@@ -218,7 +236,7 @@ sed -i -e 's/Restart_Program_\([0-9][0-9]\)/Start_Program_\1/' ${SID}_ERS${ERS_I
 ```
 {: pre}
 
-Add the following two lines at the end of the SAP instance profile to configure `sap_cluster_connector` for the *ASCS* and *ERS* instances.
+Append the following lines to the end of the *ASCS* and *ERS* instance profiles to enable `sap_cluster_connector` integration:
 
 ```sh
 service/halib = $(DIR_EXECUTABLE)/saphascriptco.so

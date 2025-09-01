@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-09-01"
 keywords: SAP
 subcollection: sap
 ---
@@ -15,6 +15,12 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 {: shortdesc}
 
 
+## August 2025
+{: #sap-2025-08}
+
+- New documentation: [Implementing SBD poison-pill fencing in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-sbd) on {{site.data.keyword.powerSysFull}}.
+- New documentation: [Snapshot backups for SAP on Db2](/docs/sap?topic=sap-snapshot-backup-db2-overview) for {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}}.
+- New documentation: [Snapshot backups for SAP on ASE Sybase](/docs/sap?topic=sap-snapshot-backup-ase-overview) for {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}},
 
 ## July 2025
 {: #sap-2025-07}
