@@ -147,7 +147,7 @@ systemctl daemon-reload
 When the SAP *ASCS* instance runs on a {{site.data.keyword.powerSys_notm}} instance, the SAP license mechanism uses the partition UUID to generate the hardware key.
 For details, see [SAP note 2879336 - Hardware key based on unique ID](https://me.sap.com/notes/2879336){: external}.
 
-On both nodes, run the following command as the `<sid>adm` user to retrieve the hardware key.
+On both nodes, run the following command as the *sidadm* user to retrieve the hardware key.
 
 ```sh
 sudo -i -u ${sid}adm -- sh -c 'saplikey -get'
@@ -203,7 +203,7 @@ dnf install -y resource-agents-sap sap-cluster-connector
 ### Configuring SAP Cluster Connector
 {: #ha-rhel-ensa-configure-sap-cluster-connector}
 
-Add the `<sid>adm` user to the `haclient` group on both nodes.
+Add the *sidadm* user to the `haclient` group on both nodes.
 
 ```sh
 usermod -a -G haclient ${sid}adm

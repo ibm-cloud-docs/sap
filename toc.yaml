@@ -432,6 +432,8 @@ toc:
                         topic: howto/powervs/powervs-ha-rhel-ensa.md
                       - navtitle: Configuring SAP S/4HANA (ASCS and ERS) in a multizone region environment
                         topic: howto/powervs/powervs-ha-rhel-ensa-mz.md
+                      - navtitle: Configuring SAP S/4HANA (ASCS and ERS) in a multizone region with simple mount
+                        topic: howto/powervs/powervs-ha-rhel-ensa-sm-mz.md
                       - navtitle: Configuring an active-passive NFS server
                         topic: howto/powervs/powervs-ha-rhel-nfs.md
                       - navtitle: Implementing SBD poison-pill fencing
