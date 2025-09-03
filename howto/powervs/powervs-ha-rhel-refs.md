@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-09-03"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 subcollection: sap
 ---
@@ -69,6 +69,7 @@ A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is 
 | [Automating SAP HANA Scale-Up System Replication by using the RHEL HA Add-On](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index){: external} |
 | [Configuring SAP HANA Scale-Up Multitarget System Replication for disaster recovery](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/configuring_sap_hana_scale-up_multitarget_system_replication_for_disaster_recovery/index){: external} |
 | [Configuring HA clusters to manage SAP NetWeaver or SAP S/4HANA Application server instances by using the RHEL HA Add-On](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/configuring_ha_clusters_to_manage_sap_netweaver_or_sap_s4hana_application_server_instances_using_the_rhel_ha_add-on/index){: external} |
+| [Deploying SAP HANA Scale-Up System Replication High Availability](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/deploying_sap_hana_scale-up_system_replication_high_availability/index){: external} |
 | [Deploying SAP NetWeaver or S/4HANA Application Server High Availability with simple mount](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/deploying_sap_netweaver_or_s4hana_application_server_high_availability_with_simple_mount/index){: external} |
 {: class="simple-tab-table"}
 {: caption="RHEL 9 for SAP documentation" caption-side="bottom"}
