@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-01"
+lastupdated: "2025-09-04"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -17,16 +17,16 @@ The setup uses the *Simple Mount Structure*, a streamlined approach for mounting
 The cluster runs on virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external}.
 {: shortdesc}
 
-This configuration example applies to the second-generation of the [Standalone Enqueue Server](https://help.sap.com/docs/ABAP_PLATFORM/cff8531bc1d9416d91bb6781e628d4e0/902412f09e134f5bb875adb6db585c92.html){: external}, also known as *ENSA2*.
+This configuration example applies to the second generation of the [Standalone Enqueue Server](https://help.sap.com/docs/ABAP_PLATFORM/cff8531bc1d9416d91bb6781e628d4e0/902412f09e134f5bb875adb6db585c92.html){: external}, also known as *ENSA2*.
 
 Since SAP S/4HANA 1809, ENSA2 is installed by default and supports both two-node and multi-node cluster configurations.
-This example demonstrates a two-node RHEL HA Add-On cluster setup using ENSA2.
-If the *ASCS* service fails, it automatically restarts on the node hosting the *ERS* instance.
+This example demonstrates a two-node RHEL HA Add-On cluster setup with ENSA2.
+If the *ASCS* service fails, it automatically restarts on the node that hosts the *ERS* instance.
 The lock entries are restored from the *ERS* instance’s copy of the lock table.
 When the failed node is reactivated, the *ERS* instance relocates to the other node (anti-colocation) to maintain redundancy and protect the lock table copy.
 
 
-It is recommended to install the SAP database and other SAP application server instances on virtual servers outside the two-node cluster used for *ASCS* and *ERS*.
+Install the SAP database and other SAP application server instances on virtual servers outside the two-node cluster that is used for *ASCS* and *ERS*.
 
 ## Before you begin
 {: #ha-rhel-ensa-sm-mz-begin}
@@ -38,9 +38,9 @@ Review the general requirements, product documentation, support articles, and SA
 
 The following NFS file systems must be mounted by the operating system on both cluster nodes.
 These file systems are not managed by the HA cluster.
-   - `/usr/sap/<SID>`: Contains directories for both the *ASCS* and *ERS* instances.
-   - `/sapmnt/<SID>`: Hosts the *sapmnt* share.
-   - `usr/sap/trans`: May be required for shared transport directories (*saptrans*).
+   - `/usr/sap/<SID>` contains directories for both the *ASCS* and *ERS* instances.
+   - `/sapmnt/<SID>` hosts the *sapmnt* share.
+   - `usr/sap/trans` might be required for shared transport directories (*saptrans*).
 
 Ensure that a highly available NFS server is configured to provide these shared file systems.
 Do not install the NFS server on any virtual server that is part of the *ENSA2* cluster.
@@ -48,7 +48,7 @@ This document does not cover the setup of file storage or the creation of cluste
 {: important}
 
 
-Ensure that the virtual hostnames for the *ASCS* and *ERS* instances comply with the requirements outlined in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
+Ensure that the virtual hostnames for the *ASCS* and *ERS* instances comply with the requirements that are outlined in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
 
 The subnets and the virtual IP addresses for the *ASCS* and *ERS* instances must not exist in the {{site.data.keyword.powerSys_notm}} workspaces, as they are managed as cluster resources.
 However, you must register the virtual IP addresses and hostnames for the *ASCS* and *ERS* instances in the Domain Name Service (DNS) and add them to the `etc/hosts` file on all cluster nodes.
@@ -62,7 +62,7 @@ The following information describes how to prepare the nodes for installing the 
 {: #ha-rhel-ensa-sm-mz-prepare-environment-variables}
 
 To simplify the setup process, define the following environment variables for the `root` user on both cluster nodes.
-These variables will be used in subsequent operating system commands.
+These variables are used in subsequent operating system commands.
 
 On both nodes, set the following environment variables.
 
@@ -167,14 +167,14 @@ After installation, configure and test cluster fencing as described in [Creating
 ## Preparing cluster resources before the SAP installation
 {: #ha-rhel-ensa-sm-mz-clres-ascs-ers}
 
-Ensure that the RHEL HA Add-On cluster is active on both virtual server instances and that node fencing has been successfully tested.
+Ensure that the RHEL HA Add-On cluster is active on both virtual server instances, and verify that node fencing functions as expected.
 
 ### Configuring general cluster properties
 {: #ha-rhel-ensa-sm-mz-configure-cluster-properties}
 
-To prevent the cluster from relocating healthy resources — for example, when restarting a previously failed node — set the following default meta attributes.
+To prevent the cluster from relocating healthy resources, for example when previously failed node restarts, set the following default meta attributes.
 
-- `resource-stickiness=1`: Ensures resources remain on their current node.
+- `resource-stickiness=1`: Ensures that resources remain on their current node.
 - `migration-threshold=3`: Limits the number of failures before a resource is moved.
 
 On NODE1, run the following command.
@@ -200,7 +200,7 @@ Adjust the paths as needed to match your NFS server configuration.
 
 Run the following commands on both cluster nodes.
 
-1. Check whether /etc/fstab already contains entries for the *sapmnt* and *saptrans* file systems.
+1. Check whether `/etc/fstab` already contains entries for the *sapmnt* and *saptrans* file systems.
    If not, add the required mount entries.
 
    Make sure to adjust the export paths to match your NFS server layout.
@@ -220,7 +220,7 @@ Run the following commands on both cluster nodes.
    {: pre}
 
    Ensure that duplicate entries are not added to `/etc/fstab`.
-   Use `cat >>` only if the entries do not already exist.
+   Use `cat >>` only if the entries do not exist.
    {: important}
 
 1. Mount the NFS file systems on both cluster nodes.
@@ -342,8 +342,8 @@ If needed, use the `pcs resource move <resource_group_name>` command to relocate
 ### Changing the ownership of the ASCS and ERS mount points
 {: #ha-rhel-ensa-sm-mz-verify-change-mountpoint-owner}
 
-The *ASCS* and *ERS* mount points must be owned by the *\<sid\>adm* user.
-Before starting the instance installation, ensure that the required users and groups are defined and that the mount point ownership is correctly set.
+The *ASCS* and *ERS* mount points must be owned by the *sidadm* user.
+Before you start the instance installation, ensure that the required users and groups are defined and that the mount point ownership is correctly set.
 
 Follow these steps on both nodes to configure the correct ownership.
 
@@ -354,7 +354,7 @@ Follow these steps on both nodes to configure the correct ownership.
    ```
    {: screen}
 
-   In the SWPM web interface, navigate to *System Rename > Preparations > Operating System Users and Group*.
+   In the SWPM web interface, go to *System Rename > Preparations > Operating System Users and Group*.
    Record the user and group IDss, and verify that they are identical on both nodes.
 
 1. Change the ownership of the mount points.
@@ -423,7 +423,7 @@ At this stage, the following prerequisites are assumed to be complete:
 - Two *powervs-subnet* cluster resources are configured for the virtual IP addresses of the *ASCS* and *ERS* instances.
 - The *ASCS* instance is installed and active on NODE1.
 - THE *ERS* instance is installed and active on NODE2.
-- All steps described in [Prepare ASCS and ERS instances for the cluster integration](/docs/sap?topic=sap-ha-rhel-ensa#ha-rhel-ensa-prepare-ascs-ers) have been completed.
+- All steps that are described in [Prepare ASCS and ERS instances for the cluster integration](/docs/sap?topic=sap-ha-rhel-ensa#ha-rhel-ensa-prepare-ascs-ers) are complete.
 
 ### Configuring the ASCS cluster resource group
 {: #ha-rhel-ensa-sm-mz-cfg-ascs-rg}
@@ -455,7 +455,8 @@ pcs resource create ${sid}_ascs${ASCS_INSTNO} SAPInstance \
 ```
 {: pre}
 
-The `meta resource-stickiness=5000` option balances the failover behavior for the ERS instance, ensuring that the resource remains on its original node and does not migrate unexpectedly within the cluster.
+The `meta resource-stickiness=5000` option balances the failover behavior for the ERS instance.
+This option ensures that the resource remains on its original node and does not migrate unexpectedly within the cluster.
 {: note}
 
 To ensure that the *ASCS* instance remains on its designated node, add resource stickiness to the group.
@@ -501,7 +502,7 @@ pcs resource create ${sid}_ers${ERS_INSTNO} SAPInstance \
 
 On NODE1, run the following commands to configure cluster constraints.
 
-A colocation constraint ensures that the resource groups `${sid}_ascs${ASCS_INSTNO}_group` and `${sid}_ers${ERS_INSTNO}_group` do not run on the same node, provided that at least two nodes are available.
+A colocation constraint ensures that the resource groups `${sid}_ascs${ASCS_INSTNO}_group` and `${sid}_ers${ERS_INSTNO}_group` do not run on the same node, if at least two nodes are available.
 If only one node is available, the stickiness value of `-5000` allows both groups to run on the same node.
 
 ```sh
@@ -525,7 +526,7 @@ pcs constraint order start \
 
 The *ENSA2* cluster implementation in a multizone region environment is now complete.
 
-Proceed with cluster validation by performing tests similar to those described in [Testing an SAP ENSA2 cluster](/docs/sap?topic=sap-ha-rhel-ensa#ha-rhel-ensa-test-sap-ensa-cluster).
+Proceed with cluster validation by performing tests similar to the tests that are described in [Testing an SAP ENSA2 cluster](/docs/sap?topic=sap-ha-rhel-ensa#ha-rhel-ensa-test-sap-ensa-cluster).
 
 The following shows a sample output of the `pcs status` command for a completed *ENSA2* cluster in a multizone region deployment.
 
