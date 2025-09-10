@@ -240,6 +240,8 @@ toc:
                         topic: howto/powervs/powervs-provision-deploy-power-infrastructure.md
                       - navtitle: Deploying SAP applications on Power Virtual Server
                         topic: howto/powervs/powervs-provision-deploy-power-instances.md
+                      - navtitle: Deploying SAP Web Dispatcher and Application Load Balancer
+                        topic: howto/powervs/powervs-deployment-web-dispatcher.md
                       - navtitle: Building custom OS images for RHEL for SAP solutions on Power Virtual Server
                         topic: howto/powervs/powervs-custom-os-image-build-rhel.md
           - topicgroup:
