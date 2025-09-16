@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-05"
+lastupdated: "2025-09-16"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -165,10 +165,10 @@ See [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_not
 SAP NetWeaver and SAP AnyDB workloads that use {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s are run on IBM Power Systems, with block storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/solutions/storage){: external} connected through the Fibre Channel protocol. For more information about these systems and how they're used inside the {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} service, see the following data sheets:
 
 **Data sheets:**
-
+- [IBM Power System S1122 (9824-22A)](https://www.ibm.com/downloads/documents/us-en/13774247783d5fe6){: external}
+- [IBM Power System E1150 (9043‑MRU)](https://www.ibm.com/downloads/documents/us-en/137a1e1e625bad7e){: external}
 - [IBM Power System S1022 (9105-22A)](https://www.ibm.com/downloads/documents/us-en/107a02e95b48f639){: external}
 - [IBM Power System E1050 (9043‑MRX)](https://www.ibm.com/downloads/documents/us-en/10a99803f2afd7aa){: external}
-- [IBM Power System E1080 (9080‑HEX)](https://www.ibm.com/downloads/documents/us-en/107a02e95c48f71a){: external}
 - [IBM Power System S922 (9009-22A)](https://www.ibm.com/downloads/documents/us-en/107a02e959c8f4e8){: external}
 - [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/documents/us-en/10a99803f42fd831){: external}
 

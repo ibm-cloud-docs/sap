@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-09-16"
 keywords: Powervs, Certified Profile, Netweaver, {{site.data.keyword.powerSys_notm}},
 subcollection: sap
 ---
@@ -18,6 +18,8 @@ For SAP applications the following virtual server configurations are supported. 
 
 | **Power System type** | **SAPS per CPU Core (using SMT-8)** |
 | --------------------- | ----------------------------------- |
+| S1122                 | 7,915                               |
+| E1150                 | 8,232                               |
 | S1022                 | 7,600                               |
 | E1080                 | 7,600                               |
 | S922                  | 5,570                               |
