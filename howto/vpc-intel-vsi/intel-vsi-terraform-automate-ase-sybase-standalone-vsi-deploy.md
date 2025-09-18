@@ -35,7 +35,7 @@ You have two deployment methods to choose from:
 {: #terraform-sap-ase-sybase-vsi-prerequisites}
 {: terraform}
 
-A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}, must exist in the same VPC and same region. This should have the same subnet and security group that is configured for the SAP system VSI.
+A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server), must exist in the same VPC and same region. This should have the same subnet and security group that is configured for the SAP system VSI.
 
 ## What is created
 {: #terraform-sap-ase-sybase-vsi-created}
@@ -106,7 +106,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 ## Before you begin
 {: #automate-ase-sybase-standalone-vsi-before}
 
-If you don't have a deployment server (bastion server) in the same VPC, create a deployment server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}.
+If you don't have a deployment server (bastion server) in the same VPC, create a deployment server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 
 *	Log in to your Deployment Server and verify that Terraform and Ansible are installed.
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-ase-db/blob/main/README.md){: external} file.
@@ -293,7 +293,7 @@ If you need to remove the resources created with the automation for your SAP sol
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on IBM Cloud getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
 
-For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier VPC for SAP on IBM Cloud® VPC with Terraform](https://test.cloud.ibm.com/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap){: external}.
+For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier VPC for SAP on IBM Cloud® VPC with Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
 
 SAP One Support Notes that apply to this document:
 

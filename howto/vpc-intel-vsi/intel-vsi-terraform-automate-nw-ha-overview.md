@@ -159,7 +159,7 @@ The DNS service maps the FQDN of each ALB to the virtual hostnames of the ASCS, 
 ### Network latency between VPC Zones and Regions
 {: #automate-sap-abap-sz-mz-ha-deployment-network-latency}
 
-For network latency between VPC zones and regions, see the [VPC Network latency dashboards](https://cloud.ibm.com/docs/vpc?topic=vpc-network-latency-dashboard){: external} topic and run your own measurement according with SAP note "500235 - Network Diagnosis with NIPING" to perform a latency check using SAP tool niping.
+For network latency between VPC zones and regions, see the [VPC Network latency dashboards](/docs/vpc?topic=vpc-network-latency-dashboard) topic and run your own measurement according with SAP note "500235 - Network Diagnosis with NIPING" to perform a latency check using SAP tool niping.
 
 The results reported are as measured. There are no performance guarantees implied by these measurements. These statistics provide visibility into latency between all regions and zones to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-01"
+lastupdated: "2025-09-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -64,7 +64,7 @@ The other technical components, such as the ASCS instance, the SAP HANA database
    Install ASCS and ERS either on a shared disk that is attached to both virtual server instances or on an NFS file system.
 
    The enqueue server of the ASCS instance manages the lock table, and the ERS creates a replicated copy of the lock table in its main memory.
-   If the enqueue server must be restarted, the lock table is rebuilt by using the copy on the ERS, and all of the locks are retained.
+   If the enqueue server must be restarted, the lock table is rebuilt by using the copy on the ERS, and the locks are retained.
 
    A simple restart of the message server is sufficient because no data needs to be retained.
 
@@ -79,7 +79,7 @@ The other technical components, such as the ASCS instance, the SAP HANA database
 - SAP HANA system
 
    SAP HANA provides two approaches to scale a system: *scale-up* and *scale-out*.
-   With the comprehensive and highly scalable set of [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs){: external} that are available in IBM {{site.data.keyword.powerSys_notm}}, the focus is on SAP HANA *scale-up* solutions.
+   With the comprehensive and highly scalable set of [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs){: external} that are available in IBM {{site.data.keyword.powerSys_notm}}, the focus is on a SAP HANA *scale-up* installation.
    {: note}
 
    The best way to protect an SAP HANA system is to set up a secondary SAP HANA system on a separate virtual server instance. Then, configure SAP HANA system replication, and automate failover with HA cluster software.
@@ -88,7 +88,7 @@ The following figure shows an architectural overview of a highly available SAP s
 
 ![Figure 2. SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview](../../images/powervs-ha-architecture-overview.svg "SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview"){: caption="SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview" caption-side="bottom"}
 
-## SAP HANA high availability solution scenarios
+## SAP HANA high availability scenarios
 {: #ha-overview-hana-ha-scenarios}
 
 The solution varies depending on the recovery time objective (RTO).
@@ -114,7 +114,7 @@ Depending on your requirements, select the documentation for one of the scenario
 
    [Configuring SAP HANA active/active (read enabled) system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa){: external}.
 
-## SAP HANA disaster recovery solution scenarios
+## SAP HANA disaster recovery scenarios
 {: #ha-overview-hana-dr-scenarios}
 
 For extra protection of the database system, replicate the SAP HANA system to a third system that is located in a different region by using SAP HANA system replication.
@@ -134,6 +134,7 @@ Depending on your requirements, select one of the two available topologies.
 
 ## SAP HANA high availability solution in a multizone region environment
 {: #ha-overview-hana-mzr-ha-scenario}
+
 
 A subnet in IBM {{site.data.keyword.powerSys_notm}} cannot span multiple workspaces.
 It is not possible to move a service IP address to a second workspace and continue to use it from VPC or other workspaces to access the services provided.
@@ -155,7 +156,7 @@ During *normal operation*
 - *Subnet 3* is created in workspace 1.
 - *Subnet 3* is attached to virtual server instance 1.
 - *IP address 3* is configured on virtual server instance 1.
-- The *SAP HANA primary* is active on virtual server instance 1, the *SAP HANA secondary* is active on virtual server instance 2.
+- The *SAP HANA primary* is active on virtual server instance 1, and the *SAP HANA secondary* is active on virtual server instance 2.
 
 ![Figure 3. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](../../images/powervs-ha-architecture-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
 

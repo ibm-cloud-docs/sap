@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-09-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -15,7 +15,9 @@ subcollection: sap
 Use the following information and procedures to implement a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster in a multizone region environment.
 The cluster uses instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 The virtual server instances run in different zones in a multizone region.
+
 The setup uses the *powervs-subnet* cluster resource agent to manage the service IP address of an application in a multizone region implementation.
+
 The resource agent supports only the use of different zones in the same multizone region.
 Deployment across multiple regions is not supported.
 See [Multizone regions (MZR)](/docs/overview?topic=overview-locations#table-mzr){: external} and [IBM Cloud regions](/docs/power-iaas?topic=power-iaas-ibm-cloud-reg){: external} for more information about multizone regions and available locations.
@@ -117,32 +119,7 @@ This installation is a standard requirement for SAP applications.
 #### Checking the RHEL HA repository
 {: #ha-rhel-mz-check-rhel-ha-repository}
 
-Check that the appropriate repository is enabled on both nodes by using the following command.
-
-```sh
-dnf repolist
-```
-{: pre}
-
-Use the following commands to enable the HA repository if it is missing.
-
-```sh
-subscription-manager repos \
-    --enable="rhel-9-for-ppc64le-highavailability-e4s-rpms"
-```
-{: pre}
-
-```sh
-dnf clean all
-```
-{: pre}
-
-```sh
-dnf repolist
-```
-{: pre}
-
-
+See [Checking the RHEL HA repository](/docs/sap?topic=sap-ha-rhel#ha-rhel-check-rhel-ha-repository) for the steps to enable the RHEL HA repository.
 
 #### Installing the RHEL HA Add-On software packages
 {: #ha-rhel-mz-install-ha-software-packages}
@@ -452,7 +429,7 @@ pcs status
 ```
 {: pre}
 
-As a refult, NODE2 stops.
+As a result, NODE2 stops.
 
 Activate NODE2, then start the cluster on the node and try to fence NODE1.
 
@@ -520,6 +497,7 @@ Then, use the following command to manually start the cluster.
 pcs cluster start
 ```
 {: pre}
+
 
 ## Preparing a multizone RHEL HA Add-On cluster for a virtual IP address resource
 {: #ha-rhel-mz-create-vip}
@@ -590,7 +568,6 @@ Use the following command to verify the installation and display a brief descrip
 pcs resource describe powervs-subnet
 ```
 {: pre}
-
 
 ### Creating a service ID for the `powervs-subnet` resource agent
 {: #ha-rhel-mz-iam-custom-role}

@@ -30,9 +30,9 @@ You have two deployment methods to choose from:
 {: #terraform-sap-hana-vsi-prerequisites}
 {: terraform}
 
-A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}, should exist in the same VPC, same region, and have the same subnet and security group that is configured for the SAP system VSIs.
+A deployment server (bastion server) deployed by using the automation solution [Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server), should exist in the same VPC, same region, and have the same subnet and security group that is configured for the SAP system VSIs.
 
-Required IAM permissions for deploying SAP HANA on Bare Metal: Bare Metal Console Administrator role to access the ESXi Direct Console User Interface (DCUI) and Bare Metal Advanced Network Operator role to modify IP spoofing and infrastructure NAT configuration on network interfaces. For more information, see [Planning for Bare Metal Servers on VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-planning-for-bare-metal-servers){: external}.
+Required IAM permissions for deploying SAP HANA on Bare Metal: Bare Metal Console Administrator role to access the ESXi Direct Console User Interface (DCUI) and Bare Metal Advanced Network Operator role to modify IP spoofing and infrastructure NAT configuration on network interfaces. For more information, see [Planning for Bare Metal Servers on VPC](/docs/vpc?topic=vpc-planning-for-bare-metal-servers).
 
 ## What is created
 {: #terraform-sap-hana-vsi-created}
@@ -120,7 +120,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 ## Before you begin
 {: #automate-hana-standalone-vsi-before}
 
-If you don't have a deployment server (bastion server) in the same VPC, create a deployment server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](https://test.cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}.
+If you don't have a deployment server (bastion server) in the same VPC, create a deployment server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 
 *	Log in to your Deployment Server and verify that Terraform and Ansible are installed.
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses all of the archive kits. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-db/blob/main/README.md){: external} file.
@@ -340,7 +340,7 @@ If you need to remove the resources created with the automation for your SAP sol
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Terraform on IBM Cloud getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
 
-For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier VPC for SAP on IBM Cloud® VPC with Terraform](https://test.cloud.ibm.com/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap){: external}.
+For more information about using Terraform for creating only a VPC for SAP, without the SAP architecture, see [Creating single-tier VPC for SAP on IBM Cloud® VPC with Terraform](/docs/sap?topic=sap-create-terraform-single-tier-vpc-sap).
 
 SAP One Support Notes that apply to this document:
 

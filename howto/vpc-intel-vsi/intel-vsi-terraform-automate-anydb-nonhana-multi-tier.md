@@ -133,8 +133,8 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
     |SUBNET	     |The name of the Subnet. The list of Subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets){: external}|
     |DB_PROFILE	     |The profile used for the VSI. A list of profiles is available here.|
     |APP_PROFILE     |The profile used for the VSI. A list of profiles is available here.|
-    |DB_IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images){: external}.|
-    |APP_IMAGE	|The OS image used for the VSI. A list of images is available [here](https://cloud.ibm.com/docs/vpc?topic=vpc-about-images){: external}.|
+    |DB_IMAGE	|The OS image used for the VSI. A list of images is available [here](/docs/vpc?topic=vpc-about-images).|
+    |APP_IMAGE	|The OS image used for the VSI. A list of images is available [here](/docs/vpc?topic=vpc-about-images).|
     |SSH_KEYS	   |List of SSH Keys IDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys){: external}.|
     |[DB/APP]_HOSTNAME	|The hostname for the VSI. The hostname must have up to 13 characters as required by SAP. For more information about rules regarding hostnames for SAP systems, see [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/%20611361){: external}.|
     {: caption}

@@ -30,7 +30,7 @@ You can store the SAP HANA db backup into the Cloud Object Storage.
 ## What is created
 {: #sap-hana-db-backup-cos-created}
 
-This automation solution is designed for the implementation of SAP HANA Backup solution that uses Backint and [{{site.data.keyword.cloud_notm}} Object Storage](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external}. It is based on SAP note "2935898 - Install and Configure SAP HANA Backint Agent for Amazon S3".
+This automation solution is designed for the implementation of SAP HANA Backup solution that uses Backint and [{{site.data.keyword.cloud_notm}} Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage). It is based on SAP note "2935898 - Install and Configure SAP HANA Backint Agent for Amazon S3".
 
 The minimum version of SAP HANA Backint Agent for Amazon S3 to be used for {{site.data.keyword.cloud_notm}} Object Storage is 1.2.17. SAP HANA Backint Agent for Amazon S3 requires Python 3.7 including SSL support. The Python package delivered as part of the SAP HANA 2 installation does not include SSL support. Python 3.7 with SSL support is installed in /usr/local/bin directory, if it is not previously installed. SAP HANA Backint Agent for Amazon S3 is installed in the `/hana/shared/< SID >/backint_agent` directory.
 
@@ -187,7 +187,7 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
     |HA_CLUSTER	|Choose if High Availability is configured for HANA Database. Accepted values: yes/no. For the value "no" it is required that only the "DB_HOSTNAME_1" variable to be filled in. For the value "yes" it is required that both next variables to be filled in: DB_HOSTNAME_1, DB_HOSTNAME_2.|
     |IBM_CLOUD_API_KEY	|{{site.data.keyword.cloud_notm}} API key (Sensitive* value).
     |LIFECYCLE_POLICY	|The number of retention days for HANA database backup and transaction log backup. |
-    |REGION	|The cloud region where HANA VSI was deployed. The COS is created in the same region as HANA VSI. The regions and zones for VPC are listed [here](https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in {{site.data.keyword.cloud_notm}} Schematics [here](https://cloud.ibm.com/docs/schematics?topic=schematics-locations){: external}.|
+    |REGION	|The cloud region where HANA VSI was deployed. The COS is created in the same region as HANA VSI. The regions and zones for VPC are listed [here](/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in {{site.data.keyword.cloud_notm}} Schematics [here](/docs/schematics?topic=schematics-locations).|
     |RESOURCE_GROUP	|The name of an existing Resource Group for VSIs and Volumes resources. The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups){: external}.|
     |SECURITY_GROUP	|The name of an existing Security group. The list of Security Groups is available [here](https://cloud.ibm.com/infrastructure/network/securityGroups){: external}.|
     |SUBNET	|The name of an existing subnet. The list of subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets){: external}. |
@@ -214,7 +214,7 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
 You need the following to get started with {{site.data.keyword.cloud_notm}} Object Storage:
 
 *	Go to [{{site.data.keyword.cloud_notm}} Platform account](https://cloud.ibm.com/){: external}.
-*	Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](https://cloud.ibm.com/docs/account?topic=account-accountfaqs#changeacct){: external}.
+*	Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 *	Create a deployment server (bastion server) to store the SAP kits. For more information, see the [Automate SAP bastion server - SAP media storage repository](https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server){: external}
 *	Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file.
 *	[Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key){: external}. The API key is used to authenticate with the create or retrieve your SSH key ID.

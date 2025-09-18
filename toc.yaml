@@ -402,6 +402,8 @@ toc:
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-s4hana-ha-config-ref.md
                       - navtitle: SAP NetWeaver 7.x on HANA with HA
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-hana-ha-config-ref.md
+                      - navtitle: SAP NetWeaver 7.x on HANA with DR
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-hana-disaster-recovery-ref.md
           - topicgroup:
               label: High availability scenarios on Power Virtual Server
               id: "sap-ha-scenarios-on-power-virtual-server"

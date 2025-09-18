@@ -23,7 +23,7 @@ Imagine that a cloud providers infrastructure is a residential apartment buildin
 
 A VPC’s logical isolation is implemented by using virtual network functions and security features that give an enterprise user a granular control, over which the IP addresses or applications can access the particular resources. It is similar to the “friends-only” or “public/private” controls on social media accounts used to restrict who can or cannot see your public posts.
 
-With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains several Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about more VPC overviews and VPC tutorials. For more information, see [Getting started with Virtual Private Cloud (VPC)](https://cloud.ibm.com/docs/vpc?topic=vpc-getting-started){: external}.
+With {{site.data.keyword.cloud_notm}} VPC, you can use the UI, CLI, and API to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains several Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about more VPC overviews and VPC tutorials. For more information, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started).
 
 ## SAP ASE Sybase in {{site.data.keyword.cloud_notm}}
 {: #sap-ase-sybase-in-cloud}

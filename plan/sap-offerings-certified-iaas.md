@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -200,7 +200,7 @@ IBM treats your data with the same safeguards as our own, the security is built 
 
 {{site.data.keyword.cloud_notm}} is designed for organizations who are building a cloud environment, which is security-rich, open, hybrid Cloud (i.e., on-premises data center workloads) and multi-cloud. Deployments to {{site.data.keyword.cloud_notm}} include many secure and regulated workloads, by using our extensive {{site.data.keyword.cloud_notm}} compliance programs with clear delineation of roles and responsibilities.
 
-[{{site.data.keyword.cloud_notm}} compliance programs](https://www.ibm.com/cloud/compliance){: external} provide compliance and trust certifications, which reaffirm IBM's commitment to protection of customer data and applications. These compliance programs are for regulations, standards, and frameworks across Global, Government, Industry, and Regional.
+[{{site.data.keyword.cloud_notm}} compliance programs](https://www.ibm.com/products/cloud/compliance){: external} provide compliance and trust certifications, which reaffirm IBM's commitment to protection of customer data and applications. These compliance programs are for regulations, standards, and frameworks across Global, Government, Industry, and Regional.
 
 More supplementary information to the {{site.data.keyword.cloud_notm}} compliance programs is available on {{site.data.keyword.cloud_notm}} service offering descriptions and terms which contain links to individual **"Data Processing and Protection data sheets"** for {{site.data.keyword.cloud_notm}} offerings.
 

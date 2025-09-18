@@ -24,7 +24,7 @@ Network and storage configuration, disaster recovery, high availability, backups
 ## The 'Must-Reads' before you start deploying
 {: #bm-optane-must-reads}
 
-To ensure that your first deployment is a success, review the information in Provisioning SAP HANA and SAP NetWeaver [Planning your deployment](https://test.cloud.ibm.com/docs/sap?topic=sap-bm-planning-items#bm-must-reads){: external}
+To ensure that your first deployment is a success, review the information in Provisioning SAP HANA and SAP NetWeaver [Planning your deployment](/docs/sap?topic=sap-bm-planning-items#bm-must-reads)
 
 ### Other useful documents
 {: #bm-optane-other-useful-docs}

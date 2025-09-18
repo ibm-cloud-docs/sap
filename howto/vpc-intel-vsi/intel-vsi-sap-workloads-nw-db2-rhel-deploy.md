@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-08-12"
+lastupdated: "2025-09-18"
 keywords:
 subcollection: sap
 ---
@@ -559,7 +559,7 @@ After you download the installation media, follow the standard SAP installation 
 
 **IBM Db2 support on SAP-certified Cloud IaaS:**
 
-* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1.0?topic=SSEPGG_12.1.0/com.ibm.db2.luw.licensing.doc/doc/r_suprt_db2_pblik_clouds.htm)
+* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1.0?topic=SSEPGG_12.1.0/com.ibm.db2.luw.licensing.doc/doc/r_suprt_db2_pblik_clouds.htm#r_suprt_db2_pblik_clouds__title__2)
 * [SAP Note 101809 - DB6: Supported Db2 Versions and Fix Pack Levels](https://me.sap.com/notes/101809){: external}
 * [General IBM Db2 prerequisites on UNIX and Linux®](https://www.ibm.com/docs/en/db2/12.1.0?topic=servers-prerequisites-db2-database-server-installation-linux-unix){: external}
 

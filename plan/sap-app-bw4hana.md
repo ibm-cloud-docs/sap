@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-09-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -68,7 +68,7 @@ The project implementation and maintenance/support of SAP BW/4HANA selects from 
    - An Application Management Services provider (AMS) for SAP
    - A Managed Services Provider (MSP) for SAP
 
-A list of all SAP Partners is maintained on the [SAP Partner Finder tool](https://partnerfinder.sap.com){: external}. The list has more information about SAP Partners, including:
+A list of all SAP Partners is maintained on the [SAP Partner Finder tool](https://www.sap.com/partners/find.html){: external}. The list has more information about SAP Partners, including:
 * Partnership category (for example, Consulting & Implementation Services)
 * Partnership level (for example, Platinum, Gold, Silver)
 

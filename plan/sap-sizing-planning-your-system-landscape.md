@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-28"
+lastupdated: "2025-09-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -59,7 +59,7 @@ Review the following documentation to help you determine any prerequisites for t
 If your organization is new to {{site.data.keyword.cloud_notm}}, read the following SAP documentation to help with your planning phase and implementation:
 
 * [SAP workloads on {{site.data.keyword.cloud}}](/docs/sap?topic=sap-iaas-offerings){: external}
-* [Get started with {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/get-started){: external}
+* [Get started with {{site.data.keyword.cloud}}](https://www.ibm.com/products/cloud/get-started){: external}
 * [Creating an {{site.data.keyword.cloud}} account](/docs/account?topic=account-account-getting-started)
 * [How to create an SAP S-user ID](https://www.youtube.com/watch?v=4wICiRTP8u0){: external} Note that only super administrators or S-users with the required authorization are allowed to create S-user IDs for your company's SAP Customer Number (SCN)
 * The [Guide Finder for SAP NetWeaver and ABAP Platform](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US){: external} to search for SAP NetWeaver-related documentation, including installation guides.

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-09-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -24,7 +24,7 @@ If the *ASCS* service fails in a two-node cluster, it restarts on the node where
 The lock entries for the SAP application are then restored from the copy of the lock table in the *ERS* instance.
 When an administrator activates the failed cluster node, the *ERS* instance moves to the other node (anti-collocation) to protect its copy of the lock table.
 
-It is recommended that you install the SAP database instance and other SAP application server instances on virtual server instances outside the two-node cluster for *ASCS* and *ERS*.
+Install the SAP database instance and other SAP application server instances on virtual server instances outside the two-node cluster that is used for the *ASCS* and *ERS* instances.
 
 ## Before you begin
 {: #ha-rhel-ensa-mz-begin}
@@ -34,7 +34,7 @@ Review the general requirements, product documentation, support articles, and SA
 ## Prerequisites
 {: #ha-rhel-ensa-mz-prerequisites}
 
-- This information describes a setup that uses NFS mounted storage for the instance directories.
+- This information describes a setup that uses NFS-mounted storage for the instance directories.
    - The *ASCS* instance uses the mount point `/usr/sap/<SID>/ASCS<INSTNO>`.
    - The *ERS* instance uses the mount point `/usr/sap/<SID>/ERS<INSTNO>`.
    - Both instances use the `/sapmnt/<SID>` mount point with shared *read and write* access.
@@ -42,14 +42,14 @@ Review the general requirements, product documentation, support articles, and SA
 
    Make sure that a highly available NFS server is configured to serve these shares.
    The NFS server must not be installed on a virtual server that is part of the *ENSA2* cluster.
-   This document does not describe the steps for setting up file storage or creating cluster file system resources.
+   This document does not describe the steps for setting up file storage or creating cluster file systems.
    {: important}
 
 - The virtual hostnames for the *ASCS* and *ERS* instances must meet the requirements as documented in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
 
 - The subnets and the virtual IP addresses for the *ASCS* and *ERS* instances must not exist in the {{site.data.keyword.powerSys_notm}} workspaces.
    They are configured as cluster resources.
-   However, you must add the virtual IP addresses and virtual hostnames for the *ASCS* and *ERS* instances to the Domain Name Service (DNS) and to the `/etc/hosts` file on all cluster nodes.
+   However, you must add the virtual IP addresses and virtual hostnames of the *ASCS* and *ERS* instances to the Domain Name Service (DNS), and to the `/etc/hosts` file on all cluster nodes.
 
 ## Preparing nodes to install ASCS and ERS instances
 {: #ha-rhel-ensa-mz-prepare-nodes}
@@ -59,92 +59,7 @@ The following information describes how to prepare the nodes for installing the 
 ### Preparing environment variables
 {: #ha-rhel-ensa-mz-prepare-environment-variables}
 
-To simplify the setup, prepare the following environment variables for user `root` on both cluster nodes.
-These environment variables are used with later operating system commands in this information.
-
-On both nodes, set the following environment variables.
-
-```sh
-# General settings
-export CLUSTERNAME="SAP_S01"        # Cluster name
-export NODE1=<HOSTNAME_1>           # Virtual server instance 1 hostname
-export NODE2=<HOSTNAME_2>           # Virtual server instance 2 hostname
-
-export SID=<SID>                    # SAP System ID (uppercase)
-export sid=<sid>                    # SAP System ID (lowercase)
-
-# ASCS instance
-export ASCS_INSTNO=<INSTNO>         # ASCS instance number
-export ASCS_NET=<Subnet name>       # Name for the ASCS subnet in IBM Cloud
-export ASCS_CIDR=<CIDR of subnet>   # CIDR of the ASCS subnet containing the service IP address
-export ASCS_VH=<virtual hostname>   # ASCS virtual hostname
-export ASCS_IP=<IP address>         # ASCS virtual IP address
-
-# ERS instance
-export ERS_INSTNO=<INSTNO>          # ERS instance number
-export ERS_NET=<Subnet name>        # Name for the ERS subnet in IBM Cloud
-export ERS_CIDR=<CIDR of subnet>    # CIDR of the ERS subnet containing the service IP address
-export ERS_VH=<virtual hostname>    # ERS virtual hostname
-export ERS_IP=<IP address>          # ERS virtual IP address
-
-# Other multizone region settings
-export CLOUD_REGION=<CLOUD_REGION>       # Multizone region name
-export APIKEY="APIKEY or path to file"   # API key of the ServiceID for the resource agent
-export API_TYPE="private or public"      # Use private or public API endpoints
-export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace 1 CRN
-export IBMCLOUD_CRN_2=<IBMCLOUD_CRN_2>   # Workspace 2 CRN
-export POWERVSI_1=<POWERVSI_1>           # Virtual server 1 instance id
-export POWERVSI_2=<POWERVSI_2>           # Virtual server 2 instance id
-export JUMBO="true or false"             # Enable Jumbo frames
-
-# NFS settings
-export NFS_SERVER="NFS server"           # Hostname or IP address of the highly available NFS server
-export NFS_SHARE="NFS server directory"  # Exported file system directory on the NFS server
-export NFS_OPTIONS="rw,sec=sys"          # Sample NFS client mount options
-```
-{: codeblock}
-
-The following is an example of how to set the extra environment variables that are required for a multizone region implementation.
-
-```sh
-# General settings
-export CLUSTERNAME="SAP_S01"         # Cluster name
-export NODE1="cl-s01-1"              # Virtual service instance 1 hostname
-export NODE2="cl-s01-2"              # Virtual server instance 2 hostname
-
-export SID="S01"                     # SAP System ID (uppercase)
-export sid="s01"                     # SAP System ID (lowercase)
-
-# ASCS instance
-export ASCS_INSTNO="21"              # ASCS instance number
-export ASCS_NET="s01-ascs-net"       # Name for the ASCS subnet in IBM Cloud
-export ASCS_CIDR="10.40.21.100/30"   # CIDR of the ASCS subnet containing the service IP address
-export ASCS_VH="s01ascs"             # ASCS virtual hostname
-export ASCS_IP="10.40.21.102"        # ASCS virtual IP address
-
-# ERS instance
-export ERS_INSTNO="22"               # ERS instance number
-export ERS_NET="s01-ers-net"         # Name for the ERS subnet in IBM Cloud
-export ERS_CIDR="10.40.22.100/30"    # CIDR of the ERS subnet containing the service IP address
-export ERS_VH="s01ers"               # ERS virtual hostname
-export ERS_IP="10.40.22.102"         # ERS virtual IP address
-
-# Other multizone region settings
-export CLOUD_REGION="eu-de"
-export IBMCLOUD_CRN_1="crn:v1:bluemix:public:power-iaas:eu-de-2:a/a1b2c3d4e5f60123456789a1b2c3d4e5:a1b2c3d4-0123-4567-89ab-a1b2c3d4e5f6::"
-export IBMCLOUD_CRN_2="crn:v1:bluemix:public:power-iaas:eu-de-1:a/a1b2c3d4e5f60123456789a1b2c3d4e5:e5f6a1b2-cdef-0123-4567-a1b2c3d4e5f6::"
-export POWERVSI_1="a1b2c3d4-0123-890a-f012-0123456789ab"
-export POWERVSI_2="e5f6a1b2-4567-bcde-3456-cdef01234567"
-export APIKEY="@/root/.apikey.json"
-export API_TYPE="private"
-export JUMBO="true"
-
-# NFS settings
-export NFS_SERVER="cl-nfs"           # Hostname or IP address of the highly available NFS server
-export NFS_SHARE="/sapS01"           # Exported file system directory on the NFS server
-export NFS_OPTIONS="rw,sec=sys"      # Sample NFS client mount options
-```
-{: screen}
+{{../../_include-segments/powervs-ha-rhel-ensa-mz-prepare-env-vars.md}}
 
 ### Creating mount points for the instance file systems
 {: #ha-rhel-ensa-mz-create-mountpoints}
@@ -159,16 +74,30 @@ mkdir -p /usr/sap/${SID}/{ASCS${ASCS_INSTNO},ERS${ERS_INSTNO}} /sapmnt/${SID}
 ## Installing and setting up the RHEL HA Add-On cluster
 {: #ha-rhel-ensa-mz-set-up}
 
-Install and set up the RHEL HA Add-On cluster according to [Implementing a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}} in a Multizone Region Environment](/docs/sap?topic=sap-ha-rhel-mz).
-
-Configure and test the cluster fencing as described in [Creating the fencing device](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-create-fencing-device).
+Follow the instructions in [Implementing a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}} in a Multizone Region Environment](/docs/sap?topic=sap-ha-rhel-mz) to install and configure the RHEL HA Add-On cluster.
+After the installation, configure and test cluster fencing as described in [Creating the fencing device](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-create-fencing-device).
 
 ## Preparing cluster resources before the SAP installation
 {: #ha-rhel-ensa-mz-clres-ascs-ers}
 
-Make sure that the RHEL HA Add-On cluster is running on both virtual server instances and that node fencing has been tested.
+Ensure that the RHEL HA Add-On cluster is active on both virtual server instances, and verify that node fencing functions as expected.
 
+### Configuring general cluster properties
+{: #ha-rhel-ensa-mz-configure-cluster-properties}
 
+To prevent the cluster from moving healthy resources to another node (for example, if you start the cluster on a previously failed node), you can set the default value for the `resource-stickiness` meta attribute to 1, and the default value for the `migration-threshold` meta attribute to 3.
+
+On NODE1, run the following command.
+
+```sh
+pcs resource defaults update resource-stickiness=1
+```
+{: pre}
+
+```sh
+pcs resource defaults update migration-threshold=3
+```
+{: pre}
 
 ### Configuring the cluster resource for sapmnt
 {: #ha-rhel-ensa-mz-cfg-shared}
@@ -203,27 +132,7 @@ pcs resource create ${sid}_fs_ascs${ASCS_INSTNO} Filesystem \
 ```
 {: pre}
 
-On NODE1, run the following command to create a `powervs-subnet` cluster resource for the ASCS virtual IP address.
-
-```sh
-pcs resource create ${sid}_vip_ascs${ASCS_INSTNO} powervs-subnet \
-    api_key=${APIKEY} \
-    api_type=${API_TYPE} \
-    cidr=${ASCS_CIDR} \
-    ip=${ASCS_IP} \
-    crn_host_map="${NODE1}:${IBMCLOUD_CRN_1};${NODE2}:${IBMCLOUD_CRN_2}" \
-    vsi_host_map="${NODE1}:${POWERVSI_1};${NODE2}:${POWERVSI_2}" \
-    jumbo=${JUMBO} \
-    region=${CLOUD_REGION} \
-    subnet_name=${ASCS_NET} \
-    route_table=5${ASCS_INSTNO} \
-    op start timeout=720 \
-    op stop timeout=300 \
-    op monitor interval=60 timeout=30 \
-    --group ${sid}_ascs${ASCS_INSTNO}_group
-```
-{: pre}
-
+{{../../_include-segments/powervs-ha-rhel-ensa-mz-create-ascs-vip.md}}
 
 ### Preparing to install the ERS instance on NODE2
 {: #ha-rhel-ensa-mz-cfg-ers-rg-prp}
@@ -243,26 +152,7 @@ pcs resource create ${sid}_fs_ers${ERS_INSTNO} Filesystem \
 ```
 {: pre}
 
-On NODE1, run the following command to create a `powervs-subnet` cluster resource for the ERS virtual IP address.
-
-```sh
-pcs resource create ${sid}_vip_ers${ERS_INSTNO} powervs-subnet \
-    api_key=${APIKEY} \
-    api_type=${API_TYPE} \
-    cidr=${ERS_CIDR} \
-    ip=${ERS_IP} \
-    crn_host_map="${NODE1}:${IBMCLOUD_CRN_1};${NODE2}:${IBMCLOUD_CRN_2}" \
-    vsi_host_map="${NODE1}:${POWERVSI_1};${NODE2}:${POWERVSI_2}" \
-    jumbo=${JUMBO} \
-    region=${CLOUD_REGION} \
-    subnet_name=${ERS_NET} \
-    route_table=5${ERS_INSTNO} \
-    op start timeout=720 \
-    op stop timeout=300 \
-    op monitor interval=60 timeout=30 \
-    --group ${sid}_ers${ERS_INSTNO}_group
-```
-{: pre}
+{{../../_include-segments/powervs-ha-rhel-ensa-mz-create-ers-vip.md}}
 
 ### Verifying the cluster configuration
 {: #ha-rhel-ensa-mz-verify-cluster-config-before-sap-install}
@@ -326,8 +216,8 @@ If necessary, use the `pcs resource move <resource_group_name>` command to move 
 ### Changing the ownership of the ASCS and ERS mount points
 {: #ha-rhel-ensa-mz-verify-change-mountpoint-owner}
 
-The *ASCS* and *ERS* mount points must be owned by the *\<sid\>adm* user.
-You must define the required users and groups and set the mount point ownership before you can start the instance installation.
+The *sidadm* user must own the mount points for the filesystems of the *ASCS* and *ERS* instances.
+Create the required users and groups and set the mount point ownership before you start the instance installation.
 
 On both nodes, use the following steps to set the required owner.
 
@@ -380,7 +270,7 @@ Use SWPM to install both instances.
 Up to this point, the following are assumed:
 
 
-- A RHEL HA Add-On cluster is running on both virtual server instances and node fencing has been tested.
+- A RHEL HA Add-On cluster is running on both virtual server instances and node fencing is tested.
 - A cloned *Filesystem* cluster resource is configured to mount the *sapmnt* share.
 - Two *Filesystem* cluster resources are configured to mount the  *ASCS* and *ERS* instance file systems.
 - Two *powervs-subnet* cluster resources are configured for the virtual IP addresses of the *ASCS* and *ERS* instances.
@@ -476,11 +366,11 @@ pcs constraint order fs_sapmnt-clone then ${sid}_ers${ERS_INSTNO}_group
 ## Conclusion
 {: #ha-rhel-ensa-mz-conclusion}
 
-This completes the *ENSA2* cluster implementation in a multizone region environemnt.
+The *ENSA2* cluster implementation in a multizone region environment is now complete.
 
-You should now proceed with testing the cluster, similar to the tests described in [Testing an SAP ENSA2 cluster](/docs/sap?topic=sap-ha-rhel-ensa#ha-rhel-ensa-test-sap-ensa-cluster).
+Now, run tests similar to the ones described in [Testing an SAP ENSA2 cluster](/docs/sap?topic=sap-ha-rhel-ensa#ha-rhel-ensa-test-sap-ensa-cluster) to validate the cluster.
 
-The following is a sample output of the `pcs status` command for a completed *ENSA2* cluster in a multi-zone region implementation.
+The following shows a sample output of the `pcs status` command for a completed *ENSA2* cluster in a multizone region deployment.
 
 ```sh
 Cluster name: SAP_S01
