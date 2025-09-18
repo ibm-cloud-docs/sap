@@ -57,33 +57,33 @@ toc:
             topic: plan/sap-offerings-certified-iaas.md
           - topicgroup:
               label: Infrastructure profiles for SAP HANA database servers
-              id: "infastructure-profiles-sap-hana"
+              id: "infrastructure-profiles-sap-hana"
               topics:
-                - navtitle: Intel virtual server certified profiles for SAP HANA on VPC
+                - navtitle: Intel virtual servers in VPC
                   topic: plan/sap-offerings-hana-iaas-intel-virtual-server-gen2-profiles.md
-                - navtitle: Intel Bare Metal server certified profiles for SAP HANA on VPC
+                - navtitle: Intel Bare Metal servers in VPC
                   topic: plan/sap-offerings-hana-iaas-intel-bm-vpc.md
-                - navtitle: Intel Bare Metal server certified profiles for SAP HANA on Classic
+                - navtitle: Intel Bare Metal servers in Classic
                   topic: plan/sap-offerings-hana-iaas-intel-bare-metal-profiles.md
-                - navtitle: VMware SDDC certified profiles for SAP HANA on Classic
+                - navtitle: VMware in Classic
                   topic: plan/sap-offerings-hana-iaas-vmware-sddc-profiles.md
-                - navtitle: Power Virtual Server certified instances for SAP HANA
+                - navtitle: Power Virtual Server
                   topic: plan/sap-offerings-hana-iaas-power-virtual-server-profiles.md
           - topicgroup:
               label: Infrastructure profiles for SAP NetWeaver-based application servers
-              id: "infastructure-profiles-sap-netweaver"
+              id: "infrastructure-profiles-sap-netweaver"
               topics:
-                - navtitle: Intel virtual server certified profiles for SAP NetWeaver on VPC
+                - navtitle: Intel virtual servers in VPC
                   topic: plan/sap-offerings-netweaver-iaas-intel-virtual-server-gen2-profiles.md
-                - navtitle: Intel Bare Metal server certified profiles for SAP NetWeaver on VPC
+                - navtitle: Intel Bare Metal servers in VPC
                   topic: plan/sap-offerings-netweaver-iaas-intel-bm-vpc.md
-                - navtitle: Intel Bare Metal server certified profiles for SAP NetWeaver on Classic
+                - navtitle: Intel Bare Metal servers in Classic
                   topic: plan/sap-offerings-netweaver-iaas-intel-bare-metal-profiles.md
-                - navtitle: AMD Bare Metal server certified profiles for SAP NetWeaver on Classic
+                - navtitle: AMD Bare Metal servers in Classic
                   topic: plan/sap-offerings-netweaver-iaas-amd-bare-metal-profiles.md
-                - navtitle: VMware SDDC certified profiles for SAP NetWeaver on Classic
+                - navtitle: VMware in Classic
                   topic: plan/sap-offerings-netweaver-iaas-vmware-sddc-profiles.md
-                - navtitle: Power Virtual Server certified instances for SAP NetWeaver
+                - navtitle: Power Virtual Server
                   topic: plan/sap-offerings-netweaver-iaas-power-virtual-server-profiles.md
           - topicgroup:
               label: Plan your SAP workloads
