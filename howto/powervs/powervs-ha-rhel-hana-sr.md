@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -118,61 +118,7 @@ export JUMBO="true"
 ```
 {: codeblock}
 
-<preview>
 
-The `powervs-move-ip` cluster resource agent additionally requires the following settings:
-- The `VIP` variable is the IP address of the virtual IP address resource (overlay IP address) and must not belong to any CIDR range of a subnet.
-- The `ROUTE_CRN1` variable is the CRN of the static route in Workspace_1.
-- The `ROUTE_CRN2` variable is the CRN of the static route in Workspace_2.
-
-The static routes must exist, and the `advertise` flag of the route must be `true`.
-The route `destination` must match with the `VIP`, and their `next hop` must match with the IP address of `NODE1` respectively `NODE2`.
-{: important}
-
-- The "MON_API" variable controls if the route is checked regularly.
-
-Setting `MON_API` to `false` prevents a resource failure caused by a temporarily unavailable APIs, and can so provide higher availability.
-However, status information then will be limited.
-{: important}
-
-The following is an example of how to set the extra environment variables that are required for a multizone region implementation when using the `powervs-move-ip` cluster resource agent.
-
-```sh
-export CLOUD_REGION="eu-de"
-export ROUTE_CRN1="crn:v1:bluemix:public:power-iaas:eu-de-2:a/a1b2c3d4e5f60123456789a1b2c3d4e5:a1b2c3d4-0123-4567-89ab-a1b2c3d4e5f6:route:a1b2c3d4-1234-5678-9abc-a1b2c3"
-export ROUTE_CRN2="crn:v1:bluemix:public:power-iaas:eu-de-1:a/a1b2c3d4e5f60123456789a1b2c3d4e5:e5f6a1b2-cdef-0123-4567-a1b2c3d4e5f6:route:1a2b3c4d-cba9-8765-4321-c3b2a1"
-export APIKEY="@/root/.apikey.json"
-export API_TYPE="private"
-export VIP="10.40.11.102"
-export MON_API="false"
-```
-{: codeblock}
-
-
-The `powervs-subnet` cluster resource agent additionally requires the following settings:
-- The `SUBNET_NAME` variable contains the name of the subnet.
-- The `CIDR` variable represents the *Classless Inter-Domain Routing (CIDR)* notation for the subnet in the format `<IPv4_address>/number`.
-- The `VIP` variable is the IP address of the virtual IP address resource and must belong to the `CIDR` of the subnet.
-- Set the `JUMBO` variable to `true` if you want to enable the subnet for a large MTU size.
-
-The following is an example of how to set the extra environment variables that are required for a multizone region implementation when using the `powervs-subnet` cluster resource agent.
-
-```sh
-export CLOUD_REGION="eu-de"
-export IBMCLOUD_CRN_1="crn:v1:bluemix:public:power-iaas:eu-de-2:a/a1b2c3d4e5f60123456789a1b2c3d4e5:a1b2c3d4-0123-4567-89ab-a1b2c3d4e5f6::"
-export IBMCLOUD_CRN_2="crn:v1:bluemix:public:power-iaas:eu-de-1:a/a1b2c3d4e5f60123456789a1b2c3d4e5:e5f6a1b2-cdef-0123-4567-a1b2c3d4e5f6::"
-export POWERVSI_1="a1b2c3d4-0123-890a-f012-0123456789ab"
-export POWERVSI_2="e5f6a1b2-4567-bcde-3456-cdef01234567"
-export APIKEY="@/root/.apikey.json"
-export API_TYPE="private"
-export SUBNET_NAME="vip-mha-net"
-export CIDR="10.40.11.100/30"
-export VIP="10.40.11.102"
-export JUMBO="true"
-```
-{: codeblock}
-
-</preview>
 
 ### Installing SAP HANA resource agents
 {: #ha-rhel-hana-sr-install-sap-hana-resource-agents}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-01"
+lastupdated: "2025-09-19"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -12,20 +12,20 @@ subcollection: sap
 # Configuring high availability for SAP S/4HANA (ASCS and ERS) in a Red Hat Enterprise Linux High Availability Add-On cluster
 {: #ha-rhel-ensa}
 
-The following information describes the configuration of *ABAP SAP Central Services (ASCS)* and *Enqueue Replication Server (ERS)* in a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster.
-The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
+The following information describes how to configure *ABAP SAP Central Services (ASCS)* and *Enqueue Replication Server (ERS)* in a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster.
+The cluster runs on virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external}.
 {: shortdesc}
 
-This example configuration applies to the second generation of the [Standalone Enqueue Server](https://help.sap.com/docs/ABAP_PLATFORM/cff8531bc1d9416d91bb6781e628d4e0/902412f09e134f5bb875adb6db585c92.html){: external}, also called *ENSA2*.
+This configuration example applies to the second generation of the [Standalone Enqueue Server](https://help.sap.com/docs/ABAP_PLATFORM/cff8531bc1d9416d91bb6781e628d4e0/902412f09e134f5bb875adb6db585c92.html){: external}, also known as *ENSA2*.
 
-Starting with the release of SAP S/4HANA 1809, ENSA2 is installed by default, and can be configured in a two-node or multi-node cluster.
-This example uses the *ENSA2* setup for a two-node RHEL HA Add-On cluster.
-If the *ASCS* service fails in a two-node cluster, it restarts on the node where the *ERS* instance is running.
-The lock entries for the SAP application are then restored from the copy of the lock table in the *ERS* instance.
-When an administrator activates the failed cluster node, the *ERS* instance moves to the other node (anti-collocation) to protect its copy of the lock table.
+Since SAP S/4HANA 1809, ENSA2 is installed by default and supports both two-node and multi-node cluster configurations.
+This example demonstrates a two-node RHEL HA Add-On cluster setup with ENSA2.
+If the *ASCS* service fails, it automatically restarts on the node that hosts the *ERS* instance.
+The lock entries are restored from the *ERS* instance’s copy of the lock table.
+When the failed node is reactivated, the *ERS* instance relocates to the other node (anti-colocation) to maintain redundancy and protect the lock table copy.
 
-It is recommended that you install the SAP database instance and other SAP application server instances on virtual server instances outside the two-node cluster for *ASCS* and *ERS*.
 
+Install the SAP database and other SAP application server instances on virtual servers outside the two-node cluster that is used for *ASCS* and *ERS*.
 
 ## Before you begin
 {: #ha-rhel-ensa-begin}
@@ -41,7 +41,7 @@ Review the general requirements, product documentation, support articles, and SA
    - `/usr/sap/<SID>/ASCS<INSTNO>` of the *ASCS* instance.
    - `/usr/sap/<SID>/ERS<INSTNO>` of the *ERS* instance.
 
-   Make sure that the storage volumes that were created for these file systems are attached to both virtual server instances.
+   Ensure that the storage volumes that are created for these file systems are attached to both virtual server instances.
    During SAP instance installation and RHEL HA Add-On cluster configuration, each instance directory must be mounted on its appropriate node.
    HA-LVM ensures that each of the two instance directories is mounted on only one node at a time.
 
@@ -49,7 +49,7 @@ Review the general requirements, product documentation, support articles, and SA
    Storage setup steps for file storage or creation of cluster file system resources are not described in this document.
    {: important}
 
-- The virtual hostnames for the *ASCS* and *ERS* instances must meet the requirements as documented in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
+Ensure that the virtual hostnames for the *ASCS* and *ERS* instances comply with the requirements that are outlined in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
    Make sure that the virtual IP addresses for the SAP instances are assigned to a network adapter and that they can communicate in the network.
 - SAP application server instances require a common shared file system *sapmnt* `/sapmnt/<SID>` with *read and write* access, and other shared file systems such as *saptrans* `/usr/sap/trans`.
    These file systems are typically provided by an external NFS server.
@@ -66,8 +66,8 @@ The following information describes how to prepare the nodes for installing the 
 ### Preparing environment variables
 {: #ha-rhel-ensa-prepare-environment-variables}
 
-To simplify the setup, prepare the following environment variables for user `root` on both cluster nodes.
-These environment variables are used with later operating system commands in this information.
+To simplify the setup process, define the following environment variables for the `root` user on both cluster nodes.
+These variables are used in subsequent operating system commands.
 
 On both nodes, set the following environment variables.
 
@@ -482,22 +482,22 @@ chown ${sid}adm:sapsys /usr/sap/${SID}/ASCS${ASCS_INSTNO}
 
 Use the SAP Software Provisioning Manager (SWPM) to install both instances.
 
-- Install SAP instances on the cluster nodes.
-   - Install an *ASCS* instance on NODE1 by using the virtual hostname `${ASCS_VH}` that is associated with the virtual IP address for *ASCS*:
+- Install *ASCS* and *ERS* instances on the cluster nodes.
+   - On NODE1, use the virtual hostname `${ASCS_VH}`, which is associated with the *ASCS* virtual IP address, to install the *ASCS* instance.
 
    ```sh
    <swpm>/sapinst SAPINST_USE_HOSTNAME=${ASCS_VH}
    ```
    {: screen}
 
-   - Install an *ERS* instance on NODE2 by using the virtual hostname `${ERS_VH}` that is associated with the virtual IP address for *ERS*:
+   - On NODE2, use the virtual hostname `${ERS_VH}`, which is associated with the *ERS* virtual IP address, to install the *ERS* instance.
 
    ```sh
    <swpm>/sapinst SAPINST_USE_HOSTNAME=${ERS_VH}
    ```
    {: screen}
 
-- Install all other SAP application instances outside the cluster.
+- Install all other SAP application instances outside the cluster environment.
 
 ## Installing and setting up the RHEL HA Add-On cluster
 {: #ha-rhel-ensa-set-up}
@@ -506,7 +506,25 @@ Install and set up the RHEL HA Add-On cluster according to [Implementing a Red H
 
 Configure and test fencing as described in [Creating the fencing device](/docs/sap?topic=sap-ha-rhel#ha-rhel-create-fencing-device).
 
+### Configuring general cluster properties
+{: #ha-rhel-ensa-configure-cluster-properties}
 
+To prevent the cluster from relocating healthy resources, for example when previously failed node restarts, set the following default meta attributes.
+
+- `resource-stickiness=1`: Ensures that resources remain on their current node.
+- `migration-threshold=3`: Limits the number of failures before a resource is moved.
+
+On NODE1, run the following command.
+
+```sh
+pcs resource defaults update resource-stickiness=1
+```
+{: pre}
+
+```sh
+pcs resource defaults update migration-threshold=3
+```
+{: pre}
 
 ## Preparing the ASCS and ERS instances for cluster integration
 {: #ha-rhel-ensa-prepare-ascs-ers}
@@ -518,7 +536,7 @@ Configure and test fencing as described in [Creating the fencing device](/docs/s
 
 Up to this point, the following are assumed:
 
-- A RHEL HA Add-On cluster is running on both virtual server instances and fencing of the nodes was tested.
+- A RHEL HA Add-On cluster is running on both virtual server instances and node fencing is tested.
 - The SAP System is running.
    - SAP *ASCS* is installed and active on node 1 of the cluster.
    - SAP *ERS* is installed and active on node 2 of the cluster.
@@ -608,10 +626,11 @@ pcs resource create ${sid}_ascs${ASCS_INSTNO} SAPInstance \
 ```
 {: pre}
 
-The `meta resource-stickiness=5000` option is used to balance the failover constraint with ERS so that the resource stays on the node where it started and doesn't migrate uncontrollably in the cluster.
+The `meta resource-stickiness=5000` option balances the failover behavior for the ERS instance.
+This option ensures that the resource remains on its original node and does not migrate unexpectedly within the cluster.
 {: note}
 
-Add a resource stickiness to the group to make sure that the *ASCS* remains on the node.
+To ensure that the *ASCS* instance remains on its designated node, add resource stickiness to the group.
 
 ```sh
 pcs resource meta ${sid}_ascs${ASCS_INSTNO}_group \
@@ -686,8 +705,10 @@ pcs resource create ${sid}_ers${ERS_INSTNO} SAPInstance \
 ### Configuring cluster resource constraints
 {: #ha-rhel-ensa-cfg-constraints}
 
-A colocation constraint prevents resource groups `${sid}_ascs${ASCS_INSTNO}_group` and `${sid}_ers${ERS_INSTNO}_group` from being active on the same node whenever possible.
-The stickiness score of `-5000` makes sure that they run on the same node if only a single node is available.
+On NODE1, run the following commands to configure cluster constraints.
+
+A colocation constraint ensures that the resource groups `${sid}_ascs${ASCS_INSTNO}_group` and `${sid}_ers${ERS_INSTNO}_group` do not run on the same node, if at least two nodes are available.
+If only one node is available, the stickiness value of `-5000` allows both groups to run on the same node.
 
 ```sh
 pcs constraint colocation add \
@@ -695,7 +716,7 @@ pcs constraint colocation add \
 ```
 {: pre}
 
-An order constraint controls that resource group `${sid}_ascs${ASCS_INSTNO}_group` starts before `${sid}_ers${ERS_INSTNO}_group`.
+An order constraint ensures that `${sid}_ascs${ASCS_INSTNO}_group` starts before `${sid}_ers${ERS_INSTNO}_group`.
 
 ```sh
 pcs constraint order start \
@@ -705,7 +726,7 @@ pcs constraint order start \
 ```
 {: pre}
 
-The following two order constraints make sure that the file system *SAPMNT* mounts before resource groups `${sid}_ascs${ASCS_INSTNO}_group` and `${sid}_ers${ERS_INSTNO}_group` start.
+The following two order constraints ensure that the *SAPMNT* file system mounts before `${sid}_ascs${ASCS_INSTNO}_group` and `${sid}_ers${ERS_INSTNO}_group` start.
 
 ```sh
 pcs constraint order fs_sapmnt-clone then ${sid}_ascs${ASCS_INSTNO}_group
@@ -717,7 +738,7 @@ pcs constraint order fs_sapmnt-clone then ${sid}_ers${ERS_INSTNO}_group
 ```
 {: pre}
 
-The cluster setup is complete.
+The *ENSA2* cluster implementation is now complete.
 
 ## Testing an SAP ENSA2 cluster
 {: #ha-rhel-ensa-test-sap-ensa-cluster}

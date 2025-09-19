@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -40,7 +40,7 @@ The following NFS file systems must be mounted by the operating system on both c
 These file systems are not managed by the HA cluster.
    - `/usr/sap/<SID>` contains directories for both the *ASCS* and *ERS* instances.
    - `/sapmnt/<SID>` hosts the *sapmnt* share.
-   - `usr/sap/trans` might be required for shared transport directories (*saptrans*).
+   - `/usr/sap/trans` might be required for shared transport directories (*saptrans*).
 
 Ensure that a highly available NFS server is configured to provide these shared file systems.
 Do not install the NFS server on any virtual server that is part of the *ENSA2* cluster.
@@ -51,7 +51,7 @@ This document does not cover the setup of file storage or the creation of cluste
 Ensure that the virtual hostnames for the *ASCS* and *ERS* instances comply with the requirements that are outlined in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
 
 The subnets and the virtual IP addresses for the *ASCS* and *ERS* instances must not exist in the {{site.data.keyword.powerSys_notm}} workspaces, as they are managed as cluster resources.
-However, you must register the virtual IP addresses and hostnames for the *ASCS* and *ERS* instances in the Domain Name Service (DNS) and add them to the `etc/hosts` file on all cluster nodes.
+However, you must register the virtual IP addresses and hostnames for the *ASCS* and *ERS* instances in the Domain Name Service (DNS) and add them to the `/etc/hosts` file on all cluster nodes.
 
 ## Preparing nodes to install ASCS and ERS instances
 {: #ha-rhel-ensa-sm-mz-prepare-nodes}
@@ -159,6 +159,9 @@ Run the following commands on both cluster nodes.
 {: #ha-rhel-ensa-sm-mz-cfg-ers-rg-prp}
 
 {{../../_include-segments/powervs-ha-rhel-ensa-mz-create-ers-vip.md}}
+
+Ensure that both virtual server instances in the cluster have the status `Active` and the health status `OK` before running the `pcs resource config` command.
+{: important}
 
 ### Verifying the cluster configuration
 {: #ha-rhel-ensa-sm-mz-verify-cluster-config-before-sap-install}
