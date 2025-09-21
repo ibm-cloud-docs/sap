@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-28"
+lastupdated: "2025-09-21"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, heterogeneous migration, Linux, Red Hat, RHEL, SuSE, Db2, Oracle, HANA, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize, sum, software update manager, dmo, database migration option, dmove2s4, Software Provisioning Manager, SWPM
 subcollection: sap
 ---
@@ -74,7 +74,7 @@ SAPup
 
 Maintenance Planner (MPO)
 :   The SAP Solution Manager cloud-based Maintenance Planner enables an easier and more efficient planning of all changes in your SAP system landscape.
-:   - [Maintenance Planner Link](https://support.sap.com/en/alm/solution-manager/processes-72/maintenance-planner.html){: external}
+:   - [Maintenance Planner Link](https://support.sap.com/en/alm/solution-manager/integrated-tools/maintenance-planner.html){: external}
 
 Technical Downtime Optimization App (TDOA)
 :   TDOA gives a detailed analysis and evaluation of a previous SUM maintenance task or action.
@@ -418,7 +418,7 @@ If the current SAP server is not registered in a Solution Manager environment, u
    The XML file contains all details of installed software levels and SAP modules currently in your system.
    {: note}
 
-1. Open the [SAP Maintenance Planner](https://support.sap.com/en/alm/solution-manager/processes-72/maintenance-planner.html){: external} website.
+1. Open the [SAP Maintenance Planner](https://support.sap.com/en/alm/solution-manager/integrated-tools/maintenance-planner.html){: external} website.
 1. Click **Access Maintenance Planner**, which opens the [SAP Maintenance Planner](https://maintenanceplanner.cloud.sap/){: external}.
 1. In the **Plan and Execute** section, click **Explore Systems**.
 1. If the system is not on the list, click **Add System**.

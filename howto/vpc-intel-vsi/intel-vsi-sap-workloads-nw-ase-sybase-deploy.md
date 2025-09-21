@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-08-12"
+lastupdated: "2025-09-21"
 keywords:
 subcollection: sap
 ---
@@ -328,7 +328,7 @@ For SAP HA multi-zone applications, file shares are mounted as permanent NFS fil
 
 * `/usr/sap/trans`
 
-In some HA or distributed environment, by using NFS to store the application or database data may be necessary. In such case, you can create NFS file systems as file-shares by using them as mount points for SAP application data. For more information, see [Creating file shares and mount targets](https://test.cloud.ibm.com/docs/vpc?topic=vpc-file-storage-create&interface=ui).
+In some HA or distributed environment, by using NFS to store the application or database data may be necessary. In such case, you can create NFS file systems as file-shares by using them as mount points for SAP application data. For more information, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
 
 The following is an example where `/usr/sap/trans` file system is defined as an IBM Cloud VPC file share and mounted to the SAP system VSI:
 
