@@ -398,20 +398,22 @@ toc:
                     label: SAP Reference architectures
                     id: "sap-workloads-in-vpc-sap-ref-arch"
                     topics:
-                      - navtitle: SAP NetWeaver 7.x on UNIX with SAP ASE on VPC
-                        topic: reference/vpc-intel-vsi-sap-refarch-nw-sybase.md
-                      - navtitle: SAP NetWeaver 7.x on UNIX with Db2 on VPC
-                        topic: reference/vpc-intel-vsi-sap-refarch-nw-db2.md
-                      - navtitle: SAP NetWeaver 7.x on Windows Servers with MS SQL on VPC
-                        topic: reference/vpc-intel-vsi-sap-refarch-nw-mssql.md
-                      - navtitle: SAP NetWeaver 7.x with SAP HANA on VPC
-                        topic: reference/vpc-intel-vsi-sap-refarch-nw-hana.md
+                      - navtitle: SAP NetWeaver 7.x on UNIX with SAP ASE
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-sybase.md
+                      - navtitle: SAP NetWeaver 7.x on UNIX with Db2
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-db2.md
+                      - navtitle: SAP NetWeaver 7.x on Windows Servers with MS SQL
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-mssql.md
+                      - navtitle: SAP NetWeaver 7.x with SAP HANA
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-hana.md
+                      - navtitle: SAP HANA Scale-out
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-hana-scaleout.md
                       - navtitle: SAP S/4HANA HA
-                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-s4hana-ha-config-ref.md
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-s4hana-ha-config.md
                       - navtitle: SAP NetWeaver 7.x on HANA with HA
-                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-hana-ha-config-ref.md
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-hana-ha-config.md
                       - navtitle: SAP NetWeaver 7.x on HANA with DR
-                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-nw-hana-disaster-recovery-ref.md
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-hana-disaster-recovery.md
           - topicgroup:
               label: High availability scenarios on Power Virtual Server
               id: "sap-ha-scenarios-on-power-virtual-server"
@@ -524,15 +526,6 @@ toc:
                     topics:
                       - navtitle: SAP HANA DB
                         topic: howto/powervs/powervs-backup-strategies.md
-    - navgroup:
-        id: reference
-        topics:
-          - topicgroup:
-              label: Infrastructure reference architectures for SAP
-              id: "sap-infrastructure-reference-architectures"
-              topics:
-                - navtitle: SAP HANA scale-out on Intel
-                  topic: reference/intel-sap-refarch-hana-scaleout.md
     - navgroup:
         id: help
         topics:

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-09-22"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Sybase
 subcollection: sap
 ---
@@ -42,7 +42,7 @@ The three installation types for SAP NetWeaver Application Server are:
 
 This diagram shows the SAP NetWeaver 7.X on Sybase DB integrated with {{site.data.keyword.cloud_notm}} on the SAP NetWeaver 7.x architecture:
 
-![Figure 1. Sample reference architecture](../images/vpc-intel-vsi-sap-nw-ase-sybase-arch.svg "SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}"){: caption="SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+![Figure 1. Sample reference architecture](../../images/vpc-intel-vsi-sap-nw-ase-sybase-arch.svg "SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}"){: caption="SAP NetWeaver 7.x with SYB standard installation with AAS on VSI to VPC {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
 ## Access from an external network
 {: #sap-refarch-nw-sybase-access}
@@ -63,7 +63,7 @@ In a standard system, all main instances run on a single virtual server instance
 [about virtual servers for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers).
 The virtual server instance has these components:
 
-![Figure 2. Standard installation](../images/vpc-intel-vsi-syb-std-only.svg "SAP NetWeaver 7.x SYB standard installation with AAS"){: caption="SAP NetWeaver 7.x SYB standard installation with AAS" caption-side="bottom"}
+![Figure 2. Standard installation](../../images/vpc-intel-vsi-syb-std-only.svg "SAP NetWeaver 7.x SYB standard installation with AAS"){: caption="SAP NetWeaver 7.x SYB standard installation with AAS" caption-side="bottom"}
 
 #### Architecture of SAP NetWeaver Application Server ABAP
 {: #sap-refarch-nw-as-abap}
@@ -137,7 +137,7 @@ Optionally, you can install the ASCS instance with an integrated:
 
 In a distributed system, there are multiple virtual server instances and every instance can run on a separate host:
 
-![Figure 3. Distribured architecture Sybase](../images/vpc-intel-vsi-syb-dist-only.svg "SAP NetWeaver 7.x SYB distributed installation with AAS"){: caption="SAP NetWeaver SYB standard installation with AAS" caption-side="bottom"}
+![Figure 3. Distribured architecture Sybase](../../images/vpc-intel-vsi-syb-dist-only.svg "SAP NetWeaver 7.x SYB distributed installation with AAS"){: caption="SAP NetWeaver SYB standard installation with AAS" caption-side="bottom"}
 
 The components in a distributed system are the same as the components in a standard system, but there are restrictions as to which instances can go on which hosts.
 

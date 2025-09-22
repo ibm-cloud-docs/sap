@@ -1,26 +1,26 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-17"
-keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
+lastupdated: "2025-09-22"
+keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Db2
 subcollection: sap
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
 
-# SAP NetWeaver 7.x with SAP HANA {{site.data.keyword.cloud}} VPC
-{: #sap-refarch-nw-hana}
+# SAP NetWeaver 7.x on UNIX with Db2 on {{site.data.keyword.cloud}} VPC
+{: #sap-refarch-nw-db2}
 
-SAP HANA is one of several databases that can be deployed on SAP NetWeaver in the {{site.data.keyword.cloud}}. SAP HANA is an in-memory database installed on a dedicated database server. The main architecture deployments for SAP HANA are single-host or multiple-host systems. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, Java, and SAP products based on these application server stacks.
+Db2 is one of the many databases that can be run with SAP NetWeaver and deployed on the {{site.data.keyword.cloud}}. The most common architecture deployments are standard and distributed. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, Java, and SAP products based on these application server stacks.
 
 ## SAP NetWeaver architecture
-{: #sap-netweaver-arch-hana}
+{: #sap-netweaver-arch-db2}
 
 SAP NetWeaver is the core foundation of the SAP technology stacks and is the platform that is used for Advanced Business Application Programming (ABAP) and Java applications. SAP NetWeaver components are built on the SAP NetWeaver Application Server and are written in ABAP or Java Platform, Enterprise Edition. ABAP systems, Java systems, and dual-stack systems are distinct systems.
 
 ### Core platform features
-{: #refarch-nw-hana-core-platform-features}
+{: #sap-netweaver-arch-db2-core-platform-features}
 
 SAP NetWeaver uses ABAP or Java core platforms to support the SAP applications. SAP NetWeaver:
 *  Has application lifecycle management capabilities.
@@ -30,7 +30,7 @@ SAP NetWeaver uses ABAP or Java core platforms to support the SAP applications. 
 SAP provides a list of the [SAP versions](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#section_486851042){: external} to learn more about the versions available in {{site.data.keyword.cloud_notm}}. Each support package stack has a leading software component version. The support package level of each component version is a key part of the stack and a unique identifier for the support package stack.
 
 ### Installation types
-{: #sap-netweaver-arch-inst-types}
+{: #refarch-nw-db2-inst-types}
 
 The three installation types for SAP NetWeaver Application Server are:
 *	ABAP System– You can run ABAP programs and some SAP Java apps
@@ -38,41 +38,33 @@ The three installation types for SAP NetWeaver Application Server are:
 *	Dual Stack – You can run both ABAP and Java Platform, Enterprise Edition in separate instances
 
 ## Architecture diagram
-{: #sap-netweaver-arch-diag-hana}
+{: #sap-netweaver-arch-diag-db2}
 
-This diagram shows the SAP NetWeaver 7.X on SAP HANA Server database integrated with {{site.data.keyword.cloud_notm}} on the SAP NetWeaver 7.x architecture:
+This diagram shows the SAP NetWeaver 7.X on Db2 integrated with {{site.data.keyword.cloud_notm}} on the SAP NetWeaver 7.x architecture:
 
-![Figure 1. Standard installation](../images/vpc-intel-vsi-hana-single-host-all.svg "SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS"){: caption="SAP NetWeaver 7.x with SAP HANA database single-host installation with AAS" caption-side="bottom"}
+![Figure 1. Sample reference architecture](../../images/vpc-intel-vsi-db2-std-arch.svg "SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC"){: caption="SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC" caption-side="bottom"}
 
 ## Access from an external network
-{: #sap-refarch-nw-hana-access}
+{: #sap-refarch-nw-db2-access}
 
-Clients on the customer facing network (CFN) use a floating IP to access virtual server instances within the {{site.data.keyword.cloud_notm}}. Virtual server instances are hosted in availability zones (data centers) within geographic regions.
+Clients on the customer facing network (CFN) use a floating IP to access virtual server instances within the {{site.data.keyword.cloud_notm}}. Virtual server instances are hosted in availability zones (data centers) within geographic regions. For more information about access, see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access) and [Getting started with {{site.data.keyword.cloud_notm}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started).
 
-Within the Public Subnet, the [SAP router](https://support.sap.com/en/tools/connectivity-tools/saprouter.html) and the jumphost provide secure connections to the virtual server instances. The SAP router is a software application that provides a remote connection between the customer's network and SAP. The SAP Router and jumphost are within a single security group with rules for inbound and outbound traffic between the private subnets in the zone. SAP routers are used with traditional SAP products and analytics solutions and offerings that are acquired from MS SQL Server database. For a comprehensive list of which SAP Business Analytics products benefits from SAP router connections, see [SAP Note 1478974](https://me.sap.com/notes/1478974){: external}.
+Within the Public Subnet, the [SAP router](https://support.sap.com/en/tools/connectivity-tools/saprouter.html) and the jump host provide secure connections to the virtual server instances. The SAP router is a software application that provides a remote connection between the customer's network and SAP. The SAP Router and jump host are within a single security group with rules for inbound and outbound traffic between the private subnets in the zone. SAP routers are used with traditional SAP products and analytics solutions and offerings that are acquired from Sybase. For a comprehensive list of which SAP Business Analytics products benefits from SAP router connections, see [SAP Note 1478974](https://me.sap.com/notes/1478974){: external}.
 
-A jumphost is used to access, manage, and administer SAP virtual server instances from the same customer ZONE directly from their premises. These SAP virtual server instances can be in a separate security zone but should be on same {{site.data.keyword.cloud_notm}} region. The customer connection to the jumphost follows the same rules as the direct connection from customer premises to the virtual server instance SAP instances. The connection uses the CFN IP and security group 1 firewall rules from a designated public subnet. In this architecture, there are two security groups defined; this arrangement is the simplest method for separating the public and private subnets. You can add more security groups if you require more isolation.
+A jump host is used to access, manage, and administer SAP virtual server instances from the same customer ZONE directly from their premises. These SAP virtual server instances can be in a separate security zone but must be on same {{site.data.keyword.cloud_notm}} region. The customer connection to the jump host follows the same rules as the direct connection from customer premises to the virtual server instance SAP instances. The connection uses the CFN IP and security group 1 firewall rules from a designated public subnet. This architecture uses two defined security groups; this arrangement is the simplest method for separating the public and private subnets. You can add more security groups if you require more isolation.
 
-## Virtual server instances on SAP NetWeaver 7.x with SAP HANA database
-{: #sap-refarch-nw-hana-vsis}
+## Virtual server instances on SAP NetWeaver 7.x APAB stack, Java stack, and dual stack (ABAP+Java) architectural design on {{site.data.keyword.cloud}} VPC on Unix
+{: #sap-refarch-nw-db2-vsis}
 
-The number of hosts in an SAP HANA system landscape determines the SAP HANA system type.
+### Standard system
+{: #sap-refarch-nw-db2-standard}
 
-An SAP HANA system can be configured as either:
+In a standard system, all main instances run on a single virtual server instance within a private subnet. For more information, see [About virtual server instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers). The virtual server instance has these components:
 
-* A single-host system - One SAP HANA instance on one host.
+![Figure 2. Standard installation](../../images/vpc-intel-vsi-db2-std.svg "SAP NetWeaver 7.x with Db2 standard installation with AAS"){: caption="SAP NetWeaver 7.x with Db2 standard installation with AAS" caption-side="bottom"}
 
-* A distributed system (multiple-host system) - Multiple SAP HANA instances distributed over multiple hosts,
-
-### Single-host HANA system
-{: #sap-refarch-nw-hana-standard}
-
-A single-host system is the simplest system installation type that runs an SAP HANA system entirely on one host. You can scale the system up as needed. The single-host system has these components:
-
-![Figure 2. Standard installation](../images/vpc-intel-vsi-refarch-sap-hana-single-host-only.svg "SAP NetWeaver 7.x SAP HANA standard installation with AAS"){: caption="SAP NetWeaver 7.x SAP HANA single-host installation with AAS" caption-side="bottom"}
-
-#### Architecture of SAP NetWeaver Application Server ABAP
-{: #sap-refarch-nw-hana-abap}
+Architecture of SAP NetWeaver Application Server ABAP
+{: #sap-refarch-nw-db2-as-abap}
 
 SAP tools create a PAS Instance and an ASCS Instance. This method is the standard for Java Stack (System) and is now standard for ABAP Stack.
 
@@ -98,10 +90,10 @@ Optionally, you can install the ASCS instance with an integrated:
 * SAP Web Dispatcher. For more information, see [ASCS Instance with Embedded SAP Web Dispatcher](https://help.sap.com/docs/SLTOOLSET/910828cec5d14d6685da380aec1dc4ae/2e708e2d42134b4baabdfeae953b24c5.html?version=CURRENT_VERSION){: external}.
 * Gateway. For more information, see [ASCS Instance with Embedded Gateway](https://help.sap.com/docs/SLTOOLSET/ce9e270ad34949969c16d09d1b099a26/bf1d359ac8384441a781ae3b0b5bd1b5.html?version=CURRENT_VERSION){: external}.
 
-#### Architecture of SAP NetWeaver Application Server Java
-{: #sap-refarch-nw-hana-java}
+Architecture of SAP NetWeaver Application Server Java
+{: #sap-refarch-nw-db2-as-java}
 
-1. Java central instance (J< nn > instance) – A Java instance is a unit in the AS Java cluster that is identified by its instance number. The elements that form an instance that is run on one physical machine. Also, it is possible to run several instances on one physical machine, but it is recommended that you split the different instances among different physical machines. An [AS Java Cluster Architecture](https://help.sap.com/docs/SAP_NETWEAVER_750/5bdacafd0bbd41648f4b80093a1bf9d6/4b1bc9db0ae17394e10000000a42189b.html?version=7.5.4){: external} consists of:
+1. Java central instance (J< nn > instance) – A Java instance is a unit in the AS Java cluster that is identified by its instance number. The elements that form an instance that is run on one physical machine. Also, it is possible to run several instances on one physical machine, but it is recommended that you split the different instances among different physical machines. A [AS Java Cluster Architecture](https://help.sap.com/docs/SAP_NETWEAVER_750/5bdacafd0bbd41648f4b80093a1bf9d6/4b1bc9db0ae17394e10000000a42189b.html?version=7.5.4){: external} consists of:
 
     *  Internet Communication Manager (ICM) - The ICM is an element of the Java instance that handles requests coming from clients and dispatches them to the available server processes. Data is transferred from the ICM to the server processes and vice versa by using the Fast Channel Architecture (FCA), which allows fast and reliable communication between them
     *  One or several server processes - The server processes of AS Java run the Java application. They are responsible for processing incoming requests that are assigned to them by the ICM. Each server process is multi-threaded, and can therefore process many requests simultaneously.
@@ -111,45 +103,28 @@ Optionally, you can install the ASCS instance with an integrated:
     *  Message Server - The message server keeps a list of all server processes in the AS Java cluster and provides information about their availability to Internet Communication Manager (ICM). It also represents the infrastructure for data exchange between the participating server processes.
     *  Enqueue Server - The enqueue server manages logical locks. The enqueue server runs on the Central Services instance of the Java cluster. It manages the lock table in the main memory and receives requests for setting or releasing locks. It maps the logical locks to the database.
 
-#### SAP HANA for standard system
-{: #sap-refarch-nw-hana-standard-system}
+#### Db2 for standard system
+{: #sap-refarch-nw-db2-as-standard-system}
 
-* Primary application server instance (PAS) - The global directories of the ASCS instance can be used as the global file system. That means that the host with the ASCS instance is the SAP global host. However, you can also separately install the global directories on any host of your SAP system landscape.  You can also use the SAP transport host or the host with the global file system (SAP global host) as your primary application server instance host.  Optionally, you can install one or more additional application server instances.  
-* Database instance (DB) - To assist your project's planning phase, more design considerations are provided at SAP AnyDB – SAP HANA database with {{site.data.keyword.cloud_notm}} for SAP. For more information, see [AnyDB - SAP HANA](/docs/sap?topic=sap-anydb-hana-db) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
-* Additional Application Server (AAS) - You can install one or more additional application server instances for an existing SAP system. Additional application server instances are optional and can be installed on separate hosts.
-* SAP Dialog Instance (DI) / Additional Application Instance (AAS) - Dialog Instance (DI) is an additional application instance on top of the Central Instance (CI). Normally the DI is set up on a different host.
+* Database instance (DB) - Db2 in this case. For more information, see [AnyDB - IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
+* Primary application server instance (PAS instance)  - The global directories of the ASCS instance can be used as the global file system. That means that the host with the ASCS instance is the SAP global host. However, you can also separately install the global directories on any host of your SAP system landscape. You can also use the SAP transport host or the host with the global file system (SAP global host) as your primary application server instance host. Optionally, you can install one or more extra application server instances.
+* Additional Application Server (AAS) - You can install one or more extra application server instances for an existing SAP system. Additional application server instances are optional and can be installed on separate hosts.
 
-    Dialog instance consists of Gateway (GW), Internet Communication Manager (ICM), and Dispatcher Process (Disp) only. The DI has no Message Server and Enqueue Work Process.
+    An extra application server instance can run on:
+    * The host of any instance of the existing SAP system
+    * On a dedicated host
 
-    DI always starts after the CI starts because the DI depends on CI as the main instance where message server and enqueue server exist. DI is used to balance the load and handle more workload rather than use only the Central Instance. The new name for DI is Additional Application Server (AAS).
+### Distributed system
+{: #sap-refarch-nw-db2-dist}
 
-    Structure:
+In a distributed system, there are multiple virtual server instances and every instance can run on a separate host:
 
-    DI/AAS = GW + ICM + Disp
+![Figure 3. Distributed installation](../../images/vpc-intel-vsi-db2-dist.svg "SAP NetWeaver 7.x with Db2 distributed installation with AAS"){: caption="SAP NetWeaver 7.x with Db2 distributed installation with AAS" caption-side="bottom"}
 
-    For more information about configuring and adding a AAS instance in heterogeneous SAP environment, see [SAP Note - 680617  INST: Appl. Server in Heterogeneous SAP System Environment](https://me.sap.com/notes/680617){: external}.
-
-    The benefit of an AAS and DI is to balance the load from the PAS instance by distributing a significant percent of the workload, to an additional DI and AAS server. With help of SAP load balancer mechanism, the AAS and DI provide good performance. Having an AAS and additional DI increases the processing power as well, using the resources of its new server capacity for all system business workload.
-
-    For more information, see [SAP Note 26317 - Set up for LOGON group for autom load balancing](https://me.sap.com/notes/26317){: external}.
-
-## Multiple-host SAP HANA system
-{: #sap-refarch-nw-hana-dist}
-
-A multiple-host system is a system with more than one host, which can be configured as active worker hosts or idle standby hosts. The server software is based on a flexible architecture that enables a distributed installation in which loads are balanced between different hosts. The server software has to be installed in a shared file system. This file system has to be mounted by all hosts that are part of the system.
-
-This diagram shows a multiple-host system configuration:
-
-![Figure 3. Distributed installation](../images/vpc-intel-vsi-hana-multiple-host-only.svg "SAP NetWeaver 7.x SAP HANA multiple-host installation with AAS"){: caption="SAP NetWeaver 7.x SAP HANA multiple-host installation with AAS" caption-side="bottom"}
-
-The SAP components in a multi-host SAP HANA system are the same as the components in a single-host SAP HANA system, the difference consists of multiple connected hosts for the SAP HANA database.
-
-A multi-host SAP HANA system might be necessary to scale SAP HANA either by increasing RAM for a single server, or by adding hosts to the system to deal with larger workloads. This allows you to go beyond the limits of a single physical server.
-
-When configuring a multiple-host system, the individual hosts must be defined as master, worker, slave, and standby depending on the task. Worker machines process data; standby machines do not handle any processing and instead just wait to take over processes in the case of worker machine failure.
+The components in a distributed system are the same as the components in a standard system, but there are restrictions as to which instances can go on which hosts.
 
 ## Related information
-{: #sap-refarch-nw-hana-relinfo}
+{: #sap-refarch-nw-db2-relinfo}
 
 SAP One Support Notes that apply to this document:
 
