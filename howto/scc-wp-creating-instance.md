@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-09-22"
 keywords: SAP, SAP SCC Workload Protection, {{site.data.keyword.sysdigsecure_full_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 content-type: tutorial
@@ -12,7 +12,7 @@ completion-time: 10m
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Creating a {{site.data.keyword.sysdigsecure_full}} instance
+# Creating an {{site.data.keyword.sysdigsecure_full}} instance
 {: #scc-wp-create-instance}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="10m"}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-09-22"
 keywords: SAP, SAP SCC Workload Protection, {{site.data.keyword.sysdigsecure_full_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 ---
@@ -114,6 +114,6 @@ It's important that you understand the responsibilities you have when using {{si
 
 To set up {{site.data.keyword.sysdigsecure_short}} with your SAP systems, you must perform the following tasks.
 
-* [Creating a {{site.data.keyword.sysdigsecure_full}} instance](/docs/sap?topic=sap-scc-wp-create-instance)
+* [Creating an {{site.data.keyword.sysdigsecure_full}} instance](/docs/sap?topic=sap-scc-wp-create-instance)
 * [Set up the {{site.data.keyword.sysdigsecure_short}} agent](/docs/sap?topic=sap-scc-wp-agent-setup)
 * [{{site.data.keyword.sysdigsecure_short}} Dashboard Overview](/docs/sap?topic=sap-scc-wp-dashboard-overview)

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-27"
+lastupdated: "2025-09-22"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -21,7 +21,7 @@ Make sure that you're familiar with the fundamental components and options that 
 ## Before you begin
 {: #powervs-before-you-begin}
 
-You will be creating a {{site.data.keyword.vpc_short}} Infrastructure to host the management services (Bastion host, proxy, NTP, DNS and NFS services) and a {{site.data.keyword.powerSys_notm}} Infrastructure to host SAP workloads (SAP HANA Database and SAP NetWeaver).
+You will be creating an {{site.data.keyword.vpc_short}} Infrastructure to host the management services (Bastion host, proxy, NTP, DNS and NFS services) and a {{site.data.keyword.powerSys_notm}} Infrastructure to host SAP workloads (SAP HANA Database and SAP NetWeaver).
 To help make sure that your first deployment is a success, read [Fast path of IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-fast-path-site-map-power-vs) including the following sections:
 * [IBM Power Systems Infrastructure environment introduction](/docs/sap?topic=sap-power-env-introduction) for the basic understanding about the environment.
 * [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#powervs-network-connectivity-and-security)

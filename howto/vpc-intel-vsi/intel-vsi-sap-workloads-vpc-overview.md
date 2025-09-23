@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-09-22"
 keywords:
 subcollection: sap
 ---
@@ -98,7 +98,7 @@ Before deploying any SAP workload in the {{site.data.keyword.cloud_notm}} VPC, t
 ## VPC for SAP provisioning
 {: #vpc-provision-sap}
 
-Before deploying any SAP workload into VSI, a {{site.data.keyword.cloud_notm}} VPC must be created.
+Before deploying any SAP workload into VSI, an {{site.data.keyword.cloud_notm}} VPC must be created.
 {: important}
 
 Following are the steps to setup the VPC:

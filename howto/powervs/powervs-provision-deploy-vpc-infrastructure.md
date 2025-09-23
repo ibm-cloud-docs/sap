@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-09-22"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC landing zone, NTP, NFS, DNS, Proxy, Squid, Terraform, Deployable architecture, Edge VPC, SSH
 subcollection: sap
 ---
@@ -37,7 +37,8 @@ Access host is a **mandatory** component in the SAP on {{site.data.keyword.power
 1. Create security groups for management services, network services and IBM Cloud services as described [here](/docs/powervs-vpc?topic=powervs-vpc-landing-zone-preset#landing-zone-sg). For more information, see [Configuring the security group for the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group-step). Specify following rules.
 1. Create a virtual server instance with a Linux operating system. For more information, see [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
     * You can select any available Linux image, but you need to use the same operating system release for all of the virtual server instances in the landscape. We verify the setup with newest versions of Red Hat Enterprise Linux (starting with RHEL 8.4) and of Suse Linux Enterprise Server (starting with SLES 15 SP3).
-    * You don't have limitations as to which Compute profile, SAP certification, or storage and network performance is used. You can use the smallest profile with 2 virtual CPUs and with 4 GB memory.
+
+    You don't have limitations as to which Compute profile, SAP certification, or storage and network performance is used. You can use the smallest profile with 2 virtual CPUs and with 4 GB memory.
     {: tip}
 
 1. Attach the right security group (management-sg security group) to the virtual server instance that you created in the previous step. Detach the default security group.

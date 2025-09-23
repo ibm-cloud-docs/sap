@@ -1,8 +1,8 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-25"
-keywords: SAP-Certified HANA profiles, umh, sh2, Rise, bh1, mh1, cnp, sr2, storage, powervs, log, data, shared, iops, tiers, tier
+lastupdated: "2025-09-23"
+keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
 
@@ -44,6 +44,75 @@ Simultaneous Multithreading (SMT) on IBM Power enables multiple independent thre
    The operating system sees four logical processors per physical processor core.
 1. In **SMT8 mode**, eight parallel threads can run on a single physical processor core.
    The operating system sees eight logical processors per physical processor core.
+
+
+## IBM Power11 Certified Instances for SAP HANA
+{: #sap-hana-iaas-offerings-profiles-power11-families}
+
+The following table lists available profile families for IBM Power11 processor-based servers:
+
+| Families | Description |
+| -------- | ----------- |
+| [Profiles with sr3 prefix](#sr3-profiles) | Profiles with the prefix *sr3* are SAP RISE profiles.|
+{: caption="Profile families for Power11 server generation" caption-side="bottom"}
+
+
+### sr3 - Certified Profiles
+{: #sr3-profiles}
+
+The following SAP HANA profiles with prefix **sr3** on IBM {{site.data.keyword.powerSys_notm}} are supported:
+
+| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS**  | **[SMT Mode](#smt-modes)**  |  **Workload Type**                          |
+| ------------------- | ------------- | ---------------- | ---------------- | --------- | --------------------------- | ------------------------------------------- |
+| sr3-6x256           | 6             | 48               | 256              | 47,490    |  SMT8                       |     OLTP                                    |
+| sr3-11x512          | 11            | 88               | 512              | 87,065    |  SMT8                       |     OLTP                                    |
+| sr3-19x1024         | 19            | 152              | 1024             | 150,385   |  SMT8                       |     OLTP/OLAP                               |
+| sr3-76x6144         | 76            | 608              | 6144             | 625,632   |  SMT8                       |     OLTP/OLAP                               |
+{: class="simple-tab-table"}
+{: tab-group="sr3-table"}
+{: caption="P11 Certified Instance profiles with sr3 prefix" caption-side="bottom"}
+{: #sr3-profiles-instance}
+{: tab-title="Instance Profile"}
+
+
+| sr3\nCertified profile | IOPs\nrequired| Storage config          | Storage tier         | IOPs\nobtained| Alternative configuration\n(cost effective)|
+|----------------------- |-------------- |------------------------ |----------------------|---------------|--------------------------------------------|
+| sr3-6x256              | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        | 4 x 32 GB \nusing 'Fixed IOPs'             |
+| sr3-11x512             | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        | 4 x 32 GB \nusing 'Fixed IOPs'             |
+| sr3-19x1024            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| sr3-76x6144            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+{: class="simple-tab-table"}
+{: tab-group="sr3-table"}
+{: caption="Log file system configurations for SAP HANA profiles with sr3 prefix" caption-side="bottom"}
+{: #sr3-profiles-log}
+{: tab-title="Log File System"}
+
+
+| sr3\nCertified profile  | IOPs\nrequired| Storage config          | Storage tier         | IOPs\nobtained| Alternative configuration\n(cost effective)|
+|-------------------------|---------------|-------------------------|----------------------|---------------|--------------------------------------------|
+| sr3-6x256               | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 83 GB \nusing 'Tier 0'                 |
+| sr3-11x512              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 165 GB \nusing 'Tier 0'                |
+| sr3-19x1024             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                            |
+| sr3-76x6144             | 8,000         | 4 x 1980 GB             | Tier 3               | 23,760        |                                            |
+{: class="simple-tab-table"}
+{: tab-group="sr3-table"}
+{: caption="Data file system configurations for SAP HANA profiles with sr3 prefix" caption-side="bottom"}
+{: #sr3-profiles-data}
+{: tab-title="Data File System"}
+
+| sr3\nCertified profile | IOPs\nrequired| Storage config          | Storage tier         | IOPs\nobtained| Alternative configuration    |
+|------------------------|---------------|-------------------------|----------------------|---------------|----------------------------- |
+|  sr3-6x256             | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|  sr3-11x512            | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|  sr3-19x1024           | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+|  sr3-76x6144           | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+{: class="simple-tab-table"}
+{: tab-group="sr3-table"}
+{: caption="Shared file system configurations for SAP HANA profiles with sr3 prefix" caption-side="bottom"}
+{: #sr3-profiles-shared}
+{: tab-title="Shared File System"}
+
+The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2 × 1.074`
 
 ## IBM Power10 Certified Instances for SAP HANA
 {: #sap-hana-iaas-offerings-profiles-power10-families}
@@ -221,6 +290,7 @@ The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.p
 {: tab-title="Shared File System"}
 
 
+The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 
 ### sh2 - Certified Profiles
@@ -363,7 +433,7 @@ The following SAP HANA profiles with prefix **sh2** on IBM {{site.data.keyword.p
 {: #sh2-profiles-shared}
 {: tab-title="Shared File System"}
 
-
+The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### bh2 - Certified Profiles
 {: #bh2-profiles}
@@ -489,6 +559,7 @@ The following SAP HANA profiles with prefix **bh2** on IBM {{site.data.keyword.p
 {: #bh2-profiles-shared}
 {: tab-title="Shared File System"}
 
+The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### ch2 - Certified Profiles
 {: #ch2-profiles}
@@ -566,6 +637,8 @@ The following SAP HANA profiles with prefix **ch2** on IBM {{site.data.keyword.p
 {: #ch2-profiles-shared}
 {: tab-title="Shared File System"}
 
+The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+
 
 ### mh2 - Certified Profiles
 {: #mh2-profiles}
@@ -638,6 +711,7 @@ The following SAP HANA profiles with prefix **mh2** on IBM {{site.data.keyword.p
 {: #mh2-profiles-shared}
 {: tab-title="Shared File System"}
 
+The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ## IBM Power9 Certified Instances for SAP HANA
 {: #sap-hana-iaas-offerings-profiles-power9-families}
@@ -711,6 +785,7 @@ The following SAP HANA profiles with prefix **ush1** on IBM {{site.data.keyword.
 {: #ush1-profiles-shared}
 {: tab-title="Shared File System"}
 
+The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### bh1 - Certified Profiles
 {: #bh1profiles}
@@ -806,7 +881,7 @@ The following SAP HANA profiles with prefix **bh1** on IBM {{site.data.keyword.p
 {: #bh1-profiles-shared}
 {: tab-title="Shared File System"}
 
-
+The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### ch1 - Certified Profiles
 {: #ch1profiles}
@@ -868,6 +943,8 @@ The following SAP HANA profiles with prefix **ch1** on IBM {{site.data.keyword.p
 {: caption="Sample shared file system configurations for SAP HANA profiles with ch1 prefix" caption-side="bottom"}
 {: #ch1-profiles-shared}
 {: tab-title="Shared File System"}
+
+The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### mh1 - Certified Profiles
 {: #mh1profiles}
@@ -976,6 +1053,8 @@ The following SAP HANA profiles with prefix **mh1** on IBM {{site.data.keyword.p
 {: #mh1-profiles-shared}
 {: tab-title="Shared File System"}
 
+The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+
 ### umh - Certified Profiles
 {: #umhprofiles}
 
@@ -1068,6 +1147,8 @@ The following SAP HANA profiles with prefix **umh** on IBM {{site.data.keyword.p
 {: caption="Sample shared file system configurations for SAP HANA profiles with umh prefix" caption-side="bottom"}
 {: #umh-profiles-shared}
 {: tab-title="Shared File System"}
+
+The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### cnp - Custom Profiles
 {: #cnpprofiles}

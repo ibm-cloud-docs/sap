@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-23"
 keywords: Powervs, Certified Profile, Netweaver, {{site.data.keyword.powerSys_notm}},
 subcollection: sap
 ---
@@ -58,6 +58,8 @@ The following predefined SAP Application Server profiles with prefix **sr2** on 
 
 | **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS**  | **SMT Mode**               |  **Workload Type**                    |
 | ------------------- | ------------- | ---------------- | ---------------- | --------- | -------------------------- | ------------------------------------- |
+| sr2-1x8             | 1	            |      8           |  8               |   7,600   | SMT8                       |  SAP Application Server/SAP NetWeaver |
+| sr2-1x16            | 1	            |      8           |  16              |   7,600   | SMT8                       |  SAP Application Server/SAP NetWeaver |
 | sr2-2x8             | 2	            |      16          |  8               |  15,200   | SMT8                       |  SAP Application Server/SAP NetWeaver |
 | sr2-2x32            | 2	            |      16          |  32              |  15,200   | SMT8                       |  SAP Application Server/SAP NetWeaver |
 | sr2-3x64            | 3	            |      24          |  64              |  22,800   | SMT8                       |  SAP Application Server/SAP NetWeaver |
@@ -75,6 +77,8 @@ The following predefined SAP Application Server profiles with prefix **sr2** on 
 
 | Profile\nname          | Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained|
 |----------------------- |------------------------ |----------------------|---------------|
+|   sr2-1x8              |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr2-1x16             |  1 x 50GB               | Tier 0               |    1,250      |
 |   sr2-2x8              |  1 x 50GB               | Tier 0               |    1,250      |
 |   sr2-2x32             |  1 x 50GB               | Tier 0               |    1,250      |
 |   sr2-3x64             |  1 x 50GB               | Tier 0               |    1,250      |

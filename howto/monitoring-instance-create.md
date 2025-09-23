@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-09-22"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 content-type: tutorial
@@ -30,11 +30,11 @@ Verify that the Virtual Routing and Forwarding (VRF) service endpoints are enabl
 If VRF service endpoints are not enabled, enable the setting in your IAM account.
 For more information, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint&interface=ui).
 
-## Provisioning a {{site.data.keyword.mon_full_notm}} instnace
+## Provisioning an {{site.data.keyword.mon_full_notm}} instnace
 {: #monitoring-instance-provision}
 {: step}
 
-To create a {{site.data.keyword.mon_full_notm}} instance by using the IBM Cloud UI, use the following steps. For more information, see [Provision an instance of the Monitoring service](/docs/monitoring?topic=monitoring-getting-started#getting-started-step2).
+To create an {{site.data.keyword.mon_full_notm}} instance by using the IBM Cloud UI, use the following steps. For more information, see [Provision an instance of the Monitoring service](/docs/monitoring?topic=monitoring-getting-started#getting-started-step2).
 
 1. Log in to the [{{site.data.keyword.cloud}} console](https://cloud.ibm.com){: external}.
 1. Click **Navigation menu** > **Observability** > **Monitoring**.
