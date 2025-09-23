@@ -290,7 +290,7 @@ The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.p
 {: tab-title="Shared File System"}
 
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 
 ### sh2 - Certified Profiles
@@ -433,7 +433,7 @@ The following SAP HANA profiles with prefix **sh2** on IBM {{site.data.keyword.p
 {: #sh2-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### bh2 - Certified Profiles
 {: #bh2-profiles}
@@ -559,7 +559,7 @@ The following SAP HANA profiles with prefix **bh2** on IBM {{site.data.keyword.p
 {: #bh2-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### ch2 - Certified Profiles
 {: #ch2-profiles}
@@ -637,7 +637,7 @@ The following SAP HANA profiles with prefix **ch2** on IBM {{site.data.keyword.p
 {: #ch2-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 
 ### mh2 - Certified Profiles
@@ -711,7 +711,7 @@ The following SAP HANA profiles with prefix **mh2** on IBM {{site.data.keyword.p
 {: #mh2-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ## IBM Power9 Certified Instances for SAP HANA
 {: #sap-hana-iaas-offerings-profiles-power9-families}
@@ -785,7 +785,7 @@ The following SAP HANA profiles with prefix **ush1** on IBM {{site.data.keyword.
 {: #ush1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### bh1 - Certified Profiles
 {: #bh1profiles}
@@ -881,7 +881,7 @@ The following SAP HANA profiles with prefix **bh1** on IBM {{site.data.keyword.p
 {: #bh1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### ch1 - Certified Profiles
 {: #ch1profiles}
@@ -944,7 +944,7 @@ The following SAP HANA profiles with prefix **ch1** on IBM {{site.data.keyword.p
 {: #ch1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### mh1 - Certified Profiles
 {: #mh1profiles}
@@ -1053,7 +1053,7 @@ The following SAP HANA profiles with prefix **mh1** on IBM {{site.data.keyword.p
 {: #mh1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### umh - Certified Profiles
 {: #umhprofiles}
@@ -1148,7 +1148,7 @@ The following SAP HANA profiles with prefix **umh** on IBM {{site.data.keyword.p
 {: #umh-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### cnp - Custom Profiles
 {: #cnpprofiles}
