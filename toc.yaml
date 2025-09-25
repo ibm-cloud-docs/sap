@@ -414,6 +414,8 @@ toc:
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-hana-ha-config.md
                       - navtitle: SAP NetWeaver 7.x on HANA with DR
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-hana-disaster-recovery.md
+                      - navtitle: SAP NetWeaver 7.x on ASE with HADR (SLES)
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-ase-hadr-sles.md
           - topicgroup:
               label: High availability scenarios on Power Virtual Server
               id: "sap-ha-scenarios-on-power-virtual-server"

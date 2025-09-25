@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-22"
+lastupdated: "2025-09-25"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Db2
 subcollection: sap
 ---
@@ -19,11 +19,12 @@ SAP HANA is one of several databases that can be deployed on SAP NetWeaver in th
 ## SAP Netweaver 7.x deployment in HA configuration multi-zone
 {: #multi-zone-nw}
 
-The below reference architecture describes High Availability implementations in IBM Cloud VPC, considering SAP Netweaver Application Servers with SAP HANA Database workloads running on Virtual Server Instances.
+The below reference architecture describes High Availability implementations in IBM Cloud VPC, considering SAP Netweaver Application Servers with SAP HANA database workloads running on Virtual Server Instances.
 
 ![Figure 1. SAP Netweaver deployment in HA configuration multi-zone](../../images/vpc-intel-sap-nw-arch-multizone.svg "SAP Netweaver deployment in HA configuration multi-zone"){: caption="SAP Netweaver deployment in HA configuration multi-zone" caption-side="bottom"}
 
 The deployment of the SAP system in a High Availability is based on two pacemaker cluster configurations:
+
 * one cluster protects one single point of failure of the SAP Applications and the Central services.
 * second cluster assures the availability of the SAP HANA database.
 
@@ -32,12 +33,12 @@ The deployment of the SAP system in a High Availability is based on two pacemake
 
 The following SAP technical components are deployed in this configuration:
 
-* SAP HANA database. Two installations on 2 VSIs with replication configuration for HA support.
+* SAP HANA database - Two installations on 2 VSIs with replication configuration for HA support.
 * SAP ASCS instance, installed on one of the nodes. This instance contains the Message Server and the Enqueue Server process. It is used to manage locks, exchange messages, and balance workload in the SAP system.
 * SAP ERS instance, installed on an opposite node. This Enqueue Replication server is a mandatory instance in a HA scenario, with a role of preserving a replica of the enqueue table in local memory.
 * SAP PAS, the Primary Application server with dialog and batch processing.
 * SAP AAS, one Additional Application server, installed on an opposite node related to the PAS.
-* SAP Router (optional), provides secured connections to the VSI and remote connections for support of SAP AG Remote Services.
+* SAP router (optional), provides secured connections to the VSI and remote connections for support of SAP AG Remote Services.
 
 ### VPC services and components
 {: #services-and-comp}
@@ -95,15 +96,15 @@ SAP HANA System Replication in a scale-up high availability configuration suppor
 ## High Availablity in MultiZone (MZ) and SingleZone (SZ) environments
 {: #ha-single-multizone-nw}
 
-Deploying resources across multiple zones within a region enables high availability and fault isolation, as workloads can continue operating even if one zone experiences a failure. More details about zones in IBM Cloud here.
+Deploying resources across multiple zones within a region enables high availability and fault isolation, as workloads can continue operating even if one zone experiences a failure.
 However, deploying the resources in a HA configuration is also possible by using a single zone inside a region. The below refference schema illustrates this approach.
 
-* There is only one private subnet deployed
-* SAP HANA is a 2 node cluster in the same network segment
-* SAP Services instances ASCS/ERS are part of the same network segment and colocated with SAP Application servers , on 2 nodes VSIs.
+* There is only one private subnet deployed.
+* SAP HANA is a two node cluster in the same network segment.
+* SAP Services instances ASCS/ERS are part of the same network segment and colocated with SAP Application servers on 2 nodes VSIs.
 * Virtual hostnames are addressed by the clients and applications also through an Application Load Balancer with the help of the DNS service.
 
-A Power placement group together with a placement strategy provides supplementary protection for VMs in a single zone and it guarantees that  each instance is placed on computer hosts with separate power supplies and network devices. See the information from IBM Cloud regarding placement groups.
+A Power placement group together with a placement strategy provides supplementary protection for VMs in a single zone and it guarantees that each instance is placed on computer hosts with separate power supplies and network devices. See the information from IBM Cloud regarding placement groups.
 
 ![Figure 3. SAP NetWeaver 7.x HANA deployment in HA configuration single-zone](../../images/vpc-intel-sap-nw-arch-singlezone.svg "SAP NetWeaver 7.x HANA deployment in HA configuration single-zone"){: caption="SAP NetWeaver 7.x HANA deployment in HA configuration single-zone" caption-side="bottom"}
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-22"
+lastupdated: "2025-09-25"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Db2
 subcollection: sap
 ---
@@ -23,19 +23,19 @@ SAP NetWeaver is the core foundation of the SAP technology stacks and is the pla
 {: #sap-netweaver-arch-db2-core-platform-features}
 
 SAP NetWeaver uses ABAP or Java core platforms to support the SAP applications. SAP NetWeaver:
-*  Has application lifecycle management capabilities.
-*  Provides the basic structure for the on-premises versions of SAP Business Suite and other applications, as an application server.
-*  Is the foundation for the on-premises SAP S/4HANA next-generation business suite, with SAP HANA serving as the sole underlying database.
+* Has application lifecycle management capabilities.
+* Provides the basic structure for the on-premises versions of SAP Business Suite and other applications, as an application server.
+* Is the foundation for the on-premises SAP S/4HANA next-generation business suite, with SAP HANA serving as the sole underlying database.
 
-SAP provides a list of the [SAP versions](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#section_486851042){: external} to learn more about the versions available in {{site.data.keyword.cloud_notm}}. Each support package stack has a leading software component version. The support package level of each component version is a key part of the stack and a unique identifier for the support package stack.
+SAP provides a list of [SAP versions](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#section_486851042){: external} to learn more about the versions available in {{site.data.keyword.cloud_notm}}. Each support package stack has a leading software component version. The support package level of each component version is a key part of the stack and a unique identifier for the support package stack.
 
 ### Installation types
 {: #refarch-nw-db2-inst-types}
 
 The three installation types for SAP NetWeaver Application Server are:
-*	ABAP System– You can run ABAP programs and some SAP Java apps
-*	Java System– You can run only Java Platform, Enterprise Edition apps. No ABAP programs can be run on a Java system
-*	Dual Stack – You can run both ABAP and Java Platform, Enterprise Edition in separate instances
+* ABAP System – You can run ABAP programs and some SAP Java apps
+* Java System – You can run only Java Platform, Enterprise Edition apps. No ABAP programs can be run on a Java system
+* Dual Stack – You can run both ABAP and Java Platform, Enterprise Edition in separate instances
 
 ## Architecture diagram
 {: #sap-netweaver-arch-diag-db2}
@@ -53,7 +53,7 @@ Within the Public Subnet, the [SAP router](https://support.sap.com/en/tools/conn
 
 A jump host is used to access, manage, and administer SAP virtual server instances from the same customer ZONE directly from their premises. These SAP virtual server instances can be in a separate security zone but must be on same {{site.data.keyword.cloud_notm}} region. The customer connection to the jump host follows the same rules as the direct connection from customer premises to the virtual server instance SAP instances. The connection uses the CFN IP and security group 1 firewall rules from a designated public subnet. This architecture uses two defined security groups; this arrangement is the simplest method for separating the public and private subnets. You can add more security groups if you require more isolation.
 
-## Virtual server instances on SAP NetWeaver 7.x APAB stack, Java stack, and dual stack (ABAP+Java) architectural design on {{site.data.keyword.cloud}} VPC on Unix
+## Virtual server instances on SAP NetWeaver 7.x APAB stack
 {: #sap-refarch-nw-db2-vsis}
 
 ### Standard system
@@ -76,7 +76,7 @@ SAP tools create a PAS Instance and an ASCS Instance. This method is the standar
 
    * [SAP Gateway Service](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) - The SAP Gateway carries out RFC services within the SAP world, which are based on [TCP/IP](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/35/26b431afab52b9e10000009b38f974/content.htm){: external}. These services enable SAP Systems and external programs to communicate with one another. RFC services can be used either in the ABAP program or for the external programs that use the interfaces. RFC can be used between processes of an instance or a system, or between systems.
 
-   * [ICM (Internet Communication Manager)](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) Service - Application server component that receives and dispatches Web requests (HTTP(S), SMTP, …). ICM evaluates the URL and forwards requests to AS ABAP or AS Java.
+   * [ICM (Internet Communication Manager)](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) Service - Application server component that receives and dispatches Web requests (HTTP(S), SMTP). ICM evaluates the URL and forwards requests to AS ABAP or AS Java.
    *  IGS (Internet Graphic Server)
 
 2. The ABAP Central Services Instances (ASCS) – This instance contains the message server, the enqueue server, and a separate start. The ASCS instance cannot process any dialog requests. It is used to manage locks, exchange messages, and balance workload in the SAP system. The ASCS instance includes:
@@ -90,7 +90,7 @@ Optionally, you can install the ASCS instance with an integrated:
 * SAP Web Dispatcher. For more information, see [ASCS Instance with Embedded SAP Web Dispatcher](https://help.sap.com/docs/SLTOOLSET/910828cec5d14d6685da380aec1dc4ae/2e708e2d42134b4baabdfeae953b24c5.html?version=CURRENT_VERSION){: external}.
 * Gateway. For more information, see [ASCS Instance with Embedded Gateway](https://help.sap.com/docs/SLTOOLSET/ce9e270ad34949969c16d09d1b099a26/bf1d359ac8384441a781ae3b0b5bd1b5.html?version=CURRENT_VERSION){: external}.
 
-Architecture of SAP NetWeaver Application Server Java
+## Architecture of SAP NetWeaver Application Server Java
 {: #sap-refarch-nw-db2-as-java}
 
 1. Java central instance (J< nn > instance) – A Java instance is a unit in the AS Java cluster that is identified by its instance number. The elements that form an instance that is run on one physical machine. Also, it is possible to run several instances on one physical machine, but it is recommended that you split the different instances among different physical machines. A [AS Java Cluster Architecture](https://help.sap.com/docs/SAP_NETWEAVER_750/5bdacafd0bbd41648f4b80093a1bf9d6/4b1bc9db0ae17394e10000000a42189b.html?version=7.5.4){: external} consists of:
