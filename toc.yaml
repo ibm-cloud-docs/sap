@@ -65,6 +65,8 @@ toc:
                   topic: plan/sap-offerings-hana-iaas-intel-bm-vpc.md
                 - navtitle: Intel Bare Metal servers in Classic
                   topic: plan/sap-offerings-hana-iaas-intel-bare-metal-profiles.md
+                - navtitle: Intel Bare Metal server with Intel Optane DC Persistent Memory certified profiles for SAP HANA
+                  topic: plan/sap-offerings-hana-iaas-intel-optane-profiles.md
                 - navtitle: VMware in Classic
                   topic: plan/sap-offerings-hana-iaas-vmware-sddc-profiles.md
                 - navtitle: Power Virtual Server

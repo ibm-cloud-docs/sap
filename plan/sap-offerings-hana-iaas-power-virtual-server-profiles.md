@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-25"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -68,6 +68,7 @@ The following SAP HANA profiles with prefix **sr3** on IBM {{site.data.keyword.p
 | sr3-11x512          | 11            | 88               | 512              | 87,065    |  SMT8                       |     OLTP                                    |
 | sr3-19x1024         | 19            | 152              | 1024             | 150,385   |  SMT8                       |     OLTP/OLAP                               |
 | sr3-76x6144         | 76            | 608              | 6144             | 625,632   |  SMT8                       |     OLTP/OLAP                               |
+| sr3-229x30500       | 229           | 1832             | 30500            | -         |  SMT8                       |     OLTP/OLAP                               |
 {: class="simple-tab-table"}
 {: tab-group="sr3-table"}
 {: caption="P11 Certified Instance profiles with sr3 prefix" caption-side="bottom"}
@@ -81,6 +82,7 @@ The following SAP HANA profiles with prefix **sr3** on IBM {{site.data.keyword.p
 | sr3-11x512             | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        | 4 x 32 GB \nusing 'Fixed IOPs'             |
 | sr3-19x1024            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
 | sr3-76x6144            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+| sr3-229x30500          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
 {: class="simple-tab-table"}
 {: tab-group="sr3-table"}
 {: caption="Log file system configurations for SAP HANA profiles with sr3 prefix" caption-side="bottom"}
@@ -94,6 +96,7 @@ The following SAP HANA profiles with prefix **sr3** on IBM {{site.data.keyword.p
 | sr3-11x512              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 165 GB \nusing 'Tier 0'                |
 | sr3-19x1024             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                            |
 | sr3-76x6144             | 8,000         | 4 x 1980 GB             | Tier 3               | 23,760        |                                            |
+| sr3-229x30500           | 8,000         | 4 x 9827 GB             | Tier 3               | 117,924       |                                            |
 {: class="simple-tab-table"}
 {: tab-group="sr3-table"}
 {: caption="Data file system configurations for SAP HANA profiles with sr3 prefix" caption-side="bottom"}
@@ -302,30 +305,29 @@ The following SAP HANA profiles with prefix **sh2** on IBM {{site.data.keyword.p
 | **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** |  **Workload Type**  |
 | ------------------- | ------------- | ---------------- | ---------------- | -------- | -------------------------- | ------------------- |
 | sh2-4x256           | 4             | 16               | 256              | 24,000   |  SMT4                      |     OLTP            |
-| sh2-12x256          | 12            | 48               | 256              | 42,000   |  SMT4                      |     OLTP            |
 | sh2-7x256           | 7             | 28               | 256              | 42,000   |  SMT4                      |     OLTP            |
+| sh2-12x256          | 12            | 48               | 256              | 72,000   |  SMT4                      |     OLTP            |
 | sh2-4x384           | 4             | 16               | 384              | 24,000   |  SMT4                      |     OLTP            |
 | sh2-7x384           | 7             | 28               | 384              | 42,000   |  SMT4                      |     OLTP            |
 | sh2-12x384          | 12            | 48               | 384              | 42,000   |  SMT4                      |     OLTP            |
 | sh2-4x512           | 4             | 16               | 512              | 24,000   |  SMT4                      |     OLTP            |
 | sh2-7x512           | 7             | 28               | 512              | 42,000   |  SMT4                      |     OLTP            |
-| sh2-12x512          | 12            | 48               | 512              | 42,000   |  SMT4                      |     OLTP            |
+| sh2-12x512          | 12            | 48               | 512              | 72,000   |  SMT4                      |     OLTP            |
 | sh2-4x768           | 4             | 16               | 768              | 24,000   |  SMT4                      |     OLTP            |
 | sh2-7x768           | 7             | 28               | 768              | 42,000   |  SMT4                      |     OLTP            |
-| sh2-12x768          | 12            | 48               | 768              | 42,000   |  SMT4                      |     OLTP/OLAP       |
+| sh2-12x768          | 12            | 48               | 768              | 72,000   |  SMT4                      |     OLTP/OLAP       |
 | sh2-4x1000          | 4             | 16               | 1,000            | 24,000   |  SMT4                      |     OLTP            |
-| sh2-12x1000         | 12            | 48               | 1,000            | 42,000   |  SMT4                      |     OLTP/OLAP       |
 | sh2-7x1000          | 7             | 28               | 1,000            | 42,000   |  SMT4                      |     OLTP            |
+| sh2-12x1000         | 12            | 48               | 1,000            | 72,000   |  SMT4                      |     OLTP/OLAP       |
 | sh2-16x1000         | 16            | 64               | 1,000            | 96,000   |  SMT4                      |     OLTP/OLAP       |
 | sh2-25x1000         | 25            | 100              | 1,000            | 150,000  |  SMT4                      |     OLTP/OLAP       |
 | sh2-4x1500          | 4             | 16               | 1,500            | 24,000   |  SMT4                      |     OLTP            |
 | sh2-7x1500          | 7             | 28               | 1,500            | 42,000   |  SMT4                      |     OLTP            |
-| sh2-12x1500         | 12            | 48               | 1,500            | 42,000   |  SMT4                      |     OLTP/OLAP       |
+| sh2-12x1500         | 12            | 48               | 1,500            | 72,000   |  SMT4                      |     OLTP/OLAP       |
 | sh2-16x1500         | 16            | 64               | 1,500            | 96,000   |  SMT4                      |     OLTP/OLAP       |
 | sh2-25x1500         | 25            | 100              | 1,500            | 150,000  |  SMT4                      |     OLTP/OLAP       |
 | sh2-8x1900          | 8             | 64               | 1,900            | 60,800   |  SMT8                      |     OLTP            |
 | sh2-16x1900         | 16            | 128              | 1,900            | 121,600  |  SMT8                      |     OLTP/OLAP       |
-| sh2-25x1900         | 25            | 200              | 1,900            | 190,000  |  SMT8                      |     OLTP/OLAP       |
 | sh2-33x1900         | 33            | 264              | 1,900            | 250,800  |  SMT8                      |     OLTP/OLAP       |
 {: class="simple-tab-table"}
 {: tab-group="sh2-table"}
@@ -357,10 +359,10 @@ The following SAP HANA profiles with prefix **sh2** on IBM {{site.data.keyword.p
 | sh2-7x1500             | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                             |
 | sh2-12x1500            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                             |
 | sh2-16x1500            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                             |
+| sh2-25x1500            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                             |
 | sh2-8x1900             | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                             |
 | sh2-16x1900            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                             |
-| sr2-25x1900            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                             |
-| sr2-33x1900            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                             |
+| sh2-33x1900            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                             |
 {: class="simple-tab-table"}
 {: tab-group="sh2-table"}
 {: caption="Sample log file system configurations for SAP HANA profiles with sh2 prefix" caption-side="bottom"}
@@ -390,10 +392,10 @@ The following SAP HANA profiles with prefix **sh2** on IBM {{site.data.keyword.p
 | sh2-7x1500             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                            |
 | sh2-12x1500            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                            |
 | sh2-16x1500            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                            |
+| sh2-25x1500            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                            |
 | sh2-8x1900             | 8,000         | 4 x 765 GB              | Tier 3               | 8,400         |                                            |
 | sh2-16x1900            | 8,000         | 4 x 765 GB              | Tier 3               | 8,400         |                                            |
-| sr2-25x1900            | 8,000         | 4 x 765 GB              | Tier 3               | 8,400         |                                            |
-| sr2-33x1900            | 8,000         | 4 x 765 GB              | Tier 3               | 8,400         |                                            |
+| sh2-33x1900            | 8,000         | 4 x 765 GB              | Tier 3               | 8,400         |                                            |
 {: class="simple-tab-table"}
 {: tab-group="sh2-table"}
 {: caption="Sample data file system configurations for SAP HANA profiles with sh2 prefix" caption-side="bottom"}
@@ -423,10 +425,10 @@ The following SAP HANA profiles with prefix **sh2** on IBM {{site.data.keyword.p
 | sh2-7x1500             | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
 | sh2-12x1500            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
 | sh2-16x1500            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+| sh2-25x1500            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
 | sh2-8x1900             | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
 | sh2-16x1900            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sr2-25x1900            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sr2-33x1900            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+| sh2-33x1900            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
 {: class="simple-tab-table"}
 {: tab-group="sh2-table"}
 {: caption="Sample shared file system configurations for SAP HANA profiles with sh2 prefix" caption-side="bottom"}
