@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-09-27"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, support, support case, premium support, advanced support, basic support, support page, help, SAP ONE Support
 subcollection: sap
 ---
@@ -39,7 +39,7 @@ You can change your current support plan at any time by contacting {{site.data.k
 
 For full information about opening an {{site.data.keyword.cloud_notm}} Support case, or about support levels and ticket severities, see [{{site.data.keyword.cloud_notm}} Support documentation](/docs/account?topic=account-gettinghelp).
 
-If you need support but are unable to log in to your account, start a chat by going to the [{{site.data.keyword.cloud_notm}} Support](https://www.ibm.com/cloud/support){: external} page and clicking **Let's talk**.
+If you need support but are unable to log in to your account, start a chat by going to the [{{site.data.keyword.cloud_notm}} Support](https://www.ibm.com/products/cloud/support){: external} page and clicking **Let's talk**.
 {: tip}
 
 

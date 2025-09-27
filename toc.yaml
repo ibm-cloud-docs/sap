@@ -9,7 +9,7 @@ toc:
     content-type: solution
     href: /docs/sap
     console-page: "/catalog?search=SAP#search_results"
-    product-page: "https://www.ibm.com/cloud/sap"
+    product-page: "https://www.ibm.com/products/cloud/sap"
     path: sap
     description: IBM Cloud SAP-Certified Infrastructure gives you the flexibility to run your SAP workloads in the IBM Cloud when and where you need them.
     label: IBM Cloud for SAP | IBM Power Virtual Servers for SAP

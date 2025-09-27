@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-09-27"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -74,7 +74,7 @@ The following table outlines service types and the business partner categories t
 For example, some of the services that are available in partnership between {{site.data.keyword.cloud_notm}} and IBM Services include:
 - [GSI and IBM Services: SAP consulting and implementation services](https://www.ibm.com/consulting/sap){: external}
 - [AMS and IBM Services: SAP application management and development solutions](https://www.ibm.com/new/announcements){: external}
-- [MSP and IBM Services: Managed applications for SAP](https://www.ibm.com/cloud/sap){: external}
+- [MSP and IBM Services: Managed applications for SAP](https://www.ibm.com/products/cloud/sap){: external}
 
 
 ### Do I need IBM Db2 to run SAP NetWeaver on {{site.data.keyword.cloud_notm}}?
@@ -169,7 +169,7 @@ As a standard practice among cloud service providers, IBM Cloud for SAP virtual 
 
 In addition to the Bring Your Own License model, RISE with SAP is a Software as a Service offering on IBM Power Virtual Server. SAP provides the software as a subscription-based service.
 
-* [RISE with SAP on IBM {{site.data.keyword.powerSys_notm}}](https://www.ibm.com/cloud/rise-with-sap){: external} – A new Hyperscaler offering where SAP delivers RISE with SAP as a SaaS solution running on IBM Power Virtual Server. IBM Consulting and Global Systems Integrator (GSI) partners provide advisory, implementation, and migration services within the RISE with SAP framework.
+* [RISE with SAP on IBM {{site.data.keyword.powerSys_notm}}](https://www.ibm.com/products/rise-with-sap){: external} – A new Hyperscaler offering where SAP delivers RISE with SAP as a SaaS solution running on IBM Power Virtual Server. IBM Consulting and Global Systems Integrator (GSI) partners provide advisory, implementation, and migration services within the RISE with SAP framework.
 
 * [BREAKTHROUGH with IBM for RISE with SAP](https://www.ibm.com/consulting/rise-with-sap){: external} – A single-partner solution where IBM offers SAP RISE on IBM Cloud, with IBM Consulting handling advisory, implementation, and migration services.
 

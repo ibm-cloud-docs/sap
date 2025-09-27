@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-21"
+lastupdated: "2025-09-27"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, heterogeneous migration, Linux, Red Hat, RHEL, SuSE, Db2, Oracle, HANA, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize, sum, software update manager, dmo, database migration option, dmove2s4, Software Provisioning Manager, SWPM
 subcollection: sap
 ---
@@ -18,7 +18,7 @@ the SAP system to IBM {{site.data.keyword.powerSys_notm}} is complex.
 
 The following items are best practices for a heterogeneous SAP migration.
 
-* Either sign a contract for [RISE with SAP on IBM Power Virtual Server](https://www.ibm.com/cloud/rise-with-sap){: external}. The IBM RISE contract includes the service to migrate your SAP system to IBM {{site.data.keyword.powerSys_notm}}.
+* Either sign a contract for [RISE with SAP on IBM Power Virtual Server](https://www.ibm.com/products/rise-with-sap){: external}. The IBM RISE contract includes the service to migrate your SAP system to IBM {{site.data.keyword.powerSys_notm}}.
 * Or contact [IBM consulting](https://www.ibm.com/consulting/sap){: external} for more help with SAP migration service options.
 
 This information does not replace required expert advice or support.

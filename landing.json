@@ -2,7 +2,7 @@
   "version": 2,
   "title": "SAP",
   "introduction": "Find out how to run SAP Solutions on IBM Cloud. Review the documentation for your specific configuration.",
-  "product_page": "https://www.ibm.com/cloud/sap",
+  "product_page": "https://www.ibm.com/products/cloud/sap",
   "section_topics": {
     "links": [
       {
