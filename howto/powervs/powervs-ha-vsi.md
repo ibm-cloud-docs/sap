@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn, SLES HAE
 subcollection: sap
 ---
@@ -236,19 +236,36 @@ Create a **custom role** in IAM.
    - power-iaas.pvm-instance-network.delete
 1. Click **Create** to save the role.
 
+### Creating a custom role for the `powervs-move-ip` resource agent
+{: #ha-vsi-create-service-id-move-ip-role}
 
+This step is only required if you are implementing a cluster in a multizone region environment with the `powervs-move-ip` resource agent.
+{: note}
+
+Create a *custom role* in IAM and assign the set of actions that are required for for static route operations.
+You must grant access for the following actions.
+- reading objects in the *cloud_instance* or *workspace*
+- modifying objects in the *cloud_instance* or *workspace*
+
+Create a **custom role** in IAM.
+1. Click **Roles** > **Create**.
+1. Enter the **Name**, **ID**, and **Description** for the custom role.
+1. Select *Workspace for {{site.data.keyword.powerSys_notm}}* in the **Service** drop-down list.
+1. Select *Manager* from the **View the actions for** drop-down list.
+1. In the **Actions** list, locate the following actions.
+   Click **Add** for each of them.
+   - power-iaas.cloud-instance.read
+   - power-iaas.cloud-instance.modify
+1. Click **Create** to save the role.
 
 ### Creating a Service ID
 {: #ha-vsi-create-service-id}
 
 Create a *Service ID* for the fencing agent and assign one or more custom roles to it.
 
-
-
-In a multizone region implementation, you can create a second *Service ID* for the `powervs-subnet` resource agent.
+In a multizone region implementation, you can create a second *Service ID* for the `powervs-move-ip` or `powervs-subnet` resource agent.
 It is also possible to use a common Service ID for both agents (see the note in the previous section).
-If you are using a common Service ID, assign both the custom role for fencing and the custom role for the `powervs-subnet` resource agent.
-
+If you are using a common Service ID, assign both the custom role for fencing and the custom role for the `powervs-move-ip` or `powervs-subnet` resource agent.
 
 Create a **Service ID** in IAM.
 1. Click **Service IDs** > **Create**.
@@ -262,10 +279,7 @@ Create a **Service ID** in IAM.
 1. You can skip the *Conditions (Optional)* section.
 1. Click **Add** and then **Assign** to create the *Service ID*.
 
-
-
-If you create a *Service ID* for the `powervs-subnet` resource agent in a multizone region implementation, you must grant access to both workspace resources.
-
+If you create a *Service ID* for the `powervs-move-ip` or `powervs-subnet` resource agent in a multizone region implementation, you must grant access to both workspace resources.
 
 In the *Access policies* section, click **Assign access**  again and follow the steps to assign access for the second workspace.
 {: important}
@@ -301,11 +315,7 @@ These include the following parameters, which can be collected now.
 - Virtual server *instance IDs*
 - Extra parameters that must be derived from the *CRN*
 - API key for the *fencing agent*
-
-
-- API key for the *powervs-subnet* resource agent if you are implementing a multizone region environment
-
-
+- API key for the *powervs-move-ip* or *powervs-subnet* resource agent if you are implementing a multizone region environment
 
 The uppercase variables in the following section indicate that these parameters are used as environment variables to simplify the cluster setup.
 Make a note of their contents now, as they will be needed in the setup instructions for a specific high availability scenario.

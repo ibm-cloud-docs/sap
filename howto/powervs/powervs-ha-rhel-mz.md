@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -15,8 +15,10 @@ subcollection: sap
 Use the following information and procedures to implement a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster in a multizone region environment.
 The cluster uses instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 The virtual server instances run in different zones in a multizone region.
+The setup uses either the *powervs-move-ip* or the *powervs-subnet* cluster resource agent to manage the service IP address of an application in a multizone region implementation.
 
-The setup uses the *powervs-subnet* cluster resource agent to manage the service IP address of an application in a multizone region implementation.
+Recommended resource agent is *powervs-move-ip*.
+{: note}
 
 The resource agent supports only the use of different zones in the same multizone region.
 Deployment across multiple regions is not supported.
@@ -498,86 +500,178 @@ pcs cluster start
 ```
 {: pre}
 
-
 ## Preparing a multizone RHEL HA Add-On cluster for a virtual IP address resource
 {: #ha-rhel-mz-create-vip}
 
 Use the following steps to prepare a multizone RHEL HA Add-on cluster for a virtual IP address resource.
 
-### Verifying operating system requirements
-{: #ha-rhel-mz-verify-os-requirements}
+Two specific resource agents are available to manage a service IP address in a multizone region environment:
 
-Verify that the `NetworkManager-config-server` package is installed.
+- `powervs-move-ip` resource agent
 
-On both nodes, run the following command.
+    During a takeover event, the resource agent `powervs-move-ip` updates predefined static routes in the IBM {{site.data.keyword.powerSys_notm}}, and configures an overlay IP address as IP alias address on the virtual server instance.
+    If you use the `powervs-move-ip` resource agent, continue with the steps in [Installing the powervs-move-ip resource agent](#ha-rhel-mz-install-powervs-move-ip-resource-agent)
 
-```sh
-dnf list NetworkManager-config-server
-```
-{: pre}
+- `powervs-subnet` resource agent
 
-Sample output:
-
-```sh
-# dnf list NetworkManager-config-server
-Installed Packages
-NetworkManager-config-server.noarch                                    1:1.42.2-16.el9_2                                     @rhel-9-for-ppc64le-baseos-e4s-rpms
-```
-{: screen}
-
-Make sure that the NetworkManager `no-auto-default` configuration variable is set to `*`.
-
-```sh
-NetworkManager --print-config | grep "no-auto-default="
-```
-{: pre}
-
-Sample output:
-
-```sh
-# NetworkManager --print-config | grep "no-auto-default="
-no-auto-default=*
-```
-{: screen}
-
-If the `no-auto-default` shows a value other than `*`, edit the `/etc/NetworkManager/conf.d/00-server.conf` file and change the variable as needed.
+    During a takeover event, the resource agent `powervs-subnet` moves the entire subnet, including the IP address, from one workspace to another.
 
 ### Installing the powervs-subnet resource agent
 {: #ha-rhel-mz-install-powervs-subnet-resource-agent}
 
-Currently, the *powervs-subnet* resource agent is available in the ClusterLabs GitHub resource agent repository.
+1. Verify that the `NetworkManager-config-server` package is installed.
 
-Download the resource agent from https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/powervs-subnet.in and place a copy in the `/tmp` directory on both nodes.
+   On both nodes, run the following command.
 
-On both nodes, install the script in the *OCF Resource Agents* heartbeat directory and set its permissions.
+    ```sh
+    dnf list NetworkManager-config-server
+    ```
+    {: pre}
 
-```sh
-sed -e 's|#!@PYTHON@|#!/usr/bin/python3|' /tmp/powervs-subnet.in \
-     > /usr/lib/ocf/resource.d/heartbeat/powervs-subnet
-```
-{: pre}
+    Sample output:
 
-```sh
-chmod 755 /usr/lib/ocf/resource.d/heartbeat/powervs-subnet
-```
-{: pre}
+    ```sh
+    # dnf list NetworkManager-config-server
+    Installed Packages
+    NetworkManager-config-server.noarch                                    1:1.42.2-16.el9_2                                     @rhel-9-for-ppc64le-baseos-e4s-rpms
+    ```
+    {: screen}
 
-Use the following command to verify the installation and display a brief description of the resource agent.
+    Make sure that the NetworkManager `no-auto-default` configuration variable is set to `*`.
 
-```sh
-pcs resource describe powervs-subnet
-```
-{: pre}
+    ```sh
+    NetworkManager --print-config | grep "no-auto-default="
+    ```
+    {: pre}
 
-### Creating a service ID for the `powervs-subnet` resource agent
+    Sample output:
+
+    ```sh
+    # NetworkManager --print-config | grep "no-auto-default="
+    no-auto-default=*
+    ```
+    {: screen}
+
+    If the `no-auto-default` shows a value other than `*`, edit the `/etc/NetworkManager/conf.d/00-server.conf` file and change the variable as needed.
+
+1. Download the *powervs-subnet* resource agent
+
+   Currently, the *powervs-subnet* resource agent is available in the ClusterLabs GitHub resource agent repository.
+
+   Download the resource agent from https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/powervs-subnet.in and place a copy in the `/tmp` directory on both nodes.
+
+1. Install the resource agent script
+
+   On both nodes, install the script in the *OCF Resource Agents* heartbeat directory and set its permissions.
+
+   ```sh
+   sed -e 's|#!@PYTHON@|#!/usr/bin/python3|' /tmp/powervs-subnet.in \
+        > /usr/lib/ocf/resource.d/heartbeat/powervs-subnet
+   ```
+   {: pre}
+
+   ```sh
+   chmod 755 /usr/lib/ocf/resource.d/heartbeat/powervs-subnet
+   ```
+   {: pre}
+
+   Use the following command to verify the installation and display a brief description of the resource agent.
+
+   ```sh
+   pcs resource describe powervs-subnet
+   ```
+   {: pre}
+
+Continue with the steps in [Creating a service ID for the resource agent](#ha-rhel-mz-iam-custom-role)
+
+### Installing the powervs-move-ip resource agent
+{: #ha-rhel-mz-install-powervs-move-ip-resource-agent}
+
+1. Download the *powervs-move-ip* resource agent
+
+   Currently, the *powervs-move-ip* resource agent is available in the ClusterLabs GitHub resource agent repository.
+   Download the resource agent from https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/powervs-move-ip.in and place a copy in the `/tmp` directory on both nodes.
+
+1. Install the resource agent script
+
+   On both nodes, install the script in the *OCF Resource Agents* heartbeat directory and set its permissions.
+
+   ```sh
+   sed -e 's|#!@PYTHON@|#!/usr/bin/python3|' /tmp/powervs-move-ip.in \
+        > /usr/lib/ocf/resource.d/heartbeat/powervs-move-ip
+   ```
+   {: pre}
+
+   ```sh
+   chmod 755 /usr/lib/ocf/resource.d/heartbeat/powervs-move-ip
+   ```
+   {: pre}
+
+   Use the following command to verify the installation and display a brief description of the resource agent.
+
+   ```sh
+   pcs resource describe powervs-move-ip
+   ```
+   {: pre}
+
+### Creating the static route in the workspace for the powervs-move-ip resource agent
+{: #ha-rhel-mz-install-powervs-move-ip-create-route}
+
+1. Determine the next hop IP addresses of the virtual server instances of the cluster.
+   Follow these steps:
+
+   1. Open the {{site.data.keyword.powerSys_notm}} user interface in [IBM Cloud](https://cloud.ibm.com/power/overview){: external}.
+   1. Click **Workspaces** in the left navigation menu.
+   1. Select the workspace where the cluster node is provisioned.
+      The "Workspace details" panel is displayed.
+   1. Click **View virtual servers**.
+      The list of virtual server instances is displayed.
+   1. Identify your virtual server instance and its IP address.
+      Note the IP address.
+      You need to enter that IP address as **Next Hop** in the route.
+
+1. For each virtual IP address that you configure as cluster resource, create a static route in both {{site.data.keyword.powerSys_notm}} workspaces.
+      Follow these steps:
+
+   1. Open the {{site.data.keyword.powerSys_notm}} user interface in [IBM Cloud](https://cloud.ibm.com/power/overview){: external}.
+   1. Click **Workspaces** in the left navigation menu.
+   1. Select the workspace in which you want to create the static route.
+      The "Workspace details" panel is displayed.
+   1. Click **View virtual servers**.
+   1. In the navigation pane, click **Networking** > **Routes**.
+      The **Static routes** page lists the existing static routes (if any).
+   1. Click **Create static route** to create a new route.
+   1. In the "Create static route" panel
+      1. Enter a name for the static route in the **Name** field.
+      1. Optionally, enter user tags in the **User tags (optional)** field.
+      1. In the **Destination** field, enter a valid IP address.
+         The destination IP address must not belong to any of the CIDR blocks of the subnets in the scenario.
+      1. In the **Next hop** field, enter a valid IP address.
+         The next hop IP address must
+         - Belong to a CIDR ranges of a subnet in the workspace.
+         - Match an primary IP address of a network adapter of the cluster nodes virtual server instance.
+      1. **Advertise** and **Status**: Leave both switches set to **Enabled** (default).
+
+         The **Advertise** switch controls whether the static route is propagated outside of the workspace to the Power Edge Router (PER).
+         If **Advertise** is disabled, the route remains internal and is not visible to external network connections.
+
+         The **Status** switch determines whether the static route is active within the network fabric.
+         If **Status** is set to **Disabled**, the route is not used — even if **Advertise** is enabled.
+
+      1. Click **Create route**.
+
+    Repeat the step for both cluster nodes.
+    Note the cloud resource name *CRN* for each of the routes.
+    You need to enter the CRNs during the cluster resource configuration steps for the specific high availability scenario.
+
+### Creating a service ID for the resource agent
 {: #ha-rhel-mz-iam-custom-role}
 
-Follow the steps in [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-role-and-service-id) to create a `Service ID` and an `API key` for the `powervs-subnet` resource agent.
+Follow the steps in [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-role-and-service-id) to create a `Service ID` and an `API key` for the resource agent.
 
 ## Conclusion
 {: #ha-rhel-mz-conclusion}
 
-This completes the basic cluster implementation and the necessary preparations for creating a `powervs-subnet` cluster resource.
-The `powervs-subnet` cluster resource itself is created during the configuration of the specific high availability scenario.
+This completes the basic cluster implementation and the necessary preparations.
 
-You can now proceed with the specific instructions for your planned high availability scenario.
+The IP address cluster resource using either the `powervs-move-ip` or the `powervs-subnet` resource agent is created during the configuration of the specific high availability scenario.

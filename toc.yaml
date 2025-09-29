@@ -178,6 +178,14 @@ toc:
               topics:
                 - navtitle: Accessing File Storage for VPC from IBM Power Virtual Server instances
                   topic: tutorial/powervs/powervs-ha-nfs-tutorial.md
+                - navtitle: Accessing File Storage for VPC with regional availability from IBM Power Virtual Server instances
+                  topic: tutorial/powervs/powervs-ha-rfs-tutorial.md
+          - topicgroup:
+              label: Overlay IP Routing in IBM Power Virtual Server
+              id: "powervs-overlay-ip-routing"
+              topics:
+                - navtitle: Creating a static route and an overlay IP address for an IBM Power Virtual Server instance
+                  topic: tutorial/powervs/powervs-ha-ip-route-tutorial.md
     - navgroup:
         id: howto
         topics:
@@ -458,6 +466,8 @@ toc:
                         topic: howto/powervs/powervs-ha-rhel-nfs.md
                       - navtitle: Implementing SBD poison-pill fencing
                         topic: howto/powervs/powervs-ha-rhel-sbd.md
+                      - navtitle: Configuring and manual failover PowerVS Multi-Zone Overlay IP (non-pacemaker)
+                        topic: howto/powervs/powervs-ha-rhel-ovl-ip-manual.md
                 - topicgroup:
                     label: Implementing SLES HA Cluster Extension for SAP solutions
                     id: "sap-ha-scenarios-on-power-virtual-server-with-sles"
