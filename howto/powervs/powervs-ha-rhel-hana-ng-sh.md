@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -67,21 +67,25 @@ export DC1="Site1"          # HANA system replication site name
 export NODE2=<HOSTNAME_2>   # Virtual server instance hostname
 export DC2="Site2"          # HANA system replication site name
 
-# Single zone
+# Single zone and Multizone region 
 export VIP=<IP address>     # SAP HANA system replication cluster virtual IP address
 
-# Multizone region
+# Multizone region only
 export CLOUD_REGION=<CLOUD_REGION>       # Multizone region name
 export APIKEY="APIKEY or path to file"   # API Key of the IBM Cloud IAM ServiceID for the resource agent
 export API_TYPE="private or public"      # Use private or public API endpoints
-export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace 1 CRN
-export IBMCLOUD_CRN_2=<IBMCLOUD_CRN_2>   # Workspace 2 CRN
-export POWERVSI_1=<POWERVSI_1>           # Virtual server instance 1 id
-export POWERVSI_2=<POWERVSI_2>           # Virtual server instance 2 id
-export SUBNET_NAME="vip-${sid}-net"      # Name which is used to define the subnet in IBM Cloud
-export CIDR="CIDR of subnet"             # CIDR of the subnet containing the service IP address
-export VIP="Service IP address"          # IP address in the subnet
-export JUMBO="true or false"             # Enable Jumbo frames
+# resource agent powervs-move-ip only
+export ROUTE_CRN1=<Route_CRN1>  # CRN of the static route in Workspace_1 with destination VIP (powervs-move-ip only)
+export ROUTE_CRN2=<Route_CRN2>  # CRN of the static route in Workspace_2 with destination VIP (powervs-move-ip only)
+export MON_API="false or true"           # Use cloud api in monitor command (powervs-move-ip only)
+# resource agent powervs-subnet only
+export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace 1 CRN (powervs-subnet only)
+export IBMCLOUD_CRN_2=<IBMCLOUD_CRN_2>   # Workspace 2 CRN (powervs-subnet only)
+export POWERVSI_1=<POWERVSI_1>           # Virtual server instance 1 id (powervs-subnet only)
+export POWERVSI_2=<POWERVSI_2>           # Virtual server instance 2 id (powervs-subnet only)
+export SUBNET_NAME="vip-${sid}-net"      # Name which is used to define the subnet in IBM Cloud (powervs-subnet only)
+export CIDR="CIDR of subnet"             # CIDR of the subnet containing the service IP address (powervs-subnet only)
+export JUMBO="true or false"             # Enable Jumbo frames (powervs-subnet only)
 ```
 {: codeblock}
 
@@ -97,7 +101,7 @@ Set the `VIP` environment variable to the reserved IP address.
 Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, `POWERVSI_?` variables as described in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
 Set `API_TYPE` to `private` to enable communication with the IBM Cloud IAM and IBM Power Cloud API through private endpoints.
 
-Prepare the variables for the subnet:
+Prepare the variables for the `powervs-subnet` resource agent:
 - `SUBNET_NAME` specifies the name of the subnet.
 - `CIDR` defines the subnet in *Classless Inter-Domain Routing (CIDR)* format: `<IPv4_address>/number`.
 - `VIP` is the virtual IP address and must fall within the defined `CIDR`.
@@ -106,7 +110,7 @@ Prepare the variables for the subnet:
 The subnet `SUBNET_NAME` must not exist,  and its CIDR range must not overlap with the IP ranges of any existing subnets in either workspace.
 {: attention}
 
-The following export commands show how to set the required environment variables for a multizone region implementation.
+The following export command sample show how to set the required environment variables for a multizone region `powervs-subnet` implementation.
 
 ```sh
 export CLOUD_REGION="eu-de"
@@ -515,8 +519,8 @@ pcs resource config SAPHanaController_${SID}_${INSTNO}
 
 Choose the appropriate configuration path based on your deployment scenario:
 
-- [Creating a virtual IP cluster resource in a single zone environment](#ha-rhel-hana-sr-sz-create-virtual-ip-resource): Follows these steps if the cluster nodes are running in a single {{site.data.keyword.powerSys_notm}} workspace.
-- [Creating a virtual IP cluster resource in a multizone region environment](#ha-rhel-hana-sr-mz-create-virtual-ip-resource): Follow these steps if the cluster nodes are running in separate {{site.data.keyword.powerSys_notm}} workspaces.
+- [Creating a virtual IP cluster resource in a single zone environment](#ha-rhel-hana-ng-sh-sz-create-virtual-ip-resource): Follows these steps if the cluster nodes are running in a single {{site.data.keyword.powerSys_notm}} workspace.
+- [Creating a virtual IP cluster resource in a multizone region environment](#ha-rhel-hana-ng-sh-mz-create-virtual-ip-resource): Follow these steps if the cluster nodes are running in separate {{site.data.keyword.powerSys_notm}} workspaces.
 
 #### Creating a virtual IP cluster resource in a single zone environment
 {: #ha-rhel-hana-ng-sh-sz-create-virtual-ip-resource}
@@ -550,12 +554,31 @@ Proceed to the [Creating cluster resource constraints](#ha-rhel-hana-sr-create-c
 #### Creating a virtual IP cluster resource in a multizone region environment
 {: #ha-rhel-hana-ng-sh-mz-create-virtual-ip-resource}
 
+Decide on the resource manager for virtual IP cluster resource in the [SAP HANA high availability solution in a multizone region environment - Network considerations](/docs/sap?topic=sap-ha-overview#ha-overview-hana-mzr-network) section.
+
 Ensure that you completed all steps in the [Preparing a multi-zone RHEL HA Add-On cluster for a virtual IP address resource](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-create-vip) section.
 
-Use the `pcs resource describe powervs-subnet` command to get information about the resource agent parameters.
+Use the `pcs resource describe powervs-move-ip` command to get information about the `powervs-move-ip` resource agent parameters. Use the `pcs resource describe powervs-subnet` command to get information about the `powervs-subnet` resource agent parameters.
 {: note}
 
-On NODE1, create a `powervs-subnet` cluster resource by running the following command.
+If you use the `powervs-move-ip` resource agent, run the following command on NODE1 to create a cluster resource for the virtual IP address.
+
+```sh
+pcs resource create vip_${SID}_${INSTNO} powervs-move-ip \
+    api_key=${APIKEY} \
+    api_type=${API_TYPE} \
+    ip=${VIP} \
+    route_host_map="${NODE1}:${ROUTE_CRN1};${NODE2}:${ROUTE_CRN2}" \
+    region=${CLOUD_REGION} \
+    monitor_api=${MON_API}
+    op start timeout=60 \
+    op stop timeout=60 \
+    op monitor interval=60 timeout=60 \
+    --disabled
+```
+{: pre}
+
+Otherwise, run the following command on NODE1 to create a `powervs-subnet` cluster resource for the virtual IP address.
 
 ```sh
 pcs resource create vip_${SID}_${INSTNO} powervs-subnet \
@@ -588,7 +611,7 @@ pcs resource config vip_${SID}_${INSTNO}
 ```
 {: pre}
 
-Sample output:
+Sample output for `powervs-subnet` resource agent:
 
 ```sh
 # pcs resource config vip_MH1_00

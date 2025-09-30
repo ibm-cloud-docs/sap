@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -135,15 +135,62 @@ Depending on your requirements, select one of the two available topologies.
 ## SAP HANA high availability solution in a multizone region environment
 {: #ha-overview-hana-mzr-ha-scenario}
 
+### Network considerations
+{: #ha-overview-hana-mzr-network}
 
-A subnet in IBM {{site.data.keyword.powerSys_notm}} cannot span multiple workspaces.
-It is not possible to move a service IP address to a second workspace and continue to use it from VPC or other workspaces to access the services provided.
-However, this capability is required to set up a highly available SAP HANA system replication scenario in a multizone region environment.
+In IBM {{site.data.keyword.powerSys_notm}}, a subnet is confined to a single workspace and cannot extend across multiple workspaces. Consequently, transferring a service IP address to a secondary workspace and maintaining communication with it from IBM VPC or another IBM {{site.data.keyword.powerSys_notm}} workspace is not feasible.
+The common Linux cluster resource agent `ipaddr2` cannot be used to move the service IP address.
 
-The `powervs-subnet` resource agent addresses this limitation.
-During a takeover event, the resource agent moves the entire subnet, including the IP address, from one workspace to another.
+Two other resource agents are available to manage a service IP address in a multizone region environment in IBM {{site.data.keyword.powerSys_notm}}.
+- Resource agent `powervs-move-ip`
+- Resource agent `powervs-subnet`
 
-The following figures illustrate this scenario.
+#### Resource agent `powervs-move-ip`
+{: #ha-overview-hana-mzr-move-ip}
+
+During a takeover event, the resource agent `powervs-move-ip` updates predefined static routes in the IBM {{site.data.keyword.powerSys_notm}}, and configures an overlay IP address as IP alias address on the virtual server instance.
+
+The following figures illustrate this scenario for a SAP HANA System Replication cluster.
+- Two virtual server instances (VSIs) are deployed in separate workspaces.
+- A private subnet is created in each workspace.
+- The instances, running RHEL, form a two-node RHEL High Availability Add-on cluster.
+- SAP HANA is installed on both instances, and SAP HANA system replication is configured.
+- A cluster resource for an *Overlay IP address* is configured with the `powervs-move-ip` resource agent.
+
+The *Overlay IP* has the following characteristics
+- The *Overlay IP* is not part of any CIDR subnet range in the environment.
+- It is not assigned to a network interface during deployment.
+- The resource agent configures the *Overlay IP address* as an IP alias address on a network adapter of a VSI at run time.
+
+A *static route* is created in each workspace
+- The *destination* of the *static route* is set to the overlay IP address.
+- The *next hop* for each route is the *primary IP* address of the respective virtual server instance (VSI).
+- The resource agent *enables the route* to the VSI with the *SAP HANA primary* and *disables the route* to the VSI with the *SAP HANA secondary*.
+
+During *normal operation*
+- The *Overlay IP address* is configured as an IP alias on VSI-1 in *workspace 1*.
+- The *static route* in *workspace 1*, with the *destination* set to the Overlay IP address and the *next hop* set to the primary IP of VSI-1, is *enabled*.
+- The *static route* in *workspace 2*, with the same destination and the next hop set to the primary IP of VSI-2, is *disabled*.
+- The *SAP HANA primary* is active on *VSI-1*.
+- The *SAP HANA secondary* is active on *VSI-2*.
+
+![Figure 3. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](../../images/powervs-ha-architecture-ovlip-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
+
+After a *cluster takeover*
+- The *Overlay IP address* is configured as an *IP alias* on *VSI-2* in *workspace 2*.
+- The *static route* in *workspace 2*, with the *destination* set to the Overlay IP address and the *next hop* set to the primary IP of VSI-2, is *enabled*.
+- The *static route* in *workspace 1*, with the same destination and the next hop set to the primary IP of VSI-1, is *disabled*.
+- The *SAP HANA primary* is active on *VSI-2*.
+- The *SAP HANA secondary* is active on *VSI-1*.
+
+![Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](../../images/powervs-ha-architecture-ovlip-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
+
+#### Resource agent `powervs-subnet`
+{: #ha-overview-hana-mzr-subnet}
+
+During a takeover event, the resource agent `powervs-subnet` moves the entire subnet, including the IP address, from one workspace to another.
+
+The following figures illustrate this scenario for a SAP HANA System Replication cluster.
 
 Two virtual server instances are deployed in separate workspaces with different subnets.
 - SAP HANA is installed on both virtual server instances, and SAP HANA System Replication is configured.
@@ -152,23 +199,36 @@ Two virtual server instances are deployed in separate workspaces with different 
    Choose a small range for the Classless Inter-Domain Routing (CIDR), only `IP address 3` and an IP address for the gateway are allocated in `Subnet 3`.
 - SAP HANA database clients use `IP address 3` connect to the database.
 
+The subnet *Subnet 3* has the following characteristics
+- The CIDR range of the subnet does not overlap with any other CIDR subnet block in the environment.
+- The subnet does not exist in both workspaces
+- The resource agent creates the subnet in one of the workspaces.
+
 During *normal operation*
 - *Subnet 3* is created in workspace 1.
 - *Subnet 3* is attached to virtual server instance 1.
 - *IP address 3* is configured on virtual server instance 1.
-- The *SAP HANA primary* is active on virtual server instance 1, and the *SAP HANA secondary* is active on virtual server instance 2.
+- The *SAP HANA primary* is active on virtual server instance 1.
+- The *SAP HANA secondary* is active on virtual server instance 2.
 
-![Figure 3. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](../../images/powervs-ha-architecture-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
+![Figure 5. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](../../images/powervs-ha-architecture-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
 
 After a *cluster takeover*
 - *Subnet 3* is created in workspace 2.
 - *Subnet 3* is attached to virtual server instance 2.
 - *IP address 3* is configured on virtual server instance 2.
 - The *SAP HANA primary* is active on virtual server instance 2.
+- The *SAP HANA secondary* is active on virtual server instance 1.
 
-![Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](../../images/powervs-ha-architecture-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
+![Figure 6. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](../../images/powervs-ha-architecture-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
 
-See the information in [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz){: external} on how to prepare and configure a Red Hat Enterprise Linux (RHEL) High Availability (HA) cluster for the `powervs-subnet` resource agent.
+### Links to the setup documentation
+{: #ha-overview-hana-mzr-howto}
+
+See the information in [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz){: external} on how to prepare and configure a Red Hat Enterprise Linux (RHEL) High Availability (HA) cluster.
+
+To configure an SAP HANA System Replication cluster in a multizone region environment, refer to the following resource:
+- [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-sh){: external}
 
 To configure an SAP S/4HANA (ASCS and ERS) cluster in a multizone region environment, refer to the following resources:
 - [Configuring high availability for SAP S/4HANA (ASCS and ERS) on Red Hat Enterprise Linux HA Add-On clusters in a multizone region with simple mount](/docs/sap?topic=sap-ha-rhel-ensa-sm-mz){: external}
