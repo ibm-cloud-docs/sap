@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-22"
+lastupdated: "2025-09-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Sybase
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# SAP NetWeaver 7.x on UNIX with Sybase on {{site.data.keyword.cloud}} VPC
+# SAP NetWeaver 7.x on UNIX with ASE on {{site.data.keyword.cloud}} VPC
 {: #sap-refarch-nw-sybase}
 
 Sybase is one of the many databases that can be run with SAP NetWeaver and that is supported on the {{site.data.keyword.cloud}}. The most common architecture deployments are standard and distributed. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, Java, and SAP products based on these application server stacks.

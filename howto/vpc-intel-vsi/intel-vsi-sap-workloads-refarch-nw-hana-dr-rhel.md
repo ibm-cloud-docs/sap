@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-24"
+lastupdated: "2025-09-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, RHEL
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# SAP NetWeaver 7.5 on SAP HANA 2.0 with Disaster Recovery on RHEL 8.6
+# SAP NetWeaver 7.5 on SAP HANA 2.0 with Disaster Recovery on RHEL
 {: #sap-nw-hana-dr-intro}
 
 This document describes the deployment of an SAP NetWeaver 7.5 running on SAP HANA 2.0 as the database solution, with Disaster Recovery (DR) setup across two IBM Virtual Private Cloud (VPC) regions. The supported operating system is RHEL 8.6.

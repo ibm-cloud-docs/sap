@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-09-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SLES, HADR
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# SAP NetWeaver 7.5 on SAP ASE with High Availability (HADR) on SLES
+# SAP NetWeaver 7.5 on SAP ASE with High Availability (HA) on SLES
 {: #sap-nw-hadr-intro}
 
 This document describes the deployment of an SAP NetWeaver 7.5 running on SAP ASE 16 as the database solution with a High Availability (HA) setup on IBM Virtual Private Cloud (VPC) regions. The supported operating system is SUSE 15.6.

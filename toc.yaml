@@ -65,7 +65,7 @@ toc:
                   topic: plan/sap-offerings-hana-iaas-intel-bm-vpc.md
                 - navtitle: Intel Bare Metal servers in Classic
                   topic: plan/sap-offerings-hana-iaas-intel-bare-metal-profiles.md
-                - navtitle: Intel Bare Metal server with Intel Optane DC Persistent Memory certified profiles for SAP HANA
+                - navtitle: Intel Bare Metal server with Intel Optane DC Persistent Memory
                   topic: plan/sap-offerings-hana-iaas-intel-optane-profiles.md
                 - navtitle: VMware in Classic
                   topic: plan/sap-offerings-hana-iaas-vmware-sddc-profiles.md
@@ -408,24 +408,24 @@ toc:
                     label: SAP Reference architectures
                     id: "sap-workloads-in-vpc-sap-ref-arch"
                     topics:
-                      - navtitle: SAP NetWeaver 7.x on UNIX with SAP ASE
-                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-sybase.md
-                      - navtitle: SAP NetWeaver 7.x on UNIX with Db2
+                      - navtitle: SAP NetWeaver 7.x on Db2
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-db2.md
-                      - navtitle: SAP NetWeaver 7.x on Windows Servers with MS SQL
+                      - navtitle: SAP NetWeaver 7.x on MS SQL (Windows)
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-mssql.md
-                      - navtitle: SAP NetWeaver 7.x with SAP HANA
-                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-hana.md
                       - navtitle: SAP HANA Scale-out
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-hana-scaleout.md
                       - navtitle: SAP S/4HANA HA
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-s4hana-ha-config.md
+                      - navtitle: SAP NetWeaver 7.x on SAP HANA
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-hana.md
                       - navtitle: SAP NetWeaver 7.x on HANA with HA
                         topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-hana-ha-config.md
-                      - navtitle: SAP NetWeaver 7.x on HANA with DR
-                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-hana-disaster-recovery.md
-                      - navtitle: SAP NetWeaver 7.x on ASE with HADR (SLES)
-                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-ase-hadr-sles.md
+                      - navtitle: SAP NetWeaver 7.x on HANA with DR (RHEL)
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-hana-dr-rhel.md
+                      - navtitle: SAP NetWeaver 7.x on ASE
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-ase.md
+                      - navtitle: SAP NetWeaver 7.x on ASE with HA (SLES)
+                        topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-ase-ha-sles.md
           - topicgroup:
               label: High availability scenarios on Power Virtual Server
               id: "sap-ha-scenarios-on-power-virtual-server"
