@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-01"
+lastupdated: "2025-09-30"
 keywords: SAP
 subcollection: sap
 ---
@@ -14,6 +14,19 @@ subcollection: sap
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
 
+
+## September 2025
+{: #sap-2025-09}
+
+- Introduced new [P11 sr3 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr3-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
+- Introduced new [sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr2-nw-profiles) for SAP NetWeaver/Application Servers on {{site.data.keyword.powerSysFull}}.
+- New documentation: [Configuring high availability for SAP S/4HANA (ASCS and ERS) on Red Hat Enterprise Linux HA Add-On clusters in a multizone region with simple mount](/docs/sap?topic=sap-ha-rhel-ensa-sm-mz)
+- New documentation: [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-sh)
+- New documentation: [Accessing File Storage for VPC with regional availability from IBM Power Virtual Server instances](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro)
+- New documentation: [PowerVS multi-zone overlay IP setup and manual failover - non-pacemaker](/docs/sap?topic=sap-ha-rt-sap-ip)
+- New documentation: [Creating a static route and an overlay IP address for a virtual server instance in IBM Power Virtual Server](/docs/sap?topic=sap-ha-rt-ovl-ip-intro)
+- New reference architecture: [SAP NetWeaver 7.5 on SAP ASE with High Availability on SLES](/docs/sap?topic=sap-sap-nw-hadr-intro)
+- New reference architecture: [SAP NetWeaver 7.5 on SAP HANA with Disaster Recovery on RHEL](/docs/sap?topic=sap-sap-nw-hana-dr-intro)
 
 
 ## August 2025
