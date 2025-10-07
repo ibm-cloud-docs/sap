@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-10-06"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Db2
 subcollection: sap
 ---
@@ -103,7 +103,7 @@ Optionally, you can install the ASCS instance with an integrated:
     *  Message Server - The message server keeps a list of all server processes in the AS Java cluster and provides information about their availability to Internet Communication Manager (ICM). It also represents the infrastructure for data exchange between the participating server processes.
     *  Enqueue Server - The enqueue server manages logical locks. The enqueue server runs on the Central Services instance of the Java cluster. It manages the lock table in the main memory and receives requests for setting or releasing locks. It maps the logical locks to the database.
 
-#### Db2 for standard system
+### Db2 for standard system
 {: #sap-refarch-nw-db2-as-standard-system}
 
 * Database instance (DB) - Db2 in this case. For more information, see [AnyDB - IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
