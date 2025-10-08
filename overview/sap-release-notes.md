@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-08"
 keywords: SAP
 subcollection: sap
 ---
@@ -15,14 +15,15 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 {: shortdesc}
 
 
+
 ## September 2025
 {: #sap-2025-09}
 
-- Introduced new [P11 sr3 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr3-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
+- Introduced new [P11 sr3 profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr3-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
 - Introduced new [sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr2-nw-profiles) for SAP NetWeaver/Application Servers on {{site.data.keyword.powerSysFull}}.
 - New documentation: [Configuring high availability for SAP S/4HANA (ASCS and ERS) on Red Hat Enterprise Linux HA Add-On clusters in a multizone region with simple mount](/docs/sap?topic=sap-ha-rhel-ensa-sm-mz)
 - New documentation: [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-sh)
-- New documentation: [Accessing File Storage for VPC with regional availability from IBM Power Virtual Server instances](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro)
+- New documentation: [Accessing File Storage for VPC with regional availability from IBM Power Virtual Server instances](/docs/sap?topic=sap-nfs-regional-powervs-intro)
 - New documentation: [PowerVS multi-zone overlay IP setup and manual failover - non-pacemaker](/docs/sap?topic=sap-ha-rt-sap-ip)
 - New documentation: [Creating a static route and an overlay IP address for a virtual server instance in IBM Power Virtual Server](/docs/sap?topic=sap-ha-rt-ovl-ip-intro)
 - New reference architecture: [SAP NetWeaver 7.5 on SAP ASE with High Availability on SLES](/docs/sap?topic=sap-sap-nw-hadr-intro)
@@ -43,7 +44,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 - Introduced new [vx3d OLTP profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-sr-vpc-list) for SAP HANA on {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}}.
 - Introduced new [bh2, ch2 and mh2 (OLAP, OLTP, and OLTP upto 4N) profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#bh2-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
 - Introduced new [sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr2-nw-profiles) for SAP NetWeaver/Application Servers on {{site.data.keyword.powerSysFull}}.
-- New documentation: [Accessing File Storage for VPC from {{site.data.keyword.powerSysFull}} Instances](/docs/sap?topic=sap-ha-nlb-rt-nfs-intro)
+- New documentation: [Accessing File Storage for VPC from {{site.data.keyword.powerSysFull}} Instances](/docs/sap?topic=sap-nfs-zonal-powervs-intro)
 - New documentation: [Alerting and notification in IBM Cloud Monitoring](/docs/sap?topic=sap-mon-alerting-notification)
 - Updated [architecuture diagram](/docs/sap?topic=sap-mon-getting-started#monitoring-architecture) for {{site.data.keyword.mon_full_notm}} solution.
 
@@ -78,4 +79,4 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 - **High availability best practices:** New documentation on [implementing high availability](/docs/sap?topic=sap-ha-overview) scenarios for {{site.data.keyword.powerSys_notm}}.
 - **Backup strategies:** New documentation on [comprehensive backup strategies](/docs/sap?topic=sap-powervs-backup-strategies) for SAP HANA database on {{site.data.keyword.powerSys_notm}}.
 - **SAP workload monitoring:** Learn how to [monitor SAP workloads](/docs/sap?topic=sap-mon-getting-started) using {{site.data.keyword.BluSoftlayer_notm}} Monitoring instance and Prometheus server.
-- **VPC File Storage tutorial:** New [tutorial](/docs/sap?topic=sap-ha-nlb-rt-nfs-intro) for accessing VPC file storage shares from {{site.data.keyword.powerSys_notm}} instances.
+- **VPC File Storage tutorial:** New [tutorial](/docs/sap?topic=sap-nfs-zonal-powervs-intro) for accessing VPC file storage shares from {{site.data.keyword.powerSys_notm}} instances.

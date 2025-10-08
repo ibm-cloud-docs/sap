@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-29"
+lastupdated: "2025-10-08"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -15,8 +15,8 @@ subcollection: sap
 This document provides guidance on the following topics:
 1. [Creating a static route and an overlay IP address for an IBM PowerVS instance](#ha-rt-sap-ip-intro)
 1. [Preparing the PowerVS Multi-Zone HA environment](#ha-rt-sap-ip-prep)
-1. [Failover the HANA database](#ha-rt-sap-ip-hana)
-1. [Failover the ASCS instance](#ha-rt-sap-ip-ascs)
+1. [Failover the HANA database](#ha-rt-sap-ip-hana-failover)
+1. [Failover the ASCS instance](#ha-rt-sap-ip-ascs-failover)
 
 ## Creating a static route and an overlay IP address for a virtual server instance in IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-rt-sap-ip-intro}

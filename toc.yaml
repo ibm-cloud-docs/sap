@@ -172,19 +172,31 @@ toc:
           - navtitle: SAP NetWeaver deployment with Windows Server on Bare Metal in Classic
             topic: tutorial/classic-intel-bm/classic-bm-quickstudy-nw-wins.md
       - topicgroup:
-          label: VPC infrastructure integration scenarios
-          id: vpc-infrastructure-integration
-          topics:
-          - navtitle: Accessing File Storage for VPC from IBM Power Virtual Server instances
-            topic: tutorial/powervs/powervs-ha-nfs-tutorial.md
-          - navtitle: Accessing File Storage for VPC with regional availability from IBM Power Virtual Server instances
-            topic: tutorial/powervs/powervs-ha-rfs-tutorial.md
-      - topicgroup:
           label: Overlay IP Routing in IBM Power Virtual Server
           id: powervs-overlay-ip-routing
           topics:
           - navtitle: Creating a static route and an overlay IP address for an IBM Power Virtual Server instance
             topic: tutorial/powervs/powervs-ha-ip-route-tutorial.md
+      - topicgroup:
+          label: Accessing file storage shares for VPC
+          id: file-storage-shares-for-vpc
+          topics:
+          - topicgroup:
+              label: VPC zonal file storage
+              id: file-storage-share-zonal
+              topics:
+              - navtitle: From VPC Virtual Server Instances
+                topic: tutorial/vpc-intel-vsi/intel-vsi-file-storage-share-zonal.md
+              - navtitle: From Power Virtual Server instances
+                topic: tutorial/powervs/powervs-file-storage-share-zonal.md
+          - topicgroup:
+              label: VPC regional file storage
+              id: file-storage-share-regional
+              topics:
+              - navtitle: From VPC Virtual Server Instances
+                topic: tutorial/vpc-intel-vsi/intel-vsi-file-storage-share-regional.md
+              - navtitle: From Power Virtual Server Instances
+                topic: tutorial/powervs/powervs-file-storage-share-regional.md
   - navgroup:
       id: howto
       topics:

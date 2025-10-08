@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-10-08"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -76,7 +76,7 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 ### Deployment
 {: #fast-path-power-vs-tutorial-deploy}
 
-- [Accessing File Storage for VPC from IBM {{site.data.keyword.powerSys_notm}} instances](/docs/sap?topic=sap-ha-nlb-rt-nfs-intro)
+- [Accessing File Storage for VPC from IBM {{site.data.keyword.powerSys_notm}} instances](/docs/sap?topic=sap-nfs-zonal-powervs-intro)
 
 ## How to
 {: #fast-path-power-vs-how-to}

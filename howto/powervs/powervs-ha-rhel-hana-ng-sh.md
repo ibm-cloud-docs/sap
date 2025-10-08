@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-07"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -67,7 +67,7 @@ export DC1="Site1"          # HANA system replication site name
 export NODE2=<HOSTNAME_2>   # Virtual server instance hostname
 export DC2="Site2"          # HANA system replication site name
 
-# Single zone and Multizone region 
+# Single zone and Multizone region
 export VIP=<IP address>     # SAP HANA system replication cluster virtual IP address
 
 # Multizone region only

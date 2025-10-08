@@ -1,3 +1,4 @@
+
 Use the following steps to prepare the SAP instances for cluster integration.
 
 ### Disabling the automatic start of the SAP instance agents for ASCS and ERS

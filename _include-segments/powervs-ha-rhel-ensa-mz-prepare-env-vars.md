@@ -1,4 +1,5 @@
 
+
 To simplify the setup process, define the following environment variables for the `root` user on both cluster nodes.
 These variables are used in subsequent operating system commands.
 
