@@ -1,8 +1,8 @@
 ---
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
-keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, SAP HANA, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS
+  years: 2020, 2025
+lastupdated: "2025-10-10"
+keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS, SAP Host Agent, saposcol
 subcollection: sap
 ---
 
@@ -70,14 +70,19 @@ The commands that are listed in this section were run in Windows PowerShell 5.1.
 
 Use the following steps to download the IMCS.
 
-1. [Download the IMCS](https://public.dhe.ibm.com/cloud/bluemix/sap/windows){: external}.
-1. Select the appropriate .zip. In most cases, use the current version. Connect as **guest**.
+Choose the most recent IMCS version. For Windows Server 2025 and higher select at least version 2.1.0!
+{: important}
+
+1. [Download the IMCS](https://public.dhe.ibm.com/cloud/bluemix/sap/windows/){: external}.
+1. Select the appropriate `*collector-v#.#.#.zip` file.
 1. Save the file to your internal Downloads folder and click **OK**.
 1. Move or copy the IMCS .zip file to your VPC virtual server instance.
 1. Extract the file and open the extracted folder.
-1. Run the `install-metric-collector.ps1` file. Right-click on the file and select 'Run with Powershell', or run the following command on the power shell:
+1. Run the `install-metric-collector.ps1` file in PowerShell:
 
    ```sh
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   
    .\install-metric-collector.ps1
    ```
    {: pre}

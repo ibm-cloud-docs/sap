@@ -1,8 +1,8 @@
 ---
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
-keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, SAP HANA, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS
+  years: 2020, 2025
+lastupdated: "2025-10-10"
+keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, SAP HANA, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS, SAP Host Agent, saposcol
 subcollection: sap
 ---
 
@@ -85,14 +85,17 @@ The commands that are listed in this section were run on a Red Hat virtual serve
 
 Use the following steps to download the IMCS.
 
+Choose the most recent IMCS version. Currently for RHEL 9.0 and SLES15 SP0 and higher select at least version 2.1.0!
+{: important}
+
 1. [Download the IMCS](https://public.dhe.ibm.com/cloud/bluemix/sap/linux/){: external}.
-1. Select the appropriate `tar.gz` file. In most cases, use the current version. Connect as **guest**.
+1. Select the appropriate `*collector-v#.#.#.tar.gz` file.
 1. Save the file to your internal Downloads folder and click **OK**.
 1. Move or copy the IMCS `tar.gz` file to your VPC virtual server instance.
 1. Extract the file and open the extracted folder.
 
    ```sh
-   tar -xvf sap-metrics-collector-v1.3.tar.gz
+   tar -xvf sap-metrics-collector-v2.1.0.tar.gz
    cd sap
    ```
    {: pre}
