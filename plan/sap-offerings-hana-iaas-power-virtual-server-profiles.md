@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-10-14"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -291,6 +291,7 @@ The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.p
 {: caption="Sample shared file system configurations for SAP HANA profiles with sr2 prefix" caption-side="bottom"}
 {: #sr2-profiles-shared}
 {: tab-title="Shared File System"}
+
 
 
 The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
