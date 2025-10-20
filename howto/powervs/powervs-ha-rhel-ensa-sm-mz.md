@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-10-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -47,7 +47,7 @@ Do not install the NFS server on any virtual server that is part of the *ENSA2* 
 This document does not cover the setup of file storage or the creation of cluster file system resources.
 {: important}
 
-
+Refer to [Accessing File Storage for VPC with regional availability from IBM {{site.data.keyword.powerSys_notm}} instances](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro) for instructions on configuring shared storage.
 Ensure that the virtual hostnames for the *ASCS* and *ERS* instances comply with the requirements that are outlined in [Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361){: external}.
 
 The subnets and the virtual IP addresses for the *ASCS* and *ERS* instances must not exist in the {{site.data.keyword.powerSys_notm}} workspaces, as they are managed as cluster resources.
@@ -425,9 +425,11 @@ Full List of Resources:
   * Resource Group: s01_ascs21_group:
     * s01_vip_ascs21    (ocf:heartbeat:powervs-subnet):  Started cl-s01-1
     * s01_srv_ascs21    (ocf:heartbeat:SAPStartSrv):     Started cl-s01-1
+    * s01_ascs11        (ocf:heartbeat:SAPInstance):     Started cl-s01-1
   * Resource Group: s01_ers22_group:
     * s01_vip_ers22     (ocf:heartbeat:powervs-subnet):  Started cl-s01-2
     * s01_srv_ers22     (ocf:heartbeat:SAPStartSrv):     Started cl-s01-2
+    * s01_ers22         (ocf:heartbeat:SAPInstance):     Started cl-s01-2
 
 Daemon Status:
   corosync: active/disabled

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-10-20"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -285,5 +285,5 @@ SUSE Linux Enterprise Server for SAP:
 - [SUSE Linux Enterprise High Availability Extension](https://documentation.suse.com/sle-ha/15-SP6/){: external}
 
 Red Hat Enterprise Linux for SAP:
-- [Supported HA Scenarios for SAP HANA, SAP S/4HANA, and SAP NetWeaver](https://access.redhat.com/articles/4079981){: external}
-- [Automated SAP HANA System Replication in Scale-Up in pacemaker cluster](https://access.redhat.com/articles/3004101){: external}
+- [Red Hat HA Solutions for SAP HANA, S/4HANA and NetWeaver based SAP Applications](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/red_hat_ha_solutions_for_sap_hana_s4hana_and_netweaver_based_sap_applications/index){: external}
+- [Automating SAP HANA Scale-Up System Replication using the RHEL HA Add-On](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index){: external}

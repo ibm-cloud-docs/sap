@@ -1,11 +1,9 @@
 # IBM Cloud for SAP
 
-Documentation repository for everything in the IBM Cloud for SAP portfolio.
+Documentation repository for all resources in the IBM Cloud for SAP portfolio.
 
-- OM - Bradley Knapp
-- SME - Sean Freeman, Rainer Vetter, Ingo Dahm (Contractor)
-   - Specialist SME for SAP on IBM Power Virtual Server - Arnold Beilmann, Graham Hardy
-- PM - Sam Jellad
+- Offering Managers - Bradley Knapp and Vijay Mallepudi
+- Documentation Owner - Himani Arya
 
 **Documentation Links:**
 

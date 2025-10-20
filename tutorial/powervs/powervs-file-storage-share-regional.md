@@ -1,7 +1,7 @@
 ---
 copyright:
    years: 2025
-lastupdated: "2025-10-08"
+lastupdated: "2025-10-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, NFS, File Storage Share, Network Load Balancer
 subcollection: sap
 content-type: tutorial
@@ -14,7 +14,7 @@ completion-time: 2h
 
 
 # Accessing VPC regional file storage shares from IBM {{site.data.keyword.powerSys_notm}} instances
-{: #nfs-regional-powervs-intro}
+{: #ha-nlb-rt-rfs-intro}
 {: toc-content-type="tutorial"}
 {: toc-services="vpc, transit-gateway, power-iaas, sap"}
 {: toc-completion-time="2h"}
