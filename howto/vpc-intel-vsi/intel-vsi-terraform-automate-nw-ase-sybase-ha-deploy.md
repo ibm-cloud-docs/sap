@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-13"
+  years: 2023, 2025
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---
@@ -122,7 +122,7 @@ To run the Terraform scripts, you modify:
     * You can change the default SAP system configuration settings to match your solution.
     * You also specify the location where you downloaded the SAP kits.
 
-The {{site.data.keyword.cloud}} Provider plug-in for Terraform on {{site.data.keyword.cloud}} uses these configuration files to install SAP NetWeaver High Availability on Single Zone or Multi Zone on the specified VPC in your {{site.data.keyword.cloud}} account.
+The {{site.data.keyword.cloud}} Provider plug-in for Terraform on {{site.data.keyword.cloud}} uses these configuration files to install SAP NetWeaver High Availability on Single zone or Multi Zone on the specified VPC in your {{site.data.keyword.cloud}} account.
 
 ## SAP Kits
 {: #automate-sap-ase-sybase-ha-sz-delpoyment-sap-kits}

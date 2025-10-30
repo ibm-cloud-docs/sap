@@ -19,19 +19,19 @@ Terraform scripts are used to create a VPC and 2 clustered layers, one for SAP N
 
 You have two deployment methods to choose from:
 
-*   Terraform scripts run from the CLI on your bastion server.
-*   {{site.data.keyword.cloud_notm}} {{site.data.keyword.bpshort}} user interface accessed from the menu on your cloud dashboard.
+* Terraform scripts run from the CLI on your bastion server.
+* {{site.data.keyword.cloud_notm}} {{site.data.keyword.bpshort}} user interface accessed from the menu on your cloud dashboard.
 
 ## SAP solution implemented
 {: #automate-sap-abap-sz-mz-ha-deployment-implement}
 
-SAP NetWeaver 7.5 is a software stack for many of SAP SE's applications. The SAP NetWeaver 7.5   Application Server, sometimes referred to as WebAS, is the runtime environment for the SAP applications and all of the mySAP Business Suite runs on SAP WebAS: supplier relationship management (SRM), customer relationship management (CRM), supply chain management (SCM), product lifecycle management (PLM), enterprise resource planning (ERP), transportation management system (TMS).
+SAP NetWeaver 7.5 is a software stack for many of SAP SE's applications. The SAP NetWeaver 7.5 Application Server, sometimes referred to as WebAS, is the runtime environment for the SAP applications and all of the mySAP Business Suite runs on SAP WebAS: supplier relationship management (SRM), customer relationship management (CRM), supply chain management (SCM), product lifecycle management (PLM), enterprise resource planning (ERP), transportation management system (TMS).
 
 The product is marketed as a service-oriented architecture for enterprise application integration. It can be used for custom development and integration with other applications and systems, and is built primarily using the ABAP programming language, but also uses C, C++, and Java. It can also be extended with, and interoperate with, technologies such as Microsoft .NET, Java EE, and IBM WebSphere.
 
-SAP NetWeaver 7.5   7.5 enables technology trends like the Internet of Things (IoT), mobile, cloud, big data and analytics and offers a foundation for the easy and fast development of simple business applications. It supports Java 8 to enable Java-based hubs like SAP Enterprise Portal, SAP Process Orchestration, and SAP Business Process Management to benefit from new Java features.
+SAP NetWeaver 7.5 enables technology trends like the Internet of Things (IoT), mobile, cloud, big data and analytics and offers a foundation for the easy and fast development of simple business applications. It supports Java 8 to enable Java-based hubs like SAP Enterprise Portal, SAP Process Orchestration, and SAP Business Process Management to benefit from new Java features.
 
-The innovations in ABAP and Java, together with improvements to SAP NetWeaver 7.5   hubs, SAP Fiori, and lifecycle management offer significant benefits.
+The innovations in ABAP and Java, together with improvements to SAP NetWeaver 7.5 hubs, SAP Fiori, and lifecycle management offer significant benefits.
 
 ## What is created
 {: #automate-sap-abap-sz-mz-ha-deployment-created}
@@ -52,10 +52,10 @@ It is recommended to read the guidelines from the readme file when deploying thi
 For more information about this architecture, see [SAP NetWeaver 7.5 with SAP HANA IBM Cloud VPC](/docs/sap?topic=sap-automate-sap-abap-sz-mz-ha-deployment-overview&interface=ui).
 
 During the first phase, the following resources are provisioned in the VPC:
-*    1 Placement group for all 4 virtual machines created by this solution
-*    4 VSIs, with Subnet and Security Group configurations
-*    3 Application Load Balancers for HANA DB and SAP ASCS/ERS
-*    1 VPC DNS service used to map the ALB FQDN to the SAP ASCS/ERS and HANA virtual hostnames
+*    1 Placement group for all four virtual machines created by this solution.
+*    4 VSIs, with Subnet and Security Group configurations.
+*    3 Application Load Balancers for HANA DB and SAP ASCS/ERS.
+*    1 VPC DNS service used to map the ALB FQDN to the SAP ASCS/ERS and HANA virtual hostnames.
 *    7 file shares for VPC
 
 During the second phase, the Ansible Playbooks are called and the SAP High availability architecture is installed for both dedicated VSIs SAP App VSI box and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP NetWeaver 7.5 release on the pacemaker cluster. HA dedicated SAP HANA 2.0 VSI’s release as a distributed deployment model. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud_notm}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
@@ -133,9 +133,9 @@ Edit the input parameter file `input.auto.tfvars`, and modify the variables to m
 
 When you run the scripts with the {{site.data.keyword.bpshort}} interface, you:
 
-*   Enter workspace information.
-*   Enter the GitHub path for the Terraform scripts used.
-*   Modify the parameters in the {{site.data.keyword.bpshort}} interface.
+* Enter workspace information.
+* Enter the GitHub path for the Terraform scripts used.
+* Modify the parameters in the {{site.data.keyword.bpshort}} interface.
 
 ## Support - Terraform and {{site.data.keyword.bpshort}}
 {: #automate-sap-abap-sz-mz-ha-deployment-support}
@@ -147,7 +147,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 ## Before you begin
 {: #automate-sap-abap-sz-mz-ha-deployment-begin}
 
-Before you deploy SAP NetWeaver 7.5 High Availability on Single Zone or Multi Zone:
+Before you deploy SAP NetWeaver 7.5 High Availability on single zone or multi zone:
 
 * The automation for this deployment requires {{site.data.keyword.cloud_notm}} File Storage for VPC to complete successfully. {{site.data.keyword.cloud_notm}} File Storage for VPC is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative to get access. For more information, see [{{site.data.keyword.cloud_notm}} File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
@@ -322,7 +322,7 @@ The supported versions available for SAP NetWeaver (ABAP) with HANA HA SZ and MZ
 
     HANA_SID = "HDB"
     # SAP HANA system ID. Should follow the SAP rules for SID naming.
-    # Obs. This will be used  also as identification number across different HA name resources. Duplicates are not allowed.
+    # Obs. This will be used also as identification number across different HA name resources. Duplicates are not allowed.
     # Example: HANA_SID = "HDB"
 
     HANA_SYSNO = "00"
@@ -349,7 +349,7 @@ The supported versions available for SAP NetWeaver (ABAP) with HANA HA SZ and MZ
 
     SAP_SID= "NWD"
     # SAP System ID
-    # Obs. This will be used  also as identification number across different HA name resources. Duplicates are not allowed.
+    # Obs. This will be used also as identification number across different HA name resources. Duplicates are not allowed.
 
     SAP_ASCS_INSTANCE_NUMBER = "00"
     # The central ABAP service instance number. Should follow the SAP rules for instance number naming.
@@ -375,7 +375,7 @@ The supported versions available for SAP NetWeaver (ABAP) with HANA HA SZ and MZ
     ##########################################################
 
     KIT_SAPCAR_FILE = "/storage/NW75SYB/SAPCAR_1010-70006178.EXE"
-    KIT_SWPM_FILE =  "/storage/NW75SYB/SWPM10SP38_0-20009701.SAR"
+    KIT_SWPM_FILE = "/storage/NW75SYB/SWPM10SP38_0-20009701.SAR"
     KIT_SAPHOSTAGENT_FILE = "/storage/NW75SYB/SAPHOSTAGENT61_61-80004822.SAR"
     KIT_SAPEXE_FILE = "/storage/NW75SYB/KERNEL/754UC/SAPEXE_200-80007612.SAR"
     KIT_SAPEXEDB_FILE = "/storage/NW75SYB/KERNEL/754UC/SAPEXEDB_200-80007655.SAR"

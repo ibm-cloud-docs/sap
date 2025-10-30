@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-22"
+lastupdated: "2025-10-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -35,9 +35,9 @@ SAP provides a list of the [SAP versions](https://support.sap.com/en/my-support/
 {: #sap-netweaver-mssql-inst-types}
 
 The three installation types for SAP NetWeaver Application Server are:
-*	ABAP System– You can run ABAP programs and some SAP Java apps
-*	Java System– You can run only Java Platform, Enterprise Edition apps. No ABAP programs can be run on a Java system
-*	Dual Stack – You can run both ABAP and Java Platform, Enterprise Edition in separate instances
+*	ABAP system – You can run ABAP programs and some SAP Java apps
+*	Java system – You can run only Java Platform, Enterprise Edition apps. No ABAP programs can be run on a Java system
+*	Dual stack – You can run both ABAP and Java Platform, Enterprise Edition in separate instances
 
 ## Architecture diagram
 {: #sap-netweaver-arch-diag-mssql}
@@ -51,7 +51,7 @@ This diagram shows the SAP NetWeaver 7.X on MS SQL Server database integrated wi
 
 Clients on the customer facing network (CFN) use a floating IP to access virtual server instances within the {{site.data.keyword.cloud_notm}}. Virtual server instances are hosted in availability zones (data centers) within geographic regions.
 
-Within the Public Subnet, the [SAP router](https://support.sap.com/en/tools/connectivity-tools/saprouter.html) and the jumphost provide secure connections to the virtual server instances. The SAP router is a software application that provides a remote connection between the customer's network and SAP. The SAP Router and jumphost are within a single security group with rules for inbound and outbound traffic between the private subnets in the zone. SAP routers are used with traditional SAP products and analytics solutions and offerings that are acquired from MS SQL Server database. For a comprehensive list of which SAP Business Analytics products benefits from SAP router connections, see [SAP Note 1478974](https://me.sap.com/notes/1478974){: external}.
+Within the Public Subnet, the [SAP router](https://support.sap.com/en/tools/connectivity-tools/saprouter.html){: external} and the jumphost provide secure connections to the virtual server instances. The SAP router is a software application that provides a remote connection between the customer's network and SAP. The SAP Router and jumphost are within a single security group with rules for inbound and outbound traffic between the private subnets in the zone. SAP routers are used with traditional SAP products and analytics solutions and offerings that are acquired from MS SQL Server database. For a comprehensive list of which SAP Business Analytics products benefits from SAP router connections, see [SAP Note 1478974](https://me.sap.com/notes/1478974){: external}.
 
 A jumphost is used to access, manage, and administer SAP virtual server instances from the same customer ZONE directly from their premises. These SAP virtual server instances can be in a separate security zone but should be on same {{site.data.keyword.cloud_notm}} region. The customer connection to the jumphost follows the same rules as the direct connection from customer premises to the virtual server instance SAP instances. The connection uses the CFN IP and security group 1 firewall rules from a designated public subnet. In this architecture, there are two security groups defined; this arrangement is the simplest method for separating the public and private subnets. You can add more security groups if you require more isolation.
 
@@ -62,8 +62,7 @@ A jumphost is used to access, manage, and administer SAP virtual server instance
 {: #sap-refarch-nw-mssql-standard}
 
 In a standard system, all main instances run on a single virtual server instance within a private subnet.
-For more information, see [about virtual servers for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers).
-The virtual server instance has these components:
+For more information, see [About virtual servers for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers), explains how virtual server instances for VPC differ from other IBM virtual servers.
 
 ![Figure 2. Standard installation](../../images/vpc-intel-vsi-mssql-std-only.svg "SAP NetWeaver 7.x MS SQL Server standard installation with AAS"){: caption="SAP NetWeaver 7.x MS SQL Server standard installation with AAS" caption-side="bottom"}
 
@@ -74,19 +73,19 @@ SAP tools create a PAS Instance and an ASCS Instance. This method is the standar
 
 1. The Primary Application Server (PAS) - An instance is an administrative unit that contains various components of an SAP system. The components of an instance are parameterized in a shared instance profile. Each instance is identified by a system ID and an instance number and includes:
 
-   * [SAP Web Dispatcher](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) & Work Process (DIA,BTC,UPD,SPOOL) - The SAP Web Dispatcher lies between the internet and your SAP system. The SAP Web Dispatcher is the entry point for HTTP and HTTPs requests into your system, which consists of one or more SAP NetWeaver application servers. As a “software web switch”, the SAP Web dispatcher can reject or accept connections. When it accepts a connection, it balances the load to ensure an even distribution across the servers. The SAP Web Dispatcher contributes to security and also balances the load in your SAP system.
+   * [SAP Web Dispatcher](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm){: external} & Work Process (DIA,BTC,UPD,SPOOL) - The SAP Web Dispatcher lies between the internet and your SAP system. The SAP Web Dispatcher is the entry point for HTTP and HTTPs requests into your system, which consists of one or more SAP NetWeaver application servers. As a “software web switch”, the SAP Web dispatcher can reject or accept connections. When it accepts a connection, it balances the load to ensure an even distribution across the servers. The SAP Web Dispatcher contributes to security and also balances the load in your SAP system.
 
      You can use the SAP Web Dispatcher in ABAP and Java systems, in pure Java systems, and in pure ABAP systems.
 
-   * [SAP Gateway Service](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) - The SAP Gateway carries out RFC services within the SAP world, which are based on [TCP/IP](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/35/26b431afab52b9e10000009b38f974/content.htm){: external}. These services enable SAP Systems and external programs to communicate with one another. RFC services can be used either in the ABAP program or for the external programs that use the interfaces. RFC can be used between processes of an instance or a system, or between systems.
+   * [SAP Gateway Service](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm){: external} - The SAP Gateway carries out RFC services within the SAP world, which are based on [TCP/IP](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/35/26b431afab52b9e10000009b38f974/content.htm){: external}. These services enable SAP Systems and external programs to communicate with one another. RFC services can be used either in the ABAP program or for the external programs that use the interfaces. RFC can be used between processes of an instance or a system, or between systems.
 
-   * [ICM (Internet Communication Manager)](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) Service - Application server component that receives and dispatches Web requests (HTTP(S), SMTP, …). ICM evaluates the URL and forwards requests to AS ABAP or AS Java.
-   *  IGS (Internet Graphic Server)
+   * [ICM (Internet Communication Manager)](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm){: external} Service - Application server component that receives and dispatches Web requests (HTTP(S), SMTP, …). ICM evaluates the URL and forwards requests to AS ABAP or AS Java.
+   * IGS (Internet Graphic Server)
 
 2. The ABAP Central Services Instances (ASCS) – This instance contains the message server, the enqueue server, and a separate start. The ASCS instance cannot process any dialog requests. It is used to manage locks, exchange messages, and balance workload in the SAP system. The ASCS instance includes:
 
-    * [Message Server](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) - The SAP message server runs as a separate process, mostly on the same host as the central instance. If an SCS instance (SAP Central Services) or ASCS instance (ABAP SCS) is configured in the system, the message server is part of this instance.
-    * [Stand-alone Enqueue Server](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm) - Part of the central instance (ABAP or Java)that manages the SAP locks. In combination with the enqueue replication server, this single point-of-failure can be made into a high availability solution.
+    * [Message Server](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm){: external} - The SAP message server runs as a separate process, mostly on the same host as the central instance. If an SCS instance (SAP Central Services) or ASCS instance (ABAP SCS) is configured in the system, the message server is part of this instance.
+    * [Stand-alone Enqueue Server](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e2350eca7f4a109eb0a7bc63135e27/frameset.htm){: external} - Part of the central instance (ABAP or Java)that manages the SAP locks. In combination with the enqueue replication server, this single point-of-failure can be made into a high availability solution.
     * ABAP Central services instance (ASCS instance) - Contains the ABAP message server and the stand-alone Enqueue Server
     * The enqueue replication server instance is only mandatory in a high-availability system.
 
@@ -99,19 +98,19 @@ Optionally, you can install the ASCS instance with an integrated:
 
 1. Java central instance (J< nn > instance) – A Java instance is a unit in the AS Java cluster that is identified by its instance number. The elements that form an instance that is run on one physical machine. Also, it is possible to run several instances on one physical machine, but it is recommended that you split the different instances among different physical machines. An [AS Java Cluster Architecture](https://help.sap.com/docs/SAP_NETWEAVER_750/5bdacafd0bbd41648f4b80093a1bf9d6/4b1bc9db0ae17394e10000000a42189b.html?version=7.5.4){: external} consists of:
 
-    *  Internet Communication Manager (ICM) - The ICM is an element of the Java instance that handles requests coming from clients and dispatches them to the available server processes. Data is transferred from the ICM to the server processes and vice versa by using the Fast Channel Architecture (FCA), which allows fast and reliable communication between them
-    *  One or several server processes - The server processes of AS Java run the Java application. They are responsible for processing incoming requests that are assigned to them by the ICM. Each server process is multi-threaded, and can therefore process many requests simultaneously.
+    * Internet Communication Manager (ICM) - The ICM is an element of the Java instance that handles requests coming from clients and dispatches them to the available server processes. Data is transferred from the ICM to the server processes and vice versa by using the Fast Channel Architecture (FCA), which allows fast and reliable communication between them
+    * One or several server processes - The server processes of AS Java run the Java application. They are responsible for processing incoming requests that are assigned to them by the ICM. Each server process is multi-threaded, and can therefore process many requests simultaneously.
 
 2. System Central Services instance (SCS instance) - Central services form the basis of communication and synchronization for the AS Java cluster. They are responsible for lock administration, message exchange, and load balancing within the cluster. Central services that are run on one physical machine and constitute a separate instance. This [SAP Central Services Instance (SCS)](https://help.sap.com/docs/SAP_NETWEAVER_740/5bdacafd0bbd41648f4b80093a1bf9d6/480728f74c6a3837e10000000a42189b.html?version=7.4.19){: external} comprises:
 
-    *  Message Server - The message server keeps a list of all server processes in the AS Java cluster and provides information about their availability to Internet Communication Manager (ICM). It also represents the infrastructure for data exchange between the participating server processes.
-    *  Enqueue Server - The enqueue server manages logical locks. The enqueue server runs on the Central Services instance of the Java cluster. It manages the lock table in the main memory and receives requests for setting or releasing locks. It maps the logical locks to the database.
+    * Message Server - The message server keeps a list of all server processes in the AS Java cluster and provides information about their availability to Internet Communication Manager (ICM). It also represents the infrastructure for data exchange between the participating server processes.
+    * Enqueue Server - The enqueue server manages logical locks. The enqueue server runs on the Central Services instance of the Java cluster. It manages the lock table in the main memory and receives requests for setting or releasing locks. It maps the logical locks to the database.
 
 **MS SQL for standard system**
 {: #sap-refarch-nw-mssql-standard-system}
 
-* Database instance (DB) - MS SQL Server in this case.   The SAP systems in a landscape have specific requirements for servers, operating systems, network setup, and supported storage. Deployment of SAP AnyDB on I{{site.data.keyword.cloud_notm}} is similar to deployments with infrastructure with on-premises data centers. Use the information that is provided from SAP and the RDBMS providers. For more information, see [AnyDB - Microsoft SQL Server](/docs/sap?topic=sap-anydb-ms-sql-server) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
-* Primary application server instance (PAS instance)  - The global directories of the ASCS instance can be used as the global file system. That means that the host with the ASCS instance is the SAP global host. However, you can also separately install the global directories on any host of your SAP system landscape. You can also use the SAP transport host or the host with the global file system (SAP global host) as your primary application server instance host. Optionally, you can install one or more additional application server instances.
+* Database instance (DB) - The SAP systems in a landscape have specific requirements for servers, operating systems, network setup, and supported storage. Deployment of SAP AnyDB on I{{site.data.keyword.cloud_notm}} is similar to deployments with infrastructure with on-premises data centers. Use the information that is provided from SAP and the RDBMS providers. For more information, see [AnyDB - Microsoft SQL Server](/docs/sap?topic=sap-anydb-ms-sql-server) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
+* Primary application server instance (PAS instance) - The global directories of the ASCS instance can be used as the global file system. That means that the host with the ASCS instance is the SAP global host. However, you can also separately install the global directories on any host of your SAP system landscape. You can also use the SAP transport host or the host with the global file system (SAP global host) as your primary application server instance host. Optionally, you can install one or more additional application server instances.
 * Additional Application Server (AAS) - You can install one or more additional application server instances for an existing SAP system. Additional application server instances are optional and can be installed on separate hosts.
 
     An additional application server instance can run on:

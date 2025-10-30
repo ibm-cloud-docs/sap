@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-06-27"
+  years: 2023, 2025
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---
@@ -101,7 +101,7 @@ When you are using the Schematics interface for the deployment, you need to:
 
 There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
-Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
+Though the materials provided herein that are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
 ## Before you begin
 {: #automate-ase-sybase-standalone-vsi-before}
@@ -230,7 +230,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     You are asked to enter the IBM Cloud API key and the SAP ASE Sybase main password.
     The SAP ASE Sybase main password must contain at least one digit (0-9), one lowercase letter (a-z), and one uppercase letter (A-Z). It can contain the following characters only: a-z, A-Z, 0-9, !, @, #, $, _. It must not start with a digit or an underscore ( _ ).
 
-6. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the input.auto.tfvars file to correct resources and run `terraform plan --out plan1` again.
+6. Verify that the plan shows all the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the input.auto.tfvars file to correct resources and run `terraform plan --out plan1` again.
 
 7. Deploy the SAP solution.
     `terraform apply "plan1"`

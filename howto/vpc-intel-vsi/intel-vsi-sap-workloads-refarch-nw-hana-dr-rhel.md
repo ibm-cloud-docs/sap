@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, RHEL
 subcollection: sap
 ---
@@ -34,7 +34,7 @@ This section describes the infrastructure, database layer, and application layer
 * **Networking:** Network connectivity between the two region is made possible by using the IBM VPC service named “Transit Gateway”. With this service, it is ensured that there is proper network communication between the two regions, which is required for both replication mechanisms (HSR on database level and “rsync” on SAP file-system level).
 * **Security:** With the help of dedicated IBM VPC Security Groups, traffic is allowed back and forward, between the four VSIs and only on specific ports (necessary for HANA System Replication and “rsync” file-system replication).
 
-### SAP HANA Database layer (HANA 2.0)
+### SAP HANA database layer (HANA 2.0)
 {: #database-layer}
 
 * For the SAP HANA Database the HANA System Replication (HSR) mechanism is used, having the “replication mode” set to “async” and the “operation Mode” set to “logreplay”.
@@ -50,7 +50,7 @@ Guidance for implementing the HSR mechanism was used by following these resource
 
 * [Host Name Resolution for System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/c0cba1cb2ba34ec89f45b48b2157ec7b.html){: external}
 
-### SAP Application layer (SAP NetWeaver 7.5)
+### SAP application layer (SAP NetWeaver 7.5)
 {: #application-layer}
 
 * **Primary site:** Runs the SAP Central Service (ASCS) and Primary Application Server (PAS) productively used by the business.
@@ -100,7 +100,7 @@ SAP Application layer:
 ## References
 {: #references}
 
-**IBM VPC Infrastructure:**
+**IBM VPC infrastructure:**
 
 * [Transit Gateway general information](/docs/transit-gateway)
 * [Security Groups general information](/docs/vpc?topic=vpc-using-security-groups)
@@ -111,7 +111,7 @@ SAP Application layer:
 * SAPnote 1999997 – FAQ: SAP HANA Memory
 * SAPnote 3115048 - sapstartsrv with native Linux systemd support
 
-**HANA System replication references:**
+**HANA system replication references:**
 
 * [General Prerequisites for Configuring SAP HANA System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/86267e1ed56940bb8e4a45557cee0e43.html){: external}
 * [Configure SAP HANA System Replication with hdbnsutil](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/2dd26de6360046309e1579accbd9e527.html){: external}

@@ -66,9 +66,9 @@ When you provision {{site.data.keyword.cloud}} virtual server instances for SAP 
 ### x86-64 bare metal server profiles
 {: #x86-64-bare-metal-server-profiles}
 
-{{site.data.keyword.cloud_notm}} Bare Metal Servers on VPC Infrastructure are dedicated bare metal servers that provide enhanced networking and connectivity through [Virtual Private Cloud (VPC)](https://www.ibm.com/think/topics/vpc) capabilities. For more information on bare metal servers, see [IBM Cloud Bare Metal Servers](https://www.ibm.com/products/bare-metal-servers?_gl=1*164pqfh*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.80093343.964139216.1686574517-1543717111.1671726228){: external}.
+{{site.data.keyword.cloud_notm}} Bare Metal Servers on VPC Infrastructure are dedicated bare metal servers that provide enhanced networking and connectivity through [Virtual Private Cloud (VPC)](https://www.ibm.com/think/topics/vpc){: external} capabilities. For more information on bare metal servers, see [IBM Cloud Bare Metal Servers](https://www.ibm.com/products/bare-metal-servers){: external}.
 
-The bare metal servers on VPC are available as an integrated part of [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud?_gl=1*opgtue*_ga*MTU0MzcxNzExMS4xNjcxNzI2MjI4*_ga_FYECCCS21D*MTY4NjY3MDgzOC43NC4xLjE2ODY2NzE2OTEuMC4wLjA.&_ga=2.55889827.964139216.1686574517-1543717111.1671726228). For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui){: external} on {{site.data.keyword.cloud}}.
+The bare metal servers on VPC are available as an integrated part of [{{site.data.keyword.cloud}} for SAP](https://www.ibm.com/products/cloud/sap){: external}. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui){: external} on {{site.data.keyword.cloud}}.
 
 When you provision an {{site.data.keyword.cloud}} bare metal server for SAP HANA on VPC, you can select from four families of certified profiles:
 * Balanced

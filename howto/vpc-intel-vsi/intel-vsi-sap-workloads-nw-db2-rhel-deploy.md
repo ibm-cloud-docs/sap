@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-21"
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---
@@ -297,7 +297,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     tmpfs /dev/shm tmpfs size=70G,rw,nosuid,nodev 0 0
     ```
 
-### NFS file system by using IBM Cloud VPC File Shares
+### NFS file system by using IBM Cloud VPC file shares
 {: #nfs-application-vpc}
 
 [IBM Cloud File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about) is used to make SAP-specific directories accessible to the SAP system, by using technologies like NFS, shared disks, and cluster file system. When using an HA solution for your SAP system, can ensure that you address the HA requirements for SAP file systems properly.

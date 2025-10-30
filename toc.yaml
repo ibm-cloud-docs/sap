@@ -451,6 +451,8 @@ toc:
             topic: howto/powervs/powervs-ha-rhel-refs.md
           - navtitle: Creating instances for a high availability cluster
             topic: howto/powervs/powervs-ha-vsi.md
+          - navtitle: Configuring and performing manual failover for SAP S/4HANA in a multizone region
+            topic: howto/powervs/powervs-ha-manual-mz-failover.md
           - topicgroup:
               label: Implementing a RHEL HA Add-On cluster for SAP solutions
               id: "sap-ha-scenarios-on-power-virtual-server-with-rhel"
@@ -477,8 +479,6 @@ toc:
                 topic: howto/powervs/powervs-ha-rhel-ensa-mz.md
               - navtitle: Configuring SAP S/4HANA (ASCS and ERS) in a multizone region with simple mount
                 topic: howto/powervs/powervs-ha-rhel-ensa-sm-mz.md
-              - navtitle: Configuring and manual failover PowerVS Multi-Zone Overlay IP (non-pacemaker)
-                topic: howto/powervs/powervs-ha-rhel-ovl-ip-manual.md
               - navtitle: Configuring an active-passive NFS server
                 topic: howto/powervs/powervs-ha-rhel-nfs.md
               - navtitle: Implementing SBD poison-pill fencing

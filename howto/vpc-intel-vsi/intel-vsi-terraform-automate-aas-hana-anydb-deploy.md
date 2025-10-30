@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-06-27"
+  years: 2023, 2025
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---
@@ -16,7 +16,7 @@ You can use Terraform scripts to create a single-tier VPC and create the AAS to 
 
 You have two deployment methods to choose from:
 
-*  Terraform scripts that run from the CLI on your bastion server.
+* Terraform scripts that run from the CLI on your bastion server.
 * {{site.data.keyword.bpshort}} user interface accessed from your cloud dashboard menu.
 
 You can create SAP AAS NetWeaver 7.x on the SAP HANA-based ABAP stack.
@@ -27,14 +27,14 @@ You can create SAP AAS NetWeaver 7.x on the SAP HANA-based ABAP stack.
 
 Many SAP enterprise solutions are built on the SAP platform (SAP NetWeaver) including:
 
-*  SAP HANA as Primary Persistence for SAP NetWeaver-based applications
-*  SAP Business Suite applications (ERP, CRM, and SCM, and other applications),
-*  SAP Business Warehouse (BW), and
-*  Other SAP enterprise solutions
+* SAP HANA as Primary Persistence for SAP NetWeaver-based applications
+* SAP Business Suite applications (ERP, CRM, and SCM, and other applications)
+* SAP Business Warehouse (BW), and
+* Other SAP enterprise solutions
 
 SAP NetWeaver has two distinct aspects, ABAP and Java. Many applications that are built on the SAP NetWeaver’s ABAP or Java (or both) application servers run on SAP DB owned HANA and ASE Sybase either in AnyDB platforms (MSSQL, Oracle, and Db2).
 
-Technical interfaces are available for applications that are built on the SAP NetWeaver AS ABAP and AS Java to run on SAP HANA and AnyDB. However, specific development enablement is normally required for each application to ensure that it runs optimally on the SAP HANA. SAP Business Suite applications (ERP, CRM, SCM, and other applications), SAP Business Warehouse (BW), and other SAP NetWeaver-based applications were modified to run on SAP HANA and have many advantages. Also, various components and complimentary applications that are built on SAP NetWeaver can also run on SAP HANA or AnyDB by using the provided SAP NetWeaver DB interfaces.
+Technical interfaces are available for applications that are built on the SAP NetWeaver AS ABAP and AS Java to run on SAP HANA and AnyDB. However, specific development enablement is normally required for each application to ensure that it runs optimally on the SAP HANA. SAP Business Suite applications (ERP, CRM, SCM, and other applications), SAP Business Warehouse (BW), and other SAP NetWeaver-based applications were modified to run on SAP HANA and have many advantages. Also, various components and complimentary applications that are built on SAP NetWeaver can also run on SAP HANA or AnyDB by using the provided SAP NetWeaver database interfaces.
 
 The SAP HANA as primary persistence for SAP NetWeaver-based applications scenario has one restriction:
 SAP NetWeaver ABAP and Java application servers must run on separate hardware servers from the SAP HANA hardware.
@@ -46,15 +46,15 @@ SAP NetWeaver ABAP and Java application servers must run on separate hardware se
 The scripts automate the virtual infrastructure resources, provisioning the processes for the SAP architecture in an existing VPC with a distributed environment. SAP AAS NetWeaver 7.x (HANA or ASE SYB) application server on a distinct VSI VPC system and SAP HANA DB on a dedicated server type VSI VPC box are provisioned. The scripts work in two phases.
 
 During the first phase of [Automate SAP bastion server – SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server), the following virtual infrastructure resources based on the components from the existing VPC created by the bastion server are:
-*  1 VPC where the virtual server instance is provisioned.
-*  1 security group. The rules for this security group are:
-    *  Allow inbound DNS traffic (port 53).
-    *  Allow inbound SSH traffic (TCP port 22).
-    *  Allow all outbound traffic from the virtual server instance.
-    *  Allow all traffic in the security group.
-*  1 subnet to enable the networking in your VPC.
-*  2 virtual server instances with SAP certified storage and network configurations.
-*  1 floating IP address used to access your VPC virtual server instance over the public network.
+* 1 VPC where the virtual server instance is provisioned.
+* 1 security group. The rules for this security group are:
+    * Allow inbound DNS traffic (port 53).
+    * Allow inbound SSH traffic (TCP port 22).
+    * Allow all outbound traffic from the virtual server instance.
+    * Allow all traffic in the security group.
+* 1 subnet to enable the networking in your VPC.
+* 2 virtual server instances with SAP certified storage and network configurations.
+* 1 floating IP address used to access your VPC virtual server instance over the public network.
 
 During the second phase, the Ansible Playbooks is called and the SAP architecture is installed for both dedicated virtual server instance (VSI) SAP application; VSI system and dedicated SAP HANA VSI box. The SAP architecture that is deployed on the SAP NetWeaver 7.x release is a stand-alone dedicated SAP HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud_notm}}® VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
 
@@ -66,9 +66,9 @@ You can provision only one instance of the service per {{site.data.keyword.cloud
 
 When you run the scripts with the {{site.data.keyword.bpshort}} interface, you:
 
-*  Enter the workspace information.
-*  Enter the GitHub path for the chosen solution either on NetWeaver AAS for HANA.
-*  Modify the parameters in the {{site.data.keyword.bpshort}} interface. They are the same parameters as the `input.auto.tfvars` file that you use with the cli.
+* Enter the workspace information.
+* Enter the GitHub path for the chosen solution either on NetWeaver AAS for HANA.
+* Modify the parameters in the {{site.data.keyword.bpshort}} interface. They are the same parameters as the `input.auto.tfvars` file that you use with the cli.
 
 ## Virtual server instance configuration
 {: #ui-automate-hana-aas-anydb-virtual-config}
@@ -76,22 +76,22 @@ When you run the scripts with the {{site.data.keyword.bpshort}} interface, you:
 
 Following are the supported operating system images for SAP NetWeaver primary application server:
 
-*  ibm-redhat-8-4-amd64-sap-applications-2
-*  ibm-redhat-8-6-amd64-sap-applications-2
-*  ibm-sles-15-3-amd64-sap-applications-2
-*  ibm-sles-15-4-amd64-sap-applications-3
+* ibm-redhat-8-4-amd64-sap-applications-2
+* ibm-redhat-8-6-amd64-sap-applications-2
+* ibm-sles-15-3-amd64-sap-applications-2
+* ibm-sles-15-4-amd64-sap-applications-3
 
 Following are the supported operating system images for SAP HANA database:
 
-*  ibm-redhat-8-4-amd64-sap-hana-2
-*  ibm-redhat-8-6-amd64-sap-hana-2
-*  ibm-sles-15-3-amd64-sap-hana-2
-*  ibm-sles-15-4-amd64-sap-hana-1
+* ibm-redhat-8-4-amd64-sap-hana-2
+* ibm-redhat-8-6-amd64-sap-hana-2
+* ibm-sles-15-3-amd64-sap-hana-2
+* ibm-sles-15-4-amd64-sap-hana-1
 
 For both server instances there are:
 
-*   Two SSH keys are configured to access SSH as `root`.
-*   Three storage volumes as described in the `input.auto.tfvars` file.
+* Two SSH keys are configured to access SSH as `root`.
+* Three storage volumes as described in the `input.auto.tfvars` file.
 
 ## What is created for anydb
 {: #automate-hana-aas-anydb-what-created}
@@ -106,7 +106,7 @@ The scripts call the Ansible Playbooks to install the SAP architecture.
 
 The configuration and script files are provided on GitHub. Each supported interface for the SAP solution installation has its own folder in the GitHub repository:
 
-*   [GitHub repository for Terraform – AAS HANA](https://github.com/IBM-Cloud/sap-abap-hana-aas){: external}
+* [GitHub repository for Terraform – AAS HANA](https://github.com/IBM-Cloud/sap-abap-hana-aas){: external}
 
 ## Terraform interface
 {: #automate-hana-aas-anydb-terraform-interface}
@@ -266,7 +266,7 @@ The script takes 1 - 2 hours to complete.
     cd sap-abap-hana-aas/
     ```
 
-3. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your region, zone, networking component names, hostname for the AAS VSI,profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme){: external} file.
+3. Modify the `input.auto.tfvars` file to specify the information for the existing VPC, your region, zone, networking component names, hostname for the AAS VSI, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options, see [Images](/docs/vpc?topic=vpc-about-images). For descriptions of the variables, see the [readme](https://github.com/IBM-Cloud/sap-abap-hana-aas#readme){: external} file.
 
     The VSI OS images that are supported for this solution for Netweaver Additional Application Server are:
 
@@ -357,7 +357,7 @@ The script takes 1 - 2 hours to complete.
 
     The SAP main password must be 10 - 14 characters long and contain at least one digit (0-9). It can contain only the following characters: a-z, A-Z, 0-9, @, #, $, _. This password cannot contain exclamation points '!'. The password must not start with a digit or an underscore (_).
 
-7. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the input.auto.tfvars file to correct resources and run terraform plan again.
+7. Verify that the plan shows all the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the input.auto.tfvars file to correct resources and run terraform plan again.
 
 8. Apply the saved plan.
 

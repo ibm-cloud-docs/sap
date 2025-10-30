@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022
-lastupdated: "2022-12-05"
+  years: 2022, 2025
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---

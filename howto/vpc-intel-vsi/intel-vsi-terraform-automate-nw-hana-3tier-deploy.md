@@ -186,15 +186,15 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
 
       |Parameter	|Description|
       |-----|-----|
-      |APP_HOSTNAME	|The hostname for the SAP Application VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check SAP Note 611361: "Hostnames of SAP ABAP  Platform servers".|
-      |DB_HOSTNAME	|The Hostname for HANA VSI. The hostname should be up to 13 characters as required  by SAP. For more information on the rules regarding hostnames for SAP systems, check SAP Note 611361: "Hostnames of SAP ABAP Platform servers".|
+      |APP_HOSTNAME	|The hostname for the SAP Application VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check SAP Note 611361: "Hostnames of SAP ABAP Platform servers".|
+      |DB_HOSTNAME	|The Hostname for HANA VSI. The hostname should be up to 13 characters as required by SAP. For more information on the rules regarding hostnames for SAP systems, check SAP Note 611361: "Hostnames of SAP ABAP Platform servers".|
       |BASTION_FLOATING_IP	|Input the FLOATING IP from the Bastion Server.|
-      |REGION	|The cloud region where to deploy the solution. The regions and zones for VPC are listed [here](/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in IBM Cloud Schematics [here](/docs/schematics?topic=schematics-locations). |
-      |RESOURCE_GROUP	|The name of an EXISTING Resource Group for VSIs and Volumes resources. The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups){: external}.|
-      |SECURITY_GROUP	|The name of an EXISTING Security group. The list of Security Groups is available [here](https://cloud.ibm.com/infrastructure/network/securityGroups){: external}.|
-      |SSH_KEYS	|List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH Keys is available [here](https://cloud.ibm.com/infrastructure/compute/sshKeys){: external}.|
-      |SUBNET	|The name of an EXISTING Subnet. The list of Subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets){: external}. |
-      |VPC	|The name of an EXISTING VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs){: external}.|
+      |REGION	|The cloud region where to deploy the solution. The regions and zones for VPC are listed [VPC multizone regions](/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in IBM Cloud Schematics [Service locations and endpoints](/docs/schematics?topic=schematics-locations). |
+      |RESOURCE_GROUP	|The name of an existing resource group for VSIs and Volumes resources. The list of Resource Groups is available [Resource groups](https://cloud.ibm.com/account/resource-groups){: external}.|
+      |SECURITY_GROUP	|The name of an EXISTING Security group. The list of Security Groups is available [Security groups for VPC](https://cloud.ibm.com/infrastructure/network/securityGroups){: external}.|
+      |SSH_KEYS	|List of SSH Keys UUIDs that are allowed to SSH as root to the VSI. Can contain one or more IDs. The list of SSH keys are available [SSH keys for VPC](https://cloud.ibm.com/infrastructure/compute/sshKeys){: external}.|
+      |SUBNET	|The name of an EXISTING Subnet. The list of Subnets is available [Subnets for VPC](https://cloud.ibm.com/infrastructure/network/subnets){: external}. |
+      |VPC	|The name of an EXISTING VPC. The list of VPCs is available [Virtual private clouds](https://cloud.ibm.com/infrastructure/network/vpcs){: external}.|
       |ZONE	|The cloud zone where to deploy the solution.
       |HANA_MAIN_PASSWORD	|Common password for all users that are created during the installation. A list of images is available here. |
       |IBMCLOUD_API_KEY	|IBM Cloud API key (Sensitive* value).|

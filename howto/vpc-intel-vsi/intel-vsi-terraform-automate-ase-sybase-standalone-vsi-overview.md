@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2024-06-20"
+  years: 2024, 2025
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---
@@ -72,7 +72,7 @@ SAP ASE includes server components that are installed into specific directories.
 
 A single-host system is the simplest installation type that runs an SAP ASE Sybase system entirely on one host. You can scale the system up as needed. The single-host system has these components as shown in the architecture:
 
- ![Figure 1. SAP ASE Sybase single-host installation](../../images/vpc-intel-vsi-refarch-sap-ase-sybase-single-host-only.svg "SAP ASE Sybase single-host installation"){: caption="SAP ASE Sybase single-host installation" caption-side="bottom"}
+![Figure 1. SAP ASE Sybase single-host installation](../../images/vpc-intel-vsi-refarch-sap-ase-sybase-single-host-only.svg "SAP ASE Sybase single-host installation"){: caption="SAP ASE Sybase single-host installation" caption-side="bottom"}
 
 The SAP ASE Sybase stand-alone deployment does not support any additional SAP application instance, as this is not deployed based on SAP Software Provisioning Manager (SWPM) phases for SAP applications running on ASE Sybase. This stand-alone database is suitable for applications like SAP Business Objects, Business Intelligence Platform, and SAP Data Services etc.
 {: note}

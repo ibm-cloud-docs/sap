@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-20"
+lastupdated: "2025-10-24"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -44,7 +44,7 @@ Your enterprise IT organization can select from a variety of operating systems f
 - [OS Bring your Own Image/License for VPC Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
 
 Depending on your scenarios, the following information may be also relevant:
-- [SAP on IBM Db2 using Intel Virtual Servers](/docs/sap/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-intel-vs-vpc)
+- [SAP on IBM Db2 using Intel Virtual Servers](/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-intel-vs-vpc)
 - [SAP MaxDB using Intel Virtual Servers](/docs/sap?topic=sap-anydb-sap-maxdb#anydb-sap-maxdb-intel-vs-gen2)
 - [IBM Cloud for SAP](https://www.ibm.com/products/cloud/sap){: external}
 

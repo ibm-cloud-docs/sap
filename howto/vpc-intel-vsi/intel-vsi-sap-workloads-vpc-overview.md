@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-22"
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---
@@ -34,7 +34,7 @@ This supports the deployment of SAP Business Applications running on SAP NetWeav
 
 IBM Cloud Virtual Servers for VPC offers fast provisioning compute capacity, also known as virtual machines with the highest network speeds and most secure, software-defined networking resources available on the {{site.data.keyword.cloud_notm}}. This is built on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) featuring powerful, 4th Gen Intel® Xeon® processors with new Intel® Software Guard Extensions (Intel® SGX®) to help protect data in use through a unique application isolation technology.
 
-A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/solutions/cloud){: external} infrastructure. VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 
 A VPC’s logical isolation is implemented by using virtual network functions and security features that give an enterprise user granular control over which IP addresses or applications can access particular resources.
 
@@ -77,7 +77,7 @@ The Infrastructure-as-a-Service (IaaS) server types within the {{site.data.keywo
 * SUSE Linux Enterprise Server (SLES) version 12 SP4 or higher.
 * Microsoft Windows Server 2016, 2019, and 2022.
 
-For more information on valid DB/OS combinations please consult the SAP [Product Availability Matrix (PAM)](https://userapps.support.sap.com/sap/support/pam){: external}.
+For more information on valid DB/OS combinations please consult the SAP [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html?anchorId=section_1969201630){: external}.
 
 ### Prerequisites
 {: #prerequisites-sap-vpc}
@@ -145,7 +145,7 @@ Following are the steps to set up your subnets:
 
 1. Click **Menu** icon > **Infrastructure** > **Network** > **Subnets**.
 2. Choose the desired **Region** and click **Create**.
-3. Confirm the **Location** (Geography, Region and Zone).
+3. Confirm the **Location** (Geography, Region, and Zone).
 4. Enter a unique name and select the VPC to be associated.
 5. Select a **Resource group**.
 6. **Optional**: Use tags to better organize and find your resources.

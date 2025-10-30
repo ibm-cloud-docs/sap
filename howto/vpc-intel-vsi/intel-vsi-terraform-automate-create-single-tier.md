@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-11-25"
+  years: 2021, 2025
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---
@@ -24,9 +24,9 @@ To create resources with Terraform, you use Terraform configuration files that d
 
 The configuration and script files are provided on the GitHub repository [https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main](https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main){: external}.
 
-For single-tier virtual private cloud on SAP, you modify the ``input.auto.tfvars`` file to customize the resources for your solution. You specify zones, resource names, and SSH keys.
+For single-tier virtual private cloud on SAP, you modify the `input.auto.tfvars` file to customize the resources for your solution. You specify zones, resource names, and SSH keys.
 
-All of the other configuration files are provided and do not need to be modified.
+All the other configuration files are provided and do not need to be modified.
 
 The IBM Cloud Provider plug-in for Terraform on {{site.data.keyword.cloud_notm}} uses these configuration files to provision a VPC in your {{site.data.keyword.cloud_notm}} account.
 
@@ -46,7 +46,7 @@ A VPC is a private space in {{site.data.keyword.cloud_notm}} where you can run a
 
 There are no warranties of any kind, and there is no service or technical support available for these materials from IBM®. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
-Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, re-adapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
+Though the materials provided herein are not supported by the IBM Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
 ## Before you begin
 {: #before-you-begin-single-tier}
@@ -60,7 +60,7 @@ Though the materials provided herein are not supported by the IBM Service organi
 
 Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-in and use Terraform to create a VPC for SAP.
 
-1.	If you do not have Terraform installed, [Install the Terraform CLI and the {{site.data.keyword.cloud_notm}} Provider plug-in](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-setup_cli).
+1. If you do not have Terraform installed, [Install the Terraform CLI and the {{site.data.keyword.cloud_notm}} Provider plug-in](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-setup_cli).
 
     If you are using Terraform 0.13 and higher, you do not need to install the {{site.data.keyword.cloud_notm}} Provider Plug-in. You modify the configuration files provided on the single-tier VPC for SAP GitHub repository to specify the plug-in version to use.
 
@@ -68,13 +68,13 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
 
     Do not do any {{site.data.keyword.cloud_notm}} Provider Plug-in configuration because those files are provided for you.
 
-2.  Create a project folder in the Terraform installation folder, and change directory to your project folder.
+2.  Create a project folder in the Terraform installation folder, and change the directory to your project folder.
 
     `mkdir myproject && cd myproject`
 
 3.  Copy the files from [https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main](https://github.com/IBM-Cloud/sap-infra-anydb-single/tree/main){: external} to the project folder that you created in the Terraform installation directory.
 
-4.	Edit the ``input.auto.tfvars`` file to customize your solution. Modify the file to specify your zone, VPC component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images).
+4.	Edit the `input.auto.tfvars` file to customize your solution. Modify the file to specify your zone, VPC component names, profile, and image. You need your 40-digit SSH key ID for this file. The second SSH key is optional. For more options for profile, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). For more options for image, see [Images](/docs/vpc?topic=vpc-about-images).
 
     ```terraform
     ZONE			= "eu-de-1"
@@ -101,7 +101,7 @@ Use these steps to configure the {{site.data.keyword.cloud_notm}} Provider Plug-
    terraform plan
    ```
 
-7. Verify that the plan shows all of the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the ``input.auto.tfvars`` file to correct resources and run ``terraform plan`` again.
+7. Verify that the plan shows all the resources that you want to create and that the names and values are correct. If the plan needs to be adjusted, edit the `input.auto.tfvars` file to correct resources and run `terraform plan` again.
 
 8. Create the VPC for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
@@ -116,6 +116,6 @@ This automation is offered at no cost; however, the provisioned infrastructure c
 ## Next steps
 {: #tf-create-single-tier-next-steps}
 
-If you need to rename your resources after they are created, modify the ``input.auto.tfvars`` file to change the names and run ``terraform plan`` and ``terraform apply`` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
+If you need to rename your resources after they are created, modify the `input.auto.tfvars` file to change the names and run `terraform plan` and `terraform apply` again. Do not use the {{site.data.keyword.cloud_notm}} Dashboard and user interface to modify your VPC after it is created. The Terraform scripts create a complete solution and selectively modifying resources with the user interface might cause unexpected results.
 
-If you need to remove your VPC, go to your project folder and run ``terraform destroy``.
+If you need to remove your VPC, go to your project folder and run `terraform destroy`.

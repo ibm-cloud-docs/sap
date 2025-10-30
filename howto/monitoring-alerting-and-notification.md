@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-10-30"
 keywords: SAP, SAP Monitoring, SAP Monitoring Alerting, Monitoring Notification {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 ---
@@ -53,7 +53,7 @@ Follow the steps outlined in [IBM Cloud Docs Monitoring: Configuring an alert by
 #### Creating the alert
 {: #mon-alerting-alert-create}
 
-1. In the IBM Cloud Monitoring UI of the selected region, select **Alerts** and click **+ New Alert**.
+1. In the {{site.data.keyword.monitoringlong_notm}} UI of the selected region, select **Alerts** and click **+ New Alert**.
 1. Select the alert type: **Threshold**.
 1. Name the alert:
    - Click the default alert name and enter a descriptive name, such as **SAP process status error alert**.
@@ -83,7 +83,7 @@ For more information about managing alerts, refer to the [IBM Cloud Docs Monitor
 {: #mon-alerting-notifications}
 
 You can configure alert notifications by creating a notification pipeline that includes a notification event service.
-Detailed instructions are available in the [IBM Cloud Docs Monitoring tutorial: Sending email notifications to IBM Cloud Event Notifications](/docs/monitoring?topic=monitoring-tutorial-en).
+Detailed instructions are available in the [IBM Cloud Docs Monitoring tutorial: Sending email notifications to {{site.data.keyword.en_full_notm}}](/docs/monitoring?topic=monitoring-tutorial-en).
 
 Supported notification destinations include email, SMS, Pager, Slack, Teams, and others.
 For a complete list, refer to [IBM Cloud Docs Monitoring: Working with notification channels](/docs/monitoring?topic=monitoring-notifications).
@@ -92,7 +92,7 @@ For a complete list, refer to [IBM Cloud Docs Monitoring: Working with notificat
 ### Configuring email notifications for alert events
 {: #mon-alerting-email-notifications}
 
-To configure email notifications, follow the steps that are outlined in [IBM Cloud Monitoring: Sending email alerts by using IBM Cloud Event Notifications](/docs/monitoring?topic=monitoring-eventnotif).
+To configure email notifications, follow the steps that are outlined in [IBM Cloud Monitoring: Sending email alerts by using {{site.data.keyword.en_full_notm}}](/docs/monitoring?topic=monitoring-eventnotif).
 Do not use the **Lite** pricing plan for the *Event Notification service instance*, as it is limited to 30 days.
 Instead, select the **Standard** pricing plan to ensure continued service availability.
 
@@ -100,7 +100,7 @@ Ensure that all intended email addresses are added to the subscriptions list and
 
 After you configured the notification service, you can associate one or more notification channels with the alert that you defined in your monitoring instance.
 
-1. In the IBM Cloud Monitoring UI, click **Alerts** in the side menu.
+1. In the {{site.data.keyword.monitoringlong_notm}} UI, click **Alerts** in the side menu.
 1. Select the `Alerts` option.
 1. Select your previously configured alert, for example `SAP process status error alert`.
 1. In the **Notifications:** section, choose one of the available notification channels.

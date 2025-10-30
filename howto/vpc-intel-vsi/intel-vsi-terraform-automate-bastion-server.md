@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-07-25"
+  years: 2021, 2025
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---
@@ -12,18 +12,18 @@ subcollection: sap
 # Deploying the SAP bastion server – SAP media storage repository
 {: #sap-bastion-server}
 
-This topic describes how to do an automated deployment of SAP bastion and storage setup on Red Hat Enterprise Linux 8.4. It shows how to deploy an {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) with a bastion host with secure remote SSH access. In SAP Terraform and Ansible deployments, the bastion host is used to give external administrative access to the other servers and applications. The bastion server is accessed through the Floating IP. The bastion server includes a customizable security group and subnet to enable access to the same region zones on its dedicated SAP/DBs and the VSI's IPs and ports. The floating IP also allows the bastion host access to the internet so the sap and DB kits can be downloaded. Also, a dedicated client-to-site VPN solution will be created automatically to provides direct access to the private IP address for future SAP servers, using an OpenVPN software client.
+This topic describes how to do an automated deployment of SAP bastion and storage setup on Red Hat Enterprise Linux 8.4. It shows how to deploy an {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) with a bastion host with secure remote SSH access. In SAP Terraform and Ansible deployments, the bastion host is used to give external administrative access to the other servers and applications. The bastion server is accessed through the Floating IP. The bastion server includes a customizable security group and subnet to enable access to the same region zones on its dedicated SAP/DBs and the VSI's IPs and ports. The floating IP also allows the bastion host access to the internet so the sap and DB kits can be downloaded. Also, a dedicated client-to-site VPN solution will be created automatically to provide direct access to the private IP address for future SAP servers, by using an OpenVPN software client.
 
 Before you decide which SAP automated solution you want to deploy in {{site.data.keyword.cloud_notm}} VPC, run the bastion server automated deployment. You need to specify the amount of dedicated storage that is needed to download and store the SAP kits. The SAP kits are used to deploy wanted SAP solution from the {{site.data.keyword.cloud_notm}} VPC automated SAP solutions pool. The bastion server in {{site.data.keyword.cloud_notm}} is primarily used for SAP solution deployment. It can be used as a Jump Host, for example, to maintain and administer all SAP solutions within its respective {{site.data.keyword.cloud_notm}} VPC region.
 
-Each customer is given an SAP S-user that reflects their contractual details with SAP, including:
+Each user is given an SAP S-user that reflects their contractual details with SAP, including:
 * SAP support
 * SAP Notes
 * System maintenance
 * Generate and maintain SAP and DB licenses
 * Migrations keys
 
-It is the customers responsibility to download and prepare the necessary SAP kits from [SAP launchpad support](https://launchpad.support.sap.com/){: external} and store them on the dedicated and customizable storage. The SAP kits are used during automated deployment when Ansible is called.
+It is the customers' responsibility to download and prepare the necessary SAP kits from [SAP launchpad support](https://launchpad.support.sap.com/){: external} and store them on the dedicated and customizable storage. The SAP kits are used during automated deployment when Ansible is called.
 
 ## Solution implemented
 {: #bastion-solution-implemented}
@@ -35,18 +35,18 @@ The Bastion server is used for remote software installation by using Terraform r
 The Terraform modules implement a 'reasonable' set of best practices for bastion host configuration only. Your own Organization might have more requirements that you must apply before the deployment.
 
 It contains:
-*	Terraform scripts for deploying a VPC, Subnet, Security Group with default and custom rules, a VSI with a volume, a Secrets Manager service instance and a VPN client-to-site solution.
-*	Bash scripts to install the prerequisites for SAP BASTION&STORAGE VSI and other SAP solutions.
+* Terraform scripts for deploying a VPC, Subnet, Security Group with default and custom rules, a VSI with a volume, a Secrets Manager service instance and a VPN client-to-site solution.
+* Bash scripts to install the prerequisites for SAP BASTION&STORAGE VSI and other SAP solutions.
 
 ### VPC Configuration
 {: #sap-bastion-vpc-config}
 
 The Security Rules are:
-*	Allow all traffic in the Security group
-*	Allow all outbound traffic
-*	Allow inbound DNS traffic (UDP port 53)
-*	Allow inbound SSH traffic (TCP port 22)
-*	Option to Allow inbound TCP traffic with a custom port or a range of ports.
+* Allow all traffic in the Security group
+* Allow all outbound traffic
+* Allow inbound DNS traffic (UDP port 53)
+* Allow inbound SSH traffic (TCP port 22)
+* Option to Allow inbound TCP traffic with a custom port or a range of ports.
 
 ### VSI Configuration
 {: #sap-bastion-vso-config}
@@ -56,21 +56,21 @@ The VSI is configured with Red Hat Enterprise Linux 8.4 (amd64), has a minimal o
 ### VPN Configuration
 {: #sap-bastion-vpn-config}
 
-For the VPN solution, a Secrets Manager instance will be provisioned. Two secrets are provisioned, the server certificate and the client certificate; both will be used during the VPN creation and also to generate the `ovpn` file for the connection. You can see these secrets under the Secrets Managers page > Secrets and select **View secret** option.
+For the VPN solution, a Secrets Manager instance is provisioned. Two secrets are provisioned, the server certificate and the client certificate; both will be used during the VPN creation and also to generate the `ovpn` file for the connection. You can see these secrets under the Secrets Managers page > Secrets and select the **View secret** option.
 
-The VPN server will have a dedicated Security Group. The Security Group will open the UDP port 443 for all source IP addresses. This can be later customized according to the customers needs.
+The VPN server has a dedicated Security Group. The Security Group opens the UDP port 443 for all source IP addresses. This can be later customized according to the customers needs.
 
 A rule is added for the bastion's Security Group to allow all the traffic from the VPN's Security Group.
 Later, if other Security Groups are added to the VPC and you want to allow access to their attached resources through the VPN connection, then the same rule should be configured for those as well.
 
-The automation script will generate on the bastion server an ovpn profile file for your OpenVPN client. You need to download from the bastion and import in your OpenVPN client.
+The automation script generates on the bastion server an ovpn profile file for your OpenVPN client. You need to download from the bastion and import in your OpenVPN client.
 
 ### Software configuration
 {: #sap-bastion-software-config}
 
-*	Terraform - an open source infrastructure as code software tool created by HashiCorp.
-*	Ansible - an open source software provisioning and configuration management tool.
-*	The {{site.data.keyword.cloud_notm}} Command Line Interface provides commands for managing resources in {{site.data.keyword.cloud_notm}}.
+* Terraform - an open source infrastructure as code software tool created by HashiCorp.
+* Ansible - an open source software provisioning and configuration management tool.
+* The {{site.data.keyword.cloud_notm}} Command Line Interface provides commands for managing resources in {{site.data.keyword.cloud_notm}}.
 
 ## Bastion input variables
 {: #sap-bastion-input-vars}
@@ -94,12 +94,12 @@ The automation script will generate on the bastion server an ovpn profile file f
 |IMAGE	|The OS image used for the VSI. For more information about available images, see [Virtual server images](/docs/vpc?topic=vpc-about-images). Default value: ibm-redhat-8-4-minimal-amd64-1.|
 |SSH_KEYS	|List of SSH Key IDs that are allowed to SSH as `root` to the VSI. This can contain one or more IDs. View the list of available SSH Keys on the {{site.data.keyword.cloud_notm}} Console [SSH keys for VPC](https://cloud.ibm.com/infrastructure/compute/sshKeys) page. Sample input (use your own SSH IDs from {{site.data.keyword.cloud_notm}}) [ "r010-57bfc315-f9e5-46bf-bf61-d87a24a9ce7a", "r010-3fcd9fe7-d4a7-41ce-8bb3-d96e936b2c7e" ]|
 |VOL1 [ number ]	|The size for the disk in GB to be attached to the BASTION VSI as storage for the SAP deployment kits. The mount point for the new volume is: "/storage". Default value: 100 GB.|
-|VPN_CREATE	 | Specifies if you want a VPN solution to be added to your bastion setup. If 'yes' a VPN solution will be automatically deployed for you, allowing you access to the private ip addressing space of your VPC.|
+|VPN_CREATE	 | Specifies whether you want a VPN solution to be added to your bastion setup. If 'yes' a VPN solution will be automatically deployed for you, allowing you access to the private IP addressing space of your VPC.|
 |VPN_PREFIX	 | The prefix to use for the VPN-related elements. The prefix set under this variable will be added to the Secrets Manager instance created, also used as a prefix for the VPN's Security Group and it will be used as a name for the VPN server created.|
 |VPN_NETWORK_PORT_PROTOCOL |The protocol to be used for the VPN solution. (must be either 'tcp' or 'udp')|
 |VPN_NETWORK_PORT_NUMBER |The port number to be used for the VPN solution. (must be between 1 and 65535)|
 |SM_PLAN | The pricing plan to be used for the Secrets Manager instance, provided as a plan ID. Use 869c191a-3c2a-4faf-98be-18d48f95ba1f for trial or 7713c3a8-3be8-4a9a-81bb-ee822fcaac3d for standard.|
-|VPN_CLIENT_IP_POOL	|Optional variable to specify the CIDR for VPN client IP pool space. This is the IP space that will be used by systems connecting with the VPN. You should only need to change this if you have a conflict with your local network.|
+|VPN_CLIENT_IP_POOL	|Optional variable to specify the CIDR for VPN client IP pool space. This is the IP space that will be used by systems connecting with the VPN. You only need to change this if you have a conflict with your local network.|
 |DESTROY_BASTION_SERVER_VSI	|For the initial deployment, should remain set to false. After the initial deployment, in case there is a wish to destroy the Deployment Server (Bastion Server) VSI, but preserve the rest of the Cloud resources (VPC, Subnet, Security Group, and VPN Solution), in Schematics, the value must be set to true and then the changes must be applied by pressing the "Apply plan" button.|
 {: caption}
 
@@ -121,7 +121,7 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
 
 5. Verify that you can access the URL used for this solution [Automation script for SAP solutions using a BASTION & STORAGE setup deployment through Terraform and IBM Schematics](https://github.com/IBM-Cloud/sap-bastion-setup){: external}.
 
-6. [Create an IAM service-to-service authorization for your VPN server and IBM Cloud Secrets Manager](/docs/vpc?topic=vpc-client-to-site-authentication#creating-iam-service-to-service). This will allow the client-to-site VPN service to access and use the secrets created under the Secrets Manager instance.
+6. [Create an IAM service-to-service authorization for your VPN server and IBM Cloud Secrets Manager](/docs/vpc?topic=vpc-client-to-site-authentication#creating-iam-service-to-service). This allows the client-to-site VPN service to access and use the secrets that are created under the Secrets Manager instance.
 
 ## Procedure
 {: #bastion-server-procedure}
@@ -142,8 +142,8 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
      * Your API key
      * Your private SSH key from your local system.
      * The ID for the SSH key that you created and uploaded to {{site.data.keyword.cloud_notm}}
-     * The Region for your resources
-     * The Zone for your resources
+     * The region for your resources
+     * The zone for your resources
      * Whether to use an existing VPC or create one
      * Whether to use an existing subnet
      * Whether to create new port only when a new subnet is created
@@ -155,7 +155,7 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
      * Profile
      * Image
      * Minimal recommended disk sizes.
-     * Click Save changes.
+     * Click **Save** changes.
 7. On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
 8. Click **View log** to review the log files of your Terraform execution plan.
 9. Apply your Terraform template by clicking **Apply plan**.
@@ -177,7 +177,7 @@ VOL1 [ number ] variable represents the defined customer size of the storage tha
     2024/09/16 12:01:08 Terraform refresh | VPN_HOSTNAME = "xxxxxx.eu-der.vpn-server.appdomain.cloud"
     ```
 
-12. Your OpenVPN client profile file is on the bastion server under `OVPN_FILE` path displayed in the output. Copy the file and share with the required users. Import this file in your OpenVPN client. Once the OpenVPN client connects, you are able to reach the private IP addressing space of the bastion server.
+12. Your OpenVPN client profile file is on the bastion server under `OVPN_FILE` path that is displayed in the output. Copy the file and share with the required users. Import this file in your OpenVPN client. Once the OpenVPN client connects, you are able to reach the private IP addressing space of the bastion server.
 
 This automation is offered at no cost; however, the provisioned infrastructure comes at cost.
 {: note}

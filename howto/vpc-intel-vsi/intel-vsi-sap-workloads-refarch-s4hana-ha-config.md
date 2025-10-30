@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-22"
+lastupdated: "2025-10-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Db2
 subcollection: sap
 ---
@@ -59,11 +59,11 @@ Redundancy of critical components, automated failover mechanisms and integration
 
 In order to maintain access and availability of application processing to end users, the SAP application servers are recommended to be installed redundant. This can be obtained by using a Primary Application Server and an Additional Application server using 2 VSIs.
 
-In case a crash occurs and one of the nodes fails, the users are losing access to the respective application server which has failed.  If logon groups are used for load balancing, when the users are connecting again they are redirected to the remaining available application server.
+In case a crash occurs and one of the nodes fails, the users are losing access to the respective application server which has failed. If logon groups are used for load balancing, when the users are connecting again they are redirected to the remaining available application server.
 
 Other points of failure are the ASCS instance and the SAP HANA database:
 
-* ASCS instance should be deployed in a HighAvailability cluster. In this way, the enqueue table locks managed by the Enqueue Server are protected. To achieve  this,  an ERS instance is deployed on another VSI and creates a replicated copy of the lock table in its instance memory. If the ASCS fails, the enqueue locks table can be rebuilt from the replicated copy held by the  ERS instance.  Message Server is restarted, communication is lost but data integrity is assured.
+* ASCS instance should be deployed in a HighAvailability cluster. In this way, the enqueue table locks managed by the Enqueue Server are protected. To achieve this, an ERS instance is deployed on another VSI and creates a replicated copy of the lock table in its instance memory. If the ASCS fails, the enqueue locks table can be rebuilt from the replicated copy held by the ERS instance. Message Server is restarted, communication is lost but data integrity is assured.
 
 The SAP S/4 HANA System is running by default a ENSA2 configuration, a concept in which the ASCS does not need to be started on the ERS node. Still, in a 2 node cluster configuration, ASCS will fail over to the same node where ERS is running.
 
@@ -73,7 +73,7 @@ The SAP S/4 HANA System is running by default a ENSA2 configuration, a concept i
 {: #suse-linux-s4hana}
 
 In traditional HA setups, the cluster manages the mounting and unmounting of SAP file systems during failover operations.
-The Simple Mount Architecture assumes that these filesystems do not need to be switched-over nor to be controlled by the pacemaker cluster.  This structure is based on an external network file share.
+The Simple Mount Architecture assumes that these filesystems do not need to be switched-over nor to be controlled by the pacemaker cluster. This structure is based on an external network file share.
 Instead of a number of filesystems needed per SAP system plus a number of filesystems per SAP instance, the simple mount setup only needs a 2 simple filesystem layout: "/sapmnt/[SID]" and "/usr/sap/[SID]".
 Both NFS shares with instance directories can be mounted statically on all nodes at boot time, using standard OS mechanisms such as systemd or fstab. Also,the “/usr/sap/sapservices” file resides locally on each cluster node.
 For some kind of compatibility with earlier HA setups, this reference architecture still uses the "old" filesystem layout but most fileshares are mounted on both nodes to implementing the simple mount approach.
@@ -92,7 +92,7 @@ Starting with SAP NW 7.52 / SAP S4 HANA, Standalone Enqueue Server 2 is the defa
 
 SAP HANA System Replication in a scale-up high availability configuration supports multiple deployment configurations, each aligned with distinct business and operational requirements such as performance optimization, cost control, and service continuity (RTO).
 
-* HANA Performance Optimized: the SAP HANA installation on the first node is synchronizing (sync with operation mode log-replay) with the SAP HANA database installed on the second node. The takeover time is very short, as the database on the second node is configured to preload the tables in memory.
+* HANA Performance optimized: the SAP HANA installation on the first node is synchronizing (sync with operation mode log-replay) with the SAP HANA database installed on the second node. The takeover time is very short, as the database on the second node is configured to preload the tables in memory.
 * HANA performance optimized, secondary site read-enabled: a performance optimized scenario but with the possibility to allow read access on the secondary database site. This is called also an active-active configuration.
 * HANA cost optimized: in this scenario, the stand-by or secondary HANA database is colocated with a non-productive database system, for example a Test or Development system. Whenever a takeover occurs, the non-productive system has to be stopped in order to free up the nedeed hardware resources for running the promoted HANA productive instance. The table preload is switched off and the takeover time is longer in this scenario.
 
@@ -105,13 +105,12 @@ However, deploying the resources in a HA configuration is also possible by using
 
 ![Figure 3. SAP S/4 HANA deployment in HA configuration single-zone](../../images/vpc-intel-sap-s4hana-arch-singlezone.svg "SAP S/4 HANA deployment in HA configuration single-zone"){: caption="SAP S/4 HANA deployment in HA configuration single-zone" caption-side="bottom"}
 
-
 * There is only one private subnet deployed.
 * SAP HANA is a two node cluster in the same network segment.
 * SAP service instances ASCS/ERS are part of the same network segment and colocated with SAP Application servers, on two node VSIs.
 * Virtual hostnames are addressed by the clients and applications also through an Application Load Balancer with the help of the DNS service.
 
-A Power placement group together with a placement strategy provides supplementary protection for VMs in a single zone and it guarantees that  each instance is placed on computer hosts with separate power supplies and network devices. See the information from [IBM Cloud](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) regarding placement groups.
+A Power placement group together with a placement strategy provides supplementary protection for VMs in a single zone and it guarantees that each instance is placed on computer hosts with separate power supplies and network devices. See the information from [IBM Cloud](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) regarding placement groups.
 
 ## Related information
 {: #related-info-s4hana}

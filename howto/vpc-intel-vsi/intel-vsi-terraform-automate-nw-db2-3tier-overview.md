@@ -35,9 +35,9 @@ For more information about SAP system architectures on {{site.data.keyword.cloud
 
 Manually deploying a VPC and installing an SAP system can be time-consuming. The Terraform automation assures not only a much quicker implementation, but also a standardized and less prone to error deployment. Terraform and Ansible are used for automating the deployment processes.
 
-The Terraform scripts solution provides the automated deployment of a single host with SAP NetWeaver with Db2 3-tier on the Red Hat Enterprise Linux&reg; and SUSE for SAP Applications (releases specified in [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed/blob/main/README.md){: external}.
+The Terraform scripts solution provides the automated deployment of a single host with SAP NetWeaver with Db2 3-tier on the Red Hat Enterprise Linux&reg; and SUSE for SAP Applications releases specified in [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed/blob/main/README.md){: external}.
 
-The SAP installation media that are used for this deployment are the default media for SAP NetWeaver 7.5 with Db2 (releases specified in [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed/blob/main/README.md){: external} available at the SAP Support Portal in the **Installation and Upgrade** area. You provide the installation media as an input parameter for Terraform.
+The SAP installation media that are used for this deployment are the default media for SAP NetWeaver 7.5 with Db2 releases specified in [`README` file](https://github.com/IBM-Cloud/sap-netweaver-abap-db2-distributed/blob/main/README.md){: external} available at the SAP Support Portal in the **Installation and Upgrade** area. You provide the installation media as an input parameter for Terraform.
 
 ## Ansible for SAP installation
 {: #ansible-sap-installation-3tier}

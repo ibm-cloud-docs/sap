@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-06-27"
+  years: 2022, 2025
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---
@@ -24,7 +24,7 @@ The scripts are designed to create a new VPC and install SAP (SAP BW/4HANA relea
 ## What is created
 {: #bw4hana-automation-created}
 
-The scripts work in two phases. The first phase automates the resources for the VPC provisioning process in an existing VPC created when you deployed the bastion VSI. The second phase creates the SAP architecture in a distributed environment SAP BW/4HANA App server on a distinct VSI VPC machine and SAP HANA DB on a dedicated server type VSI VPC box machine.
+The scripts work in two phases. The first phase automates the resources for the VPC provisioning process in an existing VPC created when you deployed the bastion VSI. The second phase creates the SAP architecture in a distributed environment SAP BW/4HANA application server on a distinct VSI VPC system and SAP HANA database on a dedicated server type VSI VPC box system.
 
 During the first phase, the VPC is provisioned in an existing VSI created when you deployed the bastion VSI:
 
@@ -36,7 +36,7 @@ During the first phase, the VPC is provisioned in an existing VSI created when y
 *	1 subnet to enable networking in your VPC.
 *	2 X virtual server instance with SAP certified storage and network configurations.
 
-During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI machine and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP BW/4HANA release on stand-alone dedicated SAP HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
+During the second phase, the Ansible Playbook is called and the SAP architecture is installed for both dedicated VSI’s SAP App VSI system and dedicated SAP HANA VSI box. The SAP architecture that is deployed is the SAP BW/4HANA release on stand-alone dedicated SAP HANA 2.0 box release. For more information about this architecture, see [Automating SAP HANA stand-alone virtual server instance on {{site.data.keyword.cloud}} VPC by using Terraform and Ansible](/docs/sap?topic=sap-automate-terraform-sap-hana-vsi).
 
 ## Script files
 {: #bw4hana-automation-script-files}

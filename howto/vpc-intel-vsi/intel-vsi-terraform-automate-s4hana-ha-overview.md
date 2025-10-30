@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-07-25"
+  years: 2022, 2025
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---
@@ -18,7 +18,7 @@ You can use Terraform to automate {{site.data.keyword.vpc_short}} provisioning. 
 ## {{site.data.keyword.cloud}} VPC introduction
 {: #automate-sap-ha-vpc-introduction}
 
-A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/solutions/cloud){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building and multiple families live inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium; no one else has the key, and no one can enter the space without your permission.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2024-07-25"
+  years: 2024, 2025
+lastupdated: "2025-10-30"
 keywords:
 subcollection: sap
 ---
@@ -18,7 +18,7 @@ You can use Terraform to automate {{site.data.keyword.vpc_short}} provisioning. 
 ## {{site.data.keyword.cloud}} VPC introduction
 {: #automate-sap-abap-sz-mz-ha-deployment-introduction}
 
-A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/solutions/cloud){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building and multiple families live inside. A public cloud tenant is a kind of sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium; no one else has the key, and no one can enter the space without your permission.
 
@@ -184,7 +184,7 @@ The primary system waits to commit the transaction until it gets a reply that th
 
 When the connection to the secondary system is lost, the primary system continues the transaction processing and writes the changes only to the local disk. No data loss occurs in this scenario if the secondary system is connected. Data loss can occur when a takeover is run while the secondary system is disconnected.
 
-Additionally, this replication mode can run with a full sync option. This means that log write is successful when the log buffer has been written to the log file of the primary and the secondary system. When the secondary system is disconnected (for example, because of network failure), the primary system suspends the transaction processing until the connection to the secondary system is reestablished. No data loss occurs in this scenario. You can set the full sync option for system replication with the parameter `[system_replication]/enable_full_sync`.
+Additionally, this replication mode can run with a full sync option. This means that log write is successful when the log buffer has been written to the log file of the primary and the secondary system. When the secondary system is disconnected (for example, because of network failure), the primary system suspends the transaction processing until the connection to the secondary system is re-established. No data loss occurs in this scenario. You can set the full sync option for system replication with the parameter `[system_replication]/enable_full_sync`.
 
 If SAP HANA system replication runs in the sync replication mode with the full sync option enabled, and if the connection to the secondary site is interrupted, no write operations on the primary site are possible. The operation of creating a tenant database, for example, waits until the connection to the secondary is reestablished or the SQL statement times out.
 {: note}
