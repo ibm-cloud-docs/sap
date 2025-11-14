@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-11-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -632,7 +632,7 @@ sudo -i -u ${sid}adm -- HDB kill-9
 - The cluster detects the stopped primary and marks the resource as `undefined`.
 - The cluster promotes the secondary SAP HANA system on NODE2, which takes over as primary.
 - The cluster releases the virtual IP address on NODE1, and acquires it on the primary on NODE2.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary system.
 - The secondary HANA system that runs on NODE3 at the *DR site* is automatically reregistered to the new primary that runs on NODE2.
 - The cluster waits until the primary on NODE2 is fully active and registers the failed instance on NODE1 as a secondary.
 - The cluster starts the secondary HANA instance on NODE1.
@@ -829,7 +829,7 @@ Use cluster commands to move the primary instance to the other cluster node.
 
 - The cluster creates a location constraint to move the resource.
 - The cluster triggers a takeover to the secondary HANA system on NODE1.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary system.
 - Register NODE2 with the primary on NODE1.
 - Run `pcs resource clear` command to remove the location constraint.
    This command triggers the start of the secondary instance on NODE2.
@@ -867,23 +867,23 @@ Simulate a crash of the node that runs the primary HANA database.
 #### Test3 - Test procedure
 {: #ha-rhel-hana-sr-mtgt-test3-procedure}
 
-Crash the primary on NODE1 by sending a *crash* system request.
+Initiate a forced stop of the SAP HANA primary instance by sending a power off system request to NODE1.
 
 On NODE1, run the following command.
 
 ```sh
-sync; echo c > /proc/sysrq-trigger
+sync; echo o > /proc/sysrq-trigger
 ```
 {: pre}
 
 #### Test3 - Expected behavior
 {: #ha-rhel-hana-sr-mtgt-test3-expected-behavior}
 
-- NODE1 crashes.
+- NODE1 is powered off.
 - The cluster detects the failed node and sets its state to `OFFLINE`.
 - The cluster promotes the secondary HANA database on NODE2 to take over as the new primary.
 - The cluster acquires the virtual IP address on NODE2.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary system.
 - The secondary SAP HANA system that runs on NODE3 at the *DR site* is automatically reregistered to NODE2.
 
 Verify the SAP HANA system replication status on NODE2.
@@ -998,19 +998,19 @@ Simulate a crash of the nodes that run the primary and secondary SAP HANA databa
 #### Test4 - Test procedure
 {: #ha-rhel-hana-sr-mtgt-test5-procedure}
 
-Crash primary on NODE1 and secondary on NODE2 by sending a *crash* system request on both nodes.
+Initiate a forced stop of the SAP HANA primary instance  on NODE1 and SAP HANA secondary instance on NODE2 by sending a power off system request to both nodes.
 
 1. On NODE1, run the following command.
 
    ```sh
-   sync; echo c > /proc/sysrq-trigger
+   sync; echo o > /proc/sysrq-trigger
    ```
    {: pre}
 
 1. On NODE2, run the following command.
 
    ```sh
-   sync; echo c > /proc/sysrq-trigger
+   sync; echo o > /proc/sysrq-trigger
    ```
    {: pre}
 

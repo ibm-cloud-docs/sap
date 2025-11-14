@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-11-13"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, RHEL
 subcollection: sap
 ---
@@ -97,8 +97,8 @@ SAP Application layer:
 * **Resiliency:** A two-region deployment model protects against outages, natural disasters, or other situations having a large impact on a regional level.
 * **Flexibility:** The failover proves, including post steps activities and checks, can be fully automated thus improving the RTO times and reducing as much as possible business impact.
 
-## References
-{: #references}
+## Related information
+{: #related-info-hana}
 
 **IBM VPC infrastructure:**
 

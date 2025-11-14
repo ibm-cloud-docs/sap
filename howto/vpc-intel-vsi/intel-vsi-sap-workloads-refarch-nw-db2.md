@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-11-13"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Db2
 subcollection: sap
 ---
@@ -42,7 +42,7 @@ The three installation types for SAP NetWeaver Application Server are:
 
 This diagram shows the SAP NetWeaver 7.X on Db2 integrated with {{site.data.keyword.cloud_notm}} on the SAP NetWeaver 7.x architecture:
 
-![Figure 1. Sample reference architecture](../../images/vpc-intel-vsi-db2-std-arch.svg "SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC"){: caption="SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC" caption-side="bottom"}
+![Figure 1. SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC](../../images/vpc-intel-vsi-db2-std-arch.svg "SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC"){: caption="SAP NetWeaver 7.x with Db2 standard installation with AAS on VSI to {{site.data.keyword.cloud_notm}} VPC" caption-side="bottom"}
 
 ## Access from an external network
 {: #sap-refarch-nw-db2-access}

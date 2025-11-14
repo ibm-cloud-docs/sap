@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-20"
+lastupdated: "2025-11-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -11,6 +11,8 @@ subcollection: sap
 
 # Fast Path of IBM Cloud for VMware on Classic Infrastructure
 {: #fast-path-site-map-vmware-sddc}
+
+{{site.data.content.vms-deprecated-note}}
 
 This page is a collection of shortcuts to the documentation sections for each offering, excluding general information that applies to all offerings, such as SAP Sizing.
 

@@ -200,6 +200,8 @@ Three primary types of IaaS are available within the {{site.data.keyword.cloud_n
 
 Bare Metal and both VMware options are SAP-certified.
 
+{{site.data.content.vms-deprecated-note}}
+
 Classic Virtual Servers are not SAP-certified. For this type of IaaS, the {{site.data.keyword.cloud_notm}} VPC Infrastructure environment provides Intel Virtual Servers which are SAP-certified.
 
 For more information, see [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).

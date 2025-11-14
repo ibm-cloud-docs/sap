@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-10-08"
+lastupdated: "2025-11-11"
 keywords: IBM Cloud for SAP, SAP on {{site.data.keyword.powerSysShort}}
 subcollection: sap
 content-type: conref
@@ -198,3 +198,12 @@ CONTENT:
       In the example, the mount path is `10.20.30.40:/73a1ff96_4861_4463_aa09_8c8128b8e277fsf`.
       The first part of the mount path is the **Primary IP** of the mount target: `10.20.30.40` .
 {: #nfs-get-mount-path}
+
+
+
+
+
+
+**End of Marketing**: As of 31 October 2025, new deployments of VMware Solutions offerings are no longer available for new customers. Existing customers can still use and expand their active VMware® workloads on {{site.data.keyword.cloud}}. For more information, see [End of Marketing for VMware on {{site.data.keyword.cloud_notm}}](/docs/vmwaresolutions?topic=vmwaresolutions-eos-vms).
+{: note}
+{: #vms-deprecated-note}

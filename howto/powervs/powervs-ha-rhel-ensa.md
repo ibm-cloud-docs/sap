@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-11-10"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -926,19 +926,19 @@ Simulate a crash of the node where the *ASCS* instance is running.
 #### Test 2 - Test procedure
 {: #ha-rhel-ensa-test2-procedure}
 
-Crash NODE2 by sending a *crash* system request.
+Stop NODE2 by sending a *power off* system request.
 
 On NODE2, run the following command.
 
 ```sh
-sync; echo c > /proc/sysrq-trigger
+sync; echo o > /proc/sysrq-trigger
 ```
 {: pre}
 
 #### Test 2 - Expected behavior
 {: #ha-rhel-ensa-test2-expected-behavior}
 
-- NODE2 restarts.
+- NODE2 is powered off.
 - The cluster detects the failed node and sets its state to offline (UNCLEAN).
 - The cluster acquires the *ASCS* resources (virtual IP address, file system `/usr/sap/${SID}/ASCS${ASCS_INSTNO}`, and the LVM items) on NODE1.
 - The cluster starts the *ASCS* on NODE1.
@@ -998,6 +998,7 @@ Daemon Status:
 #### Test 2 - Recovery procedure
 {: #ha-rhel-ensa-test2-recovery-procedure}
 
+Use the IBM Cloud Console to power on NODE2.
 Wait until NODE2 restarts, then restart the cluster framework.
 
 On NODE1, run the following command.

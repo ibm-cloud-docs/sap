@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-11-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -11,6 +11,8 @@ subcollection: sap
 
 # VMware SDDC certified profiles for SAP NetWeaver
 {: #nw-iaas-offerings-profiles-vmware}
+
+{{site.data.content.vms-deprecated-note}}
 
 ## Profiles list
 {: #nw-iaas-vmware-list}

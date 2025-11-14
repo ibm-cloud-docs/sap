@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-11-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -824,7 +824,7 @@ sudo -i -u ${sid}adm -- HDB kill-9
 - The cluster detects the stopped primary HANA database and marks the resource as `failed`.
 - The cluster promotes the secondary HANA database on NODE2 to take over as the new primary.
 - The cluster releases the virtual IP address on NODE1, and acquires it on the new primary on NODE2.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary system.
 
 #### Test 1 - Recovery procedure
 {: #ha-rhel-hana-sr-test1-recovery-procedure}
@@ -913,12 +913,12 @@ pcs resource config SAPHana_${SID}_${INSTNO}
 #### Test 2 - Test procedure
 {: #ha-rhel-hana-sr-test2-procedure}
 
-Crash primary on NODE2 by sending a *crash* system request.
+Initiate a forced stop of the SAP HANA primary instance by sending a power off system request to NODE2.
 
 On NODE2, run the following command.
 
 ```sh
-sync; echo c > /proc/sysrq-trigger
+sync; echo o > /proc/sysrq-trigger
 ```
 {: pre}
 
@@ -929,7 +929,7 @@ sync; echo c > /proc/sysrq-trigger
 - The cluster detects the failed node and sets its state to `OFFLINE`.
 - The cluster promotes the secondary HANA database on NODE1 to take over as the new primary.
 - The cluster acquires the virtual IP address on NODE1 on the new primary.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary system.
 
 #### Test 2 - Recovery procedure
 {: #ha-rhel-hana-sr-test2-recovery-procedure}
@@ -1049,7 +1049,7 @@ pcs resource move SAPHana_${SID}_${INSTNO}-clone
 
 - The cluster creates location constraints to move the resource.
 - The cluster triggers a takeover to the secondary HANA database.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary system.
 
 #### Test 4 - Recovery procedure
 {: #ha-rhel-hana-sr-test4-recovery-procedure}

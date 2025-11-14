@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-25"
+lastupdated: "2025-11-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -630,7 +630,7 @@ sudo -i -u ${sid}adm -- HDB kill-9
    - The cluster stops the nonproduction database `${SID_NP}` on NODE2.
    - During activation, the `global_allocation_limit` and `preload_column_tables` parameters are reset to default.
 - The cluster releases the virtual IP address on NODE1, and acquires it on the new primary on NODE2.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary system.
 
 On NODE2, run the following commands to check that the `global_allocation_limit`and `preload_column_tables` are unset.
 
@@ -750,12 +750,18 @@ pcs resource move SAPHana_${SID}_${INSTNO}-clone
 ```
 {: pre}
 
+The `pcs resource move` command adds a temporary location constraint that prevents the resource from running on its current node.
+
+[RHEL9]{: tag-red}: As the final step of a successful resource move, the constraint is automatically removed.
+
+[RHEL8]{: tag-red}: The constraint remains in place until it is manually cleared.
+
 #### Test2 - Expected behavior
 {: #ha-rhel-hana-sr-co-test2-expected-behavior}
 
 - The cluster creates a location constraint to move the resource.
 - The cluster triggers a takeover to the secondary HANA database on NODE1.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary system.
 - The resource of the nonproduction SAP HANA system *`${SID_NP}`* is in the *unmanaged* state and isn't started automatically.
 
 #### Test2 - Recovery procedure
@@ -861,12 +867,12 @@ Simulate a crash of the node that is running the primary HANA database.
 #### Test3 - Test procedure
 {: #ha-rhel-hana-sr-co-test3-procedure}
 
-Crash primary on NODE1 by sending a *crash* system request.
+Initiate a forced stop of the SAP HANA primary instance by sending a power off system request to NODE1.
 
 On NODE1, run the following command.
 
 ```sh
-sync; echo c > /proc/sysrq-trigger
+sync; echo o > /proc/sysrq-trigger
 ```
 {: pre}
 
@@ -879,7 +885,7 @@ sync; echo c > /proc/sysrq-trigger
    - The cluster stops the nonproduction database `${SID_NP}` on NODE2.
    - During activation, the `global_allocation_limit` and `preload_column_tables` parameters of SAP HANA `${SID}`are reset.
 - The cluster acquires the virtual IP address on NODE2 on the new primary.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary system.
 
 #### Test3 - Recovery procedure
 {: #ha-rhel-hana-sr-co-test3-recovery-procedure}

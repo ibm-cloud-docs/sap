@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-07"
+lastupdated: "2025-11-10"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -961,7 +961,7 @@ Simulate a node failure on NODE2 by triggering a system crash.
 On NODE2, run the following command.
 
 ```sh
-sync; echo c > /proc/sysrq-trigger
+sync; echo o > /proc/sysrq-trigger
 ```
 {: pre}
 
@@ -1092,7 +1092,7 @@ pcs resource move SAPHanaController_${SID}_${INSTNO}-clone
 
 - The cluster creates temporary location constraints to relocate the resource to the target node.
 - The cluster initiates a takeover, promoting the secondary SAP HANA instance to primary.
-- Applications such as SAP NetWeaver, if connected to a tenant database, automatically reconnect to the new primary instance.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary master instance.
 
 #### Test 4 - Recovery procedure
 {: #ha-rhel-hana-ng-sh-test4-recovery-procedure}

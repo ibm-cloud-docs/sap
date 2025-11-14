@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-11-13"
 keywords:
 subcollection: sap
 ---
@@ -524,12 +524,12 @@ After you download the installation media, follow the standard SAP installation 
 ## Related information
 {: #related-info-db2}
 
-* [Db2 Recommended file systems](https://www.ibm.com/docs/en/db2/12.1.0?topic=databases-recommended-file-systems){: external}
+* [Db2 Recommended file systems](https://www.ibm.com/docs/en/db2/12.1.x?topic=databases-recommended-file-systems){: external}
 * [Release notes for IBM Cloud VPC](/docs/vpc?topic=vpc-release-notes&interface=ui)
 * [IBM Cloud® File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about)
 * [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html?anchorId=section_1969201630){: external}
 * [Db2 Database Administration Guide](https://help.sap.com/doc/7367f81b468e4480b3c550669b3534aa/CURRENT_VERSION/en-US/DB6_Admin_Guide.pdf){: external}
-* [Preparing to install Db2 database servers](https://www.ibm.com/docs/en/db2/12.1.0?topic=servers-preparing-install-db2-database){: external}
+* [Preparing to install Db2 database servers](https://www.ibm.com/docs/en/db2/12.1.x?topic=servers-preparing-install-db2-database){: external}
 * [SAP Note 405827 - Linux&reg;: Recommended file systems](https://me.sap.com/notes/405827/E){: external}
 * [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 * [SAP Note 1597355 - Swap-space recommendation for Linux&reg;](https://me.sap.com/notes/1597355){: external}
@@ -550,8 +550,8 @@ After you download the installation media, follow the standard SAP installation 
 * [SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
 * [SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
 
-## References
-{: #references-sap-nw-db2-rhel}
+## Related information
+{: #related-info-sap-nw-db2-rhel}
 
 * For more information and updates about SAP on Db2 for LUW on {{site.data.keyword.vpc_short}}, see [SAP Note 2927211](https://me.sap.com/notes/2927211){: external}.
 * [SAP community page for IBM Db2](https://pages.community.sap.com/topics/db2-for-linux-unix-windows){: external}
@@ -559,9 +559,9 @@ After you download the installation media, follow the standard SAP installation 
 
 **IBM Db2 support on SAP-certified Cloud IaaS:**
 
-* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1.0)
+* [IBM Knowledge Center for Db2 - Support for Db2 on public clouds (BYOSL, SAP Notes, Reference blueprints)](https://www.ibm.com/docs/en/db2/12.1.x)
 * [SAP Note 101809 - DB6: Supported Db2 Versions and Fix Pack Levels](https://me.sap.com/notes/101809){: external}
-* [General IBM Db2 prerequisites on UNIX and Linux®](https://www.ibm.com/docs/en/db2/12.1.0?topic=servers-prerequisites-db2-database-server-installation-linux-unix){: external}
+* [General IBM Db2 prerequisites on UNIX and Linux®](https://www.ibm.com/docs/en/db2/12.1.x?topic=servers-prerequisites-db2-database-server-installation-linux-unix){: external}
 
 **IBM Db2 and SAP NetWeaver on UNIX or Linux:**
 * [Installation of SAP Systems based on the Application Server ABAP of SAP NetWeaver 7.1 to 7.52 on UNIX: IBM Db2 LUW](https://help.sap.com/docs/SLTOOLSET/ce9e270ad34949969c16d09d1b099a26/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}

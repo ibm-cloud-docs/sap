@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-25"
+lastupdated: "2025-11-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -333,7 +333,7 @@ Verify the connection to the secondary instance by using the hint-based statemen
    ```
    {: pre}
 
-   The sample output shows that the statement ran on the SAP HANA primary.
+   The sample output shows that the statement ran on the SAP HANA primary system.
 
    ```sh
      HOST,KEY,VALUE
@@ -437,7 +437,7 @@ sudo -i -u ${sid}adm -- HDB kill-9
 - The cluster promotes the secondary SAP HANA database on NODE2 to take over as the new primary.
 - The cluster releases the virtual IP address on NODE1, and acquires it on the new primary on NODE2.
 - After the takeover, the secondary SAP HANA instance is unavailable and the secondary virtual IP address stays on NODE2.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary system.
 
 #### Test1 - Recovery procedure
 {: #ha-rhel-hana-sr-aa-test1-recovery-procedure}
@@ -530,24 +530,24 @@ pcs resource config SAPHana_${SID}_${INSTNO} | grep Attributes
 #### Test2 - Test procedure
 {: #ha-rhel-hana-sr-aa-test2-procedure}
 
-Crash primary on NODE2 by sending a *crash* system request.
+Initiate a forced stop of the SAP HANA primary instance by sending a power off system request to NODE2.
 
 On NODE2, run the following command.
 
 ```sh
-sync; echo c > /proc/sysrq-trigger
+sync; echo o > /proc/sysrq-trigger
 ```
 {: pre}
 
 #### Test2 - Expected behavior
 {: #ha-rhel-hana-sr-aa-test2-expected-behavior}
 
-- NODE2 shuts down.
+- NODE2 is powered off.
 - The cluster detects the failed node and sets its state to `OFFLINE`.
 - The cluster promotes the secondary SAP HANA database on NODE1 to take over as the new primary.
 - The cluster acquires the virtual IP address on NODE1 on the new primary.
 - After the takeover, the secondary SAP HANA instance is unavailable and the secondary virtual IP address stays on NODE1.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the new SAP HANA primary system.
 
 #### Test2 - Recovery procedure
 {: #ha-rhel-hana-sr-aa-test2-recovery-procedure}
@@ -678,20 +678,24 @@ Warning: Creating location constraint 'cli-ban-SAPHana_H4S_00-clone-on-cl-hdb-1'
 ```
 {: screen}
 
+The `pcs resource move` command adds a temporary location constraint that prevents the resource from running on its current node.
+
+[RHEL9]{: tag-red}: As the final step of a successful resource move, the constraint is automatically removed.
+
+[RHEL8]{: tag-red}: The constraint remains in place until it is manually cleared.
+
 #### Test4 - Expected behavior
 {: #ha-rhel-hana-sr-aa-test4-expected-behavior}
 
 - The cluster creates location constraints to move the resource.
 - The cluster triggers a takeover to the secondary SAP HANA database.
 - The secondary virtual IP address stays on NODE2.
-- If an application, such as SAP NetWeaver, is connected to a tenant database of SAP HANA, the application automatically reconnects to the new primary.
+- Applications such as SAP S/4HANA and SAP NetWeaver automatically reconnect to the master instance of the new SAP HANA primary system.
 
 #### Test4 - Recovery procedure
 {: #ha-rhel-hana-sr-aa-test4-recovery-procedure}
 
-The automatically created location constraints must be removed to allow automatic failover in the future.
-
-Wait until the primary SAP HANA instance is active and remove the constraints.
+[RHEL8]{: tag-red}: Wait until the SAP HANA primary instance is active, then remove the constraint.
 
 On a cluster node, run the following command.
 

@@ -1,15 +1,13 @@
 ---
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
+  years: 2020, 2025
+lastupdated: "2025-11-14"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-
-{{site.data.keyword.attribute-definition-list}}
 
 # IBM Security Services for SAP
 {: #ibm-security-services}
@@ -41,16 +39,5 @@ For more information, see [IBM.com - IBM Security - SAP Security and GRC Strateg
 {: #ibm-security-services-request}
 
 To begin with IBM Security Services for SAP, use either:
-- Live Chat with IBM Security Sales, by using [IBM.com - IBM Security](https://www.ibm.com/services/sap-security){: external} and click `Let's talk` in the botttom-left
+- Live Chat with IBM Security Sales, by using [IBM.com - IBM Security](https://www.ibm.com/services/sap-security){: external} and click **Contact us** on the left
 - [Email with IBM Security Sales](https://www.ibm.com/account/reg/us-en/signup?formid=MAIL-automation){: external}
-
-
-### Procedure to request IBM Security Services for SAP, directly from IBM Cloud for VMware Solutions
-{: #ibm-security-services-vmware-request}
-
-Because of the close collaboration between IBM Cloud for VMware with SAP and IBM Security Services for SAP, the quickest way to use IBM Security Services in combination with SAP workloads on VMware is to:
-
-1. Open the {{site.data.keyword.vmwaresolutions_short}} console. Scroll down to the **Services** section and on the **Featured Workload Solutions** card click **IBM Security Services for SAP**.
-2. On the **IBM Security Services for SAP** page, in the **Engage IBM Security Services** box, provide the requested details, and click **Request a consultation**.
-
-    An {{site.data.keyword.vmwaresolutions_short}} representative will contact you by using your {{site.data.keyword.cloud_notm}} contact information to help you with the solution that you need.

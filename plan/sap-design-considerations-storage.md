@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-05"
+lastupdated: "2025-11-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -74,6 +74,8 @@ The following sections describe the storage considerations that use network bloc
 
 #### Network Block or File storage for VMware on Classic Infrastructure
 {: #storage-performance-network-block-vmware}
+
+{{site.data.content.vms-deprecated-note}}
 
 Using VMware for SAP workloads on {{site.data.keyword.cloud_notm}} is certified. However it requires choice of the storage and would use the "TDI" delivery model for which you would need to run validation checks to gain SAP Support. Therefore, it is important to consider the correct storage for your VMware hosts when they are running SAP workloads.
 

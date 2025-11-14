@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-29"
+lastupdated: "2025-11-14"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -17,11 +17,11 @@ The cluster uses instances in [{{site.data.keyword.powerSysFull}}](https://www.i
 The virtual server instances run in different zones in a multizone region.
 The setup uses either the *powervs-move-ip* or the *powervs-subnet* cluster resource agent to manage the service IP address of an application in a multizone region implementation.
 
-Recommended resource agent is *powervs-move-ip*.
+The recommended resource agent is *powervs-move-ip*.
 {: note}
 
-The resource agent supports only the use of different zones in the same multizone region.
-Deployment across multiple regions is not supported.
+The resource agent only works within zones that are in one multizone region.
+A deployment of a cluster spanning across multiple regions is not supported.
 See [Multizone regions (MZR)](/docs/overview?topic=overview-locations#table-mzr){: external} and [IBM Cloud regions](/docs/power-iaas?topic=power-iaas-ibm-cloud-reg){: external} for more information about multizone regions and available locations.
 
 The information describes how to transform the individual virtual server instances into a cluster.
@@ -231,7 +231,10 @@ STONITH is an acronym for "Shoot The Other Node In The Head" and protects your d
 You must enable STONITH (fencing) for a RHEL HA Add-On production cluster.
 {: important}
 
-Fence agent *fence_ibm_powervs* is the only supported agent for a STONITH device on {{site.data.keyword.powerSys_notm}} clusters.
+This document explains how to configure the *fence_ibm_powervs* fence agent in Red Hat Enterprise Linux High Availability Add-On clusters.
+
+As an alternative, you can implement STONITH Block Device (SBD) fencing instead of *fence_ibm_powervs* by following the instructions in [Implementing SBD poison-pill fencing in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-sbd){: external}.
+{: note}
 
 You must configure a fencing device for each of the two workspaces in the multizone region.
 The fence agent connects to the [Power Cloud API](https://cloud.ibm.com/apidocs/power-cloud){: external} by using the common `APIKEY` and `CLOUD_REGION` parameters.

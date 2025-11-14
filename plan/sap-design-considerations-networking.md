@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-11-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -67,6 +67,8 @@ It is not supported to use a bring-your-own subnet range **not** defined under [
 
 #### Classic Infrastructure with VMware
 {: #network-connectivity-byo-classic-vmware}
+
+{{site.data.content.vms-deprecated-note}}
 
 If the existing business operates SAP on VMware, it is possible to use IBM Cloud for VMware along with VMware HCX and {{site.data.keyword.cloud}} Direct Link to create a bridged bidirectional network between existing Datacenter with VMware and IBM Cloud for VMware. This uses the existing VMware service mesh routing into VMware HCX and into overlay from VMWare NSX on IBM Cloud for VMware, which creates:
 - An encrypted Migration Tunnel that uses HCX Cloud Gateway (CGW) + HCX WAN Optimizer (WAN-OPT)

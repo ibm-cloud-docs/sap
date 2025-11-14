@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-11-10"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 subcollection: sap
 ---
@@ -850,10 +850,10 @@ pcs status
 ```
 {: pre}
 
-Then, log in to the identified cluster node and send a *crash* system request.
+Log in to the identified cluster node and send a *power off* system request.
 
 ```sh
-sync; echo c > /proc/sysrq-trigger
+sync; echo o > /proc/sysrq-trigger
 ```
 {: pre}
 

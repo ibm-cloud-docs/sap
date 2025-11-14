@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-11-13"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SLES, HADR
 subcollection: sap
 ---
@@ -37,8 +37,8 @@ SAP ASE database HA setup is independent of operating system HA software such as
 
 **SAP ASCS/ERS cluster** – SAP ASCS/ERS is deployed on two nodes with Linux pacemaker cluster. Fencing agent is the preferred option for fencing mechanism though SBD device can also be used as alternative option on SLES. Pacemaker monitors the SAP ASCS/ERS and perform auto-failover of services if there is failure. You need to use Application Load Balancer (ALB) to define the virtual IP addresses of ASCS and ERS.
 
-## References
-{: #reference}
+## Related information
+{: #related-info-sap-ase}
 
 * [Install the Data Movement Component](https://help.sap.com/docs/SAP_ASE/6ca21b96f7cb456fabb2b32b2121a6ae/2c6c4fba235245f49f6c412d011fb628.html?version=16.0.4.7&locale=en-US){: external}
 * [3086679 - SYB: Fault Manager: floating IP address on Azure](https://launchpad.support.sap.com/#/notes/3086679){: external}

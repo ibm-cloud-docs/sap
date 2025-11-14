@@ -465,6 +465,8 @@ toc:
                 topic: howto/powervs/powervs-ha-rhel-hana-sr.md
               - navtitle: Configuring SAP HANA scale-up system replication by using the sap-hana-ha resource agent
                 topic: howto/powervs/powervs-ha-rhel-hana-ng-sh.md
+              - navtitle: Configuring SAP HANA scale-out system replication by using the sap-hana-ha resource agent
+                topic: howto/powervs/powervs-ha-rhel-hana-ng-mh.md
               - navtitle: Configuring SAP HANA cost-optimized scale-up system replication
                 topic: howto/powervs/powervs-ha-rhel-hana-sr-co.md
               - navtitle: Configuring SAP HANA Active/Active (Read Enabled) system replication

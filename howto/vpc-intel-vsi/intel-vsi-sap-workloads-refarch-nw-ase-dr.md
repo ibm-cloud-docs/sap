@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-10-06"
+lastupdated: "2025-11-13"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SLES, HADR
 subcollection: sap
 ---
@@ -65,8 +65,8 @@ After a failover, the roles of the systems are reversed. That means, the DNS mus
 
 Bringing up again the former primary site can allow to setup a new replication configuration, the former primary can be now configured as the Stand-by site. In order to achieve this, the former primary database must be rematerialized and replication restarted.
 
-## References
-{: #references-ase}
+## Related information
+{: #related-info-ase}
 
 **SAP One support notes:**
 

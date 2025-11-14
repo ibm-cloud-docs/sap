@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-29"
+lastupdated: "2025-11-13"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn, SLES HAE
 subcollection: sap
 ---
@@ -60,7 +60,8 @@ Make sure that the IP address you want to reserve is within the CIDR range of th
 {: #ha-vsi-explore-additional-network-options}
 
 If your {{site.data.keyword.powerSys_notm}} *workspace* is enabled for *Power Edge Router* (PER), you already have network communication with parts of the IBM Cloud network.
-The PER solution creates a direct connection to the IBM Cloud Multi Protocol Label Switching (MPLS) backbone, making it easier for different parts of the IBM network to communicate with each other.
+The PER solution creates a direct connection to the IBM Cloud backbone by using Multi-Protocol Label Switching (MPLS).
+This configuration enables more efficient communication between different parts of the IBM network.
 For more information, see [Getting started with the Power Edge Router](/docs/power-iaas?topic=power-iaas-per).
 
 Otherwise, create {{site.data.keyword.cloud}} connections to connect your {{site.data.keyword.powerSys_notm}} instances to other {{site.data.keyword.cloud_notm}} resources within your account.
@@ -114,22 +115,29 @@ Before you begin, make sure that the OVA image is loaded in the storage bucket.
 ## Creating virtual server instances for the cluster
 {: #ha-vsi-create-virtual-server-instances}
 
-Follow these steps to create the virtual server instances that will serve as nodes in your high availability cluster.
+Follow these steps to create the virtual server instances that function as nodes in your high availability cluster.
 
 1. Log in to [Workspaces](https://cloud.ibm.com/power/workspaces){: external}.
-1. Select the desired **workspace**, then click **View virtual servers**.
+1. Select the **workspace**, then click **View virtual servers**.
 1. Click **Virtual server instances** > **Create Instance**.
-   - You’ll be guided through the following configuration steps: **General**, **Boot Image**, **Profile**, **Storage Volume**, and **Network Interfaces**.
+   - You are guided through the following configuration steps: **General**, **Boot Image**, **Profile**, **Storage Volume**, and **Network Interfaces**.
 1. In the **General** section:
    - Enter the **Instance name**.
+   - Set the **Virtual server pinning** policy to **soft**.
+     Use the **soft** pinning policy to keep the virtual server on the same host.
+     The **soft** pinning policy ensures that the virtual server remains on the same host, preventing automatic relocation during cloud maintenance.
 
-1. For a singlezone implementation, click **+** to increase the **Number of instances** to 2.
+   Red Hat and SUSE do not support issues that occur when a cluster node is moved to a different server that uses Live Partition Mobility (LPM).
+   Customers are advised to avoid using LPM for active cluster nodes, as this operation might lead to unpredictable behavior or unsupported configurations.
+   {: important}
+
+1. For a single zone implementation, click **+** to increase the **Number of instances** to 2.
    Select **Numerical postfix** as *Instance naming convention*, and select **Different server** as *Placement group colocation policy*.
    A placement group with colocation policy *Different server* is automatically created as part of the virtual server instances deployment.
 1. Select an **SSH key** and click **Continue**.
 1. In the **Boot image** section, select the **Operating system** according to your subscription model.
    Use one of the Linux selections either from the *IBM-provided subscription* or through your *Client-provided subscription*.
-   In the **Tier* section, select the desired storage tier.
+   In the **Tier* section, select the storage tier.
    Keep **Auto-select pool** for selecting the *Storage Pool*.
    Click **Continue**.
 1. In **Profile**, select **Machine type**, **Core type**, and the virtual server instance **profile** to match your workload requirements.
@@ -143,7 +151,8 @@ Follow these steps to create the virtual server instances that will serve as nod
    These volumes must be created later for the individual server instances after their deployment is complete.
    {: important}
 
-1. In the **Network Interfaces** section, it is preferable that the cluster nodes are not directly accessible from a public network, so leave the *Public networks* configuration as **Off**.
+1. In the **Network Interfaces** section, it is preferable that the cluster nodes are not directly accessible from a public network.
+   Keep the *Public networks* configuration set to **Off**.
 1. Click **Attach** to attach the virtual server instances to an existing subnet.
 1. In the *Attach an existing network* screen, select one of the *Existing networks*.
    You can either select **Automatically assign IP address from IP range**, or **Manually specify an IP address from IP range** to specify an available IP address.
@@ -168,7 +177,6 @@ Create a *service ID* for the fencing agent to allow access to IBM Power Cloud a
 Create a custom role in advance to limit the allowed IBM Power Cloud API actions to only those actions that are required for fencing.
 
 Managing *Custom Roles*, *Service IDs*, and *API keys* are part of IBM Cloud Identity and Access Management (IAM).
-Navigate to the IAM for the following steps.
 
 ### Log in to IBM Cloud Identity and Access Management
 {: #ha-vsi-create-service-id-logon}
@@ -182,10 +190,10 @@ Go to the IBM Cloud Identity and Access Management (IAM) console.
 
 Create a *custom role* in IAM and assign the set of actions that are required for a fencing operation to the role.
 You must grant access for the following actions.
-- reading objects in the *cloud_instance* or *workspace*
-- listing virtual server instances
-- getting information about a virtual server instance
-- performing an action on a virtual server instance
+- Reading objects in the *cloud_instance* or *workspace*
+- Listing virtual server instances
+- Getting information about a virtual server instance
+- Performing an action on a virtual server instance
 
 The action set of a custom role must be unique within the account.
 You cannot create multiple custom roles with the same action set.
@@ -212,11 +220,11 @@ This step is only required if you are implementing a cluster in a multizone regi
 
 Create a *custom role* in IAM and assign the set of actions that are required for a `subnet move` operation in the role.
 You must grant access for the following actions.
-- reading objects in the *cloud_instance* or *workspace*
-- listing and getting information for subnets in the *workspace*
-- creating and deleting subnets in the *workspace*
-- attaching and detaching subnets to or from a virtual server instance
-- deleting network ports
+- Reading objects in the *cloud_instance* or *workspace*
+- Listing and getting information for subnets in the *workspace*
+- Creating and deleting subnets in the *workspace*
+- Attaching and detaching subnets to or from a virtual server instance
+- Deleting network ports
 
 Create a **custom role** in IAM.
 1. Click **Roles** > **Create**.
@@ -242,10 +250,10 @@ Create a **custom role** in IAM.
 This step is only required if you are implementing a cluster in a multizone region environment with the `powervs-move-ip` resource agent.
 {: note}
 
-Create a *custom role* in IAM and assign the set of actions that are required for for static route operations.
+Create a *custom role* in IAM and assign the set of actions that are required for static route operations.
 You must grant access for the following actions.
-- reading objects in the *cloud_instance* or *workspace*
-- modifying objects in the *cloud_instance* or *workspace*
+- Reading objects in the *cloud_instance* or *workspace*
+- Modifying objects in the *cloud_instance* or *workspace*
 
 Create a **custom role** in IAM.
 1. Click **Roles** > **Create**.
@@ -272,7 +280,7 @@ Create a **Service ID** in IAM.
 1. Enter a **Name** and **Description** for the service ID.
 1. Click **Create**.
 1. In the *Access policies* section, click **Assign access**.
-1. In the  *Service* section, select **Workspace for {{site.data.keyword.powerSys_notm}}** and click **Next**.
+1. In the *Service* section, select **Workspace for {{site.data.keyword.powerSys_notm}}** and click **Next**.
 1. In the *Resource* section, select **Specific Resources** > **Service Instance** > **string equals** > *name of the workspace that you created earlier*.
    Click **Next**.
 1. In the *Roles and actions* section, select one or more of the custom roles that you created earlier in **Custom access** and click **next**.
@@ -281,7 +289,7 @@ Create a **Service ID** in IAM.
 
 If you create a *Service ID* for the `powervs-move-ip` or `powervs-subnet` resource agent in a multizone region implementation, you must grant access to both workspace resources.
 
-In the *Access policies* section, click **Assign access**  again and follow the steps to assign access for the second workspace.
+In the *Access policies* section, click **Assign access** and follow the steps to assign access for the second workspace.
 {: important}
 
 ### Creating an API key for the Service ID
@@ -308,8 +316,8 @@ After 300 seconds, you won't be able to view or retrieve the key.
 ## Collecting parameters for configuring a high availability cluster
 {: #ha-rhel-collect-parameters-for-cluster-config}
 
-Several parameters are required to set up a specific high availability scenario.
-These include the following parameters, which can be collected now.
+To configure a high availability scenario, several parameters must be provided.
+The following parameters can be collected at this stage.
 
 - *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspace
 - Virtual server *instance IDs*
@@ -318,7 +326,7 @@ These include the following parameters, which can be collected now.
 - API key for the *powervs-move-ip* or *powervs-subnet* resource agent if you are implementing a multizone region environment
 
 The uppercase variables in the following section indicate that these parameters are used as environment variables to simplify the cluster setup.
-Make a note of their contents now, as they will be needed in the setup instructions for a specific high availability scenario.
+Make a note of their contents now, as they are needed in the setup instructions for a specific high availability scenario.
 
 1. `CLOUD_REGION` contains the geographical area of your virtual server instance and is used to target the correct [Power Cloud API endpoint](https://cloud.ibm.com/apidocs/power-cloud#endpoint){: external}.
 

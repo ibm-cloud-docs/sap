@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-24"
+lastupdated: "2025-11-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -41,10 +41,12 @@ You have the choice of working with an SAP partner or installing the software yo
 For a list of Microsoft Windows Server versions supported for the following SAP Business One server platforms, see the [SAP Business One Platform Support Matrix](https://help.sap.com/doc/011000358700000032462013e/9.3/en-US/B1_Platform_Support_Matrix.pdf){: external}.
 
 More information on SAP HANA versions can be found in
-- [SAP Note 2058870 - SAP Business One, version for SAP HANA on public Infrastructure-as-a-Service (IaaS) platforms](https://launchpad.support.sap.com/#/notes/2058870){: external}.
-- [SAP Note 2801340 - Overview Note for SAP Business One 9.3 PL11, version for SAP HANA](https://launchpad.support.sap.com/#/notes/2801340){: external}.
-- [SAP Note 3328136 - Overview Note for SAP Business One 10.0 FP 2208 Hotfix 02, version for SAP HANA](https://launchpad.support.sap.com/#/notes/3328136){: external}.
-- [SAP Note 3284687 - Overview Note for SAP Business One 10.0 FP 2305, version for SAP HANA](https://launchpad.support.sap.com/#/notes/3284687){: external}.
+- [SAP Note 2058870 - SAP Business One, version for SAP HANA on public Infrastructure-as-a-Service (IaaS) platforms](https://me.sap.com/notes/2058870){: external}.
+- [SAP Note 3644651 - Overview Note for SAP Business One 10.0 SP 2511, version for SAP HANA](https://me.sap.com/notes/3644651){: external}.
+- [SAP Note 3586758 - Overview Note for SAP Business One 10.0 FP 2508, version for SAP HANA](https://me.sap.com/notes/3586758){: external}.
+- [SAP Note 3549485 - Overview Note for SAP Business One 10.0 FP 2502, version for SAP HANA](https://me.sap.com/notes/3549485){: external}.
+- [SAP Note 3515638 - Overview Note for SAP Business One 10.0 SP 2411, version for SAP HANA](https://me.sap.com/notes/3515638){: external}.
+- [SAP Note 3477092 - Overview Note for SAP Business One 10.0 SP 2408, version for SAP HANA](https://me.sap.com/notes/3477092){: external}.
 
 The [SAP Business One community page](https://pages.community.sap.com/topics/business-one){: external} has links to blogs where community members share their experiences with implementing and running SAP Business One.
 

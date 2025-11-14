@@ -12,6 +12,8 @@ subcollection: sap
 # Deploying your infrastructure
 {: #vmware-sddc-set-up-infrastructure}
 
+{{site.data.content.vms-deprecated-note}}
+
 This topic contains information on how to deploy and set up SAP HANA and SAP NetWeaver on VMware that runs on {{site.data.keyword.cloud_notm}}. You will find references to previous topics, including setting up your network, security, storage, and operating system (OS).
 {: shortdesc}
 
@@ -127,7 +129,9 @@ VMware vSAN for SAP HANA is not permitted. The description in [SAP Note 2718982 
 {{site.data.keyword.filestorage_full_notm}} is ordered during your provisioning, and you can add more storage after.
 {: shortdesc}
 
-
+Refer to the following documents on adding or removing data stores attached to the VMware Cluster by using NFS:
+- [Adding NFS storage to vCenter Server instances](/docs/vmwaresolutions?topic=vmwaresolutions-vc_addingnfs)
+- [Removing NFS storage from vCenter Server instances](/docs/vmwaresolutions?topic=vmwaresolutions-vc_removingnfs)
 
 More information on NFS for VMware is shown on the following documents:
 - [Attached storage performance - Attached storage infrastructure design of IBM Cloud for VMware Solutions Dedicated](/docs/vmwaresolutions?topic=vmwaresolutions-storage-infra-design#storage-infra-design-perf)

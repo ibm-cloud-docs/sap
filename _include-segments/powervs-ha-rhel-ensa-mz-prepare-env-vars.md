@@ -3,7 +3,8 @@
 To simplify the setup process, define the following environment variables for the `root` user on both cluster nodes.
 These variables are used in subsequent operating system commands.
 
-On both nodes, set the following environment variables. Some of the variables are marked, and need to be set only either for resource agent `powervs-move-ip` or resource agent `powervs-subnet`.
+On both nodes, set the following environment variables.
+Certain variables are specific to either the `powervs-move-ip` or the `powervs-subnet` resource agent, as indicated in the respective comments.
 
 ```sh
 # General settings
@@ -19,35 +20,35 @@ export ASCS_INSTNO=<INSTNO>         # ASCS instance number
 export ASCS_VH=<virtual hostname>   # ASCS virtual hostname
 export ASCS_IP=<IP address>         # ASCS virtual IP address
 # resource agent powervs-move-ip only
-export ASCS_ROUTE_CRN1=<Route_CRN1> # CRN of the static route in Workspace_1 with destination ASCS_IP (powervs-move-ip only)
-export ASCS_ROUTE_CRN2=<Route_CRN2> # CRN of the static route in Workspace_2 with destination ASCS_IP (powervs-move-ip only)
+export ASCS_ROUTE_CRN1=<Route_CRN1> # CRN of the static route in Workspace_1 with destination ASCS_IP (use with powervs-move-ip)
+export ASCS_ROUTE_CRN2=<Route_CRN2> # CRN of the static route in Workspace_2 with destination ASCS_IP (use with powervs-move-ip)
 # resource agent powervs-subnet only
-export ASCS_NET=<Subnet name>       # Name for the ASCS subnet in IBM Cloud (powervs-subnet only)
-export ASCS_CIDR=<CIDR of subnet>   # CIDR of the ASCS subnet containing the service IP address (powervs-subnet only)
+export ASCS_NET=<Subnet name>       # Name for the ASCS subnet in IBM Cloud (use with powervs-subnet)
+export ASCS_CIDR=<CIDR of subnet>   # CIDR of the ASCS subnet containing the service IP address (use with powervs-subnet)
 
 # ERS instance
 export ERS_INSTNO=<INSTNO>          # ERS instance number
 export ERS_VH=<virtual hostname>    # ERS virtual hostname
 export ERS_IP=<IP address>          # ERS virtual IP address
 # resource agent powervs-move-ip only
-export ERS_ROUTE_CRN1=<Route_CRN1>  # CRN of the static route in Workspace_1 with destination ERS_IP (powervs-move-ip only)
-export ERS_ROUTE_CRN2=<Route_CRN2>  # CRN of the static route in Workspace_2 with destination ERS_IP (powervs-move-ip only)
+export ERS_ROUTE_CRN1=<Route_CRN1>  # CRN of the static route in Workspace_1 with destination ERS_IP (use with powervs-move-ip)
+export ERS_ROUTE_CRN2=<Route_CRN2>  # CRN of the static route in Workspace_2 with destination ERS_IP (use with powervs-move-ip)
 # resource agent powervs-subnet only
-export ERS_NET=<Subnet name>        # Name for the ERS subnet in IBM Cloud (powervs-subnet only)
-export ERS_CIDR=<CIDR of subnet>    # CIDR of the ERS subnet containing the service IP address (powervs-subnet only)
+export ERS_NET=<Subnet name>        # Name for the ERS subnet in IBM Cloud (use with powervs-subnet)
+export ERS_CIDR=<CIDR of subnet>    # CIDR of the ERS subnet containing the service IP address (use with powervs-subnet)
 
 # Other multizone region settings
 export CLOUD_REGION=<CLOUD_REGION>       # Multizone region name
 export APIKEY="APIKEY or path to file"   # API key of the ServiceID for the resource agent
 export API_TYPE="private or public"      # Use private or public API endpoints
 # resource agent powervs-move-ip only
-export MON_API="false or true"           # Use cloud api in monitor command (powervs-move-ip only)
+export MON_API="false or true"           # Use cloud api in monitor command (use with powervs-move-ip)
 # resource agent powervs-subnet only
-export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace 1 CRN (powervs-subnet only)
-export IBMCLOUD_CRN_2=<IBMCLOUD_CRN_2>   # Workspace 2 CRN (powervs-subnet only)
-export POWERVSI_1=<POWERVSI_1>           # Virtual server 1 instance id (powervs-subnet only)
-export POWERVSI_2=<POWERVSI_2>           # Virtual server 2 instance id (powervs-subnet only)
-export JUMBO="true or false"             # Enable Jumbo frames (powervs-subnet only)
+export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace 1 CRN (use with powervs-subnet)
+export IBMCLOUD_CRN_2=<IBMCLOUD_CRN_2>   # Workspace 2 CRN (use with powervs-subnet)
+export POWERVSI_1=<POWERVSI_1>           # Virtual server 1 instance id (use with powervs-subnet)
+export POWERVSI_2=<POWERVSI_2>           # Virtual server 2 instance id (use with powervs-subnet)
+export JUMBO="true or false"             # Enable Jumbo frames (use with powervs-subnet)
 
 # NFS settings
 export NFS_SERVER="NFS server"           # Hostname or IP address of the highly available NFS server

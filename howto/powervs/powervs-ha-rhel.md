@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-11-14"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -107,22 +107,27 @@ dnf repolist
 ```
 {: pre}
 
-Use the following command to enable the HA repository if it is missing.
+Identify the repository variant (`normal`, `eus`, `e4s`) that you are using, and verify that the HA repository is included in the list.
 
-```sh
-subscription-manager repos \
-    --enable="rhel-8-for-ppc64le-highavailability-e4s-rpms"
-```
-{: pre}
+| Variant | RHEL 8 HA repository name                    | RHEL 9 HA repository name                    |
+| ------- | -------------------------------------------- | -------------------------------------------- |
+| normal  | rhel-8-for-ppc64le-highavailability-rpms     | rhel-9-for-ppc64le-highavailability-rpms     |
+| eus     | rhel-8-for-ppc64le-highavailability-eus-rpms | rhel-9-for-ppc64le-highavailability-eu-rpms  |
+| e4s     | rhel-8-for-ppc64le-highavailability-e4s-rpms | rhel-9-for-ppc64le-highavailability-e4s-rpms |
+{: caption="RHEL HA repository name" caption-side="bottom"}
 
-For RHEL 9, use this command.
+Do not enable multiple repository variants (`normal`, `eus`, `e4s`) at the same time.
+These variants provide different versions of the same packages, which can cause version conflicts during installation or updates.
+{: important}
+
+Select the HA repository name based on your repository variant and enable it if it is not already enabled.
+For example, the following command enables the HA repository for `RHEL 9` with the `e4s` variant.
+
 ```sh
 subscription-manager repos \
     --enable="rhel-9-for-ppc64le-highavailability-e4s-rpms"
 ```
 {: pre}
-
-
 
 ```sh
 dnf clean all
@@ -248,7 +253,7 @@ STONITH is an acronym for "Shoot The Other Node In The Head" and protects your d
 You must enable STONITH (fencing) for a RHEL HA Add-On production cluster.
 {: important}
 
-Fence agent *fence_ibm_powervs* is the only supported agent for a STONITH device on {{site.data.keyword.powerSys_notm}} clusters.
+This document explains how to configure the *fence_ibm_powervs* fence agent in Red Hat Enterprise Linux High Availability Add-On clusters.
 
 The fence agent connects to the [Power Cloud API](https://cloud.ibm.com/apidocs/power-cloud){: external} by using parameters *APIKEY*, *IBMCLOUD_CRN_1*, *CLOUD_REGION*, *GUID*, and the instance IDs *POWERVSI_1* and *POWERVSI_2*.
 

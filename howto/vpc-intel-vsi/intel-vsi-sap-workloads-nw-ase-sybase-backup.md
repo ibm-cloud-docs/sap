@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-08-12"
+lastupdated: "2025-11-13"
 keywords:
 subcollection: sap
 ---
@@ -147,7 +147,7 @@ The following steps outline the process of provisioning new volumes from snapsho
 * Verify the permission and ownership of the filesystem.
 * Restore the database.
 
-### References
-{: #snapshot-ase-block-storage-references}
+### Related information
+{: #snapshot-ase-block-storage-related-info}
 
 For additional information on backup and restore, refer to the [SAP notes](https://me.sap.com/notes/1887068).

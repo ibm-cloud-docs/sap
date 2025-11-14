@@ -183,6 +183,8 @@ Each of these SAP-certified offerings is available to support numerous different
     - Capability to install more software that uses VMware capabilities (for example, SAP Landscape Management)
     - Ability to bridge the network with any existing VMware installations
 
+{{site.data.content.vms-deprecated-note}}
+
 This content is a high-level summary, for more details please see [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings); in addition there are multiple pages describing each profile available across the infrastructure options.
 
 Our recommendation is to investigate what your current business requirements are and what are your future requirements for growth. This information helps you understand the short-term and long-term needs for running your SAP Systems. After you know your short-term and long-term needs, complete an SAP Sizing exercise.

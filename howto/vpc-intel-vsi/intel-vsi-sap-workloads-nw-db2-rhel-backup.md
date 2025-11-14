@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-08-14"
+lastupdated: "2025-11-11"
 keywords:
 subcollection: sap
 ---
@@ -124,10 +124,10 @@ For more information, see [Restoring a volume from a snapshot with Terraform](/d
 Db2 Advanced Copy Services (ACS) enables you to use the fast-copying technology of a storage device to perform the data copying part of backup and restore operations.
 In a traditional backup or restore operation, the database manager copies data to or from disk or a storage device using operating system calls. Being able to use the storage device to perform the data copying makes the backup and restore operations much faster. A backup operation that uses Db2 ACS is called a snapshot backup.
 
-For more information, see [Db2 Advanced Copy Services (ACS) for snapshot backups](https://www.ibm.com/docs/en/db2/12.1.0?topic=recovery-db2-advanced-copy-services-acs).
+For more information, see [Db2 Advanced Copy Services (ACS) for snapshot backups](https://www.ibm.com/docs/en/db2/12.1.x?topic=recovery-db2-advanced-copy-services-acs).
 
 To perform a snapshot backup or a restore operation, see the following topics:
 
-* For more information, see [Performing a snapshot backup with a script](https://www.ibm.com/docs/en/db2/12.1.0?topic=backup-performing-snapshot-script).
+* For more information, see [Performing a snapshot backup with a script](https://www.ibm.com/docs/en/db2/12.1.x?topic=backup-performing-snapshot-script).
 
-* For more information, see [Restoring from a snapshot backup image with a script](https://www.ibm.com/docs/en/db2/12.1.0?topic=image-restoring-from-snapshot-backup-script).
+* For more information, see [Restoring from a snapshot backup image with a script](https://www.ibm.com/docs/en/db2/12.1.x?topic=image-restoring-from-snapshot-backup-script).

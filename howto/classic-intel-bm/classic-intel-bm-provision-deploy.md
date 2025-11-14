@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
+  years: 2020, 2025
+lastupdated: "2025-11-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -41,6 +41,10 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 1. Select your **Image** from either Red Hat or SUSE to run SAP HANA, or Red Hat, SUSE or Microsoft Windows to run SAP NetWeaver; and select the specific operating system, or VMware hypervisor for your server, if you have selected a server with the (VMware) option.
 
 
+    If you are using SAP Business One, you need to select one of the [servers](/docs/sap?topic=sap-b1#b1-iaas) that supports it and SUSE 15 SP1 or higher as your Operating System.
+    {: note}
+
+{{site.data.content.vms-deprecated-note}}
 
 If you are bringing your own license (BYOL) for your operating system, select **Other** > **No OS**. For more information, see [Bring your own license](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os).
 {: note}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-11-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -144,9 +144,11 @@ Redundant adapters for bare metal servers are set up in a failover configuration
 Bonding interfaces are used for Linux and teaming adapters are used for Microsoft Windows.
 These setups provide a logical interface for redundancy and increased bandwidth.
 
+{{site.data.content.vms-deprecated-note}}
+
 When you deploy IBM Cloud for VMware Solutions, redundant adapters for VMware are set up using an NSX-T distributed switch.
-This is in line with current VMware best practices for the _Software-Defined Data Center_ (see [VMware NSX-T design](/docs/vmwaresolutions?topic=vmwaresolutions-nsx-t-design).
-Although subject to change, redundancy is configured by setting each _Distributed Switch_ to use the [Route Based on Originating Virtual Port](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/6-7/vsphere-networking-6-7.html){: external} load balancing algorithm.
+This is in line with current VMware best practices for the _Software-Defined Data Center_ (see [VMware NSX-T design](/docs/vmwaresolutions?topic=vmwaresolutions-nsx-t-design)).
+Although subject to change, redundancy is configured by setting each _Distributed Switch_ to use the [Route Based on Originating Virtual Port](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-networking-8-0.html){: external} load balancing algorithm.
 All included port groups use teaming over 2 uplinks (active: 0,1).
 
 If you are deploying VMware vSphere on IBM Bare Metal in a manual installation that uses vSwitch, you can use LACP bonding of the physical NIC adapters.
