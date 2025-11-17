@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-11-17"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, NFS Server, Linux, SUSE, SLES, SLES High Availability Extension, SLES HAE
 subcollection: sap
 ---
@@ -50,7 +50,7 @@ For more information about SUSE Linux Enterprise Server for SAP applications, se
 ## SUSE Linux Enterprise server for SAP cluster knowledge base article
 {: #ha-sles-refs-sap-cluster-articles}
 
-For more information about SUSE Linux Enterprise server for SAP cluster, see [How to prevent pacemaker from auto-starting on boot or after a fence](https://www.suse.com/support/kb/doc/?id=000020524){: external}.
+For more information about SUSE Linux Enterprise server for SAP cluster, see [How to prevent pacemaker from auto-starting on boot or after a fence](https://support.scc.suse.com/s/kb/How-to-prevent-pacemaker-from-auto-starting-on-boot-or-after-a-fence?language=en_US){: external}.
 
 ## SAP HANA product documentation
 {: #ha-sles-refs-sap-hana-product-docs}

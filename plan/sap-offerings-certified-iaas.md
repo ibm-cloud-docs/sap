@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-11-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -187,7 +187,7 @@ In short, {{site.data.keyword.cloud_notm}} provides two levels of VMware, which 
 - **{{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated**, fully automated VMware SDDC setup and configuration
     - _includes optional BYOL and access to advanced VMware capabilities, such as VMware HCX for seamless bidirectional network extension and connection to existing VMware clusters on-premises_
 
-For more information about {{site.data.keyword.cloud_notm}} for VMware on Classic Infrastructure, see [{{site.data.keyword.cloud_notm}} for VMware](https://www.ibm.com/products/vmware){: external}. Additional information is available on:
+For more information about {{site.data.keyword.cloud_notm}} for VMware on Classic Infrastructure, see [{{site.data.keyword.cloud_notm}} for VMware](https://www.ibm.com/solutions/virtualization){: external}. Additional information is available on:
 - [{{site.data.keyword.cloud_notm}} Intel Bare Metal and VMware vSphere (ESXi OS)](/docs/vmware?topic=vmware-about-vmware){: external} for the manual VMware setup and configuration
 - [{{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated](/docs/vmwaresolutions?topic=vmwaresolutions-inst_comp_chart){: external} for fully automated VMware SDDC setup and configuration
 

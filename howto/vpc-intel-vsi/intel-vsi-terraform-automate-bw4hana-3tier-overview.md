@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-11-17"
 keywords:
 subcollection: sap
 ---
@@ -18,7 +18,7 @@ You can use Terraform scripts to create a single-tier VPC and create the SAP and
 ## {{site.data.keyword.cloud}} VPC introduction
 {: #sap-automate-bw-4hana-vpc-intro}
 
-A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
+A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/solutions/cloud){: external} infrastructure. VPCs give an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants, creating a private, secure place on the public cloud.
 
 Imagine that a cloud provider’s infrastructure is a residential apartment building and multiple families live inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium; no one else has the key, and no one can enter the space without your permission.
 
@@ -42,9 +42,9 @@ With a logical data warehouse approach that uses intelligent data integration, S
 ## Ansible for SAP installation
 {: #ansible-sap-bw-4hana-installation}
 
-Ansible is an automation tool for the deployment of several IT tasks. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html){: external}.
+Ansible is an automation tool for the deployment of several IT tasks. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/projects/ansible/latest/index.html){: external}.
 
-The deployment is done by using the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on the [Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html){: external}.
+The deployment is done by using the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on the [Ansible core page](https://docs.ansible.com/projects/ansible-core/devel/index.html){: external}.
 
 The Ansible playbook is called directly by the Terraform script. The script starts with Terraform specific steps for creating the VPC, and continues automatically with the Ansible-specific steps to install the SAP system.
 

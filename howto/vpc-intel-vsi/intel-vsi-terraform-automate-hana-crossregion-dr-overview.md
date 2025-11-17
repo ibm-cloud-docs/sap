@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-11-17"
 keywords:
 subcollection: sap
 ---
@@ -140,6 +140,6 @@ Manually deploying a VPC and configuring a HANA db as standby database with Asyn
 ## Automation for SAP installation
 {: #sap-hana-db-dr-automation-install}
 
-The automation based on Terraform scripts and Ansible playbooks is used for cross region Disaster Recovery protection enablement for a non-HA SAP HANA system on VSI. Ansible is an open source IT automation engine that can be used to configure systems, deploy software and orchestrate workflows to support application deployment and system updates. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html){: external}.
+The automation based on Terraform scripts and Ansible playbooks is used for cross region Disaster Recovery protection enablement for a non-HA SAP HANA system on VSI. Ansible is an open source IT automation engine that can be used to configure systems, deploy software and orchestrate workflows to support application deployment and system updates. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/projects/ansible/latest/index.html){: external}.
 
 The Ansible playbooks are called directly by the Terraform scripts. First the VPC infrastructure elements are created by the Terraform scripts, then the Ansible playbooks are used for LVM configuration, OS setup and for the SAP HANA secondary system installation along with the DR setup and enablement.

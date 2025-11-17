@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-06-17"
+  years: 2023, 2025
+lastupdated: "2025-11-17"
 keywords:
 subcollection: sap
 ---
@@ -90,6 +90,6 @@ Ansible is an automation tool for the deployment of several IT tasks. This solut
 
 For more information about Ansible, see the documentation available on the Ansible page.
 
-The deployment is done by the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on [the Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html){: external}.
+The deployment is done by the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on [the Ansible core page](https://docs.ansible.com/projects/ansible-core/devel/index.html){: external}.
 
 The Ansible playbook is called directly by the Terraform script. The Terraform script is run in one run. During the run, the first steps are Terraform specific for creating the VPC, and it continues automatically with the second, Ansible, steps for the installation of the SAP system.

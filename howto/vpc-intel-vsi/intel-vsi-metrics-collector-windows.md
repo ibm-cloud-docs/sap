@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-10"
+lastupdated: "2025-11-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS, SAP Host Agent, saposcol
 subcollection: sap
 ---
@@ -82,7 +82,7 @@ Choose the most recent IMCS version. For Windows Server 2025 and higher select a
 
    ```sh
    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-   
+
    .\install-metric-collector.ps1
    ```
    {: pre}

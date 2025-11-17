@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-11-17"
 keywords:
 subcollection: sap
 ---
@@ -64,9 +64,9 @@ The SAP installation media that are used for this deployment are the default med
 ## Ansible for SAP installation
 {: #intro-aas-hana-anydb-sap-ansible}
 
-Ansible is an automation tool for the deployment of several IT tasks. Ansible is used for automating the installation of an SAP NetWeaver with HANA or AnyDB. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html){: external}.
+Ansible is an automation tool for the deployment of several IT tasks. Ansible is used for automating the installation of an SAP NetWeaver with HANA or AnyDB. For more information about Ansible, see the [Ansible Documentation](https://docs.ansible.com/projects/ansible/latest/index.html){: external}.
 
-The deployment is done by using the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on the [Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html){: external}.
+The deployment is done by using the Ansible core, which provides CLI tools for automation. More information about Ansible core can be found on the [Ansible core page](https://docs.ansible.com/projects/ansible-core/devel/index.html){: external}.
 
 The Ansible playbook is called directly by the Terraform script. The script starts with Terraform specific steps for creating the VPC, and continues automatically with the Ansible specific steps to install the SAP system.
 

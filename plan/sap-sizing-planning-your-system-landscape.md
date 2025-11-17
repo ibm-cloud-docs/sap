@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-11-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -125,7 +125,7 @@ To find SAP certified profiles for Cloud IaaS, see [SAP Certified and Supported 
 
 To find SAP certified {{site.data.keyword.IBM_notm}} Power Systems Hardware, see [SAP Certified and Supported SAP HANA Hardware Directory - {{site.data.keyword.IBM_notm}} Power Systems](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=power){: external}.
 
-For more information, see [Creating an {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server). For information about the pricing difference between CPU types, see [Pricing for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers on {{site.data.keyword.cloud}}](/docs/power-iaas?topic=power-iaas-pricing-virtual-server-on-cloud). For a description of the technical differences between dedicated, shared capped, and shared uncapped CPUs, see [this FAQ](/docs/power-iaas?topic=power-iaas-powervs-faqs#processor).
+For more information, see [Creating an {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server). For information about the pricing difference between CPU types, see [Pricing for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers on {{site.data.keyword.cloud}}](/docs/power-iaas?topic=power-iaas-pricing-ibm-data-center). For a description of the technical differences between dedicated, shared capped, and shared uncapped CPUs, see [this FAQ](/docs/power-iaas?topic=power-iaas-powervs-faqs#processor).
 
 ## Monitoring your system with SAP tools
 {: #monitoring}

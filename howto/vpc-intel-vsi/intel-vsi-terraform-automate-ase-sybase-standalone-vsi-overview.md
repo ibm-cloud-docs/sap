@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-11-17"
 keywords:
 subcollection: sap
 ---
@@ -16,7 +16,7 @@ subcollection: sap
 {: #sap-ase-sybase-vpc-intro}
 
 SAP Adaptive Server Enterprise (SAP ASE) is a high-performance relational database management system for mission-critical, data-intensive environments optimized for SAP Business Suite applications.
-{{site.data.keyword.cloud}} VPC offers the possibility to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains several Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/cloud){: external} infrastructure. A VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants. This helps creating a private and secure place on the public cloud.
+{{site.data.keyword.cloud}} VPC offers the possibility to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains several Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. A VPC is a public cloud offering that an enterprise uses to establish its own private cloud-like computing environment on shared [public cloud](https://www.ibm.com/solutions/cloud){: external} infrastructure. A VPC gives an enterprise the ability to define and control a virtual network that is logically isolated from all other public cloud tenants. This helps creating a private and secure place on the public cloud.
 {: shortdesc}
 
 Imagine that a cloud providers infrastructure is a residential apartment building with multiple families living inside. Being a public cloud tenant is akin to sharing an apartment with a few roommates. In contrast, having a VPC is like having your own private condominium. No one else has the key, and no one can enter the space without your permission.
@@ -106,7 +106,7 @@ After the successful deployment of the infrastructure, the Terraform script call
 
 Ansible is an IT automation engine that automates provisioning, configuration management, application deployment, and other IT tasks. This solution performs the automated deployment of a stand-alone SAP ASE Sybase 2.0 DB on a Red Hat Enterprise Linux 8.6|8.4 for SAP or on a SUSE Linux Enterprise Server 15 SP 4|3 for SAP Applications VSI box. For more information about Ansible, check out the documentation available on the Ansible page.
 
-Ansible core provides CLI tools for automation. More information about Ansible core can be found on [the Ansible core page](https://docs.ansible.com/ansible-core/devel/index.html){: external}.
+Ansible core provides CLI tools for automation. More information about Ansible core can be found on [the Ansible core page](https://docs.ansible.com/projects/ansible-core/devel/index.html){: external}.
 
 The Ansible playbooks are called directly by the Terraform script. The Terraform script is run in one run. During the run, the first steps are Terraform specific for creating the VPC resources, and it continues automatically with Ansible steps for the installation of the SAP system.
 
