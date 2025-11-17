@@ -439,6 +439,8 @@ toc:
                 topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-ase-ha-sles.md
               - navtitle: SAP Netweaver 7.x on ASE with DR
                 topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-ase-dr.md
+              - navtitle: SAP NetWeaver 7.x on Db2 with DR (RHEL)
+                topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-db2-dr-rhel.md
               - navtitle: IBM Cloud Logging, Monitoring, and Alerting
                 topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-cloud-monitoring.md
       - topicgroup:
