@@ -1,7 +1,7 @@
 ---
 copyright:
    years: 2025
-lastupdated: "2025-10-17"
+lastupdated: "2025-11-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, NFS, File Storage Share, Network Load Balancer
 subcollection: sap
 content-type: tutorial
@@ -57,15 +57,13 @@ See the mapping between the VPC zones and the Power Virtual Server zones in [IBM
     Deploy one virtual server instance in each of the two workspaces.
     Note the IP addresses of the virtual server instances.
 
-- Create two virtual server instances in IBM {{site.data.keyword.powerSys_notm}}.
-    Deploy one virtual server instance in each of the two workspaces.
-    Note the IP addresses of the virtual server instances.
-
 - Create a Transit Gateway and attach the VPC subnets and the IBM {{site.data.keyword.powerSys_notm}} workspaces to the Transit Gateway.
 
 - Check the user permissions.
    Make sure that your user account has permissions to create and manage VPC resources.
    See [Granting user permissions for VPC resources](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources).
+   Assign a *viewer* role or higher on the resource group used for the VPC resources.
+   Assign an *editor* role or higher on the service *VPC Infrastructure Services*.
 
 - Use or create an SSH key to connect to the virtual server instances.
    If you don't have an SSH key, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).

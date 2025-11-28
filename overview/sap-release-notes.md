@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-11-28"
 keywords: SAP
 subcollection: sap
 ---
@@ -13,6 +13,17 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+
+## November 2025
+{: #sap-2025-11}
+
+- New reference architecture: [SAP NetWeaver 7.x on Db2 with DR (RHEL)](/docs/sap?topic=sap-sap-refarch-nw-dr-rhel&interface=terraform)
+- New reference architecture: [SAP NetWeaver 7.x with SAP ASE database on DR configuration](/docs/sap?topic=sap-sap-ase-db-intro&interface=terraform)
+- IBM Power9 SAP HANA certified profiles are now discouraged for new deployments. Users are advised to migrate to IBM Power10 SAP HANA certified profiles or later, selecting the appropriate profile based on memory and core requirements. For more information, see [SAP HANA certified instances on {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
+- Added a list of IBM Power10 SAP HANA sr2 discouraging profiles with recommended alternative profiles for each configuration based on required cores and memory. Users are advised to update their profiles accordingly. For more information, see [sr2 - Discouraging Profiles](https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr2-profiles).
+
+
 
 
 ## October 2025
