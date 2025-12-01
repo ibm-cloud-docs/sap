@@ -441,6 +441,8 @@ toc:
                 topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-ase-dr.md
               - navtitle: SAP NetWeaver 7.x on Db2 with DR (RHEL)
                 topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-nw-db2-dr-rhel.md
+              - navtitle: SAP Solution Manager with HANA (RHEL)
+                topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-sol-mgr-hana-db-rhel.md
               - navtitle: IBM Cloud Logging, Monitoring, and Alerting
                 topic: howto/vpc-intel-vsi/intel-vsi-sap-workloads-refarch-cloud-monitoring.md
       - topicgroup:
