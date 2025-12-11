@@ -271,7 +271,7 @@ toc:
           topics:
           - navtitle: Terraform deployment templates
             topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-overview.md
-          - navtitle: "Deploying the SAP bastion server \u2013 SAP media storage repository"
+          - navtitle: Deploying the SAP bastion server – SAP media storage repository
             topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-bastion-server.md
           - navtitle: Creating single-tier VPC for SAP
             topic: howto/vpc-intel-vsi/intel-vsi-terraform-automate-create-single-tier.md

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-12-10"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -175,34 +175,32 @@ For the version of IBM AIX or Linux on Power to deploy for SAP application serve
 
 | Operating system for SAP HANA | Image name (Client supplied subscription) | Image name (IBM provided subscription) |
 |---------|---------|---------|
-| Red Hat Enterprise Linux (RHEL) 8.4 | RHEL8-SP4-SAP-BYOL| RHEL8-SP4-SAP |
 | Red Hat Enterprise Linux (RHEL) 8.6 | RHEL8-SP6-SAP-BYOL| RHEL8-SP6-SAP |
 | Red Hat Enterprise Linux (RHEL) 8.8 | RHEL8-SP8-SAP-BYOL| RHEL8-SP8-SAP |
 | Red Hat Enterprise Linux (RHEL) 8.10 | RHEL8-SP10-SAP-BYOL| RHEL8-SP10-SAP |
 | Red Hat Enterprise Linux (RHEL) 9.2 | RHEL9-SP2-SAP-BYOL| RHEL9-SP2-SAP |
 | Red Hat Enterprise Linux (RHEL) 9.4 | RHEL9-SP4-SAP-BYOL| RHEL9-SP4-SAP |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | SLES15-SP2-SAP-BYOL | SLES15-SP2-SAP |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | SLES15-SP3-SAP-BYOL | SLES15-SP3-SAP |
+| Red Hat Enterprise Linux (RHEL) 9.6 | RHEL9-SP6-SAP-BYOL| RHEL9-SP6-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | SLES15-SP4-SAP-BYOL | SLES15-SP4-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | SLES15-SP5-SAP-BYOL  | SLES15-SP5-SAP |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP6 | SLES15-SP6-SAP-BYOL  | SLES15-SP6-SAP |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP7 | SLES15-SP7-SAP-BYOL  | SLES15-SP7-SAP |
 {: caption="Operating systems for IBM {{site.data.keyword.powerSys_notm}}s on SAP HANA" caption-side="bottom"}
 
 | Operating system for SAP application server | Image name (Client supplied subscription) | Image name (IBM provided subscription) |
 |---------|---------|---------|
-| Red Hat Enterprise Linux (RHEL) 8.4 | RHEL8-SP4-SAP-NETWEAVER-BYOL | RHEL8-SP4-SAP-NETWEAVER |
 | Red Hat Enterprise Linux (RHEL) 8.6 | RHEL8-SP6-SAP-NETWEAVER-BYOL | RHEL8-SP6-SAP-NETWEAVER |
 | Red Hat Enterprise Linux (RHEL) 8.8 | RHEL8-SP8-SAP-NETWEAVER-BYOL | RHEL8-SP8-SAP-NETWEAVER |
 | Red Hat Enterprise Linux (RHEL) 8.10 | RHEL8-SP10-SAP-NETWEAVER-BYOL | RHEL8-SP10-SAP-NETWEAVER |
 | Red Hat Enterprise Linux (RHEL) 9.2 | RHEL9-SP2-SAP-NETWEAVER-BYOL | RHEL9-SP2-SAP-NETWEAVER |
 | Red Hat Enterprise Linux (RHEL) 9.4 | RHEL9-SP4-SAP-NETWEAVER-BYOL | RHEL9-SP4-SAP-NETWEAVER |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP2 | SLES15-SP2-SAP-NETWEAVER-BYOL | SLES15-SP2-SAP-NETWEAVER |
-| SUSE Linux Enterprise Server (SLES) for SAP 15 SP3 | SLES15-SP3-SAP-NETWEAVER-BYOL | SLES15-SP3-SAP-NETWEAVER |
+| Red Hat Enterprise Linux (RHEL) 9.6 | RHEL9-SP6-SAP-NETWEAVER-BYOL | RHEL9-SP6-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP4 | SLES15-SP4-SAP-NETWEAVER-BYOL | SLES15-SP4-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP5 | SLES15-SP5-SAP-NETWEAVER-BYOL | SLES15-SP5-SAP-NETWEAVER |
 | SUSE Linux Enterprise Server (SLES) for SAP 15 SP6 | SLES15-SP6-SAP-NETWEAVER-BYOL | SLES15-SP6-SAP-NETWEAVER |
-| AIX 7.2 |  | 7200-05-08 or later |
-| AIX 7.3 |  | 7300-02-01 or later |
+| SUSE Linux Enterprise Server (SLES) for SAP 15 SP7 | SLES15-SP7-SAP-NETWEAVER-BYOL | SLES15-SP7-SAP-NETWEAVER |
+| AIX 7.2 |  | 7200-05-10 or later |
+| AIX 7.3 |  | 7300-03-01 or later |
 {: caption="Operating systems for IBM {{site.data.keyword.powerSys_notm}}s on SAP application server" caption-side="bottom"}
 
 ### OS when you use VMware SDDC

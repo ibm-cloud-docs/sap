@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-05-20"
+lastupdated: "2025-12-04"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
@@ -160,7 +160,7 @@ Modify {{site.data.keyword.powerSys_notm}} SAP HANA instance and attach extra st
 
 In accordance with the SAP sizing guidelines, you should add the following volumes:
 
-* A storage volume for SAP HANA shared file system with a size of MIN (1 x RAM; 1 TB). Storage tier "Tier 3" is sufficient. The "Shareable" switch should remain "off".
+* A storage volume for SAP HANA shared file system with a size of MIN (1 * RAM; 1 TB). Storage tier "Tier 3" is sufficient. The "Shareable" switch should remain "off".
 
 * Four or more equal-size storage volumes for SAP HANA log file system with size MIN (1/2xRAM; 512 GB). Divide the file system size by the number of volumes to determine the size for each storage volume. Select "Tier 1", "Tier 0", or "Fixed IOPS Tier"  as the storage tier. Ensure that your configuration provides a total of at least 12,000 IOPS (input/output operations per second). The "Shareable" flag should remain "off".
 

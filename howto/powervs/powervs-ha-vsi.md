@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-12-10"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn, SLES HAE
 subcollection: sap
 ---
@@ -202,7 +202,7 @@ You cannot create multiple custom roles with the same action set.
 Create a **custom role** in IAM.
 1. Click **Roles** > **Create**.
 1. Enter the **Name**, **ID**, and **Description** for the custom role.
-1. Select *Workspace for {{site.data.keyword.powerSys_notm}}* from the **Service** drop-down list.
+1. Select *{{site.data.keyword.powerSys_notm}} Workspace* from the **Service** drop-down list.
 1. Select *Manager* from the **View the actions for** drop-down list.
 1. In the **Actions** list, locate the following actions.
    Click **Add** for each of them.
@@ -229,7 +229,7 @@ You must grant access for the following actions.
 Create a **custom role** in IAM.
 1. Click **Roles** > **Create**.
 1. Enter the **Name**, **ID**, and **Description** for the custom role.
-1. Select *Workspace for {{site.data.keyword.powerSys_notm}}* in the **Service** drop-down list.
+1. Select *{{site.data.keyword.powerSys_notm}} Workspace* in the **Service** drop-down list.
 1. Select *Manager* from the **View the actions for** drop-down list.
 1. In the **Actions** list, locate the following actions.
    Click **Add** for each of them.
@@ -258,7 +258,7 @@ You must grant access for the following actions.
 Create a **custom role** in IAM.
 1. Click **Roles** > **Create**.
 1. Enter the **Name**, **ID**, and **Description** for the custom role.
-1. Select *Workspace for {{site.data.keyword.powerSys_notm}}* in the **Service** drop-down list.
+1. Select *{{site.data.keyword.powerSys_notm}} Workspace* in the **Service** drop-down list.
 1. Select *Manager* from the **View the actions for** drop-down list.
 1. In the **Actions** list, locate the following actions.
    Click **Add** for each of them.
@@ -281,15 +281,14 @@ Create a **Service ID** in IAM.
 1. Click **Create**.
 1. In the *Access policies* section, click **Assign access**.
 1. In the *Service* section, select **Workspace for {{site.data.keyword.powerSys_notm}}** and click **Next**.
-1. In the *Resource* section, select **Specific Resources** > **Service Instance** > **string equals** > *name of the workspace that you created earlier*.
+1. In the *Resource* section, select **Specific Resources** > **Service Instance** > **string equals** > *name of the first workspace that you created earlier*.
    Click **Next**.
 1. In the *Roles and actions* section, select one or more of the custom roles that you created earlier in **Custom access** and click **next**.
 1. You can skip the *Conditions (Optional)* section.
 1. Click **Add** and then **Assign** to create the *Service ID*.
 
 If you create a *Service ID* for the `powervs-move-ip` or `powervs-subnet` resource agent in a multizone region implementation, you must grant access to both workspace resources.
-
-In the *Access policies* section, click **Assign access** and follow the steps to assign access for the second workspace.
+In the *Access policies* section, click **Assign access** and repeat the steps to assign access also for the second workspace.
 {: important}
 
 ### Creating an API key for the Service ID

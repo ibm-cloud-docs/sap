@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-15"
+lastupdated: "2025-12-05"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -49,8 +49,10 @@ The following tables give you an overview of the SAP-certified profiles with {{s
 
 | **Profile** | **vCPU** | **Memory (RAM GiB)** | **SAPS** | **aSAPS ⁽¹⁾** | **SAP HANA\nProcessing Type** |
 | --- | --- | --- | --- | --- | --- |
-| vx3d-88x1408-spl | 88 | 1408 | 110,560 | 21,300 | OLAP, OLTP (\*) |
-| vx3d-176x2816 | 176 | 2816 | 221,120 | 42,600 | OLAP, OLTP (\*) |
+| bx3d-176x880  | 176 | 880 | 230,170  | 44,600 | OLAP, OLTP (\*) |
+| mx3d-176x1760 | 176 | 1,760 | 227,880 | 45,300 | OLAP, OLTP (\*) |
+| vx3d-88x1408-spl | 88 | 1,408 | 110,560 | 21,300 | OLAP, OLTP (\*) |
+| vx3d-176x2816 | 176 | 2,816 | 221,120 | 42,600 | OLAP, OLTP (\*) |
 {: caption="{{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} certified for SAP HANA - Intel Sapphire Rapids CPU" caption-side="bottom"}
 
 (\*): RHEL 7.6 for SAP Solutions, RHEL 7.9 for SAP Solutions, RHEL 8.1 for SAP Solutions, RHEL 8.2 for SAP Solutions, RHEL 8.4 for SAP Solutions, RHEL 8.6 for SAP Solutions, RHEL 8.8 for SAP Solutions, RHEL 8.10 for SAP Solutions, RHEL 9.0 for SAP Solutions, RHEL 9.2 for SAP Solutions, RHEL 9.4 for SAP Solutions
@@ -91,7 +93,7 @@ The Virtual Server profile names are contextual and sequential. See the followin
 | --- | --- | --- |
 | mx2-16x128 | m | *Memory Optimized* family |
 | | x | Intel x86_64 CPU Architecture |
-| | 2 | The generation for the underlying hardware |
+| | ? \n   2 \n   3 | The Intel generation for the underlying hardware \n   Cascade Lake \n   Sapphire Rapids |
 | | d | the optional 'd' in the name indicates that the server is equipped with one or more internal SSD storage devices (*) |
 | | — | *spacer* |
 | | 16 | 16 vCPU |
@@ -216,7 +218,7 @@ The following table shows the required volumes and related volume groups, if nec
 
 See the step by step instructions for setting up the file systems here. The according volume sizes are captured in the table 7. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some disks are governed by the Linux Logical Volume Manager LVM or lvm2.
 
-For each profile, consider the specified volume sizes in table 7 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` shows which disk is to the volume, for example `/dev/vde`.
+For each profile, consider the specified volume sizes in table 7 and always make sure that the correct disks are given for the respective commands. The Linux command `fdisk -l` shows which disk has been mapped to the volume, for example `/dev/vde`.
 {: note}
 
 
@@ -438,6 +440,64 @@ For each profile, consider the specific volume sizes in table 8 and always make 
 3. Now proceed with the same instructions that are listed in steps 3 and 4 [profile vx2d-16x224](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-ux2-setup-small).
 
 
+### Storage for SAP HANA - multi-node
+{: #hana-iaas-intel-vs-vpc-vx2-storage-multi}
+
+Scale-out clusters for SAP HANA today are certified for Cascade Lake based CPUs only.
+{: note}
+
+In an SAP HANA scale-out (multi-node) configuration, storage needs to be accessible from different nodes at the same time, and needs to be able to failover from one node to the other.
+
+Thus, for SAP HANA scale-out configurations, file shares need to be deployed, and local block storage is out of scope for the SAP HANA installation. Those file shares require so-called `mount targets` to be created to allow access to the file shares from dedicated subnets. {{site.data.keyword.cloud_notm}} recommends using the primary subnet for storage access because routes will not require any changes to access the storage servers for the file shares, if the mount target is defined on this subnet. Two additional subnets are required for SAP HANA inter-node (internal) communication, and for client access.
+
+SAP HANA in scale-out configuration requires a shared volume for its `/hana/shared` file system, and a `/hana/log` and `/hana/data` volume for each node. Follow the [Chapter "Mount file systems" by NetApp](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-host-setup.html#create-mount-points){: external} for setting up the mount points on your hosts. See the following sample for an SAP HANA system of system ID 'BHB':
+
+1. `/hana/shared`
+
+    ```plaintext
+    fsf-tok0551b-fz.adn.networklayer.com:/903586db_f968_4bf7_bbd5_0926fb7a26ce /hana/shared/BHB nfs      sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
+    ```
+
+1. `/hana/data`
+
+    ```plaintext
+    fsf-tok0551a-fz.adn.networklayer.com:/2b33d3df_9081_47c2_910a_a29356716d51/BHB/mnt00001 /hana/data/BHB/mnt00001 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
+    fsf-tok0551b-fz.adn.networklayer.com:/ec39996c_346a_4815_a74f_4048382e6ecc/BHB/mnt00002   /hana/data/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
+    ```
+
+1. `/hana/log`
+
+    ```plaintext
+    fsf-tok0551b-fz.adn.networklayer.com:/7bdee46e_b95f_4ff7_89b8_5273e8f9199d/BHB/mnt00001  /hana/log/BHB/mnt00001 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
+    fsf-tok0551b-fz.adn.networklayer.com:/2bca0419_3aef_40ca_b38f_8b9717c93905/BHB/mnt00002  /hana/log/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
+    ```
+
+You cannot follow NetApp's recommendation regarding `rsize` and `wsize` option, these parameters are limited to 65536 by the file share implementation.
+
+To fulfill SAP's requirements about storage layout and through-put and latency KPIs, see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they must comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external} and also ensure SAP's support for it. {{site.data.keyword.cloud_notm}} recommends 10 IOPS per GB or Custom profile file shares for meeting SAP's KPIs.
+
+
+### bx3d-* and mx3d-* profiles - Storage Layouts
+{: #hana-iaas-intel-vs-vpc-bmx3-profiles}
+
+The following table shows the required volumes and related volume groups, if necessary, and their characteristics:
+
+| Profile            | File\nsystem    | Logical\nVolume  | LV Size          | Volume Group.  | Physical\nVolume | PV Size          |
+| ------------------ | --------------- | ---------------- | ---------------- | -------------- | ---------------- | ---------------- |
+| `bx3d-176x880`     | `/hana/shared`  |                  | `n/a`            |                | `vdj`            | 1.46 TB          |
+|                    | `/hana/data`    | `hana_data_lv`   | 2 TB or larger   | `hana_data_vg` | `vdf`            | 1 TB or larger.  |
+|                    |                 |                  |                  |                | `vdg`            | 1 TB or larger.  |
+|                    | `/hana/log`     | `hana_log_lv`    | 512 GB or larger | `hana_log_vg`  | `vdh`            | 256 GB or larger |
+|                    |                 |                  |                  |                | `vdi`            | 256 GB or larger |
+| ------------------ | --------------- | ---------------- | ---------------- | -------------- | ---------------- | ---------------- |
+|`mx3d-176x1760`     | `/hana/shared`  |                  | `n/a`            |                | `vdj`            | 2.8 TB           |
+|                    | `/hana/data`    | `hana_data_lv`   | 6 TB or larger   | `hana_data_vg` | `vdf`            | 2.9 TB or larger |
+|                    |                 |                  |                  |                | `vdg`            | 2.9 TB or larger |
+|                    | `/hana/log`     | `hana_log_lv`    | 512 GB or larger | `hana_log_vg`  | `vdh`            | 256 GB or larger |
+|                    |                 |                  |                  |                | `vdi`            | 256 GB or larger |
+{: caption="Storage for bx3* and mx3* profile based virtual servers" caption-side="top"}
+
+
 ### vx3d-* profiles - Storage Layouts
 {: #hana-iaas-intel-vs-vpc-vx3-profiles}
 
@@ -451,7 +511,7 @@ The following table shows the required volumes and related volume groups, if nec
 |                    | `/hana/log`     | `hana_log_lv`    | 512 GB or larger | `hana_log_vg`  | `vdh`            | 256 GB or larger |
 |                    |                 |                  |                  |                | `vdi`            | 256 GB or larger |
 | ------------------ | --------------- | ---------------- | ---------------- | -------------- | ---------------- | ---------------- |
-|`vx3d-176x2816`.    | `/hana/shared`  |                  | `n/a`            |                | `vdj`            | 2.8 TB           |
+|`vx3d-176x2816`     | `/hana/shared`  |                  | `n/a`            |                | `vdj`            | 2.8 TB           |
 |                    | `/hana/data`    | `hana_data_lv`   | 6 TB or larger   | `hana_data_vg` | `vdf`            | 2.9 TB or larger |
 |                    |                 |                  |                  |                | `vdg`            | 2.9 TB or larger |
 |                    | `/hana/log`     | `hana_log_lv`    | 512 GB or larger | `hana_log_vg`  | `vdh`            | 256 GB or larger |
@@ -462,9 +522,9 @@ The following table shows the required volumes and related volume groups, if nec
 ### vx3d-* profiles - Setup Instructions
 {: #hana-iaas-intel-vs-vpc-vx3-setup}
 
-See the step by step instructions for setting up the file systems here. The according volume sizes are captured in the table 9. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some volumes are governed by the Linux Logical Volume Manager LVM or lvm2.
+See the step by step instructions for setting up the file systems here. The according volume sizes are captured in the tables 9 and 10. Read the section [**Adding Block Storage for VPC**](/docs/sap?topic=sap-vs-set-up-infrastructure#vs-adding-vpc-block-storage) to see how to attach the volumes to the HANA server. Some volumes are governed by the Linux Logical Volume Manager LVM or lvm2.
 
-For each profile, consider the specified volume sizes in table 9 and always make sure that the correct volume names are given for the respective commands. The Linux command `fdisk -l` shows which disk is to the volume, for example `/dev/vde`.
+For each profile, consider the specified volume sizes in tables 9 and 10. Always make sure that the correct volume names are given for the respective commands. The Linux command `fdisk -l` shows which disk has been mapped to the volume, for example `/dev/vde`.
 {: note}
 
 
@@ -507,37 +567,3 @@ For each profile, consider the specified volume sizes in table 9 and always make
 
     [root@vx3d ~]# mount -a
     ```
-
-
-### Storage for SAP HANA - multi-node
-{: #hana-iaas-intel-vs-vpc-vx2-storage-multi}
-
-In an SAP HANA scale-out (multi-node) configuration, storage needs to be accessible from different nodes at the same time, and needs to be able to failover from one node to the other.
-
-Thus, for SAP HANA scale-out configurations, file shares need to be deployed, and local block storage is out of scope for the SAP HANA installation. Those file shares require so-called `mount targets` to be created to allow access to the file shares from dedicated subnets. {{site.data.keyword.cloud_notm}} recommends using the primary subnet for storage access because routes will not require any changes to access the storage servers for the file shares, if the mount target is defined on this subnet. Two additional subnets are required for SAP HANA inter-node (internal) communication, and for client access.
-
-SAP HANA in scale-out configuration requires a shared volume for its `/hana/shared` file system, and a `/hana/log` and `/hana/data` volume for each node. Follow the [mount option recommendation by NetApp](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html){: external} for setting up your target OS' fstab. See the following sample for an SAP HANA system of system ID 'BHB':
-
-1. `/hana/shared`
-
-    ```plaintext
-    fsf-tok0551b-fz.adn.networklayer.com:/903586db_f968_4bf7_bbd5_0926fb7a26ce /hana/shared/BHB nfs      sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
-    ```
-
-1. `/hana/data`
-
-    ```plaintext
-    fsf-tok0551a-fz.adn.networklayer.com:/2b33d3df_9081_47c2_910a_a29356716d51/BHB/mnt00001 /hana/data/BHB/mnt00001 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
-    fsf-tok0551b-fz.adn.networklayer.com:/ec39996c_346a_4815_a74f_4048382e6ecc/BHB/mnt00002   /hana/data/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
-    ```
-
-1. `/hana/log`
-
-    ```plaintext
-    fsf-tok0551b-fz.adn.networklayer.com:/7bdee46e_b95f_4ff7_89b8_5273e8f9199d/BHB/mnt00001  /hana/log/BHB/mnt00001 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
-    fsf-tok0551b-fz.adn.networklayer.com:/2bca0419_3aef_40ca_b38f_8b9717c93905/BHB/mnt00002  /hana/log/BHB/mnt00002 nfs sec=sys,rw,vers=4,minorversion=1,hard,timeo=600,rsize=65536,wsize=65536,intr,noatime,lock 0 0
-    ```
-
-You cannot follow NetApp's recommendation regarding `rsize` and `wsize` option, these parameters are limited to 65536 by the file share implementation.
-
-To fulfill SAP's requirements about storage layout and through-put and latency KPIs, see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they must comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external} and also ensure SAP's support for it. {{site.data.keyword.cloud_notm}} recommends 10 IOPS per GB or Custom profile file shares for meeting SAP's KPIs.
