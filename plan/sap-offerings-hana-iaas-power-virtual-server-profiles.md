@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-12-16"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -211,7 +211,7 @@ The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.p
 | sr2-25x1900         |     OLTP/OLAP                                |     N/A  | 190,000   |
 | sr2-35x3000         |     OLTP/OLAP                                |     N/A  | 266,000   |
 | sr2-35x3900         |     OLTP/OLAP                                |     N/A  | 266,000   |
-| sr2-80x6144         |     OLTP/OLAP                                |     N/A  | 608,000   |
+| sr2-80x6144         |     OLTP/OLAP/OLAP scale-out (up to 6 nodes) |     N/A  | 608,000   |
 | sr2-87x7000         |     OLTP/OLAP                                |     N/A  |661,200    |
 | sr2-87x7600         |     OLTP/OLAP                                |     N/A  | 661,200   |
 | sr2-80x9216         |     OLTP/OLAP                                |     N/A  | 480,000   |
