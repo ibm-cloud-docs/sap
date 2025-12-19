@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-11-30"
+lastupdated: "2025-12-18"
 keywords: SAP
 subcollection: sap
 ---
@@ -13,6 +13,15 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+## December 2025
+{: #sap-2025-12}
+
+- New reference architecture: [SAP Solution Manager with HANA (RHEL)](/docs/sap?topic=sap-sap-sol-mgr-hanadb-rhel&interface=terraform)
+- New document: [Virtual Persistent Memory (vPMEM) with SAP HANA on Power Virtual Server](/docs/sap?topic=sap-powervs-vpmem-with-sap-hana&interface=terraform)
+- Introduced new [Intel Sapphire Rapids profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-sr-vpc-list) for SAP HANA on {{site.data.keyword.vpc_full}}.
+
+
 
 
 ## November 2025
