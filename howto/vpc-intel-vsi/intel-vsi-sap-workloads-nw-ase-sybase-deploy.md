@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-12-23"
 keywords:
 subcollection: sap
 ---
@@ -12,7 +12,7 @@ subcollection: sap
 # Deploying SAP NetWeaver 7.5 with ASE
 {: #deploy-sap-ase}
 
-The deployment for SAP NetWeaver 7.5 with ASE Sybase on RHEL 9.4 is performed in phases:
+The deployment for SAP NetWeaver 7.5 with ASE Sybase on Red Hat&reg; Enterprise Linux&reg; (RHEL) 9.4 is performed in phases:
 
 1. [Cloud infrastructure planning](/docs/sap?topic=sap-deploy-sap-ase#cloud-infra-plan-ase)
 2. [Cloud resource deployment](/docs/sap?topic=sap-deploy-sap-ase#cloud-resource-deploy-ase)
@@ -28,7 +28,7 @@ Before performing any deployment, it is important to plan the cloud infrastructu
 ### Virtual Private Cloud (VPC) deployment
 {: #vpc-deploy-ase}
 
-A VPC is the most basic component necessary for any deployment with the IBM Cloud VPC. For more information, see [VPC for SAP provisioning](/docs/sap?topic=sap-intro-sap-cloud-vpc#vpc-provision-sap).
+A VPC is the most basic component necessary for any deployment with the {{site.data.keyword.vpc_short}}. For more information, see [VPC for SAP provisioning](/docs/sap?topic=sap-intro-sap-cloud-vpc#vpc-provision-sap).
 
 ### VPC subnet
 {: #vpc-subnet-ase}
@@ -38,9 +38,9 @@ A VPC subnet is created as part of the network space in which SAP and database d
 ### VPC security group
 {: #vpc-security-ase}
 
-A VPC Security Group is created to meet the security demands and standards. By specifying the specific inbound and outbound rules, the VSIs assigned to this security group is protected against threats. For more information, see [Security Group for VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#security-group-sap-vpc).
+A VPC security group is created to meet the security demands and standards. By specifying the specific inbound and outbound rules, the VSIs assigned to this security group is protected against threats. For more information, see [Security Group for VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#security-group-sap-vpc).
 
-### VPC Virtual Server Instance (VSI)
+### VPC virtual server instance (VSI)
 {: #vpc-vsi-ase}
 
 VSIs are created and assigned to proper disks to meet the compute and storage requirements for SAP and database deployment.
@@ -54,7 +54,7 @@ The storage component is also an important part of any VSI deployment process an
 ## Cloud resource deployment
 {: #cloud-resource-deploy-ase}
 
-Before any deployment of SAP and database applications, you should prepare and deploy the necessary cloud resources in the IBM Cloud VPC. It is important to know the business and geographical location of the VPC placement. For more information, see [SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure that uses RHEL](/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-rhel).
+Before any deployment of SAP and database applications, you should prepare and deploy the necessary cloud resources in the {{site.data.keyword.vpc_short}}. It is important to know the business and geographical location of the VPC placement. For more information, see [SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure that uses RHEL](/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-rhel).
 
 For instance, the following example data is of a VPC created in Germany with data centers spanning in the Frankfurt area:
 
@@ -65,7 +65,7 @@ For instance, the following example data is of a VPC created in Germany with dat
 
 ![Figure 1. VPC details](../../images/vpc-intel-vsi-vpc-details-ase.png "VPC details"){: caption="VPC details" caption-side="bottom"}
 
-The Resource Group where the VPC was previously created, “wes-automation” will hold and group other necessary components (VSIs, and so on).”
+The Resource group where the VPC was previously created, “wes-automation” will hold and group other necessary components (VSIs, and so on).”
 {: note}
 
 The following subnets are defined and available for the example VPC:
@@ -79,9 +79,9 @@ The following subnets are defined and available for the example VPC:
 
 ![Figure 2. Subnets](../../images/vpc-intel-vsi-subnets-ase.png "Subnets"){: caption="Subnets" caption-side="bottom"}
 
-Security group `bastion-sg-bog-bast-de` is used for this example. During the planning phase, it is important to use the IBM Cloud VPC security resources and services (Security groups) by using inbound and outbound rules governing traffic to and from specific VSIs. The user can easily manage access and align with any security standards the business requires.
+Security group `bastion-sg-bog-bast-de` is used for this example. During the planning phase, it is important to use the {{site.data.keyword.vpc_short}} security resources and services (Security groups) by using inbound and outbound rules governing traffic to and from specific VSIs. The user can easily manage access and align with any security standards the business requires.
 
-Before you begin the deployment of the required VSI, note the following IBM Cloud VPC resource parameters:
+Before you begin the deployment of the required VSI, note the following {{site.data.keyword.vpc_short}} resource parameters:
 
 * VPC name - “bog-sap”
 * Region - “eu-de”
@@ -107,11 +107,11 @@ In the Storage section, additional data volumes are added to align with the [Fil
 
 Create the **Data volume** one by one according to the requirements of SAP and ASE Sybase:
 
-* SWAP disk – 32GB
-* Log volumes disk – 32GB
-* Sybase software – 64GB
-* SAP applications – 128GB
-* Data file disk – 256GB
+* SWAP disk – 32 GB
+* Log volumes disk – 32 GB
+* Sybase software – 64 GB
+* SAP applications – 128 GB
+* Data file disk – 256 GB
 
 After creating the data volume, the output is displayed as shown:
 
@@ -124,14 +124,14 @@ In those cases, it is necessary to create NFS file systems as file-shares and us
 
 For more information on NFS-based file storage for VSI on VPC infrastructure, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui).
 
-For successfully mounting the file storage share through NFS, we need to note down the “Mount path”.
+For successfully mounting the file storage share through NFS, you need to note down the “Mount path”.
 {: note}
 
 For demonstration purposes, the file system `/usr/sap/trans` is used in two different scenarios:
 * as a local file system
-* as a NFS-based file system, by using the File storage share service available in the IBM Cloud VPC.
+* as a NFS-based file system, by using the File storage share service available in the {{site.data.keyword.vpc_short}}.
 
-For more information and procedures regarding IBM Cloud VPC file share resource, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
+For more information and procedures regarding {{site.data.keyword.vpc_short}} file share resource, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
 
 ## File system preparation
 {: #file-system-prep-ase}
@@ -151,9 +151,9 @@ The installation of the SAP NetWeaver 7.5 with ASE on RHEL 9.4 is performed base
 ### Creating file system at operating system level
 {: #create-file-system-ase}
 
-A proper file system layout is necessary for a correct installation of any SAP solution within the IBM Cloud VPC.
+A proper file system layout is necessary for a correct installation of any SAP solution within the {{site.data.keyword.vpc_short}}.
 
-For the presented example, the SAP SID is BOG, thus the naming for the volume groups, logical volumes, and file systems are considered this SID.
+For the presented example, the SAP SID is BOG, thus the naming for the volume groups, logical volumes, and file systems are considered as this SID.
 {: note}
 
 At the operating system level, physical volumes, volume groups, logical volumes, and file systems are created in a specific sequence.
@@ -315,7 +315,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     tmpfs /dev/shm tmpfs size=47G,rw,nosuid,nodev 0 0
     ```
 
-### NFS file system by using IBM Cloud VPC File Shares
+### NFS file system by using {{site.data.keyword.vpc_short}} File Shares
 {: #nfs-application-vpc-ase}
 
 [IBM Cloud File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about) is used to make SAP-specific directories accessible to the SAP system, by using technologies like NFS, shared disks, and cluster file system. When using an HA solution for your SAP system, ensure that you address the HA requirements for SAP file systems properly.
@@ -330,19 +330,19 @@ For SAP HA multi-zone applications, file shares are mounted as permanent NFS fil
 
 In some HA or distributed environment, by using NFS to store the application or database data may be necessary. In such case, you can create NFS file systems as file-shares by using them as mount points for SAP application data. For more information, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
 
-The following is an example where `/usr/sap/trans` file system is defined as an IBM Cloud VPC file share and mounted to the SAP system VSI:
+The following is an example where `/usr/sap/trans` file system is defined as an {{site.data.keyword.vpc_short}} file share and mounted to the SAP system VSI:
 
-* **File storage share for VPC**
+* File storage share for VPC
 
 ![Figure 8. File storage for VPC](../../images/vpc-intel-vsi-filestorage-vpc-ase.png "File storage for VPC"){: caption="File storage for VPC" caption-side="bottom"}
 
 ![Figure 9. File storage for VPC details](../../images/vpc-intel-vsi-filestorage-vpc-details-ase.png "File storage for VPC details"){: caption="File storage for VPC details" caption-side="bottom"}
 
-* **Profile**
+* Profile
 
 ![Figure 10. File storage for VPC profile](../../images/vpc-intel-vsi-filestorage-vpc-profile-ase.png "File storage for VPC profile"){: caption="File storage for VPC profile" caption-side="bottom"}
 
-* **Mount target access mode**
+* Mount target access mode
 
 ![Figure 11. Mount target access mode](../../images/vpc-intel-vsi-mount-target-ase.png "Mount target access mode"){: caption="Mount target access mode" caption-side="bottom"}
 
@@ -359,7 +359,7 @@ Use this path to mount the FileShare over the `/usr/sap/trans` file system. Add 
 ### Shared application file systems by using classic NFS
 {: #shared-fs-classic-ase}
 
-If the installation scenario requires, then export one or more file systems. For example, “/usr/sap/trans” between various VSIs, thus between various SAP Applications.
+If the installation scenario requires, then export one or more file systems. For example, `/usr/sap/trans` between various VSIs, thus between various SAP Applications.
 
 1. Install the NFS package on the source VSI using the command: `dnf list nfs-utils`
 
@@ -367,7 +367,7 @@ If the installation scenario requires, then export one or more file systems. For
 
 3. Enable the NFS package by using the command: `systemctl enable –now nfs-server`
 
-4. For example, export the “/usr/sap/trans” directory, by adding the following line in the “/etc/exports” file: `/usr/sap/trans 10.243.0.180(rw,sync,no_root_squash)`
+4. For example, export the `/usr/sap/trans` directory, by adding the following line in the `/etc/exports` file: `/usr/sap/trans 10.243.0.180(rw,sync,no_root_squash)`
 
 5. Apply configuration and activate exports by using the command: `exportfs -arv`
 
@@ -413,7 +413,7 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
 
 9. No process limits are configured as you run “systemd” higher than 239 and SAP kernel 7.54. Check the “systemd” version by running the command: `# systemctl –version`
 
-    Regarding “temp files” we need to ensure that we create a file “sap.conf” under the directory `/etc/tmpfiles.d`, and add the following lines, inside the file:
+    Regarding “temp files” you need to ensure that a file “sap.conf” is created under the directory `/etc/tmpfiles.d`, and add the following lines, inside the file:
 
     ```pre
     # systemd.tmpfiles exclude file for SAP
@@ -509,7 +509,7 @@ According to SAP note 3425215, there is no issue by using SAP ASE 16.0 SP04 PL06
 
 * Resize TMPFS according to SAP Note 941735 (file system /dev/shm): - `# mount -o remount,size=43G /dev/shm`
 
-43GB represents 70% of RAM + SWAP
+43 GB represents 70% of RAM + SWAP
 {: note}
 
 To make the new size for the “TMPFS” permanent, add the following entry in the “/etc/fstab” file:
@@ -523,42 +523,38 @@ After you download the installation media, follow the standard SAP installation 
 ## Related information
 {: #related-info-ase}
 
-* [Release notes for IBM Cloud VPC](/docs/vpc?topic=vpc-release-notes&interface=ui)
+* [Release notes for {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-release-notes&interface=ui)
 * [IBM Cloud® File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about)
 * [SAP Note 84555 - Windows Server, Linux&reg;, and UNIX: Certified hardware](https://me.sap.com/notes/84855){: external}
 * [SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
-* [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://me.sap.com/notes/2414820/E)
+* [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://me.sap.com/notes/2414820/E){: external}
 * [SAP Note 2923773 - Linux&reg; on {{site.data.keyword.cloud_notm}} (IaaS): Adaption of your SAP License](https://me.sap.com/notes/2923773){: external}
 * [SAP Note 2414097 - SAP Applications on {{site.data.keyword.cloud_notm}} Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
 * [SAP Note 2369910 - SAP Software on Linux&reg;: General information](https://me.sap.com/notes/2369910){: external}
 * [SAP Note 171380 - Released IBM hardware (Intel processors) and IBM cloud services offers](https://me.sap.com/notes/171380){: external}
 * [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
-* [SAP Note 2987324 - SAP ASE 16.0 SP04 Supported Operating Systems and Versions](https://me.sap.com/notes/2987324/E)
-* [SAP Note 3386206 - Which is the current latest ASE version? - SAP ASE](https://me.sap.com/notes/3386206/E)
-* [SAP Note 1941500 - Certification information for Linux and other Operating Systems - SAP ASE](https://me.sap.com/notes/1941500/E)
-* [SAP Note 1554717 - SYB: Planning Information for SAP on SAP ASE](https://me.sap.com/notes/1554717/E)
-* [SAP Note 2526952 - Red Hat Enterprise Linux for SAP Solutions](https://me.sap.com/notes/2526952/E)
+* [SAP Note 2987324 - SAP ASE 16.0 SP04 Supported Operating Systems and Versions](https://me.sap.com/notes/2987324/E){: external}
+* [SAP Note 3386206 - Which is the current latest ASE version? - SAP ASE](https://me.sap.com/notes/3386206/E){: external}
+* [SAP Note 1941500 - Certification information for Linux and other Operating Systems - SAP ASE](https://me.sap.com/notes/1941500/E){: external}
+* [SAP Note 1554717 - SYB: Planning Information for SAP on SAP ASE](https://me.sap.com/notes/1554717/E){: external}
+* [SAP Note 2526952 - Red Hat Enterprise Linux for SAP Solutions](https://me.sap.com/notes/2526952/E){: external}
 * [SAP Note 3108316 - Red Hat Enterprise Linux 9.x: Installation and Configuration](https://me.sap.com/notes/3108316){: external}
 * [SAP Note 1597355 - Swap-space recommendation for Linux](https://me.sap.com/notes/1597355){: external}
-* [SAP Note 1391070 - Linux UUID solutions](https://me.sap.com/notes/1391070/E)
-* [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361/E)
-* [SAP Note 900929 - Linux: STORAGE_PARAMETERS_WRONG_SET and "mmap() failed"](https://me.sap.com/notes/900929/E)
-* [SAP Note 2620175 - Reason for RHEL nproc to be set to unlimited for SAP Systems](https://me.sap.com/notes/2620175/E)
-* [SAP Note 1771258 - Linux: User and system resource limits](https://me.sap.com/notes/1771258/E)
-* [SAP Note 3139184 - Linux: systemd integration for sapstartsrv and SAP Host Agent](https://me.sap.com/notes/3139184/E)
+* [SAP Note 1391070 - Linux UUID solutions](https://me.sap.com/notes/1391070/E){: external}
+* [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361/E){: external}
+* [SAP Note 900929 - Linux: STORAGE_PARAMETERS_WRONG_SET and "mmap() failed"](https://me.sap.com/notes/900929/E){: external}
+* [SAP Note 2620175 - Reason for RHEL nproc to be set to unlimited for SAP Systems](https://me.sap.com/notes/2620175/E){: external}
+* [SAP Note 1771258 - Linux: User and system resource limits](https://me.sap.com/notes/1771258/E){: external}
+* [SAP Note 3139184 - Linux: systemd integration for sapstartsrv and SAP Host Agent](https://me.sap.com/notes/3139184/E){: external}
 * [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html?anchorId=section_1969201630){: external}
 * [SAP Note 405827 - Linux: Recommended file systems](https://me.sap.com/notes/405827/E){: external}
 * [SAP Note 941735 - SAP memory management system for 64-bit Linux systems](https://me.sap.com/notes/941735/E){: external}
-* [SAP Note 1748888 - SYB: Inst. Systems based on NW 7.3 and Higher: SAP ASE](https://me.sap.com/notes/1748888/E)
+* [SAP Note 1748888 - SYB: Inst. Systems based on NW 7.3 and Higher: SAP ASE](https://me.sap.com/notes/1748888/E){: external}
 * [SAP Note 1680045 - Release Note for Software Provisioning Manager 1.0 (recommended: SWPM 1.0 SP43)](https://me.sap.com/notes/1680045/E){: external}
-* [Installation guide: Installation of SAP Systems based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 on UNIX: SAP Adaptive Server Enterprise](https://help.sap.com/doc/4f95c9e3741a1014955595407d8604de/CURRENT_VERSION/en-US/Inst_nw7x_unix_ase_abap.pdf)
-* [SAP Adaptive Server Enterprise 16.0 SP04 - System Administration Guide: Volume 1](https://help.sap.com/doc/a611eab9bc2b1014a4eaf1a160376bec/16.0.4.6/en-US/SAP_ASE_System_Administration_Guide_Volume_1_en.pdf)
-* [SAP Adaptive Server Enterprise 16.0 SP04 - System Administration Guide: Volume 2](https://help.sap.com/doc/a6121aa4bc2b1014973595b879fce7fd/16.0.4.6/en-US/SAP_ASE_System_Administration_Guide_Volume_2_en.pdf)
-
-## Related information
-{: #related-info-sap-nw-ase}
-
+* [Installation guide: Installation of SAP Systems based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 on UNIX: SAP Adaptive Server Enterprise](https://help.sap.com/doc/4f95c9e3741a1014955595407d8604de/CURRENT_VERSION/en-US/Inst_nw7x_unix_ase_abap.pdf){: external}
+* [SAP Adaptive Server Enterprise 16.0 SP04 - System Administration Guide: Volume 1](https://help.sap.com/doc/a611eab9bc2b1014a4eaf1a160376bec/16.0.4.6/en-US/SAP_ASE_System_Administration_Guide_Volume_1_en.pdf){: external}
+* [SAP Adaptive Server Enterprise 16.0 SP04 - System Administration Guide: Volume 2](https://help.sap.com/doc/a6121aa4bc2b1014973595b879fce7fd/16.0.4.6/en-US/SAP_ASE_System_Administration_Guide_Volume_2_en.pdf){: external}
 * [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}.
-* [SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225)
+* [SAP Note 2588225 - SAP on IBM Cloud: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
 * [SAP Note 1380654 - SAP support in IaaS environments](https://me.sap.com/notes/1380654){: external}
 * [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}

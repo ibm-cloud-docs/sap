@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-12-23"
 keywords:
 subcollection: sap
 ---
@@ -12,38 +12,38 @@ subcollection: sap
 # Snapshot backups for SAP on Db2
 {: #snapshot-backup-db2-overview}
 
-In modern SAP environments, ensuring data availability and minimizing downtime are critical for business continuity. A snapshot backup strategy is an efficient method that leverages fast, point-in-time copies of the SAP database volumes at the storage level. This approach significantly reduces the backup window by capturing consistent database states with minimal disruption to ongoing operations. In the IBM Cloud VPC environment, implementing snapshot backups allows SAP administrators to combine the benefits of cloud-native block storage snapshots with SAP’s database consistency requirements. This results in a robust, scalable backup solution that accelerates recovery times and supports disaster recovery objectives while optimizing storage utilization and operational efficiency.
+In modern SAP environments, ensuring data availability and minimizing downtime are critical for business continuity. A snapshot backup strategy is an efficient method that leverages fast, point-in-time copies of the SAP database volumes at the storage level. This approach significantly reduces the backup window by capturing consistent database states with minimal disruption to ongoing operations. In the {{site.data.keyword.vpc_short}} environment, implementing snapshot backups allows SAP administrators to combine the benefits of cloud-native block storage snapshots with SAP’s database consistency requirements. This results in a robust, scalable backup solution that accelerates recovery times and supports disaster recovery objectives while optimizing storage utilization and operational efficiency.
 
-## About Block Storage for VPC snapshots
+## About block storage for VPC snapshots
 {: #snapshot-block-storage-about}
 
-Block Storage for VPC snapshot is a regional offering that is used to create a point-in-time copy of your boot or data volume. The initial snapshot that you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental, so they capture only the changes that occurred after the last snapshot was taken. You can restore data to a new volume during instance provisioning, from an existing instance, and when you create an unattached volume.
+Block storage for VPC snapshot is a regional offering that is used to create a point-in-time copy of your boot or data volume. The initial snapshot that you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental, so they capture only the changes that occurred after the last snapshot was taken. You can restore data to a new volume during instance provisioning, from an existing instance, and when you create an unattached volume.
 
-For more information about snapshots concepts, how it works, and its limitations see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui).
+For more information about snapshots concepts, how it works, and its limitations see [About Block storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui).
 
-## Planning Block Storage for VPC snapshots
+## Planning block storage for VPC snapshots
 {: #snapshot-block-storage-planning}
 
-When you plan a snapshot strategy for your Block Storage for VPC volumes, you might find this checklist helpful. Remember, snapshots can be used to create copies of your volumes and the data they contain can be used to clone or replicate data to other availability zones and regions.
-For more information about prerequisites of a block storage snapshots, see [Planning Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning&interface=ui).
+When you plan a snapshot strategy for your block storage for VPC volumes, you might find this checklist helpful. Remember, snapshots can be used to create copies of your volumes and the data they contain can be used to clone or replicate data to other availability zones and regions.
+For more information about prerequisites of a block storage snapshots, see [Planning block storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning&interface=ui).
 
 ## Creating Block Storage for VPC snapshots
 {: #snapshot-block-storage-create}
 
-With the UI, CLI, API, or Terraform, you can create a snapshot of a first-generation Block Storage for VPC volume that is attached to a running virtual server instance. You can create a snapshot of a boot or a data volume. If the volume is not attached to a server instance, you can't create a snapshot of it.
-For more information, see [Creating Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui).
+With the UI, CLI, API, or Terraform, you can create a snapshot of a first-generation block storage for VPC volume that is attached to a running virtual server instance. You can create a snapshot of a boot or a data volume. If the volume is not attached to a server instance, you can't create a snapshot of it.
+For more information, see [Creating block storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui).
 
 ### Creating a snapshot in the console
 {: #snapshot-block-storage-console}
 
-In the console, you can create a snapshot of a Block Storage for VPC volume that is attached to a running virtual server instance.
+In the console, you can create a snapshot of a block storage for VPC volume that is attached to a running virtual server instance.
 
 For more information, see [Creating a snapshot in the console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui).
 
 ### Creating a snapshot from the CLI
 {: #snapshot-block-storage-cli}
 
-**Requirement**: Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the CLI prerequisites.
+**Requirement**: Before you can use the CLI, you must install the {{site.data.keyword.cloud_notm}} CLI and the VPC CLI plug-in. For more information, see the CLI prerequisites.
 
 Before you start, gather the following information:
 * A unique name for the snapshot.
@@ -89,7 +89,7 @@ For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=v
 ### Restoring volumes from snapshots in the console
 {: #snapshot-block-storage-restore-console}
 
-You can create volumes from various pages in the IBM Cloud console. Restoring from a bootable snapshot creates a boot volume that you use to provision the virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Data volumes are created and attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
+You can create volumes from various pages in the {{site.data.keyword.cloud_notm}} console. Restoring from a bootable snapshot creates a boot volume that you use to provision the virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Data volumes are created and attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
 
 For more information, see [Restoring volumes from snapshots in the console](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-ui).
 
@@ -98,7 +98,7 @@ For more information, see [Restoring volumes from snapshots in the console](/doc
 
 Restoring from a bootable snapshot creates a boot volume that you can use to provision a virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Data volumes are created and can be attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
 
-**Requirement**: Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the CLI prerequisites.
+**Requirement**: Before you can use the CLI, you must install the {{site.data.keyword.cloud_notm}} CLI and the VPC CLI plug-in. For more information, see the CLI prerequisites.
 
 For more information, see [Restoring a volume from a snapshot from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=cli#snapshots-vpc-restore-CLI).
 
@@ -113,7 +113,7 @@ For more information, see [Restoring a volume from a snapshot with the API](/doc
 ### Restoring a volume from a snapshot with Terraform
 {: #snapshot-block-storage-restore-terraform}
 
-**Requirement**: To use Terraform, download the Terraform CLI and configure the IBM Cloud Provider plug-in. For more information, see Getting started with Terraform.
+**Requirement**: To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see Getting started with Terraform.
 
 VPC infrastructure services use a specific regional endpoint, which targets to us-south by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the provider.tf file.
 For more information, see [Restoring a volume from a snapshot with Terraform](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=terraform#snapshots-vpc-restore-terraform).
@@ -122,9 +122,9 @@ For more information, see [Restoring a volume from a snapshot with Terraform](/d
 {: #snapshot-backup-acs}
 
 Db2 Advanced Copy Services (ACS) enables you to use the fast-copying technology of a storage device to perform the data copying part of backup and restore operations.
-In a traditional backup or restore operation, the database manager copies data to or from disk or a storage device using operating system calls. Being able to use the storage device to perform the data copying makes the backup and restore operations much faster. A backup operation that uses Db2 ACS is called a snapshot backup.
+In a traditional backup or restore operation, the database manager copies data to or from disk or a storage device using operating system calls. Being able to use the storage device to perform the data copying makes the backup and restore operations faster. A backup operation that uses Db2 ACS is called as a snapshot backup.
 
-For more information, see [Db2 Advanced Copy Services (ACS) for snapshot backups](https://www.ibm.com/docs/en/db2/12.1.x?topic=recovery-db2-advanced-copy-services-acs).
+For more information, see [Db2 Advanced Copy Services (ACS) for snapshot backups](https://www.ibm.com/docs/en/db2/12.1.x?topic=recovery-db2-advanced-copy-services-acs){: external}.
 
 To perform a snapshot backup or a restore operation, see the following topics:
 

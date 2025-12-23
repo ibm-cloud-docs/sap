@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-12-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -13,7 +13,7 @@ subcollection: sap
 # SAP HANA scale-out reference architecture
 {: #refarch-hana-scaleout}
 
-The {{site.data.keyword.cloud}} architecture provides superior technical capabilities, such as a software definable environment critical to a cloud infrastructure, programmable interfaces, and hundreds of hardware and network configurations. It is designed to deliver a higher level of flexibility by mixing virtual and dedicated servers to fit various workloads, automation of interfaces, and hybrid deployment options. The {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure offering for SAP HANA and SAP NetWeaver provides you with a best-fit selection. This selection includes bare metal and virtualization-based servers on which the SAP software stack is run.
+The {{site.data.keyword.cloud}} architecture provides superior technical capabilities, such as a software-defined environment (SDE) critical to a cloud infrastructure, programmable interfaces, and hundreds of hardware and network configurations. It is designed to deliver a higher level of flexibility by mixing virtual and dedicated servers to fit various workloads, automation of interfaces, and hybrid deployment options. The {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure offering for SAP HANA and SAP NetWeaver provides you with a best fit selection. This selection includes bare metal and virtualization-based servers on which the SAP software stack is run.
 
 
 ## Intel Bare Metal servers on Classic Infrastructure
@@ -49,19 +49,19 @@ Check [SAP' Certified and Supported SAP HANA Hardware Directory](https://www.sap
 ### Network layout for Scale-out configurations
 {: #reference-intel-bm-scaleout-network}
 
-For Intel Bare Metal scale-out configurations, contact {{site.data.keyword.cloud_notm}} support for assisting you to set-up the required networking. Depending on the hardware used, the choice of networks might be restricted, or special configurations might have to be adapted. See the following diagram, for the layout to use. The diagram describes the use of three fully redundant (LACP config), physically separate networks, for:
+For Intel Bare Metal scale-out configurations, contact {{site.data.keyword.cloud_notm}} support for assisting you to set up the required networking. Depending on the hardware used, the choice of networks might be restricted, or special configurations might have to be adapted. See the following diagram for the layout to use. The diagram describes the use of three fully redundant (LACP config), physically separate networks, for:
 * Storage traffic,
 * Internal SAP HANA inter-node communication
-* Communication with the client(s), for example SAP ABAP application servers or SAP HANA Studio for administration purposes.
+* Communication with the clients, for example SAP ABAP application servers or SAP HANA Studio for administration purposes.
 
-Use the network that holds the default route of your environment to pass the NFS traffic through it, the storage servers are reachable through that gateway, only.
+Use the network that holds the default route of your environment to pass the Network File System (NFS) traffic through it, the storage servers are reachable through that gateway only.
 
 ### Storage for Scale-out configurations
 {: #reference-intel-bm-scaleout-storage}
 
-For scale-out configuration, the ability of storage volumes to be accessed from different server nodes is required for failover purposes. Thus, local storage is out of scope, and NFS volumes need to be deployed. The deployed volumes can vary in size and number (see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they have to comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}.
+For scale-out configuration, the ability of storage volumes to be accessed from different server nodes is required for failover purposes. Thus, local storage is out of scope, and NFS volumes need to be deployed. The deployed volumes can vary in size and number (see details here: [Persistent Data Storage in the SAP HANA Database](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/be3e5310bb571014b3fbd51035bc2383.html){: external}). In any case, they must comply with the TDI performance KPIs (see [SAP Note 2613646](https://me.sap.com/notes/2613646){: external}) verified by [SAP HANA Hardware and Cloud Measurement Tools](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}.
 
-{{site.data.keyword.cloud_notm}} recommends Endurance File Storage at 10 IOPS per GB or Performance File Storage with IOPS equal or greater than 10K. For the network configuration, use the primary network as storage network to guide the traffic to the NFS servers through it.
+{{site.data.keyword.cloud_notm}} recommends endurance file storage at 10 IOPS per GB or Performance File Storage with IOPS equal or greater than 10K. For the network configuration, use the primary network as a storage network to guide the traffic to the NFS servers through it.
 
 
 ## Intel Virtual Servers in VPC Infrastructure (Gen2)
@@ -82,7 +82,7 @@ These configurations can either be run on-top of dedicated hosts (DHs) or on sha
 ### Network layout for Scale-out configurations
 {: #reference-intel-vsi-scaleout-olap-network}
 
-For Intel Bare Metal scale-out configurations, contact {{site.data.keyword.cloud_notm}} support for assisting you to set-up the required networking. On the VPC (Gen2) infrastructure, underlying host systems are laid out for full redundance, no matter if they are dedicated or shared hosts. As a result, VSIs in VPC do not require for redundant network adapter. Throughput for all VSI level adapters in one VSI is limited to 60 Gbps, by default. A single adapter is limited to 25 Gbps maximum throughput. Therefore, the HANA network layout for scale-out configurations requires three separate networks, 3 adapters to be configured with a throughput of 20 Gbps, each. See the following diagram for the network layout for VSIs. Read the following chapter on storage before you decide on the details of your storage layout and the according networks to use.
+For Intel Bare Metal scale-out configurations, contact {{site.data.keyword.cloud_notm}} support for assisting you to set up the required networking. On the VPC (Gen2) infrastructure, underlying host systems are laid out for full redundance, no matter if they are dedicated or shared hosts. As a result, VSIs in VPC do not require for redundant network adapter. Throughput for all VSI level adapters in one VSI is limited to 60 Gbps, by default. A single adapter is limited to 25 Gbps maximum throughput. Therefore, the HANA network layout for scale-out configurations requires three separate networks, 3 adapters to be configured with a throughput of 20 Gbps, each. See the following diagram for the network layout for VSIs. Read the following chapter on storage before you decide on the details of your storage layout and the according networks to use.
 
 Figure 2 shows the network topology that is required for the {{site.data.keyword.cloud_notm}} VPC Infrastructure as a Service SAP HANA TDI scale-out setup.
 
@@ -95,4 +95,4 @@ For scale-out configuration, the ability of storage volumes to be accessed from 
 
 {{site.data.keyword.cloud_notm}} recommends 10 IOPS per GB or custom profile File Shares for meeting the SAP's KPIs.
 
-Choose one subnet to connect the file shares to. Carefully design and configure your network and SAP HANA configuration in a way that this network is not used for client nor internal communication. For more information on creating file shares and mount targets, see [Planning your file shares](/docs/vpc?topic=vpc-file-storage-planning&interface=ui).
+Choose one subnet to connect the file shares to carefully design and configure your network and SAP HANA configuration in a way that this network is not used for client or internal communication. For more information on creating file shares and mount targets, see [Planning your file shares](/docs/vpc?topic=vpc-file-storage-planning&interface=ui).

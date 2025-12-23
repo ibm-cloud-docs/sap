@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-12-23"
 keywords:
 subcollection: sap
 ---
@@ -12,7 +12,7 @@ subcollection: sap
 # Deploying SAP NetWeaver 7.5 with Db2
 {: #deploy-sap-db2}
 
-The deployment for SAP NetWeaver 7.5 with Db2 on RHEL 9.4 is performed in phases:
+The deployment for SAP NetWeaver 7.5 with Db2 on Red Hat&reg; Enterprise Linux&reg; 9.4 is performed in phases:
 
 1. [Cloud infrastructure planning](/docs/sap?topic=sap-deploy-sap-db2#cloud-infra-plan)
 2. [Cloud resource deployment](/docs/sap?topic=sap-deploy-sap-db2#cloud-resource-deploy)
@@ -28,7 +28,7 @@ Before performing any deployment, it is important to plan the cloud infrastructu
 ### Virtual Private Cloud (VPC) deployment
 {: #vpc-deploy}
 
-A VPC is the most basic component necessary for any deployment with the IBM Cloud VPC. For more information, see [VPC for SAP provisioning](/docs/sap?topic=sap-intro-sap-cloud-vpc#vpc-provision-sap).
+A VPC is the most basic component necessary for any deployment with the {{site.data.keyword.vpc_short}}. For more information, see [VPC for SAP provisioning](/docs/sap?topic=sap-intro-sap-cloud-vpc#vpc-provision-sap).
 
 ### VPC subnet
 {: #vpc-subnet-db2}
@@ -38,9 +38,9 @@ A VPC subnet is created as part of the network space in which SAP and database d
 ### VPC security group
 {: #vpc-security-db2}
 
-A VPC Security Group is created to meet the security demands and standards. By specifying the specific inbound and outbound rules, the VSIs assigned to this security group will be protected against threats. For more information, see [Security Group for VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#security-group-sap-vpc).
+A VPC security group is created to meet the security demands and standards. By specifying the specific inbound and outbound rules, the VSIs assigned to this security group is protected against threats. For more information, see [Security Group for VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#security-group-sap-vpc).
 
-### VPC Virtual Server Instance (VSI)
+### VPC virtual server instance (VSI)
 {: #vpc-vsi}
 
 VSIs are created and assigned to proper disks to meet the compute and storage requirements for SAP and database deployment.
@@ -49,12 +49,12 @@ For compute component, based on the estimated user load for the SAP system, it i
 
 Also, for any deployment it is important to choose the right OS image for your VSI. Multiple options are available to choose from a selection of SAP certified RHEL, SUSE, or Windows images or custom images. For more information, see the [Catalog images on VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#catalog-images-sap-nw-db2-rhel).
 
-The storage component is also an important part of any VSI deployment process and choosing the right block storage volume or deciding to use the NFS-based file storage is an important decision for any SAP deployment. For more information, see [Block Storage for Virtual Server Instances on VPC Infrastructure](/docs/sap?topic=sap-intro-sap-cloud-vpc#block-storage-vpc-sap).
+The storage component is also an important part of any VSI deployment process and choosing the right block storage volume or deciding to use the Network File System (NFS) based file storage is an important decision for any SAP deployment. For more information, see [Block Storage for Virtual Server Instances on VPC Infrastructure](/docs/sap?topic=sap-intro-sap-cloud-vpc#block-storage-vpc-sap).
 
 ## Cloud resource deployment
 {: #cloud-resource-deploy}
 
-Before any deployment of SAP and database applications, you should prepare and deploy the necessary cloud resources in the IBM Cloud VPC. It is important to know the business and geographical location of the VPC placement. For more information, see [SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure that uses RHEL](/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-rhel)
+Before any deployment of SAP and database applications, you should prepare and deploy the necessary cloud resources in the {{site.data.keyword.vpc_short}}. It is important to know the business and geographical location of the VPC placement. For more information, see [SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure that uses RHEL](/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-rhel)
 
 For instance, the following example data is of a VPC created in Germany with data centers spanning in the Frankfurt area:
 
@@ -65,7 +65,7 @@ For instance, the following example data is of a VPC created in Germany with dat
 
 ![Figure 1. VPC details](../../images/vpc-intel-vsi-vpc-details.png "VPC details"){: caption="VPC details" caption-side="bottom"}
 
-The Resource Group where the VPC was previously created, “wes-automation” will hold and group other necessary components (VSIs, and so on).
+The resource group where the VPC was previously created, “wes-automation” will hold and group other necessary components (VSIs, and so on).
 {: note}
 
 The following subnets are defined and available for the example VPC:
@@ -79,9 +79,9 @@ The following subnets are defined and available for the example VPC:
 
 ![Figure 2. Subnets](../../images/vpc-intel-vsi-subnets.png "Subnets"){: caption="Subnets" caption-side="bottom"}
 
-Security group `bastion-sg-dt-bastion-fr` is used for this example. During the planning phase, it is important to leverage the IBM Cloud VPC security resources and services (Security groups) using inbound and outbound rules governing traffic to and from specific VSIs. The user can easily manage access and align with any security standards the business requires.
+Security group `bastion-sg-dt-bastion-fr` is used for this example. During the planning phase, it is important to leverage the {{site.data.keyword.vpc_short}} security resources and services (Security groups) using inbound and outbound rules governing traffic to and from specific VSIs. The user can easily manage access and align with any security standards the business requires.
 
-Before you begin the deployment of the required VSI, note the following IBM Cloud VPC resource parameters:
+Before you begin the deployment of the required VSI, note the following {{site.data.keyword.vpc_short}} resource parameters:
 
 * VPC name - “dt-vpc-fr”
 * Region - “eu-de”
@@ -107,7 +107,7 @@ For storage, additional data volumes (disks) are used for initializing all the r
 
 ![Figure 6. File system](../../images/vpc-intel-vsi-filesystem.png "File system"){: caption="File system" caption-side="bottom"}
 
-There may be solutions (for High Availability or distributed installations) where using NFS for holding Application or Database data would be needed. For example `/sapmnt/<SID>`, `/usr/sap/<SID>` or `/usr/sap/trans` file systems.
+There may be solutions (for high availability or distributed installations) where using NFS for holding application or database data would be needed. For example `/sapmnt/<SID>`, `/usr/sap/<SID>` or `/usr/sap/trans` file systems.
 {: important}
 
 In those cases, it is necessary to create NFS file systems as file-shares and use them as mount points for SAP application data.
@@ -116,9 +116,9 @@ For more information on NFS-based file storage for VSI on VPC infrastructure, se
 
 For demonstration purposes, the file system `/usr/sap/trans` is used in two different scenarios:
 * as a local file system
-* as a NFS-based file system, by using the File storage share service available in the IBM Cloud VPC.
+* as a NFS-based file system, by using the File storage share service available in the {{site.data.keyword.vpc_short}}.
 
-For more information and procedures regarding IBM Cloud VPC file share resource, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
+For more information and procedures regarding {{site.data.keyword.vpc_short}} file share resource, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
 
 ## File system preparation
 {: #file-system-prep}
@@ -138,9 +138,9 @@ The installation of the SAP NetWeaver 7.5 with Db2 on RHEL 9.4 is performed base
 ### Creating file system at operating system level
 {: #create-file-system}
 
-A proper file system layout is necessary for a correct installation of any SAP solution within the IBM Cloud VPC.
+A proper file system layout is necessary for a correct installation of any SAP solution within the {{site.data.keyword.vpc_short}}.
 
-For the presented example, the SAP SID is DWT, thus the naming for the volume groups, logical volumes, and file systems are taken into consideration by this SID.
+For the presented example, the SAP SID is DWT, thus the naming for the volume groups, logical volumes, and file systems are considered by SID.
 {: note}
 
 At the operating system level, physical volumes, volume groups, logical volumes, and file systems are created in a specific sequence.
@@ -271,7 +271,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # mount /dev/dtw_app_vg/dtw_sapmnt_lv /sapmnt/DTW
     ```
 
-12. Resize the TMPFS according to [SAP Note 941735 - SAP memory management system for 64-bit Linux&reg; systems](https://me.sap.com/notes/941735/E){: external} (file system /dev/shm) using the following command: `# mount -o remount,size=70G /dev/shm`
+12. Resize the Temporary File System (TMPFS) according to [SAP Note 941735 - SAP memory management system for 64-bit Linux&reg; systems](https://me.sap.com/notes/941735/E){: external} (file system /dev/shm) using the following command: `# mount -o remount,size=70G /dev/shm`
 
 13. Add the following entries in the `/etc/fstab` file to create all the permanent mounts:
 
@@ -297,10 +297,10 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     tmpfs /dev/shm tmpfs size=70G,rw,nosuid,nodev 0 0
     ```
 
-### NFS file system by using IBM Cloud VPC file shares
+### NFS file system by using {{site.data.keyword.vpc_short}} file shares
 {: #nfs-application-vpc}
 
-[IBM Cloud File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about) is used to make SAP-specific directories accessible to the SAP system, by using technologies like NFS, shared disks, and cluster file system. When using an HA solution for your SAP system, can ensure that you address the HA requirements for SAP file systems properly.
+[IBM Cloud File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about) is used to make SAP-specific directories accessible to the SAP system, by using technologies like NFS, shared disks, and cluster file system. When using an HA solution for your SAP system, you can ensure that you address the HA requirements for SAP file systems properly.
 
 For SAP HA multi-zone applications, file shares are mounted as permanent NFS file systems on both cluster nodes.
 
@@ -312,33 +312,33 @@ For SAP HA multi-zone applications, file shares are mounted as permanent NFS fil
 
 In some HA or distributed environment, using NFS to store the application or database data may be necessary. In such case, you can create NFS file systems as file-shares by using them as mount points for SAP application data.
 
-The following is an example where `/usr/sap/trans` file system is defined as an IBM Cloud VPC file share and mounted to the SAP system VSI:
+The following is an example where `/usr/sap/trans` file system is defined as an {{site.data.keyword.vpc_short}} file share and mounted to the SAP system VSI:
 
-* **File storage share for VPC**
+* File storage share for VPC
 
 ![Figure 11. File storage for VPC](../../images/vpc-intel-vsi-file-storage-vpc.png "File storage for VPC"){: caption="File storage for VPC" caption-side="bottom"}
 
-* **Profile**
+* Profile
 
 ![Figure 12. File Profile](../../images/vpc-intel-vsi-file-profile.png "File Profile"){: caption="File Profile" caption-side="bottom"}
 
-* **Mount target access mode**
+* Mount target access mode
 
 ![Figure 13. Mount Target Access](../../images/vpc-intel-vsi-mount-target-access.png "Mount Target Access"){: caption="Mount Target Access" caption-side="bottom"}
 
-* **Mount targets (optional)**
+* Mount targets (optional)
 
 ![Figure 14. *Mount Target Optional*](../../images/vpc-intel-vsi-mount-target-optional.png "Mount Target Optional"){: caption="Mount Target Optional" caption-side="bottom"}
 
-* **Create mount target**
+* Create mount target
 
 ![Figure 15. Create Mount Target](../../images/vpc-intel-vsi-create-mt.png "Create Mount Target"){: caption="Create Mount Target" caption-side="bottom"}
 
-* **Choose your VPC and security group**
+* Choose your VPC and security group
 
 ![Figure 16. Encryption](../../images/vpc-intel-vsi-vpc-security-group.png "Encryption"){: caption="Encryption" caption-side="bottom"}
 
-* **Review the mount target details**
+* Review the mount target details
 
 ![Figure 17. Review mount target details](../../images/vpc-intel-vsi-choose-encryption.png "Review mount target details"){: caption="Review mount target details" caption-side="bottom"}
 
@@ -346,7 +346,7 @@ The following is an example where `/usr/sap/trans` file system is defined as an 
 
 ![Figure 18. View path - Mount Target](../../images/vpc-intel-vsi-mounttargets.png "View path - Mount Target"){: caption="View path - Mount Target" caption-side="bottom"}
 
-* **Mount path**
+* Mount path
 
 ![Figure 19. Mount path](../../images/vpc-intel-vsi-mountpath.png "Mount Path"){: caption="Mount Path" caption-side="bottom"}
 
@@ -357,7 +357,7 @@ Use this path to mount the FileShare over the `/usr/sap/trans` file system. Add 
 ### Shared application file systems using classic NFS
 {: #shared-fs-classic}
 
-If the installation scenario requires, we can export one or more file systems (for example, “/usr/sap/trans”) between various VSIs, thus between various SAP Applications.
+If the installation scenario requires, we can export one or more file systems (for example, `/usr/sap/trans`) between various VSIs, thus between various SAP Applications.
 
 1. Install the NFS package on the source VSI using the command: `dnf list nfs-utils`
 
@@ -365,13 +365,13 @@ If the installation scenario requires, we can export one or more file systems (f
 
 3. Enable the NFS package by using the command: `systemctl enable –now nfs-server`
 
-4. For example, export the “/usr/sap/trans” directory, by adding the following line in the “/etc/exports” file: `/usr/sap/trans 10.243.0.180(rw,sync,no_root_squash)`
+4. For example, export the `/usr/sap/trans` directory, by adding the following line in the `/etc/exports` file: `/usr/sap/trans 10.243.0.180(rw,sync,no_root_squash)`
 
 5. Apply configuration and activate exports by using the command: `exportfs -arv`
 
 6. After completion, see the export list (and options) by using one of the following commands: `exportfs -s` or `showmount -e`
 
-7. On the target VSI, mount the “/usr/sap/trans” through NFS using the command: `mount --types nfs4 10.243.64.10:/usr/sap/trans /usr/sap/trans`
+7. On the target VSI, mount the `/usr/sap/trans` through NFS using the command: `mount --types nfs4 10.243.64.10:/usr/sap/trans /usr/sap/trans`
 
 8. Verify the mount file system by using the command: `df -hT /usr/sap/trans`
 
@@ -384,7 +384,7 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
 
 1. After successful installation, check if the `uuidd` daemon is running by using: `# systemctl status uuidd`
 
-2. Next, `SELinux` needs to be set to “permissive”. Open the configuration file “/etc/selinux/config” and set the following: `SELinux=permissive`
+2. Next, `SELinux` needs to be set to “permissive”. Open the configuration file `/etc/selinux/config` and set the following: `SELinux=permissive`
 
 3. Once the changes are saved, restart the VSI and verify the above settings by using the command: `# getenforce`
 
@@ -403,7 +403,7 @@ The operating system is prepared according to [SAP note 3108316](https://me.sap.
 
 7. Check the status of the firewall by using the command: `# systemctl status firewall.d`
 
-8. Configure the required Linux&reg; Kernel parameters by creating a file named “sap.conf” in the directory “/etc/sysctl.d”. The file content is:
+8. Configure the required Linux&reg; Kernel parameters by creating a file named “sap.conf” in the directory `/etc/sysctl.d`. The file content is:
 
     * `vm.max_map_count=2147483647`
 
@@ -498,11 +498,11 @@ The operating system is prepared according to [SAP note 1275776](https://me.sap.
 
 15. The Linux service “chronyd” is enabled by default. Check by running the command - `# systemctl status chronyd`
 
-16. For the IBM Db2 database version 11.5 the following packages are also needed for both servers and clients:
+16. For the IBM Db2 database version 11.5, the following packages are also needed for both servers and clients:
 
     `# zypper in mksh binutils libstdc++6-32bit net-tools-deprecated libnuma1`
 
-17. For the IBM Db2 database version 12.1 the following packages are also needed for both servers and clients:
+17. For the IBM Db2 database version 12.1, the following packages are also needed for both servers and clients:
 
     `# zypper in mksh binutils libstdc++6-32bit`
 
@@ -525,7 +525,7 @@ After you download the installation media, follow the standard SAP installation 
 {: #related-info-db2}
 
 * [Db2 Recommended file systems](https://www.ibm.com/docs/en/db2/12.1.x?topic=databases-recommended-file-systems){: external}
-* [Release notes for IBM Cloud VPC](/docs/vpc?topic=vpc-release-notes&interface=ui)
+* [Release notes for {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-release-notes&interface=ui)
 * [IBM Cloud® File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about)
 * [SAP Product Availability Matrix](https://support.sap.com/en/release-upgrade-maintenance.html?anchorId=section_1969201630){: external}
 * [Db2 Database Administration Guide](https://help.sap.com/doc/7367f81b468e4480b3c550669b3534aa/CURRENT_VERSION/en-US/DB6_Admin_Guide.pdf){: external}
@@ -549,13 +549,9 @@ After you download the installation media, follow the standard SAP installation 
 * [SAP Note 1680045 - Release Note for Software Provisioning Manager 1.0 (recommended: SWPM 1.0 SP43)](https://me.sap.com/notes/1680045/E){: external}
 * [SAP Note 2927211 - SAP Applications on {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external}
 * [SAP Note 2588225 - SAP on {{site.data.keyword.cloud_notm}}: Protect against speculative execution vulnerabilities](https://me.sap.com/notes/2588225){: external}
-
-## Related information
-{: #related-info-sap-nw-db2-rhel}
-
 * For more information and updates about SAP on Db2 for LUW on {{site.data.keyword.vpc_short}}, see [SAP Note 2927211](https://me.sap.com/notes/2927211){: external}.
 * [SAP community page for IBM Db2](https://pages.community.sap.com/topics/db2-for-linux-unix-windows){: external}
-* [SAP on IBM Cloud VPC reference architecture](/docs/pattern-sap-on-vpc?topic=pattern-sap-on-vpc-sap-on-vpc){: external}
+* [SAP on {{site.data.keyword.vpc_short}} reference architecture](/docs/pattern-sap-on-vpc?topic=pattern-sap-on-vpc-sap-on-vpc){: external}
 
 **IBM Db2 support on SAP-certified Cloud IaaS:**
 

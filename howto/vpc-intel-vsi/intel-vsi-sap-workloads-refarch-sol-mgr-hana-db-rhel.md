@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-12-01"
+lastupdated: "2025-12-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, HANA
 subcollection: sap
 ---
@@ -14,14 +14,14 @@ subcollection: sap
 
 The {{site.data.keyword.cloud}} architecture provides superior technical capabilities, such as a software definable environment critical to a cloud infrastructure, programmable interfaces, and hundreds of hardware and network configurations. It is designed to deliver a higher level of flexibility by mixing virtual and dedicated servers to fit various workloads, automation of interfaces, and hybrid deployment options. The {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure offering provides you with a best-fit selection of bare metal and virtualization-based servers on which the SAP software stack is run.
 
-SAP HANA database is one of several databases that can be deployed on SAP Solution Manager 7.2 Advanced Business Application Programming (ABAP) and JAVA stack in the {{site.data.keyword.cloud}}. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, JAVA and SAP products based on these application server stacks.
+SAP HANA database is one of several databases that can be deployed on SAP Solution Manager 7.2 Advanced Business Application Programming (ABAP) and Java™ stack in the {{site.data.keyword.cloud}}. {{site.data.keyword.cloud_notm}} is certified for running SAP NetWeaver application servers ABAP, Java™, and SAP products based on these application server stacks.
 
 ## Overview
 {: #sap-sol-mgr-hanadb-rhel-overview}
 
 SAP Solution Manager enables users to manage their SAP and non-SAP applications in a better way. It centralizes, enhances, automates, and improves the management of the entire system landscape, thus reducing the total cost of ownership. SAP Solution Manager also supports users in adapting the landscape to new requirements, for example implementing new business processes.
 
-SAP Solution Manager covers the entire application lifecycle as follow:
+SAP Solution Manager covers the entire application lifecycle as follows:
 
 * Identification and documentation of as-is critical business processes for SAP solutions, including partner components, custom code, and interfaces.
 * Identification of business needs and preparation of realization through collaborative processes.
@@ -43,7 +43,7 @@ SAP Solution Manager covers the entire application lifecycle as follow:
 
 ![Figure 1. SAP Solution Manager with HANA DB on RHEL 9.4](../../images/vpc-intel-vsi-sol-mgr-hana-rhel.svg "SAP Solution Manager with HANA DB on RHEL 9.4"){: caption="SAP Solution Manager with HANA DB on RHEL 9.4" caption-side="bottom"}
 
-You have one database for ABAP instance and one database for JAVA instance. This is because the database type is HANA DB.
+You have one database for ABAP instance and one database for Java instance. This is because the database type is HANA DB.
 
 In SAP HANA 2.0, the multi-tenant database container (MDC) model has replaced Multiple Components on One Database (MCOD) as the standard and only supported deployment mode. Here, a single SAP HANA system hosts multiple isolated "tenant databases" instead of multiple components on a single database. While the older versions used MCOD uses tenant databases for a more secure and performant solution.
 

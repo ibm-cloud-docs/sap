@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-11-17"
+lastupdated: "2025-12-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Sybase
 subcollection: sap
 ---
@@ -96,8 +96,8 @@ The following SAP Notes and documentation references need to be followed when pl
 SAP best practices documents:
 
 * [SAP Product Availability Matrix](https://userapps.support.sap.com/sap/support/pam){: external}
-* [Preparing to install Db2 database servers](https://www.ibm.com/docs/en/db2/12.1.0?topic=servers-preparing-install-db2-database){: external}
+* [Preparing to install Db2 database servers](https://www.ibm.com/docs/en/db2/12.1.x?topic=servers-preparing-install-db2-database){: external}
 * [System requirements for IBM Db2 for Linux, UNIX, and Windows](https://www.ibm.com/support/pages/system-requirements-ibm-db2-linux-unix-and-windows){: external}
-* [Db2 Recommended file systems](https://www.ibm.com/docs/en/db2/12.1.0?topic=databases-recommended-file-systems){: external}
+* [Db2 Recommended file systems](https://www.ibm.com/docs/en/db2/12.1.x?topic=databases-recommended-file-systems){: external}
 * [SAP NetWeaver Installation Guide on Unix: IBM Db2 for LUW](https://help.sap.com/doc/4f95f7ac741a1014956dd879c2537334/CURRENT_VERSION/en-US/db6_inst_71x_unix_abap.pdf){: external}
 * [Db2 Database Administration Guide](https://help.sap.com/doc/7367f81b468e4480b3c550669b3534aa/CURRENT_VERSION/en-US/DB6_Admin_Guide.pdf){: external}
