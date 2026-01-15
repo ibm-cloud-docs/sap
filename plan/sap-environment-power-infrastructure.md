@@ -1,6 +1,6 @@
 ---
 copyright:
-  years: 2020, 2025
+  years: 2020, 2026
 lastupdated: "2020-07-21"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
@@ -16,7 +16,6 @@ This is a complementary offering from {{site.data.keyword.IBM_notm}} Power Syste
 {: note}
 
 An Infrastructure-as-a-Service (IaaS) environment consists of many components - primarily compute, storage, and network from a specified region (such as the US) and a designated site location (also referred to as zone, which is a data center site).
-
 
 ## Deployment and management
 {: #power-env-deployment-and-management}
@@ -34,7 +33,6 @@ Alternatively, you can create and manage deployments with any of the following m
 
 For more information, see [Managing {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s (IAM)](/docs/power-iaas?topic=power-iaas-managing-resources-and-users).
 
-
 ## Locations - Data centers
 {: #power-env-locations-data-centers}
 
@@ -45,7 +43,6 @@ You can choose from multiple data centers globally.
 Each data center with IBM Power Infrastructure uses a separate enterprise-grade network which is connected using {{site.data.keyword.cloud_notm}} Direct Link to the {{site.data.keyword.cloud_notm}} global private network, making data transfers faster and more efficient anywhere in the world.
 
 For more information about {{site.data.keyword.cloud_notm}} availability zones / data centers and points of presence (PoPs) where IBM Power Infrastructure can be connected to, see the [global regions and availability zones / data centers map](https://www.ibm.com/solutions/cloud-data-centers){: external}.
-
 
 ## Networking
 {: #power-env-networking}
@@ -64,7 +61,6 @@ The {{site.data.keyword.IBM_notm}} Power Systems Infrastructure network, is buil
 {: caption="Networking component layers overview" caption-side="top"}
 
 Connectivity is available to the {{site.data.keyword.IBM_notm}} Power Systems Infrastructure network leveraging connectivity options available from leading global network providers and TelCo providers in addition to the connectivity options available using the {{site.data.keyword.cloud_notm}} global footprint of more than 60 {{site.data.keyword.cloud_notm}} data centers and 28 points of presence (PoPs).
-
 
 ### Networking VLANs and Subnets
 {: #power-env-networking-vlans-subnets}
@@ -90,7 +86,6 @@ For the public network, other ports are blocked and can be routed through SSH.
 
 A **Private Subnet** is required for the connection of your virtual instances with systems outside of the {{site.data.keyword.IBM_notm}} data centers and for communication between multiple instances in an SAP three-tier system. This subnet is an internal network that can be used to connect individual {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s with each other.
 
-
 If you want to separate different types of network traffic in your landscape, you can order more subnets (and their respective VLANs).
 
 Keep in mind that the additional VLANs and subnets lead to traffic segregation, not increased performance; the increased performance is gained when additional VLANs and Subnets are associated to a host.
@@ -101,7 +96,6 @@ When multiple network interfaces are used, two performance increases are possibl
 With IBM {{site.data.keyword.powerSys_notm}} as an example, a single threaded Linux network interface may reach 100% CPU Thread utilization even though the performance limits of the network path itself are still not reached. Additional network interfaces attached to another VLAN and Subnet will therefore increase performance
 
 By default, your server has a Private IP address. If you use public subnets, a public IP address is assigned in addition.
-
 
 ### Networking connectivity
 {: #power-env-networking-connectivity}
@@ -124,7 +118,6 @@ For more explanation information about {{site.data.keyword.IBM_notm}} Power Syst
 Have your networking department contact the IBM {{site.data.keyword.powerSys_notm}}s Support Team, handled by using [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) after you determine the layout of your landscape and the connectivity that is required on the SAP application layer.
 {: note}
 
-
 ## Storage
 {: #power-env-storage}
 
@@ -144,7 +137,6 @@ Block Storage for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_no
 For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications-on-cloud).
 
 Contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
-
 
 ## Compute
 {: #power-env-compute}

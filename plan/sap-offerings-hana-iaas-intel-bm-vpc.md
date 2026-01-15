@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-08-15"
+  years: 2020, 2026
+lastupdated: "2026-01-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -87,7 +87,7 @@ The ratio of cores (*number of vCPUs*) to RAM (*amount of GiB*) is one of the ke
 | --- | --- | --- | --- |
 | c | *Compute Optimized* family | 1:2 | n/a |
 | b | *Balanced* family | 1:4 | 1:4 or 1:5.33 |
-| m | *Memory Optimized* family| 1:8 | 1:8 or 1:10.67 |
+| m | *Memory Optimized* family | 1:8 | 1:8 or 1:10.67 |
 | u | *Ultra High Memory Optimized* family | 1:27.43 | n/a |
 {: caption="{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC Profile Families" caption-side="top"}
 
@@ -121,7 +121,7 @@ In addition to these partitions, Bare Metal Servers for VPC have up to 8 NVMEs �
 
 To fulfill the KPIs defined for SAP HANA, each profile needs different storage volumes that are listed in detail in the following sections. These storage configurations are recommended. They are certified storage layouts that comply with **SAP HANA Tailored Data Center Integration** (TDI) Phase 5.
 
-If a specific memory sizing needs to be performed, customers are advised to follow [the instructions here](https://learning.sap.com/learning-journeys/installing-and-administering-sap-hana/performing-sap-hana-sizing) and if it turns out that different logic volume sizes are required then in addition the [SAP HANA TDI Overview](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html){: external} and [SAP HANA TDI FAQ](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external} must be considered. In that case, users must run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external} to check compliance with SAP’s KPIs.
+If a specific memory sizing needs to be performed, follow [the instructions here](https://learning.sap.com/courses/sap-hana-installation-and-administration/performing-sap-hana-sizing){: external}. Consider [SAP HANA Tailored Data Center Integration](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html){: external}, and run SAP's performance measurement tool HCMT - see [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external} and follow the instructions of the [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external} to check compliance with SAP’s KPIs.
 {: important}
 
 This holds true especially, if file shares are used for SAP HANA installations. They can be deployed and mounted in arbitrary ways to provide additional storage, for example for backups, as needed. For SAP HANA data and log files, however, they have to be evaluated.
@@ -136,25 +136,25 @@ The following table shows the required physical volumes, related volume groups, 
 
 | Profile | File\nsystem | Logical\nVolume | LV Size\n(GiB) | Volume Group | Physical\nVolume |
 | --- | --- | --- | --- | --- | --- |
-| `cx2d-metal-96x192`  | `/hana/shared` | `hana_shared_lv` | 192 | `vg0` | `nvme0n1-`\n`nvme3n1-` |
+| `cx2d-metal-96x192` | `/hana/shared` | `hana_shared_lv` | 192 | `vg0` | `nvme0n1-`\n`nvme3n1-` |
 | | `/hana/log` | `hana_log_lv` | 192 | `vg0` | |
 | | `/hana/data` | `hana_data_lv` | min. 576 | `vg1` | `nvme4n1-`\n`nvme7n1-` |
 | --- | --- | --- | --- | --- | --- |
-| `bx2d-metal-96x384`  | `/hana/shared` | `hana_shared_lv` | 384 | `vg0` | `nvme0n1-`\n`nvme3n1-` |
+| `bx2d-metal-96x384` | `/hana/shared` | `hana_shared_lv` | 384 | `vg0` | `nvme0n1-`\n`nvme3n1-` |
 | | `/hana/log` | `hana_log_lv` | 384 | `vg0` | |
 | | `/hana/data` | `hana_data_lv` | min. 1,152 | `vg1` | `nvme4n1-`\n`nvme7n1-` |
 | --- | --- | --- | --- | --- | --- |
-| `mx2d-metal-96x768`  | `/hana/shared` | `hana_shared_lv` | 768 | `vg0` | `nvme0n1-`\n`nvme3n1-` |
+| `mx2d-metal-96x768` | `/hana/shared` | `hana_shared_lv` | 768 | `vg0` | `nvme0n1-`\n`nvme3n1-` |
 | | `/hana/log` | `hana_log_lv` | 512 | `vg0` | |
 | | `/hana/data` | `hana_data_lv` | min. 2,304 | `vg1` | `nvme4n1-`\n`nvme7n1-` |
 | --- | --- | --- | --- | --- | --- |
-| `ux2d-metal-112x3072`  | `/hana/shared` | `hana_shared_lv` | 3,072 | `vg0` | `nvme0n1-`\n`nvme3n1-` |
+| `ux2d-metal-112x3072` | `/hana/shared` | `hana_shared_lv` | 3,072 | `vg0` | `nvme0n1-`\n`nvme3n1-` |
 | | `/hana/log` | `hana_log_lv` | 512 | `vg0` | |
 | | `/hana/data` | `hana_data_lv` | min. 9,216 | `vg1` | `nvme4n1-`\n`nvme7n1-` |
 | --- | --- | --- | --- | --- | --- |
-| `ux2d-metal-224x6144`  | `/hana/shared` | `hana_shared_lv` | 6,144 | `vg0` | `nvme0n1-`\n`nvme1n1-` |
+| `ux2d-metal-224x6144` | `/hana/shared` | `hana_shared_lv` | 6,144 | `vg0` | `nvme0n1-`\n`nvme1n1-` |
 | | `/hana/log` | `hana_log_lv` | 512 | `vg0` | |
-| | `/hana/data` | `hana_data_lv` | *the remaining space ~17,190*  | `vg0` | |
+| | `/hana/data` | `hana_data_lv` | *the remaining space ~17,190* | `vg0` | |
 {: caption="Storage layout for Bare Metal Servers for VPC" caption-side="top"}
 
 

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-12-15"
+  years: 2025, 2026
+lastupdated: "2026-01-09"
 keywords: SAP,{{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPMEM, Virtual persistent memory, VPMEM on {{site.data.keyword.powerSys_notm}}, Congifure VPMEM
 subcollection: sap
 ---
@@ -380,7 +380,7 @@ node 5 free: 623033 MB
 
 
 
-List the vPMEM devices by using the vPMEM startup script, described in the [Recommended workflow for using vPMEM with SAP HANA]( #powervs-vpmem-psap-hana-workflow) section.
+List the vPMEM devices by using the vPMEM startup script, described in the [Recommended workflow for using vPMEM with SAP HANA](#powervs-vpmem-psap-hana-workflow) section.
 
 ```sh
 ./vpmem_hana_startup.py -p

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-12"
+  years: 2020, 2026
+lastupdated: "2026-01-09"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -220,7 +220,7 @@ The below table includes some of the key Ports to use with SAP Systems that use 
 | SAP HANA XSA | | |
 | | SAP HANA XSA Instance 00 Client HTTPS for the connection to the xscontroller-managed Web Dispatcher (platform router) for purposes of user authentication. | 3`00`32 |
 | | SAP HANA XSA Instance 00 Internal HTTPS for the connection from the xscontroller-managed Web Dispatcher (platform router) to xsuaaserver for purposes of user authentication. | 3`00`31 |
-| | SAP HANA XSA Instance 00 Client HTTPS for the connection to the xscontroller-managed Web Dispatcher for purposes of data access.  | 3`00`30 |
+| | SAP HANA XSA Instance 00 Client HTTPS for the connection to the xscontroller-managed Web Dispatcher for purposes of data access. | 3`00`30 |
 | | SAP HANA XSA Instance 00 Dynamic Range Internal HTTPS for the connection from the client to the xscontroller-managed Web Dispatcher (Platform Router) for access to the application instance. | 510`00`-515`00` |
 | | SAP HANA XSA Instance 00 Internal HTTPS xsexecagent to xscontroller | 3`00`29 |
 | | SAP HANA XSA Instance 00 Web Dispatcher HTTP(S) routing | 3`00`33 |

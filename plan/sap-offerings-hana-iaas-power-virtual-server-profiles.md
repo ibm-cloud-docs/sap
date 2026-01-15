@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-16"
+  years: 2020, 2026
+lastupdated: "2026-01-15"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -18,7 +18,7 @@ subcollection: sap
 
 A SAP HANA certified instance or profile on IBM {{site.data.keyword.powerSys_notm}} defines attributes, such as physical CPU cores and RAM, which determine the size and performance capabilities of the virtual server instance.
 
-## SAP HANA Profile Naming Convention
+## SAP HANA profile naming convention
 {: #powervs-hana-profile-naming-convention}
 
 Provision SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s by selecting one of the certified profiles.
@@ -38,11 +38,11 @@ The following table illustrates an example of an SAP HANA certified instance pro
 Refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://launchpad.support.sap.com/#/notes/2947579){: external} for up-to-date information on certified SAP HANA profiles.
 {: note}
 
-## Simultaneous Multithreading (SMT) on IBM Power for SAP HANA
+## Simultaneous multithreading (SMT) on IBM Power for SAP HANA
 {: #smt-modes}
 
 SAP HANA profiles for Power servers operate in **SMT4 or SMT8 mode**.
-Simultaneous Multithreading (SMT) on IBM Power enables multiple independent threads to execute within a single physical processor core.
+Simultaneous multithreading (SMT) on IBM Power enables multiple independent threads to execute within a single physical processor core.
 
 1. In **SMT4 mode**, four parallel threads can run on a single physical processor core.
    The operating system sees four logical processors per physical processor core.
@@ -50,7 +50,7 @@ Simultaneous Multithreading (SMT) on IBM Power enables multiple independent thre
    The operating system sees eight logical processors per physical processor core.
 
 
-## IBM Power11 Certified Instances for SAP HANA
+## IBM Power11 certified instances for SAP HANA
 {: #sap-hana-iaas-offerings-profiles-power11-families}
 
 The following table lists available profile families for IBM Power11 processor-based servers:
@@ -61,10 +61,12 @@ The following table lists available profile families for IBM Power11 processor-b
 {: caption="Profile families for Power11 server generation" caption-side="bottom"}
 
 
-### sr3 - Certified Profiles
+### sr3 - Certified profiles
 {: #sr3-profiles}
 
 The following SAP HANA profiles with prefix **sr3** on IBM {{site.data.keyword.powerSys_notm}} are supported:
+
+The data file system storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
 
 | **Profile name** | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** |  **[SMT Mode](#smt-modes)** |
 | -----------------| ------------- | ---------------- | ---------------- | --------------------------- |
@@ -74,13 +76,13 @@ The following SAP HANA profiles with prefix **sr3** on IBM {{site.data.keyword.p
 | sr3-76x6144      | 76            | 608              | 6144             | SMT8                        |
 | sr3-229x30500    | 229           | 1832             | 30500            | SMT8                        |
 {: class="simple-tab-table"}
-{: tab-group="sr3-profiles-table"}
+{: tab-group="sr3-profiles"}
 {: caption="P11 Certified Instance profiles with sr3 prefix" caption-side="bottom"}
 {: #sr3-profiles-instance}
 {: tab-title="Certified Profiles"}
 
 
-| **Profile name** | **Workload Type** | **aSAPS** | **SAPS** |
+| **Profile name** | **Workload type** | **aSAPS** | **SAPS** |
 | -----------------| ----------------- | --------- | -------- |
 | sr3-6x256        | OLTP              | 9,800     | 47,490   |
 | sr3-11x512       | OLTP              | 16,200    | 87,065   |
@@ -88,61 +90,58 @@ The following SAP HANA profiles with prefix **sr3** on IBM {{site.data.keyword.p
 | sr3-76x6144      | OLTP/OLAP         | 103,900   | 625,632  |
 | sr3-229x30500    | OLTP/OLAP         | 307,000   |    N/A   |
 {: class="simple-tab-table"}
-{: tab-group="sr3-profiles-table"}
+{: tab-group="sr3-profiles"}
 {: caption="P11 Certified Instance profiles with sr3 prefix" caption-side="bottom"}
 {: #sr3-profiles-sizing}
 {: tab-title="Sizing"}
 
 
-
-| sr3\nCertified profile | IOPs\nrequired| Storage config          | Storage tier         | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|----------------------- |-------------- |------------------------ |----------------------|---------------|----------------------------------------|
-| sr3-6x256              | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        | 4 x 32 GB \nusing 'Fixed IOPs'         |
-| sr3-11x512             | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        | 4 x 32 GB \nusing 'Fixed IOPs'         |
-| sr3-19x1024            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| sr3-76x6144            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| sr3-229x30500          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
+| **sr3\nCertified profile** | **IOPs\nrequired**| **Log file system\nstorage config (GB)** | **Log file system\nstorage tier**  | **Log file system\nsize(GB)**| **IOPs\nobtained** |
+|--------------------------- |------------------ |----------------------------------------- |------------------------------------|------------------------------|--------------------|
+| sr3-6x256                  | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
+| sr3-11x512                 | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
+| sr3-19x1024                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
+| sr3-76x6144                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
+| sr3-229x30500              | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 {: class="simple-tab-table"}
-{: tab-group="sr3-profiles-table"}
+{: tab-group="sr3-profiles"}
 {: caption="Log file system configurations for SAP HANA profiles with sr3 prefix" caption-side="bottom"}
 {: #sr3-profiles-log}
 {: tab-title="Log File System"}
 
 
-| sr3\nCertified profile  | IOPs\nrequired| Storage config          | Storage tier         | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|-------------------------|---------------|-------------------------|----------------------|---------------|---------------------------------------|
-| sr3-6x256               | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 83 GB \nusing 'Tier 0'            |
-| sr3-11x512              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 165 GB \nusing 'Tier 0'           |
-| sr3-19x1024             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                       |
-| sr3-76x6144             | 8,000         | 4 x 1980 GB             | Tier 3               | 23,760        |                                       |
-| sr3-229x30500           | 8,000         | 4 x 9827 GB             | Tier 3               | 117,924       |                                       |
+| **sr3\nCertified profile** | **IOPs\nrequired**| **Data file system\nstorage config (GB)** | **Data file system\nstorage tier**  | **Data file system\nsize(GB)**| **IOPs\nobtained** |
+|--------------------------- |------------------ |------------------------------------------ |-------------------------------------|-------------------------------|--------------------|
+| sr3-6x256                  | 8,000             | 4 x 80 GB                                 | Tier 0                              | 320 GB                        | 8,000              |
+| sr3-11x512                 | 8,000             | 4 x 154 GB                                | Tier 0                              | 616 GB                        | 15,400             |
+| sr3-19x1024                | 8,000             | 4 x 307 GB                                | Tier 0                              | 1,228 GB                      | 30,700             |
+| sr3-76x6144                | 8,000             | 4 x 1844 GB                               | Tier 3                              | 7,376 GB                      | 22,128             |
+| sr3-229x30500              | 8,000             | 4 x 9150 GB                               | Tier 3                              | 36,600 GB                     | 109,800            |
 {: class="simple-tab-table"}
-{: tab-group="sr3-profiles-table"}
+{: tab-group="sr3-profiles"}
 {: caption="Data file system configurations for SAP HANA profiles with sr3 prefix" caption-side="bottom"}
 {: #sr3-profiles-data}
 {: tab-title="Data File System"}
 
-| sr3\nCertified profile | IOPs\nrequired| Storage config          | Storage tier         | IOPs\nobtained| Alternative configuration    |
-|------------------------|---------------|-------------------------|----------------------|---------------|----------------------------- |
-|  sr3-6x256             | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|  sr3-11x512            | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|  sr3-19x1024           | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|  sr3-76x6144           | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-{: class="simple-tab-table"}
-{: tab-group="sr3-profiles-table"}
+
+| **sr3\nCertified profile** | **IOPs\nrequired**| **Shared file system\nstorage config (GB)** | **Shared file system\nstorage tier**  | **Shared file system\nsize(GB)**| **IOPs\nobtained** |
+|--------------------------- |------------------ |-------------------------------------------- |---------------------------------------|---------------------------------|--------------------|
+|  sr3-6x256                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  sr3-11x512                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  sr3-19x1024               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  sr3-76x6144               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+{: tab-group="sr3-profiles"}
 {: caption="Shared file system configurations for SAP HANA profiles with sr3 prefix" caption-side="bottom"}
 {: #sr3-profiles-shared}
 {: tab-title="Shared File System"}
 
-
-The data filesystem storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2 × 1.074`
 
 For IBM Power11 profiles, "N/A" indicates that SAPS are not measured.
 {:note: .note}
 
 
 
-## IBM Power10 Certified Instances for SAP HANA
+## IBM Power10 certified instances for SAP HANA
 {: #sap-hana-iaas-offerings-profiles-power10-families}
 
 The following table lists available profile families for IBM Power10 processor-based servers:
@@ -160,10 +159,12 @@ The following table lists available profile families for IBM Power10 processor-b
 
 
 
-### sr2 - Certified Profiles
+### sr2 - Certified profiles
 {: #sr2-profiles}
 
 The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
+
+The data file system storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
 
 | **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **[SMT Mode](#smt-modes)** |
 | --------------------| ------------- | ---------------- | -----------------|----------------------------|
@@ -193,12 +194,12 @@ The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.p
 | sr2-165x28000       | 165           | 1,320            | 28,000           |  SMT8                      |
 | sr2-165x30500       | 165           | 1,320            | 30,500           |  SMT8                      |
 {: class="simple-tab-table"}
-{: tab-group="sr2-certified-profiles-table"}
+{: tab-group="sr2-certified-profiles"}
 {: caption="P10 Certified Instance profiles with sr2 prefix" caption-side="bottom"}
 {: #sr2-certified-profiles-instance}
 {: tab-title="Certified Profiles"}
 
-| **Profile name**    |**Workload Type**                             | **aSAPS**| **SAPS**  |
+| **Profile name**    |**Workload type**                             | **aSAPS**| **SAPS**  |
 | --------------------|----------------------------------------------| ---------| ----------|
 | sr2-7x256           |     OLTP                                     |     N/A  | 42,000    |
 | sr2-7x384           |     OLTP                                     |     N/A  | 42,000    |
@@ -222,121 +223,123 @@ The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.p
 | sr2-128x20000       |     OLTP/OLAP                                |  133,100 | 768,000   |
 | sr2-165x22000       |     OLTP/OLAP/OLTP scale-out (up to 4 nodes) |  217,100 | 1,254,000 |
 | sr2-165x24000       |     OLTP/OLAP/OLTP scale-out (up to 4 nodes) |  217,100 | 1,254,000 |
-| sr2-165x26000       |     OLTP/OLAP/OLTP scale-out (up to 4 nodes) | 217,100  | 1,254,000 |
+| sr2-165x26000       |     OLTP/OLAP/OLTP scale-out (up to 4 nodes) |  217,100 | 1,254,000 |
 | sr2-165x28000       |     OLTP/OLAP/OLTP scale-out (up to 4 nodes) |  217,100 | 1,254,000 |
 | sr2-165x30500       |     OLTP/OLAP/OLTP scale-out (up to 4 nodes) |     N/A  | 1,254,000 |
 {: class="simple-tab-table"}
-{: tab-group="sr2-certified-profiles-table"}
+{: tab-group="sr2-certified-profiles"}
 {: caption="Sizing details for SAP HANA profiles with sr2 prefix" caption-side="bottom"}
 {: #sr2-certified-profiles-sizing}
 {: tab-title="Sizing"}
 
 
-| sr2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|----------------------- |-------------- |------------------------ |----------------------|---------------|--------------------------------|
-| sr2-7x256              | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        | 4 x 32 GB \nusing 'Fixed IOPs'             |
-| sr2-7x384              | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        | 4 x 32 GB \nusing 'Fixed IOPs'  |
-| sr2-14x512             | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        | 4 x 64 GB \nusing 'Fixed IOPs'  |
-| sr2-14x740             | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        | 4 x 92 GB \nusing 'Fixed IOPs'             |
-| sr2-12x950             | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-24x1024            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-12x1450            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-24x1536            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-25x1900            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-35x3000            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-35x3900            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-80x6144            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-87x7000            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-87x7600            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-80x9216            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-80x12288           | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-80x14400           | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-128x16000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-128x18000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-128x20000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-165x22000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-165x24000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-165x26000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-165x28000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
-| sr2-165x30500          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                            |
+
+| **sr2\nCertified profile** | **IOPs\nrequired**| **Log file system\nstorage config (GB)**|**Log file system\nstorage tier**|**Log file system \nsize (GB)**|**IOPs\nobtained**|
+|--------------------------- |------------------ |---------------------------------------- |---------------------------------|-------------------------------|------------------|
+| sr2-7x256                  | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-7x384                  | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-14x512                 | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-14x740                 | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-12x950                 | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-24x1024                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-12x1450                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-24x1536                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-25x1900                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-35x3000                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-35x3900                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-80x6144                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-87x7000                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-87x7600                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-80x9216                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-80x12288               | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-80x14400               | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-128x16000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-128x18000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-128x20000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-165x22000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-165x24000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-165x26000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-165x28000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-165x30500              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
 {: class="simple-tab-table"}
-{: tab-group="sr2-certified-profiles-table"}
+{: tab-group="sr2-certified-profiles"}
 {: caption="Sample log file system configurations for SAP HANA profiles with sr2 prefix" caption-side="bottom"}
 {: #sr2-certified-profiles-log}
 {: tab-title="Log File System"}
 
-
-| sr2\nCertified profile  | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|-------------------------|---------------|-------------------------|----------------------|---------------|---------------------------------|
-|  sr2-7x256              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 103 GB \nusing 'Tier 0'     |
-|  sr2-7x384              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 154 GB \nusing 'Tier 0'     |
-|  sr2-14x512             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 206 GB \nusing 'Tier 0'     |
-|  sr2-14x740             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 298 GB \nusing 'Tier 0'     |
-|  sr2-12x950             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                 |
-|  sr2-24x1024            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                 |
-|  sr2-12x1450            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                 |
-|  sr2-24x1536            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                 |
-|  sr2-25x1900            | 8,000         | 4 x 765 GB              | Tier 3               | 9,180         |                                 |
-|  sr2-35x3000            | 8,000         | 4 x 1208 GB             | Tier 3               | 14,499        |                                 |
-|  sr2-35x3900            | 8,000         | 4 x 1570 GB             | Tier 3               | 18,846        |                                 |
-|  sr2-80x6144            | 8,000         | 4 x 2474 GB             | Tier 3               | 29,691        |                                 |
-|  sr2-87x7000            | 8,000         | 4 x 2819 GB             | Tier 3               | 33,831        |                                 |
-|  sr2-87x7600            | 8,000         | 4 x 3060 GB             | Tier 3               | 36,729        |                                 |
-|  sr2-80x9216            | 8,000         | 4 x 3711 GB             | Tier 3               | 44,538        |                                 |
-|  sr2-80x12288           | 8,000         | 4 x 4948 GB             | Tier 3               | 59,385        |                                 |
-|  sr2-80x14400           | 8,000         | 4 x 5799 GB             | Tier 3               | 69,594        |                                 |
-|  sr2-128x16000          | 8,000         | 4 x 6444 GB             | Tier 3               | 77,328        |                                 |
-|  sr2-128x18000          | 8,000         | 4 x 7250 GB             | Tier 3               | 87,000        |                                 |
-|  sr2-128x20000          | 8,000         | 4 x 8055 GB             | Tier 3               | 96,660        |                                 |
-|  sr2-165x22000          | 8,000         | 4 x 8861 GB             | Tier 3               | 106,332       |                                 |
-|  sr2-165x24000          | 8,000         | 4 x 9666 GB             | Tier 3               | 115,992       |                                 |
-|  sr2-165x26000          | 8,000         | 4 x 10472 GB            | Tier 3               | 125,664       |                                 |
-|  sr2-165x28000          | 8,000         | 4 x 11277 GB            | Tier 3               | 135,324       |                                 |
-|  sr2-165x30500          | 8,000         | 4 x 12283 GB            | Tier 3               | 147,405       |                                 |
+|**sr2 Certified profile** |**IOPs required**|**Data file system\nstorage config (GB)**|**Data file system \nstorage tier**|**Data file system \nsize (GB)**|**IOPs obtained**|
+|--------------------------|-----------------|-----------------------------------------|-----------------------------------|--------------------------------|-----------------|
+|sr2-7x256                 |   8,000         |      4 x 80 GB                          | Tier 0                            |     320 GB                     | 8000            |
+|sr2-7x384                 |   8,000         |      4 x 116 GB                         | Tier 0                            |     464 GB                     | 11600           |
+|sr2-14x512                |   8,000         |      4 x 154 GB                         | Tier 0                            |     616 GB                     | 15400           |
+|sr2-14x740                |   8,000         |      4 x 222 GB                         | Tier 0                            |     888 GB                     | 22200           |
+|sr2-12x950                |   8,000         |      4 x 285 GB                         | Tier 0                            |     1,140 GB                   | 28500           |
+|sr2-24x1024               |   8,000         |      4 x 307 GB                         | Tier 0                            |     1,228 GB                   | 30700           |
+|sr2-12x1450               |   8,000         |      4 x 435 GB                         | Tier 0                            |     1,740 GB                   | 43500           |
+|sr2-24x1536               |   8,000         |      4 x 461 GB                         | Tier 0                            |     1,844 GB                   | 46100           |
+|sr2-25x1900               |   8,000         |      4 x 570 GB                         | Tier 0                            |     2,280 GB                   | 57000           |
+|sr2-35x3000               |   8,000         |      4 x 900 GB                         | Tier 3                            |     3,600 GB                   | 10800           |
+|sr2-35x3900               |   8,000         |      4 x 1170 GB                        | Tier 3                            |     4,680 GB                   | 14040           |
+|sr2-80x6144               |   8,000         |      4 x 1844 GB                        | Tier 3                            |     7,376 GB                   | 22128           |
+|sr2-87x7000               |   8,000         |      4 x 2100 GB                        | Tier 3                            |     8,400 GB                   | 25200           |
+|sr2-87x7600               |   8,000         |      4 x 2280 GB                        | Tier 3                            |     9,120 GB                   | 27360           |
+|sr2-80x9216               |   8,000         |      4 x 2765 GB                        | Tier 3                            |     11,060 GB                  | 33180           |
+|sr2-80x12288              |   8,000         |      4 x 3687 GB                        | Tier 3                            |     14,748 GB                  | 44244           |
+|sr2-80x14400              |   8,000         |      4 x 4320 GB                        | Tier 3                            |     17,280 GB                  | 51840           |
+|sr2-128x16000             |   8,000         |      4 x 4800 GB                        | Tier 3                            |     19,200 GB                  | 57600           |
+|sr2-128x18000             |   8,000         |      4 x 5400 GB                        | Tier 3                            |     21,600 GB                  | 64800           |
+|sr2-128x20000             |   8,000         |      4 x 6000 GB                        | Tier 3                            |     24,000 GB                  | 72000           |
+|sr2-165x22000             |   8,000         |      4 x 6600 GB                        | Tier 3                            |     26,400 GB                  | 79200           |
+|sr2-165x24000             |   8,000         |      4 x 7200 GB                        | Tier 3                            |     28,800 GB                  | 86400           |
+|sr2-165x26000             |   8,000         |      4 x 7800 GB                        | Tier 3                            |     31,200 GB                  | 93600           |
+|sr2-165x28000             |   8,000         |      4 x 8400 GB                        | Tier 3                            |     33,600 GB                  | 100800          |
+|sr2-165x30500             |   8,000         |      4 x 9150 GB                        | Tier 3                            |     36,600 GB                  | 109800          |
 {: class="simple-tab-table"}
-{: tab-group="sr2-certified-profiles-table"}
+{: tab-group="sr2-certified-profiles"}
 {: caption="Sample data file system configurations for SAP HANA profiles with sr2 prefix" caption-side="bottom"}
 {: #sr2-certified-profiles-data}
 {: tab-title="Data File System"}
 
-| sr2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration  |
-|------------------------|---------------|-------------------------|----------------------|---------------|--------------------------- |
-|    sr2-7x256           | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-7x384           | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-14x512          | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-14x740          | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-12x950          | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-24x1024         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-12x1450         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-24x1536         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-25x1900         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-35x3000         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-35x3900         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-80x6144         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-87x7000         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-87x7600         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-80x9216         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-80x12288        | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-80x14400        | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-128x16000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-128x18000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-128x20000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-165x22000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-165x24000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-165x26000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-165x28000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-165x30500       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+| **sr2\nCertified profile** | **IOPs\nrequired**| **Shared file system\nstorage config (GB)** | **Shared file system\nstorage tier**  | **Shared file system\nsize(GB)**| **IOPs\nobtained** |
+|--------------------------- |------------------ |-------------------------------------------- |---------------------------------------|---------------------------------|--------------------|
+|    sr2-7x256               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-7x384               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-14x512              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-14x740              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-12x950              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-24x1024             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-12x1450             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-24x1536             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-25x1900             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-35x3000             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-35x3900             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-80x6144             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-87x7000             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-87x7600             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-80x9216             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-80x12288            | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-80x14400            | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-128x16000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-128x18000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-128x20000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-165x22000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-165x24000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-165x26000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-165x28000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-165x30500           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 {: class="simple-tab-table"}
-{: tab-group="sr2-certified-profiles-table"}
+{: tab-group="sr2-certified-profiles"}
 {: caption="Sample shared file system configurations for SAP HANA profiles with sr2 prefix" caption-side="bottom"}
 {: #sr2-certified-profiles-shared}
 {: tab-title="Shared File System"}
 
 
-### sr2 - Discouraging Profiles
-{: #sr2-profiles}
+### sr2 - Discouraged profiles
+{: #sr2-discouraged-profiles}
 
 The following SAP HANA **sr2** profiles on IBM {{site.data.keyword.powerSys_notm}} are discouraged due to configuration anomalies. Alternative recommended profiles are suggested for each discouraged configuration.
+
+The data file system storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
 
 |**Profile name**|**Recommended alternative** |**CPU cores**|**Virtual CPUs**|**Memory (GiB)**|**[SMT Mode](#smt-modes)**|
 |----------------| -------------------------- | ----------- | -------------- | -------------- | -------------------------|
@@ -344,77 +347,75 @@ The following SAP HANA **sr2** profiles on IBM {{site.data.keyword.powerSys_notm
 | sr2-40x3072    | sr2-35x3000                | 40          | 160            | 3,072          | SMT4                     |
 | sr2-35x4450    | sr2-35x3900                | 35          | 140            | 4,450          | SMT4                     |
 | sr2-87x6000    | sr2-80x6144 or sr2-87x7000 | 87          | 696            | 6,000          | SMT8                     |
-| sr2-64x6144    | sr2-80x6144                | 64          | 256            | 6,144          |  SMT4                    |
+| sr2-64x6144    | sr2-80x6144                | 64          | 256            | 6,144          | SMT4                     |
 {: class="simple-tab-table"}
-{: tab-group="sr2-discouraged-profiles-table"}
+{: tab-group="sr2-discouraged-profiles"}
 {: caption="P10 Discouraged Instance profiles with sr2 prefix" caption-side="bottom"}
 {: #sr2-discouraged-profiles-instance}
 {: tab-title="Certified Profiles"}
 
-|**Profile name**| **Workload Type**|**aSAPS**| **SAPS**|
+|**Profile name**| **Workload type**|**aSAPS**| **SAPS**|
 |----------------| ---------------- |---------| ------- |
-| sr2-22x2950    | OLTP/OLAP        |   N/A   |132,000  |
+| sr2-22x2950    | OLTP/OLAP        |   N/A   | 132,000 |
 | sr2-40x3072    | OLTP/OLAP        |   N/A   | 240,000 |
-| sr2-35x4450    | OLTP/OLAP        |   N/A   |210,000  |
+| sr2-35x4450    | OLTP/OLAP        |   N/A   | 210,000 |
 | sr2-87x6000    | OLTP/OLAP        |   N/A   | 661,200 |
 | sr2-64x6144    | OLTP/OLAP        |   N/A   | 384,000 |
 {: class="simple-tab-table"}
-{: tab-group="sr2-discouraged-profiles-table"}
+{: tab-group="sr2-discouraged-profiles"}
 {: caption="Sizing details for SAP HANA profiles with sr2 prefix" caption-side="bottom"}
 {: #sr2-discouraged-profiles-sizing}
 {: tab-title="Sizing"}
 
 
-
-|sr2\nCertified profile| IOPs\nrequired|Sample\nstorage config | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|----------------------- |-------------|---------------------- |----------------------|---------------|------------------------------------------- |
-| sr2-22x2950            | 12,000      |   4 x 128 GB          | Tier 0               | 12,800        |                                            |
-| sr2-40x3072            | 12,000      |   4 x 128 GB          | Tier 0               | 12,800        |                                            |
-| sr2-35x4450            | 12,000      |   4 x 128 GB          | Tier 0               | 12,800        |                                            |
-| sr2-87x6000            | 12,000      |   4 x 128 GB          | Tier 0               | 12,800        |                                            |
-| sr2-64x6144            | 12,000      |   4 x 128 GB          | Tier 0               | 12,800        |                                            |
+|**sr2 Certified profile** |**IOPs required**|**Data file system\nstorage config (GB)**|**Data file system \nstorage tier**|**Data file system \nsize (GB)**|**IOPs obtained**|
+|--------------------------|-----------------|-----------------------------------------|-----------------------------------|--------------------------------|-----------------|
+| sr2-22x2950                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-40x3072                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-35x4450                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-87x6000                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sr2-64x6144                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
 {: class="simple-tab-table"}
-{: tab-group="sr2-discouraged-profiles-table"}
+{: tab-group="sr2-discouraged-profiles"}
 {: caption="Sample log file system configurations for SAP HANA profiles with sr2 prefix" caption-side="bottom"}
 {: #sr2-discouraged-profiles-log}
 {: tab-title="Log File System"}
 
 
-| sr2\nCertified profile| IOPs\nrequired| Sample\nstorage config| Sample\nstorage tier| IOPs\nobtained| Alternative configuration\n(cost effective)|
-|-------------------------|---------------|-------------------------|----------------------|---------------|---------------------------------------|
-|  sr2-22x2950            | 8,000         | 4 x 1188 GB             | Tier 3               | 14,256        |                                       |
-|  sr2-40x3072            | 8,000         | 4 x 1237 GB             | Tier 3               | 14,844        |                                       |
-|  sr2-35x4450            | 8,000         | 4 x 1792 GB             | Tier 3               | 21,504        |                                       |
-|  sr2-87x6000            | 8,000         | 4 x 2416 GB             | Tier 3               | 28,998        |                                       |
-|  sr2-64x6144            | 8,000         | 4 x 2474 GB             | Tier 3               | 29,691        |                                       |
+|**sr2 Certified profile** |**IOPs required**|**Data file system\nstorage config (GB)**|**Data file system \nstorage tier**|**Data file system \nsize (GB)**|**IOPs obtained**|
+|--------------------------|-----------------|-----------------------------------------|-----------------------------------|--------------------------------|-----------------|
+|  sr2-22x2950             | 8,000           | 4 x 885 GB                              | Tier 3                            | 3540 GB                        | 14,256          |
+|  sr2-40x3072             | 8,000           | 4 x 992 GB                              | Tier 3                            | 3688 GB                        | 14,844          |
+|  sr2-35x4450             | 8,000           | 4 x 1335 GB                             | Tier 3                            | 5340 GB                        | 21,504          |
+|  sr2-87x6000             | 8,000           | 4 x 1800 GB                             | Tier 3                            | 7200 GB                        | 28,998          |
+|  sr2-64x6144             | 8,000           | 4 x 1843 GB                             | Tier 3                            | 7372 GB                        | 29,691          |
 {: class="simple-tab-table"}
-{: tab-group="sr2-discouraged-profiles-table"}
+{: tab-group="sr2-discouraged-profiles"}
 {: caption="Sample data file system configurations for SAP HANA profiles with sr2 prefix" caption-side="bottom"}
 {: #sr2-discouraged-profiles-data}
 {: tab-title="Data File System"}
 
-| sr2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration    |
-|------------------------|---------------|-------------------------|----------------------|---------------|----------------------------- |
-|    sr2-22x2950         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-40x3072         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-35x4450         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-87x6000         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    sr2-64x6144         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+| **sr2\nCertified profile** | **IOPs\nrequired**| **Shared file system\nstorage config (GB)** | **Shared file system\nstorage tier**  | **Shared file system\nsize(GB)**| **IOPs\nobtained** |
+|--------------------------- |------------------ |-------------------------------------------- |---------------------------------------|---------------------------------|--------------------|
+|    sr2-22x2950             | 3,000             |  1 x 200 GB                                 | Tier 0                                |  200 GB                         | 5,000              |
+|    sr2-40x3072             | 3,000             |  1 x 200 GB                                 | Tier 0                                |  200 GB                         | 5,000              |
+|    sr2-35x4450             | 3,000             |  1 x 200 GB                                 | Tier 0                                |  200 GB                         | 5,000              |
+|    sr2-87x6000             | 3,000             |  1 x 200 GB                                 | Tier 0                                |  200 GB                         | 5,000              |
+|    sr2-64x6144             | 3,000             |  1 x 200 GB                                 | Tier 0                                |  200 GB                         | 5,000              |
 {: class="simple-tab-table"}
-{: tab-group="sr2-discouraged-profiles-table"}
+{: tab-group="sr2-discouraged-profiles"}
 {: caption="Sample shared file system configurations for SAP HANA profiles with sr2 prefix" caption-side="bottom"}
 {: #sr2-discouraged-profiles-shared}
 {: tab-title="Shared File System"}
 
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
-
-### sh2 - Certified Profiles
+### sh2 - Certified profiles
 {: #sh2-profiles}
 
 The following SAP HANA profiles with prefix **sh2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
+The data file system storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
 
 | **Profile name** | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **[SMT Mode](#smt-modes)** |
 | -----------------| ------------- | ---------------- | ---------------- | ---------------------------|
@@ -449,7 +450,7 @@ The following SAP HANA profiles with prefix **sh2** on IBM {{site.data.keyword.p
 {: #sh2-profiles-instance}
 {: tab-title="Certified Profiles"}
 
-| **Profile name** |**Workload Type**    |**aSAPS** |**SAPS** |
+| **Profile name** |**Workload type**    |**aSAPS** |**SAPS** |
 | -----------------| ------------------- | -------- |-------- |
 | sh2-4x256        |     OLTP            |    N/A   | 24,000  |
 | sh2-7x256        |     OLTP            |    N/A   |42,000   |
@@ -483,111 +484,112 @@ The following SAP HANA profiles with prefix **sh2** on IBM {{site.data.keyword.p
 {: tab-title="Sizing"}
 
 
-| sh2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective) |
-|------------------------|---------------|-------------------------|----------------------|---------------|----------------------------------------|
-| sh2-4x256              | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 32 GB \nusing 'Fixed IOPs'         |
-| sh2-7x256              | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 32 GB \nusing 'Fixed IOPs'         |
-| sh2-12x256             | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 32 GB \nusing 'Fixed IOPs'         |
-| sh2-4x384              | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 48 GB \nusing 'Fixed IOPs'         |
-| sh2-7x384              | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 48 GB \nusing 'Fixed IOPs'         |
-| sh2-12x384             | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 48 GB \nusing 'Fixed IOPs'         |
-| sh2-4x512              | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 64 GB \nusing 'Fixed IOPs'         |
-| sh2-7x512              | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 64 GB \nusing 'Fixed IOPs'         |
-| sh2-12x512             | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 64 GB \nusing 'Fixed IOPs'         |
-| sh2-4x768              | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 96 GB \nusing 'Fixed IOPs'         |
-| sh2-7x768              | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 96 GB \nusing 'Fixed IOPs'         |
-| sh2-12x768             | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        | 4 x 96 GB \nusing 'Fixed IOPs'         |
-| sh2-4x1000             | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-7x1000             | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-12x1000            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-16x1000            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-25x1000            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-4x1500             | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-7x1500             | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-12x1500            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-16x1500            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-25x1500            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-8x1900             | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-16x1900            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
-| sh2-33x1900            | 12,000        | 4 x 128 GB              | Tier 0               | 12,800        |                                        |
+| **sh2\nCertified profile** | **IOPs\nrequired** | **Log file system\nstorage config (GB)**|**Log file system\nstorage tier**|**Log file system \nsize (GB)**|**IOPs\nobtained**|
+|----------------------------|--------------------|---------------------------------------- |---------------------------------|-------------------------------|------------------|
+| sh2-4x256                  | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-7x256                  | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-12x256                 | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-4x384                  | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-7x384                  | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-12x384                 | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-4x512                  | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-7x512                  | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-12x512                 | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-4x768                  | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-7x768                  | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-12x768                 | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-4x1000                 | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-7x1000                 | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-12x1000                | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-16x1000                | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-25x1000                | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-4x1500                 | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-7x1500                 | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-12x1500                | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-16x1500                | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-25x1500                | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-8x1900                 | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-16x1900                | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| sh2-33x1900                | 12,000             |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
 {: class="simple-tab-table"}
 {: tab-group="sh2-certified-profiles-table"}
 {: caption="Sample log file system configurations for SAP HANA profiles with sh2 prefix" caption-side="bottom"}
 {: #sh2-profiles-log}
 {: tab-title="Log File System"}
 
-| sh2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|------------------------|---------------|-------------------------|----------------------|---------------|----------------------------------------|
-| sh2-4x256              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 103 GB \nusing 'Tier 0'            |
-| sh2-7x256              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 103 GB \nusing 'Tier 0'            |
-| sh2-12x256             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 103 GB \nusing 'Tier 0'            |
-| sh2-4x384              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 154 GB \nusing 'Tier 0'            |
-| sh2-7x384              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 154 GB \nusing 'Tier 0'            |
-| sh2-12x384             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 154 GB \nusing 'Tier 0'            |
-| sh2-4x512              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 206 GB \nusing 'Tier 0'            |
-| sh2-7x512              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 206 GB \nusing 'Tier 0'            |
-| sh2-12x512             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 206 GB \nusing 'Tier 0'            |
-| sh2-4x768              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 309 GB \nusing 'Tier 0'            |
-| sh2-7x768              | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 309 GB \nusing 'Tier 0'            |
-| sh2-12x768             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         | 4 x 309 GB \nusing 'Tier 0'            |
-| sh2-4x1000             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                        |
-| sh2-7x1000             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                        |
-| sh2-12x1000            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                        |
-| sh2-16x1000            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                        |
-| sh2-25x1000            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                        |
-| sh2-4x1500             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                        |
-| sh2-7x1500             | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                        |
-| sh2-12x1500            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                        |
-| sh2-16x1500            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                        |
-| sh2-25x1500            | 8,000         | 4 x 670 GB              | Tier 3               | 8,400         |                                        |
-| sh2-8x1900             | 8,000         | 4 x 765 GB              | Tier 3               | 8,400         |                                        |
-| sh2-16x1900            | 8,000         | 4 x 765 GB              | Tier 3               | 8,400         |                                        |
-| sh2-33x1900            | 8,000         | 4 x 765 GB              | Tier 3               | 8,400         |                                        |
+|**sh2 Certified profile** |**IOPs required**|**Data file system\nstorage config (GB)**|**Data file system \nstorage tier**|**Data file system \nsize (GB)**|**IOPs obtained**|
+|--------------------------|-----------------|-----------------------------------------|-----------------------------------|--------------------------------|-----------------|
+| sh2-4x256                |   8,000         |      4 x 80 GB                          | Tier 0                            |     320 GB                     | 8000            |
+| sh2-7x256                |   8,000         |      4 x 80 GB                          | Tier 0                            |     320 GB                     | 8000            |
+| sh2-12x256               |   8,000         |      4 x 80 GB                          | Tier 0                            |     320 GB                     | 8000            |
+| sh2-4x384                |   8,000         |      4 x 116 GB                         | Tier 0                            |     464 GB                     | 11600           |
+| sh2-7x384                |   8,000         |      4 x 116 GB                         | Tier 0                            |     464 GB                     | 11600           |
+| sh2-12x384               |   8,000         |      4 x 116 GB                         | Tier 0                            |     464 GB                     | 11600           |
+| sh2-4x512                |   8,000         |      4 x 154 GB                         | Tier 0                            |     616 GB                     | 15400           |
+| sh2-7x512                |   8,000         |      4 x 154 GB                         | Tier 0                            |     616 GB                     | 15400           |
+| sh2-12x512               |   8,000         |      4 x 154 GB                         | Tier 0                            |     616 GB                     | 15400           |
+| sh2-4x768                |   8,000         |      4 x 230 GB                         | Tier 0                            |     920 GB                     | 23000           |
+| sh2-7x768                |   8,000         |      4 x 230 GB                         | Tier 0                            |     920 GB                     | 23000           |
+| sh2-12x768               |   8,000         |      4 x 230 GB                         | Tier 0                            |     920 GB                     | 23000           |
+| sh2-4x1000               |   8,000         |      4 x 300 GB                         | Tier 0                            |     1,200 GB                   | 30000           |
+| sh2-7x1000               |   8,000         |      4 x 300 GB                         | Tier 0                            |     1,200 GB                   | 30000           |
+| sh2-12x1000              |   8,000         |      4 x 300 GB                         | Tier 0                            |     1,200 GB                   | 30000           |
+| sh2-16x1000              |   8,000         |      4 x 300 GB                         | Tier 0                            |     1,200 GB                   | 30000           |
+| sh2-25x1000              |   8,000         |      4 x 300 GB                         | Tier 0                            |     1,200 GB                   | 30000           |
+| sh2-4x1500               |   8,000         |      4 x 450 GB                         | Tier 0                            |     1,800 GB                   | 45000           |
+| sh2-7x1500               |   8,000         |      4 x 450 GB                         | Tier 0                            |     1,800 GB                   | 45000           |
+| sh2-12x1500              |   8,000         |      4 x 450 GB                         | Tier 0                            |     1,800 GB                   | 45000           |
+| sh2-16x1500              |   8,000         |      4 x 450 GB                         | Tier 0                            |     1,800 GB                   | 45000           |
+| sh2-25x1500              |   8,000         |      4 x 450 GB                         | Tier 0                            |     1,800 GB                   | 45000           |
+| sh2-8x1900               |   8,000         |      4 x 570 GB                         | Tier 0                            |     2,280 GB                   | 57000           |
+| sh2-16x1900              |   8,000         |      4 x 570 GB                         | Tier 0                            |     2,280 GB                   | 57000           |
+| sh2-33x1900              |   8,000         |      4 x 570 GB                         | Tier 0                            |     2,280 GB                   | 57000           |
 {: class="simple-tab-table"}
 {: tab-group="sh2-certified-profiles-table"}
 {: caption="Sample data file system configurations for SAP HANA profiles with sh2 prefix" caption-side="bottom"}
 {: #sh2-profiles-data}
 {: tab-title="Data File System"}
 
-| sh2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration    |
-|------------------------|---------------|-------------------------|----------------------|---------------|----------------------------- |
-| sh2-4x256              | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-7x256              | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-12x256             | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-4x384              | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-7x384              | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-12x384             | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-4x512              | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-7x512              | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-12x512             | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-4x768              | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-7x768              | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-12x768             | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-4x1000             | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-7x1000             | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-12x1000            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-16x1000            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-25x1000            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-4x1500             | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-7x1500             | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-12x1500            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-16x1500            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-25x1500            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-8x1900             | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-16x1900            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-| sh2-33x1900            | 3,000         | 1 x 200 GB              | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+| **sh2\nCertified profile** | **IOPs\nrequired**| **Shared file system\nstorage config (GB)** | **Shared file system\nstorage tier**  | **Shared file system\nsize(GB)**| **IOPs\nobtained** |
+|--------------------------- |------------------ |-------------------------------------------- |---------------------------------------|---------------------------------|--------------------|
+| sh2-4x256                  | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-7x256                  | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-12x256                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-4x384                  | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-7x384                  | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-12x384                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-4x512                  | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-7x512                  | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-12x512                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-4x768                  | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-7x768                  | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-12x768                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-4x1000                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-7x1000                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-12x1000                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-16x1000                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-25x1000                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-4x1500                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-7x1500                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-12x1500                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-16x1500                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-25x1500                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-8x1900                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-16x1900                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+| sh2-33x1900                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 {: class="simple-tab-table"}
 {: tab-group="sh2-certified-profiles-table"}
 {: caption="Sample shared file system configurations for SAP HANA profiles with sh2 prefix" caption-side="bottom"}
 {: #sh2-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
-### bh2 - Certified Profiles
+### bh2 - Certified profiles
 {: #bh2-profiles}
 
 The following SAP HANA profiles with prefix **bh2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
+
+The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
 
 
 | **Profile name** | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **[SMT Mode](#smt-modes)**|
@@ -619,13 +621,13 @@ The following SAP HANA profiles with prefix **bh2** on IBM {{site.data.keyword.p
 {: #bh2-profiles-instance}
 {: tab-title="Certified Profiles"}
 
-| **Profile name** |  **Workload Type**                           |**aSAPS** | **SAPS**  |
+| **Profile name** |  **Workload type**                           |**aSAPS** | **SAPS**  |
 | -----------------| ---------------------------------------------|----------| --------- |
 | bh2-35x3000      |     OLTP/OLAP                                |   N/A    | 266,000   |
 | bh2-35x3900      |     OLTP/OLAP                                |   N/A    | 266,000   |
 | bh2-128x16000    |     OLTP/OLAP                                | 133,100  | 768,000   |
 | bh2-128x17000    |     OLTP/OLAP                                | 133,100  | 768,000   |
-| bh2-165x17000    | OLTP/OLAP/OLTP scale-out (up to 4 nodes)     | 217,100  | 1,254,000 |
+| bh2-165x17000    |     OLTP/OLAP/OLTP scale-out (up to 4 nodes) | 217,100  | 1,254,000 |
 | bh2-128x18000    |     OLTP/OLAP                                | 133,100  | 768,000   |
 | bh2-165x18000    |     OLTP/OLAP/OLTP scale-out (up to 4 nodes) | 217,100  | 1,254,000 |
 | bh2-128x19000    |     OLTP/OLAP                                |  133,100 | 768,000   |
@@ -649,31 +651,29 @@ The following SAP HANA profiles with prefix **bh2** on IBM {{site.data.keyword.p
 {: tab-title="Sizing"}
 
 
-
-
-| bh2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|------------------------|---------------|-------------------------|----------------------|---------------|----------------------------------------|
-| bh2-35x3000            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-35x3900            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-128x16000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-128x17000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x17000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-128x18000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x18000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-128x19000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x19000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-128x20000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x20000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x21000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x22000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x23000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x24000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x25000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x26000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x27000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x28000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x29000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| bh2-165x30500          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
+| **bh2\nCertified profile** | **IOPs\nrequired**| **Log file system\nstorage config (GB)**|**Log file system\nstorage tier**|**Log file system \nsize (GB)**|**IOPs\nobtained**|
+|----------------------------|-------------------|-----------------------------------------|---------------------------------|-------------------------------|------------------|
+| bh2-35x3000                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-35x3900                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-128x16000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-128x17000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x17000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-128x18000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x18000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-128x19000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x19000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-128x20000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x20000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x21000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x22000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x23000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x24000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x25000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x26000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x27000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x28000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x29000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| bh2-165x30500              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
 {: class="simple-tab-table"}
 {: tab-group="bh2-certified-profiles-table"}
 {: caption="Sample log file system configurations for SAP HANA profiles with bh2 prefix" caption-side="bottom"}
@@ -681,29 +681,29 @@ The following SAP HANA profiles with prefix **bh2** on IBM {{site.data.keyword.p
 {: tab-title="Log File System"}
 
 
-| bh2\nCertified profile  | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|-------------------------|---------------|-------------------------|----------------------|---------------|---------------------------------------|
-|  bh2-35x3000            | 8,000         | 4 x 1208 GB             | Tier 3               | 14,499        |                                       |
-|  bh2-35x3900            | 8,000         | 4 x 1570 GB             | Tier 3               | 18,846        |                                       |
-|  bh2-128x16000          | 8,000         | 4 x 6444 GB             | Tier 3               | 77,328        |                                       |
-|  bh2-128x17000          | 8,000         | 4 x 6847 GB             | Tier 3               | 82,161        |                                       |
-|  bh2-165x17000          | 8,000         | 4 x 6847 GB             | Tier 3               | 82,161        |                                       |
-|  bh2-128x18000          | 8,000         | 4 x 7249 GB             | Tier 3               | 86,994        |                                       |
-|  bh2-165x18000          | 8,000         | 4 x 7249 GB             | Tier 3               | 86,994        |                                       |
-|  bh2-128x19000          | 8,000         | 4 x 7652 GB             | Tier 3               | 91,827        |                                       |
-|  bh2-165x19000          | 8,000         | 4 x 7652 GB             | Tier 3               | 91,827        |                                       |
-|  bh2-128x20000          | 8,000         | 4 x 8055 GB             | Tier 3               | 96,660        |                                       |
-|  bh2-165x20000          | 8,000         | 4 x 8055 GB             | Tier 3               | 96,660        |                                       |
-|  bh2-165x21000          | 8,000         | 4 x 8458 GB             | Tier 3               | 101,493       |                                       |
-|  bh2-165x22000          | 8,000         | 4 x 8861 GB             | Tier 3               | 106,332       |                                       |
-|  bh2-165x23000          | 8,000         | 4 x 9263 GB             | Tier 3               | 111,159       |                                       |
-|  bh2-165x24000          | 8,000         | 4 x 9666 GB             | Tier 3               | 115,992       |                                       |
-|  bh2-165x25000          | 8,000         | 4 x 10068 GB            | Tier 3               | 120,825       |                                       |
-|  bh2-165x26000          | 8,000         | 4 x 10472 GB            | Tier 3               | 125,664       |                                       |
-|  bh2-165x27000          | 8,000         | 4 x 10874 GB            | Tier 3               | 130,491       |                                       |
-|  bh2-165x28000          | 8,000         | 4 x 11277 GB            | Tier 3               | 135,324       |                                       |
-|  bh2-165x29000          | 8,000         | 4 x 11679 GB            | Tier 3               | 140,157       |                                       |
-|  bh2-165x30500          | 8,000         | 4 x 12283 GB            | Tier 3               | 147,405       |                                       |
+| **bh2\nCertified profile** | **IOPs\nrequired**| **Data file system\nstorage config (GB)**|**Data file system\nstorage tier**|**Data file system \nsize (GB)**|**IOPs\nobtained**|
+|----------------------------|-------------------|------------------------------------------|----------------------------------|--------------------------------|------------------|
+|  bh2-35x3000               | 8,000             | 4 x 900 GB                               | Tier 3                           | 3600  GB                       | 10800            |
+|  bh2-35x3900               | 8,000             | 4 x 1,170 GB                             | Tier 3                           | 4680  GB                       | 14040            |
+|  bh2-128x16000             | 8,000             | 4 x 4,800 GB                             | Tier 3                           | 19200 GB                       | 57600            |
+|  bh2-128x17000             | 8,000             | 4 x 5,100 GB                             | Tier 3                           | 20400 GB                       | 61200            |
+|  bh2-165x17000             | 8,000             | 4 x 5,100 GB                             | Tier 3                           | 20400 GB                       | 61200            |
+|  bh2-128x18000             | 8,000             | 4 x 5,400 GB                             | Tier 3                           | 21600 GB                       | 64800            |
+|  bh2-165x18000             | 8,000             | 4 x 5,400 GB                             | Tier 3                           | 21600 GB                       | 64800            |
+|  bh2-128x19000             | 8,000             | 4 x 5,700 GB                             | Tier 3                           | 22800 GB                       | 68400            |
+|  bh2-165x19000             | 8,000             | 4 x 5,700 GB                             | Tier 3                           | 22800 GB                       | 68400            |
+|  bh2-128x20000             | 8,000             | 4 x 6,000 GB                             | Tier 3                           | 24000 GB                       | 72000            |
+|  bh2-165x20000             | 8,000             | 4 x 6,000 GB                             | Tier 3                           | 24000 GB                       | 72000            |
+|  bh2-165x21000             | 8,000             | 4 x 6,300 GB                             | Tier 3                           | 25200 GB                       | 75600            |
+|  bh2-165x22000             | 8,000             | 4 x 6,600 GB                             | Tier 3                           | 26400 GB                       | 79200            |
+|  bh2-165x23000             | 8,000             | 4 x 6,900 GB                             | Tier 3                           | 27600 GB                       | 82800            |
+|  bh2-165x24000             | 8,000             | 4 x 7,200 GB                             | Tier 3                           | 28800 GB                       | 86400            |
+|  bh2-165x25000             | 8,000             | 4 x 7,500 GB                             | Tier 3                           | 30000 GB                       | 90000            |
+|  bh2-165x26000             | 8,000             | 4 x 7,800 GB                             | Tier 3                           | 31200 GB                       | 93600            |
+|  bh2-165x27000             | 8,000             | 4 x 8,100 GB                             | Tier 3                           | 32400 GB                       | 97200            |
+|  bh2-165x28000             | 8,000             | 4 x 8,400 GB                             | Tier 3                           | 33600 GB                       | 100800           |
+|  bh2-165x29000             | 8,000             | 4 x 8,700 GB                             | Tier 3                           | 34800 GB                       | 104400           |
+|  bh2-165x30500             | 8,000             | 4 x 9,150 GB                             | Tier 3                           | 36600 GB                       | 109800           |
 {: class="simple-tab-table"}
 {: tab-group="bh2-certified-profiles-table"}
 {: caption="Sample data file system configurations for SAP HANA profiles with bh2 prefix" caption-side="bottom"}
@@ -711,29 +711,29 @@ The following SAP HANA profiles with prefix **bh2** on IBM {{site.data.keyword.p
 {: tab-title="Data File System"}
 
 
-| bh2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration    |
-|------------------------|---------------|-------------------------|----------------------|---------------|------------------------------|
-|    bh2-35x3000         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-35x3900         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-128x16000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-128x17000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x17000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-128x18000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x18000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-128x19000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x19000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-128x20000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x20000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x21000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x22000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x23000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x24000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x25000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x26000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x27000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x28000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x29000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    bh2-165x30500       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+| **bh2\nCertified profile** | **IOPs\nrequired**| **Shared file system\nstorage config (GB)** | **Shared file system\nstorage tier**  | **Shared file system\nsize(GB)**| **IOPs\nobtained** |
+|--------------------------- |------------------ |-------------------------------------------- |---------------------------------------|---------------------------------|--------------------|
+|    bh2-35x3000             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-35x3900             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-128x16000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-128x17000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x17000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-128x18000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x18000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-128x19000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x19000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-128x20000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x20000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x21000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x22000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x23000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x24000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x25000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x26000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x27000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x28000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x29000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    bh2-165x30500           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 {: class="simple-tab-table"}
 {: tab-group="bh2-certified-profiles-table"}
 {: caption="Sample shared file system configurations for SAP HANA profiles with bh2 prefix" caption-side="bottom"}
@@ -741,12 +741,14 @@ The following SAP HANA profiles with prefix **bh2** on IBM {{site.data.keyword.p
 {: tab-title="Shared File System"}
 
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
-### ch2 - Certified Profiles
+
+### ch2 - Certified profiles
 {: #ch2-profiles}
 
 The following SAP HANA profiles with prefix **ch2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
+
+The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
 
 
 | **Profile name** | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **[SMT Mode](#smt-modes)** |
@@ -766,7 +768,7 @@ The following SAP HANA profiles with prefix **ch2** on IBM {{site.data.keyword.p
 {: #ch2-profiles-instance}
 {: tab-title="Certified Profiles"}
 
-| **Profile name** |    **Workload Type**                         |**aSAPS**| **SAPS**   |
+| **Profile name** |    **Workload type**                         |**aSAPS**| **SAPS**   |
 | -----------------|  ------------------------------------------- |---------| ---------- |
 | ch2-87x6000      |     OLTP/OLAP                                |   N/A   | 661,200    |
 | ch2-80x6144      |    OLTP/OLAP                                 |   N/A   | 608,000    |
@@ -784,17 +786,17 @@ The following SAP HANA profiles with prefix **ch2** on IBM {{site.data.keyword.p
 {: tab-title="Sizing"}
 
 
-| ch2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|------------------------|---------------|-------------------------|----------------------|---------------|----------------------------------------|
-| ch2-87x6000            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| ch2-80x6144            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| ch2-87x7000            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| ch2-87x7600            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| ch2-165x12000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| ch2-165x13000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| ch2-165x14000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| ch2-165x15000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| ch2-165x16000          | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
+| **ch2\nCertified profile** | **IOPs\nrequired**| **Log file system\nstorage config (GB)**|**Log file system\nstorage tier**|**Log file system \nsize (GB)**|**IOPs\nobtained**|
+|----------------------------|-------------------|-----------------------------------------|---------------------------------|-------------------------------|------------------|
+| ch2-87x6000                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| ch2-80x6144                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| ch2-87x7000                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| ch2-87x7600                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| ch2-165x12000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| ch2-165x13000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| ch2-165x14000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| ch2-165x15000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| ch2-165x16000              | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
 {: class="simple-tab-table"}
 {: tab-group="ch2-certified-profiles-table"}
 {: caption="Sample log file system configurations for SAP HANA profiles with ch2 prefix" caption-side="bottom"}
@@ -802,17 +804,17 @@ The following SAP HANA profiles with prefix **ch2** on IBM {{site.data.keyword.p
 {: tab-title="Log File System"}
 
 
-| ch2\nCertified profile  | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|-------------------------|---------------|-------------------------|----------------------|---------------|---------------------------------------|
-|  ch2-87x6000            | 8,000         | 4 x 2416 GB             | Tier 3               | 28,998        |                                       |
-|  ch2-80x6144            | 8,000         | 4 x 2474 GB             | Tier 3               | 29,691        |                                       |
-|  ch2-87x7000            | 8,000         | 4 x 2819 GB             | Tier 3               | 33,831        |                                       |
-|  ch2-87x7600            | 8,000         | 4 x 3060 GB             | Tier 3               | 36,729        |                                       |
-|  ch2-165x12000          | 8,000         | 4 x 4833 GB             | Tier 3               | 57,996        |                                       |
-|  ch2-165x13000          | 8,000         | 4 x 5236 GB             | Tier 3               | 62,829        |                                       |
-|  ch2-165x14000          | 8,000         | 4 x 5638 GB             | Tier 3               | 67,662        |                                       |
-|  ch2-165x15000          | 8,000         | 4 x 6041 GB             | Tier 3               | 72,495        |                                       |
-|  ch2-165x16000          | 8,000         | 4 x 6444 GB             | Tier 3               | 77,328        |                                       |
+| **ch2\nCertified profile** | **IOPs\nrequired**| **Data file system\nstorage config (GB)**|**Data file system\nstorage tier**|**Data file system \nsize (GB)**|**IOPs\nobtained**|
+|----------------------------|-------------------|------------------------------------------|----------------------------------|--------------------------------|------------------|
+|  ch2-87x6000               | 8,000             | 4 x 1,800 GB                             | Tier 3                           | 7200 GB                        | 28,998           |
+|  ch2-80x6144               | 8,000             | 4 x 1,843 GB                             | Tier 3                           | 7372 GB                        | 29,691           |
+|  ch2-87x7000               | 8,000             | 4 x 2,100 GB                             | Tier 3                           | 8400 GB                        | 33,831           |
+|  ch2-87x7600               | 8,000             | 4 x 2,280 GB                             | Tier 3                           | 9120 GB                        | 36,729           |
+|  ch2-165x12000             | 8,000             | 4 x 3,600 GB                             | Tier 3                           | 14400 GB                       | 57,996           |
+|  ch2-165x13000             | 8,000             | 4 x 3,900 GB                             | Tier 3                           | 15600 GB                       | 62,829           |
+|  ch2-165x14000             | 8,000             | 4 x 4,200 GB                             | Tier 3                           | 16800 GB                       | 67,662           |
+|  ch2-165x15000             | 8,000             | 4 x 4,500 GB                             | Tier 3                           | 18000 GB                       | 72,495           |
+|  ch2-165x16000             | 8,000             | 4 x 4,800 GB                             | Tier 3                           | 19200 GB                       | 77,328           |
 {: class="simple-tab-table"}
 {: tab-group="ch2-certified-profiles-table"}
 {: caption="Sample data file system configurations for SAP HANA profiles with ch2 prefix" caption-side="bottom"}
@@ -820,31 +822,31 @@ The following SAP HANA profiles with prefix **ch2** on IBM {{site.data.keyword.p
 {: tab-title="Data File System"}
 
 
-| ch2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration    |
-|------------------------|---------------|-------------------------|----------------------|---------------|------------------------------|
-|    ch2-87x6000         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    ch2-80x6144         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    ch2-87x7000         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    ch2-87x7600         | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    ch2-165x12000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    ch2-165x13000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    ch2-165x14000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    ch2-165x15000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|    ch2-165x16000       | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+| **ch2\nCertified profile** | **IOPs\nrequired**| **Shared file system\nstorage config (GB)** | **Shared file system\nstorage tier**  | **Shared file system\nsize(GB)**| **IOPs\nobtained** |
+|--------------------------- |------------------ |-------------------------------------------- |---------------------------------------|---------------------------------|--------------------|
+|    ch2-87x6000             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    ch2-80x6144             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    ch2-87x7000             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    ch2-87x7600             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    ch2-165x12000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    ch2-165x13000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    ch2-165x14000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    ch2-165x15000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    ch2-165x16000           | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 {: class="simple-tab-table"}
 {: tab-group="ch2-certified-profiles-table"}
 {: caption="Sample shared file system configurations for SAP HANA profiles with ch2 prefix" caption-side="bottom"}
 {: #ch2-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 
-### mh2 - Certified Profiles
+### mh2 - Certified profiles
 {: #mh2-profiles}
 
 The following SAP HANA profiles with prefix **mh2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
+The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
 
 | **Profile name** | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **[SMT Mode](#smt-modes)** |
 | -----------------| ------------- | ---------------- | ---------------- | ---------------------------|
@@ -863,7 +865,7 @@ The following SAP HANA profiles with prefix **mh2** on IBM {{site.data.keyword.p
 {: tab-title="Certified Profiles"}
 
 
-| **Profile name** |  **Workload Type**    |**aSAPS**| **SAPS** |
+| **Profile name** |  **Workload type**    |**aSAPS**| **SAPS** |
 | -----------------|---------------------- |---------| -------- |
 | mh2-64x8000      |       OLTP/OLAP       | 65,400  | 384,000  |
 | mh2-64x9000      |       OLTP/OLAP       | 65,400  | 384,000  |
@@ -881,16 +883,16 @@ The following SAP HANA profiles with prefix **mh2** on IBM {{site.data.keyword.p
 
 
 
-| mh2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|------------------------|---------------|-------------------------|----------------------|---------------|----------------------------------------|
-| mh2-64x8000            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| mh2-64x9000            | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| mh2-64x10000           | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| mh2-64x11000           | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| mh2-64x12000           | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| mh2-64x13000           | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| mh2-64x14000           | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
-| mh2-64x15000           | 12,000        |   4 x 128 GB            | Tier 0               | 12,800        |                                        |
+| **mh2\nCertified profile** | **IOPs\nrequired**| **Log file system\nstorage config (GB)**|**Log file system\nstorage tier**|**Log file system \nsize (GB)**|**IOPs\nobtained**|
+|----------------------------|-------------------|-----------------------------------------|---------------------------------|-------------------------------|------------------|
+| mh2-64x8000                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| mh2-64x9000                | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| mh2-64x10000               | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| mh2-64x11000               | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| mh2-64x12000               | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| mh2-64x13000               | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| mh2-64x14000               | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
+| mh2-64x15000               | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
 {: class="simple-tab-table"}
 {: tab-group="mh2-certified-profiles-table"}
 {: caption="Sample log file system configurations for SAP HANA profiles with mh2 prefix" caption-side="bottom"}
@@ -898,16 +900,16 @@ The following SAP HANA profiles with prefix **mh2** on IBM {{site.data.keyword.p
 {: tab-title="Log File System"}
 
 
-| mh2\nCertified profile  | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration\n(cost effective)|
-|-------------------------|---------------|-------------------------|----------------------|---------------|---------------------------------------|
-|  mh2-64x8000            | 8,000         | 4 x 3222 GB             | Tier 3               | 38,664        |                                       |
-|  mh2-64x9000            | 8,000         | 4 x 3625 GB             | Tier 3               | 43,497        |                                       |
-|  mh2-64x10000           | 8,000         | 4 x 4028 GB             | Tier 3               | 48,330        |                                       |
-|  mh2-64x11000           | 8,000         | 4 x 4430 GB             | Tier 3               | 53,163        |                                       |
-|  mh2-64x12000           | 8,000         | 4 x 4833 GB             | Tier 3               | 57,996        |                                       |
-|  mh2-64x13000           | 8,000         | 4 x 5236 GB             | Tier 3               | 62,829        |                                       |
-|  mh2-64x14000           | 8,000         | 4 x 5638 GB             | Tier 3               | 67,662        |                                       |
-|  mh2-64x15000           | 8,000         | 4 x 6041 GB             | Tier 3               | 72,495        |                                       |
+| **mh2\nCertified profile** | **IOPs\nrequired**| **Data file system\nstorage config (GB)**|**Data file system\nstorage tier**|**Data file system \nsize (GB)**|**IOPs\nobtained**|
+|----------------------------|-------------------|------------------------------------------|----------------------------------|--------------------------------|------------------|
+|  mh2-64x8000               | 8,000             | 4 x 2400 GB                              | Tier 3                           |     9600 GB                    |  28800           |
+|  mh2-64x9000               | 8,000             | 4 x 2700 GB                              | Tier 3                           |     10800 GB                   |  32400           |
+|  mh2-64x10000              | 8,000             | 4 x 3000 GB                              | Tier 3                           |     12000 GB                   |  36000           |
+|  mh2-64x11000              | 8,000             | 4 x 3300 GB                              | Tier 3                           |     13200 GB                   |  39600           |
+|  mh2-64x12000              | 8,000             | 4 x 3600 GB                              | Tier 3                           |     14400 GB                   |  43200           |
+|  mh2-64x13000              | 8,000             | 4 x 3900 GB                              | Tier 3                           |     15600 GB                   |  46800           |
+|  mh2-64x14000              | 8,000             | 4 x 4200 GB                              | Tier 3                           |     16800 GB                   |  50400           |
+|  mh2-64x15000              | 8,000             | 4 x 4500 GB                              | Tier 3                           |     18000 GB                   |  54000           |
 {: class="simple-tab-table"}
 {: tab-group="mh2-certified-profiles-table"}
 {: caption="Sample data file system configurations for SAP HANA profiles with mh2 prefix" caption-side="bottom"}
@@ -915,16 +917,16 @@ The following SAP HANA profiles with prefix **mh2** on IBM {{site.data.keyword.p
 {: tab-title="Data File System"}
 
 
-| mh2\nCertified profile | IOPs\nrequired| Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained| Alternative configuration    |
-|------------------------|---------------|-------------------------|----------------------|---------------|------------------------------|
-|  mh2-64x8000           | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|  mh2-64x9000           | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|  mh2-64x10000          | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|  mh2-64x11000          | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|  mh2-64x12000          | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|  mh2-64x13000          | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|  mh2-64x14000          | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
-|  mh2-64x15000          | 3,000         |  1 x 200 GB             | Tier 0               | 5,000         | 1 x 1000 GB \nusing 'Tier 3' |
+| **mh2\nCertified profile** | **IOPs\nrequired**| **Shared file system\nstorage config (GB)** | **Shared file system\nstorage tier**  | **Shared file system\nsize(GB)**| **IOPs\nobtained** |
+|--------------------------- |------------------ |-------------------------------------------- |---------------------------------------|---------------------------------|--------------------|
+|  mh2-64x8000               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  mh2-64x9000               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  mh2-64x10000              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  mh2-64x11000              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  mh2-64x12000              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  mh2-64x13000              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  mh2-64x14000              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  mh2-64x15000              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 {: class="simple-tab-table"}
 {: tab-group="mh2-certified-profiles-table"}
 {: caption="Sample shared file system configurations for SAP HANA profiles with mh2 prefix" caption-side="bottom"}
@@ -932,12 +934,10 @@ The following SAP HANA profiles with prefix **mh2** on IBM {{site.data.keyword.p
 {: tab-title="Shared File System"}
 
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
-
 For IBM Power10 profiles, "N/A" indicates that SAPS are not measured.
 {:note: .note}
 
-## IBM Power9 Certified Instances for SAP HANA
+## IBM Power9 certified instances for SAP HANA
 {: #sap-hana-iaas-offerings-profiles-power9-families}
 
 
@@ -953,12 +953,12 @@ The following profile families are available for IBM Power9 processor-based serv
 | [Profiles with umh prefix](#umhprofiles) | Profiles with the prefix *umh* are ultra memory profiles that provide the highest vCPU-to-memory ratios for serving in-memory OLTP databases, such as SAP HANA. |
 {: caption="Profile families for Power9 server generation" caption-side="bottom"}
 
-### ush1 - Certified Profiles
+### ush1 - Certified profiles
 {: #ush1profiles}
 
 The following SAP HANA profiles with prefix **ush1** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
-| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload Type** |
+| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload type** |
 | ------------------- | ------------- | ---------------- | ---------------- | -------- | -------------------------- | ----------------- |
 | ush1-4x128          | 4             | 32               | 128              | 24,000   | SMT8                       | OLAP/OLTP         |
 | ush1-4x256          | 4             | 32               | 256              | 24,000   | SMT8                       | OLAP/OLTP         |
@@ -1010,29 +1010,29 @@ The following SAP HANA profiles with prefix **ush1** on IBM {{site.data.keyword.
 {: #ush1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
-### bh1 - Certified Profiles
+### bh1 - Certified profiles
 {: #bh1profiles}
 
 The following SAP HANA profiles with prefix **bh1** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
-| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)**       | **Workload Type** |
-| ------------------- | ------------- | ---------------- | ---------------- | -------- | -------------------------------- | ----------------- |
-| bh1-16x1600         | 16            | 128              | 1,600            | 96,000   | SMT8                             | OLAP/OLTP         |
-| bh1-20x2000         | 20            | 160              | 2,000            | 120,000  | SMT8                             | OLAP              |
-| bh1-22x2200         | 22            | 178              | 2,200            | 132,000  | SMT8                             | OLAP              |
-| bh1-25x2500         | 25            | 200              | 2,500            | 150,000  | SMT8                             | OLAP              |
-| bh1-30x3000         | 30            | 240              | 3,000            | 180,000  | SMT8                             | OLAP              |
-| bh1-35x3500         | 35            | 280              | 3,500            | 210,000  | SMT8                             | OLAP              |
-| bh1-40x4000         | 40            | 320              | 4,000            | 240,000  | SMT8                             | OLAP              |
-| bh1-50x5000         | 50            | 400              | 5,000            | 300,000  | SMT8                             | OLAP              |
-| bh1-60x6000         | 60            | 480              | 6,000            | 360,000  | SMT8                             | OLAP/OLTP         |
-| bh1-70x7000         | 70            | 560              | 7,000            | 420,000  | SMT8                             | OLAP              |
-| bh1-80x8000         | 80            | 640              | 8,000            | 480,000  | SMT8                             | OLAP              |
-| bh1-100x10000       | 100           | 800              | 10,000           | 600,000  | SMT8                             | OLAP              |
-| bh1-120x12000       | 120           | 900              | 12,000           | 720,000  | SMT8                             | OLAP              |
-| bh1-140x14000       | 140           | 1,120            | 14,000           | 840,000  | SMT8                             | OLAP              |
+| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)**       | **Workload type**                        |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | -------------------------------- | -----------------------------------------|
+| bh1-16x1600         | 16            | 128              | 1,600            | 96,000   | SMT8                             | OLAP/OLTP                                |
+| bh1-20x2000         | 20            | 160              | 2,000            | 120,000  | SMT8                             | OLAP                                     |
+| bh1-22x2200         | 22            | 178              | 2,200            | 132,000  | SMT8                             | OLAP                                     |
+| bh1-25x2500         | 25            | 200              | 2,500            | 150,000  | SMT8                             | OLAP                                     |
+| bh1-30x3000         | 30            | 240              | 3,000            | 180,000  | SMT8                             | OLAP/OLAP scale-out (up to 3 nodes)      |
+| bh1-35x3500         | 35            | 280              | 3,500            | 210,000  | SMT8                             | OLAP                                     |
+| bh1-40x4000         | 40            | 320              | 4,000            | 240,000  | SMT8                             | OLAP                                     |
+| bh1-50x5000         | 50            | 400              | 5,000            | 300,000  | SMT8                             | OLAP                                     |
+| bh1-60x6000         | 60            | 480              | 6,000            | 360,000  | SMT8                             | OLAP/OLTP/OLAP scale-out (up to 3 nodes) |
+| bh1-70x7000         | 70            | 560              | 7,000            | 420,000  | SMT8                             | OLAP                                     |
+| bh1-80x8000         | 80            | 640              | 8,000            | 480,000  | SMT8                             | OLAP                                     |
+| bh1-100x10000       | 100           | 800              | 10,000           | 600,000  | SMT8                             | OLAP                                     |
+| bh1-120x12000       | 120           | 900              | 12,000           | 720,000  | SMT8                             | OLAP                                     |
+| bh1-140x14000       | 140           | 1,120            | 14,000           | 840,000  | SMT8                             | OLAP                                     |
 {: class="simple-tab-table"}
 {: tab-group="bh1-table"}
 {: caption="P9 Certified Instance profiles with bh1 prefix" caption-side="bottom"}
@@ -1106,21 +1106,21 @@ The following SAP HANA profiles with prefix **bh1** on IBM {{site.data.keyword.p
 {: #bh1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
-### ch1 - Certified Profiles
+### ch1 - Certified profiles
 {: #ch1profiles}
 
 The following SAP HANA profiles with prefix **ch1** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
-| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload Type** |
-| ------------------- | ------------- | ---------------- | ---------------- | -------- | -------------------------- | ----------------- |
-| ch1-60x3000         | 60            | 480              | 3,000            | 360,000  | SMT8                       | OLAP              |
-| ch1-70x3500         | 70            | 560              | 3,500            | 420,000  | SMT8                       | OLAP              |
-| ch1-80x4000         | 80            | 640              | 4,000            | 480,000  | SMT8                       | OLAP              |
-| ch1-100x5000        | 100           | 800              | 5,000            | 600,000  | SMT8                       | OLAP              |
-| ch1-120x6000        | 120           | 900              | 6,000            | 720,000  | SMT8                       | OLAP              |
-| ch1-140x7000        | 140           | 1,120            | 7,000            | 840,000  | SMT8                       | OLAP              |
+| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload type**                   |
+| ------------------- | ------------- | ---------------- | ---------------- | -------- | -------------------------- | ----------------------------------- |
+| ch1-60x3000         | 60            | 480              | 3,000            | 360,000  | SMT8                       | OLAP/OLAP scale-out (up to 3 nodes) |
+| ch1-70x3500         | 70            | 560              | 3,500            | 420,000  | SMT8                       | OLAP                                |
+| ch1-80x4000         | 80            | 640              | 4,000            | 480,000  | SMT8                       | OLAP                                |
+| ch1-100x5000        | 100           | 800              | 5,000            | 600,000  | SMT8                       | OLAP                                |
+| ch1-120x6000        | 120           | 900              | 6,000            | 720,000  | SMT8                       | OLAP                                |
+| ch1-140x7000        | 140           | 1,120            | 7,000            | 840,000  | SMT8                       | OLAP                                |
 {: class="simple-tab-table"}
 {: tab-group="ch1-table"}
 {: caption="P9 Certified Instance profiles with ch1 prefix" caption-side="bottom"}
@@ -1169,14 +1169,14 @@ The following SAP HANA profiles with prefix **ch1** on IBM {{site.data.keyword.p
 {: #ch1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
-### mh1 - Certified Profiles
+### mh1 - Certified profiles
 {: #mh1profiles}
 
 The following SAP HANA profiles with prefix **mh1** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
-| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload Type** |
+| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload type** |
 | ------------------- | ------------- | ---------------- | ---------------- | -------- | ---------------------------| ----------------- |
 | mh1-8x1440          | 8             | 64               | 1,440            | 48,000   | SMT8                       | OLAP              |
 | mh1-10x1800         | 10            | 80               | 1,800            | 60,000   | SMT8                       | OLAP              |
@@ -1278,14 +1278,14 @@ The following SAP HANA profiles with prefix **mh1** on IBM {{site.data.keyword.p
 {: #mh1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
+The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
-### umh - Certified Profiles
+### umh - Certified profiles
 {: #umhprofiles}
 
 The following SAP HANA profiles with prefix **umh** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
-| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload Type** |
+| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload type** |
 | ------------------- | ------------- | ---------------- | ---------------- | -------- | -------------------------- | ----------------- |
 | umh-4x960           | 4             | 32               | 960              | 24,000   | SMT8                       | OLTP              |
 | umh-6x1440          | 6             | 48               | 1,440            | 36,000   | SMT8                       | OLTP              |
@@ -1375,7 +1375,7 @@ The following SAP HANA profiles with prefix **umh** on IBM {{site.data.keyword.p
 
 The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
-### cnp - Custom Profiles
+### cnp - Custom profiles
 {: #cnpprofiles}
 
 {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s provide fully customizable CPU cores and memory (RAM in GiB). Configure a virtual server instance by specifying a custom size for the IBM {{site.data.keyword.powerSys_notm}} profile, following SAP HANA for IBM Power Systems best practices and SAP’s guidance for non-production SAP HANA instances.

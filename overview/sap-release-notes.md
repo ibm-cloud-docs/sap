@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-12-18"
+lastupdated: "2026-01-09"
 keywords: SAP
 subcollection: sap
 ---
@@ -31,7 +31,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 - New reference architecture: [SAP NetWeaver 7.x with SAP ASE database on DR configuration](/docs/sap?topic=sap-sap-ase-db-intro&interface=terraform)
 - New document: [Configuring SAP HANA multiple-host system replication in a Red Hat Enterprise Linux (RHEL) High Availability (HA) Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-mh)
 - Updated the following documents for new IP-Overlay resource agent `powervs-move-ip` in multi-zone HA scenarios including:
-   - Overview - [Resource agent](/docs/sap?topic=sap-ha-overview#ha-overview-hana-mzr-move-ip) `powervs-move-ip`
+   - Overview - [Resource agent](/docs/sap?topic=sap-ha-overview#ha-overview-hana-network-ra-move-ip) `powervs-move-ip`
    - [Installing the powervs-move-ip resource agent](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-install-powervs-move-ip-resource-agent)
    - [Creating a virtual IP cluster resource in a multizone region environment](/docs/sap?topic=sap-ha-rhel-hana-ng-sh#ha-rhel-hana-ng-sh-mz-create-virtual-ip-resource)
 - IBM Power9 SAP HANA certified profiles are now discouraged for new deployments. Users are advised to migrate to IBM Power10 SAP HANA certified profiles or later, selecting the appropriate profile based on memory and core requirements. For more information, see [SAP HANA certified instances on {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).

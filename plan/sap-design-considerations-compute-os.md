@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-10"
+  years: 2020, 2026
+lastupdated: "2026-01-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -116,7 +116,7 @@ Several other SAP-defined rules must be followed to deploy SAP HANA in a VMware 
 * [SAP Note 2937606 - SAP HANA on VMware vSphere 7.0 in production](https://me.sap.com/notes/2937606/E){: external}
 * [SAP Note 3372365 - SAP HANA on VMware vSphere 8](https://me.sap.com/notes/3372365/E){: external}
 * [SAP Note 2779240 - Workload-based sizing for virtualized environments](https://me.sap.com/notes/2779240){: external}
-* [SAP HANA Tailored Data Center Integration Frequently Asked Questions)](https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html){: external}
+
 
 
 ## Operating Systems considerations

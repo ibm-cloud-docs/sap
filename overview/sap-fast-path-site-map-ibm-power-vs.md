@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-08"
+  years: 2020, 2026
+lastupdated: "2026-01-08"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -92,6 +92,18 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 - Running the deployment
    - [Deploying SAP applications on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-set-up-power-instances)
    - [SAP license key with {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-bring-your-own-sap-product-license#byol-netweaver-powervs)
+
+
+### Enable virtual persistent memory (vPMEM) with SAP HANA
+{: #fast-path-power-vs-how-to-enable-vpemem}
+
+- Planning
+   - [Planning for vPMEM with SAP HANA on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-vpmem-with-sap-hana#powervs-vpmem-planning-phase)
+   - [Sizing vPMEM for SAP HANA](/docs/sap?topic=sap-powervs-vpmem-with-sap-hana#powervs-vpmem-sap-hana-sizing)
+- Deployment
+   - [Deploying SAP HANA instances on {{site.data.keyword.powerSys_notm}} with vPMEM](/docs/sap?topic=sap-powervs-vpmem-with-sap-hana#powervs-vpmem-deployment)
+
+
 
 
 

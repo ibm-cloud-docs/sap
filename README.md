@@ -2,7 +2,7 @@
 
 Documentation repository for all resources in the IBM Cloud for SAP portfolio.
 
-- Offering Managers - Bradley Knapp and Vijay Mallepudi
+- Offering Managers - Vijay Mallepudi
 - Documentation Owner - Himani Arya
 
 **Documentation Links:**

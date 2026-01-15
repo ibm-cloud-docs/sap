@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-14"
+  years: 2020, 2026
+lastupdated: "2026-01-08"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -274,7 +274,7 @@ Refer to SAP documentation on SAP HANA System Replication (HSR) and OS vendor do
 For more information on system replication, and network throughput and latency, see
 
 - [How To Perform System Replication for SAP HANA - Version 5.4 January 2018](https://www.sap.com/documents/2017/07/606a676e-c97c-0010-82c7-eda71af511fa.html){: external}
-- [Network Configuration for SAP HANA System Replication](https://www.sap.com/documents/2016/06/18079a1c-767c-0010-82c7-eda71af511fa.html){: external}
+- [Network Configuration for SAP HANA System Replication](https://www.sap.com/docs/download/2024/10/84d80f4c-dc7e-0010-bca6-c68f7e60039b.pdf){: external}
 - [SAP Help - SAP HANA System Replication Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/676844172c2442f0bf6c8b080db05ae7.html){: external}
 - [Troubleshoot System Replication - SAP HANA Troubleshooting and Performance Analysis Guide](https://help.sap.com/docs/SAP_HANA_PLATFORM/bed8c14f9f024763b0777aa72b5436f6/caca75c6f0cf4204af9d38ae0fe2d379.html){: external}
 - [SAP Note 1999880 - FAQ: SAP HANA System Replication](https://me.sap.com/notes/1999880){: external}

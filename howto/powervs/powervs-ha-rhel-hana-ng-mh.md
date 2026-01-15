@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-11-14"
+lastupdated: "2026-01-15"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, SAP HANA scale-out, High Availability, HA, Linux, Pacemaker, RHEL HA Add-On
 subcollection: sap
 ---
@@ -28,7 +28,7 @@ The configuration is then validated through failover testing.
 ## Before you begin
 {: #ha-rhel-hana-ng-mh-begin}
 
-Review the general requirements, product documentation, support articles, and SAP Notes listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs) and [Deploying SAP HANA Scale-Out System Replication High Availability](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/deploying_sap_hana_scale-out_system_replication_high_availability/index).
+Review the general requirements, product documentation, support articles, and SAP Notes listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs) and [Deploying SAP HANA Scale-Out System Replication High Availability](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/deploying_sap_hana_scale-out_system_replication_high_availability/index){: external}.
 
 ## Prerequisites
 {: #ha-rhel-hana-ng-mh-prerequisites}
@@ -46,8 +46,10 @@ Review the general requirements, product documentation, support articles, and SA
 - Ensure that the hostnames of the virtual server instances comply with SAP HANA naming conventions.
 - Install two SAP HANA systems, each distributed across two virtual server instances.
 - Configure SAP HANA system replication between the two systems, following the procedures outlined in:
-    - [Configuring the SAP HANA system replication on RHEL](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/deploying_sap_hana_scale-out_system_replication_high_availability/index#asmb_configuring_sr_v9-deploying-scale-out-system-replication)
-    - [General Prerequisites for Configuring SAP HANA System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/86267e1ed56940bb8e4a45557cee0e43.html).
+    - [Configuring the SAP HANA system replication on RHEL](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/deploying_sap_hana_scale-out_system_replication_high_availability/index#asmb_configuring_sr_v9-deploying-scale-out-system-replication){: external}
+    - [General Prerequisites for Configuring SAP HANA System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/86267e1ed56940bb8e4a45557cee0e43.html){: external}
+- Disable the SAP HANA instance autostart on all SAP nodes as described in [Disabling SAP HANA instance autostart](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/deploying_sap_hana_scale-out_system_replication_high_availability/index#proc_disabling_autostart_v9-deploying-scale-out-system-replication){: external}
+- Adjust the SAP HANA nameserver configuration according to [Adjusting the SAP HANA nameserver configuration](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/deploying_sap_hana_scale-out_system_replication_high_availability/index#proc_adjusting_v9-deploying-scale-out-system-replication){: external}
 
    System replication setup is platform-independent and applies to {{site.data.keyword.powerSys_notm}}.
    Use shared NFS storage as described in the referenced guides.
@@ -1149,7 +1151,7 @@ Cluster operations proceed only when a majority of votes is available.
 In this configuration, quorum is not managed through a separate mechanism.
 Instead, decision-making relies on an uneven number of votes across cluster nodes, ensuring a clear majority and avoiding ambiguity during failure scenarios.
 
-For more details, refer to [Quorum in cluster systems](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/assembly_overview-of-high-availability-configuring-and-managing-high-availability-clusters#quorum)
+For more details, refer to [Quorum in cluster systems](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/assembly_overview-of-high-availability-configuring-and-managing-high-availability-clusters#quorum){: external}.
 
 Verify the quorum status.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-09-30"
+  years: 2023, 2026
+lastupdated: "2026-01-09"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -146,7 +146,7 @@ Two other resource agents are available to manage a service IP address in a mult
 - Resource agent `powervs-subnet`
 
 #### Resource agent `powervs-move-ip`
-{: #ha-overview-hana-mzr-move-ip}
+{: #ha-overview-hana-network-ra-move-ip}
 
 During a takeover event, the resource agent `powervs-move-ip` updates predefined static routes in the IBM {{site.data.keyword.powerSys_notm}}, and configures an overlay IP address as IP alias address on the virtual server instance.
 

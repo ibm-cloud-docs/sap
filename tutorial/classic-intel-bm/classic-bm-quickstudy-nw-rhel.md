@@ -74,10 +74,10 @@ The sample layouts might not be your preferred layout. The purpose of this guida
 
 |              Field               |      Value              |
 | -------------------------------- | ------------------------|
-| Private VLAN                     | tor01.bcr01a.1241     |
-| Public VLAN                      | tor01.fcr01a.851     |
-| Private Subnet                   | 10.114.63.64/26      |
-| Public Subnet                    | 158.85.65.224/28      |
+| Private VLAN                     | tor01.bcr01a.1241       |
+| Public VLAN                      | tor01.fcr01a.851        |
+| Private Subnet                   | 10.114.63.64/26         |
+| Public Subnet                    | 158.85.65.224/28        |
 {: caption="32 GB network interface values" caption-side="top"}
 
 3. Leave the default values for all other fields.
@@ -188,10 +188,10 @@ Use the following steps to set up the network interface for your database server
 
 |              Field               |      Value              |
 | -------------------------------- | ------------------------|
-| Private VLAN                     | tor01.bcr01a.1241     |
-| Public VLAN                      | tor01.fcr01a.851      |
-| Private Subnet                   | 10.114.63.64/26       |
-| Public Subnet                    | 158.85.65.224/28      |
+| Private VLAN                     | tor01.bcr01a.1241       |
+| Public VLAN                      | tor01.fcr01a.851        |
+| Private Subnet                   | 10.114.63.64/26         |
+| Public Subnet                    | 158.85.65.224/28        |
 {: caption="192 GB network interface values" caption-side="top"}
 
 3. Leave the default values for all other fields.
@@ -451,7 +451,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. Complete all the commands in [Connecting to iSCSI LUNS on Linux](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8) so another LUN appears in the multipath output.
+7. Complete all the commands in [Connecting to iSCSI LUNS on Linux](/docs/BlockStorage?topic=BlockStorage-mountingRHEL) so another LUN appears in the multipath output.
 
 ```sh
 [root@sdb192 ~]# multipath -ll
