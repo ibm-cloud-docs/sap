@@ -66,7 +66,7 @@ The following table lists available profile families for IBM Power11 processor-b
 
 The following SAP HANA profiles with prefix **sr3** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
-The data file system storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
 
 | **Profile name** | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** |  **[SMT Mode](#smt-modes)** |
 | -----------------| ------------- | ---------------- | ---------------- | --------------------------- |
@@ -164,7 +164,7 @@ The following table lists available profile families for IBM Power10 processor-b
 
 The following SAP HANA profiles with prefix **sr2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
-The data file system storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
 
 | **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **[SMT Mode](#smt-modes)** |
 | --------------------| ------------- | ---------------- | -----------------|----------------------------|
@@ -339,7 +339,7 @@ The data file system storage size is calculated from the memory by applying a si
 
 The following SAP HANA **sr2** profiles on IBM {{site.data.keyword.powerSys_notm}} are discouraged due to configuration anomalies. Alternative recommended profiles are suggested for each discouraged configuration.
 
-The data file system storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
 
 |**Profile name**|**Recommended alternative** |**CPU cores**|**Virtual CPUs**|**Memory (GiB)**|**[SMT Mode](#smt-modes)**|
 |----------------| -------------------------- | ----------- | -------------- | -------------- | -------------------------|
@@ -415,7 +415,7 @@ The data file system storage size is calculated from the memory by applying a si
 
 The following SAP HANA profiles with prefix **sh2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
-The data file system storage size is calculated from the memory by applying a sizing factor (20% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
 
 | **Profile name** | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **[SMT Mode](#smt-modes)** |
 | -----------------| ------------- | ---------------- | ---------------- | ---------------------------|
@@ -589,7 +589,7 @@ The data file system storage size is calculated from the memory by applying a si
 
 The following SAP HANA profiles with prefix **bh2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
-The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
 
 
 | **Profile name** | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **[SMT Mode](#smt-modes)**|
@@ -748,7 +748,7 @@ The data file system storage size is calculated from the memory by applying a si
 
 The following SAP HANA profiles with prefix **ch2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
-The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
 
 
 | **Profile name** | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **[SMT Mode](#smt-modes)** |
@@ -846,7 +846,7 @@ The data file system storage size is calculated from the memory by applying a si
 
 The following SAP HANA profiles with prefix **mh2** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
-The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.2`
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
 
 | **Profile name** | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **[SMT Mode](#smt-modes)** |
 | -----------------| ------------- | ---------------- | ---------------- | ---------------------------|
@@ -958,6 +958,8 @@ The following profile families are available for IBM Power9 processor-based serv
 
 The following SAP HANA profiles with prefix **ush1** on IBM {{site.data.keyword.powerSys_notm}} are supported:
 
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
+
 | **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload type** |
 | ------------------- | ------------- | ---------------- | ---------------- | -------- | -------------------------- | ----------------- |
 | ush1-4x128          | 4             | 32               | 128              | 24,000   | SMT8                       | OLAP/OLTP         |
@@ -1010,12 +1012,13 @@ The following SAP HANA profiles with prefix **ush1** on IBM {{site.data.keyword.
 {: #ush1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### bh1 - Certified profiles
 {: #bh1profiles}
 
 The following SAP HANA profiles with prefix **bh1** on IBM {{site.data.keyword.powerSys_notm}} are supported:
+
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
 
 | **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)**       | **Workload type**                        |
 | ------------------- | ------------- | ---------------- | ---------------- | -------- | -------------------------------- | -----------------------------------------|
@@ -1106,12 +1109,12 @@ The following SAP HANA profiles with prefix **bh1** on IBM {{site.data.keyword.p
 {: #bh1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
-
 ### ch1 - Certified profiles
 {: #ch1profiles}
 
 The following SAP HANA profiles with prefix **ch1** on IBM {{site.data.keyword.powerSys_notm}} are supported:
+
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
 
 | **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload type**                   |
 | ------------------- | ------------- | ---------------- | ---------------- | -------- | -------------------------- | ----------------------------------- |
@@ -1169,12 +1172,13 @@ The following SAP HANA profiles with prefix **ch1** on IBM {{site.data.keyword.p
 {: #ch1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### mh1 - Certified profiles
 {: #mh1profiles}
 
 The following SAP HANA profiles with prefix **mh1** on IBM {{site.data.keyword.powerSys_notm}} are supported:
+
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
 
 | **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload type** |
 | ------------------- | ------------- | ---------------- | ---------------- | -------- | ---------------------------| ----------------- |
@@ -1278,12 +1282,13 @@ The following SAP HANA profiles with prefix **mh1** on IBM {{site.data.keyword.p
 {: #mh1-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data file system storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### umh - Certified profiles
 {: #umhprofiles}
 
 The following SAP HANA profiles with prefix **umh** on IBM {{site.data.keyword.powerSys_notm}} are supported:
+
+Data volume storage is sized at 120% of memory, following SAP’s recommendation to include a 20% buffer for operational overhead.
 
 | **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **[SMT Mode](#smt-modes)** | **Workload type** |
 | ------------------- | ------------- | ---------------- | ---------------- | -------- | -------------------------- | ----------------- |
@@ -1373,7 +1378,6 @@ The following SAP HANA profiles with prefix **umh** on IBM {{site.data.keyword.p
 {: #umh-profiles-shared}
 {: tab-title="Shared File System"}
 
-The data filesystem storage size is calculated from the memory by applying a sizing factor (50% more than memory) and then converting from GiB to GB, giving the formula: `Memory × 1.5 × 1.074`
 
 ### cnp - Custom profiles
 {: #cnpprofiles}
