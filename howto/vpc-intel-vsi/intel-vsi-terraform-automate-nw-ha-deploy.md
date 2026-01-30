@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2024-07-25"
+  years: 2024, 2026
+lastupdated: "2026-01-23"
 keywords:
 subcollection: sap
 ---
@@ -186,7 +186,7 @@ The supported versions available for SAP NetWeaver (ABAP) with HANA HA SZ and MZ
     # Example: REGION = "eu-de"
 
     DOMAIN_NAME = "ha.mzexample.com"
-    # The DOMAIN_NAME variable should contain at least one "." as a separator. It is a private domain and it is not reacheable to and from the outside world.
+    # The DOMAIN_NAME variable should contain at least one "." as a separator. It is a private domain and it is not reachable to and from the outside world.
     # The DOMAIN_NAME variable could be like a subdomain name. Ex.: staging.example.com
     # Domain names can only use letters, numbers, and hyphens.
     # Hyphens cannot be used at the beginning or end of the domain name.
@@ -245,7 +245,7 @@ The supported versions available for SAP NetWeaver (ABAP) with HANA HA SZ and MZ
     ID_RSA_FILE_PATH = "ansible/id_rsa"
     # The path to an existing id_rsa private key file, with 0600 permissions. The private key must be in OpenSSH format.
     # This private key is used only during the provisioning and it is recommended to be changed after the SAP deployment.
-    # It must contain the relative or absoute path from your Bastion.
+    # It must contain the relative or absolute path from your Bastion.
     # Examples: "ansible/id_rsa_s4hana_ha" , "~/.ssh/id_rsa_s4hana_ha" , "/root/.ssh/id_rsa".
 
     ##########################################################
@@ -330,7 +330,7 @@ The supported versions available for SAP NetWeaver (ABAP) with HANA HA SZ and MZ
     # Example: HANA_SYSNO = "00"
 
     HANA_SYSTEM_USAGE = "custom"
-    # System usage. Default: custom. Suported values: production, test, development, custom
+    # System usage. Default: custom. Supported values: production, test, development, custom
     # Example: HANA_SYSTEM_USAGE = "custom"
 
     HANA_COMPONENTS = "server"

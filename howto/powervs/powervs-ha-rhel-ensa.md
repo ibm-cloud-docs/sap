@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-11-10"
+  years: 2023, 2026
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -823,9 +823,9 @@ Daemon Status:
 #### Test 1 - Test Procedure
 {: #ha-rhel-ensa-test1-procedure}
 
-To crash the SAP *ASCS* instance, send a SIGKILL signal to the enque server as user `${sid}adm`.
+To crash the SAP *ASCS* instance, send a SIGKILL signal to the enqueue server as user `${sid}adm`.
 
-On NODE1, identify the PID of the enque server.
+On NODE1, identify the PID of the enqueue server.
 
 ```sh
 pgrep -af "(en|enq).sap"
@@ -902,7 +902,7 @@ Daemon Status:
 ### Test 2 - Testing a failure of the node that is running the ASCS instance
 {: #ha-rhel-ensa-test-ascs-instance-server-failure}
 
-Use the folling information to test a failure of the node that is running the ASCS instance.
+Use the following information to test a failure of the node that is running the ASCS instance.
 
 #### Test 2 - Description
 {: #ha-rhel-ensa-test2-description}
@@ -1085,7 +1085,7 @@ Simulate a crash of the *ERS* instance.
 
 Crash the SAP *ERS* instance by sending a SIGKILL signal.
 
-On NODE2, identify the PID of the enque replication server.
+On NODE2, identify the PID of the enqueue replication server.
 
 ```sh
 pgrep -af "(er|enqr).sap"

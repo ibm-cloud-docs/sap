@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-06-27"
+  years: 2022, 2026
+lastupdated: "2026-01-23"
 keywords:
 subcollection: sap
 ---
@@ -128,7 +128,7 @@ Use these steps to configure the SAP NetWeaver 7.x with Db2 3-tier on your exist
     * Click **Save changes**.
 
     For a more detailed description of each of the parameters, check the GitHub repo README file, chapter “Input parameter file”. Also, make sure to mark as “sensitive” the parameters that contain sensitive information like passwords, API, and SSH private keys (they are marked as “sensitive” in the README file in the “Input parameter file”).
-7. On the workspace **Settings** page, click **Generate plan**. Wait for the plan to complate.
+7. On the workspace **Settings** page, click **Generate plan**. Wait for the plan to complete.
 8. Click **View log** to review the log files of your Terraform execution plan.
 9. Apply your Terraform template by clicking **Apply plan**.
 10. Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.

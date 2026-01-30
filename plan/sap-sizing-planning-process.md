@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-07-14"
+  years: 2020, 2026
+lastupdated: "2026-01-23"
 keywords: SAP Application Performance Standard, SAPS, SAP Quick Sizer
 subcollection: sap
 ---
@@ -118,7 +118,7 @@ After you determine your SAP applications and the SAPS numbers are calculated th
 
 SAP HANA is supported in production on single-node and multi-node SAP HANA-certified servers. The SAP HANA database uses column storage for some tables and fields, reducing the storage below row storage in traditional Relation Database Management System (RDMS); data can be highly compressed and compression ratios can range from 3:1 to over 10:1 based on the source data and database.
 
-Sizing SAP HANA correctly is key to the success of your project. It is a best practive to complete the sizing before you order any SAP HANA certified server from {{site.data.keyword.ibm_cloud_sap}}. Improperly sized memory or storage requirements can lead to an upgrade and migration to a larger server.
+Sizing SAP HANA correctly is key to the success of your project. It is a best practice to complete the sizing before you order any SAP HANA certified server from {{site.data.keyword.ibm_cloud_sap}}. Improperly sized memory or storage requirements can lead to an upgrade and migration to a larger server.
 
 Main memory is one of the most important resources to consider when you size an SAP HANA-certified appliance.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-06-12"
+  years: 2022, 2026
+lastupdated: "2026-01-19"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -82,7 +82,7 @@ Table 1 is a summary of the fields and values that are used to provision Bare Me
 | | **Note:** The resource group can't be changed after the bare metal server is created. |
 | *Optional*: **Tags** | You can assign labels to your server so that you can easily filter resources in your resource list. |
 | **Operating System** | * Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-hana-...`**\n * Linux distribution for SAP NetWeaver workloads, select **Catalog image** > **`...-sap-applications...`** \n * Windows Server for SAP NetWeaver workloads, select Windows Server. Choose an operating system version that is supported by SAP as documented in [SAP Note 2927211](https://me.sap.com/notes/2927211){: external} |
-| **Profile** |  Select one of the profiles that are outlined in [Bare Metal Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc) or [Bare Metal Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm-vpc). |
+| **Profile** |  Select one of the profiles that are outlined in [Bare Metal Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm) or [Bare Metal Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-bm). |
 | **SSH Key** | Select an existing public SSH key or click **New SSH key** to add a new one. You must specify at least one SSH key. SSH keys are used to securely connect to a running instance. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | *Optional*: **User data** | You can add user data to automatically complete common configuration tasks or run scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
@@ -123,7 +123,7 @@ The OS chosen must be certified for SAP and have access to the necessary OS Pack
 ### Internal storage
 {: #bm-vpc-internal-storage}
 
-Your Bare metal server on VPC comes with a number of internal NVMEs, depending on its size. For SAP NetWeaver based deployment, you can use those NVMEs that are presented as block devices to the operating system. The NVMEs are listed under “/dev/nvmeXn1” (X from 0 to the number of NVMEs in total, minus 1). Use the NVMEs according to your requirements and needs. For SAP HANA based deployments, refer to [Bare Metal Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc) to see the details on laying out the storage.
+Your Bare metal server on VPC comes with a number of internal NVMEs, depending on its size. For SAP NetWeaver based deployment, you can use those NVMEs that are presented as block devices to the operating system. The NVMEs are listed under “/dev/nvmeXn1” (X from 0 to the number of NVMEs in total, minus 1). Use the NVMEs according to your requirements and needs. For SAP HANA based deployments, refer to [Bare Metal Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm) to see the details on laying out the storage.
 
 ### External storage
 {: #bm-vpc-external-storage}

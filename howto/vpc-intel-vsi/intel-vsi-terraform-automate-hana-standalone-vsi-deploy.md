@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-06-27"
+  years: 2023, 2026
+lastupdated: "2026-01-28"
 keywords:
 subcollection: sap
 ---
@@ -76,7 +76,7 @@ When you provision an {{site.data.keyword.cloud}} bare metal server for SAP HANA
 * Memory Optimized
 * Ultra High Memory Optimized
 
-For more information about the bare metal server certified profiles for SAP HANA, see [Bare metal server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc).
+For more information about the bare metal server certified profiles for SAP HANA, see [SAP HANA certified instances on Intel-powered bare metal servers in VPC infrastructure](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm).
 
 ## SAP HANA server configuration
 {: #terraform-sap-hana-vsi-config}
@@ -89,7 +89,7 @@ The following operating systems and OS images are supported:
 * SUSE Linux Enterprise Server 15 SP 4 for SAP Applications (amd64) - images: `ibm-sles-15-4-amd64-sap-hana-<x>`
 * SUSE Linux Enterprise Server 15 SP 3 for SAP Applications (amd64) - images: `ibm-sles-15-3-amd64-sap-hana-<x>`
 
-The provided SSH keys are used to access the SAP HANA server via SSH, as a root user. The storage volumes for SAP HANA on VSI are configured based on the [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc). The storage volumes for SAP HANA on Bare Metal Server are configured based on the [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc).
+The provided SSH keys are used to access the SAP HANA server via SSH, as a root user. The storage volumes for SAP HANA on VSI are configured based on the [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc). The storage volumes for SAP HANA on Bare Metal Server are configured based on the [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm).
 
 ## Script files
 {: #terraform-sap-hana-vsi-files}
@@ -141,7 +141,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 	cd sap-hana-db
     ```
 
-3.	Customize the VPC variables according to your existing VPC data. Modify the `input.auto.tfvars` file to specify your options. You need a 40-digit SSH key ID for the deployment. Additional SSH key IDs are optional. For more information related to SAP HANA certified profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc). For more options about images, see [Images](/docs/vpc?topic=vpc-about-images){: external}.
+3.	Customize the VPC variables according to your existing VPC data. Modify the `input.auto.tfvars` file to specify your options. You need a 40-digit SSH key ID for the deployment. Additional SSH key IDs are optional. For more information related to SAP HANA certified profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm). For more options about images, see [Images](/docs/vpc?topic=vpc-about-images){: external}.
 
     The following input variable values must be provided:
 
@@ -193,7 +193,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     ID_RSA_FILE_PATH = "ansible/id_rsa"
     # Your existing id_rsa private key file path in OpenSSH format with 0600 permissions.
     # This private key it is used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.
-    # It must contain the relative or absoute path from your Bastion.
+    # It must contain the relative or absolute path from your Bastion.
     # Examples: "ansible/id_rsa_s4hana" , "~/.ssh/id_rsa_s4hana" , "/root/.ssh/id_rsa".
     ```
 
@@ -213,7 +213,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     DB_PROFILE = ""
     # The profile used for SAP HANA Server.
     # The list of certified profiles for SAP HANA Virtual Servers is available here: https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc
-    # The list of certified profiles for SAP HANA Bare Metal Servers is available here: https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc.
+    # The list of certified profiles for SAP HANA Bare Metal Servers is available [here](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm)
     # Details about all x86 instance profiles are available here: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles.
     # Example of Virtual Server Instance profile for SAP HANA: DB_PROFILE ="mx2-16x128".
     # Example of Bare Metal profile for SAP HANA: DB_PROFILE = "bx2d-metal-96x384".

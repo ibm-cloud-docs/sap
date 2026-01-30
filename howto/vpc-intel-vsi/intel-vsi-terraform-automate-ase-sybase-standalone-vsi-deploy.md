@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-10-30"
+  years: 2023, 2026
+lastupdated: "2026-01-23"
 keywords:
 subcollection: sap
 ---
@@ -61,7 +61,7 @@ During provisioning IBM Cloud® Virtual Servers for Virtual Private Cloud, you c
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.cloud_notm}} console, you can select the most recently used profile or click View All Profiles tab to choose the profile that best fits your needs.
 
-For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
+For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi).
 
 The Terraform scripts use the information that you provide in `input.auto.tfvars` file, call the Ansible Playbooks and deploy SAP ASE Sybase database single VSI and the SAP architecture.
 
@@ -176,7 +176,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
     ID_RSA_FILE_PATH = "ansible/id_rsa"
     # The id_rsa private key file path in OpenSSH format with 0600 permissions.
     # This private key is used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.
-    # It must contain the relative or absoute path from your Bastion.
+    # It must contain the relative or absolute path from your Bastion.
     # Examples: "ansible/id_rsa_abap_syb_dst" , "~/.ssh/id_rsa_abap_syb_dst" , "/root/.ssh/id_rsa".
 
     ##########################################################

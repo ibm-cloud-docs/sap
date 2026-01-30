@@ -58,34 +58,24 @@ toc:
           label: Infrastructure profiles for SAP HANA database servers
           id: "infrastructure-profiles-sap-hana"
           topics:
-          - navtitle: Intel virtual servers in VPC
-            topic: plan/sap-offerings-hana-iaas-intel-virtual-server-gen2-profiles.md
-          - navtitle: Intel Bare Metal servers in VPC
-            topic: plan/sap-offerings-hana-iaas-intel-bm-vpc.md
-          - navtitle: Intel Bare Metal servers in Classic
-            topic: plan/sap-offerings-hana-iaas-intel-bare-metal-profiles.md
-          - navtitle: Intel Bare Metal server with Intel Optane DC Persistent Memory
-            topic: plan/sap-offerings-hana-iaas-intel-optane-profiles.md
-          - navtitle: VMware in Classic
-            topic: plan/sap-offerings-hana-iaas-vmware-sddc-profiles.md
+          - navtitle: Bare metal servers in VPC
+            topic: plan/vpc-intel-bm/vpc-intel-bm-compute-certified-profiles-hana.md
+          - navtitle: Bare metal servers in Classic
+            topic: plan/classic-intel-bm/classic-intel-bm-compute-certified-profiles-hana.md
           - navtitle: Power Virtual Server
-            topic: plan/sap-offerings-hana-iaas-power-virtual-server-profiles.md
+            topic: plan/powervs/powervs-compute-certified-profiles-hana.md
       - topicgroup:
           label: Infrastructure profiles for SAP NetWeaver-based application servers
           id: "infrastructure-profiles-sap-netweaver"
           topics:
-          - navtitle: Intel virtual servers in VPC
-            topic: plan/sap-offerings-netweaver-iaas-intel-virtual-server-gen2-profiles.md
-          - navtitle: Intel Bare Metal servers in VPC
-            topic: plan/sap-offerings-netweaver-iaas-intel-bm-vpc.md
-          - navtitle: Intel Bare Metal servers in Classic
-            topic: plan/sap-offerings-netweaver-iaas-intel-bare-metal-profiles.md
-          - navtitle: AMD Bare Metal servers in Classic
-            topic: plan/sap-offerings-netweaver-iaas-amd-bare-metal-profiles.md
-          - navtitle: VMware in Classic
-            topic: plan/sap-offerings-netweaver-iaas-vmware-sddc-profiles.md
+          - navtitle: Virtual servers in VPC
+            topic: plan/vpc-intel-vsi/vpc-intel-vsi-compute-certified-profiles-netweaver.md
+          - navtitle: Bare metal servers in VPC
+            topic: plan/vpc-intel-bm/vpc-intel-bm-compute-certified-profiles-netweaver.md
+          - navtitle: Bare metal servers in Classic
+            topic: plan/classic-intel-bm/classic-intel-bm-compute-certified-profiles-netweaver.md
           - navtitle: Power Virtual Server
-            topic: plan/sap-offerings-netweaver-iaas-power-virtual-server-profiles.md
+            topic: plan/powervs/powervs-compute-certified-profiles-netweaver.md
       - topicgroup:
           label: Plan your SAP workloads
           id: "plan-sap-workloads"
@@ -259,7 +249,7 @@ toc:
                 topic: howto/powervs/powervs-provision-deploy-vpc-infrastructure.md
               - navtitle: Deploying Power Virtual Server infrastructure
                 topic: howto/powervs/powervs-provision-deploy-power-infrastructure.md
-              - navtitle: Deploying SAP applications on Power Virtual Server
+              - navtitle: Deploying and configuring virtual server instances in Power Virtual Server
                 topic: howto/powervs/powervs-provision-deploy-power-instances.md
               - navtitle: Enabling virtual persistent memory with SAP HANA on Power Virtual Server
                 topic: howto/powervs/powervs-vpmem-with-sap-hana.md

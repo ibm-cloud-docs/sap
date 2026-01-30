@@ -92,7 +92,7 @@ Use the following steps to create a virtual server instance.
 1. Select **Windows Server** > ***2016 Standard Edition*** as the *Operating System*.
 1. Click **All profiles** > **Balanced** and select *bx2-32x128*.
 
-For more information about SAP-certified profiles, see [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
+For more information about SAP-certified profiles, see [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi).
 
 ### Setting an SSH key
 {: #ssh-key-wins}
@@ -315,7 +315,7 @@ SAP requires the installation of the {{site.data.keyword.cloud_notm}} Metrics Co
 {: #download-sap-software-wins}
 {: step}
 
-You need an S-User ID and the Download Software authorization when you download the DVD images from the SAP Service Marketplace. To request an S-USer ID, see the [SAP Support Portal](https://support.sap.com/en/index.html){: external}.
+You need an S-User ID and the Download Software authorization when you download the DVD images from the SAP Service Marketplace. To request an S-User ID, see the [SAP Support Portal](https://support.sap.com/en/index.html){: external}.
 {: note}
 
 Depending on your target SAP application that you are going to install you need to gather information, which SAP images you will need to download. In this tutorial, we are choosing SAP NetWeaver ABAP on Windows using IBM Db2 for the SAP Database. Therefore we find in this guide  [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external} all the needed information. SAP recommends to always search for the most recent versions.

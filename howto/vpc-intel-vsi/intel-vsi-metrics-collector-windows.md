@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-17"
+  years: 2020, 2026
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC, SAP NetWeaver, {{site.data.keyword.IBM}} Metrics Collector for SAP, IMCS, SAP Host Agent, saposcol
 subcollection: sap
 ---
@@ -153,7 +153,7 @@ Use the following troubleshooting tips for IMCS.
    Are you sure you want to uninstall Metric Collector for SAP? (Default is No)
    ( y / n ) : y
    Continuing uninstalling metric collector...
-   Removed scheduled task: IBM Metric Collector for SAP Updator
+   Removed scheduled task: IBM Metric Collector for SAP Updater
    Successfully Uninstalled Metric Collector
    ```
    {: screen}

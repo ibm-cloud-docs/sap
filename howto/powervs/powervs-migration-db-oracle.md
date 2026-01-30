@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-04-11"
+  years: 2024, 2026
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, SAP ERP, SAP ECC, Linux, Red Hat, RHEL, SuSE, backup, restore
 subcollection: sap
 ---
@@ -572,7 +572,7 @@ The following backup procedure is executed with the database online, and will pr
 
 An RMAN Incremental *Level 0* backup is a full backup. It includes the complete database.
 
-An RMAN Incremental *Level 1* backup is an incremental backup, capturing the changes since the previous Level 0 or Level 1 backup. The `cummulative` option changes this behavior, consult Oracle RMAN backup concepts documentation for more details.
+An RMAN Incremental *Level 1* backup is an incremental backup, capturing the changes since the previous Level 0 or Level 1 backup. The `cumulative` option changes this behavior, consult Oracle RMAN backup concepts documentation for more details.
 
 The full backup (level 0) and all incremental backups (level 1) since the last full backup including the archived redo logs are required to restore and recover the database successfully.
 When moving the database to a new server - which includes ending services on the source system, the last incremental backup is an offline backup.
@@ -620,7 +620,7 @@ setenv ORACLE_SID <SID>
 {: #sapmig-db-oracle-rman2-backup-skripts}
 
 ##### Full online backup - level 0
-{: #sapmig-db-oracle-rman2-full-onl-backup}
+{: #sapmig-db-oracle-rman2-full-online-backup}
 
 The first RMAN script `option2_backup_full.rman` configures the RMAN environment and creates the initial level 0 (full) online backup.
 The key command to start the full (level 0) backup in this script is:
@@ -726,7 +726,7 @@ BACKUP  tag '<Your TAG here>' incremental level 0 AS compressed BACKUPSET sectio
 For additional incremental backups we suggest replacing occurrences of “inc1 / INC1” with corresponding “incN / INCN” in the following backup script. Note that it is suggested to store each incremental set of backup files into its own directory for easier management.
 
 ##### Incremental online backup - level 1
-{: #sapmig-db-oracle-rman2-inc-onl-backup}
+{: #sapmig-db-oracle-rman2-inc-online-backup}
 
 The second RMAN script `option2_backup_inc1.rman` configures the RMAN environment and creates the initial level 0 (full) online backup.
 The key command to start the incremental (level 1) backup in this script is:

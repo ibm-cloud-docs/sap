@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2025
-lastupdated: "2025-07-03"
+  years: 2026
+lastupdated: "2026-01-23"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, SLES, SUSE, SUSE High Availability Extension, SLES HAE
 subcollection: sap
 ---
@@ -79,7 +79,7 @@ Set the `VIP` environment variable to the reserved IP address.
 ### Installing SAP HANA resource agents
 {: #ha-sles-hana-sr-install-sap-hana-resource-agents}
 
-The [SAP Hana resource agent](https://documentation.suse.com/sles-sap/15-SP6/html/SLES-SAP-guide/cha-about.html#sec-hana-ra){: external} and the [SAP HanaTopology Resource agent](https://documentation.suse.com/sles-sap/15-SP6/html/SLES-SAP-guide/cha-about.html#sec-topology-ra){: extenal} are part of the SLES for SAP applications distribution.
+The [SAP Hana resource agent](https://documentation.suse.com/sles-sap/15-SP6/html/SLES-SAP-guide/cha-about.html#sec-hana-ra){: external} and the [SAP HanaTopology Resource agent](https://documentation.suse.com/sles-sap/15-SP6/html/SLES-SAP-guide/cha-about.html#sec-topology-ra){: external} are part of the SLES for SAP applications distribution.
 
 To install the resource and topology agent, make sure that the package *yast2-sap-ha* is installed, as described in [Setting up an SAP HANA cluster](https://documentation.suse.com/sles-sap/15-SP6/html/SLES-SAP-guide/cha-cluster.html){: external} and follow the steps to configure the HANA cluster by using *yast2*.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-12"
+  years: 2020, 2026
+lastupdated: "2026-01-20"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -30,7 +30,7 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
 1. The data centers displayed under **Location** depend on product availability within a particular data center. Select your data center.
 1. Click **All servers** > **SAP certified**. SAP HANA-certified servers are identified with an **.H** under CPU Model and SAP NetWeaver-certified are identified with an **.NW**.
 
-1. Select the appropriate SAP HANA-certified and SAP NetWeaver-certified server for your workload from the URLs in [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm) or [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm)
+1. Select the appropriate SAP HANA-certified and SAP NetWeaver-certified server for your workload from the URLs in [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm) or [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm)
 
 .
 

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-11-11"
+  years: 2023, 2026
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -310,10 +310,10 @@ Use the following steps to activate the cost optimized hook.
 ### Defining limits for SAP HANA resource usage on the secondary node
 {: #ha-rhel-hana-sr-co-limit-resource}
 
-All SAP HANA systems that are running on NODE2 share the avaible memory of the node.
+All SAP HANA systems that are running on NODE2 share the available memory of the node.
 Memory configuration of the secondary system SAP HANA *${SID}* must be limited to the amount required for system replication so that the nonproduction systems can use the remaining memory.
 
-SAP documentation [Secondary System Usage](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/9d62b8108063497f9d6aab08902b2e04.html){: external} describes the different scenarios and provideds parameter recommendations.
+SAP documentation [Secondary System Usage](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/9d62b8108063497f9d6aab08902b2e04.html){: external} describes the different scenarios and provides parameter recommendations.
 
 The preload of column tables on the secondary system is disabled to restrict its memory consumption by setting the database configuration parameter `preload_column_tables = false`.
 This parameter is found in the `[system_replication]` section of the instance configuration file for SAP HANA production system on NODE2.
@@ -410,7 +410,7 @@ subscription-manager repos --enable="rhel-8-for-ppc64le-sap-netweaver-e4s-rpms"
 {: tip}
 
 ### Creating the cluster resource for managing the nonproduction instance
-{: #ha-rhel-hana-sr-co-create-no-prod.cluster-resorce}
+{: #ha-rhel-hana-sr-co-create-no-prod.cluster-resource}
 
 On NODE2, run the following command.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-08"
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -190,7 +190,7 @@ SAP HANA multi-node requires certain networks be in place to function. Before yo
 Within each environment is a separate networking design. The classic infrastructure environment network is the forerunner and is the most robust option of many traditional and physical networking concepts. The VPC Infrastructure environment network is a software-defined network. The IBM Power environment network (as a complementary offering from {{site.data.keyword.IBM_notm}} Power Systems) is designed with networking principles for enterprise-grade performance.
 
 Given these environment networks are different, configuring extra NIC throughput changes for the different infrastructure options:
-* **Bare Metal, on Classic Infrastructure network:**  To maximize performance and redundancy, the physical network interfaces (NIC) are provided with 10 Gbps and then provisioned with bonding using Link Aggregation Control Protocol (LACP). The switches are configured automatically when ordering redundancy on the physical NIC. _Additional NIC cards might be added, depending on the physical machine specificiation and physical switch availability of ports._
+* **Bare Metal, on Classic Infrastructure network:**  To maximize performance and redundancy, the physical network interfaces (NIC) are provided with 10 Gbps and then provisioned with bonding using Link Aggregation Control Protocol (LACP). The switches are configured automatically when ordering redundancy on the physical NIC. _Additional NIC cards might be added, depending on the physical machine specification and physical switch availability of ports._
 * **Intel Virtual Server, on VPC Infrastructure network:** To maximize performance and redundancy, up to 5 network interfaces (vNIC) on multiple Subnets can be added.
 * **IBM {{site.data.keyword.powerSys_notm}}, on IBM Power Infrastructure network:** To maximize performance redundancy, multiple network interfaces (vNIC) attached to different VLANs (and their respective Subnets) can be added.
 * **VMware for SAP, on Classic Infrastructure network:**

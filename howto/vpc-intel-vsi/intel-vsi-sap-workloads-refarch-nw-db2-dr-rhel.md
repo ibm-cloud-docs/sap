@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2025
-lastupdated: "2025-12-23"
+  years: 2026
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Sybase
 subcollection: sap
 ---
@@ -34,7 +34,7 @@ Db2 database is one of several databases that can be deployed on SAP NetWeaver i
 
 The following SAP technical components are deployed in this configuration:
 
-* Db2 database performs two installations on 2 virtual server instances (VSIs) across 2 regions, with asyncronous replication configuration support.
+* Db2 database performs two installations on 2 virtual server instances (VSIs) across 2 regions, with asynchronous replication configuration support.
 * SAP ASCS, Central Services, and PAS are the primary application server with dialog and batch processing.
 * SAP router (optional) provides secured connections to the VSI and remote connections for support of SAP AG remote services.
 

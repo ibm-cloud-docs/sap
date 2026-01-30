@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-10"
+  years: 2023, 2026
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn, SLES HAE
 subcollection: sap
 ---
@@ -154,7 +154,7 @@ Follow these steps to create the virtual server instances that function as nodes
 1. In the **Network Interfaces** section, it is preferable that the cluster nodes are not directly accessible from a public network.
    Keep the *Public networks* configuration set to **Off**.
 1. Click **Attach** to attach the virtual server instances to an existing subnet.
-1. In the *Attach an existing network* screen, select one of the *Existing networks*.
+1. In the *Attach an existing network* screen, select one of the *existing networks*.
    You can either select **Automatically assign IP address from IP range**, or **Manually specify an IP address from IP range** to specify an available IP address.
 1. Click **Attach.**
 1. Click **Finish**, check the *I agree to the Terms and Conditions* flag, and click **Create**.

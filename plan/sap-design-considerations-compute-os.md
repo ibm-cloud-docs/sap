@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-12"
+lastupdated: "2026-01-20"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -50,16 +50,16 @@ For SAP HANA workloads, these combinations represent the [**appliance** delivery
 
 Servers that are intended for SAP application server based workloads, the configuration is more flexible, i.e. you may add or remove disks as you like.
 
-SAP HANA database servers and SAP application servers run on {{site.data.keyword.cloud_notm}} Classic using [Intel Bare Metal server certified profiles on Classic infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm).
-In addition, SAP application servers run on {{site.data.keyword.cloud_notm}} Classic using [Intel Bare Metal server certified profiles on Classic infrastructure for SAP application server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm).
+SAP HANA database servers and SAP application servers run on {{site.data.keyword.cloud_notm}} Classic using [Intel Bare Metal server certified profiles on Classic infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm).
+In addition, SAP application servers run on {{site.data.keyword.cloud_notm}} Classic using [Intel Bare Metal server certified profiles on Classic infrastructure for SAP application server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm).
 For more information, see [Intel Bare Metal servers on Classic Infrastructure](/docs/sap?topic=sap-iaas-offerings#iaas-intel-bm).
 
 
 ### Compute Profiles of SAP-certified Bare Metal on VPC Infrastructure
 {: #compute-baremetal-vpc}
 
-SAP HANA database servers and SAP application servers run on {{site.data.keyword.cloud_notm}} VPC using [Intel Virtual Server certified profiles on Classic infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm).
-In addition, SAP application servers run on {{site.data.keyword.cloud_notm}} Classic using [Intel Bare Metal server certified profiles on Classic infrastructure for SAP application server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm).
+SAP HANA database servers and SAP application servers run on {{site.data.keyword.cloud_notm}} VPC using [Intel Virtual Server certified profiles on Classic infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm).
+In addition, SAP application servers run on {{site.data.keyword.cloud_notm}} Classic using [Intel Bare Metal server certified profiles on Classic infrastructure for SAP application server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm).
 For more information, see [Intel Bare Metal servers on Classic Infrastructure](/docs/sap?topic=sap-iaas-offerings#iaas-intel-bm).
 
 
@@ -69,7 +69,7 @@ For more information, see [Intel Bare Metal servers on Classic Infrastructure](/
 {{site.data.keyword.ibm_cloud_sap}} provides SAP-certified infrastructure by using {{site.data.keyword.IBM_notm}}'s latest virtual servers which are available with instantaneous provisioning, and are offered in different profiles that define vCPU and RAM combinations.
 
 SAP HANA database servers and SAP application servers run on {{site.data.keyword.cloud_notm}} VPC using [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc).
-In addition, SAP application servers run on {{site.data.keyword.cloud_notm}} VPC using [Intel Virtual Server certified profiles on VPC infrastructure for SAP application server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm).
+In addition, SAP application servers run on {{site.data.keyword.cloud_notm}} VPC using [Intel Virtual Server certified profiles on VPC infrastructure for SAP application server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-bm).
 For more information, see [Intel Virtual Servers on VPC Infrastructure](/docs/sap?topic=sap-iaas-offerings#iaas-intel-vson-vpc).
 
 

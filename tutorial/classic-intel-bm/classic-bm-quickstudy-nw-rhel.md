@@ -49,7 +49,7 @@ The sample layouts might not be your preferred layout. The purpose of this guida
 {: #configure_server-32GB-rhel}
 {: step}
 
-1. Select *CPU Model BI.S3.NW32 (OS Options)*. For more information about how to decipher the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm).
+1. Select *CPU Model BI.S3.NW32 (OS Options)*. For more information about how to decipher the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm).
 2. **RAM** defaults to a predefined value based on your server selection and cannot be changed.
 3. Enter an optional public key for your **SSH key**, which you can use to log in to your server after the server is provisioned. The default is *None*.
 4. Select *Red Hat* as your **Image** (OS). The default is *7.x (64 bit)*.
@@ -156,7 +156,7 @@ Use the following steps to order an SAP-certified server as your database server
 
 Use the following steps to configure your database server and OS.
 
-1. Select *CPU Model BI.S3.NW192 (OS Options)*. For more information about how to decipher the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm).
+1. Select *CPU Model BI.S3.NW192 (OS Options)*. For more information about how to decipher the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm).
 2. **RAM** defaults to a predefined value based on your server selection and cannot be changed.
 3. Enter an optional public key for **SSH key**, which you can use to log in to your server after the server is provisioned. The default is *None*.
 4. Select *Red Hat* as your **Image** (OS). The default is *7.x (64 bit)*.

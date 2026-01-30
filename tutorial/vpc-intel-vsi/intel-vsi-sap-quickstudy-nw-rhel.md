@@ -114,7 +114,7 @@ Use the following steps to create a virtual server instance.
     For every SUSE Linux&reg; Enterprise and Red Hat&reg; Enterprise Linux&reg; version there are two different Catalog Images available each: one for SAP HANA and one for SAP NetWeaver (Applications). In these images, the specific repositories are enabled, so you can install the OS packages that are required to install SAP HANA or SAP NetWeaver.
     {: note}
 
-1. Click **All profiles** > **Balanced** and select *bx2-32x128*. For more information about SAP-certified profiles, see [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
+1. Click **All profiles** > **Balanced** and select *bx2-32x128*. For more information about SAP-certified profiles, see [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi).
 
 ![Figure 4. Balanced Profiles for SAP NetWeaver](../../images/vpc-intel-vsi-quickstudy-9.png "Balanced Profiles for SAP NetWeaver"){: caption="Balanced profiles for SAP NetWeaver" caption-side="bottom"}
 
@@ -480,7 +480,7 @@ SAP requires the installation of the {{site.data.keyword.cloud_notm}} Metrics Co
 
 Log in to SAP for Me [Download Software](https://me.sap.com/softwarecenter) and download the required digital versatile discs (DVDs) to a local share drive and then transfer the DVDs to your provisioned server. Alternative option, download the SAP Software Download Manager, install it on your target server and directly download the DVD images to the server. For more information about the SAP Software Download Manager, see [SAP Download Manager](https://support.sap.com/en/my-support/software-downloads.html#section_995042677){: external}.
 
-You need an S-User ID and the Download Software authorization when you download the DVDs from the SAP Service Marketplace. To request an S-USer ID, see the [SAP Support Portal](https://support.sap.com/en/index.html){: external}.
+You need an S-User ID and the Download Software authorization when you download the DVDs from the SAP Service Marketplace. To request an S-User ID, see the [SAP Support Portal](https://support.sap.com/en/index.html){: external}.
 {: note}
 
 ### Preparing for SAP’s Software Provisioning Manager (SWPM)

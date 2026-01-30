@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-06-12"
+  years: 2020, 2026
+lastupdated: "2026-01-20"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -95,7 +95,7 @@ Use the following steps to order your virtual server and necessary components. F
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 1. Select the same **Location** in which you created your VPC and subnets. The location consists of a region and zone.
 1. Select your preferred **Operating System** from either Windows Server, Red Hat Linux or SUSE Linux to run SAP Netweaver, or from Red Hat or SUSE to run SAP HANA; you find the Linux versions in the tile **Catalog image** > **`...-sap-hana-...`** as the OS images for SAP HANA, or **Catalog image** > **`...-sap-applications-...`** as the OS images for SAP NetWeaver.
-1. Select a **Profile** based on the guidance detailed in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc), which lists the profiles that are certified for SAP HANA and SAP NetWeaver.
+1. Select a **Profile** based on the guidance detailed in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi), which lists the profiles that are certified for SAP HANA and SAP NetWeaver.
 1. Select the **SSH key** you want to add to the virtual server. For this step, you can create a new SSH key.
 1. Click **New volume** for **Data volumes**. Data volumes are required.
    - For SAP HANA, these volumes must meet special KPI needs that are defined by SAP and are mandatory. See [Storage specifications - Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-storage-specs) or [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations) to learn these special needs and how you should configure the data volumes.
@@ -116,7 +116,7 @@ Table 1 is a summary of the fields and values that are used to provision {{site.
 | Resource group | Use resource groups to organize your account resources for access control and billing purposes. |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want to create your virtual server. |
 | Operating System | * Linux distribution for SAP HANA workloads, select **Catalog image** > **`...-sap-hana-...`**\n * Linux distribution for SAP NetWeaver workloads, select **Catalog image** > **`...-sap-applications...`** \n * Windows Server for SAP NetWeaver workloads, select Windows Server\n * Choose an operating system version that is supported by SAP as documented in [SAP Note 2927211](https://me.sap.com/notes/2927211){: external} |
-| Profile |  Select one of the profiles outlined in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc). |
+| Profile |  Select one of the profiles outlined in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key before you can create the instance. SSH keys are used to securely connect to a running instance. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | User data | You can add user data to automatically complete common configuration tasks or run scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |

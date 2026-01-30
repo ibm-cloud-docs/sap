@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2025
-lastupdated: "2025-12-23"
+  years: 2026
+lastupdated: "2026-01-23"
 keywords:
 subcollection: sap
 ---
@@ -138,7 +138,7 @@ For more information and procedures regarding {{site.data.keyword.vpc_short}} fi
 
 The installation of the SAP NetWeaver 7.5 with ASE on RHEL 9.4 is performed based on the file system layout:
 
-| Disk name| Disk size (GB) | Physical volume | Volume group | Logical volume name | Logical volumn size (GB) | File system | Mount point |
+| Disk name| Disk size (GB) | Physical volume | Volume group | Logical volume name | Logical volume size (GB) | File system | Mount point |
 | - | - | - | - | - | - | - | - |
 | vdb | 32 | /dev/vdb | bog_swap_vg | bog_swap_lv | 30 | /dev/bog_swap_vg/bog_swap_lv | [SWAP] |
 | vdc | 32 | /dev/vdc | bog_log_vg | bog_saplog1_lv \n bog_saplog2_lv \n bog_saplog3_lv \n bog_saplog4_lv | 7 \n 7 \n 7 \n 7 | /dev/bog_log_vg/bog_saplog1_lv \n /dev/bog_log_vg/bog_saplog2_lv \n /dev/bog_log_vg/bog_saplog3_lv \n /dev/bog_log_vg/bog_saplog4_lv | /sybase/BOG/saplog_1 \n /sybase/BOG/saplog_2 \n /sybase/BOG/saplog_3 \n /sybase/BOG/saplog_4 |

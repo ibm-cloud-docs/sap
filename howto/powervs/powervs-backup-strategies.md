@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-03-27"
+  years: 2026
+lastupdated: "2026-01-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, Backup, Compass, Cobalt Iron, Backint, agent, Cloud {{site.data.keyword.cos_short}}, COS
 subcollection: sap
 
@@ -14,14 +14,48 @@ subcollection: sap
 # Backup strategies for SAP HANA on IBM {{site.data.keyword.powerSys_notm}}
 {: #powervs-backup-strategies}
 
-IBM Cloud offers a robust {{site.data.keyword.powerSys_notm}} infrastructure to run SAP HANA, and this document outlines the steps and best practices for performing backups of SAP HANA database.
+IBM Cloud offers a robust {{site.data.keyword.powerSysFull}} infrastructure to run SAP HANA, and this document outlines the steps and best practices for performing backups of SAP HANA database.
 
 When deploying SAP HANA on {{site.data.keyword.powerSys_notm}} instance, it is essential to implement a reliable and efficient backup strategy to ensure the availability and recoverability of your data. Two primary methods are available for performing backups of SAP HANA database running on {{site.data.keyword.powerSys_notm}} instance:
 
+1. [IBM SAP HANA Backint Agent for {{site.data.keyword.cos_full_notm}}](#powervs-backup-using-sap-backint-agent)
 1. [Secure automated backup with Compass for SAP HANA](#powervs-backup-using-compass)
-1. [SAP HANA Backint Agent for {{site.data.keyword.cos_full_notm}}](#powervs-backup-using-sap-backint-agent)
+
 
 Both of these methods offer flexible, secure, and scalable solutions for backing up SAP HANA, and each has its own set of advantages based on your infrastructure and requirements.
+
+## IBM SAP HANA Backint agent for {{site.data.keyword.cos_full_notm}}
+{: #powervs-backup-using-sap-backint-agent}
+
+* **Backint for SAP HANA** is an API that enables third-party solutions to directly connect their backup agents to the SAP HANA database.
+* The **IBM Backint Agent for SAP HANA with {{site.data.keyword.cos_full_notm}}**, developed by IBM, is essential for performing backups of SAP HANA in compliance with SAP’s backup guidelines.
+* IBM SAP HANA Backint agent is supported both on SUSE Linux Enterprise Server (SLES) and Red Hat Enterprise Linux (RHEL) platforms.
+
+### Prerequisites
+{: #powervs-backup-using-sap-backint-agent-prereqs}
+
+Before you begin, ensure that the following prerequisites are met:
+
+1. It is required to have an {{site.data.keyword.cos_full_notm}} (COS) instance. Within this instance, an {{site.data.keyword.cos_short}} Bucket is required. Refer to [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage) for more details.
+   1. Log in to the [IBM Cloud console](https://cloud.ibm.com/){: external} and create an instance of **{{site.data.keyword.cos_full_notm}}**.
+   1. Create a **bucket** where backups will be stored.
+   1. Make sure to set the **bucket’s permissions** properly to control access.
+   1. Obtain the **service credentials** (API key) required to authenticate your backups.
+   1. Follow additional prerequisites mentioned in [github readme](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos/blob/main/README.md#prerequisites){: external}
+1. Downloaded the latest release from [ibm-sap-hana-backint-cos github repository](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos/releases){: external}.
+
+To improve the backup performance create an {{site.data.keyword.vpc_short}}(VPC) and create a [Virtual Private Endpoint gateway (VPE)](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=ui) of type Cloud {{site.data.keyword.cos_short}}.
+Add the virtual private endpoint IP address and name to the hosts file `/etc/hosts` on the {{site.data.keyword.powerSys_notm}} instance.
+To access the VPE from the {{site.data.keyword.powerSys_notm}} instance, the VPC subnet and the {{site.data.keyword.powerSys_notm}} Workspace must be attached to the same {{site.data.keyword.tg_short}}.
+
+### Installation and configuration of agent on host
+{: #powervs-backup-using-sap-backint-agent-install}
+
+1. For installation guide follow the [github readme](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos/blob/main/README.md#install-the-agent){: external}.
+1. For configuring correct SAP HANA and backint agent parameters refer to the [github readme](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos/blob/main/README.md#configure-sap-hana-database-to-use-the-parameter-file){: external}.
+
+Referenced in [SAP Note 3644731 -  Install and Configure IBM Backint agent for SAP HANA with IBM Cloud Object Storage](https://me.sap.com/notes/3644731){: external}.
+
 
 ## Secure automated backup with Compass for Linux
 {: #powervs-backup-using-compass}
@@ -77,34 +111,3 @@ Support for the Backup Offering is provided by Cobalt Iron.
 
 * For more information about the offering, see the [Cobalt Iron documentation](https://help.cobaltiron.com/getting-started-with-powervs-and-compass-commander/){: extrnal}.
 * For issues related to backup and restore, contact Cobalt Iron by opening a service ticket through `support.cobaltiron.com`.
-
-
-## SAP HANA Backint agent for {{site.data.keyword.cos_full_notm}}
-{: #powervs-backup-using-sap-backint-agent}
-
-* The Backint agent for SAP HANA is a tool designed to integrate with third-party backup solutions. It allows SAP HANA backups to be offloaded to various backup storage systems, such as {{site.data.keyword.cos_full_notm}} or to a local storage disk.
-* The SAP HANA Backint Agent for {{site.data.keyword.cos_full_notm}} is bundled as part of the `IMDB_SERVER*.SAR` installation file (SAP HANA database installation binary) and is essential for performing backups on SAP HANA in compliance with SAP’s backup guidelines.
-* SAP HANA Backint agent is supported both on SUSE Linux Enterprise Server (SLES) and RedHat platforms.
-
-### Prerequisites
-{: #powervs-backup-using-sap-backint-agent-prereqs}
-
-Before you begin, ensure the following prerequisites are met:
-
-1. It is required to have an {{site.data.keyword.cos_full_notm}} (COS) instance. Within this instance, an {{site.data.keyword.cos_short}} Bucket is required. Refer to [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage) for more details.
-   1. **Log into IBM Cloud Console** and create an instance of **{{site.data.keyword.cos_full_notm}}**.
-   1. Create a **bucket** where backups will be stored.
-   1. Make sure to set the **bucket’s permissions** properly to control access.
-   1. Obtain the **service credentials** (API key) required to authenticate your backups.
-1. The `IMDB_SERVER*.SAR` file downloaded from [SAP Softwarecenter](https://me.sap.com/softwarecenter){: external}.
-
-For better performance create an {{site.data.keyword.vpc_short}}(VPC) and create a [virtual private endpoint gateway (VPE)](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=ui) of type Cloud {{site.data.keyword.cos_short}}. Add an entry in the `/etc/hosts` file on {{site.data.keyword.powerSys_notm}} instance with the VPE IP which points to the direct endpoint of Cloud {{site.data.keyword.cos_short}}.
-To reach the IP of VPE from the {{site.data.keyword.powerSys_notm}} instance, the VPC and the {{site.data.keyword.powerSys_notm}} Workspace must be connected to the same {{site.data.keyword.tg_short}}.
-
-### Installation and configuration of agent on host
-{: #powervs-backup-using-sap-backint-agent-install}
-
-1. Extract the downloaded `IMDB_SERVER*.SAR` on the {{site.data.keyword.powerSys_notm}} instance.
-1. The backint agent installation package is available in `SAP_HANA_DATABASE/server/aws-s3-backint-<version>-linuxppc64le.tar.gz`.
-1. [SAP Note 2935898](https://me.sap.com/notes/1380654){: external} describes how to install and configure the SAP HANA Backint Agent for {{site.data.keyword.cos_full_notm}}.
-1. Refer to [BACKUP DATA Statement (Backup and Recovery)](https://help.sap.com/docs/HANA_SERVICE_CF/7c78579ce9b14a669c1f3295b0d8ca16/75a06c444e9a4b3287a46a6a40b4ee69.html){: external}.

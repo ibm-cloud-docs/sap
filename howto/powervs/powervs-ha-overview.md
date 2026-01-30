@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-09"
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -9,13 +9,13 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}
+# Overview: High availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-overview}
 
-Running SAP on {{site.data.keyword.powerSysFull}} offers a consistent platform for SAP HANA-based and traditional applications, world-class performance, resiliency for critical workloads, and a flexible infrastructure.
+Running SAP on {{site.data.keyword.powerSysFull}} offers a consistent platform for SAP HANA and traditional applications, delivering world-class performance, resiliency for critical workloads, and flexible infrastructure options.
 {: shortdesc}
 
-Use the following information to understand how to implement high availability solutions for SAP systems by using {{site.data.keyword.powerSys_notm}} instances.
+Use the following information to learn how to implement high availability solutions for SAP systems on {{site.data.keyword.powerSys_notm}} instances.
 
 ## SAP system architecture
 {: #ha-overview-architecture}
@@ -23,213 +23,391 @@ Use the following information to understand how to implement high availability s
 The main components of an SAP system are as follows.
 
 SAP HANA system
-:   The SAP HANA system provides the tenant database for SAP application servers.
+:   The SAP HANA system hosts the tenant database that stores data for SAP applications.
 
 SAP application server
-:   SAP application servers provide the functional part of an SAP S/4HANA or other application solution.
-    All customization and application data of an SAP system is stored in a tenant database of an SAP HANA system.
+:   SAP application servers provide the functional components of an SAP S/4HANA or other SAP application solution.
+    All customization and application data is stored in the tenant database of the SAP HANA system.
 
-    An SAP application system is installed and configured as a single unit and consists of the following application instances.
+    An SAP application system is installed and configured as a single unit.
+    It consists of the following application instances.
 
     - One ABAP System Central Services instance (ASCS instance)
-      Each SAP application system has exactly one ASCS instance, which consists of a message server and an enqueue server.
+      - Each SAP application system includes one ASCS instance, which contains a message server and an enqueue server.
 
     - One or more application server instances (AS instances)
       - The primary application server (PAS) is the first AS instance that is installed for an ABAP system.
-      - Other AS instances that are installed for an ABAP system are called additional application servers (AAS).
+      - Additional AS instances are called additional application servers (AAS).
 
-    Both the application server instances and the ASCS instance depend on a shared file system and require read/write access to it.
+    Both the application server instances and the ASCS instance require read and write access to a shared file system.
 
 Shared file system
-:   Typically, the shared file system is exported on an NFS server and mounted on all instances.
+:   The shared file system is typically exported from a Network File System (NFS) server and mounted on all AS instances.
 
-Figure 1 illustrates the technical components of an SAP system.
+Figure 1 shows the technical components of an SAP system.
 
 ![Figure 1. Technical components for SAP systems](../../images/powervs-ha-technical-components.svg "Technical components for SAP systems"){: caption="Technical components for SAP systems" caption-side="bottom"}
 
-## Considerations for implementing an SAP high availability solution
+## SAP high availability solution considerations
 {: #ha-overview-ha-considerations}
 
-For high availability protection, it is recommended to install application servers redundantly.
-Install at least two application servers (PAS and AAS) and use login groups to implement load balancing.
-If an application server fails, all user sessions that are connected to that instance are stopped.
-The user logs in again, and load balancing redirects the user to another application server that is still running.
+To ensure high availability, install application servers redundantly.
+Deploy at least two application servers (PAS and AAS) and configure logon groups for load balancing.
+If an application server fails, all active user sessions on that instance are ended.
+Users must log in again, and load balancing redirects them to another running application server.
 
-The other technical components, such as the ASCS instance, the SAP HANA database, and the shared file system, are single points of failure and must be protected.
+Other technical components, including the SAP HANA database, ASCS instance, and shared file system, are single points of failure and require protection.
 
-- ASCS instance
+### SAP HANA system protection
+{: #ha-overview-ha-hana}
 
-   The best way to safeguard the ASCS instance is to deploy an Enqueue Replication Server (ERS) instance on an extra virtual server and use HA clustering software for automating failover.
+To protect an SAP HANA system, deploy a second SAP HANA instance on a separate virtual server, enable SAP HANA system replication, and use high availability (HA) cluster software for automated failover.
+The solution depends on the recovery time objective (RTO).
 
-   Install ASCS and ERS either on a shared disk that is attached to both virtual server instances or on an NFS file system.
-
-   The enqueue server of the ASCS instance manages the lock table, and the ERS creates a replicated copy of the lock table in its main memory.
-   If the enqueue server must be restarted, the lock table is rebuilt by using the copy on the ERS, and the locks are retained.
-
-   A simple restart of the message server is sufficient because no data needs to be retained.
-
-   Follow the steps in [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-ensa){: external} to set up an HA cluster for the ABAP System Central Services instance.
-
-- Shared file system
-
-   The recommended method of protecting the NFS server is to implement an extra virtual server instance. Then, create the NFS exported file systems on shared disks that are attached to both virtual server instances and automate the failover by using HA cluster software.
-
-   Follow the steps in [Configuring an active-passive NFS Server in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-nfs){: external} to set up an HA cluster for the shared file system.
-
-- SAP HANA system
-
-   SAP HANA provides two approaches to scale a system: *scale-up* and *scale-out*.
-   With the comprehensive and highly scalable set of [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs){: external} that are available in IBM {{site.data.keyword.powerSys_notm}}, the focus is on a SAP HANA *scale-up* installation.
-   {: note}
-
-   The best way to protect an SAP HANA system is to set up a secondary SAP HANA system on a separate virtual server instance. Then, configure SAP HANA system replication, and automate failover with HA cluster software.
-
-The following figure shows an architectural overview of a highly available SAP system that is implemented on {{site.data.keyword.powerSys_notm}}.
-
-![Figure 2. SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview](../../images/powervs-ha-architecture-overview.svg "SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview"){: caption="SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview" caption-side="bottom"}
-
-## SAP HANA high availability scenarios
-{: #ha-overview-hana-ha-scenarios}
-
-The solution varies depending on the recovery time objective (RTO).
 
 | Scenario                      | Typical RTO           | Comment        |
 | ----------------------------- | --------------------- | -------------- |
-| Performance Optimized         | A few minutes         | Unless you have specific requirements, this scenario is the default. |
-| Active/Active (read enabled)  | A few minutes         | In an Active/Active (read enabled) configuration, SAP HANA system replication allows read access to the database content on the secondary system. |
-| Cost Optimized                | A few tens of minutes | In a cost-optimized configuration, a nonproduction SAP HANA system runs on the secondary node during normal operation. The hardware resources on the secondary node are shared between the nonproduction system and the SAP HANA System Replication secondary. The memory consumption of the production SAP HANA System Replication secondary is reduced by turning off the preloading of data in the column tables. When a failover occurs, the nonproduction instance is automatically stopped before the node takes over the production workload. The take-over time is longer compared to a performance-optimized configuration. |
+| Performance Optimized         | A few minutes         | This scenario is used by default unless specific requirements apply. |
+| Active/Active (read enabled)  | A few minutes         | In an Active/Active (read enabled) configuration, SAP HANA system replication enables read access to database content on the secondary system. |
+| Cost Optimized                | A few dozen minutes   | In a cost-optimized configuration, a nonproduction SAP HANA system runs on the secondary node during normal operation. Hardware resources are shared between the nonproduction system and the replication secondary. Memory consumption is reduced by disabling the column table data preload. During the failover process, the nonproduction instance is stopped before the node takes over the production workload. This approach increases takeover time compared to a performance-optimized configuration.|
 {: caption="Variations for high availability solutions for SAP HANA" caption-side="bottom"}
 
-Depending on your requirements, select the documentation for one of the scenarios.
 
-- SAP HANA System Replication performance-optimized scenario
 
-   [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr){: external}.
+### SAP ASCS instance protection
+{: #ha-overview-ha-ascs}
 
-- SAP HANA System Replication cost-optimized scenario
+To protect the ASCS instance, deploy an Enqueue Replication Server (ERS) instance on a separate virtual server and use HA cluster software for automated failover.
 
-   [Configuring SAP HANA cost-optimized scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-cost-optimized){: external}.
+Install the ASCS and ERS instances on a shared disk that is attached to both servers or on an NFS file system.
 
-- SAP HANA System Replication Active-Active (Read Enabled) scenario
+The enqueue server in the ASCS instance manages the lock table, while the ERS maintains a replicated copy in its memory.
+If the enqueue server is restarted, the lock table is rebuilt from the ERS copy, preserving all locks.
 
-   [Configuring SAP HANA active/active (read enabled) system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa){: external}.
+A restart of the message server is sufficient because no data needs to be retained.
+
+### Shared file system protection
+{: #ha-overview-ha-shared}
+
+To protect the shared file system, create [File storage shares for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
+File Storage for {{site.data.keyword.filestorage_vpc_full}} is designed for high availability and offers profiles for zonal and regional deployments.
+Mount the file system on your {{site.data.keyword.powerSys_notm}} instances by following the steps in [Accessing file storage shares for VPC](/docs/sap?group=file-storage-shares-for-vpc){: external}.
+
+## Overview of high availability clusters
+{: #ha-overview-ha-cluster}
+
+An HA cluster uses virtual server instances to provide high availability for the SAP system.
+Critical SAP components run on multiple instances within the cluster.
+Although HA cluster software does not completely eliminate downtime, it manages and automates failover processes to help maintain service continuity and minimize disruption when a failover occurs.
+
+In a nonclustered deployment, a failure of a critical component or its underlying virtual server instance causes a complete SAP system outage.
+The administrator must diagnose the issue, fix it, and restart the failed component.
+
+In an HA cluster, the system automatically detects hardware or software faults.
+When a fault occurs, HA cluster software restarts the affected component on a healthy virtual server instance.
+This process, which is known as failover, occurs automatically without administrator intervention, reducing recovery time compared to manual recovery procedures.
+This setup helps maintain high availability for the SAP system when an application component or virtual server instance fails.
+
+### Key components in an HA cluster
+{: #ha-overview-ha-cluster-key-components}
+
+To run critical application components on multiple cluster nodes, the following elements typically play a role in enabling high availability:
+
+Shared storage
+: Cluster nodes require access to the same storage.
+   During failover, another node can start the failed component because it can access the required files and data.
+
+Service IP address
+: Client nodes communicate with the application component through a fixed service IP address, which is assigned to the node where the component is running.
+
+Resource agents
+: A resource agent abstracts cluster management for the application component.
+   It defines the logic for starting, stopping, and monitoring the component.
+
+### Cluster monitoring and fault detection
+{: #ha-overview-ha-cluster-fault-detection}
+
+An HA cluster uses a heartbeat mechanism to monitor node health and status.
+
+The cluster software must prevent a split-brain scenario, which occurs when all heartbeat communication fails while nodes remain active.
+In this situation, multiple nodes might incorrectly assume that they are active and start duplicate resources, causing data corruption.
+
+### Quorum and node isolation
+{: #ha-overview-ha-cluster-quorum}
+
+Quorum determines whether nodes can safely continue operating and managing resources.
+Nodes that do not have quorum must be stopped or isolated to prevent a split-brain scenario.
+
+### Fencing mechanisms
+{: #ha-overview-ha-cluster-fencing}
+
+Fencing isolates nodes without quorum or when a resource cannot be stopped normally, ensuring the resource can start safely on another node.
+Two common fencing methods include:
+
+Power fencing
+: A *fence_agent* controls power devices, hardware management consoles, or hypervisor APIs to forcibly power off or restart a node.
+   Powering off the node ensures it cannot access shared resources.
+
+   Power fencing provides reliable isolation and ensures that the node is powered off.
+   Control occurs at the hardware level, independent of the operating system or cluster software state.
+   However, power cycling takes time, and configuring fence agents requires a more complex setup.
+
+SBD (STONITH Block Device) poison-pill fencing
+: A shared storage device is accessible to all nodes.
+   Nodes write a poison pill to the disk to signal another node to shut down.
+
+   The `sbd` daemon on the target node reads the poison pill and triggers a restart or shutdown.
+   A watchdog is required for this method.
+   If the `sbd` daemon hangs and fails to read the poison pill, it also fails to reset the watchdog timer.
+   When the timer expires, the watchdog restarts the node.
+
+## Overview of Linux high availability cluster on {{site.data.keyword.powerSys_notm}}
+{: #ha-overview-ha-powervs}
+
+Cluster nodes in {{site.data.keyword.powerSys_notm}} can run in a single workspace within one zone or across two workspaces in different zones.
+
+The network architecture depends on the deployment model.
+In a single workspace, one subnet can span all cluster nodes.
+However, {{site.data.keyword.powerSys_notm}} does not allow a subnet to span multiple workspaces.
+As a result, the traditional `IPaddr2` resource agent cannot be used to assign a fixed service IP across workspaces.
+
+The resource agents `powervs-move-ip` and `powervs-subnet` manage additional subnets or network routes when cluster nodes are distributed across multiple workspaces.
+
+Table 2 compares high availability cluster configurations for single-workspace and multizone region deployments.
+
+|         Configuration          | Single workspace                                                   | Multizone region                                    |
+| ------------------------------ | ------------------------------------------------------------------ | --------------------------------------------------- |
+| Shared block storage           | {{site.data.keyword.powerSys_notm}} volumes                        | n/a                                                 |
+| Shared file storage            | File storage shares for VPC (zonal)                                | File storage shares for VPC (regional)              |
+| Fencing agent                  | `fence_ibm_powervs` (one agent)                                    | `fence_ibm_powervs` (one agent per workspace)       |
+| Shared storage for SBD fencing | {{site.data.keyword.powerSys_notm}} volumes                        | iSCSI volumes on VPC VSIs                           |
+| Resource Agent ServiceIP       | `ipaddr2` (recommended), `powervs_move_ip`                         | `powervs_move_ip` (recommended), `powervs_subnet`   |
+{: caption="Comparison of HA cluster configurations for single-workspace and multizone region deployments" caption-side="bottom"}
+
+The following figures illustrate the architecture of a highly available SAP system.
+
+SAP Web Dispatcher serves as a reverse proxy for HTTP(S) requests to the SAP system.
+Two SAP Web Dispatchers run in parallel in {{site.data.keyword.vpc_full}}s behind a {{site.data.keyword.loadbalancer_full}}.
+{{site.data.keyword.tg_full}} interconnects the {{site.data.keyword.vpc_short}} with resources in {{site.data.keyword.powerSys_notm}} workspaces.
+Business users access the SAP system through the {{site.data.keyword.loadbalancer_short}} and SAP Web Dispatchers.
+
+Figure 2 shows a high availability setup with the SAP system that is installed in a single {{site.data.keyword.powerSys_notm}} workspace.
+
+At least two application servers run on virtual server instances within the {{site.data.keyword.powerSys_notm}} workspace.
+Instance directories for the application servers are stored on {{site.data.keyword.powerSys_notm}} volumes or a zonal file storage share.
+
+Two {{site.data.keyword.powerSys_notm}} instances form a cluster for ASCS and ERS.
+ASCS and ERS instance directories are stored on a zonal file storage share.
+The `ipaddr2` resource agent manages virtual IP addresses for ASCS and ERS.
+
+Another two {{site.data.keyword.powerSys_notm}} instances form a cluster for SAP HANA.
+SAP HANA runs on both instances with system replication configured.
+SAP HANA storage is stored on {{site.data.keyword.powerSys_notm}} volumes.
+The `ipaddr2` resource agent manages the virtual IP for the SAP HANA primary.
+
+![Figure 2. SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview](../../images/powervs-ha-architecture-overview-sz.svg "SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview"){: caption="SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview" caption-side="bottom"}
+
+Figure 3 shows a high availability setup with the SAP system that is deployed across two zones in a multizone region.
+
+Redundant application servers run on virtual server instances in both {{site.data.keyword.powerSys_notm}} workspaces.
+Application server instance directories are stored on {{site.data.keyword.powerSys_notm}} volumes or a regional file storage share.
+
+Two {{site.data.keyword.powerSys_notm}} instances across the workspaces form a cluster for ASCS and ERS.
+Their instance directories are stored on a regional file storage share.
+The `powervs-move-ip` resource agent manages static routes and virtual IP addresses for ASCS and ERS.
+
+Another two {{site.data.keyword.powerSys_notm}} instances form a cluster for SAP HANA.
+SAP HANA runs on both instances with system replication configured.
+SAP HANA uses {{site.data.keyword.powerSys_notm}} volumes for storage.
+The `powervs-move-ip` resource agent manages static routes and the virtual IP for the SAP HANA primary.
+
+![Figure 3. SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview](../../images/powervs-ha-architecture-overview-mz.svg "SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview"){: caption="SAP on {{site.data.keyword.powerSys_notm}} HA architecture overview" caption-side="bottom"}
+
+## High availability network considerations
+{: #ha-overview-hana-network-considerations}
+
+High availability strategies for SAP solutions on IBM {{site.data.keyword.powerSys_notm}} differ between single-zone and multizone implementations.
+
+A single-zone setup typically offers better latency and faster failover times because all components are located within the same zone.
+However, it is more vulnerable to zone-level infrastructure failures.
+
+In contrast, a multizone setup distributes resources across separate zones, providing stronger resilience against zone-specific outages and improving overall fault tolerance.
+Multizone deployments introduce more networking considerations, which are addressed by specialized resource agents that are described in the following.
+
+When you deploy SAP application servers in a multizone environment, running them in both zones can introduce latency between the application servers and the active database server.
+To minimize this impact, it is recommended to colocate application servers with the active SAP HANA database instance.
+
+### IP failover in multizone environments
+{: #ha-overview-hana-network-ip-failover-multizone}
+
+In IBM {{site.data.keyword.powerSys_notm}}, subnets are associated with a single workspace and do not span multiple workspaces.
+Therefore, standard Linux resource agents such as *ipaddr2* cannot provide service IP failover across workspaces.
+
+Maintaining connectivity from {{site.data.keyword.vpc_short}} or another {{site.data.keyword.powerSys_notm}} workspace in a multizone regions setup requires custom handling.
+To maintain connectivity between {{site.data.keyword.vpc_short}} or another {{site.data.keyword.powerSys_notm}} workspace in a multizone region, specific configuration steps are needed.
+IBM provides two custom resource agents to enable IP failover in these scenarios.
+
+### Resource agent: powervs-move-ip
+{: #ha-overview-hana-network-ra-move-ip}
+
+This resource agent manages failover by assigning an overlay IP address as an alias to the virtual server instance (VSI) and updating static routes during takeover.
+
+During a takeover event, the `powervs-move-ip` resource agent updates predefined static routes in IBM {{site.data.keyword.powerSys_notm}} and assigns an overlay IP address as an IP alias to the virtual server instance.
+
+The following figures illustrate this scenario in an SAP HANA System Replication cluster.
+- Two virtual server instances (VSIs) are deployed in separate workspaces.
+- A private subnet is created in each workspace.
+- The instances form a two-node RHEL High Availability Add-On cluster.
+- SAP HANA is installed on both instances, and SAP HANA system replication is configured.
+- A cluster resource for the overlay IP address is configured with the `powervs-move-ip` resource agent.
+
+#### Overlay IP characteristics
+{: #ha-overview-hana-network-ovl-ip-characteristics}
+
+- The overlay IP is outside all CIDR subnet ranges in the environment.
+- It is not assigned to a network interface during deployment.
+- At run time, the resource agent configures the overlay IP address as an IP alias on a VSI network adapter.
+- A static route is configured in each workspace:
+   - The destination of each static route is the overlay IP address.
+   - The next hop for each route is the primary IP address of its respective VSI.
+   - The resource agent enables the route to the VSI hosting the SAP HANA primary and disables the route to the VSI hosting the SAP HANA secondary.
+
+#### Overlay IP normal operation
+{: #ha-overview-hana-network-ovl-ip-normal-op}
+
+- The overlay IP address is configured as an alias on VSI-1 in workspace 1.
+- In workspace 1, the static route with the overlay IP address as the destination and the next hop set to VSI-1's primary IP address is enabled.
+- In workspace 2, the static route with the same destination and the next hop set to VSI-2's primary IP address is disabled.
+- The SAP HANA primary instance runs on VSI-1.
+- The SAP HANA secondary instance runs on VSI-2.
+
+![Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](../../images/powervs-ha-architecture-ovlip-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in a multizone region HA overview"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
+
+#### Overlay IP after a takeover
+{: #ha-overview-hana-network-ovl-after-takeover}
+
+- The overlay IP address is configured as an alias on VSI-2 in workspace 2.
+- In workspace 2, the static route with the overlay IP address as the destination and the next hop set to VSI-2's primary IP address is enabled.
+- In workspace 1, the static route with the same destination and the next hop set to VSI-1's primary IP address is disabled.
+- The SAP HANA primary instance runs on VSI-2.
+- The SAP HANA secondary instance runs on VSI-1.
+
+![Figure 5. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](../../images/powervs-ha-architecture-ovlip-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in a multizone region HA takeover"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
+
+### Resource agent: powervs-subnet
+{: #ha-overview-hana-network-ra-move-subnet}
+
+During a takeover event, the `powervs-subnet` resource agent moves the entire subnet, including the virtual IP address, from one workspace to another.
+
+The following figures illustrate this scenario in an SAP HANA System Replication cluster.
+
+Two virtual server instances are deployed in separate workspaces, each with its own subnet:
+- SAP HANA is installed on both VSIs, and SAP HANA System Replication is configured.
+- The two virtual server instances form a two-node high availability cluster, each using its own subnet.
+- A cluster resource that uses the `powervs-subnet` resource agent is configured for `Subnet 3` and `IP address 3`.
+   Use a small CIDR range.
+   Only `IP address 3` and the gateway IP are allocated in `Subnet 3`.
+- SAP HANA database clients use `IP address 3` to connect to the database.
+
+#### Move subnet characteristics
+{: #ha-overview-hana-network-move-subnet-characteristics}
+
+- The CIDR range does not overlap with any other subnet in the environment.
+- The subnet is not preconfigured in either workspace.
+- The resource agent creates the subnet in the workspace that hosts the SAP HANA primary instance.
+
+#### Move subnet normal operation
+{: #ha-overview-hana-network-move-subnet-normal-op}
+
+- Subnet 3 is created in workspace 1.
+- Subnet 3 is attached to VSI-1.
+- IP address 3 is configured on VSI-1.
+- The SAP HANA primary instance is active on VSI-1.
+- The SAP HANA secondary instance is active on VSI-2.
+
+![Figure 6. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](../../images/powervs-ha-architecture-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in a multizone region HA overview"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
+
+#### Move subnet after a takeover
+{: #ha-overview-hana-network-move-subnet-after-takeover}
+
+- Subnet 3 is created in workspace 2.
+- Subnet 3 is attached to VSI-2.
+- IP address 3 is configured on VSI-2.
+- The SAP HANA primary instance is active on VSI-2.
+- The SAP HANA secondary instance is active on VSI-1.
+
+![Figure 7. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](../../images/powervs-ha-architecture-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in a multizone region HA takeover"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
+
+### SAP application server considerations in a multizone region
+{: #ha-overview-hana-mzr-app-server}
+
+Active-Active deployment
+:  SAP application servers are distributed across two workspaces in different zones.
+   At least two application servers run in separate workspaces.
+   Redundant virtual server instances for SAP Central Services (CS) and the SAP HANA database system are deployed in both workspaces.
+   Only one CS instance and one SAP HANA primary node are active at a time.
+   This deployment provides redundancy at the application layer.
+
+Active-Passive deployment
+:  SAP application servers are active in only one of the two workspaces at a time.
+   Application servers in the passive workspace are pre-provisioned but remain powered off until failover.
+   As in the active-active architecture, CS and SAP HANA are deployed in both workspaces, but only one CS instance and one primary node are active at a time.
+   This deployment provides better performance but increases the recovery time objective because the application servers must start during failover.
 
 ## SAP HANA disaster recovery scenarios
 {: #ha-overview-hana-dr-scenarios}
 
-For extra protection of the database system, replicate the SAP HANA system to a third system that is located in a different region by using SAP HANA system replication.
-Depending on your requirements, select one of the two available topologies.
+To provide extra protection for the database, replicate the SAP HANA system to a third system in a different region by using SAP HANA system replication.
+Select one of the following topologies based on your requirements.
 
-- SAP HANA multitier system replication scenario
+- SAP HANA multitier system replication
 
-   With SAP HANA multitier system replication, you can chain multiple systems together to achieve a higher level of availability.
+   Multitier system replication chains multiple systems together to provide a higher level of availability.
 
-   [Configuring SAP HANA multitier system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitier){: external}.
+- SAP HANA multitarget system replication
 
-- SAP HANA multitarget system replication scenario
+   Multitarget system replication enables primary and secondary systems to replicate changes to multiple targets.
 
-   Multitarget system replication allows primary and secondary systems to replicate changes to more than one system.
-
-   [Configuring SAP HANA multitarget system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitarget){: external}.
-
-## SAP HANA high availability solution in a multizone region environment
-{: #ha-overview-hana-mzr-ha-scenario}
-
-### Network considerations
-{: #ha-overview-hana-mzr-network}
-
-In IBM {{site.data.keyword.powerSys_notm}}, a subnet is confined to a single workspace and cannot extend across multiple workspaces. Consequently, transferring a service IP address to a secondary workspace and maintaining communication with it from IBM VPC or another IBM {{site.data.keyword.powerSys_notm}} workspace is not feasible.
-The common Linux cluster resource agent `ipaddr2` cannot be used to move the service IP address.
-
-Two other resource agents are available to manage a service IP address in a multizone region environment in IBM {{site.data.keyword.powerSys_notm}}.
-- Resource agent `powervs-move-ip`
-- Resource agent `powervs-subnet`
-
-#### Resource agent `powervs-move-ip`
-{: #ha-overview-hana-network-ra-move-ip}
-
-During a takeover event, the resource agent `powervs-move-ip` updates predefined static routes in the IBM {{site.data.keyword.powerSys_notm}}, and configures an overlay IP address as IP alias address on the virtual server instance.
-
-The following figures illustrate this scenario for a SAP HANA System Replication cluster.
-- Two virtual server instances (VSIs) are deployed in separate workspaces.
-- A private subnet is created in each workspace.
-- The instances, running RHEL, form a two-node RHEL High Availability Add-on cluster.
-- SAP HANA is installed on both instances, and SAP HANA system replication is configured.
-- A cluster resource for an *Overlay IP address* is configured with the `powervs-move-ip` resource agent.
-
-The *Overlay IP* has the following characteristics
-- The *Overlay IP* is not part of any CIDR subnet range in the environment.
-- It is not assigned to a network interface during deployment.
-- The resource agent configures the *Overlay IP address* as an IP alias address on a network adapter of a VSI at run time.
-
-A *static route* is created in each workspace
-- The *destination* of the *static route* is set to the overlay IP address.
-- The *next hop* for each route is the *primary IP* address of the respective virtual server instance (VSI).
-- The resource agent *enables the route* to the VSI with the *SAP HANA primary* and *disables the route* to the VSI with the *SAP HANA secondary*.
-
-During *normal operation*
-- The *Overlay IP address* is configured as an IP alias on VSI-1 in *workspace 1*.
-- The *static route* in *workspace 1*, with the *destination* set to the Overlay IP address and the *next hop* set to the primary IP of VSI-1, is *enabled*.
-- The *static route* in *workspace 2*, with the same destination and the next hop set to the primary IP of VSI-2, is *disabled*.
-- The *SAP HANA primary* is active on *VSI-1*.
-- The *SAP HANA secondary* is active on *VSI-2*.
-
-![Figure 3. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](../../images/powervs-ha-architecture-ovlip-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
-
-After a *cluster takeover*
-- The *Overlay IP address* is configured as an *IP alias* on *VSI-2* in *workspace 2*.
-- The *static route* in *workspace 2*, with the *destination* set to the Overlay IP address and the *next hop* set to the primary IP of VSI-2, is *enabled*.
-- The *static route* in *workspace 1*, with the same destination and the next hop set to the primary IP of VSI-1, is *disabled*.
-- The *SAP HANA primary* is active on *VSI-2*.
-- The *SAP HANA secondary* is active on *VSI-1*.
-
-![Figure 4. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](../../images/powervs-ha-architecture-ovlip-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
-
-#### Resource agent `powervs-subnet`
-{: #ha-overview-hana-mzr-subnet}
-
-During a takeover event, the resource agent `powervs-subnet` moves the entire subnet, including the IP address, from one workspace to another.
-
-The following figures illustrate this scenario for a SAP HANA System Replication cluster.
-
-Two virtual server instances are deployed in separate workspaces with different subnets.
-- SAP HANA is installed on both virtual server instances, and SAP HANA System Replication is configured.
-- The two virtual server instances are configured as a two-node high availability cluster with their own subnets.
-- A cluster resource that uses the `powervs-subnet` resource agent is configured for `Subnet 3` and `IP address 3`.
-   Choose a small range for the Classless Inter-Domain Routing (CIDR), only `IP address 3` and an IP address for the gateway are allocated in `Subnet 3`.
-- SAP HANA database clients use `IP address 3` connect to the database.
-
-The subnet *Subnet 3* has the following characteristics
-- The CIDR range of the subnet does not overlap with any other CIDR subnet block in the environment.
-- The subnet does not exist in both workspaces
-- The resource agent creates the subnet in one of the workspaces.
-
-During *normal operation*
-- *Subnet 3* is created in workspace 1.
-- *Subnet 3* is attached to virtual server instance 1.
-- *IP address 3* is configured on virtual server instance 1.
-- The *SAP HANA primary* is active on virtual server instance 1.
-- The *SAP HANA secondary* is active on virtual server instance 2.
-
-![Figure 5. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview](../../images/powervs-ha-architecture-mzr.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA overview" caption-side="bottom"}
-
-After a *cluster takeover*
-- *Subnet 3* is created in workspace 2.
-- *Subnet 3* is attached to virtual server instance 2.
-- *IP address 3* is configured on virtual server instance 2.
-- The *SAP HANA primary* is active on virtual server instance 2.
-- The *SAP HANA secondary* is active on virtual server instance 1.
-
-![Figure 6. SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover](../../images/powervs-ha-architecture-mzr-to.svg "SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover"){: caption="SAP HANA on {{site.data.keyword.powerSys_notm}} in multizone region HA takeover" caption-side="bottom"}
-
-### Links to the setup documentation
+## High availability cluster setup references
 {: #ha-overview-hana-mzr-howto}
 
-See the information in [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz){: external} on how to prepare and configure a Red Hat Enterprise Linux (RHEL) High Availability (HA) cluster.
+The following table provides links to documentation for configuring high availability clusters.
 
-To configure an SAP HANA System Replication cluster in a multizone region environment, refer to the following resource:
-- [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-sh){: external}
+| Operating system | Cluster environment | Documentation                                                                                                                                |
+| ---------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| RHEL             | One workspace       | [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel)                                      |
+| RHEL             | One workspace       | [Configuring an active-passive NFS Server in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-nfs)   |
+| RHEL             | Multizone region    | [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz) |
+| RHEL             | Multizone region    | [Implementing SBD poison-pill fencing in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-sbd)            |
+| SLES             | One workspace       | [Implementing a SUSE Linux Enterprise Server high availability cluster](/docs/sap?topic=sap-ha-sles)                                         |
+{: caption="Documentation for implementing a basic cluster" caption-side="bottom"}
+{: tab-title="Implementing a basic cluster"}
+{: tab-group="doc-link-group"}
+{: class="simple-tab-table"}
+{: #doc-link-table1}
 
-To configure an SAP S/4HANA (ASCS and ERS) cluster in a multizone region environment, refer to the following resources:
-- [Configuring high availability for SAP S/4HANA (ASCS and ERS) on Red Hat Enterprise Linux HA Add-On clusters in a multizone region with simple mount](/docs/sap?topic=sap-ha-rhel-ensa-sm-mz){: external}
-- [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a Red Hat Enterprise Linux High Availability Add-On cluster in a multizone region environment](/docs/sap?topic=sap-ha-rhel-ensa-mz){: external}
+
+| Operating system | Deployment scenario                                | Documentation |
+| ---------------- | --------------------------------------------       | ------------- |
+| RHEL             | SAP HANA single-host, performance-optimized        | [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-sh) |
+| RHEL             | SAP HANA single-host, performance-optimized        | [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr) |
+| RHEL             | SAP HANA single-host, cost-optimized               | [Configuring SAP HANA cost-optimized scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-cost-optimized) |
+| RHEL             | SAP HANA single-host, active/active (read enabled) | [Configuring SAP HANA active/active (read enabled) system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa) |
+| RHEL             | SAP HANA single-host, multitier system replication | [Configuring SAP HANA multitier system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitier) |
+| RHEL             | SAP HANA multiple-hosts                            | [Configuring SAP HANA multiple-host system replication in a Red Hat Enterprise Linux High Availability Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-mh) |
+| SLES             | SAP HANA single-host, performance-optimized        | [Configuring SAP HANA scale-up system replication in a SUSE Linux Enterprise High Availability Extension cluster](/docs/sap?topic=sap-ha-sles-hana-sr) |
+{: caption="Documentation for configuring high availability for SAP HANA" caption-side="bottom"}
+{: tab-title="High availability for SAP HANA"}
+{: tab-group="doc-link-group"}
+{: class="simple-tab-table"}
+{: #doc-link-table2}
+
+| Operating system | Deployment scenario         | Documentation                                  |
+| ---------------- | --------------------------- |----------------------------------------------- |
+| RHEL             | ENSA2 in one workspace      | [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-ensa) |
+| RHEL             | ENSA2 in a multizone region | [Configuring high availability for SAP S/4HANA (ASCS and ERS) on Red Hat Enterprise Linux HA Add-On clusters in a multizone region with simple mount](/docs/sap?topic=sap-ha-rhel-ensa-sm-mz) \n\n [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a Red Hat Enterprise Linux High Availability Add-On cluster in a multizone region environment](/docs/sap?topic=sap-ha-rhel-ensa-mz) |
+{: caption="Documentation for configuring high availability for ASCS" caption-side="bottom"}
+{: tab-title="High availability for ASCS"}
+{: tab-group="doc-link-group"}
+{: class="simple-tab-table"}
+{: #doc-link-table3}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-01-09"
+lastupdated: "2026-01-29"
 keywords: SAP
 subcollection: sap
 ---
@@ -13,6 +13,14 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+## January 2026
+{: #sap-2026-01}
+
+- SAP HANA certified profiles for VMware SDDC and Intel Cascade Lake CPU with Intel Optane PMem are now included in [SAP HANA certified instances on Intel-powered bare metal servers in Classic Infrastructure](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm) document.
+- SAP NetWeaver application servers profiles for AMD {{site.data.keyword.baremetal_short_sing}} and VMware in Classic are now included in [SAP Application Server certified instances on Intel-powered bare metal servers in Classic Infrastructure](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm) document.
+- New feature: A new IBM SAP HANA Backint agent is now available to back up SAP HANA databases running on {{site.data.keyword.powerSys_notm}} to {{site.data.keyword.cos_full}}. For more information, see [Backup strategies for SAP HANA on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-backup-strategies).
+
 
 ## December 2025
 {: #sap-2025-12}
@@ -72,13 +80,13 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 ## July 2025
 {: #sap-2025-07}
 
-- Introduced new [bare metal profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm#nw-iaas-intel-bm-sr-list) and [VMware profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vmware#nw-iaas-vmware-sr-list) for SAP NetWeaver/Application Servers on {{site.data.keyword.cloud_notm}} Classic Infrastructure.
+- Introduced new [bare metal profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-bm) and [VMware profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm) for SAP NetWeaver/Application Servers on {{site.data.keyword.cloud_notm}} Classic Infrastructure.
 - Introduced new [vx3d OLTP profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-sr-vpc-list) for SAP HANA on {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}}.
 - Introduced new [bh2, ch2 and mh2 (OLAP, OLTP, and OLTP upto 4N) profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#bh2-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
 - Introduced new [sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr2-nw-profiles) for SAP NetWeaver/Application Servers on {{site.data.keyword.powerSysFull}}.
 - New documentation: [Accessing File Storage for VPC from {{site.data.keyword.powerSysFull}} Instances](/docs/sap?topic=sap-nfs-zonal-powervs-intro)
 - New documentation: [Alerting and notification in IBM Cloud Monitoring](/docs/sap?topic=sap-mon-alerting-notification)
-- Updated [architecuture diagram](/docs/sap?topic=sap-mon-getting-started#monitoring-architecture) for {{site.data.keyword.mon_full_notm}} solution.
+- Updated [architecture diagram](/docs/sap?topic=sap-mon-getting-started#monitoring-architecture) for {{site.data.keyword.mon_full_notm}} solution.
 
 ## June 2025
 {: #sap-2025-06}
@@ -100,8 +108,8 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 {: #sap-2025-04}
 
 - Enhanced the [fast path for Power Virtual Server](/docs/sap?topic=sap-fast-path-site-map-power-vs) with improved headings, intuitive navigation, and enriched informational content.
-- Introduced 3 new [x86_64 Bare Metal certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-list) for SAP HANA on IBM Cloud Classic.
-- Introduced 12 new [x86_64 VSI  certified profiles (vx3*)](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc#certified-profiles-intel-sapphire-rapids) for SAP HANA on IBM Cloud VPC.
+- Introduced 3 new [x86_64 Bare Metal certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm) for SAP HANA on IBM Cloud Classic.
+- Introduced 12 new [x86_64 VSI  certified profiles (vx3*)](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi#nw-sr-vx3d-profiles) for SAP NetWeaver on IBM Cloud VPC.
 
 ## March 2025
 {: #sap-2025-03}

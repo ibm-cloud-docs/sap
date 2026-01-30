@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-06-27"
+  years: 2023, 2026
+lastupdated: "2026-01-23"
 keywords:
 subcollection: sap
 ---
@@ -190,8 +190,8 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
     |REGION	|The cloud region where HANA VSI was deployed. The COS is created in the same region as HANA VSI. The regions and zones for VPC are listed [here](/docs/containers?topic=containers-regions-and-zones#zones-vpc). Review supported locations in {{site.data.keyword.cloud_notm}} Schematics [here](/docs/schematics?topic=schematics-locations).|
     |RESOURCE_GROUP	|The name of an existing Resource Group for VSIs and Volumes resources. The list of Resource Groups is available [here](https://cloud.ibm.com/account/resource-groups){: external}.|
     |SECURITY_GROUP	|The name of an existing Security group. The list of Security Groups is available [here](https://cloud.ibm.com/infrastructure/network/securityGroups){: external}.|
-    |SUBNET	|The name of an existing subnet. The list of subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets){: external}. |
-    |VPC	|The name of an existin VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs){: external}.|
+    |SUBNET	|The name of an existing Subnet. The list of subnets is available [here](https://cloud.ibm.com/infrastructure/network/subnets){: external}. |
+    |VPC	|The name of an existing VPC. The list of VPCs is available [here](https://cloud.ibm.com/infrastructure/network/vpcs){: external}.|
     |private_ssh_key	|Input your id_rsa private key pair content in OpenSSH format (Sensitive* value). This private key must be used only during the terraform provisioning and it is recommended to be changed after the SAP deployment.|
     {: caption="Required Variables" caption-side="bottom"}
 

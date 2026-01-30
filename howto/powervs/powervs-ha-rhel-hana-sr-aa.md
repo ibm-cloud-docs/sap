@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-11-11"
+  years: 2023, 2026
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -101,7 +101,7 @@ On a cluster node, assign the reserved IP address to a *VIP_SECONDARY* environme
 ```sh
 export VIP_SECONDARY=<reserved IP address for SAP HANA secondary>
 ```
-{: sceen}
+{: screen}
 
 ```sh
 echo $VIP_SECONDARY

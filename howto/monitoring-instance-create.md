@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-09-22"
+  years: 2024, 2026
+lastupdated: "2026-01-23"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA
 subcollection: sap
 content-type: tutorial
@@ -30,7 +30,7 @@ Verify that the Virtual Routing and Forwarding (VRF) service endpoints are enabl
 If VRF service endpoints are not enabled, enable the setting in your IAM account.
 For more information, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint&interface=ui).
 
-## Provisioning an {{site.data.keyword.mon_full_notm}} instnace
+## Provisioning an {{site.data.keyword.mon_full_notm}} instance
 {: #monitoring-instance-provision}
 {: step}
 

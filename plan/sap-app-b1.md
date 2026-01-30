@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-12"
+  years: 2020, 2026
+lastupdated: "2026-01-19"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -74,17 +74,17 @@ Please check [SAP Business One, version for SAP HANA Platform Support Matrix](ht
 
 SAP Business One is supported on the following Bare Metal servers:
 - on Classic
-    - [BI.S3.H2.192](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s3-h2-192gb)
-    - [BI.S3.H2.384](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s3-h2-382gb)
-    - [BI.S3.H2.768](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s3-h2-768gb)
-    - [BI.S4.H2.192](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s4-h2-192gb)
-    - [BI.S4.H2.384](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s4-h2-384gb)
-    - [BI.S4.H2.768](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm#hana-iaas-intel-bm-s4-h2-768gb)
+    - [BI.S3.H2.192](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm#cl-sizing)
+    - [BI.S3.H2.384](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm#cl-sizing)
+    - [BI.S3.H2.768](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm#cl-sizing)
+    - [BI.S4.H2.192](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm#cl-sizing)
+    - [BI.S4.H2.384](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm#cl-sizing)
+    - [BI.S4.H2.768](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm#cl-sizing)
 
 - on VPC
-    - [cx2d-metal-96x192](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc#hana-iaas-intel-bm-vpc-mx2-profiles)
-    - [bx2d-metal-96x384](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc#hana-iaas-intel-bm-vpc-mx2-profiles)
-    - [mx2d-metal-96x768](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm-vpc#hana-iaas-intel-bm-vpc-mx2-profiles)
+    - [cx2d-metal-96x192](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm#cl-profiles-table)
+    - [bx2d-metal-96x384](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm#cl-profiles-table)
+    - [mx2d-metal-96x768](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm#cl-profiles-table)
 
 SAP Business One is also supported for the following Intel virtual server profiles:
 - on VPC

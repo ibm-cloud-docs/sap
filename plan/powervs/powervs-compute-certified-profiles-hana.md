@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-15"
+lastupdated: "2026-01-29"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -16,10 +16,25 @@ subcollection: sap
 {{site.data.keyword.IBM_notm}} Power9 certified profiles are discouraged for new deployments. Users are advised to migrate to {{site.data.keyword.IBM_notm}} Power10 certified profiles, selecting the appropriate profile based on memory and core requirements.
 {:attention: .attention}
 
-A SAP HANA certified instance or profile on IBM {{site.data.keyword.powerSys_notm}} defines attributes, such as physical CPU cores and RAM, which determine the size and performance capabilities of the virtual server instance.
+A SAP HANA certified instance or profile on {{site.data.keyword.powerSysFull}} defines attributes, such as physical CPU cores and RAM, which determine the size and performance capabilities of the virtual server instance.
 
-## SAP HANA profile naming convention
-{: #powervs-hana-profile-naming-convention}
+## Hardware specifications
+{: #supported-hardware}
+
+SAP HANA workloads that use {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s run on {{site.data.keyword.IBM_notm}} Power Systems, with block storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/solutions/storage){: external}, connected through the Fibre Channel protocol. The following {{site.data.keyword.IBM_notm}} Power Systems are certified to run SAP HANA workloads in {{site.data.keyword.BluSoftlayer_notm}}:
+
+- [IBM Power System S1122 (9824-22A)](https://www.ibm.com/downloads/documents/us-en/13774247783d5fe6){: external}
+- [IBM Power System E1150 (9043‑MRU)](https://www.ibm.com/downloads/documents/us-en/137a1e1e625bad7e){: external}
+- [IBM Power System E1180 (9080-HEU)](https://www.ibm.com/downloads/documents/us-en/137a1e1e625bad80){: external}
+- [IBM Power System S1022 (9105-22A)](https://www.ibm.com/downloads/documents/us-en/107a02e95b48f639){: external}
+- [IBM Power System E1050 (9043‑MRX)](https://www.ibm.com/downloads/documents/us-en/10a99803f2afd7aa){: external}
+- [IBM Power System E1080 (9080‑HEX)](https://www.ibm.com/downloads/documents/us-en/107a02e95c48f71a){: external}
+- [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/documents/us-en/10a99803f42fd831){: external}
+
+For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications-on-cloud).
+
+## Profile naming convention
+{: #naming-convention}
 
 Provision SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s by selecting one of the certified profiles.
 
@@ -51,7 +66,7 @@ Simultaneous multithreading (SMT) on IBM Power enables multiple independent thre
 
 
 ## IBM Power11 certified instances for SAP HANA
-{: #sap-hana-iaas-offerings-profiles-power11-families}
+{: #p11-profiles}
 
 The following table lists available profile families for IBM Power11 processor-based servers:
 
@@ -142,7 +157,7 @@ For IBM Power11 profiles, "N/A" indicates that SAPS are not measured.
 
 
 ## IBM Power10 certified instances for SAP HANA
-{: #sap-hana-iaas-offerings-profiles-power10-families}
+{: #p10-profiles}
 
 The following table lists available profile families for IBM Power10 processor-based servers:
 
@@ -938,7 +953,7 @@ For IBM Power10 profiles, "N/A" indicates that SAPS are not measured.
 {:note: .note}
 
 ## IBM Power9 certified instances for SAP HANA
-{: #sap-hana-iaas-offerings-profiles-power9-families}
+{: #p9-profiles}
 
 
 The following profile families are available for IBM Power9 processor-based servers.

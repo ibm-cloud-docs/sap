@@ -1,8 +1,8 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-01-09"
-keywords: SAP,{{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPMEM, Virtual persistent memory, VPMEM on {{site.data.keyword.powerSys_notm}}, Congifure VPMEM
+lastupdated: "2026-01-23"
+keywords: SAP,{{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPMEM, Virtual persistent memory, VPMEM on {{site.data.keyword.powerSys_notm}}, Configure VPMEM
 subcollection: sap
 ---
 
@@ -208,13 +208,13 @@ Validate the status
 Run the following command in the command line:
 
 ```sh
-ibmcloud pi instance sap create vpmem-isv-e1050
---image SLES15-SP6-SAP
---key-name Permanent-VPC-VM-Key
---subnets "ISV-Net2"
---deployment-target 'f141b265-7325-45e9-8c1f-9ee3a2d7c082,host'
---profile-id sr2-87x6000
---vpmem-volumes "vpmem-e1050  3000"
+ibmcloud pi instance sap create vpmem-isv-e1050 \
+--image SLES15-SP6-SAP \
+--key-name Permanent-VPC-VM-Key \
+--subnets "ISV-Net2" \
+--deployment-target 'f141b265-7325-45e9-8c1f-9ee3a2d7c082,host' \
+--profile-id sr2-87x6000 \
+--vpmem-volumes "vpmem-e1050 3000"
 ```
 {: pre}
 

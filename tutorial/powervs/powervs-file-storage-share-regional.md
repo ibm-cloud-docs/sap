@@ -1,7 +1,7 @@
 ---
 copyright:
    years: 2025
-lastupdated: "2025-11-17"
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, NFS, File Storage Share, Network Load Balancer
 subcollection: sap
 content-type: tutorial
@@ -151,7 +151,7 @@ The network load balancer then bypasses the back-end pool and sends requests dir
 1. Click the load balancer `nfs-server-nlb-1`.
 1. Click the **Back-end pools** tab and select the pool `nfs-server-fwd-pool`.
 1. Click `nfs-server-fwd-pool` and then `Edit`.
-1. In the `Failsave policy` section, select `Bypass` as the **Action**.
+1. In the `Failsafe policy` section, select `Bypass` as the **Action**.
 1. Click `Save`.
 
 Repeat those steps for load balancer `nfs-server-nlb-2`.

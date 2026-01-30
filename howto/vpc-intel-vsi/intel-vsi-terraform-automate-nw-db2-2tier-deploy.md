@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-07-25"
+  years: 2021, 2026
+lastupdated: "2026-01-23"
 keywords:
 subcollection: sap
 ---
@@ -192,8 +192,8 @@ Use these steps to configure the IBM Cloud Provider plug-in and use Terraform to
 
 8.  Create the virtual private cloud for SAP instance and IAM access policy in {{site.data.keyword.cloud_notm}}.
 
-        ```teraform
-         terraform apply "plan1"
+        ```terraform
+         terraform apply "plan"
          ```
 
         The virtual private cloud and components are created and you see output similar to the `terraform plan` output.

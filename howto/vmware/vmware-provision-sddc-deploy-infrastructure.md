@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020
-lastupdated: "2020-09-21"
+  years: 2020, 2026
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -21,7 +21,7 @@ There are variations of VMware available from {{site.data.keyword.cloud_notm}} t
 - [{{site.data.keyword.cloud_notm}} Intel Bare Metal and VMware vSphere (ESXi OS)](/docs/vmware?topic=vmware-about-vmware){: external} for the manual VMware setup and configuration
 - [{{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated](/docs/vmwaresolutions){: external} for fully automated VMware SDDC setup and configuration, which includes optional BYOL, configuration of different VMware components (such as VMware NSX, VMware vRealize) and access to advanced VMware capabilities (such as VMware HCX)
     - **_vCenter Server (VCS)_** solution type, where the entire VMware SDDC setup is automated and creates a hosted vSphere stack as a service
-    - **_VMware vSphere (VSS)_** solution type, where selectable VMware SDDC components setup is automated and creates a customizable VMware with maximum flexibility. This solution type is the intermediary between manual with Bare Metal and fully auotmated from IBM Cloud for VMware Solutions.
+    - **_VMware vSphere (VSS)_** solution type, where selectable VMware SDDC components setup is automated and creates a customizable VMware with maximum flexibility. This solution type is the intermediary between manual with Bare Metal and fully automated from IBM Cloud for VMware Solutions.
 
 Due to these variations, provisioning of a server, adding network storage, and configuring network connectivity and interfaces differ for each. The process to order a VMware setup for manual configuration is similar to [Provisioning your Bare Metal server](/docs/sap?topic=sap-bm-set-up-infrastructure#bm-provision-server). Therefore, the sections to follow will not cover this option. Rather, the focus is on {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated to using the vCenter Server (VCS) solution type.
 
@@ -82,7 +82,7 @@ The {{site.data.keyword.cloud}} console requires a unique log-in ID, which is an
    - Specify a data center
    - Click **SAP-certified** in the **CPU Generation** selection
    - Click either **SAP NetWeaver** or **SAP HANA** in the SAP-certified Intel servers selection
-   - Specify the server profile. These profiles match those shown in VMware SDDC certified [profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vmware) and [profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vmware)
+   - Specify the server profile. These profiles match those shown in VMware SDDC certified [profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm#vmware-profiles) and [profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm#nw-iaas-amd-bm-list)
    - Specify the amount of RAM for the profile
    - Specify the storage type by using the appropriate IBM Cloud File Storage for NFS mount points. For SAP HANA, the ocal disk option is a permitted configuration with RAID10.
    - Specify the network interfaces and networks to be provisioned, either **Public and private network** or **Private network only**

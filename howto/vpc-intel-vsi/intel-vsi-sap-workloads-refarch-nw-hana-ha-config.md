@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2025
-lastupdated: "2025-09-25"
+  years: 2026
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Db2
 subcollection: sap
 ---
@@ -70,7 +70,7 @@ Other points of failure are the ASCS instance and the SAP HANA database:
 
 The SAP Netweaver 7.x System is running by default a ENSA1 configuration, which means that in a 2-node cluster, ASCS fails over to the same node where ERS is running in order to be able to attach a copy of the ENQ Lock Table from the ERS instance using shared memory mechanisms.
 
-* SAP HANA database system is also protected by installing the database instances in a Pacemaker High Availability cluster. The environment is built as a standard two-node high availability cluster, where one node is active and the other operates as seconday with continuous data synchronization. The SAP HANA database is configured using native HANA System Replication (HSR) in synchronous mode (mode=sync with log-replay enabled), ensuring that all committed data is replicated from the primary to the secondary node in near real-time. The replication is established between two identically sized SAP HANA instances. While SAP HANA supports both scale-up (vertical scaling) and scale-out (horizontal scaling) architectures for handling large workloads, this deployment is focused on the scale-up model.
+* SAP HANA database system is also protected by installing the database instances in a Pacemaker High Availability cluster. The environment is built as a standard two-node high availability cluster, where one node is active and the other operates as secondary with continuous data synchronization. The SAP HANA database is configured using native HANA System Replication (HSR) in synchronous mode (mode=sync with log-replay enabled), ensuring that all committed data is replicated from the primary to the secondary node in near real-time. The replication is established between two identically sized SAP HANA instances. While SAP HANA supports both scale-up (vertical scaling) and scale-out (horizontal scaling) architectures for handling large workloads, this deployment is focused on the scale-up model.
 
 ## Simple Mount Structure (SUSE Linux)
 {: #suse-linux-nw}
@@ -93,11 +93,11 @@ SAP HANA System Replication in a scale-up high availability configuration suppor
 * HANA performance optimized, secondary site read-enabled: a performance optimized scenario but with the possibility to allow read access on the secondary database site. This is called also an active-active configuration.
 * HANA cost optimized: in this scenario, the stand-by or secondary HANA database is colocated with a non-productive database system, for example a Test or Development system. Whenever a takeover occurs, the non-productive system has to be stopped in order to free up the nedeed hardware resources for running the promoted HANA productive instance. The table preload is switched off and the takeover time is longer in this scenario.
 
-## High Availablity in MultiZone (MZ) and SingleZone (SZ) environments
+## High Availability in MultiZone (MZ) and SingleZone (SZ) environments
 {: #ha-single-multizone-nw}
 
 Deploying resources across multiple zones within a region enables high availability and fault isolation, as workloads can continue operating even if one zone experiences a failure.
-However, deploying the resources in a HA configuration is also possible by using a single zone inside a region. The below refference schema illustrates this approach.
+However, deploying the resources in a HA configuration is also possible by using a single zone inside a region. The below reference schema illustrates this approach.
 
 * There is only one private subnet deployed.
 * SAP HANA is a two node cluster in the same network segment.

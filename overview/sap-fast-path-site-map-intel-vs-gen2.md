@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-24"
+  years: 2020, 2026
+lastupdated: "2026-01-20"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -30,7 +30,7 @@ Certified Infrastructure-as-a-Service for SAP HANA database server is available 
 
 The following is an overview of the SAP-certified profiles with IBM {{site.data.keyword.powerSys_notm}}s for SAP HANA and SAP NetWeaver. For more information:
 - [IBM Cloud Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc)
-- [IBM Cloud Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc)
+- [IBM Cloud Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi)
 - [Compute Profiles of SAP-certified IBM Cloud Intel Virtual Server](/docs/sap?topic=sap-compute-os-design-considerations#compute-vs-vpc)
 
 

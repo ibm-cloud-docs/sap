@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-05-26"
+  years: 2024, 2026
+lastupdated: "2026-01-23"
 keywords: SAP, SAP Monitoring, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, {{site.data.keyword.powerSys_notm}}, Monitoring
 subcollection: sap
 ---
@@ -20,7 +20,7 @@ This document outlines the necessary steps a user must follow to successfully im
 ## Gather SAP parameters
 {: #monitoring-prereqs-gather-sap-parameters}
 
-Gather the below parameter values from an existing SAP system running in IBM cloud. These values are required by the [SAP HANA DB exporter](https://github.com/SUSE/hanadb_exporter){: external} which will be installed and confiured on the x86_64 Virtual Server Instance runnning in {{site.data.keyword.vpc_short}}.
+Gather the below parameter values from an existing SAP system running in IBM cloud. These values are required by the [SAP HANA DB exporter](https://github.com/SUSE/hanadb_exporter){: external} which will be installed and configured on the x86_64 Virtual Server Instance running in {{site.data.keyword.vpc_short}}.
 
 For more information, see [Determine SAP Parameters](/docs/sap?topic=sap-mon-parameter-harvesting-troubleshooting-maintenance#mon-determining-parameters).
 

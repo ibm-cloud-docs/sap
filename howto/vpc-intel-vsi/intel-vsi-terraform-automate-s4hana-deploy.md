@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2024-06-20"
+  years: 2024, 2026
+lastupdated: "2026-01-23"
 keywords: S4HANA, automation, ansible, VPC, terraform, Schematics, Catalog
 subcollection: sap
 ---
@@ -294,7 +294,7 @@ Use these steps to configure the SAP S/4HANA on your existing VPC by using the C
     |HANA_SYSTEM_USAGE	|hana_system_usage|
     |HANA_TENANT	|The name of the SAP HANA tenant|
     |HANA_SERVER_TYPE	|The type of SAP HANA Server. Allowed values: "virtual" or "bare metal".|
-    |HDB_CONCURRENT_JOBS	|hdb_concurent_jobs|
+    |HDB_CONCURRENT_JOBS	|hdb_concurrent_jobs|
     |KIT_HDBCLIENT_FILE	|kit_hdbclient_file|
     |KIT_IGSEXE_FILE	|kit_igsexe_file|
     |KIT_IGSHELPER_FILE	|kit_igshelper_file|

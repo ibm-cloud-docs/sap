@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-12"
+  years: 2020, 2026
+lastupdated: "2026-01-20"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -26,8 +26,8 @@ Certified Infrastructure-as-a-Service for SAP HANA database server is available 
 - [Infrastructure certified for SAP - Bare Metal server](/docs/sap?topic=sap-iaas-offerings#iaas-intel-bm)
 
 The following is an overview of the SAP-certified profiles with IBM Cloud Bare Metal servers for SAP HANA and SAP NetWeaver. For more information:
-- [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-bm)
-- [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm)
+- [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm)
+- [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-bm)
 - [Compute Profiles of SAP-certified Bare Metal on Classic Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#compute-baremetal-classic)
 
 Your business and functional requirements determine the SAP solutions powered by the SAP HANA Database Server or SAP NetWeaver Application Server, and therefore determine how your applications are run in the available infrastructure. For more information:

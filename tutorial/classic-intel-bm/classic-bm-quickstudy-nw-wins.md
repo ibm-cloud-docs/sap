@@ -51,7 +51,7 @@ The sample layouts might match your preferred layout. The purpose of the tutoria
 
 Select your SAP-certified server and OS.
 
-1. Select **CPU Model BI.S3.NW32 (OS Options)**. For more information about deciphering the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm).
+1. Select **CPU Model BI.S3.NW32 (OS Options)**. For more information about deciphering the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm).
 2. **RAM** defaults to a predefined value based on your server selection and cannot be changed.
 3. Enter an optional public key for your **SSH key**, which you can use to log in to your server after provisioning is done. The default is *None*.
 4. Choose *Microsoft* as your **Image** (OS) and select *2016 Standard (64 bit)-HVM*.
@@ -149,7 +149,7 @@ Use the following steps to order an SAP-certified server as your database server
 
 Use the following steps to configure your database server and its OS.
 
-1. Select *CPU Model BI.S3.NW192 (OS Options)*. For more information about deciphering the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-bm).
+1. Select *CPU Model BI.S3.NW192 (OS Options)*. For more information about deciphering the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm).
 2. **RAM** defaults to a predefined value based on your server selection and cannot be changed.
 3. Enter an optional public key for your **SSH key**, which you can use to log in to your server after provisioning is done. The default is *None*.
 4. Choose *Microsoft* as your **Image** (OS), and select *2016 Standard (64 bit)-HVM*.

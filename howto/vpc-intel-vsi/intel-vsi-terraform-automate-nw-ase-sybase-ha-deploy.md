@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-10-30"
+  years: 2023, 2026
+lastupdated: "2026-01-23"
 keywords:
 subcollection: sap
 ---
@@ -11,7 +11,7 @@ subcollection: sap
 
 
 # Automating SAP workload SAP NetWeaver(ABAP) 7.5 on ASE Sybase HA deployment on IBM Cloud VPC with Terraform and Ansible
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-intro}
+{: #automate-sap-ase-sybase-ha-sz-deployment-intro}
 
 Terraform on {{site.data.keyword.cloud}} enables predictable and consistent provisioning of {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) infrastructure resources so that you can rapidly build complex cloud environments. {{site.data.keyword.cloud}} VPC infrastructure consists of SAP certified hardware that uses Intel&reg; Xeon CPUs and other Intel&reg; technologies.
 
@@ -102,7 +102,7 @@ At the most basic level, a standard HA ASE Sybase cluster in an active-passive c
 The cluster is set with a virtual hostname IP. Hostname is mapped to the FQDN of the ASE Sybase ALB through DNS, which is the same as SAP ASCS and ERS instances. App instances (PAS and AAS), are the details to be used on the SAP profiles to call that particular component. The cluster assigns that virtual IP to the active node and uses a heartbeat monitor to confirm the availability of the components. If the primary node stops responding, it triggers the automatic failover mechanism that calls the standby node to become the primary node. The ALB detects the change, redirects the traffic to the new active node, and assigns the virtual IP to it, restoring the component availability. After the failed node is fixed, it comes online as a standby node.
 
 ## Terraform deployment overview
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-terraform-overview}
+{: #automate-sap-ase-sybase-ha-sz-deployment-terraform-overview}
 {: terraform}
 
 You use Terraform on the bastion server CLI to download and run the scripts that are located [here](https://github.com/IBM-Cloud/sap-nwase-ha/tree/main){: external}.
@@ -125,13 +125,13 @@ To run the Terraform scripts, you modify:
 The {{site.data.keyword.cloud}} Provider plug-in for Terraform on {{site.data.keyword.cloud}} uses these configuration files to install SAP NetWeaver High Availability on Single zone or Multi Zone on the specified VPC in your {{site.data.keyword.cloud}} account.
 
 ## SAP Kits
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-sap-kits}
+{: #automate-sap-ase-sybase-ha-sz-deployment-sap-kits}
 {: terraform}
 
 For each {{site.data.keyword.cloud}} region, IBM allocates temporary storage on a dedicated Jump host. It is your responsibility to download the necessary SAP and DB kits to your Deployment Server. All files archives are decompressed by Ansible during the automation deployment process. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md){: external} file.
 
 ## Before you begin
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-before}
+{: #automate-sap-ase-sybase-ha-sz-deployment-before}
 {: terraform}
 
 Before you deploy SAP NetWeaver High Availability on Single Zone or Multi Zone:
@@ -339,7 +339,7 @@ For SAP main password:
 12. Add the SAP credentials and the virtual server instance IP to the SAP GUI. For more information about the SAP GUI, see [SAP GUI](https://help.sap.com/docs/ABAP_PLATFORM_NEW/b1c834a22d05483b8a75710743b5ff26/9ad405e746ef43288755cb80a14be542.html){: external}.
 
 ## Deploying SAP NetWeaver(ABAP) 7.5 on ASE SYBASE High Availability on Single Zone or Multi Zone with the Schematics interface
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-schematics-interface}
+{: #automate-sap-ase-sybase-ha-sz-deployment-schematics-interface}
 {: ui}
 
 Use these steps to configure the SAP NetWeaver(ABAP) 7.5 on ASE SYBASE High Availability on Single Zone or Multi Zone on your existing VPC by using the Schematics interface. The scripts can take 2 - 3 hours to complete. See the [readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file for recommended kits versions.
@@ -423,14 +423,14 @@ Use these steps to configure the SAP NetWeaver(ABAP) 7.5 on ASE SYBASE High Avai
 10.	Review the log file to ensure that no errors occurred during the provisioning, modification, or deletion process.
 
 ## Support
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-support}
+{: #automate-sap-ase-sybase-ha-sz-deployment-support}
 
 There are no warranties of any kind, and there is no service or technical support available for these materials from {{site.data.keyword.IBM}}. As a recommended practice, review carefully any materials that you download from this site before using them on a live system.
 
 Though the materials provided herein are not supported by the {{site.data.keyword.IBM}} Service organization, your comments are welcomed by the developers, who reserve the right to revise, readapt or remove the materials at any time. To report a problem, or provide suggestions or comments, open a GitHub issue.
 
 ## Related information
-{: #automate-sap-ase-sybase-ha-sz-delpoyment-related}
+{: #automate-sap-ase-sybase-ha-sz-deployment-related}
 
 For more information about Terraform on {{site.data.keyword.cloud_notm}}, see [Getting started with Terraform on {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 

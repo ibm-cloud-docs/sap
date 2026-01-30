@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-11-13"
+  years: 2023, 2026
+lastupdated: "2026-01-23"
 keywords:
 subcollection: sap
 ---
@@ -215,7 +215,7 @@ Use these steps to configure the SAP NetWeaver (ABAP) Linux/HANA on your existin
       |HANA_SID	|The SAP system ID identifies the SAP HANA system.|
       |HANA_SYSNO |Specifies the instance number of the SAP HANA system.|
       |HANA_SYSTEM_USAGE	|System Usage. Default: "custom". Valid values: "production", "test", "development", "custom".|
-      |HDB_CONCURENT_JOBS	|Number of concurrent jobs used to load and/or extract archives to HANA Host.|
+      |HDB_CONCURRENT_JOBS	|Number of concurrent jobs used to load and/or extract archives to HANA Host.|
       |KIT_HDB_CLIENT_FILE	|Path to the HANA DB client archive (SAR), as downloaded from SAP Support Portal.|
       |KIT_IGSEXE_FILE	|Path to the IGS archive (SAR), as downloaded from SAP Support Portal.|
       |KIT_IGSHELPER_FILE	|Path to the IGS Helper archive (SAR), as downloaded from SAP Support Portal.|

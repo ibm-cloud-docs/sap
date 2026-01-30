@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-10-30"
+  years: 2022, 2026
+lastupdated: "2026-01-23"
 keywords:
 subcollection: sap
 ---
@@ -236,7 +236,7 @@ Use these steps to configure the  SAP BW/4HANA on your existing VPC by using the
      * SAP main password - This password must be 10 - 14 characters, upper and lowercase letters, a number, and a special character that is not an exclamation point.
      * Click **Save changes**.
 
-     For a more detailed description of each of the parameters, check the GitHub repo readme file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". these paramters are marked as “sensitive” in the readme file, under “Input parameter file”.
+     For a more detailed description of each of the parameters, check the GitHub repo readme file, chapter “Input parameter file”. Also, make sure to mark the parameters that contain sensitive information like passwords, API, and ssh private keys as "sensitive". these parameters are marked as “sensitive” in the readme file, under “Input parameter file”.
 
 7.	On the workspace Settings page, click **Generate plan**. Wait for the plan to complete.
 8.	Click **View log** to review the log files of your Terraform execution plan.

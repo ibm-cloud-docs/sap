@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-10-29"
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, RHEL, SLES
 subcollection: sap
 ---
@@ -696,7 +696,7 @@ Disable the ASCS route in workspace `workspace-1`.
 {: #ha-manual-mz-failover-ascs-failover-start-instance-agent}
 
 1. Log in as user `root` to `prd-cs-2`.
-1. Run the following command to start the sytemd service.
+1. Run the following command to start the systemd service.
 
     ```shell
     systemctl start SAPPRD_11.service

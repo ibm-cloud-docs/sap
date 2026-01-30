@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-09"
+lastupdated: "2026-01-22"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -16,7 +16,7 @@ The following information describes the configuration of a Red Hat Enterprise Li
 The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
 {: shortdesc}
 
-The instructions describe how to automate SAP HANA scale-up system replication for a single database deployment in a performance-optimized scenario on a RHEL HA Add-on cluster.
+The instructions describe how to automate SAP HANA scale-up system replication for a single database deployment in a performance-optimized scenario on a RHEL High Availability Add-on cluster.
 
 This information is intended for architects and specialists who are planning a high-availability deployment of SAP HANA on {{site.data.keyword.powerSys_notm}}.
 {: note}
@@ -29,8 +29,8 @@ Review the general requirements, product documentation, support articles, and SA
 ## Prerequisites
 {: #ha-rhel-hana-ng-sh-prerequisites}
 
-- A Red Hat High Availability cluster is deployed on two virtual server instances in {{site.data.keyword.powerSys_notm}}.
-   - Install and configure the RHEL HA Add-On cluster according to [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel).
+- A Red Hat high availability cluster is deployed on two virtual server instances in {{site.data.keyword.powerSys_notm}}.
+   - Install and configure the RHEL High Availability Add-On cluster according to [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel).
    - Configure and verify fencing according to the same document.
 - The virtual server instances must meet the hardware and resource requirements for the SAP HANA systems in scope.
    Follow the guidelines in [Planning your deployment](/docs/sap?topic=sap-powervs-planning-items).
@@ -40,7 +40,7 @@ Review the general requirements, product documentation, support articles, and SA
    Follow the standard procedures.
 - A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is required to enable the repositories that you need for installing SAP HANA and the high availability resource agents.
 
-## Configuring SAP HANA system replication in a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}}
+## Configuring SAP HANA system replication in a RHEL High Availability Add-On cluster on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-rhel-hana-ng-sh-configure-sr}
 
 The instructions are based on the Red Hat product documentation and articles that are listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
@@ -99,7 +99,7 @@ Set the `VIP` environment variable to the reserved IP address.
 {: #ha-rhel-hana-ng-sh-mz-prepare-environment-variables}
 
 Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, `POWERVSI_?` variables as described in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
-Set `API_TYPE` to `private` to enable communication with the IBM Cloud IAM and IBM Power Cloud API through private endpoints.
+Set `API_TYPE` to `private` to enable communication with the {{site.data.keyword.iamlong}} and IBM Power Cloud API through private endpoints.
 
 Prepare the variables for the `powervs-subnet` resource agent:
 - `SUBNET_NAME` specifies the name of the subnet.
@@ -554,7 +554,7 @@ Proceed to the [Creating cluster resource constraints](#ha-rhel-hana-sr-create-c
 #### Creating a virtual IP cluster resource in a multizone region environment
 {: #ha-rhel-hana-ng-sh-mz-create-virtual-ip-resource}
 
-Decide on the resource manager for virtual IP cluster resource in the [SAP HANA high availability solution in a multizone region environment - Network considerations](/docs/sap?topic=sap-ha-overview#ha-overview-hana-mzr-network) section.
+Choose the resource agent for the virtual IP cluster resource as described in the [High availability network considerations](/docs/sap?topic=sap-ha-overview#ha-overview-hana-network-considerations) section.
 
 Ensure that you completed all steps in the [Preparing a multi-zone RHEL HA Add-On cluster for a virtual IP address resource](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-create-vip) section.
 
@@ -842,7 +842,7 @@ Simulate a crash of the primary SAP HANA database instance that is running on NO
 #### Test 1 - Prerequisites
 {: #ha-rhel-hana-ng-sh-test1-prerequisites}
 
-- A functional two-node RHEL HA Add-On cluster configured for HANA system replication
+- A functional two-node RHEL High Availability Add-On cluster configured for HANA system replication
 - The cluster is running on both nodes
 - The `SAPHanaController_${SID}_${INSTNO}` resource is configured with `AUTOMATED_REGISTER=false`
 - Verify the SAP HANA system replication status:
@@ -946,7 +946,7 @@ pcs resource config SAPHanaController_${SID}_${INSTNO}
 #### Test 2 - Prerequisites
 {: #ha-rhel-hana-ng-sh-test2-prerequisites}
 
-- A functional two-node RHEL HA Add-On cluster configured for HANA system replication
+- A functional two-node RHEL High Availability Add-On cluster configured for HANA system replication
 - The cluster is running on both nodes
 - Verify the SAP HANA system replication status:
    - Primary SAP HANA database is running on NODE2
@@ -977,7 +977,7 @@ sync; echo o > /proc/sysrq-trigger
 #### Test 2 - Recovery procedure
 {: #ha-rhel-hana-ng-sh-test2-recovery-procedure}
 
-Log in to the {{site.data.keyword.cloud}} Console and start the NODE2 instance.
+Log in to the {{site.data.keyword.cloud_notm}} console and start the NODE2 instance.
 After NODE2 becomes available, restart the cluster framework.
 
 On NODE2, run the following commands.
@@ -1008,7 +1008,7 @@ This test simulates a crash of the secondary SAP HANA instance to validate clust
 #### Test 3 - Prerequisites
 {: #ha-rhel-hana-ng-sh-test3-prerequisites}
 
-- A functional two-node RHEL HA Add-On cluster configured for HANA system replication
+- A functional two-node RHEL High Availability Add-On cluster configured for HANA system replication
 - The cluster is running in both nodes
 - The `SAPHanaController_${SID}_${INSTNO}` resource is configured with `AUTOMATED_REGISTER=true`
 - Verify the SAP HANA system replication status:
@@ -1067,7 +1067,7 @@ Use cluster management commands to relocate the primary SAP HANA instance to ano
 #### Test 4 - Prerequisites
 {: #ha-rhel-hana-ng-sh-test4-prerequisites}
 
-- A functional two-node RHEL HA Add-On cluster configured for SAP HANA system replication
+- A functional two-node RHEL High Availability Add-On cluster configured for SAP HANA system replication
 - The cluster is running on both nodes
 - The `SAPHanaController_${SID}_${INSTNO}` resource is configured with `AUTOMATED_REGISTER=true`
 - Verify the SAP HANA system replication status:

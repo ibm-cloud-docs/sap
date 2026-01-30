@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2025
-lastupdated: "2025-09-27"
+  years: 2026
+lastupdated: "2026-01-23"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, heterogeneous migration, Linux, Red Hat, RHEL, SuSE, Db2, Oracle, HANA, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize, sum, software update manager, dmo, database migration option, dmove2s4, Software Provisioning Manager, SWPM
 subcollection: sap
 ---
@@ -381,7 +381,7 @@ For SAP HANA on RHEL 9, SAP recommends the following OS settings:
    * [SAP Note 3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302){: external}
 
 Before you can start the installation of the most recent GA version of SAP HANA Database, you need to make sure that the required
-GCC complier is installed on the OS. If the correct Compiler version isn't installed, the SAP HANA Database installation experiences errors.
+GCC compiler is installed on the OS. If the correct Compiler version isn't installed, the SAP HANA Database installation experiences errors.
 
 If you plan to install SAP HANA database version 2.00.082, a newer compiler version is needed. For more information, see [SAP Note 3449186 - Linux: Running SAP applications compiled with GCC 13.x](https://me.sap.com/notes/3449186){: external}.
 

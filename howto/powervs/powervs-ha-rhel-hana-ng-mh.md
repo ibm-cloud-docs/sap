@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-01-15"
+lastupdated: "2026-01-23"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, SAP HANA scale-out, High Availability, HA, Linux, Pacemaker, RHEL HA Add-On
 subcollection: sap
 ---
@@ -583,13 +583,13 @@ The following port ranges are commonly used by tenant databases and their associ
 
 3xx04			scriptserver	Port used by the script server of the first tenant database
 3xx05			diserver		Tenant database ports
-3xx25			diserver		Port used by the diserver of the inital tenant database
+3xx25			diserver		Port used by the diserver of the initial tenant database
 3xx4n			diserver		Tenant database ports
-3xx06			webdispatcher	Port used by the webdispatcher of the inital tenant database
-3xx07			xsengine	Port used by the xsengine of the inital tenant database
-3xx08			xsengine	Port used by the xsengine of the inital tenant database created in a new installation or an upgraded single-container system.
+3xx06			webdispatcher	Port used by the webdispatcher of the initial tenant database
+3xx07			xsengine	Port used by the xsengine of the initial tenant database
+3xx08			xsengine	Port used by the xsengine of the initial tenant database created in a new installation or an upgraded single-container system.
 3xx42 - 3xx99	xsengine	Tenant database ports
-3xx11			dpserver	Port used by the dpserver of the inital tenant database
+3xx11			dpserver	Port used by the dpserver of the initial tenant database
 ```
 {: screen}
 
