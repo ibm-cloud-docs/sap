@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-01-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
@@ -13,10 +13,10 @@ subcollection: sap
 {: #powervs-set-up-power-instances}
 
 Follow the instructions to deploy the {{site.data.keyword.powerSys_notm}} instances that are required for SAP system installation.
-The guidance includes configuring virtual server instances for the SAP HANA system, and the ABAP application server on either Red Hat&; Enterprise Linux&; (RHEL) or SUSE Linux Enterprise Server (SLES).
+The guidance includes configuring virtual server instances for the SAP HANA system, and the ABAP application server on either Red Hat&reg; Enterprise Linux&reg; (RHEL) or SUSE Linux Enterprise Server (SLES).
 
 A {{site.data.keyword.vpc_full}} landing zone, a {{site.data.keyword.tg_full}}, and one {{site.data.keyword.powerSys_notm}} workspace are required as prerequisites.
-To deploy these prerequisites, use the automation {{site.data.keyword.powerSys_notm}} with VPC landing zone{: external}, available in the {{site.data.keyword.cloud_notm}} catalog.
+To deploy these prerequisites, use the automation {{site.data.keyword.powerSys_notm}} with VPC landing zone, available in the {{site.data.keyword.cloud_notm}} catalog.
 
 Figure 1 illustrates the infrastructure architecture and highlights the commonly used cloud services.
 Within the {{site.data.keyword.vpc_short}} environment, the cloud services include a SQUID proxy, an Ansible automation node, virtual private endpoints, file storage, and a Domain Name System (DNS) forwarder.
@@ -52,14 +52,15 @@ For information about available profiles, see SAP HANA certified instances on {{
 
 You can choose one of the following options for the OS image subscription:
 
-IBM provided subscription:
-{{site.data.keyword.cloud}} offers full subscriptions for boot images for AIX, IBM i, and Linux operating systems.
+IBM provided subscription
+:   {{site.data.keyword.cloud}} offers full subscriptions for boot images for AIX, IBM i, and Linux operating systems.
 Choose Linux for SAP HANA, or Linux for SAP Netweaver.
 
 Client supplied subscription ("Bring Your Own License" - BYOL)
-If you use a client supplied subscription, either:
-- Import your own image as a custom image for deployment, or
-- Select an image from the client supplied subscription section of the IBM stock images (identified with the BYOL suffix) for {{site.data.keyword.powerSys_notm}} instance deployment.
+:   If you use a client supplied subscription, either:
+
+    - Import your own image as a custom image for deployment, or
+    - Select an image from the client supplied subscription section of the IBM stock images (identified with the BYOL suffix) for {{site.data.keyword.powerSys_notm}} instance deployment.
 
 See more details about the operating system versions in [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-power).
 See [Using RHEL within the {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-linux-with-powervs) and [Using SLES within IBM {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-using-linux) for more details about the subscriptions for RHEL and SLES.
@@ -89,6 +90,7 @@ Deploy an {{site.data.keyword.powerSys_notm}} instance for the SAP HANA system.
 1. Click **View virtual servers** on the right page.
    The list of virtual server instances is shown.
 1. Click **Create instance** to create a new virtual server instance.
+
 Complete the fields in the **General** section.
 
    | Field | Details |
@@ -97,7 +99,7 @@ Complete the fields in the **General** section.
    | Number of instances | Enter '1'. |
    | Add to a server placement group | Optional and can be skipped. |
    | Add to a shared processor pool | Optional and can be skipped. |
-   | Virtual server pinning  | Optional, choose the default selection "None". |
+   | Virtual server pinning | Optional, choose the default selection "None". |
    | SSH key | Choose an existing SSH key. |
    {: caption="General parameter selection for the SAP HANA instance" caption-side="top"}
 
@@ -135,21 +137,22 @@ Complete the fields in the **Profile** section.
 
 Complete the fields in the **Storage volumes** section.
 
-    For the SAP HANA system, you create storage volumes that belong to different storage tiers 'Tier 1' and 'Tier 3'.
-    You cannot mix storage tiers during the instance creation process, so you need to create and attach the storage volumes later.
-    Do not specify the storage volumes now.
-    {: important}
+   For the SAP HANA system, you create storage volumes that belong to different storage tiers 'Tier 1' and 'Tier 3'.
+   You cannot mix storage tiers during the instance creation process, so you need to create and attach the storage volumes later.
+   Do not specify the storage volumes now.
+   {: important}
 
    Click **Continue**.
 
 Complete the fields in the **Networking** section.
-    * Do not specify any **Public networks**.
-    * Click **Attach existing network** to attach the subnet.
-       * Select the name of the subnet from the list of existing subnets.
-       * Select **Manually specify an IP address from IP range**, and enter the IP address `<HANA_PVS_IP>` that you reserved before in your DNS setup.
-         If you select **Automatically assign an IP address from IP range**, then the IP address is assigned dynamically.
-         In that case, you must retrieve the `<HANA_PVS_IP>` after deployment and update your DNS configuration by using this IP address for the hostname of the instance.
-       * Click **Attach**
+
+   * Do not specify any **Public networks**.
+   * Click **Attach existing network** to attach the subnet.
+      * Select the name of the subnet from the list of existing subnets.
+      * Select **Manually specify an IP address from IP range**, and enter the IP address `<HANA_PVS_IP>` that you reserved before in your DNS setup.
+        If you select **Automatically assign an IP address from IP range**, then the IP address is assigned dynamically.
+        In that case, you must retrieve the `<HANA_PVS_IP>` after deployment and update your DNS configuration by using this IP address for the hostname of the instance.
+      * Click **Attach**
 
 Click **Finish**, accept the terms and conditions, and then click **Create**.
 
@@ -429,6 +432,7 @@ By default, these file systems are named:
 - `/hana/data`
 - `/hana/log`
 - `/hana/shared`
+
 However, you can customize the names.
 You might configure other file systems, such as for the `/usr/sap` directory.
 
