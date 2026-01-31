@@ -58,6 +58,8 @@ toc:
           label: Infrastructure profiles for SAP HANA database servers
           id: "infrastructure-profiles-sap-hana"
           topics:
+          - navtitle: Virtual servers in VPC
+            topic: plan/vpc-intel-vsi/vpc-intel-vsi-compute-certified-profiles-hana.md
           - navtitle: Bare metal servers in VPC
             topic: plan/vpc-intel-bm/vpc-intel-bm-compute-certified-profiles-hana.md
           - navtitle: Bare metal servers in Classic

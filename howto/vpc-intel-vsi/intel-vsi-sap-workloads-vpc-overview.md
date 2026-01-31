@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-01-20"
+lastupdated: "2026-01-31"
 keywords:
 subcollection: sap
 ---
@@ -184,7 +184,7 @@ In {{site.data.keyword.cloud_notm}} VPC, the profile families that are certified
 * Ultra High Memory Optimized
 
 All the memory family profiles provide memory intensive workloads, such as demanding database applications, in-memory analytics workloads, and are designed for SAP HANA workloads. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
-For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi).
+For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) and [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi).
 
 The following profile families are available to provision the VSI:
 
@@ -291,10 +291,10 @@ Once you understand the server profile, storage, and image options, then the Int
 
 ![Figure 1. Catalog Images](../../images/vpc-intel-vsi-catalog-images.png "Catalog Images"){: caption="Catalog Images" caption-side="bottom"}
 
-8. Select **Profile**. For more information, see based on the guidance that is detailed in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi), which lists the profiles that are certified for SAP HANA and SAP NetWeaver.
+8. Select **Profile**. For more information, see based on the guidance that is detailed in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi), which lists the profiles that are certified for SAP HANA and SAP NetWeaver.
 9. Select the SSH key that you want to add to the virtual server. For this step, you can create a new SSH key.
 10. In the **Data Volumes** section, click **Create**. This will allow adding data disks to the provisioned VSI. Afterwards, these disks can be used for partitioning and storage management (File system distribution).
-    * For SAP HANA, these volumes must meet special KPI needs that are defined by SAP and are mandatory. For more information, see [Storage specifications - Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-storage-specs) or [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations) to learn these special needs and how you should configure the data volumes.
+    * For SAP HANA, these volumes must meet special KPI needs that are defined by SAP and are mandatory. For more information, see [Storage specifications - Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) or [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations) to learn these special needs and how you should configure the data volumes.
     * For SAP NetWeaver, these volumes are based on the requirements of the installed SAP NetWeaver instance. The standard tiered options are 3K, 5K, and 10K IOPS, and custom IOPS. These options can be used to accommodate the specific requirements.
 11. During **Data Volume** creation, the option Auto-delete can be enabled, if required. This will mark the data volume to be automatically deleted when the VSI itself will be deleted. Consider this option carefully.
 

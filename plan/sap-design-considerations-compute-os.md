@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-20"
+lastupdated: "2026-01-31"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -68,7 +68,7 @@ For more information, see [Intel Bare Metal servers on Classic Infrastructure](/
 
 {{site.data.keyword.ibm_cloud_sap}} provides SAP-certified infrastructure by using {{site.data.keyword.IBM_notm}}'s latest virtual servers which are available with instantaneous provisioning, and are offered in different profiles that define vCPU and RAM combinations.
 
-SAP HANA database servers and SAP application servers run on {{site.data.keyword.cloud_notm}} VPC using [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc).
+SAP HANA database servers and SAP application servers run on {{site.data.keyword.cloud_notm}} VPC using [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi).
 In addition, SAP application servers run on {{site.data.keyword.cloud_notm}} VPC using [Intel Virtual Server certified profiles on VPC infrastructure for SAP application server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-bm).
 For more information, see [Intel Virtual Servers on VPC Infrastructure](/docs/sap?topic=sap-iaas-offerings#iaas-intel-vson-vpc).
 

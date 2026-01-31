@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-12"
+lastupdated: "2026-01-31"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -163,7 +163,7 @@ For example, `"/db2/<DBSID>"`, `"/db2/<DBSID>/log_dir"`, and several `"sapdata<n
 ### Sample storage configurations for SAP HANA
 {: #hana-vs-storage-config}
 
-Further information about [storage specifications for Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-vpc-storage-specs) are available, the below shows only the configuration steps required.
+Further information about [storage specifications for Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) are available, the below shows only the configuration steps required.
 
 #### mx2-8x64, mx2-16x128 and mx2-32x256 profiles
 {: #hana-iaas-mx2-16x128-32x256-configure}

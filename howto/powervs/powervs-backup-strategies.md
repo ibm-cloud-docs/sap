@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-01-31"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, Backup, Compass, Cobalt Iron, Backint, agent, Cloud {{site.data.keyword.cos_short}}, COS
 subcollection: sap
 
@@ -109,5 +109,5 @@ When you use the Backup Offering, you are billed monthly through {{site.data.key
 
 Support for the Backup Offering is provided by Cobalt Iron.
 
-* For more information about the offering, see the [Cobalt Iron documentation](https://help.cobaltiron.com/getting-started-with-powervs-and-compass-commander/){: extrnal}.
+* For more information about the offering, see the [Cobalt Iron documentation](https://help.cobaltiron.com/getting-started-with-powervs-and-compass-commander/){: external}.
 * For issues related to backup and restore, contact Cobalt Iron by opening a service ticket through `support.cobaltiron.com`.

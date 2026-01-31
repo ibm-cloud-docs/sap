@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2025
-lastupdated: "2026-01-29"
+  years: 2025, 2026
+lastupdated: "2026-01-31"
 keywords: SAP
 subcollection: sap
 ---
@@ -27,7 +27,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 
 - New reference architecture: [SAP Solution Manager with HANA (RHEL)](/docs/sap?topic=sap-sap-sol-mgr-hanadb-rhel&interface=terraform)
 - New document: [Virtual Persistent Memory (vPMEM) with SAP HANA on Power Virtual Server](/docs/sap?topic=sap-powervs-vpmem-with-sap-hana&interface=terraform)
-- Introduced new [Intel Sapphire Rapids profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-sr-vpc-list) for SAP HANA on {{site.data.keyword.vpc_full}}.
+- Introduced new [Intel Sapphire Rapids profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi#sr-profiles) for SAP HANA on {{site.data.keyword.vpc_full}}.
 
 
 
@@ -81,7 +81,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 {: #sap-2025-07}
 
 - Introduced new [bare metal profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-bm) and [VMware profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm) for SAP NetWeaver/Application Servers on {{site.data.keyword.cloud_notm}} Classic Infrastructure.
-- Introduced new [vx3d OLTP profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc#hana-iaas-intel-vs-sr-vpc-list) for SAP HANA on {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}}.
+- Introduced new [vx3d OLTP profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi#sr-profiles) for SAP HANA on {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}}.
 - Introduced new [bh2, ch2 and mh2 (OLAP, OLTP, and OLTP upto 4N) profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#bh2-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
 - Introduced new [sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr2-nw-profiles) for SAP NetWeaver/Application Servers on {{site.data.keyword.powerSysFull}}.
 - New documentation: [Accessing File Storage for VPC from {{site.data.keyword.powerSysFull}} Instances](/docs/sap?topic=sap-nfs-zonal-powervs-intro)
@@ -114,7 +114,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 ## March 2025
 {: #sap-2025-03}
 
-- **New SAP HANA database profiles:** Introduced [ch2 and bh2 certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sap-hana-iaas-offerings-profiles-power10-families) for SAP HANA database on IBM Power10 machines.
+- **New SAP HANA database profiles:** Introduced [ch2 and bh2 certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#p10-profiles) for SAP HANA database on IBM Power10 machines.
 - **Migration options:** New documentation on [migration paths](/docs/sap?topic=sap-sapmig-overview) for transitioning from on-premises environments to {{site.data.keyword.powerSys_notm}}.
 - **High availability best practices:** New documentation on [implementing high availability](/docs/sap?topic=sap-ha-overview) scenarios for {{site.data.keyword.powerSys_notm}}.
 - **Backup strategies:** New documentation on [comprehensive backup strategies](/docs/sap?topic=sap-powervs-backup-strategies) for SAP HANA database on {{site.data.keyword.powerSys_notm}}.

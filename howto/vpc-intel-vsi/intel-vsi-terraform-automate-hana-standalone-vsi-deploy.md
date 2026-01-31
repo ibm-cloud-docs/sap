@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-28"
+lastupdated: "2026-01-31"
 keywords:
 subcollection: sap
 ---
@@ -61,7 +61,7 @@ For {{site.data.keyword.cloud}} virtual servers for VPC, there are eight profile
 
 For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
-When you provision {{site.data.keyword.cloud}} virtual server instances for SAP HANA on VPC, you can select from three families of certified profiles: Memory Optimized, Very High Memory Optimized and Ultra High Memory Optimized. For more information about virtual server instances certified profiles for SAP HANA, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc).
+When you provision {{site.data.keyword.cloud}} virtual server instances for SAP HANA on VPC, you can select from three families of certified profiles: Memory Optimized, Very High Memory Optimized and Ultra High Memory Optimized. For more information about virtual server instances certified profiles for SAP HANA, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi).
 
 ### x86-64 bare metal server profiles
 {: #x86-64-bare-metal-server-profiles}
@@ -89,7 +89,7 @@ The following operating systems and OS images are supported:
 * SUSE Linux Enterprise Server 15 SP 4 for SAP Applications (amd64) - images: `ibm-sles-15-4-amd64-sap-hana-<x>`
 * SUSE Linux Enterprise Server 15 SP 3 for SAP Applications (amd64) - images: `ibm-sles-15-3-amd64-sap-hana-<x>`
 
-The provided SSH keys are used to access the SAP HANA server via SSH, as a root user. The storage volumes for SAP HANA on VSI are configured based on the [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc). The storage volumes for SAP HANA on Bare Metal Server are configured based on the [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm).
+The provided SSH keys are used to access the SAP HANA server via SSH, as a root user. The storage volumes for SAP HANA on VSI are configured based on the [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi). The storage volumes for SAP HANA on Bare Metal Server are configured based on the [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm).
 
 ## Script files
 {: #terraform-sap-hana-vsi-files}
@@ -141,7 +141,7 @@ If you don't have a deployment server (bastion server) in the same VPC, create a
 	cd sap-hana-db
     ```
 
-3.	Customize the VPC variables according to your existing VPC data. Modify the `input.auto.tfvars` file to specify your options. You need a 40-digit SSH key ID for the deployment. Additional SSH key IDs are optional. For more information related to SAP HANA certified profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm). For more options about images, see [Images](/docs/vpc?topic=vpc-about-images){: external}.
+3.	Customize the VPC variables according to your existing VPC data. Modify the `input.auto.tfvars` file to specify your options. You need a 40-digit SSH key ID for the deployment. Additional SSH key IDs are optional. For more information related to SAP HANA certified profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) and [Bare metal servers certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm). For more options about images, see [Images](/docs/vpc?topic=vpc-about-images){: external}.
 
     The following input variable values must be provided:
 
