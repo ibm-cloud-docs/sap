@@ -67,7 +67,7 @@ The following table lists available profile families for Intel Sapphire Rapids c
 {: class="simple-tab-table"}
 {: tab-group="sr-profiles"}
 {: caption="Intel Sapphire Rapids profiles for SAP HANA" caption-side="bottom"}
-{: #hana-iaas-intel-sr-profiles}
+{: #sr-profiles-table}
 {: tab-title="Certified Profiles"}
 
 | **Profile name** | **Workload type** | **SAPS** |
@@ -79,7 +79,7 @@ The following table lists available profile families for Intel Sapphire Rapids c
 {: class="simple-tab-table"}
 {: tab-group="sr-profiles"}
 {: caption="Intel Sapphire Rapids profiles for SAP HANA" caption-side="bottom"}
-{: #hana-iaas-intel-sr-sizing}
+{: #sr-sizing}
 {: tab-title="Sizing"}
 
 
@@ -92,7 +92,7 @@ The following table lists available profile families for Intel Sapphire Rapids c
 {: class="simple-tab-table"}
 {: tab-group="sr-profiles"}
 {: caption="Intel Sapphire Rapids profiles for SAP HANA" caption-side="bottom"}
-{: #hana-iaas-intel-sr-log}
+{: #sr-log}
 {: tab-title="Log File System"}
 
 
@@ -105,7 +105,7 @@ The following table lists available profile families for Intel Sapphire Rapids c
 {: class="simple-tab-table"}
 {: tab-group="sr-profiles"}
 {: caption="Intel Sapphire Rapids profiles for SAP HANA" caption-side="bottom"}
-{: #hana-iaas-intel-sr-data}
+{: #sr-data}
 {: tab-title="Data File System"}
 
 
@@ -118,12 +118,12 @@ The following table lists available profile families for Intel Sapphire Rapids c
 {: class="simple-tab-table"}
 {: tab-group="sr-profiles"}
 {: caption="Intel Sapphire Rapids profiles for SAP HANA" caption-side="bottom"}
-{: #hana-iaas-intel-sr-shared}
+{: #sr-shared}
 {: tab-title="Shared File System"}
 
 
 ## Intel Cascade Lake certified servers for SAP HANA
-{: #intel-vpc-vsi-sap-hana-profile-cl-family}
+{: #cl-profiles}
 
 The following table lists available profile families for Intel Cascade Lake certified servers for SAP HANA:
 
@@ -141,7 +141,7 @@ The following SAP HANA profiles with prefix mx2 on Intel Cascade Lake Servers ar
 {: class="simple-tab-table"}
 {: tab-group="mx2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(mx2)" caption-side="bottom"}
-{: #hana-iaas-intel-mx2-profiles}
+{: #mx2-profiles-table}
 {: tab-title="Certified Profiles"}
 
 | **Profile name**           | **Workload type** | **SAPS** |
@@ -153,7 +153,7 @@ The following SAP HANA profiles with prefix mx2 on Intel Cascade Lake Servers ar
 {: class="simple-tab-table"}
 {: tab-group="mx2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(mx2)" caption-side="bottom"}
-{: #hana-iaas-intel-mx2-sizing}
+{: #mx2-sizing}
 {: tab-title="Sizing"}
 
 
@@ -166,7 +166,7 @@ The following SAP HANA profiles with prefix mx2 on Intel Cascade Lake Servers ar
 {: class="simple-tab-table"}
 {: tab-group="mx2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(mx2)" caption-side="bottom"}
-{: #hana-iaas-intel-mx2-log}
+{: #mx2-log}
 {: tab-title="Log File System"}
 
 
@@ -179,7 +179,7 @@ The following SAP HANA profiles with prefix mx2 on Intel Cascade Lake Servers ar
 {: class="simple-tab-table"}
 {: tab-group="mx2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(mx2)" caption-side="bottom"}
-{: #hana-iaas-intel-mx2-data}
+{: #mx2-data}
 {: tab-title="Data File System"}
 
 
@@ -192,7 +192,7 @@ The following SAP HANA profiles with prefix mx2 on Intel Cascade Lake Servers ar
 {: class="simple-tab-table"}
 {: tab-group="mx2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(mx2)" caption-side="bottom"}
-{: #hana-iaas-intel-mx2-shared}
+{: #mx2-shared}
 {: tab-title="Shared File System"}
 
 ### vx2 – Certified profiles
@@ -210,7 +210,7 @@ The following SAP HANA profiles with prefix vx2 on Intel Cascade Lake servers ar
 {: class="simple-tab-table"}
 {: tab-group="vx2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(vx2)" caption-side="bottom"}
-{: #hana-iaas-intel-vx2-profiles}
+{: #vx2-profiles-table}
 {: tab-title="Certified Profiles"}
 
 | **Profile name**  | **Workload type** | **SAPS**  |
@@ -223,7 +223,7 @@ The following SAP HANA profiles with prefix vx2 on Intel Cascade Lake servers ar
 {: class="simple-tab-table"}
 {: tab-group="vx2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(vx2)" caption-side="bottom"}
-{: #hana-iaas-intel-vx2-sizing}
+{: #vx2-sizing}
 {: tab-title="Sizing"}
 
 
@@ -237,7 +237,7 @@ The following SAP HANA profiles with prefix vx2 on Intel Cascade Lake servers ar
 {: class="simple-tab-table"}
 {: tab-group="vx2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(vx2)" caption-side="bottom"}
-{: #hana-iaas-intel-vx2-log}
+{: #vx2-log}
 {: tab-title="Log File System"}
 
 
@@ -251,7 +251,7 @@ The following SAP HANA profiles with prefix vx2 on Intel Cascade Lake servers ar
 {: class="simple-tab-table"}
 {: tab-group="vx2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(vx2)" caption-side="bottom"}
-{: #hana-iaas-intel-vx2-data}
+{: #vx2-data}
 {: tab-title="Data File System"}
 
 
@@ -265,7 +265,7 @@ The following SAP HANA profiles with prefix vx2 on Intel Cascade Lake servers ar
 {: class="simple-tab-table"}
 {: tab-group="vx2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(vx2)" caption-side="bottom"}
-{: #hana-iaas-intel-vx2-shared}
+{: #vx2-shared}
 {: tab-title="Shared File System"}
 
 ### ux2 – Certified profiles
@@ -285,7 +285,7 @@ The following SAP HANA profiles with prefix ux2 on Intel Cascade Lake servers ar
 {: class="simple-tab-table"}
 {: tab-group="ux2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(ux2)" caption-side="bottom"}
-{: #hana-iaas-intel-ux2-profiles}
+{: #ux2-profiles-table}
 {: tab-title="Certified Profiles"}
 
 | **Profile name**   | **Workload type** | **SAPS**  |
@@ -300,7 +300,7 @@ The following SAP HANA profiles with prefix ux2 on Intel Cascade Lake servers ar
 {: class="simple-tab-table"}
 {: tab-group="ux2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(ux2)" caption-side="bottom"}
-{: #hana-iaas-intel-ux2-sizing}
+{: #ux2-sizing}
 {: tab-title="Sizing"}
 
 | **Certified profile** | **IOPS\nrequired** | **Log file system\nstorage config (GB)** | **Log file system\nstorage tier** | **Log file system\nsize(GB)** | **IOPs\nobtained** |
@@ -315,7 +315,7 @@ The following SAP HANA profiles with prefix ux2 on Intel Cascade Lake servers ar
 {: class="simple-tab-table"}
 {: tab-group="ux2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(ux2)" caption-side="bottom"}
-{: #hana-iaas-intel-ux2-log}
+{: #ux2-log}
 {: tab-title="Log File System"}
 
 
@@ -331,7 +331,7 @@ The following SAP HANA profiles with prefix ux2 on Intel Cascade Lake servers ar
 {: class="simple-tab-table"}
 {: tab-group="ux2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(ux2)" caption-side="bottom"}
-{: #hana-iaas-intel-ux2-data}
+{: #ux2-data}
 {: tab-title="Data File System"}
 
 
@@ -347,5 +347,5 @@ The following SAP HANA profiles with prefix ux2 on Intel Cascade Lake servers ar
 {: class="simple-tab-table"}
 {: tab-group="ux2-profiles"}
 {: caption="Intel Cascade Lake profiles for SAP HANA-(ux2)" caption-side="bottom"}
-{: #hana-iaas-intel-ux2-shared}
+{: #ux2-shared}
 {: tab-title="Shared File System"}

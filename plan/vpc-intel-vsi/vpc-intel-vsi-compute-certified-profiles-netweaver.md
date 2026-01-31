@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-01-31"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, sapphire rapids, Skylake, Cascade lake, VPC, VSI, certified profiles
 subcollection: sap
 ---
@@ -244,6 +244,6 @@ When the virtual server profiles for SAP application server are initially provis
 
 
 ## Profiles available on hourly consumption billing
-{: #nw-iaas-intel-vs-vpc-hourly}
+{: #nw-hourly-profiles}
 
 All {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available with Hourly Consumption Billing, which includes Suspend Discounts and Sustained Usage Discounts. With Suspend Discounts, storage charges occur only if the server is in Shutdown state. With Sustained Usage Discount, the more a server is used, the less the cost per hour.

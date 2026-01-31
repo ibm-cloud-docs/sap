@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-01-31"
 keywords: SAP-Certified HANA profiles, VPC, baremetal, log, data, shared, sapphire rapids, Skylake, Cascade lake, boot only, bare metal
 subcollection: sap
 ---
@@ -31,7 +31,7 @@ Following Intel system types are certified to run SAP Application Server or SAP 
 
 
 ## Profile naming convention
-{: #vpc-intel-bm-sap-hana-profile-naming-convention}
+{: #naming-convention}
 
 
 The first letter of the profile name indicates the profile family that is mentioned the profile list, where the ratio depends on the Intel generation, Sapphire Rapids (SPR) or Cascade Lake (CL):
@@ -165,6 +165,6 @@ Refer to [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud
 {: tab-title="Storage"}
 
 ## Profiles available on hourly consumption billing
-{: #hana-iaas-intel-bm-vpc-hourly}
+{: #hourly-profiles}
 
 All {{site.data.keyword.bm_is_short}} are available with hourly consumption billing, which includes suspend discounts and sustained usage discounts. With suspend discounts, storage charges occur only if the server is in shutdown state. With sustained usage discount, the more a server is used, the less the cost per hour.

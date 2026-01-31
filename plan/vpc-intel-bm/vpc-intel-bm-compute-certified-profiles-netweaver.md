@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-01-31"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, sapphire rapids, Skylake, Cascade lake, baremetal
 subcollection: sap
 ---
@@ -87,11 +87,11 @@ For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virt
 
 
 ## Internal storage
-{: #nw-iaas-intel-bm-vpc-int-storage}
+{: #internal-storage}
 
 Your bare metal server on VPC comes with a number of internal NVMEs, depending on its size. For SAP application server based deployment, you can use the NVMEs that are listed as block devices to the operating system. The NVMEs are under “/dev/nvmeXn1” (X from 0 to the number of NVMEs in total, minus 1). Use the NVMEs according to your requirements and needs. However, to increase failure resilience, you might have to install Linux Logical Volume Manager (LVM) to add RAID configuration, like RAID1 or RAID5. Since NVMEs are provisioned, performance considerations are mostly not an issue.
 
 ## Profiles available on hourly consumption billing
-{: #nw-iaas-intel-vpc-bm-hourly}
+{: #nw-hourly-profiles}
 
 All {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC are available with hourly consumption billing, which includes suspend discounts and sustained usage discounts. With suspend discounts, storage charges occur only when the server is in shutdown state. With sustained usage discount, the more a server is used, the less the cost per hour.
