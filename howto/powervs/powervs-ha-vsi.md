@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-02-13"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn, SLES HAE
 subcollection: sap
 ---
@@ -30,17 +30,17 @@ These resources include compute, network, and storage volumes.
 Resources cannot be moved or shared between different workspaces.
 Each workspace is bound to a single data center.
 
-To create a workspace, follow the steps that are described in [Creating a {{site.data.keyword.powerSys_notm}} workspace](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-service){: external}.
+To create a workspace, follow the steps that are described in [Creating a {{site.data.keyword.powerSys_notm}} workspace](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-service).
 
-The created workspaces are listed under **Workspaces** on the left navigation pane of the {{site.data.keyword.powerSys_notm}} user interface.
+The created workspaces are listed under **Workspaces** on the left navigation menu of the {{site.data.keyword.powerSys_notm}} user interface.
 
 ### Creating private network subnets
 {: #ha-vsi-create-subnets}
 
-A virtual server instance is connected to the network and is assigned an IP address from the defined range of IP addresses.
+A virtual server instance is connected to the network and an IP address is assigned from the defined range of IP addresses.
 It is recommended that you connect the cluster nodes to a private network rather than a public network.
 
-Follow the steps in [Configuring a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet){: external} to create a subnet.
+Follow the steps in [Configuring a private network subnet](/docs/power-iaas?topic=power-iaas-configuring-subnet) to create a subnet.
 
 You need at least one private subnet in the workspace.
 {: note}
@@ -48,13 +48,24 @@ You need at least one private subnet in the workspace.
 ### Reserving virtual IP addresses
 {: #ha-vsi-reserve-virtual-ip-addresses}
 
-A high availability cluster typically requires *virtual IP addresses* that must move with the application in a failover scenario.
+A high availability cluster requires *virtual IP addresses* that can migrate between nodes during a failover event.
+The procedure for reserving these addresses depends on whether the cluster is deployed in a single workspace or across multiple workspaces.
 
-Reserve the required IP addresses in the subnet to prevent {{site.data.keyword.powerSys_notm}} from assigning a specific IP address to another virtual server instance.
-See [Reserving IP addresses](/docs/power-iaas?topic=power-iaas-configuring-subnet#reserv-ip){: external}.
+Single workspace deployment
+:   For clusters deployed within a single workspace, reserve the required *virtual IP addresses* by following the instructions in [Reserving IP addresses](/docs/power-iaas?topic=power-iaas-configuring-subnet#reserv-ip). This reservation ensures that {{site.data.keyword.powerSys_notm}} does not automatically allocate those addresses to other virtual server instances.
 
-Make sure that the IP address you want to reserve is within the CIDR range of the subnet and within the *IP range* that you previously restricted.
-{: note}
+    The reserved IP address must fall within the subnet’s CIDR range and the previously restricted IP range.
+    {: note}
+
+Multizone deployment across two workspaces
+:   Clusters spanning two workspaces require extra IP address planning:
+
+    - *Virtual IP addresses* must be allocated outside the CIDR ranges of all subnets present in both workspaces.
+    - If the `powervs-move-ip` resource agent is used, reserve a single IP address outside all subnet CIDR ranges with a `/32` netmask.
+    - If the `powervs-move-subnet` resource agent is used, reserve a subnet outside all subnet CIDR ranges with a `/30` netmask.
+
+    {{site.data.keyword.powerSys_notm}} does not manage these addresses. You are responsible for maintaining accurate records of the reserved allocations.
+    {: note}
 
 ### Exploring more network architecture options
 {: #ha-vsi-explore-additional-network-options}
@@ -67,10 +78,10 @@ For more information, see [Getting started with the Power Edge Router](/docs/pow
 Otherwise, create {{site.data.keyword.cloud}} connections to connect your {{site.data.keyword.powerSys_notm}} instances to other {{site.data.keyword.cloud_notm}} resources within your account.
 {{site.data.keyword.cloud_notm}} connections are not required to configure a high availability cluster in {{site.data.keyword.powerSys_notm}}.
 They might be required for integration scenarios with the {{site.data.keyword.cloud_notm}} Classic network and Virtual Private Cloud (VPC) infrastructures.
-For more information, see [IBM {{site.data.keyword.powerSys_notm}} Cloud Connections](/docs/power-iaas?topic=power-iaas-cloud-connections){: external}.
+For more information, see [IBM {{site.data.keyword.powerSys_notm}} Cloud Connections](/docs/power-iaas?topic=power-iaas-cloud-connections).
 
 Use IBM Transit Gateway to connect your {{site.data.keyword.powerSys_notm}} to {{site.data.keyword.cloud_notm}} classic and Virtual Private Cloud (VPC) infrastructures outside your account or region.
-For more information about integrating the on-premises network and {{site.data.keyword.powerSys_notm}}, see [Network architecture diagrams](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams){: external}.
+For more information about integrating the on-premises network and {{site.data.keyword.powerSys_notm}}, see [Network architecture diagrams](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams).
 
 ### Creating an SSH key
 {: #ha-vsi-create-ssh-key}
@@ -82,7 +93,7 @@ During deployment of the virtual server instance, specify one or more keys from 
 These keys are added to the `authorized_keys` file of the root user, and allow you to securely log in to the virtual server instance by using your private key.
 
 
-For more information, see [Generating an SSH key](/docs/power-iaas?topic=power-iaas-create-vm#ssh-setup){: external}.
+For more information, see [Generating an SSH key](/docs/power-iaas?topic=power-iaas-create-vm#ssh-setup).
 
 The preferred choice is the *ed25519* key type.
 It offers both security and performance advantages.
@@ -103,12 +114,12 @@ Use the following steps to select a boot image.
 
 You can choose from several types of stock images that are already prepared for {{site.data.keyword.powerSys_notm}}.
 Images are available in the *IBM Provided Subscription* and *Client Provided Subscription* sections of the {{site.data.keyword.powerSys_notm}} provisioning page.
-For more information, see [Full Linux® subscription for IBM {{site.data.keyword.powerSys_notm}} (Off-premises)](/docs/power-iaas?topic=power-iaas-set-full-Linux){: external}.
+For more information, see [Full Linux® subscription for IBM {{site.data.keyword.powerSys_notm}} (Off-premises)](/docs/power-iaas?topic=power-iaas-set-full-Linux).
 
 If you want to import a custom Linux image, you must first upload the image to the {{site.data.keyword.cloud_notm}} Object Storage in OVA format.
 
-- [Importing a boot image](/docs/power-iaas?topic=power-iaas-importing-boot-image){: external}
-- [Deploying a custom image within IBM {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-deploy-custom-image){: external}
+- [Importing a boot image](/docs/power-iaas?topic=power-iaas-importing-boot-image)
+- [Deploying a custom image within IBM {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-deploy-custom-image)
 
 Before you begin, make sure that the OVA image is loaded in the storage bucket.
 
@@ -147,7 +158,7 @@ Follow these steps to create the virtual server instances that function as nodes
    When you deploy multiple instances, the storage volumes that are created are shared by all instances.
    Certain high availability cluster scenarios require shared volumes.
    In these cases, create the shared volumes later.
-   For SAP HANA, see [Storage configuration for SAP HANA](/docs/sap?topic=sap-storage-design-considerations#storage-config-hana){: external}.
+   For SAP HANA, see [Storage configuration for SAP HANA](/docs/sap?topic=sap-storage-design-considerations#storage-config-hana).
    These volumes must be created later for the individual server instances after their deployment is complete.
    {: important}
 
@@ -169,24 +180,41 @@ For a multizone region deployment, repeat the same steps to create the second vi
 If you deployed a virtual server instance from a stock image, you need to perform extra configuration tasks before you can install SAP software.
 For more information, see [Configuring a {{site.data.keyword.powerSys_notm}} instance](/docs/sap?topic=sap-powervs-set-up-power-instances#powervs-set-up-powervs-manually-os-config).
 
-## Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}
-{: #ha-vsi-create-role-and-service-id}
+## Configuring Identity and Access Management for cluster agents on {{site.data.keyword.powerSys_notm}}
+{: #ha-vsi-configure-iam}
 
-A *Service ID* in {{site.data.keyword.cloud_notm}} identifies a service or an application in a similar way as a user ID identifies a user.
-Create a *service ID* for the fencing agent to allow access to IBM Power Cloud actions such as monitoring or controlling the virtual server instances.
-Create a custom role in advance to limit the allowed IBM Power Cloud API actions to only those actions that are required for fencing.
 
-Managing *Custom Roles*, *Service IDs*, and *API keys* are part of IBM Cloud Identity and Access Management (IAM).
+In a high-availability cluster, resource agents manage the start, stop, and monitoring of cluster resources.
+Fencing agents perform node-level power actions, such as stopping or restarting a node, to maintain cluster integrity and prevent data corruption.
+
+When the cluster runs on {{site.data.keyword.powerSys_notm}} instances, the agents interact with the IBM Power Cloud API to retrieve status information and trigger required actions.
+Configure Identity and Access Management (IAM) to authenticate and authorize the IBM Power Cloud API calls.
+
+Create a custom role that restricts the actions that the agents can trigger to the minimum required set.
+A *Service ID* in {{site.data.keyword.cloud_notm}} identifies a service or application, similar to how a user ID identifies a user.
+Create a *service ID* for the agents to allow access to IBM Power Cloud actions such as monitoring or controlling virtual server instances.
 
 ### Log in to IBM Cloud Identity and Access Management
-{: #ha-vsi-create-service-id-logon}
+{: #ha-vsi-iam-logon}
+
+Verify that you have administrative access to manage IAM roles and policies for the {{site.data.keyword.powerSys_notm}} workspace.
 
 Go to the IBM Cloud Identity and Access Management (IAM) console.
 1. Log on to [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/){: external}.
 1. On the menu bar, click **Manage** and select **Access (IAM)**.
 
-### Creating a custom role for the fencing agent
-{: #ha-vsi-create-service-id-fencing-role}
+### Creating custom IAM roles
+{: #ha-vsi-create-custom-roles}
+
+Create custom roles in IAM that include all permissions that are required by the resource and fencing agents.
+These permissions must cover all operational actions that are performed by the agents within the {{site.data.keyword.powerSys_notm}} workspace.
+
+The action set of a custom role must be unique within the account.
+Multiple custom roles cannot share the same action set.
+{: note}
+
+#### Creating a custom role for the fencing agent
+{: #ha-vsi-create-custom-role-fencing}
 
 Create a *custom role* in IAM and assign the set of actions that are required for a fencing operation to the role.
 You must grant access for the following actions.
@@ -202,8 +230,8 @@ You cannot create multiple custom roles with the same action set.
 Create a **custom role** in IAM.
 1. Click **Roles** > **Create**.
 1. Enter the **Name**, **ID**, and **Description** for the custom role.
-1. Select *{{site.data.keyword.powerSys_notm}} Workspace* from the **Service** drop-down list.
-1. Select *Manager* from the **View the actions for** drop-down list.
+1. Select *{{site.data.keyword.powerSys_notm}} Workspace* from the **Service** list.
+1. Select *Manager* from the **View the actions for** list.
 1. In the **Actions** list, locate the following actions.
    Click **Add** for each of them.
    - power-iaas.pvm-instance.list
@@ -212,8 +240,8 @@ Create a **custom role** in IAM.
 
 2. Click **Create** to save the role.
 
-### Creating a custom role for the `powervs-subnet` resource agent
-{: #ha-vsi-create-service-id-subnet-role}
+#### Creating a custom role for the `powervs-subnet` resource agent
+{: #ha-vsi-create-custom-role-subnet}
 
 This step is only required if you are implementing a cluster in a multizone region environment with the `powervs-subnet` resource agent.
 {: note}
@@ -229,8 +257,8 @@ You must grant access for the following actions.
 Create a **custom role** in IAM.
 1. Click **Roles** > **Create**.
 1. Enter the **Name**, **ID**, and **Description** for the custom role.
-1. Select *{{site.data.keyword.powerSys_notm}} Workspace* in the **Service** drop-down list.
-1. Select *Manager* from the **View the actions for** drop-down list.
+1. Select *{{site.data.keyword.powerSys_notm}} Workspace* in the **Service** list.
+1. Select *Manager* from the **View the actions for** list.
 1. In the **Actions** list, locate the following actions.
    Click **Add** for each of them.
    - power-iaas.cloud-instance.read
@@ -244,8 +272,8 @@ Create a **custom role** in IAM.
    - power-iaas.pvm-instance-network.delete
 1. Click **Create** to save the role.
 
-### Creating a custom role for the `powervs-move-ip` resource agent
-{: #ha-vsi-create-service-id-move-ip-role}
+#### Creating a custom role for the `powervs-move-ip` resource agent
+{: #ha-vsi-create-custom-role-move-ip}
 
 This step is only required if you are implementing a cluster in a multizone region environment with the `powervs-move-ip` resource agent.
 {: note}
@@ -258,22 +286,27 @@ You must grant access for the following actions.
 Create a **custom role** in IAM.
 1. Click **Roles** > **Create**.
 1. Enter the **Name**, **ID**, and **Description** for the custom role.
-1. Select *{{site.data.keyword.powerSys_notm}} Workspace* in the **Service** drop-down list.
-1. Select *Manager* from the **View the actions for** drop-down list.
+1. Select *{{site.data.keyword.powerSys_notm}} Workspace* in the **Service** list.
+1. Select *Manager* from the **View the actions for** list.
 1. In the **Actions** list, locate the following actions.
    Click **Add** for each of them.
    - power-iaas.cloud-instance.read
    - power-iaas.cloud-instance.modify
 1. Click **Create** to save the role.
 
-### Creating a Service ID
+### Creating a Service ID and an API key
+{: #ha-vsi-create-service-id-api-key}
+
+Create a `Service ID` and an `API key` for the agents.
+
+#### Creating a Service ID
 {: #ha-vsi-create-service-id}
 
-Create a *Service ID* for the fencing agent and assign one or more custom roles to it.
+Create a *Service ID* for the agent and assign one or more custom roles to it.
 
-In a multizone region implementation, you can create a second *Service ID* for the `powervs-move-ip` or `powervs-subnet` resource agent.
-It is also possible to use a common Service ID for both agents (see the note in the previous section).
-If you are using a common Service ID, assign both the custom role for fencing and the custom role for the `powervs-move-ip` or `powervs-subnet` resource agent.
+
+If you configure the `fence_ibm_powervs` fence agent and either the `powervs-move-ip` or `powervs-subnet` resource agent in the cluster, you can create separate *Service IDs* for each agent or use a single shared *Service ID*.
+If you are using a common *Service ID*, assign both the custom role for fencing and the custom role for the `powervs-move-ip` or `powervs-subnet` resource agent.
 
 Create a **Service ID** in IAM.
 1. Click **Service IDs** > **Create**.
@@ -291,11 +324,11 @@ If you create a *Service ID* for the `powervs-move-ip` or `powervs-subnet` resou
 In the *Access policies* section, click **Assign access** and repeat the steps to assign access also for the second workspace.
 {: important}
 
-### Creating an API key for the Service ID
+#### Creating an API key for the Service ID
 {: #ha-vsi-create-service-api-key}
 
-When you configure the *fencing agent* in a high availability cluster or the *powervs-subnet* resource agent in a multizone region implementation, you must specify an *API key*.
-The *API key* authorizes the fencing agent or resource agent to use the IBM Power Cloud API to perform the actions that are defined in the *Service ID*.
+When you configure an agent in a high availability cluster as a fencing device or cluster resource, you must specify an *API key*.
+The *API key* authorizes the fencing or resource agent to use the IBM Power Cloud API to perform the actions that are defined in the *Service ID*.
 
 Create the **API Key** for the **Service ID** in the IAM.
 
@@ -315,19 +348,33 @@ After 300 seconds, you won't be able to view or retrieve the key.
 ## Collecting parameters for configuring a high availability cluster
 {: #ha-rhel-collect-parameters-for-cluster-config}
 
-To configure a high availability scenario, several parameters must be provided.
-The following parameters can be collected at this stage.
 
-- *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspace
-- Virtual server *instance IDs*
-- Extra parameters that must be derived from the *CRN*
-- API key for the *fencing agent*
-- API key for the *powervs-move-ip* or *powervs-subnet* resource agent if you are implementing a multizone region environment
+Configuring a high availability environment requires a defined set of parameters.
+Collect the following parameters before proceeding.
+Uppercase variable names in the following section indicate parameters that are used as environment variables to simplify cluster setup.
+These values are required later in the setup instructions for a specific high availability scenario.
 
-The uppercase variables in the following section indicate that these parameters are used as environment variables to simplify the cluster setup.
-Make a note of their contents now, as they are needed in the setup instructions for a specific high availability scenario.
+The following parameters are required for all scenarios.
+   - `CLOUD_REGION`
+   - `APIKEY`
 
-1. `CLOUD_REGION` contains the geographical area of your virtual server instance and is used to target the correct [Power Cloud API endpoint](https://cloud.ibm.com/apidocs/power-cloud#endpoint){: external}.
+If you use the `fence_ibm_powervs` fence agent or the `powervs-subnet` resource agent, also collect the following information:
+   - `IBMCLOUD_CRN_1`, `IBMCLOUD_CRN_2`.
+     The *Cloud Resource Name (CRN)* of the {{site.data.keyword.powerSys_notm}} workspace or workspaces.
+   - `POWERVSI_1` and `POWERVSI_2`.
+     The virtual server *instance IDs*.
+   - `GUID_1`, `GUID_2`.
+     The *GUID* values derived from the corresponding CRNs (required by `fence_ibm_powervs` only).
+
+If you use the `powervs-move-ip` resource agent, also collect the CRN for each of the routes.
+   - `ROUTE_CRN_1`, `ROUTE_CRN_2`
+
+### Gathering parameters for cluster configuration
+{: #ha-rhel-gather-parameters-for-cluster-config}
+
+Gather the parameters, and note them for the cluster configuration.
+
+1. `CLOUD_REGION` defines the geographical region of the virtual server instance and is used to determine the correct [Power Cloud API endpoint](https://cloud.ibm.com/apidocs/power-cloud#endpoint){: external}.
 
    `CLOUD_REGION` if you are using public endpoints
    :   Public endpoint URLs match the pattern `https://<CLOUD_REGION>.power-iaas.cloud.ibm.com`.
@@ -369,8 +416,16 @@ Make a note of their contents now, as they are needed in the setup instructions 
    Click the virtual server instance names and find their **ID**.
 1. Note these IDs for `POWERVSI_1` and `POWERVSI_2`.
    In a multizone deployment, use the second workspace to find the ID of the second instance.
-1. `APIKEY` contains the API key for the fencing agent. Use the value of the `apikey` entry in the JSON file that was downloaded in the [Creating an API key for the Service ID](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
 
-   In a multizone region deployment, an API key is also required for the `powervs-subnet` cluster resource agent.
-   As before, you can use the value of the apikey entry for the `APIKEY` variable.
-   However, the preferred option is to place a copy of the downloaded JSON file on both nodes and set `APIKEY` to a string that starts with a `@` sign followed by the full path to the key file.
+For the `powervs-move-ip` resource agent only:
+1. Click *Routes* in the workspace menu.
+   Select the static route name that matches the destination of the virtual IP address.
+   Click *View CRN* and record the **CRN** as `ROUTE_CRN_1` or `ROUTE_CRN_2`.
+   In a multizone deployment, use the second workspace to obtain the CRN for the second route.
+
+1. `APIKEY` contains the API key for the fencing agent.
+   Use the value of the `apikey` entry from the JSON file that was downloaded in the [Creating an API key for the Service ID](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
+
+   In a multizone region deployment, an API key is also required for the `powervs-move-ip` or `powervs-subnet` cluster resource agent.
+   As with the fencing agent, you can use the value of the `apikey` entry for the `APIKEY`.
+   However, the preferred approach is to place a copy of the downloaded JSON file on both nodes and set `APIKEY` to a value that starts with an `@` symbol followed by the full path to the key file.

@@ -1,7 +1,7 @@
 ---
 copyright:
-   years: 2020, 2025
-lastupdated: "2025-03-21"
+   years: 2020, 2026
+lastupdated: "2026-02-04"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Workspace, SSH Key, Transit Gateway, {{site.data.keyword.powerSys_notm}} Subnets, Networks
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Deploying {{site.data.keyword.powerSys_notm}} infrastructure
+# Preparing {{site.data.keyword.powerSys_notm}} workspaces for SAP workloads
 {: #powervs-set-up-power-infrastructure}
 
 For SAP workloads that run on {{site.data.keyword.powerSysFull}}, one workspace for {{site.data.keyword.powerSys_notm}} is deployed.

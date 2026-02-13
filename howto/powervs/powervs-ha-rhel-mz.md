@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-11-14"
+  years: 2024, 2026
+lastupdated: "2026-02-03"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -74,25 +74,25 @@ On both nodes, set the following environment variables.
 # General settings
 export CLUSTERNAME="SAP_CLUSTER"         # Cluster name
 
-export APIKEY=<APIKEY>                   # API Key of the IBM Cloud IAM ServiceID for the fencing agent
+export APIKEY=<APIKEY>                   # API Key of the IBM Cloud IAM ServiceID
 export CLOUD_REGION=<CLOUD_REGION>       # Multizone region name
-export PROXY_IP=<IP_ADDRESS>             # IP address of proxy server
+export PROXY_IP=<IP_ADDRESS>             # IP address of proxy server (optional)
 
 # Workspace 1
-export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace CRN
-export GUID_1=<GUID_1>                   # Workspace GUID
+export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace CRN  (required by fence_ibm_powervs, powervs-subnet)
+export GUID_1=<GUID_1>                   # Workspace GUID (required by fence_ibm_powervs, powervs-subnet)
 
 # Workspace 2
-export IBMCLOUD_CRN_2=<IBMCLOUD_CRN_2>   # Workspace CRN
-export GUID_2=<GUID_2>                   # Workspace GUID
+export IBMCLOUD_CRN_2=<IBMCLOUD_CRN_2>   # Workspace CRN  (required by fence_ibm_powervs, powervs-subnet)
+export GUID_2=<GUID_2>                   # Workspace GUID (required by fence_ibm_powervs, powervs-subnet)
 
 # Virtual server instance 1
 export NODE1=<HOSTNAME_1>                # Virtual server instance hostname
-export POWERVSI_1=<POWERVSI_1>           # Virtual server instance id
+export POWERVSI_1=<POWERVSI_1>           # Virtual server instance id (required by fence_ibm_powervs, powervs-subnet)
 
 # Virtual server instance 2
-export NODE2=<HOSTNAME_2>                # Virtual server instance
-export POWERVSI_2=<POWERVSI_2>           # Virtual server instance id
+export NODE2=<HOSTNAME_2>                # Virtual server instance hostname
+export POWERVSI_2=<POWERVSI_2>           # Virtual server instance id (required by fence_ibm_powervs, powervs-subnet)
 ```
 {: codeblock}
 
@@ -667,10 +667,10 @@ Continue with the steps in [Creating a service ID for the resource agent](#ha-rh
     Note the cloud resource name *CRN* for each of the routes.
     You need to enter the CRNs during the cluster resource configuration steps for the specific high availability scenario.
 
-### Creating a service ID for the resource agent
+### Creating a custom role, service ID, and API key for the resource agent
 {: #ha-rhel-mz-iam-custom-role}
 
-Follow the steps in [Creating a Custom Role, Service ID, and API key in {{site.data.keyword.cloud_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-role-and-service-id) to create a `Service ID` and an `API key` for the resource agent.
+Follow the steps in [Configuring IAM for Cluster Resource and Fencing Agents on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-configure-iam) to authenticate and authorize the agents in Identity and Access Management (IAM).
 
 ## Conclusion
 {: #ha-rhel-mz-conclusion}

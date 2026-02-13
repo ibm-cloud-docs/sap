@@ -247,11 +247,11 @@ toc:
               topics:
               - navtitle: Planning
                 topic: howto/powervs/powervs-provision-plan-deploy.md
-              - navtitle: Deploying VPC infrastructure for Power Virtual Server SAP workloads
+              - navtitle: Preparing IBM Cloud VPC infrastructure for SAP workloads in Power Virtual Server
                 topic: howto/powervs/powervs-provision-deploy-vpc-infrastructure.md
-              - navtitle: Deploying Power Virtual Server infrastructure
+              - navtitle: Preparing Power Virtual Server workspaces for SAP workloads
                 topic: howto/powervs/powervs-provision-deploy-power-infrastructure.md
-              - navtitle: Deploying and configuring virtual server instances in Power Virtual Server
+              - navtitle: Preparing Power Virtual Server instances for SAP system installation
                 topic: howto/powervs/powervs-provision-deploy-power-instances.md
               - navtitle: Enabling virtual persistent memory with SAP HANA on Power Virtual Server
                 topic: howto/powervs/powervs-vpmem-with-sap-hana.md

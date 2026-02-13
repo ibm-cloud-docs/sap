@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-11-14"
+  years: 2023, 2026
+lastupdated: "2026-02-03"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -60,21 +60,21 @@ On both nodes, create a file with the following environment variables and update
 # General settings
 export CLUSTERNAME="SAP_CLUSTER"         # Cluster name
 
-export APIKEY=<APIKEY>                   # API Key of the IBM Cloud IAM ServiceID for the fencing agent
+export APIKEY=<APIKEY>                   # API Key of the IBM Cloud IAM ServiceID
 export CLOUD_REGION=<CLOUD_REGION>       # Workspace region
-export PROXY_IP=<IP_ADDRESS>             # Proxy server IP address
+export PROXY_IP=<IP_ADDRESS>             # Proxy server IP address (optional)
 
 # Workspace 1
-export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace CRN
-export GUID_1=<GUID_1>                   # Workspace GUID
+export IBMCLOUD_CRN_1=<IBMCLOUD_CRN_1>   # Workspace CRN  (required by fence_ibm_powervs)
+export GUID_1=<GUID_1>                   # Workspace GUID (required by fence_ibm_powervs)
 
 # Virtual server instance 1
 export NODE1=<HOSTNAME_1>                # Virtual server instance hostname
-export POWERVSI_1=<POWERVSI_1>           # Virtual server instance id
+export POWERVSI_1=<POWERVSI_1>           # Virtual server instance id (required by fence_ibm_powervs)
 
 # Virtual server instance 2
 export NODE2=<HOSTNAME_2>                # Virtual server instance hostname
-export POWERVSI_2=<POWERVSI_2>           # Virtual server instance id
+export POWERVSI_2=<POWERVSI_2>           # Virtual server instance id (required by fence_ibm_powervs)
 ```
 {: codeblock}
 

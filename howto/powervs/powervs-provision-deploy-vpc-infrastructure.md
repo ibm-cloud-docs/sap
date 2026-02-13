@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-09-22"
+  years: 2023, 2026
+lastupdated: "2026-02-04"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC landing zone, NTP, NFS, DNS, Proxy, Squid, Terraform, Deployable architecture, Edge VPC, SSH
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Deploying {{site.data.keyword.vpc_short}} infrastructure for {{site.data.keyword.powerSys_notm}} SAP workloads
+# Preparing {{site.data.keyword.vpc_short}} infrastructure for SAP workloads in {{site.data.keyword.powerSys_notm}}
 {: #powervs-set-up-vpc-infrastructure}
 
 As a best practice for SAP that runs on {{site.data.keyword.powerSysFull}}, one {{site.data.keyword.vpc_short}} is created and two virtual server instances are deployed and configured.

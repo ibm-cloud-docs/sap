@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-30"
+lastupdated: "2026-02-04"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Preparing {{site.data.keyword.powerSys_notm}} Instances for SAP System Installation
+# Preparing {{site.data.keyword.powerSys_notm}} instances for SAP system installation
 {: #powervs-set-up-power-instances}
 
 Follow the instructions to deploy the {{site.data.keyword.powerSys_notm}} instances that are required for SAP system installation.
@@ -90,7 +90,6 @@ Deploy an {{site.data.keyword.powerSys_notm}} instance for the SAP HANA system.
 1. Click **View virtual servers** on the right page.
    The list of virtual server instances is shown.
 1. Click **Create instance** to create a new virtual server instance.
-
 Complete the fields in the **General** section.
 
    | Field | Details |
