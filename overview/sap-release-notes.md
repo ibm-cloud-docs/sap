@@ -1,8 +1,8 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-01-31"
-keywords: SAP
+lastupdated: "2026-02-27"
+keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
 
@@ -13,6 +13,11 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+## February 2026
+{: #sap-2026-02}
+
+- Updated the [Getting help and support from {{site.data.keyword.cloud_notm}} or SAP](/docs/sap?topic=sap-help-support) document based on the updated {{site.data.keyword.cloud_notm}} Basic Support plan. These changes emphasize self‑service and AI‑driven support and reduce reliance on manual case handling for technical issues.
 
 ## January 2026
 {: #sap-2026-01}

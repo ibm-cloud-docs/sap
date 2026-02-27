@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-01-23"
+lastupdated: "2026-02-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, SAP HANA scale-out, High Availability, HA, Linux, Pacemaker, RHEL HA Add-On
 subcollection: sap
 ---
@@ -157,7 +157,7 @@ export POWERVSI_B2=<POWERVSI_B2>         # Virtual server instance B2 id
 ```
 {: codeblock}
 
-Set the environment variables `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_`, `POWERVSI_` as described in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
+Set the environment variables `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_`, `POWERVSI_` as described in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config)  section.
 The `VIP` variable must be set to a virtual IP address resource that belongs to the subnet's `CIDR` range.
 
 Refer to [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) to reserve a virtual IP address for the SAP HANA system replication cluster.

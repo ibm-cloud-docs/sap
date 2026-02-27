@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-03"
+lastupdated: "2026-02-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -31,7 +31,7 @@ Review the general requirements, product documentation, support articles, and SA
 ## Creating virtual server instances for the cluster
 {: #ha-rhel-create-virtual-server-instances}
 
-Use the instructions in [Creating instances for a high availability cluster](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
+Use the instructions in [Deploying an {{site.data.keyword.powerSys_notm}} instance for the SAP HANA system](/docs/sap?topic=sap-powervs-set-up-power-instances#powervs-set-up-power-hana-instance) respectively [Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver](/docs/sap?topic=sap-powervs-set-up-power-instances#powervs-set-up-power-netweaver-instance) to create the virtual server instances that you want to use as cluster nodes.
 
 ## Preparing the nodes for RHEL HA Add-On installation
 {: #ha-rhel-prepare-nodes-for-rhel-ha-installation}

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-11-11"
+  years: 2023, 2026
+lastupdated: "2026-02-27"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -68,8 +68,8 @@ pcs resource update SAPHana_${SID}_${INSTNO} AUTOMATED_REGISTER=false
 ### Providing network connectivity between the workspaces
 {: #ha-rhel-hana-sr-mt-conn}
 
-1. Use the information in [Creating the workspace](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-workspace) to create another workspace in a different geographic location or region.
-1. Create subnets and make sure that the IP ranges don't overlap with any subnet of the workspace that hosts the virtual server instances for the cluster. For more information, see [Creating private network subnets](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-subnets).
+1. Use the information in [Deploying a {{site.data.keyword.powerSys_notm}} workspace](/docs/sap?topic=sap-powervs-set-up-power-infrastructure#powervs-set-up-power-service) to create another workspace in a different geographic location or region.
+1. Create subnets and make sure that the IP ranges don't overlap with any subnet of the workspace that hosts the virtual server instances for the cluster. For more information, see [Creating network subnets](/docs/sap?topic=sap-powervs-set-up-power-infrastructure#powervs-set-up-power-subnets).
 1. Set up {{site.data.keyword.cloud}} connections up in both workspaces and activate *Enable IBM Transit Gateway*. For more information, see [Creating {{site.data.keyword.powerSys_notm}} Cloud Connections](/docs/power-iaas?topic=power-iaas-cloud-connections#create-cloud-connections).
 1. Deploy an {{site.data.keyword.cloud_notm}} Transit Gateway to interconnect the two IBM {{site.data.keyword.powerSys_notm}} workspaces.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-07-04"
+lastupdated: "2026-02-18"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, SAP HANA, SAP HANA System Replication, high availability, HA, Linux, Pacemaker, SLES, SUSE, SLES High Availability Extension, SLES HAE
 subcollection: sap
 ---
@@ -34,7 +34,7 @@ Create the virtual server instances by using one of the `Power10` machine types 
 ## Create virtual server instances for the cluster
 {: #ha-sles-create-virtual-server-instances}
 
-Use the instructions in [Creating instances for a high availability cluster](/docs/sap?topic=sap-ha-vsi) to create the virtual server instances that you want to use as cluster nodes.
+Use the instructions in [Deploying an {{site.data.keyword.powerSys_notm}} instance for the SAP HANA system](/docs/sap?topic=sap-powervs-set-up-power-instances#powervs-set-up-power-hana-instance) respectively [Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver](/docs/sap?topic=sap-powervs-set-up-power-instances#powervs-set-up-power-netweaver-instance) to create the virtual server instances that you want to use as cluster nodes.
 
 ## Prepare the nodes for SLE High Availability Extension installation
 {: #ha-sles-prepare-nodes-for-sles-hae-installation}

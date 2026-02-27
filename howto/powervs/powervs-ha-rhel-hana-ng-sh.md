@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-02-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -98,7 +98,7 @@ Set the `VIP` environment variable to the reserved IP address.
 #### Setting extra environment variables for a multizone region implementation
 {: #ha-rhel-hana-ng-sh-mz-prepare-environment-variables}
 
-Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, `POWERVSI_?` variables as described in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
+Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, `POWERVSI_?` variables as described in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config)  section.
 Set `API_TYPE` to `private` to enable communication with the {{site.data.keyword.iamlong}} and IBM Power Cloud API through private endpoints.
 
 Prepare the variables for the `powervs-subnet` resource agent:

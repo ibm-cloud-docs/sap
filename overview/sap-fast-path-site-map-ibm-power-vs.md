@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-08"
+lastupdated: "2026-02-18"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -111,7 +111,7 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 {: #fast-path-power-vs-how-to-high-availability}
 
 - General preparation steps
-   - [Creating instances for a high availability cluster](/docs/sap?topic=sap-ha-vsi)
+   - [Deploying an {{site.data.keyword.powerSys_notm}} instance for the SAP HANA system](/docs/sap?topic=sap-powervs-set-up-power-instances#powervs-set-up-power-hana-instance) or [Deploying an {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver](/docs/sap?topic=sap-powervs-set-up-power-instances#powervs-set-up-power-netweaver-instance)
 
 - Cluster deployment in a single {{site.data.keyword.powerSys_notm}} workspace
    - Red Hat Enterprise Linux

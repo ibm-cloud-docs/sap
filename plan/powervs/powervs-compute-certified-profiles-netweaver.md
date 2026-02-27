@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-02-27"
 keywords: Powervs, Certified Profile, Netweaver, {{site.data.keyword.powerSys_notm}},
 subcollection: sap
 ---
@@ -21,14 +21,16 @@ SAP Application Server certified instances on {{site.data.keyword.powerSysFull}}
 - Simultaneous multithreading (SMT) on IBM Power enables multiple independent threads to execute within a single physical processor core. In SMT8 mode, eight parallel threads can run on a single physical processor core. The operating system sees eight logical processors per physical processor core.
 - Given SAP Application Server instance sizing is flexible, it must follow the standard SAP sizing guidelines by using the following SAPS benchmark calculation:
 
-| **Power System type**                                                                                           | **SAPS per CPU Core (using SMT-8)** |
-| ----------------------------------------------------------------------------------------------------------------| ----------------------------------- |
-| [IBM Power System S1122 (9824-22A)](https://www.ibm.com/downloads/documents/us-en/13774247783d5fe6){: external} | 7,915                               |
-| [IBM Power System E1150 (9043‑MRU)](https://www.ibm.com/downloads/documents/us-en/137a1e1e625bad7e){: external} | 8,232                               |
-| [IBM Power System S1022 (9105-22A)](https://www.ibm.com/downloads/documents/us-en/107a02e95b48f639){: external} | 7,600                               |
-| [IBM Power System E1080 (9080‑HEX)](https://www.ibm.com/downloads/documents/us-en/107a02e95c48f71a){: external} | 7,600                               |
-| [IBM Power System S922 (9009-22A)](https://www.ibm.com/downloads/documents/us-en/107a02e959c8f4e8){: external}  | 5,570                               |
-| [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/documents/us-en/10a99803f42fd831){: external}  | 6,000                               |
+| **Power System type**                                                                                           | **aSAPS per CPU core (SMT-8)** | **SAPS per CPU Core (SMT-8)** | **SAPS per CPU Core (SMT-4)** |
+| ----------------------------------------------------------------------------------------------------------------| -------------------------------| ------------------------------| ----------------------------- |
+| [IBM Power System S1122 (9824-22A)](https://www.ibm.com/downloads/documents/us-en/13774247783d5fe6){: external} |   1,390                        | 7,915                         |  N/A                          |
+| [IBM Power System E1150 (9043‑MRU)](https://www.ibm.com/downloads/documents/us-en/137a1e1e625bad7e){: external} |   1,336                        | 8,232                         |  N/A                          |
+| [IBM Power System E1180 (9043‑MRU)](https://www.ibm.com/downloads/documents/us-en/137a1e1e625bad80){: external} |   1,340                        | N/A                           |  N/A                          |
+| [IBM Power System S1022 (9105-22A)](https://www.ibm.com/downloads/documents/us-en/107a02e95b48f639){: external} |   N/A                          | 7,600                         |  6,000                        |
+| [IBM Power System E1050 (9080‑HEX)](https://www.ibm.com/downloads/documents/us-en/10a99803f2afd7aa){: external} |   1,271                        | 7,600                         |  N/A                          |
+| [IBM Power System E1080 (9080‑HEX)](https://www.ibm.com/downloads/documents/us-en/107a02e95c48f71a){: external} |   1,316                        | 7,600                         |  6,000                        |
+| [IBM Power System S922 (9009-22A)](https://www.ibm.com/downloads/documents/us-en/107a02e959c8f4e8){: external}  |   N/A                          | 5,570                         |  N/A                          |
+| [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/documents/us-en/10a99803f42fd831){: external}  |   N/A                          | 6,000                         |  N/A                          |
 {: caption="SAP NetWeaver certified system types" caption-side="top"}
 
 SAP NetWeaver certified instances on E1050 are currently not supported.
