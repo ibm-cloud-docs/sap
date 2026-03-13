@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-31"
+lastupdated: "2026-03-05"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, Backup, Compass, Cobalt Iron, Backint, agent, Cloud {{site.data.keyword.cos_short}}, COS
 subcollection: sap
 
@@ -62,7 +62,7 @@ Referenced in [SAP Note 3644731 -  Install and Configure IBM Backint agent for S
 
 The Backup Offering is powered by Cobalt Iron Compass and is accessible from the IBM Cloud [catalog](https://cloud.ibm.com/catalog){: external}. The Backup Offering provides enterprise-class backup and restore features in a cloud-centric SaaS solution. Compass capabilities and security features, along with many other security functions provides protection and self-assessments to protect enterprise data and applications.
 
-For more information, see [Cobalt Iron documentation](https://help.cobaltiron.com/getting-started-with-powervs-and-compass-commander/){: external}.
+For more information, see [Cobalt Iron documentation](https://help.cobaltiron.com/wp-content/uploads/2024/01/CobaltIron-PowerVS-AgentSetup-SAPHANA-20240327.pdf){: external}.
 
 Cobalt Iron Compass protects various platforms, applications, and data classes. The Backup Offering includes the following unique features and functions for SAP HANA on {{site.data.keyword.powerSys_notm}}:
 

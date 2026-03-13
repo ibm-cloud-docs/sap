@@ -23,8 +23,8 @@ An Infrastructure-as-a-Service (IaaS) environment consists of many components - 
 
 Alternatively, deployments can be made and managed by using:
 - {{site.data.keyword.cloud_notm}} CLI
-- {{site.data.keyword.cloud_notm}} VPC Infrastructure API calls that use an {{site.data.keyword.cloud_notm}} API key
-- [Terraform Provider for {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started) by using an {{site.data.keyword.cloud_notm}} API key
+- {{site.data.keyword.cloud_notm}} VPC Infrastructure API calls that use an {{site.data.keyword.cloud_notm}} API key.
+- [Terraform Provider for {{site.data.keyword.cloud_notm}}](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started) by using an {{site.data.keyword.cloud_notm}} API key.
 
 For more information, see [Managing VPC Infrastructure (IAM)](/docs/vpc?topic=vpc-iam-getting-started).
 
@@ -35,36 +35,29 @@ With availability zones across North and South America, Europe, Asia, and Austra
 
 For more information about {{site.data.keyword.cloud_notm}} availability zones, data centers, and Points of Presence (PoPs), see the [global regions, availability zones, and data centers map](https://www.ibm.com/solutions/cloud-data-centers){: external}.
 
-## Compute Resources
+## Compute resources
 {: #vpc-env-compute}
 
 Two types of compute resource can be deployed in {{site.data.keyword.cloud_notm}} VPC Infrastructure environment:
 - Intel Virtual Server Instances (VSIs)
 - Intel Bare Metal Servers
 
-These compute resources are offered in different profiles that define CPU and RAM combinations.
-
-For more information, see [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
+These compute resources are offered in different profiles that define CPU and RAM combinations. For more information, see [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
 
 ## Networking
 {: #vpc-env-networking}
 
-The {{site.data.keyword.vpc_short}} infrastructure network, is robust, secure, and flexible; powered by the latest in networking hardware, with the best networking capabilities. It allows definable isolation and creation of a network within the cloud.
+The {{site.data.keyword.vpc_short}} infrastructure network, is robust, secure, and flexible; powered by the latest in networking hardware, with the best networking capabilities. It allows definable isolation and creation of a network within the cloud. Following are the networking component layers overview:
 
-| {{site.data.keyword.cloud_notm}} VPC Infrastructure network |
-| -- |
-| Global |
-| Region |
-| VPC |
-| Availability zone (with address prefix) |
-| Subnet |
-{: caption="Networking component layers overview" caption-side="top"}
+* Global
+* Region
+* VPC
+* Availability zone (with address prefix)
+* Subnet
 
-Every {{site.data.keyword.vpc_full}} is created for a region, and spans multiple availability zones.
+Every {{site.data.keyword.vpc_full}} is created for a region, and spans multiple availability zones. When you deploy a VPC in an availability zone, an [address prefix](/docs/vpc?topic=vpc-vpc-addressing-plan-design) is used for that specified zone.
 
-When you deploy a VPC in an availability zone, an [address prefix](/docs/vpc?topic=vpc-vpc-addressing-plan-design) is used for that specified zone.
-
-Each VPC Zone (and the address prefix) contains one or more subnets. You can define each subnet manually by choosing the IP range and the subnet mask, or you can choose the number of IP addresses needed. A newly created compute resource is deployed into this subnet and can also be attached to further subnets.
+Each VPC zone (and the address prefix) contains one or more subnets. You can define each subnet manually by choosing the IP range and the subnet mask, or you can choose the number of IP addresses needed. A newly created compute resource is deployed into this subnet and can also be attached to further subnets.
 
 ### Networking connectivity
 {: #vpc-env-networking-connectivity}
@@ -80,10 +73,10 @@ If you need to connect to your virtual or bare metal server through the public i
 If you want to connect to the public internet from your server (also known as outbound from a server), you need to attach a **_Public Gateway_** to the VPC. This gateway provides access to the internet for an entire subnet.
 
 The following inter-connectivity options are available:
-* VPC zone to zone,
-* VPC to VPC,
-* VPC to Classic Infrastructure,
-* VPC to {{site.data.keyword.IBM_notm}} Power Systems Infrastructure,
+* VPC zone to zone
+* VPC to VPC
+* VPC to Classic Infrastructure
+* VPC to {{site.data.keyword.IBM_notm}} Power Systems Infrastructure
 * VPC to on-premises data centers by using a VPC VPN Gateway
 
 When a connection to the public internet is not acceptable because of security measures, you can deploy an IPsec Gateway into your VPC to connect to your server. For more information, see [Connectivity to your SAP system landscape - VPC VPN Gateway](/docs/sap?topic=sap-determine-access#determine-access-vpc-vpn-gateway). Or, you can have an even closer integration into your backbone infrastructure by an {{site.data.keyword.cloud_notm}} Direct Link. For more information, see [Connectivity to your SAP system landscape - {{site.data.keyword.cloud_notm}} Direct Link](/docs/sap?topic=sap-determine-access#determine-access-vpc-direct-link).
@@ -91,7 +84,6 @@ When a connection to the public internet is not acceptable because of security m
 Server resources that are in {{site.data.keyword.cloud_notm}} Classic Infrastructure can be connected through **_Transit Gateways_**. These virtual devices are used to connect your private VLAN subnets in the _Classic Infrastructure_ to your VPC subnets.
 
 For more information, see [About Networking for VPC](/docs/vpc?topic=vpc-about-networking-for-vpc) and [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
-
 
 Extra requirements exist in Classic Infrastructure networking to enable the _Transit Gateway_, be sure to review documentation before you change your Classic Infrastructure or VPC Infrastructure networking topology and configuration.
 {: important}
@@ -119,7 +111,7 @@ If you want to separate different network traffic types in your landscape, eithe
 
 Network Access Control Lists (ACLs) are used to manage `allow` and `deny` rules on a subnet level. ACLs are used to manage network traffic between subnets, too. The default ACL for a subnet opens the subnet for all traffic. If you wanted more strict security measures, you would need to add rules to the ACL. When you add rules, keep in mind that required services like DNS or OS patch and packages downloads might be affected by those rules. For more information, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc).
 
-#### Security Groups
+#### Security groups
 {: #vpc-env-networking-security-groups}
 
 A Security Group is a set of _allow_-only firewall rules. You can apply these rules to one or more bare metal servers or VSIs. You can also create a default Security Group with Secure Shell (SSH) and ICMP (ping) during VPC creation, which allows ICMP and SSH from any IP address. These rules need to restrict the IPs or IP ranges from which you are planning to access the VPC.
@@ -137,9 +129,7 @@ Storage volumes differ in performance, depending on their IOPS tier. You can sel
 
 If you need more than the initially provisioned storage in your server, you can attach extra volumes to a it later. Contact [{{site.data.keyword.cloud_notm}} Support](/docs/account?topic=account-using-avatar#getting-support) for extension options if the attached storage is insufficient for your workload.
 
-### Shared Storage
+### Shared storage
 {: #vpc-env-shared-storage}
 
-Block storage can be detached and attached to other servers at any time, but, only to one server at the same time.
-
-No shared storage for servers is available in VPC at time of writing.
+Block storage can be detached and attached to other servers at any time, but, only to one server at the same time. No shared storage for servers is available in VPC at the time of writing.
