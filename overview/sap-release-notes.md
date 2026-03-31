@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-02-27"
+lastupdated: "2026-03-30"
 keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
@@ -13,6 +13,13 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+## March 2026
+{: #sap-2026-03}
+
+- Introduced newly certified [SAP Business One profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm#sr-sizing) for bare metal servers on {{site.data.keyword.vpc_short}}.
+- Added certified [flexible profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi#flexible-profiles) for virtual servers on {{site.data.keyword.vpc_short}}, enabling greater deployment versatility.
+- 8-node SAP HANA scale-out is now certified and supported on {{site.data.keyword.powerSys_notm}} profile sr2-35x3900, see [sr2 - Certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr2-certified-profiles-instance).
 
 ## February 2026
 {: #sap-2026-02}

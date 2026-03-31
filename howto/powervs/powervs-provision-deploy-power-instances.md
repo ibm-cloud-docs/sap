@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-03-16"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
@@ -227,15 +227,16 @@ Choose one of the options for a manual or an automated setup.
 
 A distributed SAP system installation requires file systems that are shared between the multiple virtual server instances.
 {{site.data.keyword.cloud_notm}} {{site.data.keyword.filestorage_vpc_short}} proides NFS based file storage services. See the detailed information in the document [File Storage for VPC](/docs/vpc?group=file-storage-for-vpc).
+
 See [Accessing file storage shares for VPC](/docs/sap?group=file-storage-shares-for-vpc) for more details about creating, accessing, and mounting the file shares on the virtual server instances.
-{: note}
+
 
 ### SAP HANA multiple-host system configuration
 {: #powervs-set-up-sap-multi-host-configuration}
 
 A SAP HANA multiple-host system, also known as SAP HANA scale-out system, is a system with more than one host, which can be configured as active worker hosts or idle standby hosts. See detailed information about the [Scaling SAP HANA](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/a165e192ba374c2a8b17566f89fe8419.html?locale=en-US&version=LATEST){: external}.
+
 Install all hosts of the SAP HANA system by using the same operating system version of Red Hat Enterprise Linux (RHEL) to ensure seamless operation and compatibility.
-{: note}
 
 Ensure that the hostnames of the virtual server instances comply with SAP HANA naming conventions to avoid any configuration issues.
 {: note}
@@ -244,8 +245,9 @@ Use {{site.data.keyword.powerSys_notm}} storage volumes for the `/hana/data` and
 See the [General storage configurations on IBM Power Virtual Server Infrastructure](https://cloud.ibm.com/docs/sap?topic=sap-storage-design-considerations#sample-power) for more detailed explanation about storage configurations of different SAP workloads on {{site.data.keyword.powerSysFull}}.
 
 In a multiple-host SAP HANA installation, the shared directory `/hana/shared` has to be mounted by all hosts that are part of the system. Follow the instructions in [Accessing VPC zonal file storage shares from IBM Power Virtual Server Instances](/docs/sap?topic=sap-nfs-zonal-powervs-intro) to provision a file share.
+
 A distributed SAP system installation requires also file systems that are shared between the virtual server instances of the system, for example the file systems `/sapmnt/<SID>` or `/usr/sap/trans`. Use the same procedure for the shared file systems of a SAP system installation.
-{: note}
+
 To successfully mount the NFS share on the SAP HANA nodes, add the following line to the `/etc/fstab` file:
 
 ```sh

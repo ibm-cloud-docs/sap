@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-03-19"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, SLES, SUSE, SUSE High Availability Extension, SLES HAE
 subcollection: sap
 ---
@@ -174,7 +174,7 @@ The goal is to prevent data loss and corruption by preventing accidental takeove
    Check the status of the cluster.
 
    ```sh
-   crm status --full
+   crm status full
    ```
    {: pre}
 
@@ -373,7 +373,7 @@ Use the following information to recover from Test 2.
    {: pre}
 
    ```sh
-   crm status --full
+   crm status full
    ```
    {: pre}
 
@@ -440,7 +440,7 @@ Use the following information to recover from Test 2.
    {: pre}
 
    ```sh
-   crm status --full
+   crm status full
    ```
    {: pre}
 
@@ -518,6 +518,6 @@ crm constraint
 {: pre}
 
 ```sh
-crm status --full
+crm status full
 ```
 {: pre}

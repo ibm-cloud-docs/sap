@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-31"
+lastupdated: "2026-03-20"
 keywords: SAP-Certified HANA profiles, VPC, baremetal, log, data, shared, sapphire rapids, Skylake, Cascade lake, boot only, bare metal
 subcollection: sap
 ---
@@ -74,6 +74,7 @@ Refer to [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud
 | bx3d-metal-48x256   | 24            | 48               | 256              |
 | bx3d-metal-64x256   | 32            | 64               | 256              |
 | bx3d-metal-192x1024 | 96            | 192              | 1,024            |
+| mx3d-metal-16x128   | 8             | 16               | 128              |
 | mx3d-metal-48x512   | 24            | 48               | 512              |
 | mx3d-metal-64x512   | 32            | 64               | 512              |
 | mx3d-metal-96x1024  | 48            | 96               | 1,024            |
@@ -86,17 +87,18 @@ Refer to [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud
 {: #sr-profiles-table}
 {: tab-title="Certified Profiles"}
 
-| **Profile name**    | **Workload type** | **SAPS** | **aSAPS** |
-| --------------------| ----------------- | -------- | --------- |
-| bx3d-metal-48x256   | OLTP/OLAP         | 93,670   | 18,400    |
-| bx3d-metal-64x256   | OLTP/OLAP         | 124,520  | 24,600    |
-| bx3d-metal-192x1024 | OLTP/OLAP         | 297,770  | 57,400    |
-| mx3d-metal-48x512   | OLTP/OLAP         | 97,830   | 18,700    |
-| mx3d-metal-64x512   | OLTP/OLAP         | 128,750  | 24,200    |
-| mx3d-metal-96x1024  | OLTP/OLAP         | 182,670  | 33,700    |
-| mx3d-metal-128x1024 | OLTP/OLAP         | 239,300  | 46,000    |
-| vx3d-metal-16x256   | OLTP/OLAP         | 35,520   | 6,900     |
-| ux3d-metal-16x512   | OLTP/OLAP         | 34,320   | 6,900     |
+| **Profile name**    | **Workload type**.         | **SAPS** | **aSAPS** |
+| --------------------| -------------------------- | -------- | --------- |
+| bx3d-metal-48x256   | OLTP/OLAP/SAP Business One | 93,670   | 18,400    |
+| bx3d-metal-64x256   | OLTP/OLAP                  | 124,520  | 24,600    |
+| bx3d-metal-192x1024 | OLTP/OLAP                  | 297,770  | 57,400    |
+| mx3d-metal-16x128   | OLTP/OLAP/SAP Business One | 30,030   | n/a       |
+| mx3d-metal-48x512   | OLTP/OLAP/SAP Business One | 97,830   | 18,700    |
+| mx3d-metal-64x512   | OLTP/OLAP                  | 128,750  | 24,200    |
+| mx3d-metal-96x1024  | OLTP/OLAP                  | 182,670  | 33,700    |
+| mx3d-metal-128x1024 | OLTP/OLAP                  | 239,300  | 46,000    |
+| vx3d-metal-16x256   | OLTP/OLAP                  | 35,520   | 6,900     |
+| ux3d-metal-16x512   | OLTP/OLAP                  | 34,320   | 6,900     |
 {: class="simple-tab-table"}
 {: tab-group="sr-profiles"}
 {: caption="Intel Bare Metal Sapphire Rapids profiles for SAP HANA" caption-side="bottom"}
@@ -108,6 +110,7 @@ Refer to [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud
 | bx3d-metal-48x256   | 1 x 480 GB, 4 x 7,680 GB |
 | bx3d-metal-64x256   | 1 x 480 GB, 4 x 7,680 GB |
 | bx3d-metal-192x1024 | 1 x 480 GB, 8 x 7,680 GB |
+| mx3d-metal-16x128   | 1 x 480 GB, 4 x 7,680 GB |
 | mx3d-metal-48x512   | 1 x 480 GB, 4 x 7,680 GB |
 | mx3d-metal-64x512   | 1 x 480 GB, 4 x 7,680 GB |
 | mx3d-metal-96x1024  | 1 x 480 GB, 8 x 7,680 GB |

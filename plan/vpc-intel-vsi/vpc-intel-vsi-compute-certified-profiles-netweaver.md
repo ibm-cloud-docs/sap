@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-31"
+lastupdated: "2026-03-31"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, sapphire rapids, Skylake, Cascade lake, VPC, VSI, certified profiles
 subcollection: sap
 ---
@@ -39,7 +39,7 @@ The following table illustrates an example of an SAP NetWeaver certified instanc
 | ------------ | --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | mx2-16x128   | m                           | *Memory Optimized* family                                                                                           |
 |              | x                           | *separator*                                                                                                         |
-|              | ? \n   2 \n   3             | The Intel generation for the underlying hardware \n   Cascade Lake \n   Sapphire Rapids                             |
+|              | ? \n   2 \n   3 \n   f      | The Intel generation for the underlying hardware \n   Cascade Lake \n   Sapphire Rapids  \n   "flexible profile" - deployed on gen2 or gen3 hardware   |
 |              | d                           | the optional 'd' in the name indicates that the server is equipped with one or more internal SSD storage devices (*)|
 |              | —                           | *separator*                                                                                                         |
 |              | 16                          | 16 vCPU                                                                                                             |
@@ -217,6 +217,33 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 | ux2d-100x2800    | 100              | 2,800            | 107,785  |
 | ux2d-200x5600    | 200              | 5,600            | 215,570  |
 {: caption="Ultra High Memory optimized profiles on Intel Cascade Lake" caption-side="bottom"}
+
+### Flexible profiles
+{: #flexible-profiles}
+
+Flexible profiles will be provisioned as a generation 2 or 3 profile with mentioned number of vCPUs depending on the availability of the respective hosting server in the datacenter. Minimum SAPS of the related gen2 profile are guaranteed.
+
+| **Gen2 Profile** | **Profile name** | **Gen3 Profile** |
+| ----------------- | ---------------- | ----------------- |
+| bx2-2x8           | bxf-2x8          | bx3-2x10          |
+| bx2-4x16          | bxf-4x16         | bx3-4x20          |
+| bx2-8x32          | bxf-8x32         | bx3-8x40          |
+| bx2-16x64         | bxf-16x64        | bx3-16x80         |
+| bx2-32x128        | bxf-32x128       | bx3-32x160        |
+| bx2-48x192        | bxf-48x192       | bx3-48x240        |
+| bx2-64x256        | bxf-64x256       | bx3-64x320        |
+| bx2-96x384        | bxf-96x384       | bx3-96x480        |
+| bx2-128x512       | bxf-128x512      | bx3-128x640       |
+| mx2-2x16          | mxf-2x16         | mx3-2x20          |
+| mx2-4x32          | mxf-4x32         | mx3-4x40          |
+| mx2-8x64          | mxf-8x64         | mx3-8x80          |
+| mx2-16x128        | mxf-16x128       | mx3-16x160        |
+| mx2-32x256        | mxf-32x256       | mx3-32x320        |
+| mx2-48x384        | mxf-48x384       | mx3-48x480        |
+| mx2-64x512        | mxf-64x512       | mx3-64x640        |
+| mx2-96x768        | mxf-96x768       | mx3-96x960        |
+| mx2-128x1024      | mxf-128x1024     | mx3-128x1280      |
+{: caption="Flexible profiles on Intel Cascade Lake" caption-side="bottom"}
 
 
 ## Storage specifications

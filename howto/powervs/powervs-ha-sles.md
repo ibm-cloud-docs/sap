@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-02-18"
+lastupdated: "2026-03-19"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, SAP HANA, SAP HANA System Replication, high availability, HA, Linux, Pacemaker, SLES, SUSE, SLES High Availability Extension, SLES HAE
 subcollection: sap
 ---
@@ -428,7 +428,7 @@ Manually activating the node has several advantages.
 To configure the fencing action to power off the node, use the following command.
 
 ```sh
-sudo crm configure set cib-bootstrap-options.stonith-action off
+sudo crm configure property stonith-action="off"
 ```
 {: pre}
 

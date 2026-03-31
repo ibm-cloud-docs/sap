@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-03-27"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -89,6 +89,8 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | sr3-11x512       | 11            | 88               | 512              | SMT8                        |
 | sr3-19x1024      | 19            | 152              | 1024             | SMT8                        |
 | sr3-76x6144      | 76            | 608              | 6144             | SMT8                        |
+| sr3-80x12288     | 80            | 640              | 12288            | SMT8                        |
+| sr3-229x20000    | 229           | 1832             | 20000            | SMT8                        |
 | sr3-229x30500    | 229           | 1832             | 30500            | SMT8                        |
 {: class="simple-tab-table"}
 {: tab-group="sr3-profiles"}
@@ -103,6 +105,8 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | sr3-11x512       | OLTP              | 16,200    | 87,065   |
 | sr3-19x1024      | OLTP/OLAP         | 30,900    | 150,385  |
 | sr3-76x6144      | OLTP/OLAP         | 103,900   | 625,632  |
+| sr3-80x12288     | OLTP/OLAP         | 115,800   |    N/A   |
+| sr3-229x20000    | OLTP/OLAP         | 307,000   |    N/A   |
 | sr3-229x30500    | OLTP/OLAP         | 307,000   |    N/A   |
 {: class="simple-tab-table"}
 {: tab-group="sr3-profiles"}
@@ -117,6 +121,8 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | sr3-11x512                 | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-19x1024                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-76x6144                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
+| sr3-80x12288               | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
+| sr3-229x20000              | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-229x30500              | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 {: class="simple-tab-table"}
 {: tab-group="sr3-profiles"}
@@ -131,6 +137,8 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | sr3-11x512                 | 8,000             | 4 x 154 GB                                | Tier 0                              | 616 GB                        | 15,400             |
 | sr3-19x1024                | 8,000             | 4 x 307 GB                                | Tier 0                              | 1,228 GB                      | 30,700             |
 | sr3-76x6144                | 8,000             | 4 x 1844 GB                               | Tier 3                              | 7,376 GB                      | 22,128             |
+| sr3-80x12288               | 8,000             | 4 x 3686 GB                               | Tier 3                              | 14,744 GB                     | 44,232             |
+| sr3-229x20000              | 8,000             | 4 x 6000 GB                               | Tier 3                              | 24,000 GB                     | 72,000             |
 | sr3-229x30500              | 8,000             | 4 x 9150 GB                               | Tier 3                              | 36,600 GB                     | 109,800            |
 {: class="simple-tab-table"}
 {: tab-group="sr3-profiles"}
@@ -144,7 +152,10 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 |  sr3-6x256                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-11x512                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-19x1024               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  sr3-80x12288              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  sr3-229x20000             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-76x6144               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+{: class="simple-tab-table"}
 {: tab-group="sr3-profiles"}
 {: caption="Shared file system configurations for SAP HANA profiles with sr3 prefix" caption-side="bottom"}
 {: #sr3-profiles-shared}
@@ -226,7 +237,7 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | sr2-24x1536         |     OLTP/OLAP                                |     N/A  | 144,000   |
 | sr2-25x1900         |     OLTP/OLAP                                |     N/A  | 190,000   |
 | sr2-35x3000         |     OLTP/OLAP                                |     N/A  | 266,000   |
-| sr2-35x3900         |     OLTP/OLAP                                |     N/A  | 266,000   |
+| sr2-35x3900         |     OLTP/OLAP/OLAP scale-out (up to 8 nodes) |     N/A  | 266,000   |
 | sr2-80x6144         |     OLTP/OLAP/OLAP scale-out (up to 6 nodes) |     N/A  | 608,000   |
 | sr2-87x7000         |     OLTP/OLAP                                |     N/A  |661,200    |
 | sr2-87x7600         |     OLTP/OLAP                                |     N/A  | 661,200   |
@@ -639,7 +650,7 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | **Profile name** |  **Workload type**                           |**aSAPS** | **SAPS**  |
 | -----------------| ---------------------------------------------|----------| --------- |
 | bh2-35x3000      |     OLTP/OLAP                                |   N/A    | 266,000   |
-| bh2-35x3900      |     OLTP/OLAP                                |   N/A    | 266,000   |
+| bh2-35x3900      |     OLTP/OLAP/OLAP scale-out (up to 8 nodes) |   N/A    | 266,000   |
 | bh2-128x16000    |     OLTP/OLAP                                | 133,100  | 768,000   |
 | bh2-128x17000    |     OLTP/OLAP                                | 133,100  | 768,000   |
 | bh2-165x17000    |     OLTP/OLAP/OLTP scale-out (up to 4 nodes) | 217,100  | 1,254,000 |
@@ -786,11 +797,11 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | **Profile name** |    **Workload type**                         |**aSAPS**| **SAPS**   |
 | -----------------|  ------------------------------------------- |---------| ---------- |
 | ch2-87x6000      |     OLTP/OLAP                                |   N/A   | 661,200    |
-| ch2-80x6144      |    OLTP/OLAP                                 |   N/A   | 608,000    |
-| ch2-87x7000      |     OLTP/OLAP                                |   N/A   |661,200     |
-| ch2-87x7600      |    OLTP/OLAP                                 |   N/A   |661,200     |
+| ch2-80x6144      |     OLTP/OLAP/OLAP scale-out (up to 6 nodes) |   N/A   | 608,000    |
+| ch2-87x7000      |     OLTP/OLAP                                |   N/A   | 661,200    |
+| ch2-87x7600      |     OLTP/OLAP                                |   N/A   | 661,200    |
 | ch2-165x12000    |     OLTP/OLAP                                | 217,100 |1,254,000   |
-| ch2-165x13000    |     OLTP/OLAP                                |217,100  |1,254,000   |
+| ch2-165x13000    |     OLTP/OLAP                                | 217,100 |1,254,000   |
 | ch2-165x14000    |     OLTP/OLAP                                | 217,100 |1,254,000   |
 | ch2-165x15000    |     OLTP/OLAP                                | 217,100 |1,254,000   |
 | ch2-165x16000    |     OLTP/OLAP/OLTP scale-out (up to 4 nodes) | 217,100 |1,254,000   |
@@ -1406,4 +1417,3 @@ Each profile requires a minimum of two dedicated cores. For storage performance 
 
 For more details, refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://launchpad.support.sap.com/#/notes/2947579){: external}.
 {: note}
-{: class="simple-tab-table"}

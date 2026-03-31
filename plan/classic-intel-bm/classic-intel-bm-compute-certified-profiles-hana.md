@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-03-20"
 keywords: SAP-Certified HANA profiles, Classic, log, data, shared, sapphire rapids, Skylake, Cascade lake, boot only, bare metal, nvme, ssd
 subcollection: sap
 ---
@@ -116,9 +116,9 @@ These profiles do not use any network block or file storage options that are mou
 | ---------------------------| -------------------------- | -------- |
 | BI.S4.H2.192 Appliance     | OLTP/OLAP/SAP Business One | 82,470   |
 | BI.S4.H2.384 Appliance     | OLTP/OLAP/SAP Business One | 85,130   |
-| BI.S4.H2.384_v2 Appliance  | OLTP/OLAP/SAP Business One | 60,420   |
+| BI.S4.H2.384_v2 Appliance  | OLTP/OLAP                  | 60,420   |
 | BI.S4.H2.768 Appliance     | OLTP/OLAP/SAP Business One | 112,830  |
-| BI.S4.H2.768_v2 Appliance  | OLTP/OLAP/SAP Business One | 124,620  |
+| BI.S4.H2.768_v2 Appliance  | OLTP/OLAP                  | 124,620  |
 | BI.S4.H2.1500 Appliance    | OLTP/OLAP                  | 147,220  |
 | BI.S4.H2.3000 Appliance    | OLTP/OLAP                  | 135,127  |
 | BI.S4.H4.3000 Appliance    | OLTP/OLAP                  | 285,970  |
@@ -292,13 +292,13 @@ These profiles do not use any network block or file storage options that are mou
 {: #boot-only-profiles-table}
 {: tab-title="Certified Profiles"}
 
-| **Profile name**           | **Workload type** | **SAPS** |
-| ---------------------------| ----------------- | -------- |
-| BI.S4.H2.192 (boot only)   | OLTP/OLAP         | 82,470   |
-| BI.S4.H2.384 (boot only)   | OLTP/OLAP         | 85,130   |
-| BI.S4.H2.768 (boot only)   | OLTP/OLAP         | 112,830  |
-| BI.S4.H2.1500 (boot only)  | OLTP/OLAP         | 147,220  |
-| BI.S4.H2.3000 (boot only)  | OLTP/OLAP         | 135,127  |
+| **Profile name**           | **Workload type**          | **SAPS** |
+| ---------------------------| -------------------------- | -------- |
+| BI.S4.H2.192 (boot only)   | OLTP/OLAP/SAP Business One | 82,470   |
+| BI.S4.H2.384 (boot only)   | OLTP/OLAP/SAP Business One | 85,130   |
+| BI.S4.H2.768 (boot only)   | OLTP/OLAP/SAP Business One | 112,830  |
+| BI.S4.H2.1500 (boot only)  | OLTP/OLAP                  | 147,220  |
+| BI.S4.H2.3000 (boot only)  | OLTP/OLAP                  | 135,127  |
 {: class="simple-tab-table"}
 {: tab-group="boot-only-profiles"}
 {: caption="Boot only profiles for SAP HANA" caption-side="bottom"}

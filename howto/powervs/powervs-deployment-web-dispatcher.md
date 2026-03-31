@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-09-10"
+lastupdated: "2026-03-16"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Web Dispatcher, {{site.data.keyword.cloud_notm}} Application Load Balancer, {{site.data.keyword.alb_full}}
 subcollection: sap
 ---
@@ -15,11 +15,13 @@ subcollection: sap
 The following instructions explain how to deploy SAP Web Dispatcher and Application Load Balancer for SAP solutions on {{site.data.keyword.powerSysFull}}.
 {: shortdesc}
 
+
+
 The architecture diagram illustrates the deployment locations of the SAP Web Dispatcher and the Application Load Balancer.
 
 It also shows the SSL connections between components:
 1. Between a web browser and an IBM Cloud Application Load Balancer
-1. Between the Application Load Balancer and SAP Web Dispatchers
+1. Between the Application Load Balancer and SAP Web Dispatcher
 1. Between the SAP Web Dispatchers and SAP application server
 
 ![{{site.data.keyword.powerSys_notm}} infrastructure for SAP Web Dispatcher and Application Load Balancer](../../images/powervs-deployment-swebdispatcher-and-alb.svg){: caption="{{site.data.keyword.powerSys_notm}} infrastructure for SAP Web Dispatcher and Application Load Balancer" caption-side="bottom"}

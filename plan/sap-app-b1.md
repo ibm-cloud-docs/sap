@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-19"
+lastupdated: "2026-03-20"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -82,6 +82,9 @@ SAP Business One is supported on the following Bare Metal servers:
     - [BI.S4.H2.768](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm#cl-sizing)
 
 - on VPC
+    - [bx3d-metal-48x256](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm#sr-profiles-table)
+    - [mx3d-metal-16x128](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm#sr-profiles-table)
+    - [mx3d-metal-48x512](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm#sr-profiles-table)
     - [cx2d-metal-96x192](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm#cl-profiles-table)
     - [bx2d-metal-96x384](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm#cl-profiles-table)
     - [mx2d-metal-96x768](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-bm#cl-profiles-table)
