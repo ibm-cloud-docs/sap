@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-08-19"
+lastupdated: "2026-04-14"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -12,7 +12,7 @@ subcollection: sap
 # Implementing SBD poison-pill fencing in a Red Hat Enterprise Linux High Availability Add-On cluster
 {: #ha-sbd}
 
-This guide describes how to implement SBD (Storage-Based Death) poison-pill fencing in a Red Hat Enterprise Linux High Availability Add-On cluster on {{site.data.keyword.powerSys_notm}}.
+The following information explains how to implement SBD (Storage-Based Death) poison-pill fencing in a Red Hat Enterprise Linux High Availability Add-On cluster on {{site.data.keyword.powerSys_notm}}.
 
 It covers the setup of iSCSI target servers, the configuration of shared storage, and the configuration of the cluster resources.
 
@@ -29,7 +29,7 @@ SBD fencing requires shared disks and a watchdog device.
 iSCSI is an open, standards-based technology that is defined in RFC 3720.
 It enables the deployment of storage area networking over an IP network.
 An iSCSI software target enables local storage to be shared over a network.
-iSCSI initiators located in different zones or systems can access shared storage over IP networks by using the iSCSI protocol.
+iSCSI initiators that are located in different zones or systems can access shared storage over IP networks by using the iSCSI protocol.
 This protocol encapsulates SCSI commands within TCP/IP packets, enabling data transfer across standard Ethernet networks without requiring dedicated SAN infrastructure.
 
 ![Architectural diagram](../../images/powervs-ha-fence-sbd.svg){: figure caption="Architectural diagram for accessing iSCSI targets in IBM VPC from IBM {{site.data.keyword.powerSys_notm}} instances." caption-side="bottom"}
@@ -70,7 +70,7 @@ Add the iSCSI port to the inbound rules of the default security group.
 1. Click **Manage rules** in the **Rules** section.
 1. Click **Create** under **Inbound rules** to create a new inbound rule.
 1. Select **Protocol** `TCP`, and specify the iSCSI port `3260` for both **Port min** and **Port max** fields.
-   Leave **Source Type** and **Destination Type** set to `Any`.
+   Set **Source Type** and **Destination Type** to `Any`.
 1. Click **Create**.
 
 ### Attaching the VPC to the Transit Gateway
@@ -89,7 +89,7 @@ Use an IBM Transit Gateway to connect your Virtual Private Cloud (VPC) infrastru
 In this example, three iSCSI target servers are provisioned.
 Each target server provides a dedicated iSCSI LUN that is accessed as a shared disk by all cluster nodes.
 
-To configure virtual server instances as iSCSI targets, follow the steps below.
+Use the following steps to configure virtual server instances as iSCSI targets.
 Deploy virtual machines that are running a supported version of Red Hat Enterprise Linux operating system.
 
 A small VM instance profile such as `cx3d-2x5` or `bx3d-2x10` is sufficient.
@@ -104,7 +104,7 @@ See [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=ui) t
 1. Select a `Red Hat Enterprise Linux` image (9.x - minimal Install), and click **Save**.
 1. Select a small footprint for the **Profile**, for example `bx2-2x8`.
 1. Select an **SSH key**.
-1. In the **Data Volumes** section, click **Create** and provision a 10 GB volume designated for hosting the iSCSI LUNs.
+1. In the **Data Volumes** section, click **Create** and provision a 10 GB volume that is designated for hosting the iSCSI LUNs.
    - Enter a **Name** for the data volume.
    - Enter **10** for the **Storage size (GB)**.
    - Click **Create**.
@@ -112,7 +112,7 @@ See [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=ui) t
 1. Click **Create virtual server**.
 
 The deployment of the virtual server instances starts.
-Repeat the process to create the second and third virtual server instances in a different availability zone, ensuring they are deployed in separate physical locations.
+Repeat the process to create the second and third virtual server instances in a different availability zone, can ensure they are deployed in separate physical locations.
 
 ### Preparing the operating system
 {: #ha-sbd-prepare-os}
@@ -126,7 +126,7 @@ Login as the `root` user to all iSCSI target virtual machines.
    ```
    {: pre}
 
-   A node restart may be required to apply the changes.
+   A node restart might be required to apply the changes.
 
    ```sh
    shutdown -r now
@@ -349,7 +349,7 @@ Run the following commands on both cluster nodes.
    ```
    {: pre}
 
-   To install the `fence-agents-sbd` package, make sure you use version `4.10.0` with release `62.el9_4.15` or a more recent one.
+   To install the `fence-agents-sbd` package, make sure that you use version `4.10.0` with release `62.el9_4.15` or a more recent one.
    {: attention}
 
 1. Each iSCSI initiator must have a unique IQN (iSCSI Qualified Name), which is used to control access to the iSCSI targets.
@@ -394,7 +394,7 @@ Run the following commands on both cluster nodes.
 
 1. On both cluster nodes, run the following commands to connect the iSCSI devices.
 
-   In the following example, the iSCSI target servers are accessed via the IP addresses of the iSCSI target virtual servers and iSCSI port `3260`.
+   In the following example, the iSCSI target servers are accessed by using the IP addresses of the iSCSI target virtual servers and iSCSI port `3260`.
 
    The IP addresses provided in the example are for illustrative purposes only.
    Be sure to replace them with values that match your specific VPC subnet configuration.
@@ -532,13 +532,14 @@ To enable fencing, configure the cluster, activate the SBD devices on the shared
 ### Configuring the watchdog on the cluster nodes
 {: #ha-sbd-check-wdog}
 
-The `pseries_wdt` Power hypervisor watchdog is the preferred watchdog and is available on IBM Power10 servers and later.
+The `pseries_wdt` Power Hypervisor watchdog is the preferred watchdog and is available on IBM Power10 servers and later.
 
-If you deploy virtual server instances with a Power9 profile, the Power hypervisor watchdog is not available.
-As an alternative, the software watchdog `softdog` can be used, although it has limited support.
+As an alternative, the software watchdog `softdog` can be used.
+Red Hat fully supports `softdog` on supported platforms; however, its use comes with specific considerations and warnings that must be reviewed carefully.
+For details, see the Red Hat support article: https://access.redhat.com/articles/7034141.
 {: important}
 
-To configure a watchdog, follow the steps outlined in one of the following sections, depending on your environment.
+To configure a watchdog, follow the steps that are outlined in one of the following sections, depending on your environment.
 
 #### Configuring the`pseries_wdt` hardware watchdog (IBM Power10 and later)
 {: #ha-sbd-check-hw-wdt}
@@ -573,11 +574,8 @@ Pre-timeout:    0 seconds
 ```
 {: screen}
 
-#### Configuring the `softdog` software watchdog (IBM Power9)
+#### Configuring the `softdog` software watchdog
 {: #ha-sbd-check-softdog}
-
-Using the `softdog` software watchdog on an IBM Power9 server is an alternative, but has support limitations.
-{: important}
 
 Run the following commands on both cluster nodes to implement the software watchdog.
 
