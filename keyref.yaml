@@ -2,11 +2,9 @@ keyword:
   sap_app_server: SAP application server
   sap_app_servers: SAP application servers
   sap_netweaver_7x: SAP NetWeaver 7.x
-  sap_app_servers_abap: SAP Application Servers ABAP
+  sap_app_servers_abap: SAP application servers ABAP
   sap_netweaver_product_components: SAP NetWeaver product components
   sap_netweaver_product_architecture: SAP NetWeaver product architecture
   sap_app_server_applications: SAP application server applications
   sap_netweaver_certified_product: SAP NetWeaver certified product
   sap_app_server_abap: SAP Application Server ABAP
-  url.sap_tdi: https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html
-  url.sap_hcmt: https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-27"
+lastupdated: "2026-04-28"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -99,15 +99,15 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 {: tab-title="Certified Profiles"}
 
 
-| **Profile name** | **Workload type** | **aSAPS** | **SAPS** |
-| -----------------| ----------------- | --------- | -------- |
-| sr3-6x256        | OLTP              | 9,800     | 47,490   |
-| sr3-11x512       | OLTP              | 16,200    | 87,065   |
-| sr3-19x1024      | OLTP/OLAP         | 30,900    | 150,385  |
-| sr3-76x6144      | OLTP/OLAP         | 103,900   | 625,632  |
-| sr3-80x12288     | OLTP/OLAP         | 115,800   |    N/A   |
-| sr3-229x20000    | OLTP/OLAP         | 307,000   |    N/A   |
-| sr3-229x30500    | OLTP/OLAP         | 307,000   |    N/A   |
+| **Profile name** | **Workload type**                        | **aSAPS** | **SAPS** |
+| -----------------| ---------------------------------------- | --------- | -------- |
+| sr3-6x256        | OLTP                                     | 9,800     | 47,490   |
+| sr3-11x512       | OLTP                                     | 16,200    | 87,065   |
+| sr3-19x1024      | OLTP/OLAP                                | 30,900    | 150,385  |
+| sr3-76x6144      | OLTP/OLAP                                | 103,900   | 625,632  |
+| sr3-80x12288     | OLTP/OLAP                                | 115,800   |    N/A   |
+| sr3-229x20000    | OLTP/OLAP                                | 307,000   |    N/A   |
+| sr3-229x30500    | OLTP/OLAP/OLTP scale-out (up to 2 nodes) | 307,000   |    N/A   |
 {: class="simple-tab-table"}
 {: tab-group="sr3-profiles"}
 {: caption="P11 Certified Instance profiles with sr3 prefix" caption-side="bottom"}
@@ -178,7 +178,7 @@ The following table lists available profile families for IBM Power10 processor-b
 | [Profiles with sh2 prefix](#sh2-profiles) | Profiles with the prefix *sh2* support HANA database sizes up to 1900 GiB. |
 | [Profiles with bh2 prefix](#bh2-profiles) | Profiles with the prefix *bh2* are balanced profiles and are best suited for midsize databases and common cloud applications with moderate traffic. |
 | [Profiles with ch2 prefix](#ch2-profiles)  | Profiles with the prefix *ch2* are compute intensive profiles and are best suited for moderate to high web traffic workloads. Compute profiles are best suited for cpu-intensive workloads, such as heavy web traffic, production batch processing, and front-end web servers. |
-| [Profiles with mh2 prefix](#mh2-profiles) | Profiles with the prefix *mh2* are very high memory profiles and are best suited for server OLAP databases, such as SAP NetWeaver. |
+| [Profiles with mh2 prefix](#mh2-profiles) | Profiles with the prefix *mh2* are very high memory profiles and are best suited for server OLAP databases, such as {{site.data.keyword.sap_app_server}}. |
 {: caption="Profile families for Power10 server generation" caption-side="bottom"}
 
 **sr2 profiles** also support custom combination of physical CPU cores and memory. **Custom sr2 profiles** must be deployed by using the **CLI or API** interface only and these custom profiles are not supported by SAP.
@@ -975,7 +975,7 @@ The following profile families are available for IBM Power9 processor-based serv
 | [Profiles with ush1 prefix](#ush1profiles) | Profiles with the prefix *ush* are small profiles and are best suited for balanced workloads that require less CPU and storage consumption. |
 | [Profiles with bh1 prefix](#bh1profiles) | Profiles with the prefix *bh1* are balanced profiles and are best suited for midsize databases and common cloud applications with moderate traffic. |
 | [Profiles with ch1 prefix](#ch1profiles)  | Profiles with the prefix *ch1* are compute intensive profiles and are best suited for moderate to high web traffic workloads. Compute profiles are best suited for cpu-intensive workloads, such as heavy web traffic, production batch processing, and front-end web servers. |
-| [Profiles with mh1 prefix](#mh1profiles) | Profiles with the prefix *mh1* are very high memory profiles and are best suited for server OLAP databases, such as SAP NetWeaver. |
+| [Profiles with mh1 prefix](#mh1profiles) | Profiles with the prefix *mh1* are very high memory profiles and are best suited for server OLAP databases, such as {{site.data.keyword.sap_app_server}}. |
 | [Profiles with umh prefix](#umhprofiles) | Profiles with the prefix *umh* are ultra memory profiles that provide the highest vCPU-to-memory ratios for serving in-memory OLTP databases, such as SAP HANA. |
 {: caption="Profile families for Power9 server generation" caption-side="bottom"}
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-03-30"
+lastupdated: "2026-04-29"
 keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
@@ -13,6 +13,16 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+## April 2026
+{: #sap-2026-04}
+
+- Restructured the [planning](/docs/sap?group=plan) section. Organized SAP workloads across SAP-certified infrastructures ([Virtual Servers in VPC](/docs/sap?group=plan-vpc-vsi), [Bare Metal Servers in VPC](/docs/sap?group=plan-vpc-bm), [Bare Metal Servers in Classic](/docs/sap?group=plan-classic-bm), and [{{site.data.keyword.powerSys_notm}}](/docs/sap?group=plan-powervs) into standardized categories to improve clarity and enable better planning.
+   - Compute: Includes SAP HANA DB and SAP application server on Linux profiles to enable appropriate compute selection based on workload needs.
+   - Storage: Defines storage options required for SAP workload deployment.
+   - Operating system: Specifies supported operating system requirements for each workload.
+   - Network: Outlines supported network options and required configurations for SAP workloads across environments.
+- **2‑node SAP HANA OLTP scale‑out** is now certified and supported on {{site.data.keyword.powerSys_notm}} on IBM Power11, using the [sr3‑229x30500](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr3-profiles) profile.
 
 ## March 2026
 {: #sap-2026-03}

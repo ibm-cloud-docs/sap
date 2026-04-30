@@ -43,111 +43,77 @@ toc:
       id: plan
       topics:
       - topicgroup:
-          label: Infrastructure environments
-          id: "infrastructure-envs"
+          id: plan-vpc-vsi
+          label: SAP workloads on Virtual Servers in VPC
           topics:
-          - navtitle: VPC
-            topic: plan/sap-environment-vpc-infrastructure.md
-          - navtitle: Classic
-            topic: plan/sap-environment-classic-infrastructure.md
-          - navtitle: Power Virtual Server
-            topic: plan/sap-environment-power-infrastructure.md
-      - navtitle: SAP certified infrastructure
-        topic: plan/sap-offerings-certified-iaas.md
-      - topicgroup:
-          label: Infrastructure profiles for SAP HANA database servers
-          id: "infrastructure-profiles-sap-hana"
-          topics:
-          - navtitle: Virtual servers in VPC
-            topic: plan/vpc-intel-vsi/vpc-intel-vsi-compute-certified-profiles-hana.md
-          - navtitle: Bare metal servers in VPC
-            topic: plan/vpc-intel-bm/vpc-intel-bm-compute-certified-profiles-hana.md
-          - navtitle: Bare metal servers in Classic
-            topic: plan/classic-intel-bm/classic-intel-bm-compute-certified-profiles-hana.md
-          - navtitle: Power Virtual Server
-            topic: plan/powervs/powervs-compute-certified-profiles-hana.md
-      - topicgroup:
-          label: Infrastructure profiles for SAP NetWeaver-based application servers
-          id: "infrastructure-profiles-sap-netweaver"
-          topics:
-          - navtitle: Virtual servers in VPC
-            topic: plan/vpc-intel-vsi/vpc-intel-vsi-compute-certified-profiles-netweaver.md
-          - navtitle: Bare metal servers in VPC
-            topic: plan/vpc-intel-bm/vpc-intel-bm-compute-certified-profiles-netweaver.md
-          - navtitle: Bare metal servers in Classic
-            topic: plan/classic-intel-bm/classic-intel-bm-compute-certified-profiles-netweaver.md
-          - navtitle: Power Virtual Server
-            topic: plan/powervs/powervs-compute-certified-profiles-netweaver.md
-      - topicgroup:
-          label: Plan your SAP workloads
-          id: "plan-sap-workloads"
-          topics:
-          - navtitle: Sizing process for SAP solutions
-            topic: plan/sap-sizing-planning-process.md
-          - navtitle: Defining your SAP system landscape
-            topic: plan/sap-sizing-planning-your-system-landscape.md
-          - navtitle: Connecting to your SAP system landscape
-            topic: plan/sap-prereq-determining-access.md
-          - navtitle: Download and install SAP software and applications
-            topic: plan/sap-prereq-software.md
-          - navtitle: Bring your own SAP product license
-            topic: plan/sap-prereq-byol.md
-      - topicgroup:
-          label: Infrastructure for SAP design considerations
-          id: "infrastructure-sap-design-considerations"
-          topics:
-          - navtitle: Network
-            topic: plan/sap-design-considerations-networking.md
+          - topicgroup:
+              id: plan-vpc-vsi-compute
+              label: Compute
+              topics:
+              - navtitle: HANA Database
+                topic: plan/vpc-vsi/vpc-vsi-compute-certified-profiles-hana.md
+              - navtitle: SAP application servers on Linux
+                topic: plan/vpc-vsi/vpc-vsi-compute-certified-profiles-netweaver.md
           - navtitle: Storage
-            topic: plan/sap-design-considerations-storage.md
-          - navtitle: Compute and operating system
-            topic: plan/sap-design-considerations-compute-os.md
-          - navtitle: Disaster recovery
-            topic: plan/sap-design-considerations-disaster-recovery.md
-      - navtitle: SAP HANA database design considerations
-        topic: plan/sap-design-considerations-sap-hana.md
-      - navtitle: SAP NetWeaver design considerations
-        topic: plan/sap-design-considerations-sap-netweaver.md
+            topic: plan/vpc-vsi/vpc-vsi-storage.md
+          - navtitle: Operating system
+            topic: plan/vpc-vsi/vpc-vsi-os.md
+          - navtitle: Network
+            topic: plan/vpc-vsi/vpc-vsi-network.md
       - topicgroup:
-          label: SAP Business Applications extra design considerations
-          id: "sap-business-app-design-considerations"
+          id: plan-vpc-bm
+          label: SAP workloads on Bare Metal servers in VPC
           topics:
-          - navtitle: SAP S/4HANA
-            topic: plan/sap-app-s4hana.md
-          - navtitle: SAP BW/4HANA
-            topic: plan/sap-app-bw4hana.md
-          - navtitle: SAP Commerce
-            topic: plan/sap-app-commerce.md
-          - navtitle: SAP Business One (B1)
-            topic: plan/sap-app-b1.md
-          - navtitle: SAP Content Server
-            topic: plan/sap-app-content-server.md
+          - topicgroup:
+              id: plan-vpc-bm-compute
+              label: Compute
+              topics:
+              - navtitle: HANA Database
+                topic: plan/vpc-bm/vpc-bm-compute-certified-profiles-hana.md
+              - navtitle: SAP application servers on Linux
+                topic: plan/vpc-bm/vpc-bm-compute-certified-profiles-netweaver.md
+          - navtitle: Storage
+            topic: plan/vpc-bm/vpc-bm-storage.md
+          - navtitle: Operating system
+            topic: plan/vpc-bm/vpc-bm-os.md
+          - navtitle: Network
+            topic: plan/vpc-bm/vpc-bm-network.md
       - topicgroup:
-          label: SAP AnyDB and SAP HANA extra design considerations
-          id: "sap-anydb-and-hana-design-considerations"
+          id: plan-classic-bm
+          label: SAP workloads on Bare Metal servers in Classic
           topics:
-          - navtitle: IBM Db2
-            topic: plan/sap-anydb-ibm-db2.md
-          - navtitle: Microsoft SQL Server
-            topic: plan/sap-anydb-ms-sql.md
-          - navtitle: SAP MaxDB
-            topic: plan/sap-anydb-sap-maxdb.md
-          - navtitle: SAP ASE
-            topic: plan/sap-anydb-sap-ase.md
-          - navtitle: SAP IQ
-            topic: plan/sap-anydb-sap-iq.md
-          - navtitle: SAP HANA
-            topic: plan/sap-anydb-sap-hana.md
+          - topicgroup:
+              id: plan-classic-bm-compute
+              label: Compute
+              topics:
+              - navtitle: HANA Database
+                topic: plan/classic-bm/classic-bm-compute-certified-profiles-hana.md
+              - navtitle: SAP application servers on Linux
+                topic: plan/classic-bm/classic-bm-compute-certified-profiles-netweaver.md
+          - navtitle: Storage
+            topic: plan/classic-bm/classic-bm-storage.md
+          - navtitle: Operating system
+            topic: plan/classic-bm/classic-bm-os.md
+          - navtitle: Network
+            topic: plan/classic-bm/classic-bm-network.md
       - topicgroup:
-          label: SAP partner certified solutions
-          id: "sap-partner-certified-solutions"
+          id: plan-powervs
+          label: SAP workloads on Power Virtual Servers
           topics:
-          - navtitle: Veeam for SAP HANA backups
-            topic: plan/sap-partners-veeam.md
-          - navtitle: IBM Security services for SAP
-            topic: plan/sap-partners-ibm-security-services.md
-          - navtitle: SAP HANA with Intel Optane Persistent Memory (PMEM)
-            topic: plan/sap-partners-intel-optane-pmem.md
+          - topicgroup:
+              id: plan-powervs-compute
+              label: Compute
+              topics:
+              - navtitle: HANA Database
+                topic: plan/powervs/powervs-compute-certified-profiles-hana.md
+              - navtitle: SAP application servers on Linux
+                topic: plan/powervs/powervs-compute-certified-profiles-netweaver.md
+          - navtitle: Storage
+            topic: plan/powervs/powervs-storage.md
+          - navtitle: Operating system
+            topic: plan/powervs/powervs-os.md
+          - navtitle: Network
+            topic: plan/powervs/powervs-network.md
   - navgroup:
       id: tutorial
       topics:

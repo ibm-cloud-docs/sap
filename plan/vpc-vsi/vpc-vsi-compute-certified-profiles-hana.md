@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-31"
+lastupdated: "2026-04-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# SAP HANA certified instances on Intel-powered virtual servers on VPC Infrastructure
+# SAP HANA certified instances on virtual server instances in VPC Infrastructure
 {: #hana-iaas-offerings-profiles-vpc-intel-vsi}
 
 A SAP HANA certified server or profile on Intel-powered virtual servers on VPC Infrastructure defines attributes, such as physical CPU cores and RAM, which determine the size and performance capabilities of the server.

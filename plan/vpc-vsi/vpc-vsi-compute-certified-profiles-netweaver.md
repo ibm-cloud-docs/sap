@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-31"
+lastupdated: "2026-04-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, sapphire rapids, Skylake, Cascade lake, VPC, VSI, certified profiles
 subcollection: sap
 ---
@@ -9,14 +9,14 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# SAP Application Server certified instances on Intel-powered virtual servers on VPC Infrastructure
+# {{site.data.keyword.sap_app_server}} certified instances on virtual server instances in VPC Infrastructure
 {: #nw-iaas-offerings-profiles-vpc-vsi}
 
 
 ## Profile naming convention
 {: #naming-convention}
 
-SAP Application Server profile names follow a contextual and sequential naming convention. The following table illustrates an example of an SAP Application certified profile:
+{{site.data.keyword.sap_app_server}} profile names follow a contextual and sequential naming convention. The following table illustrates an example of an SAP application certified profile:
 
 
 The first letter of the profile name indicates the profile family that is mentioned the profile list, where the ratio depends on the Intel generation, Sapphire Rapids (SPR) or Cascade Lake (CL):
@@ -31,8 +31,8 @@ The first letter of the profile name indicates the profile family that is mentio
 {: caption="Characteristics" caption-side="top"}
 
 
-SAP NetWeaver profile names follow a contextual and sequential naming convention.
-The following table illustrates an example of an SAP NetWeaver certified instance profile:
+{{site.data.keyword.sap_app_server}} profile names follow a contextual and sequential naming convention.
+The following table illustrates an example of an {{site.data.keyword.sap_app_server}} certified instance profile:
 
 
 | Profile name | Naming convention component | Description                                                                                                         |
@@ -249,7 +249,7 @@ Flexible profiles will be provisioned as a generation 2 or 3 profile with mentio
 ## Storage specifications
 {: #storage-specs}
 
-When the virtual server profiles for SAP application server are initially provisioned, the servers all have one pre-configured volume (vda) attached with the following basic layout:
+When the virtual server profiles for {{site.data.keyword.sap_app_server}} are initially provisioned, the servers all have one pre-configured volume (vda) attached with the following basic layout:
 
 | File system | Partition | Storage type               | size (GB) | Nr. of\nIOPS |
 | ------------| --------- | -------------------------- | --------- | ------------ |
@@ -257,7 +257,7 @@ When the virtual server profiles for SAP application server are initially provis
 | `/boot`     | `vda2`    | Pre-configured boot volume | 0.25      | 3,000        |
 {: caption="Storage configuration of the default virtual server deployment (boot volume)" caption-side="top"}
 
-- To fulfill the size and I/O requirements for SAP application server or SAP AnyDB, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.
+- To fulfill the size and I/O requirements for {{site.data.keyword.sap_app_server}} or SAP AnyDB, more [{{site.data.keyword.block_storage_is_full}}](/docs/vpc?topic=vpc-block-storage-about) volumes need to be added as data volumes to the virtual server configuration.
 
 - Block Storage Volumes for Virtual Servers can be created based on different **volume profiles** that provide different levels of IOPS per gigabyte (IOPS/GB). For more information, see [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) for details.
 
@@ -265,7 +265,7 @@ When the virtual server profiles for SAP application server are initially provis
 
 - For an overview of all available storage profiles, see [VPC Block Storage Profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 
-- For SAP application server and SAP AnyDB, a minimum of 5 IOPS/GB is recommended.
+- For {{site.data.keyword.sap_app_server}} and SAP AnyDB, a minimum of 5 IOPS/GB is recommended.
 
 - Samples of storage configurations that use Intel Virtual Server (Gen2) profiles are available under [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations).
 

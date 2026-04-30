@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-04-29"
 keywords: SAP-Certified HANA profiles, Classic, log, data, shared, sapphire rapids, Skylake, Cascade lake, boot only, bare metal, nvme, ssd
 subcollection: sap
 ---

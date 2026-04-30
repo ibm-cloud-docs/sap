@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-31"
+lastupdated: "2026-04-29"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, sapphire rapids, Skylake, Cascade lake, baremetal
 subcollection: sap
 ---
@@ -9,13 +9,13 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# SAP Application Server certified instances on Intel-powered bare metal servers in VPC Infrastructure
+# {{site.data.keyword.sap_app_server}} certified instances on Intel-powered bare metal servers in VPC Infrastructure
 {: #nw-iaas-offerings-profiles-vpc-bm}
 
 ## Profile naming convention
 {: #naming-convention}
 
-SAP Application Server profile names follow a contextual and sequential naming convention. The following table illustrates an example of an SAP Application certified profile:
+{{site.data.keyword.sap_app_server}} profile names follow a contextual and sequential naming convention. The following table illustrates an example of an SAP application certified profile:
 
 
 The first letter of the profile name indicates the profile family that is mentioned the profile list, where the ratio depends on the Intel generation, Sapphire Rapids (SPR) or Cascade Lake (CL):
@@ -30,7 +30,7 @@ The first letter of the profile name indicates the profile family that is mentio
 {: caption="{{site.data.keyword.baremetal_short}} for VPC Profile families" caption-side="top"}
 
 
-The virtual server profile names are contextual and sequential. The following table illustrates an example of an SAP Application certified profile:
+The virtual server profile names are contextual and sequential. The following table illustrates an example of an SAP application certified profile:
 
 | Profile name        | Naming convention component | Description                                                                                                         |
 | ------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -43,7 +43,7 @@ The virtual server profile names are contextual and sequential. The following ta
 |                     | 128                         | 128 Virtual CPU cores                                                                                               |
 |                     | x                           | *separator*                                                                                                         |
 |                     | 1024                        | 1024 GiB RAM                                                                                                        |
-{: caption="Profile naming scheme for SAP application server" caption-side="top"}
+{: caption="Profile naming scheme for {{site.data.keyword.sap_app_server}}" caption-side="top"}
 
 For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile#bare-metal-servers-profile-list).
 
@@ -69,7 +69,7 @@ For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virt
 | mx3d-metal-128x1024 | 64            | 128              | 1,024            | 239,300   | 46,000       |
 | vx3d-metal-16x256   | 8             | 16               | 256              | 35,520    | 6,900        |
 | ux3d-metal-16x512   | 8             | 16               | 512              | 34,320    | 6,900        |
-{: caption="Intel Sapphire Rapids servers certified for SAP application server" caption-side="bottom"}
+{: caption="Intel Sapphire Rapids servers certified for {{site.data.keyword.sap_app_server}}" caption-side="bottom"}
 
 
 
@@ -83,13 +83,13 @@ For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virt
 | mx2d-metal-96x768   | 48            | 96               | 768              | 127,620   |
 | ux2d-metal-112x3072 | 56            | 112              | 3,072            | 140,730   |
 | ux2d-metal-224x6144 | 112           | 224              | 6,144            | 294,730   |
-{: caption="Intel Cascade Lake servers certified for SAP application server" caption-side="bottom"}
+{: caption="Intel Cascade Lake servers certified for {{site.data.keyword.sap_app_server}}" caption-side="bottom"}
 
 
 ## Internal storage
 {: #internal-storage}
 
-Your bare metal server on VPC comes with a number of internal NVMEs, depending on its size. For SAP application server based deployment, you can use the NVMEs that are listed as block devices to the operating system. The NVMEs are under “/dev/nvmeXn1” (X from 0 to the number of NVMEs in total, minus 1). Use the NVMEs according to your requirements and needs. However, to increase failure resilience, you might have to install Linux Logical Volume Manager (LVM) to add RAID configuration, like RAID1 or RAID5. Since NVMEs are provisioned, performance considerations are mostly not an issue.
+Your bare metal server on VPC comes with a number of internal NVMEs, depending on its size. For {{site.data.keyword.sap_app_server}} based deployment, you can use the NVMEs that are listed as block devices to the operating system. The NVMEs are under “/dev/nvmeXn1” (X from 0 to the number of NVMEs in total, minus 1). Use the NVMEs according to your requirements and needs. However, to increase failure resilience, you might have to install Linux Logical Volume Manager (LVM) to add RAID configuration, like RAID1 or RAID5. Since NVMEs are provisioned, performance considerations are mostly not an issue.
 
 ## Profiles available on hourly consumption billing
 {: #nw-hourly-profiles}

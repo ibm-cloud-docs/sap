@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-04-29"
 keywords: SAP-Certified HANA profiles, VPC, baremetal, log, data, shared, sapphire rapids, Skylake, Cascade lake, boot only, bare metal
 subcollection: sap
 ---
@@ -26,7 +26,7 @@ For SAP HANA deployments that use {{site.data.keyword.bm_is_full_notm}}, only si
 ## Hardware specifications
 {: #supported-hardware}
 
-Following Intel system types are certified to run SAP Application Server or SAP NetWeaver workloads:
+Following Intel system types are certified to run {{site.data.keyword.sap_app_server}} workloads:
 
 
 
