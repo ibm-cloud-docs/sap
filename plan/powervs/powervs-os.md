@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-05"
 keywords: SAP, Power Virtual Server, PowerVS, operating system, OS, Linux, RHEL, Red Hat, SLES, SUSE, boot images, stock images, custom images, image import, Full Linux Subscription, FLS, BYOL, cloud-init, OS planning, Linux
 subcollection: sap
 ---
@@ -62,11 +62,16 @@ IBM {{site.data.keyword.powerSys_notm}} supports only the following OS distribut
 
 **Supported versions by machine type:**
 
-|Machine type                         |RHEL version     |SLES version        |
-|-------------------------------------|-----------------|--------------------|
-|E1080 (9080-HEX)                     |RHEL 8.4 or later|SLES 15 SP3 or later|
-|S1022 (9105-22A)                     |RHEL 8.4 or later|SLES 15 SP3 or later|
-|S1122 (9824-22A)                     |RHEL 8.6 or later|SLES 15 SP4 or later|
+| Machine type     | RHEL version                           | SLES version         |
+|------------------|----------------------------------------|----------------------|
+| S1122 (9824-22A) | RHEL 8.10 or later, RHEL 9.6 or later  | SLES 15 SP6 or later |
+| E1150 (9043‑MRU) | RHEL 8.10 or later, RHEL 9.6 or later  | SLES 15 SP6 or later |
+| E1180 (9080‑HEU) | RHEL 8.10 or later, RHEL 9.6 or later  | SLES 15 SP6 or later |
+| S1022 (9105-22A) | RHEL 8.4 or later                      | SLES 15 SP4 or later |
+| E1050 (9043‑MRX) | RHEL 8.4 or later                      | SLES 15 SP4 or later |
+| E1080 (9080-HEX) | RHEL 8.4 or later                      | SLES 15 SP4 or later |
+| S922  (9009‑22A) | RHEL 8.0 or later                      | SLES 12 SP5 or later |
+| E980  (9080‑M9S) | RHEL 8.0 or later                      | SLES 12 SP5 or later |
 {: caption="Supported Linux versions by machine type" caption-side="bottom"}
 
 

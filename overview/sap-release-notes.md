@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-04"
 keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
@@ -23,6 +23,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
    - Operating system: Specifies supported operating system requirements for each workload.
    - Network: Outlines supported network options and required configurations for SAP workloads across environments.
 - **2‑node SAP HANA OLTP scale‑out** is now certified and supported on {{site.data.keyword.powerSys_notm}} on IBM Power11, using the [sr3‑229x30500](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr3-profiles) profile.
+- New document: [Configuring SAP HANA multiple-host system replication in a Red Hat Enterprise Linux High Availability Add-On cluster with the `sap-hana-ha` resource agent in an {{site.data.keyword.cloud_notm}} multi-zone environment](/docs/sap?topic=sap-ha-rhel-hana-ng-mh-mz).
 
 ## March 2026
 {: #sap-2026-03}

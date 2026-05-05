@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-05-05"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
@@ -226,7 +226,7 @@ Choose one of the options for a manual or an automated setup.
 {: #powervs-set-up-sap-shared-file-system}
 
 A distributed SAP system installation requires file systems that are shared between the multiple virtual server instances.
-{{site.data.keyword.cloud_notm}} {{site.data.keyword.filestorage_vpc_short}} proides NFS based file storage services. See the detailed information in the document [File Storage for VPC](/docs/vpc?group=file-storage-for-vpc).
+{{site.data.keyword.cloud_notm}} {{site.data.keyword.filestorage_vpc_short}} provides NFS based file storage services. See the detailed information in the document [File Storage for VPC](/docs/vpc?group=file-storage-for-vpc).
 
 See [Accessing file storage shares for VPC](/docs/sap?group=file-storage-shares-for-vpc) for more details about creating, accessing, and mounting the file shares on the virtual server instances.
 
