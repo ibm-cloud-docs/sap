@@ -62,16 +62,16 @@ IBM {{site.data.keyword.powerSys_notm}} supports only the following OS distribut
 
 **Supported versions by machine type:**
 
-| Machine type     | RHEL version                           | SLES version         |
-|------------------|----------------------------------------|----------------------|
-| S1122 (9824-22A) | RHEL 8.10 or later, RHEL 9.6 or later  | SLES 15 SP6 or later |
-| E1150 (9043‑MRU) | RHEL 8.10 or later, RHEL 9.6 or later  | SLES 15 SP6 or later |
-| E1180 (9080‑HEU) | RHEL 8.10 or later, RHEL 9.6 or later  | SLES 15 SP6 or later |
-| S1022 (9105-22A) | RHEL 8.4 or later                      | SLES 15 SP4 or later |
-| E1050 (9043‑MRX) | RHEL 8.4 or later                      | SLES 15 SP4 or later |
-| E1080 (9080-HEX) | RHEL 8.4 or later                      | SLES 15 SP4 or later |
-| S922  (9009‑22A) | RHEL 8.0 or later                      | SLES 12 SP5 or later |
-| E980  (9080‑M9S) | RHEL 8.0 or later                      | SLES 12 SP5 or later |
+| Machine type     | RHEL version                         | SLES version                               |
+|------------------|--------------------------------------|--------------------------------------------|
+| S1122 (9824-22A) | RHEL 9.6 or later                    | SLES 15 SP6 or later                       |
+| E1150 (9043‑MRU) | RHEL 9.6 or later                    | SLES 15 SP6 or later                       |
+| E1180 (9080‑HEU) | RHEL 9.6 or later                    | SLES 15 SP6 or later                       |
+| S1022 (9105-22A) | RHEL 8.6 or later, RHEL 9.2 or later | SLES 15 SP4 or later                       |
+| E1050 (9043‑MRX) | RHEL 8.6 or later, RHEL 9.2 or later | SLES 15 SP4 or later                       |
+| E1080 (9080-HEX) | RHEL 8.6 or later, RHEL 9.2 or later | SLES 15 SP4 or later                       |
+| S922  (9009‑22A) | RHEL 8.1 or later, RHEL 9.2 or later | SLES 12 SP1 or later, SLES 15 SP4 or later |
+| E980  (9080‑M9S) | RHEL 8.1 or later, RHEL 9.2 or later | SLES 12 SP1 or later, SLES 15 SP4 or later |
 {: caption="Supported Linux versions by machine type" caption-side="bottom"}
 
 
@@ -103,12 +103,12 @@ IBM {{site.data.keyword.powerSys_notm}} supports only the following OS distribut
 - Include OS configurations, kernel parameters, and optimizations for SAP HANA workloads.
 - Preconfigured with transparent huge pages, I/O scheduler settings, and memory management.
 - Recommended for all SAP HANA production environments.
-- Image names include "SAP-HANA" designation.
+- Image names include **"-SAP"** designation.
 
 **OS images for {{site.data.keyword.sap_app_server}} instances**:
 - Configured and certified for {{site.data.keyword.sap_app_server}} deployments.
 - Include required packages and configurations for {{site.data.keyword.sap_app_server}} workloads.
-- Image names typically include "SAP-NETWEAVER" designation.
+- Image names typically include **"SAP-NETWEAVER"** designation.
 
 **Generic SLES and RHEL images**:
 - General-purpose Linux images for non-SAP workloads.
@@ -149,11 +149,11 @@ When selecting {{site.data.keyword.BluSoftlayer_notm}} stock images for SAP work
 {: #os-stock-image-naming-convention}
 
 {{site.data.keyword.BluSoftlayer_notm}} stock images follow consistent naming patterns:
-- **RHEL SAP HANA images**: Start with "RHEL" followed by version and the suffix "SAP-HANA" (for example, "RHEL9-SP6-SAP-HANA").
-- **RHEL SAP NetWeaver images**: Start with "RHEL" followed by version and the suffix "SAP-NETWEAVER" or "SAP" (for example, "RHEL9-SP6-SAP").
-- **SLES SAP HANA images**: Start with "SLES" followed by version and the suffix "SAP-HANA" (for example, "SLES15-SP4-SAP-HANA").
-- **SLES SAP NetWeaver images**: Start with "SLES" followed by version and the suffix "SAP" (for example, "SLES15-SP4-SAP").
-- **BYOL images**: Include "-BYOL" suffix for bring your own license versions.
+- **RHEL SAP HANA images**: Start with **"RHEL"** followed by version and the suffix **"-SAP"** (for example, "RHEL9-SP6-SAP").
+- **RHEL SAP NetWeaver images**: Start with **"RHEL"** followed by version and the suffix **"-SAP-NETWEAVER"** (for example, "RHEL9-SP6-SAP-NETWEAVER").
+- **SLES SAP HANA images**: Start with **"SLES"** followed by version and the suffix **"-SAP"** (for example, "SLES15-SP4-SAP").
+- **SLES SAP NetWeaver images**: Start with **"SLES"** followed by version and the suffix **"-SAP-NETWEAVER"** (for example, "SLES15-SP4-SAP-NETWEAVER").
+- **BYOL images**: Include **"-BYOL"** suffix for "Client supplied subscription" indicating "Bring Your Own License" (BYOL).
 - **FLS images**: Standard naming without BYOL suffix indicates full Linux subscription.
 
 ## Bring your own images
