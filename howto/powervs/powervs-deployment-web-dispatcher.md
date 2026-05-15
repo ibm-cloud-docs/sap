@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-03-16"
+lastupdated: "2026-05-13"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Web Dispatcher, {{site.data.keyword.cloud_notm}} Application Load Balancer, {{site.data.keyword.alb_full}}
 subcollection: sap
 ---
@@ -15,18 +15,16 @@ subcollection: sap
 The following instructions explain how to deploy SAP Web Dispatcher and Application Load Balancer for SAP solutions on {{site.data.keyword.powerSysFull}}.
 {: shortdesc}
 
-
-
 The architecture diagram illustrates the deployment locations of the SAP Web Dispatcher and the Application Load Balancer.
 
 It also shows the SSL connections between components:
 1. Between a web browser and an IBM Cloud Application Load Balancer
 1. Between the Application Load Balancer and SAP Web Dispatcher
-1. Between the SAP Web Dispatchers and SAP application server
+1. Between the SAP Web Dispatcher and SAP application server
 
 ![{{site.data.keyword.powerSys_notm}} infrastructure for SAP Web Dispatcher and Application Load Balancer](../../images/powervs-deployment-swebdispatcher-and-alb.svg){: caption="{{site.data.keyword.powerSys_notm}} infrastructure for SAP Web Dispatcher and Application Load Balancer" caption-side="bottom"}
 
-To deploy an SAP Web Dispatcher and an {{site.data.keyword.BluSoftlayer_notm}} Application Load Balancer, you need to set up an infrastructure environment, including an additional Virtual Server Instance (VSI) dedicated to SAP Web Dispatcher, download and install Software Provisioning Manager (SWPM). A detailed, step-by-step guidance is provided in the sections below.
+To deploy an SAP Web Dispatcher and an {{site.data.keyword.BluSoftlayer_notm}} Application Load Balancer, you need to set up an infrastructure environment, including an additional Virtual Server Instance (VSI) dedicated to SAP Web Dispatcher, download and install Software Provisioning Manager (SWPM).
 
 ## Preparing the environment for SAP Web Dispatcher installation
 {: #sap-web-dispatcher-infrastructure-setup}
@@ -142,18 +140,15 @@ Choose the appropriate ALB type for your deployment, and configure the ALB subne
 The *Software Provisioning Manager* is required to install SAP Web Dispatcher.
 Refer to the [Installation Guides-SAP Web Dispatcher-Software Provisioning Manager 2.0](https://help.sap.com/docs/SOFTWARE_PROVISIONING_MANAGER/30839dda13b2485889466316ce5b39e9/5290d46f1d6646d6aba92b595921945d.html?locale=en-US){: external} on the SAP Help Portal.
 For detailed information on architecture, functions, administration, configuration, and error handling, consult the
-[SAP Web Dispatcher](https://help.sap.com/docs/ABAP_PLATFORM_NEW/683d6a1797a34730a6e005d1e8de6f22/488fe37933114e6fe10000000a421937.html?locale=en-US) documentation.
+[SAP Web Dispatcher](https://help.sap.com/docs/ABAP_PLATFORM_NEW/683d6a1797a34730a6e005d1e8de6f22/488fe37933114e6fe10000000a421937.html?locale=en-US){: external} documentation.
 
 The following guidance provides basic information on how to install and configure SAP Web Dispatcher on {{site.data.keyword.BluSoftlayer_notm}}.
 It does not include in-depth guidance on SAP software product installations.
-For product-specific user guides, refer to the [SAP Help Portal](https://help.sap.com/docs/){: external} and the [SAP Software Download Center](https://me.sap.com/softwarecenter){: external}.
 {: note}
 
-Prepare the necessary SAP system parameter that is required for SAP Web Dispatcher installation, such as:
+For product-specific user guides, refer to the [SAP Help Portal](https://help.sap.com/docs/){: external} and the [SAP Software Download Center](https://me.sap.com/softwarecenter){: external}.
 
-- SAP System ID and *sapmnt* directory.
-- Message server host and its HTTP port.
-- SAP back-end System ID.
+To prepare the necessary input parameters of your SAP system for installing SAP Web Dispatcher have a look at the SAP documentation about [Basic Installation Parameters](https://help.sap.com/docs/SLTOOLSET/99e5f3d36be84dfab6ac68ac47920cab/49d21eda6ea0477496fd39f9c79c0165.html?version=LATEST&locale=en-US){: external}.
 
 The following steps describe how to install SAP Web Dispatcher by using *Software Provisioning Manager (SPWM) 2.0*:
 
@@ -262,10 +257,6 @@ The browser displays a secure connection indicator.
 
 The previously created {{site.data.keyword.BluSoftlayer_notm}} {{site.data.keyword.alb_full}} is positioned in front of the deployed SAP Web Dispatcher instances to manage incoming and outgoing traffic.
 
-The following simplified architecture diagram shows the placement of the ALB and helps identify front-end listeners and back-end pools:
-
-![SAP Web Dispatcher and Application Load Balancer](../../images/powervs-deployment-alb-swebdisp-simple-diagram.svg){: caption="SAP Web Dispatcher and Application Load Balancer" caption-side="bottom"}
-
 To configure the ALB, set up front-end listeners and back-end pools.
 See Front-end listeners and back-end pools for detailed configuration guidelines.
 
@@ -278,18 +269,18 @@ The following table shows a sample configuration:
 
 | ALB Setting                        | Value/Parameter |
 | ---------------------------------- | --------------- |
-| ALB type                           | Public |
-| Listener Protocol                  | TCP |
-| Port                               | 44300 |
+| ALB type                           | Public          |
+| Listener Protocol                  | TCP             |
+| Port                               | 44300           |
 | Attached subnets                   | Edge VPC with IP range of 10.30.50.0/24 |
 | Back-end pool servers              | VSIs where SAP Web Dispatcher is deployed and running |
-| Back-end pool protocol             | TCP |
-| Back-end pool session stickiness   | Source IP |
-| Back-end pool method               | The method depends on the number of deployed SAP Web Dispatcher instances. See [Load-balancing methods](/docs/vpc?topic=vpc-load-balancers-about&interface=ui#load-balancing-methods) for details. |
-| Front-end listener protocol        | TCP |
-| Front-end listener port            | 44300 |
+| Back-end pool protocol             | TCP             |
+| Back-end pool session stickiness   | Source IP       |
+| Back-end pool method               | The method depends on the number of deployed SAP Web Dispatcher instances. See [Load-balancing methods](/docs/vpc?topic=vpc-load-balancers-about&interface=ui#load-balancing-methods) for details.  |
+| Front-end listener protocol        | TCP             |
+| Front-end listener port            | 44300           |
 | Front-end back-end pool            | VSIs where SAP Web Dispatcher is deployed and running |
-| Front-end Timeout (sec) (optional) | 50 |
+| Front-end Timeout (sec) (optional) | 50              |
 {: caption="Application Load Balancer sample configuration" caption-side="bottom"}
 
 ### Configuring end-to-end SSL encryption for ALB
@@ -314,3 +305,14 @@ https://<alb-public-host-name-or-ip>:44300/sap/wdisp/admin/public/default.html
 Log in using your username (for example, `webadm`) and the password that you specified during the SAP Web Dispatcher installation.
 If the login is successful, the Web Administration Interface of the SAP Web Dispatcher opens.
 The dispatcher is deployed behind the {{site.data.keyword.BluSoftlayer_notm}} Application Load Balancer.
+
+## High Availability of SAP Web Dispatcher
+{: #sap-web-dispatcher-high-availability}
+
+To ensure a high availability (HA) of SAP Web Dispatcher you need to install multiple SAP Web Dispatchers on separate {{site.data.keyword.vsi_is_short}}. Afterwards connect them to the Application {{site.data.keyword.loadbalancer_short}} to distribute incoming requests to the Web Dispatchers.
+
+The following architecture diagram shows the placement of the ALB and SAP Web Dispatchers for the high availability scenario:
+
+![SAP Web Dispatcher and Application Load Balancer](../../images/powervs-deployment-alb-swebdisp-simple-diagram.svg){: caption="SAP Web Dispatcher and Application Load Balancer" caption-side="bottom"}
+
+The SAP documentation about [High Availability of the SAP Web Dispatcher](https://help.sap.com/docs/ABAP_PLATFORM_NEW/683d6a1797a34730a6e005d1e8de6f22/489a9a6b48c673e8e10000000a42189b.html?locale=en-US&version=LATEST){: external} describes different options of HA.

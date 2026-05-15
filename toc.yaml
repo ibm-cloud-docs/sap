@@ -461,6 +461,12 @@ toc:
                 topic: howto/powervs/powervs-ha-sles-hana-sr.md
               - navtitle: SLES References
                 topic: howto/powervs/powervs-ha-sles-refs.md
+          - topicgroup:
+              label: Implementing Disaster Recovery for SAP solutions
+              id: "sap-ha-scenarios-on-power-virtual-server-rsync-dr"
+              topics:
+              - navtitle: Preparing SAP solutions for disaster recovery using rsync
+                topic: howto/powervs/powervs-ha-dr-cross-region-rsync.md
       - topicgroup:
           label: Migration
           id: "sap-migration-to-power-virtual-server"

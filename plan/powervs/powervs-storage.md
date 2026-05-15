@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-13"
 keywords: SAP, FlashSystem, Power, storage tiers, IOPS, log, data, shared, cos, file storage, boot, block storage, sapmnt, plan
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Storage infrastructure for SAP workloads on {{site.data.keyword.powerSys_notm}}
+# Storage infrastructure for SAP workloads on IBM {{site.data.keyword.powerSys_notm}}
 {: #plan-storage-powervs}
 
 This document provides guidance on planning storage infrastructure requirements for SAP workloads on {{site.data.keyword.powerSysFull}}.

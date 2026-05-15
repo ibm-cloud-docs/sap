@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-05-05"
+lastupdated: "2026-05-13"
 keywords: SAP, Power Virtual Server, PowerVS, operating system, OS, Linux, RHEL, Red Hat, SLES, SUSE, boot images, stock images, custom images, image import, Full Linux Subscription, FLS, BYOL, cloud-init, OS planning, Linux
 subcollection: sap
 ---
@@ -9,7 +9,7 @@ subcollection: sap
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Operating system planning and image management for SAP on {{site.data.keyword.powerSys_notm}}
+# Operating system planning and image management for SAP on IBM {{site.data.keyword.powerSys_notm}}
 {: #plan-os-powervs}
 
 This document provides guidance on operating system selection, planning, and image management strategies for SAP HANA&reg; and {{site.data.keyword.sap_app_server}} workloads running on {{site.data.keyword.powerSysFull}}. Understanding the available Linux distributions, their support levels, and deployment options is essential for a successful SAP system implementation.
@@ -74,6 +74,7 @@ IBM {{site.data.keyword.powerSys_notm}} supports only the following OS distribut
 | E980  (9080‑M9S) | RHEL 8.1 or later, RHEL 9.2 or later | SLES 12 SP1 or later, SLES 15 SP4 or later |
 {: caption="Supported Linux versions by machine type" caption-side="bottom"}
 
+For a detailed list of supported Linux versions, see [Operating systems for {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-operating-systems-powervs#os-matrix-public-private).
 
 **Linux deployment requirements:**
 - Configure kernel parameters according to the SAP guidelines and the recommendations that are provided by your Linux distribution.
