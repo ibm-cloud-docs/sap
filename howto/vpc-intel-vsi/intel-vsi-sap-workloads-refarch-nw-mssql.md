@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-10-30"
+  years: 2021, 2026
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -109,7 +109,7 @@ Optionally, you can install the ASCS instance with an integrated:
 **MS SQL for standard system**
 {: #sap-refarch-nw-mssql-standard-system}
 
-* Database instance (DB) - The SAP systems in a landscape have specific requirements for servers, operating systems, network setup, and supported storage. Deployment of SAP AnyDB on I{{site.data.keyword.cloud_notm}} is similar to deployments with infrastructure with on-premises data centers. Use the information that is provided from SAP and the RDBMS providers. For more information, see [AnyDB - Microsoft SQL Server](/docs/sap?topic=sap-anydb-ms-sql-server) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
+* Database instance (DB) - The SAP systems in a landscape have specific requirements for servers, operating systems, network setup, and supported storage. Deployment of SAP AnyDB on I{{site.data.keyword.cloud_notm}} is similar to deployments with infrastructure with on-premises data centers. Use the information that is provided from SAP and the RDBMS providers.
 * Primary application server instance (PAS instance) - The global directories of the ASCS instance can be used as the global file system. That means that the host with the ASCS instance is the SAP global host. However, you can also separately install the global directories on any host of your SAP system landscape. You can also use the SAP transport host or the host with the global file system (SAP global host) as your primary application server instance host. Optionally, you can install one or more additional application server instances.
 * Additional Application Server (AAS) - You can install one or more additional application server instances for an existing SAP system. Additional application server instances are optional and can be installed on separate hosts.
 

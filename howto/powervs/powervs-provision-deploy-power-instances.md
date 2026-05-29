@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-05"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
@@ -46,8 +46,7 @@ For detailed steps, see [Configuring a private network subnet](/docs/power-iaas?
 ### Planning the {{site.data.keyword.powerSys_notm}} instances
 {: #powervs-memory-sizing-and-subscription-concepts}
 
-Refer to the [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing) to validate the sizing for the SAP system.
-Use the sizing results to select the appropriate compute profiles for the {{site.data.keyword.powerSys_notm}} instances.
+Select the appropriate compute profiles for the {{site.data.keyword.powerSys_notm}} instances.
 For information about available profiles, see SAP HANA certified instances on {{site.data.keyword.powerSys_notm}} and SAP Application Server certified instances on {{site.data.keyword.powerSys_notm}}.
 
 You can choose one of the following options for the OS image subscription:
@@ -62,7 +61,7 @@ Client supplied subscription ("Bring Your Own License" - BYOL)
     - Import your own image as a custom image for deployment, or
     - Select an image from the client supplied subscription section of the IBM stock images (identified with the BYOL suffix) for {{site.data.keyword.powerSys_notm}} instance deployment.
 
-See more details about the operating system versions in [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-power).
+See more details about the operating system versions in [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-plan-os-powervs).
 See [Using RHEL within the {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-linux-with-powervs) and [Using SLES within IBM {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-using-linux) for more details about the subscriptions for RHEL and SLES.
 
 The following steps describe deploying {{site.data.keyword.powerSys_notm}} instances by using an **IBM provided subscription**.
@@ -242,7 +241,7 @@ Ensure that the hostnames of the virtual server instances comply with SAP HANA n
 {: note}
 
 Use {{site.data.keyword.powerSys_notm}} storage volumes for the `/hana/data` and `/hana/log` file systems. Do not share the storage volumes between different virtual server instances to maintain data integrity and performance.
-See the [General storage configurations on IBM Power Virtual Server Infrastructure](https://cloud.ibm.com/docs/sap?topic=sap-storage-design-considerations#sample-power) for more detailed explanation about storage configurations of different SAP workloads on {{site.data.keyword.powerSysFull}}.
+See the [General storage configurations on IBM Power Virtual Server Infrastructure](/docs/sap?topic=sap-plan-storage-powervs#overview) for more detailed explanation about storage configurations of different SAP workloads on {{site.data.keyword.powerSysFull}}.
 
 In a multiple-host SAP HANA installation, the shared directory `/hana/shared` has to be mounted by all hosts that are part of the system. Follow the instructions in [Accessing VPC zonal file storage shares from IBM Power Virtual Server Instances](/docs/sap?topic=sap-nfs-zonal-powervs-intro) to provision a file share.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-11-13"
+  years: 2021, 2026
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Db2
 subcollection: sap
 ---
@@ -47,7 +47,7 @@ This diagram shows the SAP NetWeaver 7.X on Db2 integrated with {{site.data.keyw
 ## Access from an external network
 {: #sap-refarch-nw-db2-access}
 
-Clients on the customer facing network (CFN) use a floating IP to access virtual server instances within the {{site.data.keyword.cloud_notm}}. Virtual server instances are hosted in availability zones (data centers) within geographic regions. For more information about access, see [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access) and [Getting started with {{site.data.keyword.cloud_notm}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started).
+Clients on the customer facing network (CFN) use a floating IP to access virtual server instances within the {{site.data.keyword.cloud_notm}}. Virtual server instances are hosted in availability zones (data centers) within geographic regions. For more information about access [Getting started with {{site.data.keyword.cloud_notm}} Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started).
 
 Within the Public Subnet, the [SAP router](https://support.sap.com/en/tools/connectivity-tools/saprouter.html){: external} and the jump host provide secure connections to the virtual server instances. The SAP router is a software application that provides a remote connection between the customer's network and SAP. The SAP Router and jump host are within a single security group with rules for inbound and outbound traffic between the private subnets in the zone. SAP routers are used with traditional SAP products and analytics solutions and offerings that are acquired from Sybase. For a comprehensive list of which SAP Business Analytics products benefits from SAP router connections, see [SAP Note 1478974](https://me.sap.com/notes/1478974){: external}.
 
@@ -106,7 +106,7 @@ Optionally, you can install the ASCS instance with an integrated:
 ### Db2 for standard system
 {: #sap-refarch-nw-db2-as-standard-system}
 
-* Database instance (DB) - Db2 in this case. For more information, see [AnyDB - IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
+* Database instance (DB) - Db2 in this case.
 * Primary application server instance (PAS instance)  - The global directories of the ASCS instance can be used as the global file system. That means that the host with the ASCS instance is the SAP global host. However, you can also separately install the global directories on any host of your SAP system landscape. You can also use the SAP transport host or the host with the global file system (SAP global host) as your primary application server instance host. Optionally, you can install one or more extra application server instances.
 * Additional Application Server (AAS) - You can install one or more extra application server instances for an existing SAP system. Additional application server instances are optional and can be installed on separate hosts.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-02-18"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, SAP HANA scale-out, High Availability, HA, Linux, Pacemaker, RHEL HA Add-On
 subcollection: sap
 ---
@@ -73,7 +73,7 @@ These volumes must not be shared between nodes.
 Attach and configure the SAN block storage volumes by following the instructions in [Creating extra storage volumes for SAP HANA Power Virtual Server](/docs/sap?topic=sap-powervs-set-up-power-instances#powervs-set-up-power-hana-volumes).
 For optimal performance, stripe the file systems across four volumes.
 
-Refer to [General storage guidelines for SAP HANA on IBM Power Virtual Server](/docs/sap?topic=sap-storage-design-considerations#powervs-general-recommendation-storage) for volume sizing recommendations.
+Refer to [General storage guidelines for SAP HANA on IBM Power Virtual Server](/docs/sap?topic=sap-plan-storage-powervs#hana-storage-guidelines) for volume sizing recommendations.
 Ensure that the file systems `/hana/data/<SID>` and `/hana/log/<SID>` are mounted during the operating system startup on each virtual server instance.
 
 An SAP HANA multiple-host installation requires that the shared storage for the `hana/shared` directory is accessible from all SAP HANA nodes.

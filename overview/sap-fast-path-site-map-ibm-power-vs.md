@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-18"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -36,23 +36,21 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 ### Connectivity to IBM {{site.data.keyword.powerSys_notm}}
 {: #fast-path-power-vs-plan-connectivity}
 
-- [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#powervs-network-connectivity-and-security)  
+- [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-plan-network-connectivity-powervs)  
 
 ### Deployment
 {: #fast-path-power-vs-plan-deploy}
 
 - Compute
-   - [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing)
-   - [Mapping CPUs derived from SAPS to an IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-planning-your-system-landscape#selecting-iaas-power)
    - [SAP HANA certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
    - [SAP NetWeaver certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)
-   - [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-power)
-   - [Bring-your-own-OS (custom OS image and BYOL License)](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
+   - [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-plan-os-powervs)
+   - [Bring-your-own-OS (custom OS image and BYOL License)](/docs/sap?topic=sap-plan-os-powervs#os-byo-image)
 
 
 
 - Storage
-   - [General storage configurations on IBM Power Virtual Server Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-power)
+   - [General storage configurations on IBM Power Virtual Server Infrastructure](/docs/sap?topic=sap-plan-storage-powervs)
 
 
 
@@ -60,13 +58,6 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 {: #fast-path-power-vs-plan-high-availability}
 
 - [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview)
-
-
-
-### Disaster recovery
-{: #fast-path-power-vs-plan-disaster-recovery}
-
-- [Planning Disaster Recovery for SAP solutions on IBM Cloud](/docs/sap?topic=sap-disaster-recovery-design-considerations-overview)
 
 
 
@@ -91,7 +82,6 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 
 - Running the deployment
    - [Deploying SAP applications on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-set-up-power-instances)
-   - [SAP license key with {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-bring-your-own-sap-product-license#byol-netweaver-powervs)
 
 
 ### Enable virtual persistent memory (vPMEM) with SAP HANA
@@ -145,7 +135,6 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 
 - Overview
    - [Getting started with IBM Cloud Monitoring for SAP systems](/docs/sap?topic=sap-mon-getting-started)
-   - [Monitoring for {{site.data.keyword.IBM_notm}} Power Systems Virtual Servers](/docs/sap?topic=sap-planning-your-system-landscape#monitoring-power)
 
 - Setting-up
    - [Prerequisites](/docs/sap?topic=sap-monitoring-prereqs)

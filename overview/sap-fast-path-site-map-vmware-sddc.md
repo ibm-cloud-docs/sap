@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-19"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -23,27 +23,27 @@ Use the links in this section to quickly access relevant documents that you are 
 {: #fast-path-vmware-sddc-learn}
 
 An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated site location (also referred to as zone, which is a data center site). For more information:
-- [IBM Cloud Classic Infrastructure environment introduction](/docs/sap?topic=sap-classic-env-introduction)
+- [IBM Cloud Classic Infrastructure environment introduction](/docs/sap?group=plan-classic-bm)
 
 
 Certified Infrastructure-as-a-Service for SAP HANA database server is available in many variations, each with different capabilities and sizes to fit many different SAP workload scenarios. For more information:
-- [Infrastructure certified for SAP - VMware Software-Defined Data Center](/docs/sap?topic=sap-iaas-offerings#iaas-vmware)
+- [Infrastructure certified for SAP - VMware Software-Defined Data Center](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm#vmware-profiles)
 
 
 The following is an overview of the SAP-certified profiles with IBM Cloud Bare Metal servers for SAP HANA and SAP NetWeaver. For more information:
 - [VMware SSDC certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm#vmware-profiles)
 - [VMware SDDC certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm#nw-iaas-amd-bm-list)
-- [Compute Profiles of SAP-certified VMware on Classic Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#compute-vmware)
+- [Compute Profiles of SAP-certified VMware on Classic Infrastructure](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm#vmware-profiles)
 
 
 Your business and functional requirements determine the SAP solutions powered by the SAP HANA Database Server or SAP NetWeaver Application Server, and therefore determine how your applications are run in the available infrastructure. For more information:
-- [Connectivity options within the IBM Cloud Classic Infrastructure network](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-classic)
-- [Bring-your-own network (Subnet/CIDR/IP address range) - Classic Infrastructure with VMware](/docs/sap?topic=sap-networking-design-considerations#network-connectivity-byo-classic-vmware)
-- [Networking Traffic Segregation security considerations - VMware on classic infrastructure separation of subnets](/docs/sap?topic=sap-networking-design-considerations#network-security-vmware-separate-subnets)
+- [Connectivity options within the IBM Cloud Classic Infrastructure network](/docs/sap?topic=sap-plan-network-connectivity-classic-bm)
+- [Bring-your-own network (Subnet/CIDR/IP address range) - Classic Infrastructure with VMware](/docs/sap?topic=sap-plan-network-connectivity-classic-bm)
+- [Networking Traffic Segregation security considerations - VMware on classic infrastructure separation of subnets](/docs/sap?topic=sap-plan-network-connectivity-classic-bm)
 
 
 Your enterprise IT organization can select from a variety of operating systems from the IBM Cloud for SAP portfolio. For more information:
-- [OS Bring your Own Image/License for VMware SDDC](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
+- [OS Bring your Own Image/License for VMware SDDC](/docs/sap?topic=sap-plan-os-classic-bm#os-licensing)
 
 Depending on your scenarios, the following information may be also relevant:
 - [IBM Cloud for SAP](https://www.ibm.com/products/cloud/sap){: external}

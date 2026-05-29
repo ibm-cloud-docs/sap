@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-05-26"
 keywords:
 subcollection: sap
 ---
@@ -519,7 +519,7 @@ The operating system is prepared according to [SAP note 1275776](https://me.sap.
 ## Installation of SAP NetWeaver 7.5 with Db2 with SWPM
 {: #install-sapnw-db2}
 
-After you download the installation media, follow the standard SAP installation procedure that is documented in the SAP installation guides for your SAP version and components. Also, review the corresponding SAP notes. For more information about SAP NetWeaver installation by using Db2 as the RDBMS, see [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2).
+After you download the installation media, follow the standard SAP installation procedure that is documented in the SAP installation guides for your SAP version and components.
 
 ## Related information
 {: #related-info-db2}

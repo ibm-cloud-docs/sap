@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-11-17"
+  years: 2023, 2026
+lastupdated: "2026-05-26"
 keywords:
 subcollection: sap
 ---
@@ -56,9 +56,8 @@ Manually deploying a VPC and installing an SAP system can be time-consuming. The
 
 The solution that is presented in this how-to guide is the automated deployment of a single host with SAP HANA stand-alone VSI on Red Hat Enterprise Linux or SUSE Linux Enterprise Server (SLES)for SAP applications.
 
-Database instance (DB) - To assist your projects planning phase, more design considerations are provided at SAP HANA database with {{site.data.keyword.cloud_notm}} for SAP. For more information, see [SAP HANA database design considerations](/docs/sap?topic=sap-anydb-hana-db) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
+Database instance (DB) - To assist your projects planning phase, more design considerations are provided at SAP HANA database with {{site.data.keyword.cloud_notm}} for SAP.
 
-A dedicated reference architecture about this SAP HANA on {{site.data.keyword.cloud_notm}} VPC cloud can be found on [SAP HANA database design considerations](/docs/sap?topic=sap-anydb-hana-db).
 
 SAP HANA installation media that are used for this deployment is the default one for SAP HANA, platform edition 2.0 SPS05. The media is available at SAP Support Portal in the Installation and Upgrade area and it must be provided manually in the input parameter file.
 

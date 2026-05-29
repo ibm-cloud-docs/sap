@@ -248,7 +248,7 @@ In our example, it's `virtio-07a7-184b4a2f-d786-4`, which is linked to `/dev/vdb
     ```
 
 
-You're now ready to install the SAP product of your choice. Your next step is to [download and install your SAP software and applications](/docs/sap?topic=sap-download-install-media) if a single virtual server sample is sufficient for your needs.
+You're now ready to install the SAP product of your choice. Your next step is to download and install your SAP software and applications if a single virtual server sample is sufficient for your needs.
 
 ## Installing two virtual server instances in a 3-tier setup
 {: #3-tier}
@@ -431,7 +431,7 @@ Again, you need to determine the `/dev/disk/by-uuid` paths, as previously shown,
    [root@sap-app-vsi ~]# mount /usr/sap/trans
    ```
 
-Your servers are now prepared to host the components of a distributed SAP installation. For more information about more installation preparations, see [Downloading and installing SAP software and applications](/docs/sap?topic=sap-download-install-media).
+Your servers are now prepared to host the components of a distributed SAP installation.
 
 ## Installing your SAP landscape
 {: #install-sap}
@@ -501,7 +501,7 @@ Depending on your network bandwidth and latency, you might need to run the SAP S
 {: #install-sap-software}
 {: step}
 
-After you download the installation media, follow the standard SAP installation procedure that is documented in the [SAP installation guides](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US){: external} for your SAP version and components. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2){: external}.
+After you download the installation media, follow the standard SAP installation procedure that is documented in the [SAP installation guides](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US){: external} for your SAP version and components.
 
 
 ### Relevant SAP Notes

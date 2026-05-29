@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-27"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn, SLES HAE
 subcollection: sap
 ---
@@ -31,16 +31,16 @@ Create a workspace, define the required subnets, create an SSH key, and prepare 
 
 1. Create a workspace.
 
-    To create a workspace, follow the instructions in [Deploying a {{site.data.keyword.powerSys_notm}} workspace](/docs/sap?topic=sap-powervs-set-up-power-service).
+    To create a workspace, follow the instructions in [Deploying a {{site.data.keyword.powerSys_notm}} workspace](/docs/sap?topic=sap-powervs-set-up-power-infrastructure#powervs-set-up-power-service).
     After the workspace is created, it appears under **Workspaces** in the left navigation panel of the {{site.data.keyword.powerSys_notm}} user interface.
 1. Create network subnets in the workspace.
 
     Virtual server instances must be connected to a network, and their IP addresses are assigned from the configured subnet range.
     For cluster deployments, use a **private** subnet rather than a public subnet for all nodes.
-    Follow the steps in [Creating network subnets](/docs/sap?topic=sap-powervs-set-up-power-subnets).
+    Follow the steps in [Creating network subnets](/docs/sap?topic=sap-powervs-set-up-power-infrastructure#powervs-set-up-power-subnets).
 1. Create an SSH key.
 
-    For details, see [Creating an SSH key](/docs/sap?topic=sap-powervs-set-up-power-ssh-key).
+    For details, see [Creating an SSH key](/docs/sap?topic=sap-powervs-set-up-power-infrastructure#powervs-set-up-power-ssh-key).
 1. Select a boot image.
 
     You can choose from multiple operating system images for the cluster nodes.

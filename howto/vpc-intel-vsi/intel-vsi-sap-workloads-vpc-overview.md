@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-01-31"
+lastupdated: "2026-05-26"
 keywords:
 subcollection: sap
 ---
@@ -82,7 +82,7 @@ For more information on valid DB/OS combinations please consult the SAP [SAP Pro
 ### Prerequisites
 {: #prerequisites-sap-vpc}
 
-* Create an API key for your VPC. The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services. For more information, see [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
+* Create an API key for your VPC. The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 
 * Create a SSH key on the IBM Cloud VPC. For more information, see [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial).
 
@@ -294,7 +294,7 @@ Once you understand the server profile, storage, and image options, then the Int
 8. Select **Profile**. For more information, see based on the guidance that is detailed in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi), which lists the profiles that are certified for SAP HANA and SAP NetWeaver.
 9. Select the SSH key that you want to add to the virtual server. For this step, you can create a new SSH key.
 10. In the **Data Volumes** section, click **Create**. This will allow adding data disks to the provisioned VSI. Afterwards, these disks can be used for partitioning and storage management (File system distribution).
-    * For SAP HANA, these volumes must meet special KPI needs that are defined by SAP and are mandatory. For more information, see [Storage specifications - Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) or [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations) to learn these special needs and how you should configure the data volumes.
+    * For SAP HANA, these volumes must meet special KPI needs that are defined by SAP and are mandatory. For more information, see [Storage specifications - Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) or [Storage design considerations](/docs/sap?topic=sap-plan-storage-vpc-vsi) to learn these special needs and how you should configure the data volumes.
     * For SAP NetWeaver, these volumes are based on the requirements of the installed SAP NetWeaver instance. The standard tiered options are 3K, 5K, and 10K IOPS, and custom IOPS. These options can be used to accommodate the specific requirements.
 11. During **Data Volume** creation, the option Auto-delete can be enabled, if required. This will mark the data volume to be automatically deleted when the VSI itself will be deleted. Consider this option carefully.
 

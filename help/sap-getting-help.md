@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-27"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.ibm_cloud_sap}}, support, support case, premium support, advanced support, basic support, support page, help, SAP ONE Support, AI-based support
 subcollection: sap
 ---
@@ -30,7 +30,7 @@ Support options include:
 ## {{site.data.keyword.cloud_notm}} Support
 {: #ibm-cloud}
 
-{{site.data.keyword.cloud_notm}} Support provides assistance for issues and questions related to {{site.data.keyword.cloud_notm}} services. Each IBM Cloud account includes a Basic support plan, with optional upgrades to Advanced or Premium support for faster response times and higher-severity coverage. For more details, see the [Basic, Advanced, and Premium Support plans](/docs/account?topic=account-support-plans).
+{{site.data.keyword.cloud_notm}} Support provides assistance for issues and questions related to {{site.data.keyword.cloud_notm}} services. Each IBM Cloud account includes a Basic support plan, with optional upgrades to Advanced or Premium support for faster response times and higher-severity coverage. For more details, see the [Basic, Advanced, and Premium Support plans](/docs/support?topic=support-support-plans#support-plan-comparison).
 
 The Basic plan now provides self-service and AI-driven support only. Basic users cannot open technical support cases or contact support via phone or chat.
 

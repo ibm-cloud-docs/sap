@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-05-26"
 keywords: S4HANA, automation, ansible, VPC, terraform, Schematics, Catalog
 subcollection: sap
 ---
@@ -123,7 +123,7 @@ Before you deploy SAP S/4HANA:
 *	If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server). You need the floating IP from your bastion server for deployment.
 
 * Download the SAP kits from the SAP Portal to your bastion Server. Make note of the download locations. Ansible decompresses all the archive kits and needs the paths. For more information, see the readme file in the GitHub repository and on the About page for the catalog tile.
-* [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
+* [Create or retrieve an {{site.data.keyword.cloud_notm}} API key](/docs/iam?topic=iam-userapikey&interface=ui#create_user_key). The API key is used to authenticate with the {{site.data.keyword.cloud_notm}} platform and to determine your permissions for {{site.data.keyword.cloud_notm}} services.
 * [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 * (Optional - Catalog Tile) create secrets for your credentials and passwords by using the [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui). {: ui}
 

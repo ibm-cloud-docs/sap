@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-26"
 keywords: SAP, Bare Metal, VPC, networking, network planning, VPC networking, subnets, security groups, ACL, connectivity, private network, VPE, Direct Link, VPN, network topology, PCI, VLAN
 subcollection: sap
 ---
@@ -199,10 +199,15 @@ Best practices for SAP workloads:
 Segregating different types of network traffic enhances security and performance for SAP workloads.
 
 Recommended traffic segregation strategies:
+
 **Production traffic:** Separate subnets and network interfaces for production SAP application and database traffic.
+
 **Management traffic:** Dedicated subnet for administrative access (SSH, RDP, SAP GUI).
+
 **Backup traffic:** Separate network interface or VLAN for backup operations to avoid impacting production traffic.
+
 **Replication traffic:** Dedicated network path for SAP HANA system replication or database replication.
+
 **Storage traffic:** Separate network interface for storage access (if using network-attached storage).
 
 Implementation approaches:

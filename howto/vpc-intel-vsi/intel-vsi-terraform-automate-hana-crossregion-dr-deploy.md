@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024
-lastupdated: "2024-06-24"
+  years: 2024, 2026
+lastupdated: "2026-05-26"
 keywords:
 subcollection: sap
 ---
@@ -106,7 +106,7 @@ Before you use the scripts:
 * A Deployment Server (Bastion Server) must exist in the same VPC as the primary SAP HANA system. For more information about how to create the Deployment Server (Bastion Server) and its corresponding VPC, see [Automate SAP bastion server - SAP media storage repository](/docs/sap?topic=sap-sap-bastion-server).
 * Terraform should be already installed on the deployment server (bastion server) that you deployed. For more information, see the [Bastion server for SAP deployment](/docs/sap?topic=sap-sap-bastion-server).{: terraform}
 * Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the downloaded locations. Ansible decompresses the files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-hana-backup-cos/blob/main/README.md){: external} file.{: terraform}
-* [Create or retrieve an IBM Cloud API key](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key){: external}. The API key is used to authenticate with the create or retrieve your SSH key ID.{: terraform}
+* [Create or retrieve an IBM Cloud API key](https://cloud.ibm.com/docs/iam?topic=iam-userapikey&interface=ui#create_user_key){: external}. The API key is used to authenticate with the create or retrieve your SSH key ID.{: terraform}
 * Log in to the {{site.data.keyword.cloud_notm}} platform to determine your permissions for {{site.data.keyword.cloud_notm}} services.{: terraform}
 * A pair of SSH keys must be generated for the connection to the VSIs. The public key must be uploaded in {{site.data.keyword.cloud_notm}} and manually added on SAP HANA primary system VSI in `/root/.ssh/authorized_keys`.
 * A deployed non-HA SAP HANA primary system, on a VSI, must exist in a different region than the one chose for SAP HANA secondary system (built on one of the following OS: SUSE Linux Enterprise Server 15 SP 4 for SAP, SUSE Linux Enterprise Server 15 SP 3 for SAP, Red Hat Enterprise Linux 8.6 for SAP or Red Hat Enterprise Linux 8.4 for SAP) in an {{site.data.keyword.cloud_notm}} Gen2 VPC, on a single host (with or without HA).

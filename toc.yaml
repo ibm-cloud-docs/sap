@@ -50,9 +50,9 @@ toc:
               id: plan-vpc-vsi-compute
               label: Compute
               topics:
-              - navtitle: HANA Database
+              - navtitle: SAP HANA servers
                 topic: plan/vpc-vsi/vpc-vsi-compute-certified-profiles-hana.md
-              - navtitle: SAP application servers on Linux
+              - navtitle: SAP application servers
                 topic: plan/vpc-vsi/vpc-vsi-compute-certified-profiles-netweaver.md
           - navtitle: Storage
             topic: plan/vpc-vsi/vpc-vsi-storage.md
@@ -68,9 +68,9 @@ toc:
               id: plan-vpc-bm-compute
               label: Compute
               topics:
-              - navtitle: HANA Database
+              - navtitle: SAP HANA servers
                 topic: plan/vpc-bm/vpc-bm-compute-certified-profiles-hana.md
-              - navtitle: SAP application servers on Linux
+              - navtitle: SAP application servers
                 topic: plan/vpc-bm/vpc-bm-compute-certified-profiles-netweaver.md
           - navtitle: Storage
             topic: plan/vpc-bm/vpc-bm-storage.md
@@ -86,9 +86,9 @@ toc:
               id: plan-classic-bm-compute
               label: Compute
               topics:
-              - navtitle: HANA Database
+              - navtitle: SAP HANA servers
                 topic: plan/classic-bm/classic-bm-compute-certified-profiles-hana.md
-              - navtitle: SAP application servers on Linux
+              - navtitle: SAP application servers
                 topic: plan/classic-bm/classic-bm-compute-certified-profiles-netweaver.md
           - navtitle: Storage
             topic: plan/classic-bm/classic-bm-storage.md
@@ -104,9 +104,9 @@ toc:
               id: plan-powervs-compute
               label: Compute
               topics:
-              - navtitle: HANA Database
+              - navtitle: SAP HANA servers
                 topic: plan/powervs/powervs-compute-certified-profiles-hana.md
-              - navtitle: SAP application servers on Linux
+              - navtitle: SAP application servers
                 topic: plan/powervs/powervs-compute-certified-profiles-netweaver.md
           - navtitle: Storage
             topic: plan/powervs/powervs-storage.md

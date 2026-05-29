@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-05-04"
+lastupdated: "2026-05-29"
 keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
@@ -13,6 +13,14 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+## May 2026
+{: #sap-2026-05}
+
+
+- New document: [Preparing SAP solutions for disaster recovery on IBM Power Virtual Server using rsync](/docs/sap?topic=sap-ha-dr-hana-rsync-overview).
+- Introduced new [Intel Sapphire Rapids](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi#nw-sr-profiles) `bx3` and `mx3d` profiles for SAP application servers on virtual server instances in VPC Infrastructure, with vCPU-to-RAM ratios of 1:4 and 1:5 (bx3) and 1:8 and 1:10 (mx3d), compatible with Gen 2 and Gen 4.
+
 
 ## April 2026
 {: #sap-2026-04}

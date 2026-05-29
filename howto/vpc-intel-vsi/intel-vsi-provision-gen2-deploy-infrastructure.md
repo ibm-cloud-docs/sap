@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-31"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -98,7 +98,7 @@ Use the following steps to order your virtual server and necessary components. F
 1. Select a **Profile** based on the guidance detailed in [Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) or [Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi), which lists the profiles that are certified for SAP HANA and SAP NetWeaver.
 1. Select the **SSH key** you want to add to the virtual server. For this step, you can create a new SSH key.
 1. Click **New volume** for **Data volumes**. Data volumes are required.
-   - For SAP HANA, these volumes must meet special KPI needs that are defined by SAP and are mandatory. See [Storage specifications - Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) or [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations) to learn these special needs and how you should configure the data volumes.
+   - For SAP HANA, these volumes must meet special KPI needs that are defined by SAP and are mandatory. See [Storage specifications - Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) or [Storage design considerations](/docs/sap?topic=sap-plan-storage-vpc-vsi) to learn these special needs and how you should configure the data volumes.
    - For SAP NetWeaver, these volumes are based on the requirements of the installed SAP NetWeaver instance. The standard tiered options are 3K, 5K, and 10K IOPS, and custom IOPS. These options can be used to attune to the specific requirements.
 1. You can enable **Auto Delete** to automatically delete the data volume if the virtual server is deleted. This option is not recommended.
 1. **Attach** the appropriate data volumes to your virtual server.
@@ -138,7 +138,7 @@ Table 1 is a summary of the fields and values that are used to provision {{site.
    {: important}
 
 1. Select the same **Location** in which you created your {{site.data.keyword.vsi_is_short}}. The location consists of a region and zone.
-1. Select either **IOPS tiers** or **Custom**. As described in [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations), the IOPS per GB depends on the workload anticipated.
+1. Select either **IOPS tiers** or **Custom**. As described in [Storage design considerations](/docs/sap?topic=sap-plan-storage-vpc-vsi), the IOPS per GB depends on the workload anticipated.
 1. Click **Create volume**.
 
    By default all block storage for VPC volumes use IBM-managed encryption. However, [new capabilities are available for customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).

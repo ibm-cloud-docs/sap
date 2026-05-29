@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-13"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP HANA Disaster Recovery , High Availability, HA, Disaster Recovery, DR, RSYNC, rsync, SAP HANA Cross Region DR, SAP HANA Cross Account DR
 subcollection: sap
 ---
@@ -54,7 +54,7 @@ mount -t nfs4 -o rw,sec=sys <HOST_IP:/MOUNT_TARGET> <MOUNT_POINT>
 
 For more information, see the SAP documents [Exporting and Mounting Global Directories](https://help.sap.com/docs/SLTOOLSET/39c32e9783f6439e871410848f61544c/72fd513ee3b14f8e8cf302bcc5eb09ae.html?version=LATEST&locale=en-US){: external} and [Exporting and Mounting the Transport Directory](https://help.sap.com/docs/SLTOOLSET/39c32e9783f6439e871410848f61544c/c85bb0a1a25f49e386aefea5ddbb846e.html?version=LATEST&locale=en-US){: external}.
 
-For details about {{site.data.keyword.cloud_notm}}&reg; {{site.data.keyword.nlb_full}} (NBL), see [About network load balancers]((/docs/vpc?topic=vpc-network-load-balancers)).
+For details about {{site.data.keyword.cloud_notm}}&reg; {{site.data.keyword.nlb_full}} (NBL), see [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).
 
 The following architecture diagram shows a cross-region scenario for NFS file storage shares for SAP workloads on {{site.data.keyword.powerSys_notm}}:
 

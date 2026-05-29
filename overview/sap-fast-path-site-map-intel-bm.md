@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-20"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -20,28 +20,22 @@ Use the links in this section to quickly access relevant documents that you are 
 {: #fast-path-intel-bm-learn}
 
 An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated site location (also referred to as zone, which is a data center site). For more information:
-- [IBM Cloud Classic Infrastructure environment introduction](/docs/sap?topic=sap-classic-env-introduction)
+- [IBM Cloud Classic Infrastructure environment introduction](/docs/sap?group=plan-classic-bm)
 
 Certified Infrastructure-as-a-Service for SAP HANA database server is available in many variations, each with different capabilities and sizes to fit many different SAP workload scenarios. For more information:
-- [Infrastructure certified for SAP - Bare Metal server](/docs/sap?topic=sap-iaas-offerings#iaas-intel-bm)
+- [Infrastructure certified for SAP - Bare Metal server](/docs/sap?group=plan-vpc-bm-compute)
 
 The following is an overview of the SAP-certified profiles with IBM Cloud Bare Metal servers for SAP HANA and SAP NetWeaver. For more information:
 - [Intel Bare Metal server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm)
 - [Intel Bare Metal server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-bm)
-- [Compute Profiles of SAP-certified Bare Metal on Classic Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#compute-baremetal-classic)
+- [Compute Profiles of SAP-certified Bare Metal on Classic Infrastructure](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm)
 
 Your business and functional requirements determine the SAP solutions powered by the SAP HANA Database Server or SAP NetWeaver Application Server, and therefore determine how your applications are run in the available infrastructure. For more information:
-- [Connectivity options within the IBM Cloud Classic Infrastructure network](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-classic)
-- [Sample storage configurations on Classic Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-classic)
+- [Connectivity options within the IBM Cloud Classic Infrastructure network](/docs/sap?topic=sap-plan-network-connectivity-classic-bm)
+- [Sample storage configurations on Classic Infrastructure](/docs/sap?topic=sap-plan-storage-classic-bm)
 
 Your enterprise IT organization can select from a variety of operating systems from the IBM Cloud for SAP portfolio. For more information:
-- [OS Bring your Own Image/License for IBM Cloud Intel Bare Metal](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
-
-Depending on your scenarios, the following information may be also relevant:
-- [SAP NetWeaver - Configure high availability in Classic Infrastructure](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha-classic)
-- [SAP on IBM Db2 using Intel Bare Metal](/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-bare-metal)
-- [SAP MaxDB using Intel Bare Metal](/docs/sap?topic=sap-anydb-sap-maxdb#anydb-sap-maxdb-bare-metal)
-- [IBM Cloud for SAP](https://www.ibm.com/products/cloud/sap){: external}
+- [OS Bring your Own Image/License for IBM Cloud Intel Bare Metal](/docs/sap?topic=sap-plan-os-classic-bm#os-licensing)
 
 ## Tutorials
 {: #fast-path-intel-bm-tutorials}

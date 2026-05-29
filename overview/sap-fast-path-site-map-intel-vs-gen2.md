@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-31"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -21,32 +21,28 @@ Use the links in this section to quickly access relevant documents that you are 
 {: #fast-path-intel-vs-gen2-learn}
 
 An Infrastructure-as-a-Service (IaaS) environment consists primarily of compute, storage, and network components from a specified region (such as the US) and a designated site location (also referred to as zone, which is a data center site). For more information:
-- [IBM Cloud VPC Infrastructure environment introduction](/docs/sap?topic=sap-vpc-env-introduction)
+- [IBM Cloud VPC Infrastructure environment introduction](/docs/sap?group=plan-vpc-vsi)
 
 
 Certified Infrastructure-as-a-Service for SAP HANA database server is available in many variations, each with different capabilities and sizes to fit many different SAP workload scenarios. For more information:
-- [Infrastructure certified for SAP - IBM Intel Virtual Server](/docs/sap?topic=sap-iaas-offerings#iaas-intel-vson-vpc)
+- [Infrastructure certified for SAP - IBM Intel Virtual Server](/docs/sap?group=plan-vpc-vsi-compute)
 
 
 The following is an overview of the SAP-certified profiles with IBM {{site.data.keyword.powerSys_notm}}s for SAP HANA and SAP NetWeaver. For more information:
 - [IBM Cloud Intel Virtual Server certified profiles for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi)
 - [IBM Cloud Intel Virtual Server certified profiles for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi)
-- [Compute Profiles of SAP-certified IBM Cloud Intel Virtual Server](/docs/sap?topic=sap-compute-os-design-considerations#compute-vs-vpc)
+- [Compute Profiles of SAP-certified IBM Cloud Intel Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi)
 
 
 Your business and functional requirements determine the SAP solutions powered by the SAP HANA Database Server or SAP NetWeaver Application Server, and therefore determine how your applications are run in the available infrastructure. For more information:
-- [Connectivity options within the IBM Cloud VPC Infrastructure network](/docs/sap?topic=sap-determine-access#determine-access-connectivity-options-vpc)
-- [Bring-your-own network (Subnet/CIDR/IP address range) - VPC Infrastructure](/docs/sap?topic=sap-networking-design-considerations#network-connectivity-byo-vpc)
-- [Networking Traffic Segregation security considerations - VPC Infrastructure separation of subnets](/docs/sap?topic=sap-networking-design-considerations#network-security-vpc-separate-subnets)
+- [Connectivity options within the IBM Cloud VPC Infrastructure network](/docs/sap?topic=sap-plan-network-connectivity-vpc-vsi)
+- [Bring-your-own network (Subnet/CIDR/IP address range) - VPC Infrastructure](/docs/sap?topic=sap-plan-network-connectivity-vpc-vsi)
+- [Networking Traffic Segregation security considerations - VPC Infrastructure separation of subnets](/docs/sap?topic=sap-plan-network-connectivity-vpc-vsi)
 
 
 Your enterprise IT organization can select from a variety of operating systems from the IBM Cloud for SAP portfolio. For more information:
-- [OS Bring your Own Image/License for VPC Infrastructure](/docs/sap?topic=sap-compute-os-design-considerations#os-byos)
+- [OS Bring your Own Image/License for VPC Infrastructure](/docs/sap?topic=sap-plan-os-vpc-vsi#os-byo-image)
 
-Depending on your scenarios, the following information may be also relevant:
-- [SAP on IBM Db2 using Intel Virtual Servers](/docs/sap?topic=sap-anydb-ibm-db2#anydb-ibm-db2-intel-vs-vpc)
-- [SAP MaxDB using Intel Virtual Servers](/docs/sap?topic=sap-anydb-sap-maxdb#anydb-sap-maxdb-intel-vs-gen2)
-- [IBM Cloud for SAP](https://www.ibm.com/products/cloud/sap){: external}
 
 
 ## Tutorials

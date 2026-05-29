@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-26"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -1412,7 +1412,7 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 
 Custom profiles are designed exclusively for non-production development or testing purposes. These profiles are not intended, supported, or certified for SAP production environments and cannot be used to move from a non-production environment to a production environment.
 
-Each profile requires a minimum of two dedicated cores. For storage performance requirements, refer to the [Storage Guidelines for SAP HANA](/docs/sap?topic=sap-storage-design-considerations#sample-power). For additional details on storage, refer to the [storage tiers section](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#storage-tiers) section in the **What is a Power Systems Virtual Server?** documentation.
+Each profile requires a minimum of two dedicated cores. For storage performance requirements, refer to the [Storage Guidelines for SAP HANA](/docs/sap?topic=sap-plan-storage-powervs). For additional details on storage, refer to the [storage tiers section](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#storage-tiers) section in the **What is a Power Systems Virtual Server?** documentation.
 
 
 For more details, refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://launchpad.support.sap.com/#/notes/2947579){: external}.

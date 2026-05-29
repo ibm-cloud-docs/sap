@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-26"
 keywords: SAP, VPC, Virtual Server Instance, networking, network planning, VPC networking, subnets, security groups, ACL, connectivity, private network, VPE, Direct Link, VPN, network topology
 subcollection: sap
 ---
@@ -539,5 +539,3 @@ For more information about VPC networking for {{site.data.keyword.vsi_is_short}}
 - [Getting started with {{site.data.keyword.cloud_notm}} Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl)
 - [VPN for VPC](/docs/vpc?topic=vpc-using-vpn)
 - [Virtual Private Endpoints for VPC](/docs/vpc?topic=vpc-about-vpe)
-- [Determining access to your SAP system landscape](/docs/sap?topic=sap-determine-access)
-- [Networking design considerations](/docs/sap?topic=sap-networking-design-considerations)

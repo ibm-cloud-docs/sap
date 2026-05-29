@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-02-28"
+  years: 2020, 2026
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -102,12 +102,11 @@ The {{site.data.keyword.ibm_cloud_sap}} portfolio primarily consists of five off
 4. IBM {{site.data.keyword.powerSys_notm}}s (complementary offering from {{site.data.keyword.IBM_notm}} Power Systems, with connection through {{site.data.keyword.cloud_notm}})
 5. {{site.data.keyword.cloud_notm}} for VMware
 
-More information on the Infrastructure offerings within the {{site.data.keyword.ibm_cloud_sap}} portfolio, see [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings).
 
 These offerings are spread across two primary infrastructure environments, and one separated environment that uses IBM Power technologies:
-- [{{site.data.keyword.cloud_notm}} Classic Infrastructure environment](/docs/sap?topic=sap-classic-env-introduction). The original environment and network, formerly known as the Softlayer network.
-- [{{site.data.keyword.cloud_notm}} VPC Infrastructure environment](/docs/sap?topic=sap-vpc-env-introduction). The latest environment and network, with the newest technologies and networking capabilities.
-- [{{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment](/docs/sap?topic=sap-power-env-introduction). The environment maintained by {{site.data.keyword.IBM_notm}} Power Systems built of IBM Power enterprise components, which has links to either Classic Infrastructure and VPC Infrastructure.
+- [{{site.data.keyword.cloud_notm}} Classic Infrastructure environment](/docs/sap?group=plan-classic-bm). The original environment and network, formerly known as the Softlayer network.
+- [{{site.data.keyword.cloud_notm}} VPC Infrastructure environment](/docs/sap?group=plan-vpc-vsi). The latest environment and network, with the newest technologies and networking capabilities.
+- [{{site.data.keyword.IBM_notm}} Power Systems Infrastructure environment](/docs/sap?group=plan-powervs). The environment maintained by {{site.data.keyword.IBM_notm}} Power Systems built of IBM Power enterprise components, which has links to either Classic Infrastructure and VPC Infrastructure.
 
 Our documents provide detailed considerations and information for building your SAP environments at each layer for all offerings. However, if you are interested in quickly finding the information related specifically to one of the IaaS offerings, then you may consider using the Fast Path Site Maps for [Intel Bare Metal](/docs/sap?topic=sap-fast-path-site-map-intel-bm), [Intel Virtual Servers](/docs/sap?topic=sap-fast-path-site-map-intel-vs-gen2), and [IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-fast-path-site-map-power-vs) and [VMware SDDC](/docs/sap?topic=sap-fast-path-site-map-vmware-sddc).
 {: tip}
@@ -118,9 +117,6 @@ Our documents provide detailed considerations and information for building your 
 - SAP S/4HANA (AnyPremise edition), which uses SAP HANA scale-up.
 - SAP BW/4HANA, which uses SAP HANA scale-up.
 - SAP BW/4HANA, which uses SAP HANA scale-out.
-
-For more details on SAP S/4HANA scale-out with IBM Cloud, read [SAP S/4HANA additional design considerations](/docs/sap?topic=sap-s4hana), which describes while this is possible, IBM-SAP prefer to discuss first to understand the business requirements. This is to avoid transactional performance issues, which may occur with SAP S/4HANA scale-out.
-{: note}
 
 ### Benchmarks summary
 {: #iaas-benchmarks-summary}
@@ -184,8 +180,6 @@ Each of these SAP-certified offerings is available to support numerous different
     - Ability to bridge the network with any existing VMware installations
 
 {{site.data.content.vms-deprecated-note}}
-
-This content is a high-level summary, for more details please see [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings); in addition there are multiple pages describing each profile available across the infrastructure options.
 
 Our recommendation is to investigate what your current business requirements are and what are your future requirements for growth. This information helps you understand the short-term and long-term needs for running your SAP Systems. After you know your short-term and long-term needs, complete an SAP Sizing exercise.
 

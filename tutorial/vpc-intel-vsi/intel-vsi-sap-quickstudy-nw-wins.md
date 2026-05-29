@@ -149,7 +149,7 @@ Log in to {{site.data.keyword.cloud_notm}} with your IBMid. If you have multiple
 ibmcloud login
 ```
 
-If your credentials are rejected, you might be using a federated ID. To log in with a federated ID, use the `--sso` flag. See [Logging in with a federated ID](/docs/account?topic=account-federated_id) for more details.
+If your credentials are rejected, you might be using a federated ID. To log in with a federated ID, use the `--sso` flag. See [Logging in with a federated ID](/docs/iam?topic=iam-federated_id&interface=ui) for more details.
     {: tip}
 
 ### Set the target region (DC)
@@ -205,13 +205,8 @@ You can now log in to the virtual instance and begin preparing it for the SAP Ne
 {: #prepare-virtual-server-wins}
 {: step}
 
-In this tutorial, we simplify the process and use sample VSI profiles, volume and pagefile sizes. In a production-ready environment, of course, you need to size the servers and the volumes according to the number of concurrent users and the expected amount of data and further parameters. Find more in the topic [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing).
+In this tutorial, we simplify the process and use sample VSI profiles, volume and pagefile sizes. In a production-ready environment, of course, you need to size the servers and the volumes according to the number of concurrent users and the expected amount of data and further parameters.
 {: important}
-
-Depending on the database vendor you should consult their specific documentation, recommendations and best practices how to setup the file systems. You may start here.
-* [IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2)
-* [SAP MaxDB](/docs/sap?topic=sap-anydb-sap-maxdb)
-* [SAP ASE](/docs/sap?topic=sap-anydb-sap-ase)
 
 We let `sapinst`, the SAP installation program, care about the user management, the disk partitioning as well as folder and subfolder creations that are required for the SAP application and the RDBMS.
 
@@ -299,7 +294,7 @@ The following example is for the server instance *sap-wdb*.
 10.243.129.4 sap-wapp-priv
 ```
 
-Your VSIs are now prepared to host the components of a distributed SAP installation. For more information about more installation preparations, see [Downloading and installing SAP software and applications](/docs/sap?topic=sap-download-install-media).
+Your VSIs are now prepared to host the components of a distributed SAP installation.
 
 ## Installing your SAP landscape
 {: #install-sap-wins}
@@ -333,7 +328,7 @@ SWPM is the component that guides you through the steps to successfully prepare 
 {: #install-sap-software-wins}
 {: step}
 
-Follow the instructions in the [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}. Also, review the corresponding SAP notes. See more detailed information about SAP NetWeaver installation that uses Db2 as the RDBMS in [Considerations about IBM Db2](/docs/sap?topic=sap-anydb-ibm-db2){: external}.
+Follow the instructions in the [SAP NetWeaver Installation Guide](https://help.sap.com/docs/SLTOOLSET/77e3a615f633437e9c4549891bb6bad7/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}. Also, review the corresponding SAP notes.
 
 ![Figure 2. SAP Application instances](../../images/vpc-intel-vsi-quickstudy-intel-vs-gen2-win-SingleHostSAPDb2.png "SAP Application instances"){: caption="SAP Application instances" caption-side="bottom"}
 

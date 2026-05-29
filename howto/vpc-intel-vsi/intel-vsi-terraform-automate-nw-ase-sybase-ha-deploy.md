@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-05-26"
 keywords:
 subcollection: sap
 ---
@@ -140,7 +140,7 @@ Before you deploy SAP NetWeaver High Availability on Single Zone or Multi Zone:
 * Set up your account to access the VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct).
 * If you have not already, create a bastion server to store the SAP kits. For more information, see [Automate SAP bastion server - SAP media storage repository](https://cloud.ibm.com/docs/sap?topic=sap-sap-bastion-server. You need the floating IP from your bastion server for deployment.
 * Download the SAP kits from the SAP Portal to your Deployment Server. Make note of the download locations. Ansible decompresses the files. For more information, see the [Readme](https://github.com/IBM-Cloud/sap-nwase-ha/blob/main/README.md) file, in the respective GitHub repository for [Schematics](https://github.com/IBM-Cloud/sap-s4hana-ha/tree/main) and [Terraform](https://github.com/IBM-Cloud/sap-s4hana-ha){: external} and on the About page.
-* [Create or retrieve an {{site.data.keyword.cloud}} API key](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key){: external}. The API key is used to authenticate with the {{site.data.keyword.cloud}} platform and to determine your permissions for {{site.data.keyword.cloud}} services.
+* [Create or retrieve an {{site.data.keyword.cloud}} API key](https://cloud.ibm.com/docs/iam?topic=iam-userapikey&interface=ui#create_user_key){: external}. The API key is used to authenticate with the {{site.data.keyword.cloud}} platform and to determine your permissions for {{site.data.keyword.cloud}} services.
 * [Create or retrieve your SSH key ID](/docs/ssh-keys?topic=ssh-keys-getting-started-tutorial). You need the 40-digit UUID for the SSH key, not the SSH key name.
 
 ## Deploying SAP HA SAP NetWeaver by using Terraform with the bastion server CLI

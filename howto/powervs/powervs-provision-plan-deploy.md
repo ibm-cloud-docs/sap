@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-09-22"
+  years: 2023, 2026
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -23,9 +23,9 @@ Make sure that you're familiar with the fundamental components and options that 
 
 You will be creating an {{site.data.keyword.vpc_short}} Infrastructure to host the management services (Bastion host, proxy, NTP, DNS and NFS services) and a {{site.data.keyword.powerSys_notm}} Infrastructure to host SAP workloads (SAP HANA Database and SAP NetWeaver).
 To help make sure that your first deployment is a success, read [Fast path of IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-fast-path-site-map-power-vs) including the following sections:
-* [IBM Power Systems Infrastructure environment introduction](/docs/sap?topic=sap-power-env-introduction) for the basic understanding about the environment.
-* [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-determine-access#powervs-network-connectivity-and-security)
-* [Sample storage configurations on IBM Power Infrastructure](/docs/sap?topic=sap-storage-design-considerations#sample-power)
+* [IBM Power Systems Infrastructure environment introduction](/docs/sap?group=plan-powervs) for the basic understanding about the environment.
+* [Connectivity options within the IBM {{site.data.keyword.powerSys_notm}} network, connection through IBM Cloud](/docs/sap?topic=sap-plan-network-connectivity-powervs)
+* [Sample storage configurations on IBM Power Infrastructure](/docs/sap?topic=sap-plan-storage-powervs)
 
 ## Prerequisites
 {: #powervs-prereqs}
@@ -49,7 +49,7 @@ Review the following prerequisites.
    For more information about configuring API access in IBM Cloud Object Storage [Getting started with IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage) and [Service credentials](/docs/cloud-object-storage?topic=cloud-object-storage-service-credentials).
 
 4. Choose a Linux operating system for your deployments. We recommend that you use the same OS release for all the hosts in the environment. When you use the same operating system version and release, it simplifies the operations management of the whole landscape. In this tutorial, Linux is used on all management components that run in your landscape. SAP solutions can run on Linux or on AIX.
-5. Read [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-compute-os-design-considerations#os-power) to learn about supported operating systems for SAP workloads on {{site.data.keyword.powerSysShort}}.
+5. Read [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-plan-os-powervs) to learn about supported operating systems for SAP workloads on {{site.data.keyword.powerSysShort}}.
 6. Design the network layout for your landscape. Specify the IP address ranges in the subnets to prevent IP address conflicts between all subnets in the landscape, including external subnets (subnets in your on-premises environment), and any other subnets.
 
    All IP address ranges in the subnets must be unique.
@@ -82,7 +82,7 @@ Review the following prerequisites.
 9. You need an overview about the ports that must be opened for communication between SAP workloads that run on IBM Power Systems Virtual Servers (such as SAP NetWeaver or SAP HANA), in VPC (such as SAP Web Dispatcher, SAP Solution Manager) and outside of the environment (such as clients in public internet or in on-premises environment).
 10. Determine the size parameters for each SAP workload that you plan to deploy. The most important parameters are memory size (especially for SAP HANA) and the number of SAPs. Most of the other configurations can be derived from these two key metrics.
 
-For more information, see [Sizing process for SAP Systems](/docs/sap?topic=sap-sizing) and see [SAP Sizing](https://www.sap.com/about/benchmark/sizing.quick-sizer.html#quick-sizer){: external}.
+For more information, see [SAP Sizing](https://www.sap.com/about/benchmark/sizing.quick-sizer.html#quick-sizer){: external}.
 
 For deployment of each {{site.data.keyword.powerSys_notm}} instance, you must be aware of following sizing parameters:
 

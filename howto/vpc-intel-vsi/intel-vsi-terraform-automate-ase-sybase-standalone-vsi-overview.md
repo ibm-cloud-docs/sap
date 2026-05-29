@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-11-17"
+  years: 2024, 2026
+lastupdated: "2026-05-26"
 keywords:
 subcollection: sap
 ---
@@ -83,7 +83,7 @@ Manually deploying a VPC and installing an SAP system can be time-consuming. The
 
 The solution that is documented in this topic is the automated deployment of a single host with SAP ASE Sybase stand-alone VSI on Red Hat Enterprise Linux or SUSE Linux Enterprise Server (SLES) for SAP Applications.
 
-Database instance (DB) - To assist your project planning phase, more design considerations are provided at SAP AnyDB – SAP ASE Sybase database with {{site.data.keyword.cloud_notm}} for SAP. For more information, see [AnyDB - SAP ASE Sybase](/docs/sap?topic=sap-sap-refarch-nw-sybase&interface=ui) and [Infrastructure certified for SAP](/docs/sap?topic=sap-iaas-offerings). A dedicated reference architecture about this AnyDB SAP ASE Sybase on {{site.data.keyword.cloud_notm}} VPC cloud can be found on [AnyDB - SAP ASE Sybase Database](/docs/sap?topic=sap-anydb-hana-db).
+Database instance (DB) - To assist your project planning phase, more design considerations are provided at SAP AnyDB – SAP ASE Sybase database with {{site.data.keyword.cloud_notm}} for SAP. For more information, see [AnyDB - SAP ASE Sybase](/docs/sap?topic=sap-sap-refarch-nw-sybase&interface=ui) .
 
 SAP ASE Sybase installation media that are used for this deployment is the default one for SAP ASE Sybase, platform edition 16.0 SPSXX. The media is available at the SAP Support Portal in the Installation and Upgrade area and it must be provided manually in the input parameter file.
 

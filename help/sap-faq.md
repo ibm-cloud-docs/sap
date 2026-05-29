@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-27"
+  years: 2020, 2026
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -111,7 +111,6 @@ RDBMS on Intel Bare Metal Servers in the IBM Cloud Classic Infrastructure that c
 {: #faq-achieve-sap-ha}
 
 High availability for SAP can be achieved for:
-- SAP NetWeaver High Availability - [SAP NetWeaver design considerations for High Availability configuration](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha)
 - SAP HANA High Availability - [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview) and [SAP Note 2057595](https://me.sap.com/notes/2057595){: external}
 
 - SAP AnyDB High Availability (for example, IBM Db2, MS SQL, and so on.)
@@ -124,15 +123,11 @@ High availability can be configured at:
 - SAP Technical Application layer (for example, system replication, system clustering)
 - Hardware layer (for example, storage replication)
 
-See the respective topics in the **_Get Started_** section for:
-* [SAP HANA design considerations for High Availability and Disaster Recovery (HA/DR)](/docs/sap?topic=sap-hana-design-considerations#hana-ha)
-* [SAP HANA backups - Storage impacts on Recovery Time Objective (RTO)](/docs/sap?topic=sap-storage-design-considerations#storage-performance-backup-rto)
-
 
 ### How do I connect my SAP Systems running on {{site.data.keyword.cloud_notm}} to my on-premises systems?
 {: #faq-connect-sap-to-on-premises}
 
-IBM Cloud provides multiple secure connectivity options. Refer to [Connectivity to your SAP system landscape](/docs/sap?topic=sap-determine-access).
+IBM Cloud provides multiple secure connectivity options.
 
 
 ## Licensing and pricing
@@ -230,11 +225,6 @@ IBM Cloud SAP-certified infrastructure does not include database virtualization,
 
 - Properly configure SAP HANA features and functions
 - Maintain infrastructure compliance with SAP certification
-
-### Is scale-out supported for SAP HANA?
-{: #faq-sap-hana-scale-out}
-
-Yes. For OLTP (SAP S/4HANA) see [SAP S/4HANA - Scale-up/Scale-out](/docs/sap?topic=sap-s4hana#s4hana-hana-scaling), and for OLAP (BW/4HANA) see [SAP BW/4HANA - Scale-up/Scale-out](/docs/sap?topic=sap-bw4hana#bw4hana-hana-scaling).
 
 ### How do I back up my SAP HANA-certified servers?
 {: #faq-sap-hana-backup}

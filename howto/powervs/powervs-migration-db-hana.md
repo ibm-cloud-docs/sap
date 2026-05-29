@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-04-02"
+  years: 2024, 2026
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, Linux, Red Hat, RHEL, SuSE, HANA, HSR, HANA System Replication, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize
 subcollection: sap
 ---
@@ -206,13 +206,12 @@ The Planning for a deployable SAP HANA infrastructure is described in [Planning 
 
 The sizing aspect of the target system is vital to your planning.
 Follow the recommendations mentioned in the SAP HANA Sizing report on the source system. Also, consider the findings of the EarlyWatch Alert report (EWA report).
-Both factors provide a realistic approach on the recommended size of your target system, see
-[Sizing process for SAP Systems](/docs/sap?topic=sap-sizing).
+Both factors provide a realistic approach on the recommended size of your target system.
 
 ### Comparing the required CPU, cores and storage for your target system
 {: #mig-db-hana-target-system-certified-profile}
 
-- [IBM Cloud Doclink SAP Planning/Sizing](/docs/sap?topic=sap-planning-your-system-landscape)
+- [IBM Cloud Doclink SAP Planning/Sizing](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
 
 Check that the certified profiles in {{site.data.keyword.cloud}} are close to or match the recommendations that are mentioned in the source system sizing report and also consider the EWA report summary.
 

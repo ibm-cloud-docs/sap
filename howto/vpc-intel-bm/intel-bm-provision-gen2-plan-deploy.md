@@ -20,14 +20,6 @@ You must already be familiar with the fundamental components and options that ar
 {: #bm-vpc-must-reads}
 
 To ensure that your first deployment is a success, we recommend reading:
-* [{{site.data.keyword.cloud}} VPC Infrastructure environment introduction](/docs/sap?topic=sap-vpc-env-introduction)
+* [{{site.data.keyword.cloud}} VPC Infrastructure environment introduction](/docs/sap?group=plan-vpc-bm)
 * The _Plan your SAP workloads_ topic group
-* The _Infrastructure for SAP design considerations_ topic group - especially the chapter [Sample storage configurations on VPC Infrastructure](/docs/sap?topic=sap-vpc-env-introduction#vpc-env-storage)
-
-### Other useful documents
-{: #bm-vpc-hana-other-useful-docs}
-
-See the respective topics in the **_Get Started_** section for:
-* [SAP HANA design considerations for High Availability and Disaster Recovery (HA/DR)](/docs/sap?topic=sap-hana-design-considerations#hana-ha)
-* [SAP HANA backups - Storage impacts on Recovery Time Objective (RTO)](/docs/sap?topic=sap-storage-design-considerations#storage-performance-backup-rto)
-* [SAP NetWeaver design considerations for High Availability configuration](/docs/sap?topic=sap-netweaver-design-considerations#netweaver-ha)
+* The _Infrastructure for SAP design considerations_ topic group - especially the chapter [Sample storage configurations on VPC Infrastructure](/docs/sap?topic=sap-plan-storage-vpc-bm)

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -36,7 +36,7 @@ Because ordering {{site.data.keyword.cloud_notm}} for VMware Solutions Dedicated
 Complete the following tasks before your initial provisioning. Additional information and detailed steps for these tasks can be found in [Setting up your environment for your first order of IBM Cloud for VMware](/docs/vmwaresolutions?topic=vmwaresolutions-completing_checklist)
 .
 
-1. [Create an IBM Cloud Classic Infrastructure API key](/docs/account?topic=account-classic_keys#create-classic-infrastructure-key). This task coordinates the infrastructure setup for the VMware SDDC (such as VLAN, Subnet, Bare Metal). If you request administrator access is requested, use the steps in [Locating an IAM account administrator](/docs/vmwaresolutions?topic=vmwaresolutions-iam_verify_permissions) and [verify/update your user permissions](/docs/vmwaresolutions?topic=vmwaresolutions-getting-started#getting-started-prereqs).
+1. Create an IBM Cloud Classic Infrastructure API key. This task coordinates the infrastructure setup for the VMware SDDC (such as VLAN, Subnet, Bare Metal). If you request administrator access is requested, use the steps in [Locating an IAM account administrator](/docs/vmwaresolutions?topic=vmwaresolutions-iam_verify_permissions) and [verify/update your user permissions](/docs/vmwaresolutions?topic=vmwaresolutions-getting-started#getting-started-prereqs).
 
 1. Convert your {{site.data.keyword.cloud_notm}} account to use [Virtual routing and forwarding (VRF) on IBM Cloud](/docs/direct-link?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud), using the steps described in [Converting to virtual routing and forwarding](/docs/direct-link?topic=direct-link-what-happens-during-the-account-conversion-process).
 

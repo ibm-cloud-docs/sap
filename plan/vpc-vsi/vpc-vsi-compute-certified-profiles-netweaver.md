@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-28"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, sapphire rapids, Skylake, Cascade lake, VPC, VSI, certified profiles
 subcollection: sap
 ---
@@ -24,8 +24,8 @@ The first letter of the profile name indicates the profile family that is mentio
 | **First letter** | **Characteristics of the related profile family**                                                                                                   |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | c                | *Compute Optimized* family profiles provide more compute power, and they have more cores with less memory ratio SPR 1:2.5, CL 1:2                   |
-| b                | *Balanced* family profiles provide a good mix of performance and scalability for more common workloads, higher vCPU to memory ratio SPR 1:5, CL 1:4 |
-| m                | *Memory Optimized* family, higher vCPU to memory ratio SPR 1:10 , CL 1:8                                                                            |
+| b                | *Balanced* family profiles provide a good mix of performance and scalability for more common workloads, higher vCPU to memory ratio SPR 1:4 and 1:5, CL 1:4 |
+| m                | *Memory Optimized* family, higher vCPU to memory ratio SPR 1:8 and 1:10 , CL 1:8                                                                    |
 | v                | *Very High Memory Optimized* family profiles cater to memory intensive workloads, such as demanding database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads, very high vCPU to memory ratio SPR 1:16, CL 1:14 |
 | u                | *Ultra High Memory Optimized* family profiles cater to memory intensive workloads, such as demanding database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads, ultra high vCPU to memory SPR ratio n/a, CL 1:28 |
 {: caption="Characteristics" caption-side="top"}
@@ -63,25 +63,41 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 ### cx3d profiles
 {: #nw-sr-cx3d-profiles}
 
-| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPs**  | **aSAPS** |
-| -----------------| ---------------- | ---------------- | --------- |---------  |
-| cx3d-2x5         | 2                | 5                | 2,661     |           |
-| cx3d-4x10        | 4                | 10               | 5,321     |           |
-| cx3d-8x20        | 8                | 20               | 10,642    |           |
-| cx3d-16x40       | 16               | 40               | 21,284    |           |
-| cx3d-24x60       | 24               | 60               | 31,926    |           |
-| cx3d-32x80       | 32               | 80               | 42,568    |           |
-| cx3d-48x120      | 48               | 120              | 63,851    |           |
-| cx3d-64x160      | 64               | 160              | 85,135    |           |
-| cx3d-96x240      | 96               | 240              | 127,702   |           |
-| cx3d-128x320     | 128              | 320              | 170,270   |           |
-| cx3d-176x440     | 176              | 440              | 234,120   |           |
+| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPS**  |
+| -----------------| ---------------- | ---------------- | --------- |
+| cx3d-2x5         | 2                | 5                | 2,661     |
+| cx3d-4x10        | 4                | 10               | 5,321     |
+| cx3d-8x20        | 8                | 20               | 10,642    |
+| cx3d-16x40       | 16               | 40               | 21,284    |
+| cx3d-24x60       | 24               | 60               | 31,926    |
+| cx3d-32x80       | 32               | 80               | 42,568    |
+| cx3d-48x120      | 48               | 120              | 63,851    |
+| cx3d-64x160      | 64               | 160              | 85,135    |
+| cx3d-96x240      | 96               | 240              | 127,702   |
+| cx3d-128x320     | 128              | 320              | 170,270   |
+| cx3d-176x440     | 176              | 440              | 234,120   |
 {: caption="Compute optimized profiles on Intel Sapphire Rapids" caption-side="bottom"}
 
-### bx3 profiles
+### bx3 profiles with ratio 1:4
+{: #nw-sr-bx3d-1-4-profiles}
+
+| **Profile name**             | **Virtual CPUs** | **Memory (GiB)** | **aSAPS** |
+|------------------------------|------------------|------------------|-----------|
+| bx3-2x8 \n bx3d-2x8          | 2                | 8                | 500       |
+| bx3-4x16 \n bx3d-4x16        | 4                | 16               | 1,100     |
+| bx3-8x32 \n bx3d-8x32        | 8                | 32               | 2,300     |
+| bx3-16x64 \n bx3d-16x64      | 16               | 64               | 4,600     |
+| bx3-32x128 \n bx3d-32x128    | 32               | 128              | 9,200     |
+| bx3-48x192 \n bx3d-48x192    | 48               | 192              | 13,800    |
+| bx3-64x256 \n bx3d-64x256    | 64               | 256              | 18,400    |
+| bx3-96x384 \n bx3d-96x384    | 96               | 384              | 27,600    |
+| bx3-128x512 \n bx3d-128x512  | 128              | 512              | 36,800    |
+{: caption="Balanced profiles on Intel Sapphire Rapids" caption-side="bottom"}
+
+### bx3 profiles with ratio 1:5
 {: #nw-sr-bx3d-profiles}
 
-| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPs** | **aSAPS** |
+| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **aSAPS** |
 |------------------|------------------|------------------|----------|-----------|
 | bx3d-2x10        | 2                | 10               | 2,616    | 500       |
 | bx3d-4x20        | 4                | 20               | 5,232    | 1,000     |
@@ -94,13 +110,29 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 | bx3d-96x480      | 96               | 480              | 125,548  | 24,300    |
 | bx3d-128x640     | 128              | 640              | 167,397  | 32,400    |
 | bx3d-176x880     | 176              | 880              | 230,170  | 44,600    |
-{: caption="Compute optimized profiles on Intel Sapphire Rapids" caption-side="bottom"}
+{: caption="Balanced profiles on Intel Sapphire Rapids" caption-side="bottom"}
 
 
-### mx3d profiles
+### mx3d profiles with ratio 1:8
+{: #nw-sr-mx3d-1-8-profiles}
+
+| **Profile name**              | **Virtual CPUs** | **Memory (GiB)** | **aSAPS** |
+|-------------------------------|------------------|------------------|-----------|
+| mx3-2x16 \n mx3d-2x16         | 2                | 16               | 500       |
+| mx3-4x32 \n mx3d-4x32         | 4                | 32               | 1,100     |
+| mx3-8x64 \n mx3d-8x64         | 8                | 64               | 2,200     |
+| mx3-16x128 \n mx3d-16x128     | 16               | 128              | 4,500     |
+| mx3-32x256 \n mx3d-32x256     | 32               | 256              | 9,100     |
+| mx3-48x384 \n mx3d-48x384     | 48               | 384              | 13,700    |
+| mx3-64x512 \n mx3d-64x512     | 64               | 512              | 18,300    |
+| mx3-96x768 \n mx3d-96x768     | 96               | 768              | 27,400    |
+| mx3-128x1024 \n mx3d-128x1024 | 128              | 1,024            | 36,600    |
+{: caption="Memory optimized profiles on Intel Sapphire Rapids" caption-side="bottom"}
+
+### mx3d profiles with ratio 1:10
 {: #nw-sr-mx3d-profiles}
 
-| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPs** | **aSAPS** |
+| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **aSAPS** |
 |------------------|------------------|------------------|----------|-----------|
 | mx3d-2x20        | 2                | 20               | 2,590    | 500       |
 | mx3d-4x40        | 4                | 40               | 5,180    | 1,000     |
@@ -118,7 +150,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 ### vx3d profiles
 {: #nw-sr-vx3d-profiles}
 
-| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPs** | **aSAPS** |
+| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **aSAPS** |
 |------------------|------------------|------------------|----------|-----------|
 | vx3d-2x32        | 2                | 32               | 2,513    | 485       |
 | vx3d-4x64        | 4                | 64               | 5,026    | 969       |
@@ -141,7 +173,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 ### cx2 profiles
 {: #nw-cl-cx2-profiles}
 
-| **Profile name**             | **Virtual CPUs** | **Memory (GiB)** | **SAPs**  |
+| **Profile name**             | **Virtual CPUs** | **Memory (GiB)** | **SAPS**  |
 | -----------------------------| ---------------- | ---------------- | --------- |
 | cx2-2x4 \n cx2d-2x4          | 2                | 4                | 2,238     |
 | cx2-4x8 \n cx2d-4x8          | 4                | 8                | 4,475     |
@@ -157,7 +189,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 ### bx2 profiles
 {: #nw-cl-bx2-profiles}
 
-| **Profile name**             | **Virtual CPUs** | **Memory (GiB)** | **SAPs** |
+| **Profile name**             | **Virtual CPUs** | **Memory (GiB)** | **SAPS** |
 | -----------------------------| ---------------- | ---------------- | ---------|
 | bx2-2x8 \n bx2d-2x8          | 2                | 8                | 2,306    |
 | bx2-4x16 \n bx2d-4x16        | 4                | 16               | 4,613    |
@@ -168,13 +200,13 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 | bx2-64x256 \n bx2d-64x256    | 64               | 256              | 81,685   |
 | bx2-96x384 \n bx2d-96x384    | 96               | 384              | 122,528  |
 | bx2-128x512 \n bx2d-128x512  | 128              | 512              | 163,370  |
-{: caption="Balanced optimized profiles on Intel Cascade Lake" caption-side="bottom"}
+{: caption="Balanced profiles on Intel Cascade Lake" caption-side="bottom"}
 
 
 ### mx2 profiles
 {: #nw-cl-mx2-profiles}
 
-| **Profile name**              | **Virtual CPUs** | **Memory (GiB)** | **SAPs** |
+| **Profile name**              | **Virtual CPUs** | **Memory (GiB)** | **SAPS** |
 | ----------------------------- | ---------------- | ---------------- | ---------|
 | mx2-2x16 \n mx2d-2x16         | 2                | 16               | 2,571    |
 | mx2-4x32 \n mx2d-4x32         | 4                | 32               | 5,141    |
@@ -190,7 +222,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 ### vx2 profiles
 {: #nw-cl-vx2-profiles}
 
-| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPs** |
+| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** |
 | -----------------| ---------------- | ---------------- | ---------|
 | vx2d-2x28        | 2                | 28               | 2,131    |
 | vx2d-4x56        | 4                | 56               | 4,262    |
@@ -205,7 +237,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 ### ux2 profiles
 {: #nw-cl-ux2-profiles}
 
-| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPs** |
+| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** |
 | -----------------| ---------------- | ---------------- | ---------|
 | ux2d-2x56        | 2                | 56               | 2,156    |
 | ux2d-4x112       | 4                | 112              | 4,312    |
@@ -223,7 +255,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 
 Flexible profiles will be provisioned as a generation 2 or 3 profile with mentioned number of vCPUs depending on the availability of the respective hosting server in the datacenter. Minimum SAPS of the related gen2 profile are guaranteed.
 
-| **Gen2 Profile** | **Profile name** | **Gen3 Profile** |
+| **Gen2 Profile**  | **Profile name** | **Gen3 Profile**  |
 | ----------------- | ---------------- | ----------------- |
 | bx2-2x8           | bxf-2x8          | bx3-2x10          |
 | bx2-4x16          | bxf-4x16         | bx3-4x20          |
@@ -267,7 +299,7 @@ When the virtual server profiles for {{site.data.keyword.sap_app_server}} are in
 
 - For {{site.data.keyword.sap_app_server}} and SAP AnyDB, a minimum of 5 IOPS/GB is recommended.
 
-- Samples of storage configurations that use Intel Virtual Server (Gen2) profiles are available under [Storage design considerations](/docs/sap?topic=sap-storage-design-considerations).
+- Samples of storage configurations that use Intel Virtual Server (Gen2) profiles are available under [Storage design considerations](/docs/sap?topic=sap-plan-storage-vpc-vsi).
 
 
 ## Profiles available on hourly consumption billing

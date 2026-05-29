@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-26"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Storage, Classic, block storage, file storage, IOPS, performance, local storage
 subcollection: sap
 ---
@@ -65,7 +65,7 @@ Local storage provides the highest performance for SAP workloads and is included
    - You are responsible for backup and data protection.
    - Storage capacity is fixed at provisioning time.
 
-For more information, see [Classic Infrastructure storage options](/docs/sap?topic=sap-classic-env-introduction#classic-env-storage).
+For more information, see [Classic Infrastructure storage options](/docs/sap?topic=sap-plan-storage-classic-bm).
 
 ### Block storage
 {: #block-storage}

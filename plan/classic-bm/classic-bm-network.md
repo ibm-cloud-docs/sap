@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-27"
 keywords: SAP, Bare Metal, Classic, networking, network planning, Classic Infrastructure, VLANs, subnets, connectivity, private network, Direct Link, VPN, network topology
 subcollection: sap
 ---
@@ -166,7 +166,7 @@ For more information, see [Direct Link 1.0](/docs/direct-link). To find network 
 All options require upgrading the {{site.data.keyword.cloud_notm}} account to be VRF-enabled.
 {: important}
 
-For more information, see [Setting up access to Classic Infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure) and [Getting started with {{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gateway-getting-started).
+For more information, see [Setting up access to Classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure) and [Getting started with {{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gateway-getting-started).
 
 ## Network security
 {: #network-security}
