@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-01"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -107,7 +107,7 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | sr3-76x6144      | OLTP/OLAP                                | 103,900   | 625,632  |
 | sr3-80x12288     | OLTP/OLAP                                | 115,800   |    N/A   |
 | sr3-229x20000    | OLTP/OLAP                                | 307,000   |    N/A   |
-| sr3-229x30500    | OLTP/OLAP/OLTP scale-out (up to 2 nodes) | 307,000   |    N/A   |
+| sr3-229x30500    | OLTP/OLAP/OLTP scale-out (up to 4 nodes) | 307,000   |    N/A   |
 {: class="simple-tab-table"}
 {: tab-group="sr3-profiles"}
 {: caption="P11 Certified Instance profiles with sr3 prefix" caption-side="bottom"}
