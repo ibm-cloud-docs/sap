@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-18"
+lastupdated: "2026-06-09"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -53,6 +53,8 @@ These variables are used in later operating system commands throughout this proc
 
 On both nodes, set the following environment variables.
 
+
+
 ```sh
 # General settings
 export SID=<SID>            # SAP HANA System ID (uppercase)
@@ -89,6 +91,8 @@ export JUMBO="true or false"             # Enable Jumbo frames (powervs-subnet o
 ```
 {: codeblock}
 
+
+
 #### Setting extra environment variables for a single zone implementation
 {: #ha-rhel-hana-ng-sh-sz-prepare-environment-variables}
 
@@ -97,6 +101,8 @@ Set the `VIP` environment variable to the reserved IP address.
 
 #### Setting extra environment variables for a multizone region implementation
 {: #ha-rhel-hana-ng-sh-mz-prepare-environment-variables}
+
+
 
 Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, `POWERVSI_?` variables as described in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config)  section.
 Set `API_TYPE` to `private` to enable communication with the {{site.data.keyword.iamlong}} and IBM Power Cloud API through private endpoints.
@@ -126,6 +132,8 @@ export VIP="10.40.41.102"
 export JUMBO="true"
 ```
 {: codeblock}
+
+
 
 ### Installing SAP HANA resource agents
 {: #ha-rhel-hana-ng-sh-install-sap-hana-resource-agents}
@@ -561,7 +569,11 @@ Ensure that you completed all steps in the [Preparing a multi-zone RHEL HA Add-O
 Use the `pcs resource describe powervs-move-ip` command to get information about the `powervs-move-ip` resource agent parameters. Use the `pcs resource describe powervs-subnet` command to get information about the `powervs-subnet` resource agent parameters.
 {: note}
 
-If you use the `powervs-move-ip` resource agent, run the following command on NODE1 to create a cluster resource for the virtual IP address.
+
+
+If you use the `powervs-move-ip` resource agent, run the following command on NODE1 to create a cluster resource for the ASCS virtual IP address.
+
+
 
 ```sh
 pcs resource create vip_${SID}_${INSTNO} powervs-move-ip \

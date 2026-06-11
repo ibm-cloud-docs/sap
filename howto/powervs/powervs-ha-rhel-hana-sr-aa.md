@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-06-09"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -35,8 +35,8 @@ Review the general requirements, product documentation, support articles, and SA
 - The virtual server instances need to fulfill hardware and resource requirements for the SAP HANA systems in scope.
    Follow the guidelines in the [Planning your deployment](/docs/sap?topic=sap-powervs-planning-items) document.
 - The hostnames of the virtual server instances must meet the SAP HANA requirement.
-- SAP HANA is installed on both virtual server instances and SAP HANA System Replication is configured.
-   The installation of SAP HANA and setup of SAP HANA System Replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures.
+- SAP HANA is installed on both virtual server instances and SAP HANA system replication is configured.
+   The installation of SAP HANA and setup of SAP HANA system replication is not specific to the {{site.data.keyword.powerSys_notm}} environment, and you need to follow the standard procedures.
 
 ## Setting up the Active/Active (read enabled) scenario
 {: #ha-rhel-hana-sr-aa-setup}
@@ -380,7 +380,7 @@ For now, it is recommended to keep `AUTOMATED_REGISTER` on default value `false`
 The `pcs resource update` command is used to modify resource attributes and `pcs resource update SAPHana_${SID}_${INSTNO} AUTOMATED_REGISTER=true` sets the attribute to `true`.
 {: tip}
 
-## Testing SAP HANA System Replication cluster
+## Testing SAP HANA system replication cluster
 {: #ha-rhel-hana-sr-aa-test-sap-hana-sr-cluster}
 
 It is important to thoroughly test the cluster configuration to make sure that the cluster is working correctly.
@@ -412,10 +412,10 @@ Simulate a crash of the primary SAP HANA database instance that is running on NO
 - Both cluster nodes are active.
 - Cluster that is started on NODE1 and NODE2.
 - Cluster Resource `SAPHana_${SID}_${INSTNO}` that is configured with `AUTOMATED_REGISTER=false`.
-- Check SAP HANA System Replication status:
+- Check SAP HANA system replication status:
    - Primary SAP HANA database is running on NODE1
    - Secondary SAP HANA database is running on NODE2
-   - SAP HANA System Replication is activated and in sync
+   - SAP HANA system replication is activated and in sync
 
 #### Test1 - Test procedure
 {: #ha-rhel-hana-sr-aa-test1-procedure}
@@ -521,10 +521,10 @@ pcs resource config SAPHana_${SID}_${INSTNO} | grep Attributes
 - A functional two-node RHEL HA Add-On cluster for SAP HANA system replication.
 - Both nodes are active.
 - Cluster is started on NODE1 and NODE2.
-- Check SAP HANA System Replication status.
+- Check SAP HANA system replication status.
    - Primary SAP HANA database is running on NODE2
    - Secondary SAP HANA database is running on NODE1
-   - SAP HANA System Replication is activated and in sync
+   - SAP HANA system replication is activated and in sync
    - Secondary virtual IP address is active on NODE1
 
 #### Test2 - Test procedure
@@ -587,10 +587,10 @@ Simulate a crash of the secondary SAP HANA database.
 - Both nodes are active.
 - Cluster is started on NODE1 and NODE2.
 - Cluster Resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`.
-- Check SAP HANA System Replication status:
+- Check SAP HANA system replication status:
    - Primary SAP HANA database is running on NODE1
    - Secondary SAP HANA database is running on NODE2
-   - SAP HANA System Replication is activated and in sync
+   - SAP HANA system replication is activated and in sync
    - Secondary virtual IP address is active on NODE2
 
 #### Test3 - Test procedure
@@ -649,10 +649,10 @@ Use cluster commands to move the primary instance to the other node for maintena
 - Both nodes are active.
 - Cluster is started on NODE1 and NODE2.
 - Cluster Resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`.
-- Check SAP HANA System Replication status:
+- Check SAP HANA system replication status:
    - Primary SAP HANA database is running on NODE1
    - Secondary SAP HANA database is running on NODE2
-   - SAP HANA System Replication is activated and in sync
+   - SAP HANA system replication is activated and in sync
    - Secondary virtual IP address is active on NODE2
 
 #### Test4 - Test procedure

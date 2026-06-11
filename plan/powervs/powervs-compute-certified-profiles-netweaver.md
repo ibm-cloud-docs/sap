@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-20"
+lastupdated: "2026-06-11"
 keywords: Powervs, Certified Profile, {{site.data.keyword.sap_app_server}}, {{site.data.keyword.powerSys_notm}},
 subcollection: sap
 ---
@@ -50,18 +50,56 @@ For more information, see [SAP Note 2855850 - SAP Applications on IBM {{site.dat
 
 | Profile name | Naming convention component | Description           |
 | ------------ | --------------------------- | --------------------- |
-| sr2-2x32     | sr2                         | Profile prefix        |
+| sr3-2x32     | sr3                         | Profile prefix        |
 |              | *-*                         | *separator*           |
 |              | 2                           | 2 physical CPU Cores  |
 |              | x                           | *separator*           |
 |              | 32                          | 32 GiB RAM            |
 {: caption="Profile naming scheme for {{site.data.keyword.sap_app_servers}}" caption-side="bottom"}
 
+### sr3 – Predefined {{site.data.keyword.sap_app_server}} profiles
+{: #sr3-nw-profiles}
+
+The following predefined {{site.data.keyword.sap_app_server}} profiles with prefix **sr3** on IBM {{site.data.keyword.powerSys_notm}} are available.
+
+| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SMT Mode** |**SAPS**  |**aSAPS**  |
+| ------------------- | ------------- | ---------------- | ---------------- | ------------ |--------- | --------- |
+| sr3-1x8             | 1             |      8           |  8               | SMT 8        |  7,900   | 1,300     |
+| sr3-1x16            | 1             |      8           |  16              | SMT 8        |  7,900   | 1,300     |
+| sr3-2x32            | 2             |      16          |  32              | SMT 8        | 15,800   | 2,600     |
+| sr3-3x64            | 3             |      24          |  64              | SMT 8        | 23,700   | 3,900     |
+| sr3-4x64            | 4             |      32          |  64              | SMT 8        | 31,600   | 5,200     |
+| sr3-6x128           | 6             |      48          |  128             | SMT 8        | 47,400   | 7,800     |
+| sr3-8x128           | 8             |      64          |  128             | SMT 8        | 63,200   | 10,400    |
+| sr3-12x256          | 12            |      96          |  256             | SMT 8        | 94,800   | 15,600    |
+| sr3-16x256          | 16            |      128         |  256             | SMT 8        | 126,400  | 20,800    |
+{: class="simple-tab-table"}
+{: tab-group="sr3-nw-table"}
+{: caption="P11 predefined Instance profiles with sr3 prefix for {{site.data.keyword.sap_app_servers}}" caption-side="bottom"}
+{: #sr3-nw-profiles-instance}
+{: tab-title="Certified Profiles"}
+
+| Profile\nname          | Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained|
+|----------------------- |------------------------ |----------------------|---------------|
+|   sr3-1x8              |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr3-1x16             |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr3-2x32             |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr3-3x64             |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr3-4x64             |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr3-6x128            |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr3-8x128            |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr3-12x256           |  1 x 50GB               | Tier 0               |    1,250      |
+|   sr3-16x256           |  1 x 50GB               | Tier 0               |    1,250      |
+{: class="simple-tab-table"}
+{: tab-group="sr3-nw-table"}
+{: caption="Sample file system configurations for {{site.data.keyword.sap_app_server}} profiles with sr3 prefix" caption-side="bottom"}
+{: #sr3-nw-profiles-storage}
+{: tab-title="Storage"}
 
 ### sr2 – Predefined {{site.data.keyword.sap_app_server}} profiles
 {: #sr2-nw-profiles}
 
-The following predefined {{site.data.keyword.sap_app_server}} profiles with prefix **sr2** on IBM {{site.data.keyword.powerSys_notm}} are available. Profiles with **sr2** prefix are custom profiles that may be deployed through **CLI or API only**.
+The following predefined {{site.data.keyword.sap_app_server}} profiles with prefix **sr2** on IBM {{site.data.keyword.powerSys_notm}} are available.
 
 | **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SMT Mode** |**SAPS**  |
 | ------------------- | ------------- | ---------------- | ---------------- | ------------ |--------- |
@@ -80,7 +118,7 @@ The following predefined {{site.data.keyword.sap_app_server}} profiles with pref
 {: tab-group="sr2-nw-table"}
 {: caption="P10 predefined Instance profiles with sr2 prefix for {{site.data.keyword.sap_app_servers}}" caption-side="bottom"}
 {: #sr2-nw-profiles-instance}
-{: tab-title="Instance Profile"}
+{: tab-title="Certified Profiles"}
 
 | Profile\nname          | Sample\nstorage config  | Sample\nstorage tier | IOPs\nobtained|
 |----------------------- |------------------------ |----------------------|---------------|

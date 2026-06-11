@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-06-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Storage, VPC, {{site.data.keyword.block_storage_is_short}}, {{site.data.keyword.filestorage_vpc_short}}, IOPS, performance, capacity, tiers
 subcollection: sap
 ---
@@ -44,13 +44,13 @@ The storage volumes and file shares provide the following key capabilities:
 ### Block storage
 {: #block-storage}
 
-Block storage is used for {{site.data.keyword.vsi_is_short}} and provides predictable performance based on input/output operations per second (IOPS). It is the primary storage type for operating system boot volumes and additional data volumes.
+Block storage is used for {{site.data.keyword.vsi_is_short}} and provides a predictable performance based on input/output operations per second (IOPS). It is the primary storage type for operating system boot volumes and additional data volumes.
 
 Boot and data volumes
 :   Boot and data volumes have the following properties:
 
     - When you create a virtual server instance, a boot volume is automatically created and attached. The default boot volume size is 100 GB with 3,000 IOPS. You can customize the boot volume size and IOPS during provisioning.
-    - You can attach up to 12 additional data volumes per virtual server instance, with each volume supports up to 16,000 IOPS.
+    - You can attach up to 12 additional data volumes per virtual server instance, with each volume supporting up to 16,000 IOPS.
     - You can provision each storage volume based on the IOPS that your workload requires, by either using tiered profiles or custom IOPS profiles.
     - Each volume has a storage profile that defines how many I/O operations per second (IOPS) can be started against that volume.
     - The IOPS for the storage profiles can scale according to the size of the volume (tiered profiles), or by custom IOPS allocations.
@@ -85,7 +85,6 @@ For more information, see the following documents:
 - [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about)
 - [Block Storage capacity and performance](/docs/vpc?topic=vpc-capacity-performance)
 - [Bandwidth allocation for Block Storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui)
-- [Bandwidth allocation for Block Storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth)
 
 ### {{site.data.keyword.cos_full_notm}}
 {: #cloud-object-storage}
@@ -143,8 +142,8 @@ Storage provisioning for an SAP HANA system must comply with mandatory SAP HANA 
 
 Refer to the following resources for more information:
 
-- [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}
 - [SAP Help Portal: SAP HANA Tailored Data Center Integration](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html){: external}
+- [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}
 - [SAP Help Portal: SAP HANA Hardware and Cloud Measurement Tools guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}
 - [SAP Learning Resources: Outlining how to use the Hardware Measurement Tool](https://learning.sap.com/courses/sap-hana-installation-and-administration/outlining-how-to-use-the-hardware-measurement-tool){: external}
 
@@ -165,7 +164,7 @@ Configure storage volumes as follows:
 
 The exact number of volumes and their sizes depend on your specific SAP HANA profile. Always refer to the storage configuration tables in the SAP HANA-certified instances documentation for your chosen profile.
 
-## {{site.data.keyword.sap_app_server}} with IBM Db2 storage guidelines
+## IBM Db2 storage guidelines
 {: #anydb-ibm-db2-storage-guidelines}
 
 {{site.data.keyword.sap_app_server}} with IBM Db2 requires specific storage configurations to ensure optimal database performance. The storage layout depends on the virtual server instance profile and the expected database size.
@@ -194,7 +193,7 @@ For example, `/db2/<DBSID>`, `/db2/<DBSID>/log_dir`, and several `sapdata<n>` di
 
 For more information, see [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/docs/SLTOOLSET/ce9e270ad34949969c16d09d1b099a26/713eb64f45c6448c8dbe8a51b85680ee.html?version=CURRENT_VERSION){: external}.
 
-## {{site.data.keyword.sap_app_server}} with SAP ASE storage guidelines
+## SAP ASE storage guidelines
 {: #ase-storage-guidelines}
 
 SAP Adaptive Server Enterprise (ASE), formerly known as Sybase, requires specific storage configurations to ensure optimal database performance. The storage layout depends on the virtual server instance profile and the expected database size.
@@ -207,7 +206,7 @@ For {{site.data.keyword.sap_app_server}} with SAP ASE, consider the following st
 - Choose the correct virtual server instance profile based on estimated user load, CPU, and RAM requirements. For more information, see [Virtual Server profile names](/docs/sap?topic=sap-intro-sap-cloud-vpc#virtual-profile-intel-vsi-sap-vpc).
 - Select an SAP-certified OS image (RHEL, SUSE, or Windows) from the catalog. For more information, see [Catalog images on VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#catalog-images-sap-nw-db2-rhel).
 
-For {{site.data.keyword.sap_app_server}} systems running on SAP Adaptive Server Enterprise, all database devices must reside on local or block‑level storage, in accordance with the SAP installation guides and [SAP Note 1748888](https://me.sap.com/notes/1748888){: external}.
+For {{site.data.keyword.sap_app_server}} systems running on SAP Adaptive Server Enterprise, all database devices must reside on local or block-level storage, in accordance with the SAP installation guides and [SAP Note 1748888](https://me.sap.com/notes/1748888){: external}.
 
 1. **Block storage volumes**
    - Recommended for database data files and log files
@@ -236,6 +235,73 @@ For more information, see the following documents:
 - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE)](https://help.sap.com/docs/SAP_ASE){: external}
 - [SAP Community page for SAP Adaptive Server Enterprise (ASE)](https://pages.community.sap.com/topics/applications-on-ase){: external}
 
+## SAP MaxDB storage guidelines
+{: #maxdb-storage-guidelines}
+
+{{site.data.keyword.sap_app_server}} with MaxDB is configured as a standard single-host, 2-tier setup, where both the database and the SAP Content Server are deployed on the same virtual machine (VSI).
+
+### Volume layout
+{: #maxdb-layout}
+
+For {{site.data.keyword.sap_app_server}} with SAP MaxDB, consider the following storage components:
+
+- Choose the correct virtual server instance profile based on estimated user load, CPU, and RAM requirements. For more information, see [Virtual Server profile names](/docs/sap?topic=sap-intro-sap-cloud-vpc#virtual-profile-intel-vsi-sap-vpc).
+- Select an SAP-certified OS image (RHEL or SUSE) from the catalog. For more information, see [Catalog images on VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#catalog-images-sap-nw-db2-rhel).
+
+For {{site.data.keyword.sap_app_server}} systems running on SAP MaxDB, all database file systems must reside on local or block-level storage, in accordance with SAP installation guides and SAP MaxDB best practices.
+
+1. **Block storage volumes**
+   - Recommended for SAP MaxDB database data files and log files
+   - Use 5 IOPS/GB tier (5iops-tier) for database data volumes
+   - Use 10 IOPS/GB tier (10iops-tier) for database log volumes
+   - Use 3 IOPS/GB tier (general-purpose) for backup volumes
+   - Use 5 IOPS/GB tier (5iops-tier) for shared SAP file systems such as `/sapmnt`
+   - Use 3 IOPS/GB tier (general-purpose) for SAP application file systems such as `/usr/sap`
+
+2. **File storage shares**
+   - Suitable for shared file systems such as `/sapmnt` and `/usr/sap/trans`
+   - Use dp2 profile (5 IOPS/GB) for most workloads
+   - For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
+
+For {{site.data.keyword.sap_app_server}} with SAP MaxDB on a typical `bx2-8x32` profile, the recommended storage configuration includes:
+
+- **1× 300 GB volume**: One block storage volume with 5 IOPS/GB tier (5iops-tier) for SAP MaxDB database files
+- **1× 100 GB volume**: One block storage volume with 3 IOPS/GB tier (general-purpose) for database backups
+- **1× 100 GB volume**: One block storage volume with 5 IOPS/GB tier (5iops-tier) for SAP application file systems
+- **1× 35 GB volume**: One block storage volume for swap space
+
+After you attach the data volumes, new virtual disks appear in the virtual server instance.
+
+The following table shows a typical storage configuration for SAP MaxDB:
+
+| File system | Volume | Storage type | IOPS/GB | GB | IOPS |
+|-------------|--------|--------------|---------|-----|-----|
+| `/` | `vda1` | Pre-configured boot volume | N/A | 100 GB | 3,000 |
+| `/boot` | `vda3` | Pre-configured boot volume | N/A | 0.5 GB | 3,000 |
+| `/sapmnt` | `vdd` | Data volume | 3 IOPS/GB | 50 GB | 150 |
+| `/usr/sap` | `vdi` (can vary) | Data volume | 3 IOPS/GB | 50 GB | 150 |
+| `/sapdb/<SID>` | `vde` (can vary) | Data volume | 5 IOPS/GB | 300 GB | 1,500 |
+| `/sapdb/<SID>/data` | `vdf` (can vary) | Data volume | 10 IOPS/GB | 500-1,000 GB | 5,000–10,000 |
+| `/sapdb/<SID>/log` | `vdg` (can vary) | Data volume | 5-10 IOPS/GB | 200-300 GB | 1,000–3,000 |
+| `/maxbackup` | `vdk` (can vary) | Data volume | 3 IOPS/GB | 1,000-2,000 GB | 3,000–6,000 |
+{: caption="Sample storage configuration for SAP MaxDB" caption-side="bottom"}
+
+The table shows a basic layout of the file system to support an SAP MaxDB installation. Generally, an SAP MaxDB installation uses dedicated file systems that can be segmented into independent volumes.
+
+For example, `/sapdb/<DBSID>`, `/sapdb/<DBSID>/data`, `/sapdb/<DBSID>/log`, and `/maxbackup`, where the `/sapdb/<DBSID>/`log directory contains the online redo log files of the database and the `/sapdb/<DBSID>/data` directory contains the database data volumes.
+
+For more information, see the following documents:
+
+
+* [About SAP MaxDB](https://help.sap.com/docs/SUPPORT_CONTENT/maxdb/3362173458.html?locale=en-US){: external}
+* [SAP MaxDB Components](https://help.sap.com/docs/SUPPORT_CONTENT/maxdb/3362173481.html?locale=en-US){: external}
+* [SAP MaxDB Documentation](https://me.sap.com/notes/767598/E){: external}
+* [Getting Started with SAP MaxDB](https://help.sap.com/docs/SUPPORT_CONTENT/maxdb/3362173459.html?locale=en-US){: external}
+* [SAP MaxDB Available Platforms and Architectures](https://help.sap.com/docs/SUPPORT_CONTENT/maxdb/3362173546.html?locale=en-US){: external}
+* [SAP Note 1619726 - FAQ: SAP MaxDB Content Server](https://me.sap.com/notes/1619726/E){: external}
+* [SAP Note 1377148 - FAQ: SAP MaxDB backup / recovery](https://me.sap.com/notes/1377148/E){: external}
+* [SAP Note 3324215 - Recommendations for Settings of SAP MaxDB as SAP Content Server Database](https://me.sap.com/notes/3324215/E){: external}
+
 ## SAP application server storage guidelines
 {: #app-server-storage-guidelines}
 
@@ -251,24 +317,22 @@ For shared file systems, use {{site.data.keyword.filestorage_vpc_short}} for `/s
 ## References
 {: #references}
 
-- [Catalog images on VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#catalog-images-sap-nw-db2-rhel)
 - [File Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles)
+- [Catalog images on VPC](/docs/sap?topic=sap-intro-sap-cloud-vpc#catalog-images-sap-nw-db2-rhel)
 - [Block Storage profiles](/docs/vpc?topic=vpc-block-storage-profiles)
 - [Capacity and performance](/docs/vpc?topic=vpc-capacity-performance)
 - [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about)
-- [Bandwidth allocation for Block Storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui)
 - [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about)
 - [Cloud Object Storage classes](/docs/cloud-object-storage?topic=cloud-object-storage-classes)
 - [Virtual Server profile names](/docs/sap?topic=sap-intro-sap-cloud-vpc#virtual-profile-intel-vsi-sap-vpc)
 - [SAP HANA Storage Requirements](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html){: external}
 - [Expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes)
-- [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}
-- [SAP Help Portal: SAP HANA Tailored Data Center Integration](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html){: external}
-- [SAP Help Portal: SAP HANA Hardware and Cloud Measurement Tools guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}
-- [SAP Learning Resources: Outlining how to use the Hardware Measurement Tool](https://learning.sap.com/courses/sap-hana-installation-and-administration/outlining-how-to-use-the-hardware-measurement-tool){: external}
-- [Bandwidth allocation for Block Storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth)
-- [Outlining how to use the Hardware Measurement Tool](https://learning.sap.com/courses/sap-hana-installation-and-administration/outlining-how-to-use-the-hardware-measurement-tool){: external}
+- [Bandwidth allocation for Block Storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui)
 - [SAP Help Portal - SAP Adaptive Server Enterprise (ASE)](https://help.sap.com/docs/SAP_ASE){: external}
 - [SAP Community page for SAP Adaptive Server Enterprise (ASE)](https://pages.community.sap.com/topics/applications-on-ase){: external}
 - [Required File Systems for IBM Db2 for Linux, UNIX, and Windows](https://help.sap.com/docs/SLTOOLSET/ce9e270ad34949969c16d09d1b099a26/713eb64f45c6448c8dbe8a51b85680ee.html?version=CURRENT_VERSION){: external}
+- [SAP Help Portal: SAP HANA Tailored Data Center Integration](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html){: external}
+- [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}
+- [SAP Help Portal: SAP HANA Hardware and Cloud Measurement Tools guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}
+- [SAP Learning Resources: Outlining how to use the Hardware Measurement Tool](https://learning.sap.com/courses/sap-hana-installation-and-administration/outlining-how-to-use-the-hardware-measurement-tool){: external}
 - [SAP HANA certified instances on Intel-powered virtual servers on VPC Infrastructure](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi)

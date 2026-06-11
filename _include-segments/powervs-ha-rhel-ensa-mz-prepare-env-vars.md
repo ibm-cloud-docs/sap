@@ -6,6 +6,8 @@ These variables are used in subsequent operating system commands.
 On both nodes, set the following environment variables.
 Certain variables are specific to either the `powervs-move-ip` or the `powervs-subnet` resource agent, as indicated in the respective comments.
 
+
+
 ```sh
 # General settings
 export CLUSTERNAME="SAP_S01"        # Cluster name

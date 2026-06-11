@@ -7,7 +7,9 @@ Complete all steps that are described in [Preparing a multi-zone RHEL HA Add-On 
 Use the `pcs resource describe` command to view detailed parameter information for the `powervs-move-ip` or `powervs-subnet` resource agents.
 {: note}
 
+
 If you use the `powervs-move-ip` resource agent, run the following command on NODE1 to create a cluster resource for the ASCS virtual IP address.
+
 
 ```sh
 pcs resource create ${sid}_vip_ascs${ASCS_INSTNO} powervs-move-ip \

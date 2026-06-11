@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-09"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
@@ -12,7 +12,9 @@ subcollection: sap
 # Preparing {{site.data.keyword.powerSys_notm}} instances for SAP system installation
 {: #powervs-set-up-power-instances}
 
-Follow the instructions to deploy the {{site.data.keyword.powerSys_notm}} instances that are required for SAP system installation.
+Follow the instructions to deploy the virtual server instances that are required for SAP system installation.
+{: shortdesc}
+
 The guidance includes configuring virtual server instances for the SAP HANA system, and the ABAP application server on either Red Hat&reg; Enterprise Linux&reg; (RHEL) or SUSE Linux Enterprise Server (SLES).
 
 A {{site.data.keyword.vpc_full}} landing zone, a {{site.data.keyword.tg_full}}, and one {{site.data.keyword.powerSys_notm}} workspace are required as prerequisites.
@@ -29,11 +31,11 @@ Also, the architecture incorporates the {{site.data.keyword.tg_full}} and the {{
 
 Deploy the following resources for the SAP system in the {{site.data.keyword.powerSys_notm}} workspace:
 - A private subnet to enable communication within the SAP system.
-- A dedicated {{site.data.keyword.powerSys_notm}} instance for the SAP HANA system.
+- A dedicated virtual server instance for the SAP HANA system.
 - The storage volumes for the SAP HANA system.
-- One or more {{site.data.keyword.powerSys_notm}} instances for the SAP application servers.
+- One or more virtual server instances for the SAP application servers.
 - The file storage and storage volumes for the SAP application servers.
-- Optional, one {{site.data.keyword.powerSys_notm}} instance for the SAP shared global file system and transport directory.
+- Optional, one virtual server instance for the SAP shared global file system and transport directory.
 - All virtual server instances run either Red Hat Enterprise Linux (RHEL) or SUSE Linux Enterprise Server (SLES) as the operating system.
 
 ### Deploying a dedicated private network subnet
@@ -59,12 +61,12 @@ Client supplied subscription ("Bring Your Own License" - BYOL)
 :   If you use a client supplied subscription, either:
 
     - Import your own image as a custom image for deployment, or
-    - Select an image from the client supplied subscription section of the IBM stock images (identified with the BYOL suffix) for {{site.data.keyword.powerSys_notm}} instance deployment.
+    - Select an image from the client supplied subscription section of the IBM stock images (identified with the BYOL suffix) for virtual server instance deployment.
 
 See more details about the operating system versions in [OS for IBM {{site.data.keyword.powerSys_notm}}s](/docs/sap?topic=sap-plan-os-powervs).
 See [Using RHEL within the {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-linux-with-powervs) and [Using SLES within IBM {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-using-linux) for more details about the subscriptions for RHEL and SLES.
 
-The following steps describe deploying {{site.data.keyword.powerSys_notm}} instances by using an **IBM provided subscription**.
+The following steps describe deploying virtual server instances by using an **IBM provided subscription**.
 {: note}
 
 {{site.data.keyword.ibm_cloud_sap}} provides SAP-certified infrastructure to run SAP workloads.
@@ -83,7 +85,7 @@ Plain **Linux** images do not include the specific extensions that are required 
 ### Deploying an {{site.data.keyword.powerSys_notm}} instance for the SAP HANA system
 {: #powervs-set-up-power-hana-instance}
 
-Deploy an {{site.data.keyword.powerSys_notm}} instance for the SAP HANA system.
+Deploy a virtual server instance for the SAP HANA system.
 
 1. Select a workspace from the list of [Workspaces](https://cloud.ibm.com/power/workspaces){: external} on the left navigation page.
 1. Click **View virtual servers** on the right page.
@@ -100,7 +102,9 @@ Complete the fields in the **General** section.
    | Add to a shared processor pool | Optional and can be skipped. |
    | Virtual server pinning | Optional, choose the default selection "None". |
    | SSH key | Choose an existing SSH key. |
-   {: caption="General parameter selection for the SAP HANA instance" caption-side="top"}
+   {: caption="General parameter selection for the SAP HANA instance" caption-side="bottom"}
+
+   
 
    Click **Continue**.
 
@@ -113,7 +117,7 @@ Complete the fields in the **Boot image** section.
    | Tier | Choose a storage tier that best meets your needs, for more information, see [Storage tiers](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#storage-tiers). |
    | Storage pool | Select the storage pool that you need. |
    | Advanced configurations | Optional. Expand, and toggle the items only if required. |
-   {: caption="Boot image selection for the SAP HANA instance" caption-side="top"}
+   {: caption="Boot image selection for the SAP HANA instance" caption-side="bottom"}
 
    Advanced configurations allow influencing the profile selection for subsequent steps.
    When you select **Custom SAP (HANA) Deployment**, you can modify parameters such as CPU cores, memory size, and storage tier. Custom profiles are supported only on Power9 systems, and are intended exclusively for nonproduction environments.
@@ -155,9 +159,9 @@ Complete the fields in the **Networking** section.
 
 Click **Finish**, accept the terms and conditions, and then click **Create**.
 
-It takes some time for the {{site.data.keyword.powerSys_notm}} instance for SAP HANA to become available.
+It takes some time for the virtual server instance for SAP HANA to become available.
 
-When the deployment is complete, log in to the instance by using the VPC access host.
+Wait for the instance to become active, then log in to it by using the VPC access host.
 Use the following SSH command to login as `root` user to the virtual server instance:
 
 ```sh
@@ -174,11 +178,11 @@ For more information, see the tutorial [Connect by using a client-to-site VPN](/
 ### Deploying a {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver
 {: #powervs-set-up-power-netweaver-instance}
 
-To deploy a {{site.data.keyword.powerSys_notm}} instance for SAP NetWeaver, go to your [Workspaces](https://cloud.ibm.com/power/workspaces){: external} and create a new instance as described in [Configuring a {{site.data.keyword.powerSys_notm}} instance](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#configuring-instance).
+To deploy a virtual server instance for SAP NetWeaver, go to your [Workspaces](https://cloud.ibm.com/power/workspaces){: external} and create a new instance as described in [Configuring a {{site.data.keyword.powerSys_notm}} instance](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#configuring-instance).
 Use the information in [Deploying SAP HANA on {{site.data.keyword.powerSys_notm}}](#powervs-set-up-power-hana-instance) to complete the configuration for **General**, **Boot Image**, **Profile**, **Storage volumes**, and **Networking** sections.
 For the **Boot image** section, specify the IBM provided subscription 'Linux for SAP (NetWeaver)' in the selection.
 
-Wait until the instance for SAP NetWeaver becomes active.
+Wait for the instance to become active.
 Then log on to the instance by using the following SSH command:
 
 ```sh
@@ -211,8 +215,7 @@ See [Managing your storage volumes](/docs/power-iaas?topic=power-iaas-modifying-
 Make sure that the "Shareable" option remains "off" for all the block storage volumes.
 {: note}
 
-Continue with the configuration of {{site.data.keyword.powerSys_notm}} instances for SAP applications.
-Choose one of the options for a manual or an automated setup.
+Continue with the configuration of virtual server instances for SAP applications by choosing one of the following options:
 
 * [Configuring {{site.data.keyword.powerSys_notm}} instances manually](#powervs-set-up-powervs-manually-os-config).
 
@@ -265,12 +268,12 @@ mount /hana/shared
 ## Configuring {{site.data.keyword.powerSys_notm}} instances manually
 {: #powervs-set-up-powervs-manually-os-config}
 
-Complete the following steps on your {{site.data.keyword.powerSys_notm}} instances.
+Complete the following steps on your virtual server instances.
 
 ### Configuring a proxy endpoint
 {: #powervs-configure-proxy}
 
-The {{site.data.keyword.powerSys_notm}} instances are not attached to a public network, and do not have direct access to the internet.
+The virtual server instances are not attached to a public network, and do not have direct access to the internet.
 The SQUID proxy server in IBM VPC acts as an intermediary between the virtual server instance and the internet.
 In a Linux environment, environment variables such as `http_proxy`, `https_proxy`, and `no_proxy` configure the proxy settings.
 
@@ -369,7 +372,7 @@ zypper update -y
 {: #powervs-configure-dns-client-manual}
 
 The DNS servers of IBM Cloud are configured as default, you do not need to modify the DNS configuration for them.
-If you create a private DNS server for your environment, configure it after the {{site.data.keyword.powerSys_notm}} instance is created.
+If you create a private DNS server for your environment, configure it after the virtual server instance is created.
 
 ### Configuring a Network Time Protocol client
 {: #powervs-configure-ntp-client-manually}
@@ -409,7 +412,7 @@ makestep 1.0 3
 rtcsync
 logdir /var/log/chrony
 ```
-{: screen}
+{: pre}
 
 Then, restart the `chronyd` service on the node.
 
@@ -487,7 +490,7 @@ Extra file systems can be created for other purposes.
 
 Newly discovered disks are listed with their details.
 
-Identify the Word Wide Names (WWNs) of the storage volumes by running the `multipath` command.
+Identify the World Wide Names (WWNs) of the storage volumes by running the `multipath` command.
 
 ```sh
 multipath -ll
@@ -693,7 +696,7 @@ Continue with [Preparing for SAP software installation](#powervs-prepare-sap-ins
 ## Configuring {{site.data.keyword.powerSys_notm}} instances by using Ansible automation playbooks
 {: #powervs-configure-with-ansible-automation}
 
-To configure {{site.data.keyword.powerSys_notm}} instances for SAP applications, use Ansible automation playbooks on both [RHEL]{: tag-red} and [SLES]{: tag-green}.
+To configure virtual server instances for SAP applications, use Ansible automation playbooks on both [RHEL]{: tag-red} and [SLES]{: tag-green}.
 
 Download and install the `ibm.power_linux_sap` Ansible Galaxy collection:
 
@@ -777,7 +780,7 @@ When `/hana/data`, `/hana/log`, and `/hana/shared` are mounted correctly then co
 {: #powervs-prepare-sap-installation}
 
 The steps are required only for the virtual server instances for the SAP HANA system, and the SAP application server.
-You can skip these steps for the {{site.data.keyword.powerSys_notm}} instance for the SAP shared file systems.
+You can skip these steps for the virtual server instance for the SAP shared file systems.
 
 ### Configuring SLES for SAP applications
 {: #powervs-using-saptune-sles-sap}
@@ -957,7 +960,7 @@ The example shows the commands for device name `env2`.
    ```
    {: screen}
 
-### Checking the NUMA layout
+### Checking the nonuniform memory access layout
 {: #powervs-numa-layout}
 
 Check that the CPU and memory placement is optimized for SAP HANA by running the `chk_numa_lpm.py` script.
@@ -978,7 +981,7 @@ The script runs the following checks:
 Steps to run the Check
 
 1. Review the details in [SAP Note 2923962](https://me.sap.com/notes/2923962){: external}.
-1. Download the `chk_numa_lpm.py` script that is attached to the SAP Note and copy it to your {{site.data.keyword.powerSys_notm}} instance.
+1. Download the `chk_numa_lpm.py` script that is attached to the SAP Note and copy it to your virtual server instance.
 1. Set executable permissions for the script:
 
     ```sh

@@ -1,5 +1,9 @@
 
+
+
 If you use the `powervs-move-ip` resource agent, run the following command on NODE1 to create a cluster resource for the ERS virtual IP address.
+
+
 
 ```sh
 pcs resource create ${sid}_vip_ers${ERS_INSTNO} powervs-move-ip \
