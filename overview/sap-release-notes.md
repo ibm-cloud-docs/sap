@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-12"
 keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
@@ -74,7 +74,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 - New reference architecture: [SAP NetWeaver 7.x with SAP ASE database on DR configuration](/docs/sap?topic=sap-sap-ase-db-intro&interface=terraform)
 - New document: [Configuring SAP HANA multiple-host system replication in a Red Hat Enterprise Linux (RHEL) High Availability (HA) Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-mh)
 - Updated the following documents for new IP-Overlay resource agent `powervs-move-ip` in multi-zone HA scenarios including:
-   - Overview - [Resource agent](/docs/sap?topic=sap-ha-overview#ha-overview-hana-network-ra-move-ip) `powervs-move-ip`
+   - Overview - [Resource agent](/docs/sap?topic=sap-powervs-ha-rhel-overview#ha-overview-hana-network-ra-move-ip) `powervs-move-ip`
    - [Installing the powervs-move-ip resource agent](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-install-powervs-move-ip-resource-agent)
    - [Creating a virtual IP cluster resource in a multizone region environment](/docs/sap?topic=sap-ha-rhel-hana-ng-sh#ha-rhel-hana-ng-sh-mz-create-virtual-ip-resource)
 - IBM Power9 SAP HANA certified profiles are now discouraged for new deployments. Users are advised to migrate to IBM Power10 SAP HANA certified profiles or later, selecting the appropriate profile based on memory and core requirements. For more information, see [SAP HANA certified instances on {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
@@ -88,8 +88,8 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 
 - New reference architecture: [SAP NetWeaver 7.x on SAP ASE with Disaster Recovery](/docs/sap?topic=sap-sap-ase-db-intro)
 - New reference architecture: [SAP Workloads on VPC: IBM Cloud Logging, Monitoring, and Alerting](/docs/sap?topic=sap-cloud-monitoring)
-- New tutorials: [Accessing VPC zonal and regional file storage shares from {{site.data.keyword.vpc_full}} Virtual Server Instances and {{site.data.keyword.powerSys_notm}} Instances](/docs/sap?group=file-storage-shares-for-vpc)
-- New documentation: [Configuring and performing manual failover for SAP S/4HANA in a multizone region deployment](/docs/sap?topic=sap-ha-rt-sap-ip)
+- New tutorials: [Accessing VPC zonal and regional file storage shares from {{site.data.keyword.vpc_full}} Virtual Server Instances and {{site.data.keyword.powerSys_notm}} Instances](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro)
+- New documentation: [Configuring and performing manual failover for SAP S/4HANA in a multizone region deployment](/docs/sap?topic=sap-powervs-ha-rhel-rt-sap-ip)
 
 
 ## September 2025
@@ -120,15 +120,15 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 - Introduced new [bh2, ch2 and mh2 (OLAP, OLTP, and OLTP upto 4N) profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#bh2-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
 - Introduced new [sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr2-nw-profiles) for SAP NetWeaver/Application Servers on {{site.data.keyword.powerSysFull}}.
 - New documentation: [Accessing File Storage for VPC from {{site.data.keyword.powerSysFull}} Instances](/docs/sap?topic=sap-nfs-zonal-powervs-intro)
-- New documentation: [Alerting and notification in IBM Cloud Monitoring](/docs/sap?topic=sap-mon-alerting-notification)
-- Updated [architecture diagram](/docs/sap?topic=sap-mon-getting-started#monitoring-architecture) for {{site.data.keyword.mon_full_notm}} solution.
+- New documentation: [Alerting and notification in IBM Cloud Monitoring](/docs/sap?topic=sap-powervs-monitoring-alerting-notification)
+- Updated [architecture diagram](/docs/sap?topic=sap-powervs-monitoring#monitoring-architecture) for {{site.data.keyword.mon_full_notm}} solution.
 
 ## June 2025
 {: #sap-2025-06}
 
 - New documentation: [SAP S/4HANA running on HA configuration](/docs/sap?topic=sap-sap-s4hana-intro) for SAP workloads in VPC.
 - New documentation: [SAP Application/NetWeaver 7.x running on HA configuration](/docs/sap?topic=sap-sap-nw-hana-intro) for SAP workloads in VPC.
-- New documentation: [{{site.data.keyword.sysdigsecure_full}} instance](/docs/sap?topic=sap-scc-wp-getting-started) installation and configuration tutorial for SAP systems on {{site.data.keyword.powerSysFull}} and x86_64 Virtual Server Instance in {{site.data.keyword.vpc_short}}
+- New documentation: [{{site.data.keyword.sysdigsecure_full}} instance](/docs/sap?topic=sap-powervs-scc-wp-getting-started) installation and configuration tutorial for SAP systems on {{site.data.keyword.powerSysFull}} and x86_64 Virtual Server Instance in {{site.data.keyword.vpc_short}}
 - New documentation: [Implementing a SUSE Linux Enterprise Server high availability cluster](/docs/sap?topic=sap-ha-sles) on {{site.data.keyword.powerSysFull}}.
 - New documentation: [Configuring SAP HANA scale-up system replication in a SUSE Linux Enterprise High Availability Extension cluster](/docs/sap?topic=sap-ha-sles-hana-sr) on {{site.data.keyword.powerSysFull}}.
 
@@ -151,7 +151,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 
 - **New SAP HANA database profiles:** Introduced [ch2 and bh2 certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#p10-profiles) for SAP HANA database on IBM Power10 machines.
 - **Migration options:** New documentation on [migration paths](/docs/sap?topic=sap-sapmig-overview) for transitioning from on-premises environments to {{site.data.keyword.powerSys_notm}}.
-- **High availability best practices:** New documentation on [implementing high availability](/docs/sap?topic=sap-ha-overview) scenarios for {{site.data.keyword.powerSys_notm}}.
+- **High availability best practices:** New documentation on [implementing high availability](/docs/sap?topic=sap-powervs-ha-rhel-overview) scenarios for {{site.data.keyword.powerSys_notm}}.
 - **Backup strategies:** New documentation on [comprehensive backup strategies](/docs/sap?topic=sap-powervs-backup-strategies) for SAP HANA database on {{site.data.keyword.powerSys_notm}}.
-- **SAP workload monitoring:** Learn how to [monitor SAP workloads](/docs/sap?topic=sap-mon-getting-started) using {{site.data.keyword.BluSoftlayer_notm}} Monitoring instance and Prometheus server.
+- **SAP workload monitoring:** Learn how to [monitor SAP workloads](/docs/sap?topic=sap-powervs-monitoring) using {{site.data.keyword.BluSoftlayer_notm}} Monitoring instance and Prometheus server.
 - **VPC File Storage tutorial:** New [tutorial](/docs/sap?topic=sap-nfs-zonal-powervs-intro) for accessing VPC file storage shares from {{site.data.keyword.powerSys_notm}} instances.

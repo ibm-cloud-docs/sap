@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -43,7 +43,7 @@ Review the general requirements, product documentation, support articles, and SA
    - [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr).
 - A third virtual server instance is deployed in another workspace in {{site.data.keyword.powerSys_notm}}.
 - SAP HANA is installed on the third virtual server instance with the same `SID` and `Instance Number`.
-- Optional - you can reserve a virtual IP address for the system on NODE3 as described in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses).
+- Optional - you can reserve a virtual IP address for the system on NODE3 as described in [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-reserve-virtual-ip-addresses).
    Assigning and unassigning this virtual IP address on NODE3 is a manual task and not part of a cluster operation.
 
 ## Setting up a multitarget scenario

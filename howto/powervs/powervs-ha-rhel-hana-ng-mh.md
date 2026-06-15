@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, SAP HANA scale-out, High Availability, HA, Linux, Pacemaker, RHEL HA Add-On
 subcollection: sap
 ---
@@ -157,10 +157,10 @@ export POWERVSI_B2=<POWERVSI_B2>         # Virtual server instance B2 id
 ```
 {: codeblock}
 
-Set the environment variables `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_`, `POWERVSI_` as described in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config)  section.
+Set the environment variables `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_`, `POWERVSI_` as described in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-rhel-collect-parameters-for-cluster-config)  section.
 The `VIP` variable must be set to a virtual IP address resource that belongs to the subnet's `CIDR` range.
 
-Refer to [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) to reserve a virtual IP address for the SAP HANA system replication cluster.
+Refer to [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-reserve-virtual-ip-addresses) to reserve a virtual IP address for the SAP HANA system replication cluster.
 Then, set the `VIP` environment variable to the reserved IP address.
 
 The following export commands are an example of how to set the required environment variables.
@@ -695,7 +695,7 @@ The *fence_ibm_powervs* agent is the only supported STONITH fencing agent for cl
 You must configure a fencing device for each of the two HANA System Replication sites.
 The fence agent connects to the [Power Cloud API](https://cloud.ibm.com/apidocs/power-cloud){: external} by using the common `APIKEY` and `CLOUD_REGION` parameters.
 The parameters `IBMCLOUD_CRN_<n>`, `GUID_<n>`, and the instance ID `POWERVSI_<n>` are specific to the workspace.
-You can test the fence agent by using the parameters that you collected in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config) section.
+You can test the fence agent by using the parameters that you collected in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-rhel-collect-parameters-for-cluster-config) section.
 
 #### Identifying the virtual server instances for fencing
 {: #ha-rhel-hana-ng-mh-identify-virtual-instances-for-fencing}

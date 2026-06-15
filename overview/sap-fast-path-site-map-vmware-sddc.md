@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -47,14 +47,6 @@ Your enterprise IT organization can select from a variety of operating systems f
 
 Depending on your scenarios, the following information may be also relevant:
 - [IBM Cloud for SAP](https://www.ibm.com/products/cloud/sap){: external}
-
-
-## How To
-{: #fast-path-vmware-sddc-how-to}
-
-Provisioning VMware SDDC for SAP HANA and SAP NetWeaver:
-- [Planning your deployment](/docs/sap?topic=sap-vmware-sddc-planning-items)
-- [Deploying your infrastructure](/docs/sap?topic=sap-vmware-sddc-set-up-infrastructure)
 
 
 ## Help

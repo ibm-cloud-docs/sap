@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -111,7 +111,7 @@ RDBMS on Intel Bare Metal Servers in the IBM Cloud Classic Infrastructure that c
 {: #faq-achieve-sap-ha}
 
 High availability for SAP can be achieved for:
-- SAP HANA High Availability - [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview) and [SAP Note 2057595](https://me.sap.com/notes/2057595){: external}
+- SAP HANA High Availability - [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-ha-rhel-overview) and [SAP Note 2057595](https://me.sap.com/notes/2057595){: external}
 
 - SAP AnyDB High Availability (for example, IBM Db2, MS SQL, and so on.)
    - [Db2](https://me.sap.com/notes/1612105/){: external}

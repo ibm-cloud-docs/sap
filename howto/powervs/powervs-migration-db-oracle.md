@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, SAP ERP, SAP ECC, Linux, Red Hat, RHEL, SuSE, backup, restore
 subcollection: sap
 ---
@@ -315,7 +315,7 @@ In this section, we cover the generation of the RMAN backup set presenting two o
 {: #sapmig-db-oracle-backup-reference}
 
 For more details, consult this document:
-[Oracle Database Backup and Recovery - February 2024](https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/database-backup-and-recovery-reference.pdf){: external}
+[Oracle Database Backup and Recovery - February 2024](https://docs.oracle.com/en/database/oracle/oracle-database/18/rcmrf/database-backup-and-recovery-reference.pdfpdf){: external}
 
 ### Assumptions
 {: #sapmig-db-oracle-backup-assumptions}

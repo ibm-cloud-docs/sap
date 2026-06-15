@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -107,7 +107,7 @@ Don't use hyphens in the volume group or logical volume names.
 ### Assigning virtual IP addresses
 {: #ha-rhel-ensa-assign-virtual-ip}
 
-Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses).
+Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-reserve-virtual-ip-addresses).
 
 Check whether the virtual IP address for the SAP instance is present.
 Otherwise, you need to identify the correct network adapter to assign the IP address.

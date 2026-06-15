@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-06-12"
 keywords: SAP,{{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPMEM, Virtual persistent memory, VPMEM on {{site.data.keyword.powerSys_notm}}, Configure VPMEM
 subcollection: sap
 ---
@@ -417,4 +417,4 @@ For detailed instructions, refer to the [Using vPMEM with SAP HANA](https://comm
 ## Application programming interface (API)
 {: #powervs-vpmem-api-deployment}
 
-To deploy vPMEM with SAP HANA on {{site.data.keyword.powerSys_notm}}, see [Create a new SAP PVM Instance](/apidocs/power-cloud#pcloud-sap-post){: external}.
+To deploy vPMEM with SAP HANA on {{site.data.keyword.powerSys_notm}}, see [Create a new SAP PVM Instance](https://cloud.ibm.com/apidocs/power-cloud#pcloud-sap-post){: external}.

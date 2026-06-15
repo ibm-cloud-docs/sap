@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-09"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -96,7 +96,7 @@ export JUMBO="true or false"             # Enable Jumbo frames (powervs-subnet o
 #### Setting extra environment variables for a single zone implementation
 {: #ha-rhel-hana-ng-sh-sz-prepare-environment-variables}
 
-Review [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA system replication cluster.
+Review [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA system replication cluster.
 Set the `VIP` environment variable to the reserved IP address.
 
 #### Setting extra environment variables for a multizone region implementation
@@ -104,7 +104,7 @@ Set the `VIP` environment variable to the reserved IP address.
 
 
 
-Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, `POWERVSI_?` variables as described in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config)  section.
+Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, `POWERVSI_?` variables as described in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-rhel-collect-parameters-for-cluster-config)  section.
 Set `API_TYPE` to `private` to enable communication with the {{site.data.keyword.iamlong}} and IBM Power Cloud API through private endpoints.
 
 Prepare the variables for the `powervs-subnet` resource agent:
@@ -562,7 +562,7 @@ Proceed to the [Creating cluster resource constraints](#ha-rhel-hana-sr-create-c
 #### Creating a virtual IP cluster resource in a multizone region environment
 {: #ha-rhel-hana-ng-sh-mz-create-virtual-ip-resource}
 
-Choose the resource agent for the virtual IP cluster resource as described in the [High availability network considerations](/docs/sap?topic=sap-ha-overview#ha-overview-hana-network-considerations) section.
+Choose the resource agent for the virtual IP cluster resource as described in the [High availability network considerations](/docs/sap?topic=sap-powervs-ha-rhel-overview#ha-overview-hana-network-considerations) section.
 
 Ensure that you completed all steps in the [Preparing a multi-zone RHEL HA Add-On cluster for a virtual IP address resource](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-create-vip) section.
 

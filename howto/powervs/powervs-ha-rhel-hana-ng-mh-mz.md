@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-06-03"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, SAP HANA scale-out, High Availability, HA, Linux, Pacemaker, RHEL HA Add-On
 subcollection: sap
 ---
@@ -164,9 +164,9 @@ export MON_API="true"           # Use cloud api in monitor command (powervs-move
 ```
 {: codeblock}
 
-Set the environment variables `CLOUD_REGION`, `ZONE_1`, `ZONE_2`, `ZONE_3`, `APIKEY`, `IBMCLOUD_CRN_`, `POWERVSI_` as described in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config).
+Set the environment variables `CLOUD_REGION`, `ZONE_1`, `ZONE_2`, `ZONE_3`, `APIKEY`, `IBMCLOUD_CRN_`, `POWERVSI_` as described in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-rhel-collect-parameters-for-cluster-config).
 
-Set the `VIP` variable to a reserved virtual IP address for the SAP HANA system replication cluster that belongs to the subnet `CIDR` range. For details, see [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses).
+Set the `VIP` variable to a reserved virtual IP address for the SAP HANA system replication cluster that belongs to the subnet `CIDR` range. For details, see [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-reserve-virtual-ip-addresses).
 
 The following export commands are an example of how to set the required environment variables:
 
@@ -696,7 +696,7 @@ STONITH (Shoot the other node in the head) is a fencing mechanism that protects 
 Enable STONITH (fencing) for a RHEL HA Add-On production cluster.
 {: important}
 
-You can test the fence agent by using the parameters that you collected in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config) section.
+You can test the fence agent by using the parameters that you collected in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-rhel-collect-parameters-for-cluster-config) section.
 
 #### Creating the STONITH devices
 {: #ha-rhel-hana-ng-mh-mz-create-stonith-device}
@@ -997,7 +997,7 @@ pcs resource config SAPHanaController_${SID}_${INSTNO}-clone
 {: #ha-rhel-hana-ng-mh-mz-create-virtual-ip-resource}
 
 Follow the procedures in [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster in a multi-zone region environment](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-install-powervs-move-ip-resource-agent).
-For architectural details and additional information, see [Resource agent powervs-move-ip](/docs/sap?topic=sap-ha-overview#ha-overview-hana-network-ra-move-ip).
+For architectural details and additional information, see [Resource agent powervs-move-ip](/docs/sap?topic=sap-powervs-ha-rhel-overview#ha-overview-hana-network-ra-move-ip).
 
 Install the `powervs-move-ip` resource agent on all cluster nodes, create the static route in the workspace for the virtual IP and create a service ID for the resource agent.
 

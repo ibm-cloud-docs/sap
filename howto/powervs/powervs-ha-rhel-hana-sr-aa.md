@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-09"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -91,7 +91,7 @@ Use the following information to configure the additional cluster resources that
 ### Creating a secondary virtual IP address resource
 {: #ha-rhel-hana-sr-aa-create-2nd-ip-address-cluster-resource}
 
-Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the secondary.
+Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the secondary.
 
 Use the reserved IP address to create a virtual IP address resource.
 This virtual IP address allows clients to connect to the secondary HANA instance for read-only queries.

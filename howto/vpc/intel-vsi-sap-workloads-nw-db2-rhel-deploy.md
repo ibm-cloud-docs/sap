@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-12"
 keywords:
 subcollection: sap
 ---
@@ -569,12 +569,6 @@ After you download the installation media, follow the standard SAP installation 
 * [Installation of SAP Systems based on the Application Server Java of SAP NetWeaver 7.1 to 7.5 on Windows: IBM Db2 LUW](https://help.sap.com/docs/SLTOOLSET/d65d4f66e8c34555ad9541734f9cd5b0/930c6eefd5b94f02bd2fd9d90fbd47ee.html?version=CURRENT_VERSION){: external}
 * [SAP Note 1707362 - Inst. Systems based on NW 7.1 and Higher: Windows Db2 LUW](https://me.sap.com/notes/1707362){: external}
 
-**SAP on IBM Db2 using Intel Bare Metal:**
-* [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external} for supported IBM Db2 database versions.
-
-A sample configuration is shown in:
-* [Quick Study Tutorial - SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, using RHEL](/docs/sap?topic=sap-quickstudy-bm-netweaver-rhel)
-* [Quick Study Tutorial - SAP NetWeaver deployment to Bare Metal on Classic Infrastructure, by using Windows Server](/docs/sap?topic=sap-quickstudy-bm-netweaver-wins)
 
 **SAP on IBM Db2 using Intel Virtual Servers:**
 * [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment](https://me.sap.com/notes/2927211){: external} for supported IBM Db2 database versions.

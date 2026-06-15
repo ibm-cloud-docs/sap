@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -134,14 +134,14 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 {: #fast-path-power-vs-how-to-monitoring}
 
 - Overview
-   - [Getting started with IBM Cloud Monitoring for SAP systems](/docs/sap?topic=sap-mon-getting-started)
+   - [Getting started with IBM Cloud Monitoring for SAP systems](/docs/sap?topic=sap-powervs-monitoring)
 
 - Setting-up
-   - [Prerequisites](/docs/sap?topic=sap-monitoring-prereqs)
-   - [Creating a monitoring instance in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-monitoring-instance)
-   - [Setup and configuration of a monitoring host](/docs/sap?topic=sap-mon-exporter-setup-config)
-   - [Configuration of Prometheus server metric forwarding](/docs/sap?topic=sap-mon-metric-forwarding)
-   - [Launching the monitoring UI and working with dashboards](/docs/sap?topic=sap-mon-launch-web-ui-dashboards)
+   - [Prerequisites](/docs/sap?topic=sap-powervs-monitoring-prereqs)
+   - [Creating a monitoring instance in {{site.data.keyword.cloud}}](/docs/sap?topic=sap-powervs-monitoring-instance)
+   - [Setup and configuration of a monitoring host](/docs/sap?topic=sap-powervs-monitoring-exporter-setup-config)
+   - [Configuration of Prometheus server metric forwarding](/docs/sap?topic=sap-powervs-monitoring-metric-forwarding)
+   - [Launching the monitoring UI and working with dashboards](/docs/sap?topic=sap-powervs-monitoring-launch-web-ui-dashboards)
 
 ### Migration
 {: #fast-path-power-vs-how-to-migration}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2026
-lastupdated: "2026-04-14"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -97,7 +97,7 @@ export POWERVSI_2=<POWERVSI_2>           # Virtual server instance id (required 
 ```
 {: codeblock}
 
-To find the settings for the `APIKEY`, `IBMCLOUD_CRN_?`, `GUID_?`, and `POWERVSI_?` variables, follow the steps in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config).
+To find the settings for the `APIKEY`, `IBMCLOUD_CRN_?`, `GUID_?`, and `POWERVSI_?` variables, follow the steps in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-rhel-collect-parameters-for-cluster-config).
 
 ## Installing and configuring a RHEL HA Add-On cluster
 {: #ha-rhel-mz-install-and-configure-rhel-ha-cluster}
@@ -240,7 +240,7 @@ As an alternative to *fence_ibm_powervs*, you can implement STONITH Block Device
 You must configure a fencing device for each of the two workspaces in the multizone region.
 The fence agent connects to the [Power Cloud API](https://cloud.ibm.com/apidocs/power-cloud){: external} by using the common `APIKEY` and `CLOUD_REGION` parameters.
 The parameters `IBMCLOUD_CRN_<n>`, `GUID_<n>`, and the instance ID `POWERVSI_<n>` are specific to the workspace.
-You can test the agent invocation by using the parameters that you gathered in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config) section.
+You can test the agent invocation by using the parameters that you gathered in the [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-rhel-collect-parameters-for-cluster-config) section.
 
 #### Identifying the virtual server instances for fencing
 {: #ha-rhel-mz-identify-virtual-instances-for-fencing}
@@ -651,7 +651,7 @@ pcs resource describe powervs-move-ip
 ### Creating a custom role, service ID, and API key for the resource agent
 {: #ha-rhel-mz-iam-custom-role}
 
-Follow the steps in [Configuring IAM for Cluster Resource and Fencing Agents on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-vsi#ha-vsi-configure-iam) to authenticate and authorize the agents in Identity and Access Management (IAM).
+Follow the steps in [Configuring IAM for Cluster Resource and Fencing Agents on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-configure-iam) to authenticate and authorize the agents in Identity and Access Management (IAM).
 
 ## Conclusion
 {: #ha-rhel-mz-conclusion}

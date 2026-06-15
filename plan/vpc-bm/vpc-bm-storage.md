@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-06-12"
 keywords: SAP, Bare Metal, VPC, NVMe, storage, IOPS, HANA, log, data, shared, {{site.data.keyword.filestorage_vpc_short}}, sapmnt, {{site.data.keyword.cos_full_notm}}, VPE, plan, nvme, raid, local storage
 subcollection: sap
 ---
@@ -173,7 +173,7 @@ Configure storage as follows:
 - [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about)
 - [File Storage for VPC profiles](/docs/vpc?topic=vpc-file-storage-profiles)
 - [Cloud Object Storage classes](/docs/cloud-object-storage?topic=cloud-object-storage-classes)
-- [Accessing file storage shares for VPC](/docs/sap?group=file-storage-shares-for-vpc)
+- [Accessing file storage shares for VPC](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro)
 - [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}
 - [SAP Help Portal: SAP HANA Tailored Data Center Integration](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html){: external}
 - [SAP Help Portal: SAP HANA Hardware and Cloud Measurement Tools guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}

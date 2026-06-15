@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -47,7 +47,7 @@ Review the general requirements, product documentation, support articles, and SA
    The nonproduction system needs its own dedicated storage volumes and file systems.
    Restrict the *Global Memory Allocation Limit* for the nonproduction system to ensure sufficient memory for the HANA system replication workload on the secondary.
    The limit is set with the `global_allocation_limit` parameter in the `[memorymanager]` section of the `global.ini` configuration file.
-- Optional, a virtual IP address is reserved for the nonproduction system as described in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses).
+- Optional, a virtual IP address is reserved for the nonproduction system as described in [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-reserve-virtual-ip-addresses).
 
 ## Setting up the cost optimized scenario
 {: #ha-rhel-hana-sr-co-setup}

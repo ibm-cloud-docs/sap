@@ -81,7 +81,7 @@ A restart of the message server is sufficient because no data needs to be retain
 
 To protect the shared file system, create [File storage shares for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 File Storage for {{site.data.keyword.filestorage_vpc_full}} is designed for high availability and offers profiles for zonal and regional deployments.
-Mount the file system on your {{site.data.keyword.powerSys_notm}} instances by following the steps in [Accessing file storage shares for VPC](/docs/sap?group=file-storage-shares-for-vpc).
+Mount the file system on your {{site.data.keyword.powerSys_notm}} instances by following the steps in [Accessing file storage shares for VPC](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro).
 
 ## Overview of high availability clusters
 {: #ha-overview-ha-cluster}

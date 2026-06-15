@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-05-13"
+lastupdated: "2026-06-12"
 keywords: SAP, FlashSystem, Power, storage tiers, IOPS, log, data, shared, cos, file storage, boot, block storage, sapmnt, plan
 subcollection: sap
 ---
@@ -110,7 +110,7 @@ Communicating with the VPE gives secure access from your virtual server instance
 
 {{site.data.keyword.powerSys_notm}} does not provide a native file storage solution.
 Instead, use [File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about), and access it by configuring network connectivity from your {{site.data.keyword.powerSys_notm}} workspace to VPC.
-See [Accessing file storage shares for VPC](/docs/sap?group=file-storage-shares-for-vpc).
+See [Accessing file storage shares for VPC](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro).
 
 The table provides an overview about file systems on file storage:
 
@@ -170,7 +170,7 @@ Configure an own {{site.data.keyword.powerSys_notm}} storage volume for the `/us
 - [Storage tiers](/docs/power-iaas?topic=power-iaas-private-cloud-architecture#storage-tiers-spec-private-cloud)
 - [File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about)
 - [Cloud Object Storage classes](/docs/cloud-object-storage?topic=cloud-object-storage-classes)
-- [Accessing file storage shares for VPC](/docs/sap?group=file-storage-shares-for-vpc)
+- [Accessing file storage shares for VPC](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro)
 - [SAP HANA Tailored Data Center Integration](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html){: external}
 - [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}
 - [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}

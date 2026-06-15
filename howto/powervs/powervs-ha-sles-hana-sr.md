@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-06-12"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, SLES, SUSE, SUSE High Availability Extension, SLES HAE
 subcollection: sap
 ---
@@ -73,7 +73,7 @@ export VIP=<IP address>     # SAP HANA System Replication cluster virtual IP add
 #### Setting extra environment variables for implementing a single zone
 {: #ha-sles-hana-sr-sz-prepare-environment-variables}
 
-Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA System Replication cluster.
+Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-sles-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA System Replication cluster.
 Set the `VIP` environment variable to the reserved IP address.
 
 ### Installing SAP HANA resource agents

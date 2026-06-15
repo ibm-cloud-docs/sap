@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -84,12 +84,12 @@ export JUMBO="true or false"             # Enable Jumbo frames
 #### Setting extra environment variables for a single zone implementation
 {: #ha-rhel-hana-sr-sz-prepare-environment-variables}
 
-Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA system replication cluster. Set the `VIP` environment variable to the reserved IP address.
+Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA system replication cluster. Set the `VIP` environment variable to the reserved IP address.
 
 #### Setting extra environment variables for a multizone region implementation
 {: #ha-rhel-hana-sr-mz-prepare-environment-variables}
 
-Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, and `POWERVSI_?` variables as described in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-ha-vsi#ha-rhel-collect-parameters-for-cluster-config).
+Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, and `POWERVSI_?` variables as described in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-rhel-collect-parameters-for-cluster-config).
 Set the `API_TYPE` variable to `private` to communicate with IBM Cloud IAM and the IBM Power Cloud API through private endpoints.
 
 The `powervs-move-ip` cluster resource agent additionally requires the following settings:

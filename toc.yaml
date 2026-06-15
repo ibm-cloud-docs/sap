@@ -294,9 +294,9 @@ toc:
               id: howto-vpc-baremetal-s4hana-deploy
               topics:
               - navtitle: Planning
-                topic: howto/vpc-intel-bm/intel-bm-provision-gen2-plan-deploy.md
+                topic: howto/vpc/intel-bm-provision-gen2-plan-deploy.md
               - navtitle: Deploying
-                topic: howto/vpc-intel-bm/intel-bm-provision-gen2-deploy-infrastructure.md
+                topic: howto/vpc/intel-bm-provision-gen2-deploy-infrastructure.md
           - topicgroup:
               label: SAP NetWeaver with Db2
               id: howto-vpc-sap-netweaver-with-db2

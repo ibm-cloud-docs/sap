@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-12"
 keywords: Powervs, Certified Profile, {{site.data.keyword.sap_app_server}}, {{site.data.keyword.powerSys_notm}},
 subcollection: sap
 ---
@@ -33,8 +33,6 @@ subcollection: sap
 | [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/documents/us-en/10a99803f42fd831){: external}  |   N/A                          | 6,000                         |  N/A                          |
 {: caption="{{site.data.keyword.sap_app_server}} certified system types" caption-side="top"}
 
-{{site.data.keyword.sap_app_server}} certified instances on E1050 are currently not supported.
-{: note}
 
 For more information, see [SAP Note 2855850 - SAP Applications on IBM {{site.data.keyword.powerSys_notm}}s](https://launchpad.support.sap.com/#/notes/2855850){: external}
 
@@ -42,6 +40,9 @@ For more information, see [SAP Note 2855850 - SAP Applications on IBM {{site.dat
 {: #predefined-profiles}
 
 {{site.data.keyword.sap_app_server}} certified instances on IBM {{site.data.keyword.powerSys_notm}}s are also available as predefined configurations. A predefined {{site.data.keyword.sap_app_server}} certified instance or profile on IBM {{site.data.keyword.powerSys_notm}} defines attributes, such as physical CPU cores and RAM, which determine the size and performance capabilities of the virtual server instance.
+
+{{site.data.keyword.sap_app_server}} certified instances on E1050 are currently not supported.
+{: note}
 
 ### Profile naming convention
 {: #naming-convention}

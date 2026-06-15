@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-11-10"
+  years: 2023, 2026
+lastupdated: "2026-06-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, NFS Server, Linux
 subcollection: sap
 ---
@@ -558,7 +558,7 @@ pcs resource create nfs_export exportfs \
 #### Configuring a floating IP address resource
 {: #ha-rhel-nfs-cfg-vip-rg}
 
-Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-ha-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the NFS cluster.
+Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the NFS cluster.
 
 Create a resource for the virtual IP address of the NFS Server.
 NFS clients access the NFS share by using the floating IP address.
