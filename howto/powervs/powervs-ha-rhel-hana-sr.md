@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-12"
+lastupdated: "2026-06-17"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -12,11 +12,10 @@ subcollection: sap
 # Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster
 {: #ha-rhel-hana-sr}
 
-Use this information to configure a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster to manage SAP HANA scale-up system replication.
-The cluster uses virtual server instances in [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external} as cluster nodes.
+This information describes how to configure a Red Hat Enterprise Linux (RHEL) High Availability Add-On cluster to manage SAP HANA scale-up system replication on [{{site.data.keyword.powerSysFull}}](https://www.ibm.com/products/power-virtual-server){: external}. The cluster uses two virtual server instances as cluster nodes and automates SAP HANA system replication for a single-database deployment in a performance-optimized scenario.
 {: shortdesc}
 
-The instructions describe how to automate SAP HANA scale-up system replication for a single-database deployment in a performance-optimized scenario on a RHEL High Availability Add-On cluster.
+The content explains the prerequisites, environment variable preparation, SAP HANA resource agent installation, hook configuration, cluster resource creation, virtual IP address setup, cluster constraints, and failover testing. It also includes guidance for both single-zone and multizone region implementations.
 
 This information is intended for architects and specialists who are planning a high availability deployment of SAP HANA on {{site.data.keyword.powerSys_notm}}.
 {: note}
@@ -40,12 +39,12 @@ Review the general requirements, product documentation, support articles, and SA
 ## Configuring SAP HANA system replication in a RHEL HA Add-On cluster on IBM {{site.data.keyword.powerSys_notm}}
 {: #ha-rhel-hana-sr-configure-sr}
 
-The instructions are based on the Red Hat product documentation and articles that are listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
+This information is based on the Red Hat product documentation and articles that are listed in [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
 
 ### Preparing environment variables
 {: #ha-rhel-hana-sr-prepare-environment-variables}
 
-To simplify the setup, define the following environment variables for the root user on both nodes. These variables are used in later operating system commands throughout this procedure.
+To simplify the setup, define the following environment variables for the `root` user on both nodes. You use these variables in later operating system commands throughout this procedure.
 
 On both nodes, set the following environment variables.
 
@@ -84,15 +83,15 @@ export JUMBO="true or false"             # Enable Jumbo frames
 #### Setting extra environment variables for a single zone implementation
 {: #ha-rhel-hana-sr-sz-prepare-environment-variables}
 
-Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA system replication cluster. Set the `VIP` environment variable to the reserved IP address.
+Review the information in [Reserving virtual IP addresses](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-vsi-reserve-virtual-ip-addresses) and reserve a virtual IP address for the SAP HANA system replication cluster. Then, set the `VIP` environment variable to the reserved IP address.
 
 #### Setting extra environment variables for a multizone region implementation
 {: #ha-rhel-hana-sr-mz-prepare-environment-variables}
 
 Set the `CLOUD_REGION`, `APIKEY`, `IBMCLOUD_CRN_?`, and `POWERVSI_?` variables as described in [Collecting parameters for configuring a high availability cluster](/docs/sap?topic=sap-powervs-ha-rhel-vsi#ha-rhel-collect-parameters-for-cluster-config).
-Set the `API_TYPE` variable to `private` to communicate with IBM Cloud IAM and the IBM Power Cloud API through private endpoints.
+Set the `API_TYPE` variable to `private` to communicate with {{site.data.keyword.iamlong}} (IAM) and the IBM Power Cloud API through private endpoints.
 
-The `powervs-move-ip` cluster resource agent additionally requires the following settings:
+The `powervs-move-ip` cluster resource agent requires the following settings:
 - The `VIP` variable is the IP address of the virtual IP address resource (overlay IP address) and must not belong to any CIDR range of a subnet.
 - The `ROUTE_CRN1` variable is the CRN of the static route in Workspace_1.
 - The `ROUTE_CRN2` variable is the CRN of the static route in Workspace_2.
@@ -108,7 +107,7 @@ Setting `MON_API` to `false` can prevent a resource failure that is caused by te
 
 
 
-The following is an example of how to set the extra environment variables that are required for a multizone region implementation when using the `powervs-move-ip` cluster resource agent.
+The following example shows how to set the extra environment variables that are required for a multizone region implementation when you use the `powervs-move-ip` cluster resource agent.
 
 ```sh
 export CLOUD_REGION="eu-de"
@@ -123,13 +122,13 @@ export MON_API="false"
 
 
 
-The `powervs-subnet` cluster resource agent additionally requires the following settings:
+The `powervs-subnet` cluster resource agent requires the following settings:
 - The `SUBNET_NAME` variable contains the name of the subnet.
 - The `CIDR` variable represents the *Classless Inter-Domain Routing (CIDR)* notation for the subnet in the format `<IPv4_address>/number`.
 - The `VIP` variable is the IP address of the virtual IP address resource and must belong to the `CIDR` of the subnet.
 - Set the `JUMBO` variable to `true` if you want to enable the subnet for a large MTU size.
 
-The following is an example of how to set the extra environment variables that are required for a multizone region implementation when using the `powervs-subnet` cluster resource agent.
+The following example shows how to set the extra environment variables that are required for a multizone region implementation when you use the `powervs-subnet` cluster resource agent.
 
 ```sh
 export CLOUD_REGION="eu-de"
@@ -162,7 +161,7 @@ dnf install -y resource-agents-sap-hana
 Start SAP HANA and verify that SAP HANA system replication is active.
 For more information, see [2.4. Checking SAP HANA System Replication state](https://access.redhat.com/articles/3004101#checking-sap-hana-system-replication-state){: external}.
 
-On both nodes, run the following commands.
+On both nodes, run the following commands to start SAP HANA.
 
 ```sh
 sudo -i -u ${sid}adm -- HDB start
@@ -180,9 +179,9 @@ EOT
 ### Enabling the SAP HANA srConnectionChanged() hook
 {: #ha-rhel-hana-sr-enable-hana-sr-hook}
 
-Recent versions of SAP HANA provide *hooks* so that SAP HANA can send notifications for certain events. For more information, see [Implementing a HA/DR Provider](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/1367c8fdefaa4808a7485b09815ae0f3.html){: external}.
+SAP HANA provides *hooks* that send notifications when specific events occur. For more information, see [Implementing a HA/DR Provider](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/1367c8fdefaa4808a7485b09815ae0f3.html){: external}.
 
-The *srConnectionChanged()* hook improves the cluster's ability to detect a SAP HANA system replication status change that requires cluster action. This hook helps prevent data loss and corruption by avoiding accidental takeovers.
+The *srConnectionChanged()* hook improves the cluster ability to detect an SAP HANA system replication status change that requires cluster action. This hook helps prevent data loss and corruption by avoiding accidental takeovers.
 
 #### Activating the srConnectionChanged() hook on all SAP HANA instances
 {: #ha-rhel-hana-sr-activate-hana-sr-hook}
@@ -196,7 +195,7 @@ The *srConnectionChanged()* hook improves the cluster's ability to detect a SAP 
    ```
    {: pre}
 
-1. Install the hook script that is provided by the *resource-agents-sap-hana* package in the `/hana/shared/myHooks` directory on each SAP HANA instance, and set the required ownership.
+1. Install the hook script that is provided by the *resource-agents-sap-hana* package in the `/hana/shared/myHooks` directory on each SAP HANA instance. Then, set the required ownership.
 
    On both nodes, run the following commands.
 
@@ -230,7 +229,7 @@ The *srConnectionChanged()* hook improves the cluster's ability to detect a SAP 
    ```
    {: pre}
 
-1. Verify the changed file.
+1. Verify the updated file.
 
    On both nodes, run the following command.
 
@@ -239,9 +238,9 @@ The *srConnectionChanged()* hook improves the cluster's ability to detect a SAP 
    ```
    {: pre}
 
-1. Create sudo settings for SAP HANA OS user.
+1. Configure sudo settings for the SAP HANA operating system user.
 
-   You need the following sudo settings to allow the `${sid}adm` user script to update the node attributes when the *srConnectionChanged()* hook runs.
+   The following sudo settings to allow the `${sid}adm` user script to update the node attributes when the *srConnectionChanged()* hook runs.
 
    On both nodes, run the following commands.
 
@@ -259,7 +258,7 @@ The *srConnectionChanged()* hook improves the cluster's ability to detect a SAP 
    ```
    {: pre}
 
-   Adjust the permissions and check for syntax errors.
+   Set the correct ownership and permissions and use `visudo` to validate its syntax.
 
    ```sh
    chown root:root /etc/sudoers.d/20-saphana
@@ -281,13 +280,13 @@ The *srConnectionChanged()* hook improves the cluster's ability to detect a SAP 
    ```
    {: pre}
 
-Any problems that are reported by the `visudo -c` command must be corrected.
+Correct any issues reported by the `visudo -c` command.
 {: note}
 
-1. Verify that the hook functions.
+1. Verify that the hook functions correctly.
 
    - Restart both SAP HANA instances and verify that the hook script works as expected.
-   - Perform an action to trigger the hook, such as stopping a SAP HANA instance.
+   - Perform an action to trigger the hook, such as stopping an SAP HANA instance.
    - Check whether the hook logged anything in the trace files.
 
    On both nodes, run the following commands.
@@ -306,14 +305,14 @@ Any problems that are reported by the `visudo -c` command must be corrected.
    ```
    {: pre}
 
-   Check that the hook logged some messages to the trace files.
+   Check whether the hook logged messages to the trace files.
 
    ```sh
    sudo -i -u ${sid}adm -- sh -c 'grep "ha_dr_SAPHanaSR.*crm_attribute" $DIR_INSTANCE/$VTHOSTNAME/trace/nameserver_* | cut -d" " -f2,3,5,17'
    ```
    {: pre}
 
-   After you verify that the hooks function, you can restart the HA cluster.
+   After you verify that the hooks function, restart the HA cluster.
 
 1. Start the cluster.
 
@@ -336,9 +335,9 @@ Any problems that are reported by the `visudo -c` command must be corrected.
 ### Configuring general cluster properties
 {: #ha-rhel-hana-sr-configure-cluster-properties}
 
-To avoid resource failover during initial testing and post-production, set the following default values for the resource-stickiness and migration-threshold parameters.
+To avoid resource failover during initial testing and post-production, set the following default values for the `resource-stickiness` and `migration-threshold` parameters.
 
-Keep in mind that defaults don't apply to resources that override them with their own defined values.
+These default values do not apply to resources that override them with their own defined values.
 
 On NODE1, run the following commands.
 
@@ -372,7 +371,7 @@ pcs resource create SAPHanaTopology_${SID}_${INSTNO} SAPHanaTopology \
 ```
 {: pre}
 
-Check the configuration and the cluster status by running the following commands.
+Verify the resource configuration and cluster status by running the following commands.
 
 ```sh
 pcs resource config SAPHanaTopology_${SID}_${INSTNO}
@@ -412,7 +411,7 @@ pcs resource create SAPHana_${SID}_${INSTNO} SAPHana \
 ```
 {: pre}
 
-Check the configuration and the cluster status.
+Verify the configuration and the cluster status.
 
 ```sh
 pcs resource config SAPHana_${SID}_${INSTNO}
@@ -445,7 +444,7 @@ pcs resource create vip_${SID}_${INSTNO} IPaddr2 ip=$VIP
 ```
 {: pre}
 
-Check the configured virtual IP address cluster resource and the cluster status.
+Verify the configured virtual IP address cluster resource and the cluster status.
 
 ```sh
 pcs resource config vip_${SID}_${INSTNO}
@@ -464,12 +463,32 @@ Proceed to the [Creating cluster resource constraints](#ha-rhel-hana-sr-create-c
 
 Verify that you have completed all the steps in the [Preparing a multi-zone RHEL HA Add-On cluster for a virtual IP address resource](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-create-vip) section.
 
-
-
-Run the `pcs resource describe powervs-subnet` command to get information about the resource agent parameters.
+Run the `pcs resource describe powervs-move-ip` command to get information about the resource agent parameters.
 {: note}
 
-On NODE1, create a `powervs-subnet` cluster resource by running the following command.
+If you use the `powervs-move-ip` resource agent, run the following command on NODE1 to create a cluster resource for virtual IP address.
+
+```sh
+pcs resource create vip_${SID}_${INSTNO} powervs-move-ip \
+    api_key=${APIKEY} \
+    api_type=${API_TYPE} \
+    ip=${VIP} \
+    route_host_map="${NODE1}:${ROUTE_CRN1};${NODE2}:${ROUTE_CRN2}" \
+    region=${CLOUD_REGION} \
+    monitor_api=${MON_API}
+    op start timeout=60 \
+    op stop timeout=60 \
+    op monitor interval=60 timeout=60
+```
+{: pre}
+
+If you set `API_TYPE` to `public`, you must also specify a `proxy` parameter.
+{: note}
+
+Otherwise, run the following command on NODE1 to create a `powervs-subnet` cluster resource for the virtual IP address.
+
+Ensure that both virtual server instances in the cluster have the status `Active` and the health status `OK` before running the `pcs resource config` command by using the `powervs-subnet` resource agent.
+{: important}
 
 ```sh
 pcs resource create vip_${SID}_${INSTNO} powervs-subnet \
@@ -491,19 +510,14 @@ pcs resource create vip_${SID}_${INSTNO} powervs-subnet \
 If you set `API_TYPE` to `public`, you must also specify a `proxy` parameter.
 {: note}
 
-Ensure that both virtual server instances in the cluster have the status `Active` and the health status `OK` before running the `pcs resource config` command.
-{: important}
-
-
-
-Check the configured virtual IP address resource and the cluster status.
+Verify the configured virtual IP address resource and the cluster status.
 
 ```sh
 pcs resource config vip_${SID}_${INSTNO}
 ```
 {: pre}
 
-Sample output:
+Sample output for `powervs-subnet` resource agent:
 
 ```sh
 # pcs resource config vip_MHA_00
@@ -618,14 +632,14 @@ Proceed to the [Creating cluster resource constraints](#ha-rhel-hana-sr-create-c
 ### Creating cluster resource constraints
 {: #ha-rhel-hana-sr-create-constraints}
 
-Make sure that *SAPHanaTopology* resources are started before you start the *SAPHana* resources.
+Ensure that *SAPHanaTopology* resources are started before you start the *SAPHana* resources.
 
 The virtual IP address must be present on the node where the primary resource of *SAPHana* is running.
 
-1. Create a resource constraint to start "SAPHanaTopology" before "SAPHana".
+1. Create a resource constraint to start *SAPHanaTopology* before *SAPHana*.
    This constraint mandates the start order of these resources.
 
-   On NODE1, use the following command to create the *SAPHanaTopology* order constraint:
+   On NODE1, use the following command to create the *SAPHanaTopology* order constraint.
 
    ```sh
    pcs constraint order SAPHanaTopology_${SID}_${INSTNO}-clone \
@@ -633,7 +647,7 @@ The virtual IP address must be present on the node where the primary resource of
    ```
    {: pre}
 
-   Check the configuration.
+   Verify that the constraint is applied correctly.
 
    ```sh
    pcs constraint
@@ -651,7 +665,7 @@ The virtual IP address must be present on the node where the primary resource of
    ```
    {: pre}
 
-   Check the configuration and the cluster status.
+   Verify the configuration and the cluster status.
 
    ```sh
    pcs constraint
@@ -689,7 +703,7 @@ The virtual IP address must be present on the node where the primary resource of
 {: #ha-rhel-hana-sr-enable-hana-servicestatechanged-hook}
 
 SAP HANA has built-in functions to monitor its `indexserver`.
-In case of a problem, SAP HANA tries to recover automatically by stopping and restarting the process.
+If a problem occurs, SAP HANA tries to recover automatically by stopping and restarting the process.
 To stop the process or clean up after a crash, the Linux kernel must release all memory that is allocated by the process.
 For large databases, this cleanup can take a long time.
 During this time, SAP HANA continues to operate and accept new client requests.
@@ -697,35 +711,35 @@ As a result, SAP HANA system replication can become out of sync.
 If another error occurs in the SAP HANA instance before the restart and recovery of the `indexserver` is complete, data consistency is at risk.
 
 The `ChkSrv.py` script for the `srServiceStateChanged()` hook reacts to such a situation and can stop the entire SAP HANA instance for faster recovery.
-If `automated failover` is enabled in the cluster, and the secondary node is in a healthy state, a takeover operation is started.
-Otherwise, recovery must continue locally, but is accelerated by the forced restart of the SAP HANA instance.
+If `automated failover` is enabled in the cluster, and the secondary node is healthy, a takeover operation is starts.
+Otherwise, recovery continues locally, but is accelerated by the forced restart of the SAP HANA instance.
 
 The SAP HANA `srServiceStateChanged()` hook is available with `resource-agents-sap-hana` version 0.162.3 and later.
 {: note}
 
 The hook script analyzes the events in the instance, applies filters to the event details, and triggers actions based on the results.
-It distinguishes between an SAP HANA `indexserver` process that is stopped and restarted by SAP HANA and the process that is stopped during an instance shutdown.
+It distinguishes between an SAP HANA `indexserver` process that SAP HANA stops and restarts and one that is stopped during an instance shutdown.
 
 Depending on the configuration of the `action_on_lost` parameter, the hook takes different actions:
 
 Ignore
-:   This action simply logs the events and decision information to a log file.
+:   This action logs the event details and the corresponding decision logic to a file.
 
 Stop
-:  This action triggers a graceful stop of the SAP HANA instance by using the sapcontrol command.
+:  This action triggers a graceful stop of the SAP HANA instance by using the `sapcontrol` command.
 
 Kill
-:   This action triggers the HDB kill-`<signal>` command with a default signal 9.
+:   This action triggers the `HDB kill-<signal>` command with a default signal 9.
     The signal can be configured.
 
-Both the *stop* and the *kill* actions result in a stopped SAP HANA instance; the *kill* action is slightly faster.
+Both the *stop* and the *kill* actions stop SAP HANA instance, but the *kill* action is slightly faster.
 
 #### Activating the srServiceStateChanged() hook on all SAP HANA instances
 {: #ha-rhel-hana-sr-activate-hana-servicestatechanged-hook}
 
-The `srServiceStateChanged()` hook can be added while SAP HANA is running on both nodes.
+You can add the `srServiceStateChanged()` hook while SAP HANA is running on both nodes.
 
-1. For each SAP HANA instance, install the hook script that is provided by the *resource-agents-sap-hana* package in the `/hana/shared/myHooks` directory and set the required ownership.
+1. For each SAP HANA instance, install the hook script that is provided by the *resource-agents-sap-hana* package in the `/hana/shared/myHooks` directory. Then, set the required ownership.
 
    On both nodes, run the following commands.
 
@@ -755,8 +769,8 @@ The `srServiceStateChanged()` hook can be added while SAP HANA is running on bot
    ```
    {: pre}
 
-   The `action_on_lost` parameter in this example is set to `stop`, the default setting is `ignore`.
-   You can optionally set the parameters `stop_timeout` (default: `20` seconds) and `kill_signal` (default: `9`).
+   In this example, the `action_on_lost` parameter is set to `stop`. The default setting is `ignore`.
+   You can also set the `stop_timeout` parameter, which defaults to 20 seconds, and the `kill_signal` parameter, which defaults to 9.
 
 1. Activate the `ChkSrv.py` hook.
 
@@ -767,7 +781,7 @@ The `srServiceStateChanged()` hook can be added while SAP HANA is running on bot
    ```
    {: pre}
 
-1. Check that the hook logged some messages to the trace files.
+1. Check whether the hook logged messages to the trace files.
 
    On both nodes, run the following command.
 
@@ -779,26 +793,26 @@ The `srServiceStateChanged()` hook can be added while SAP HANA is running on bot
 ### Enabling automated registration of secondary instance
 {: #ha-rhel-hana-sr-enable-automated-registration}
 
-You need to set the parameter `AUTOMATED_REGISTER` according to your operational requirements.
-If you want to keep the ability to revert to the state of the previous primary SAP HANA instance, then `AUTOMATED_REGISTER=false` avoids an automatic registration of the previous primary as a new secondary.
+Set the `AUTOMATED_REGISTER` parameter according to your operational requirements.
+To retain the ability to revert to the previous primary SAP HANA instance, set `AUTOMATED_REGISTER=false`. This setting prevents an automatic registration of the previous primary as a new secondary.
 
-If you experience an issue with the data after a takeover that was triggered by the cluster, you can manually revert if `AUTOMATED_REGISTER` is set to `false`.
+If a data issue occurs after a cluster-triggered takeover, you can manually revert if `AUTOMATED_REGISTER` is set to `false`.
 
 If `AUTOMATED_REGISTER` is set to `true`, the previous primary SAP HANA instance automatically registers as secondary, and cannot be activated on its previous history.
 The advantage of `AUTOMATED_REGISTER=true` is that high-availability capability is automatically reestablished after the failed node reappears in the cluster.
 
-For now, it is recommended to keep `AUTOMATED_REGISTER` on default value `false` until the cluster is fully tested and you verify that the failover scenarios work as expected.
+Keep `AUTOMATED_REGISTER` on default value `false` until the cluster is fully tested and you verify that the failover scenarios work as expected.
 
-The `pcs resource update` command is used to modify resource attributes and `pcs resource update SAPHana_${SID}_${INSTNO} AUTOMATED_REGISTER=true` sets the attribute to `true`.
+Use the `pcs resource update` command is used to modify resource attributes and `pcs resource update SAPHana_${SID}_${INSTNO} AUTOMATED_REGISTER=true` sets the attribute to `true`.
 {: tip}
 
 ## Testing SAP HANA system replication cluster
 {: #ha-rhel-hana-sr-test-sap-hana-sr-cluster}
 
-It is vital to thoroughly test the cluster configuration to make sure that the cluster is working correctly.
+Thoroughly test the cluster configuration to verify that the cluster is working correctly.
 The following information provides a few sample failover test scenarios, but is not a complete list of test scenarios.
 
-For example, the description of each test case includes the following information.
+Each test case includes the following information:
 
 - Component that is being tested
 - Description of the test
@@ -822,12 +836,12 @@ Simulate a crash of the primary SAP HANA database instance that is running on NO
 
 - A functional two-node RHEL HA Add-On cluster for SAP HANA system replication.
 - Both cluster nodes are active.
-- Cluster that is started on NODE1 and NODE2.
-- Cluster Resource `SAPHana_${SID}_${INSTNO}` that is configured with `AUTOMATED_REGISTER=false`.
+- The cluster is started on NODE1 and NODE2.
+- The cluster resource `SAPHana_${SID}_${INSTNO}` that is configured with `AUTOMATED_REGISTER=false`.
 - Check SAP HANA system replication status:
-   - Primary SAP HANA database is running on NODE1
-   - Secondary SAP HANA database is running on NODE2
-   - SAP HANA System Replication is activated and in sync
+   - The primary SAP HANA database is running on NODE1.
+   - The secondary SAP HANA database is running on NODE2.
+   - SAP HANA system replication is activated and in sync.
 
 #### Test 1 - Test procedure
 {: #ha-rhel-hana-sr-test1-procedure}
@@ -844,7 +858,7 @@ sudo -i -u ${sid}adm -- HDB kill-9
 #### Test 1 - Expected behavior
 {: #ha-rhel-hana-sr-test1-expected-behavior}
 
-- SAP HANA primary instance on NODE1 crashes.
+- The SAP HANA primary instance on NODE1 crashes.
 - The cluster detects the stopped primary SAP HANA database and marks the resource as `failed`.
 - The cluster promotes the secondary SAP HANA database on NODE2 to take over as the new primary.
 - The cluster releases the virtual IP address on NODE1, and acquires it on the new primary on NODE2.
@@ -853,7 +867,7 @@ sudo -i -u ${sid}adm -- HDB kill-9
 #### Test 1 - Recovery procedure
 {: #ha-rhel-hana-sr-test1-recovery-procedure}
 
-As the cluster resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=false`, the cluster doesn't restart the failed SAP HANA database, and doesn't register it against the new primary. This means that the status on the new primary (NODE2) also shows the secondary in status 'CONNECTION TIMEOUT'.
+As the cluster resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=false`, the cluster doesn't restart the failed SAP HANA database, and doesn't register it against the new primary. It means that the status on the new primary (NODE2) also shows the secondary in status `CONNECTION TIMEOUT`.
 
 To reregister the previous primary as a new secondary use the following commands.
 
@@ -872,7 +886,7 @@ EOT
 ```
 {: pre}
 
-Verify the system replication status:
+Verify the system replication status.
 
 ```sh
 sudo -i -u ${sid}adm -- <<EOT
@@ -882,7 +896,7 @@ EOT
 ```
 {: pre}
 
-After the manual register and resource refreshes, the new secondary instance restarts and shows up in status synced (`SOK`).
+After the manual register and resource refresh, the new secondary instance restarts and shows up in status synced (`SOK`).
 
 On NODE1, run the following command.
 
@@ -928,11 +942,11 @@ pcs resource config SAPHana_${SID}_${INSTNO}
 
 - A functional two-node RHEL HA Add-On cluster for SAP HANA system replication.
 - Both nodes are active.
-- Cluster is started on NODE1 and NODE2.
-- Check SAP HANA system replication status.
-   - Primary SAP HANA database is running on NODE2
-   - Secondary SAP HANA database is running on NODE1
-   - SAP HANA System Replication is activated and in sync
+- The cluster is started on NODE1 and NODE2.
+- Check SAP HANA system replication status:
+   - The primary SAP HANA database is running on NODE2.
+   - The secondary SAP HANA database is running on NODE1.
+   - SAP HANA System Replication is activated and in sync.
 
 #### Test 2 - Test procedure
 {: #ha-rhel-hana-sr-test2-procedure}
@@ -990,12 +1004,12 @@ Simulate a crash of the secondary SAP HANA database.
 
 - A functional two-node RHEL HA Add-On cluster for SAP HANA system replication.
 - Both nodes are active.
-- Cluster is started on NODE1 and NODE2.
-- Cluster Resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`.
+- The cluster is started on NODE1 and NODE2.
+- The cluster resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`.
 - Check SAP HANA system replication status:
-   - Primary SAP HANA database is running on NODE1
-   - Secondary SAP HANA database is running on NODE2
-   - SAP HANA System Replication is activated and in sync
+   - The primary SAP HANA database is running on NODE1.
+   - The secondary SAP HANA database is running on NODE2.
+   - SAP HANA System Replication is activated and in sync.
 
 #### Test 3 - Test procedure
 {: #ha-rhel-hana-sr-test3-procedure}
@@ -1049,12 +1063,12 @@ Use cluster commands to move the primary instance to the other node for maintena
 
 - A functional two-node RHEL HA Add-On cluster for SAP HANA system replication.
 - Both nodes are active.
-- Cluster is started on NODE1 and NODE2.
-- Cluster Resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`.
+- The cluster is started on NODE1 and NODE2.
+- The cluster resource `SAPHana_${SID}_${INSTNO}` is configured with `AUTOMATED_REGISTER=true`.
 - Check SAP HANA system replication status:
-   - Primary SAP HANA database is running on NODE1
-   - Secondary SAP HANA database is running on NODE2
-   - SAP HANA System Replication is activated and in sync
+   - The primary SAP HANA database is running on NODE1.
+   - The secondary SAP HANA database is running on NODE2.
+   - SAP HANA System Replication is activated and in sync.
 
 #### Test 4 - Test procedure
 {: #ha-rhel-hana-sr-test4-procedure}

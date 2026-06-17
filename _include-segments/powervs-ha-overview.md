@@ -1,6 +1,6 @@
 
 
-Use this information to understand high availability options for SAP HANA and SAP application workloads on IBM {{site.data.keyword.powerSysFull}}.
+Use this information to understand high availability options for SAP HANA and SAP application workloads on {{site.data.keyword.powerSysFull}}.
 {: shortdesc}
 
 Use the following information to learn how to implement high availability solutions for SAP systems on {{site.data.keyword.powerSys_notm}} instances.
@@ -375,47 +375,3 @@ Select one of the following topologies based on your requirements.
 - SAP HANA multitarget system replication
 
    Multitarget system replication enables primary and secondary systems to replicate changes to multiple targets.
-
-## High availability cluster setup references
-{: #ha-overview-hana-mzr-howto}
-
-Table 3 provides links to documentation for configuring high availability clusters.
-
-| Operating system | Cluster environment | Documentation                                                                                                                                |
-| ---------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| RHEL             | One workspace       | [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel)                                      |
-| RHEL             | One workspace       | [Configuring an active-passive NFS Server in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-nfs)   |
-| RHEL             | Multizone region    | [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster in a multizone region environment](/docs/sap?topic=sap-ha-rhel-mz) |
-| RHEL             | Multizone region    | [Implementing SBD poison-pill fencing in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-sbd)            |
-| SLES             | One workspace       | [Implementing a SUSE Linux Enterprise Server high availability cluster](/docs/sap?topic=sap-ha-sles)                                         |
-{: caption="Documentation for implementing a basic cluster" caption-side="bottom"}
-{: tab-title="Implementing a basic cluster"}
-{: tab-group="doc-link-group"}
-{: class="simple-tab-table"}
-{: #doc-link-table1}
-
-
-| Operating system | Deployment scenario                                | Documentation |
-| ---------------- | --------------------------------------------       | ------------- |
-| RHEL             | SAP HANA single-host, performance-optimized        | [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-sh) |
-| RHEL             | SAP HANA single-host, performance-optimized        | [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr) |
-| RHEL             | SAP HANA single-host, cost-optimized               | [Configuring SAP HANA cost-optimized scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-cost-optimized) |
-| RHEL             | SAP HANA single-host, active/active (read enabled) | [Configuring SAP HANA active/active (read enabled) system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-aa) |
-| RHEL             | SAP HANA single-host, multitier system replication | [Configuring SAP HANA multitier system replication in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-hana-sr-multitier) |
-| RHEL             | SAP HANA multiple-hosts                            | [Configuring SAP HANA multiple-host system replication in a Red Hat Enterprise Linux High Availability Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-mh) |
-| SLES             | SAP HANA single-host, performance-optimized        | [Configuring SAP HANA scale-up system replication in a SUSE Linux Enterprise High Availability Extension cluster](/docs/sap?topic=sap-ha-sles-hana-sr) |
-{: caption="Documentation for configuring high availability for SAP HANA" caption-side="bottom"}
-{: tab-title="High availability for SAP HANA"}
-{: tab-group="doc-link-group"}
-{: class="simple-tab-table"}
-{: #doc-link-table2}
-
-| Operating system | Deployment scenario         | Documentation                                  |
-| ---------------- | --------------------------- |----------------------------------------------- |
-| RHEL             | ENSA2 in one workspace      | [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel-ensa) |
-| RHEL             | ENSA2 in a multizone region | [Configuring high availability for SAP S/4HANA (ASCS and ERS) on Red Hat Enterprise Linux HA Add-On clusters in a multizone region with simple mount](/docs/sap?topic=sap-ha-rhel-ensa-sm-mz) \n\n [Configuring high availability for SAP S/4HANA (ASCS and ERS) in a Red Hat Enterprise Linux High Availability Add-On cluster in a multizone region environment](/docs/sap?topic=sap-ha-rhel-ensa-mz) |
-{: caption="Documentation for configuring high availability for ASCS" caption-side="bottom"}
-{: tab-title="High availability for ASCS"}
-{: tab-group="doc-link-group"}
-{: class="simple-tab-table"}
-{: #doc-link-table3}

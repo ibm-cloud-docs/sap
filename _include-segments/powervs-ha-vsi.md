@@ -1,16 +1,5 @@
 
 
-Prepare your {{site.data.keyword.cloud_notm}} and {{site.data.keyword.powerSys_notm}} environment for a high availability cluster by configuring the workspaces, IAM access, and collecting required cluster parameters.
-{: shortdesc}
-
-## Before you begin
-{: #ha-vsi-begin}
-
-Review the general requirements, product documentation, support articles, and SAP notes for your operating system:
-
-- For Red Hat Enterprise Linux (RHEL), see [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} References](/docs/sap?topic=sap-ha-rhel-refs).
-- For SUSE Linux Enterprise Server (SLES), see [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} SLES References](/docs/sap?topic=sap-ha-sles-refs).
-
 ## Configuring the {{site.data.keyword.powerSys_notm}} workspace
 {: #ha-vsi-workspace}
 

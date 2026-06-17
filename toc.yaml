@@ -126,21 +126,21 @@ toc:
               label: Infrastructure deployment
               topics:
               - navtitle: Overview
-                topic: howto/powervs/powervs-provision-plan-deploy.md
+                topic: howto/powervs/powervs-infrastructure-1-overview.md
               - navtitle: VPC landing zone
-                topic: howto/powervs/powervs-provision-deploy-vpc-infrastructure.md
+                topic: howto/powervs/powervs-infrastructure-2-vpc.md
               - navtitle: Power Virtual Server workspace
-                topic: howto/powervs/powervs-provision-deploy-power-infrastructure.md
+                topic: howto/powervs/powervs-infrastructure-3-powervs-workspace.md
               - navtitle: Power Virtual Server instance
-                topic: howto/powervs/powervs-provision-deploy-power-instances.md
+                topic: howto/powervs/powervs-infrastructure-4-powervs-instance.md
               - navtitle: Zonal file storage share
-                topic: howto/powervs/powervs-file-storage-share-zonal.md
+                topic: howto/powervs/powervs-infrastructure-5-file-storage-share-zonal.md
               - navtitle: Regional file storage share
-                topic: howto/powervs/powervs-file-storage-share-regional.md
+                topic: howto/powervs/powervs-infrastructure-6-file-storage-share-regional.md
               - navtitle: Overlay IP Routing
-                topic: howto/powervs/powervs-ha-ip-route-tutorial.md
+                topic: howto/powervs/powervs-infrastructure-7-overlay-ip.md
               - navtitle: SAP Web Dispatcher
-                topic: howto/powervs/powervs-deployment-web-dispatcher.md
+                topic: howto/powervs/powervs-infrastructure-8-web-dispatcher.md
           - navtitle: Virtual Persistent Memory (vPMEM)
             topic: howto/powervs/powervs-vpmem-with-sap-hana.md
           - topicgroup:
@@ -224,33 +224,33 @@ toc:
               label: Monitoring
               topics:
               - navtitle: Overview
-                topic: howto/powervs/powervs-monitoring-overview.md
+                topic: howto/powervs/powervs-monitoring-1-overview.md
               - navtitle: Prerequisites
-                topic: howto/powervs/powervs-monitoring-prerequisites.md
+                topic: howto/powervs/powervs-monitoring-2-prerequisites.md
               - navtitle: Creating instance
-                topic: howto/powervs/powervs-monitoring-instance-create.md
+                topic: howto/powervs/powervs-monitoring-3-instance.md
               - navtitle: Creating Monitoring host
-                topic: howto/powervs/powervs-monitoring-exporter-setup-config.md
+                topic: howto/powervs/powervs-monitoring-4-host.md
               - navtitle: Configuring Prometheus server metric forwarding
-                topic: howto/powervs/powervs-monitoring-metric-forwarding-config.md
+                topic: howto/powervs/powervs-monitoring-5-metric-forwarding-config.md
               - navtitle: Dashboards
-                topic: howto/powervs/powervs-monitoring-launch-web-ui-and-dashboards.md
+                topic: howto/powervs/powervs-monitoring-6-launch-web-ui-and-dashboards.md
               - navtitle: Alerts and notifications
-                topic: howto/powervs/powervs-monitoring-alerting-and-notification.md
+                topic: howto/powervs/powervs-monitoring-7-alerting-and-notification.md
               - navtitle: Parameter harvesting and troubleshooting
-                topic: howto/powervs/powervs-monitoring-troubleshooting-and-maintenance.md
+                topic: howto/powervs/powervs-monitoring-8-troubleshooting-and-maintenance.md
           - topicgroup:
               id: howto-powervs-scc-workload-protection
               label: SCC Workload Protection
               topics:
               - navtitle: Overview
-                topic: howto/powervs/powervs-scc-wp-overview.md
+                topic: howto/powervs/powervs-scc-wp-1-overview.md
               - navtitle: Creating instance
-                topic: howto/powervs/powervs-scc-wp-creating-instance.md
+                topic: howto/powervs/powervs-scc-wp-2-creating-instance.md
               - navtitle: Install agent
-                topic: howto/powervs/powervs-scc-wp-agent-setup.md
+                topic: howto/powervs/powervs-scc-wp-3-agent-setup.md
               - navtitle: Dashboards
-                topic: howto/powervs/powervs-scc-wp-dashboard-overview.md
+                topic: howto/powervs/powervs-scc-wp-4-dashboard-overview.md
           - topicgroup:
               id: howto-powervs-migration-from-on-premises
               label: Migration from on premises
@@ -330,33 +330,33 @@ toc:
               label: Monitoring
               topics:
               - navtitle: Overview
-                topic: howto/vpc/vpc-monitoring-overview.md
+                topic: howto/vpc/vpc-monitoring-1-overview.md
               - navtitle: Prerequisites
-                topic: howto/vpc/vpc-monitoring-prerequisites.md
+                topic: howto/vpc/vpc-monitoring-2-prerequisites.md
               - navtitle: Creating instance
-                topic: howto/vpc/vpc-monitoring-instance-create.md
+                topic: howto/vpc/vpc-monitoring-3-instance.md
               - navtitle: Creating Monitoring host
-                topic: howto/vpc/vpc-monitoring-exporter-setup-config.md
+                topic: howto/vpc/vpc-monitoring-4-host.md
               - navtitle: Configuring Prometheus server metric forwarding
-                topic: howto/vpc/vpc-monitoring-metric-forwarding-config.md
+                topic: howto/vpc/vpc-monitoring-5-metric-forwarding-config.md
               - navtitle: Dashboards
-                topic: howto/vpc/vpc-monitoring-launch-web-ui-and-dashboards.md
+                topic: howto/vpc/vpc-monitoring-6-launch-web-ui-and-dashboards.md
               - navtitle: Alerts and notifications
-                topic: howto/vpc/vpc-monitoring-alerting-and-notification.md
+                topic: howto/vpc/vpc-monitoring-7-alerting-and-notification.md
               - navtitle: Parameter harvesting and troubleshooting
-                topic: howto/vpc/vpc-monitoring-troubleshooting-and-maintenance.md
+                topic: howto/vpc/vpc-monitoring-8-troubleshooting-and-maintenance.md
           - topicgroup:
               id: howto-vpc-scc-workload-protection
               label: SCC Workload Protection
               topics:
               - navtitle: Overview
-                topic: howto/vpc/vpc-scc-wp-overview.md
+                topic: howto/vpc/vpc-scc-wp-1-overview.md
               - navtitle: Creating instance
-                topic: howto/vpc/vpc-scc-wp-creating-instance.md
+                topic: howto/vpc/vpc-scc-wp-2-creating-instance.md
               - navtitle: Install agent
-                topic: howto/vpc/vpc-scc-wp-agent-setup.md
+                topic: howto/vpc/vpc-scc-wp-3-agent-setup.md
               - navtitle: Dashboards
-                topic: howto/vpc/vpc-scc-wp-dashboard-overview.md
+                topic: howto/vpc/vpc-scc-wp-4-dashboard-overview.md
           - topicgroup:
               label: SAP Reference architectures
               id: howto-vpc-sap-ref-arch

@@ -7,7 +7,6 @@ On both nodes, set the following environment variables.
 Certain variables are specific to either the `powervs-move-ip` or the `powervs-subnet` resource agent, as indicated in the respective comments.
 
 
-
 ```sh
 # General settings
 export CLUSTERNAME="SAP_S01"        # Cluster name
@@ -59,7 +58,7 @@ export NFS_OPTIONS="rw,sec=sys"          # Sample NFS client mount options
 ```
 {: codeblock}
 
-The following export commands are an example of how to set the extra environment variables that are required for a multizone region implementation when using the resource agent `powervs-move-ip`.
+The following export commands are an example of how to set the extra environment variables that are required for a multizone region implementation when you use the resource agent `powervs-move-ip`.
 
 ```sh
 # General settings
