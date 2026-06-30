@@ -1,321 +1,459 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-16"
-keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPC landing zone, NTP, NFS, DNS, Proxy, Squid, Terraform, Deployable architecture, Edge VPC, SSH
+lastupdated: "2026-06-30"
+
+keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, {{site.data.keyword.powerSys_notm}}, VPC, VPC landing zone, address prefix, subnet, security group, bastion host, access host, network services, SQUID proxy, NFS, NTP, DNS, VPE, Virtual Private Endpoint, Cloud Object Storage, floating IP, SSH, Ansible, chrony, BIND
 subcollection: sap
+content-type: tutorial
+services: vpc, power-iaas
+account-plan: paid
+completion-time: 2h
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Preparing {{site.data.keyword.vpc_short}} infrastructure for SAP workloads in {{site.data.keyword.powerSys_notm}}
+# Set up {{site.data.keyword.vpc_short}} landing zone infrastructure for SAP workloads
 {: #powervs-set-up-vpc-infrastructure}
+{: toc-content-type="tutorial"}
+{: toc-services="vpc, power-iaas"}
+{: toc-completion-time="2h"}
 
-As a best practice for SAP that runs on {{site.data.keyword.powerSysFull}}, one {{site.data.keyword.vpc_short}} is created and two virtual server instances are deployed and configured.
+In this tutorial, you will learn how to set up the {{site.data.keyword.vpc_full}} (VPC) landing zone that provides management services for your SAP workloads on {{site.data.keyword.powerSysFull}}. You create a VPC, deploy virtual server instances for access and network services, and configure essential services including proxy, Network Time Protocol (NTP), and Domain Name System (DNS).
+{: shortdesc}
 
-* **Access host that is deployed in edge VPC** is used for the management access to the landscape.
-* **Host for network management services that are deployed in edge VPC** provides certain network services to the {{site.data.keyword.powerSys_notm}} instances, like proxy forwarding, NFS, DNS, NTP and monitoring services.
+The following figure shows the VPC landing zone for SAP on {{site.data.keyword.powerSys_notm}}.
 
-![VPC landing zone for SAP on {{site.data.keyword.powerSys_notm}}](../../images/powervs-provision-deploy-arch-ibm-pvs-inf-standard.svg){: caption="VPC landing zone for SAP on {{site.data.keyword.powerSys_notm}}" caption-side="bottom"}
+![VPC landing zone for SAP on {{site.data.keyword.powerSys_notm}}](../../images/powervs-deploy-arch-ibm-powervs-vpc.svg){: caption="VPC landing zone architecture for SAP on {{site.data.keyword.powerSys_notm}}" caption-side="bottom"}
 
-## Deploying {{site.data.keyword.vpc_short}} for management services
-{: #powervs-set-up-edge-vpc}
+The VPC landing zone that you create has the following architecture:
+1. A VPC with multiple subnets for different purposes (management, network services, and Virtual Private Endpoints (VPE)
+1. An access host (bastion) that provides secure SSH access to the environment
+1. A network services host that provides proxy, NTP, and DNS services
+1. Security groups and ACLs that control traffic flow
+1. A connection to {{site.data.keyword.powerSys_notm}} through {{site.data.keyword.tg_full_notm}} (configured in a later step)
 
-{{site.data.keyword.vpc_short}} for management services is a **mandatory** component in the SAP on {{site.data.keyword.powerSys_notm}} best practices. This service hosts the access hosts to the environment.
+## Before you begin
+{: #vpc-prereqs}
 
-* Set up Virtual Private Cloud for management services. For more information, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet).
-* Take care about the default network prefix. We recommend reducing the default network prefix, so it does not overlap between all your {{site.data.keyword.vpc_short}} services.
-* Optionally, attach a public gateway to the subnet. With this option, every Virtual Server Instance in the subnet can communicate with the internet. An alternative is to use a floating IP address on virtual system instance instead and enable internet for the instances. The [table](/docs/powervs-vpc?topic=powervs-vpc-landing-zone-preset#landing-zone-private-networks) gives an overview on segregation of networks used.
+Before you begin, ensure that you have:
 
-### Deploying access host in edge VPC
-{: #deploy-access-host}
+* Completed the planning steps in [Deploying infrastructure for SAP workloads on {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-infra-overview)
+* Sufficient {{site.data.keyword.iamlong}} (IAM) permissions to create and manage VPC resources
+* An SSH key pair for authentication. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys)
+* A network design with non-overlapping IP address ranges for VPC subnets, {{site.data.keyword.powerSys_notm}} networks, and on-premises networks
 
-Access host is a **mandatory** component in the SAP on {{site.data.keyword.powerSys_notm}} best practices. By this virtual server instance, the floating IP address is activated. You can then log in to the environment by using SSH. You need to set up a VPN access as a separate step and disable the floating IP address for a more secure environment. Use the following steps to deploy the access host.
+## Create the VPC
+{: #vpc-create-vpc}
+{: step}
 
-1. Create ACL rules for Edge VPC as described [here](/docs/powervs-vpc?topic=powervs-vpc-landing-zone-preset#landing-zone-acl)
-1. Create security groups for management services, network services and IBM Cloud services as described [here](/docs/powervs-vpc?topic=powervs-vpc-landing-zone-preset#landing-zone-sg). For more information, see [Configuring the security group for the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group-step). Specify following rules.
-1. Create a virtual server instance with a Linux operating system. For more information, see [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-    * You can select any available Linux image, but you need to use the same operating system release for all of the virtual server instances in the landscape. We verify the setup with newest versions of Red Hat Enterprise Linux (starting with RHEL 8.4) and of Suse Linux Enterprise Server (starting with SLES 15 SP3).
+Create a {{site.data.keyword.vpc_short}} without default address prefixes to host the management services for your SAP landscape.
 
-    You don't have limitations as to which Compute profile, SAP certification, or storage and network performance is used. You can use the smallest profile with 2 virtual CPUs and with 4 GB memory.
-    {: tip}
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external}.
+1. Go to **VPC Infrastructure** > **VPCs**.
+1. Click **Create**.
+1. Enter a name for your VPC, such as `sap-management-vpc`.
+1. Select a resource group.
+1. Optionally, add tags for organization.
+1. In the **Default address prefixes** section, clear the checkbox for **Create a default prefix for each zone** to prevent automatic creation of address prefixes.
+1. Click **Create virtual private cloud**.
 
-1. Attach the right security group (management-sg security group) to the virtual server instance that you created in the previous step. Detach the default security group.
-1. Enable the floating IP address on the access host. For more information, see [Reserving a floating IP address](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address).
-1. After instance status changes to `Running`, verify that you can successfully log in on the access host.
+For detailed instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet).
 
-We recommend that you use two extra SSH client parameters to get a more reliable SSH connection: `ServerAliveInterval=60` and `ServerAliveCountMax=600`. If you use a nondefault path to your SSH key, you must specify it by following SSH client parameter: `-i \<path to your SSH private key\>`.
+## Create address prefixes
+{: #vpc-create-address-prefixes}
+{: step}
+
+Create address prefixes that define the IP address ranges for your VPC. These prefixes are used when creating subnets.
+
+The following table shows the recommended address prefixes:
+
+| Address prefix purpose | Example IP address range |
+| ---------------------- | ------------------------ |
+| VPN services           | 10.30.10.0/24            |
+| Management services    | 10.30.20.0/24            |
+| VPE services           | 10.30.30.0/24            |
+| Network services       | 10.30.40.0/24            |
+{: caption="Recommended address prefixes for VPC landing zone" caption-side="bottom"}
+
+1. In your VPC details page, go to **Address prefixes**.
+1. Click **Create**.
+1. Create the first address prefix for VPN services:
+   - Enter a name, such as `vpn-prefix`.
+   - Select an availability zone.
+   - Enter an IP address range, such as `10.30.10.0/24`.
+   - Click **Create**.
+1. Create the second address prefix for management services:
+   - Enter a name, such as `management-prefix`.
+   - Select an availability zone.
+   - Enter an IP address range, such as `10.30.20.0/24`.
+   - Click **Create**.
+1. Create the third address prefix for VPE services:
+   - Enter a name, such as `vpe-prefix`.
+   - Select an availability zone.
+   - Enter an IP address range, such as `10.30.30.0/24`.
+   - Click **Create**.
+1. Create the fourth address prefix for network services:
+   - Enter a name, such as `network-services-prefix`.
+   - Select an availability zone.
+   - Enter an IP address range, such as `10.30.40.0/24`.
+   - Click **Create**.
+
+## Create subnets from address prefixes
+{: #vpc-create-subnets}
+{: step}
+
+Create subnets from the address prefixes you created. You need at least three subnets: one for VPN server, one for the access host, and one for network services.
+
+The following table shows the recommended subnet layout:
+
+| Subnet name             | Address prefix          | IP address range | Public gateway | Purpose                                            |
+| ----------------------- | ----------------------- | ---------------- | -------------- | -------------------------------------------------- |
+| vpn-subnet              | vpn-prefix              | 10.30.10.0/24    | No             | VPN server                                         |
+| management-subnet       | management-prefix       | 10.30.20.0/24    | No             | Bastion host (access host)                         |
+| vpe-subnet              | vpe-prefix              | 10.30.30.0/24    | No             | Virtual Private Endpoints for Cloud Object Storage |
+| network-services-subnet | network-services-prefix | 10.30.40.0/24    | Yes            | Network services host                              |
+{: caption="Recommended subnet layout for VPC landing zone" caption-side="bottom"}
+
+1. In your VPC details page, go to **Subnets**.
+1. Click **Create**.
+1. Create the VPN subnet from the VPN address prefix:
+   - Enter a name, such as `vpn-subnet`.
+   - Select the same availability zone as the VPN address prefix.
+   - Select the address prefix `vpn-prefix` (10.30.10.0/24).
+   - Leave the public gateway detached.
+   - Click **Create subnet**
+1. Create the management subnet from the management address prefix:
+   - Enter a name, such as `management-subnet`.
+   - Select the same availability zone as the management address prefix.
+   - Select the address prefix `management-prefix` (10.30.20.0/24).
+   - Leave the public gateway detached.
+   - Click **Create subnet**
+1. Create the VPE subnet from the VPE address prefix:
+   - Enter a name, such as `vpe-subnet`.
+   - Select the same availability zone as the VPE address prefix.
+   - Select the address prefix `vpe-prefix` (10.30.30.0/24).
+   - Leave the public gateway detached.
+   - Click **Create subnet**.
+1. Create the network services subnet from the network services address prefix:
+   - Enter a name, such as `network-services-subnet`.
+   - Select the same availability zone as the network services address prefix.
+   - Select the address prefix `network-services-prefix` (10.30.40.0/24).
+   - Attach a public gateway to enable internet access for software updates.
+   - Click **Create subnet**.
+
+
+## Configure security groups
+{: #vpc-security-groups}
+{: step}
+
+Create security groups to control traffic to your virtual server instances, VPEs, and other resources. Security groups act as virtual firewalls that control inbound and outbound traffic.
+
+### Security group overview
+{: #vpc-sg-overview}
+
+You need to create three security groups for the VPC landing zone:
+
+1. **management-sg**: Controls access to the bastion host (access host). Allows SSH access from IBM Cloud infrastructure, VPC subnets, {{site.data.keyword.powerSys_notm}} networks, VPN client pool, and optionally from your trusted IP addresses.
+
+1. **network-services-sg**: Controls access to the network services host. Allows all traffic from IBM Cloud infrastructure, VPC subnets, {{site.data.keyword.powerSys_notm}} networks, and VPN client pool.
+
+1. **vpe-sg**: Controls access to Virtual Private Endpoints for Cloud Object Storage. Allows all traffic from IBM Cloud infrastructure, VPC subnets, {{site.data.keyword.powerSys_notm}} networks, and VPN client pool.
+
+### Create security groups
+{: #vpc-create-sg}
+
+1. In your VPC details page, go to **Security groups**.
+1. Click **Create**.
+1. Create each security group according to the rules in the following table.
+
+The following table shows the security group rules for the VPC landing zone:
+
+| Security group name | Inbound rules | Outbound rules | Attached resources |
+| ------------------- | ------------- | -------------- | ------------------ |
+| management-sg | **Source:** IBM Cloud infrastructure (161.26.0.0/16) \n **Protocol:** TCP, **Port:** 22 \n \n **Source:** VPC address prefixes (10.30.20.0/24, 10.30.30.0/24, 10.30.40.0/24) \n **Protocol:** All \n \n **Source:** {{site.data.keyword.powerSys_notm}} management network \n **Protocol:** TCP, **Port:** 22 \n \n **Source:** VPN client IP pool (if using VPN) \n **Protocol:** TCP, **Port:** 22 \n \n **Source:** Your trusted IP addresses (optional) \n **Protocol:** TCP, **Port:** 22 | **Destination:** Any \n **Protocol:** All | Access host (bastion) virtual server instance |
+| network-services-sg | **Source:** IBM Cloud infrastructure (161.26.0.0/16) \n **Protocol:** All \n \n **Source:** VPC address prefixes (10.30.20.0/24, 10.30.30.0/24, 10.30.40.0/24) \n **Protocol:** All \n \n **Source:** {{site.data.keyword.powerSys_notm}} management network \n **Protocol:** All \n \n **Source:** {{site.data.keyword.powerSys_notm}} backup network \n **Protocol:** All \n \n **Source:** VPN client IP pool (if using VPN) \n **Protocol:** All | **Destination:** Any \n **Protocol:** All | Network services virtual server instance, load balancer, file share mount targets |
+| vpe-sg | **Source:** IBM Cloud infrastructure (161.26.0.0/16) \n **Protocol:** All \n \n **Source:** VPC address prefixes (10.30.20.0/24, 10.30.30.0/24, 10.30.40.0/24) \n **Protocol:** All \n \n **Source:** {{site.data.keyword.powerSys_notm}} management network \n **Protocol:** All \n \n **Source:** {{site.data.keyword.powerSys_notm}} backup network \n **Protocol:** All \n \n **Source:** VPN client IP pool (if using VPN) \n **Protocol:** All | **Destination:** Any \n **Protocol:** All | Virtual Private Endpoints for Cloud Object Storage |
+{: caption="Security group rules for VPC landing zone" caption-side="bottom"}
+
+Replace the example IP address ranges with your actual network CIDRs: VPC address prefixes (for example, 10.30.10.0/24, 10.30.20.0/24, 10.30.30.0/24, 10.30.40.0/24), {{site.data.keyword.powerSys_notm}} management network CIDR (for example, 10.51.0.0/24), {{site.data.keyword.powerSys_notm}} backup network CIDR (for example, 10.52.0.0/24), and VPN client IP pool CIDR if you're using VPN (for example, 10.240.0.0/24).
+{: important}
+
+For more information, see [Configuring the security group for the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group-step).
+
+## Deploy the bastion or access host
+{: #vpc-deploy-access-host}
+{: step}
+
+Create a virtual server instance that serves as the access host (bastion) for your SAP landscape.
+
+1. Go to **VPC Infrastructure** > **Virtual server instances**.
+1. Click **Create**.
+1. Configure the virtual server instance:
+   - Enter a name, such as `sap-access-host`.
+   - Select your VPC.
+   - Select the management subnet.
+   - Select a Linux operating system image (RHEL 8.4 or later, or SLES 15 SP3 or later).
+   - Select the smallest profile (for example, `nxf-1x2`)
+   - Add your SSH key.
+1. In the **Network interfaces** section, click **Edit** on the primary network interface:
+   - Deselect the default security group.
+   - Select the `management-sg` security group.
+   - Click **Save**.
+1. Click **Create virtual server instance**.
+1. Wait for the instance status to change to **Running**.
+
+## Enable floating IP for bastion or access host
+{: #vpc-floating-ip}
+{: step}
+
+Reserve and attach a floating IP address to the access host to enable external SSH access.
+
+1. In the access host instance details page, go to **Network interfaces**.
+1. Click **Reserve** next to Floating IP.
+1. Configure the floating IP:
+   - Enter a name, such as `access-host-fip`.
+   - Click **Reserve**.
+1. Note the floating IP address for SSH access.
+
+For more information, see [Reserving a floating IP address](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address).
+
+## Verify access to the bastion/access host
+{: #vpc-verify-access}
+{: step}
+
+Test SSH access to the access host using the floating IP address.
+
+1. Open a terminal on your local machine.
+1. Run the following SSH command (replace `<access_host_floating_ip>` with your floating IP address):
+
+   ```bash
+   ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 root@<access_host_floating_ip>
+   ```
+   {: pre}
+
+1. Verify that you can successfully log in to the access host.
+
+The `ServerAliveInterval` and `ServerAliveCountMax` parameters help maintain a stable SSH connection.
 {: tip}
 
-SSH command example:
+## Deploy the network services host
+{: #vpc-deploy-network-services}
+{: step}
 
-```bash
-ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 root@\<access_host_floating_ip\>
-```
-{: pre}
+Create a virtual server instance that provides essential network services to {{site.data.keyword.powerSys_notm}} instances.
 
-### Deploying network services host in edge VPC
-{: #deploy-network-service-host}
+1. Go to **VPC Infrastructure** > **Virtual server instances**.
+1. Click **Create**.
+1. Configure the virtual server instance:
+   - Enter a name, such as `sap-network-services`.
+   - Select your VPC.
+   - Select the network services subnet.
+   - Select a Linux operating system image (RHEL 9.4 or later).
+   - Select a profile with at least 2 vCPUs and 4 GB memory.
+   - Add your SSH key.
+1. In the **Network interfaces** section, click **Edit** on the primary network interface:
+   - Deselect the default security group.
+   - Select the `network-services-sg` security group.
+   - Click **Save**.
+1. Click **Create virtual server instance**.
+1. Wait for the instance status to change to **Running**.
 
-Host for internet services is a mandatory component in the SAP on {{site.data.keyword.powerSys_notm}} best practices. This virtual server instance hosts mandatory proxy server, NTP and DNS services. It is also configured as central Ansible Node. Use the following steps to deploy a host for basic network management services.
+## Verify access to the network services host
+{: #vpc-verify-network-services}
+{: step}
 
-The following example setup uses open ports for standard SQUID proxy server that is provided by Linux distributions. If you use another proxy software or custom configurations, setup might vary.
-{: note}
+Test SSH access to the network services host through the access host.
 
-1. Provision a virtual service instance with Linux. For more information, see [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-    * You can choose any of available Linux distributions. We recommend that you use the same OS release for all virtual server instances in the landscape. We verify the setup with the newest versions of Red Hat Enterprise Linux (starting with RHEL 8.4) and of Suse Linux Enterprise Server (starting with SLES 15 SP3).
-    * One of the profiles with 2 or 4 virtual CPUs and with 4 GB or 8 GB of memory would be sufficient in general. If you have stronger performance requirements, by using SQUID cache, you can choose a profile with more virtual CPUs or memory.
-    * We recommend that you attach extra storage to the instance, locate SAP installation files on this separate disk, and export them over NFS. The disk size must be large enough to host all the data from IBM Cloud Object Storage that is relevant for all the installations and setups.
-1. Attach the right security group to the virtual server instance (network-services-sg security group) that you created in the previous step. Detach the default security group.
-1. After some time, instance becomes status 'running'.
-
-Verify that you can successfully log in to the **host for network services over the access host**. The floating IP address of the access host is specified as `ProxyCommand` parameter of your ssh command.
-
-We recommend that you use two extra SSH client parameters for a more reliable SSH connection: `ServerAliveInterval=60` and `ServerAliveCountMax=600`. If you use a nondefault path to your SSH key, you must specify it by following SSH client parameter: `-i \<path_to_your_SSH_private_key\>`.
-{: tip}
-
-SSH command example (host for network services over the access host):
-
-```bash
-ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand=\"ssh -W %h:%p root@\<access_host_floating_ip\>\" root@\<network_services_host_private_ip\>
-```
-{: pre}
-
-## Configure the network management services on the Intel virtual server instances in {{site.data.keyword.vpc_short}}
-{: #powervs-set-up-management-services}
-
-The following setup example demonstrates usage of SQUID proxy server, NFS server, NTP forwarder, IBM Cloud DNS service, or DNS forwarder for your private DNS server. Setup of central user management (LDAP) is not covered here.
-
-### Setup SQUID proxy server
-{: #powervs-set-up-proxy-server}
-
-1. Ensure all required ports in the security group in {{site.data.keyword.vpc_short}} for edge services that are used by host for internet services are open. The needed ports are configured for internet services. Required ports for SQUID proxy are used by {{site.data.keyword.powerSys_notm}} services. For more information, see [Creating a proxy](/docs/power-iaas?topic=power-iaas-set-full-Linux#create-proxy).
-1. Log in to the network services instance. SSH command example:
+1. Open a terminal on your local machine.
+1. Run the following SSH command (replace `<access_host_floating_ip>` and `<network_services_host_private_ip>` with your IP addresses):
 
    ```bash
-   ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand=\"ssh -W %h:%p root@\<access_host_floating_ip\>\" root@\<network_services_host_private_ip\>
+   ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand="ssh -W %h:%p root@<access_host_floating_ip>" root@<network_services_host_private_ip>
    ```
    {: pre}
 
-1. Ensure that the squid software is available. On SUSE: `zypper update -y; zypper install -y squid`. On RHEL: `yum update -y; yum install epel-release; yum install -y squid`.
-1. Modify the SQUID configuration and add the rules relevant for OS update registration of virtual instances that run in {{site.data.keyword.powerSys_notm}}. For more information, see [proxy configuration documentation](/docs/power-iaas?topic=power-iaas-set-full-Linux#configure-proxy).
-1. Enable and restart SQUID service: `systemctl stop squid; systemctl start squid; systemctl enable squid`.
+1. Verify that you can successfully log in to the network services host.
 
-### Setup SQUID proxy server -- Ansible
-{: #powervs-set-up-proxy-server-ansible}
+## Create Virtual Private Endpoint for {{site.data.keyword.cos_full_notm}}
+{: #vpc-create-vpe-cos}
+{: step}
 
-To perform the previous steps through ansible automation, download ansible-galaxy collection `ibm.power_linux_sap`.
+Create a Virtual Private Endpoint (VPE) for {{site.data.keyword.cos_full_notm}} to enable secure, private access to Cloud Object Storage from your VPC and {{site.data.keyword.powerSys_notm}} instances.
 
-```yaml
-ansible-galaxy collection install ibm.power_linux_sap
-```
-{: pre}
+1. In the {{site.data.keyword.cloud_notm}} console, go to **VPC Infrastructure** > **Virtual private endpoints**.
+1. Click **Create**.
+1. Configure the VPE gateway:
+   - Enter a name, such as `cos-vpe`.
+   - Select your VPC.
+   - Select your resource group.
+1. In the **Service** section:
+   - For **Service category**, select **Cloud Object Storage**.
+   - For **Service offering**, select **Cloud Object Storage**.
+   - The service endpoint will be automatically populated.
+1. In the **Reserved IP** section:
+   - Click **Attach** to attach a reserved IP.
+   - Select the `vpe-subnet` that you created earlier.
+   - Select **Auto-assign** to automatically assign an IP address from the subnet.
+   - Click **Attach**.
+1. In the **Security groups** section:
+   - Deselect the default security group.
+   - Select the `vpe-sg` security group that you created earlier.
+1. Click **Create virtual private endpoint**.
+1. Wait for the VPE status to change to **Stable**.
+1. Note the reserved IP address assigned to the VPE. This IP address will be used to access Cloud Object Storage from your {{site.data.keyword.powerSys_notm}} instances.
 
-After the ansible collection is installed, to set up proxy, update the variable file `playbook/vars/sample-variables-configure-network-services-host.yml`
+For more information about Virtual Private Endpoints, see [About Virtual Private Endpoints for VPC](/docs/vpc?topic=vpc-about-vpe).
 
-```yaml
-server_config: {
-  squid: { enable: true }
-}
-```
-{: pre}
+## Configure SQUID proxy server
+{: #vpc-configure-squid}
+{: step}
 
-After the file is updated, run the following ansible-playbook command.
+Configure the SQUID proxy server to enable {{site.data.keyword.powerSys_notm}} instances to access the internet for software updates and package installations.
 
-```yaml
-ansible-playbook \--connection=local -i \"localhost,\" playbooks/sample-configure-network-services-host.yml
-```
-{: pre}
+You can use the `ibm.power_linux_sap` Ansible collection to automate this configuration. For more information, see the Ansible automation section at the end of this tutorial.
 
-This ansible execution ensures that the squid proxy server is configured on host for network services.
+1. Log in to the network services host using the SSH command from the previous step.
+1. Install SQUID:
+     ```bash
+     yum update -y && yum install -y squid
+     ```
+     {: pre}
 
-### Setting up NFS server for SAP installation files
-{: #powervs-set-up-nfs-server}
-
-1. Ensure all required ports in the security group in {{site.data.keyword.vpc_short}} for network services that are used by host for private services are open. The needed ports are configured for private services. Required ports for NFS server are: 111 (TCP and UDP) and 2049 (TCP and UDP).
-1. Log in to the network services instance. SSH command example:
-
+1. Replace the contents of `/etc/squid/squid.conf` with the contents from [SQUID configuration file](https://github.com/IBM/ansible-power-linux-sap/blob/main/roles/configure_network_management_services/files/squid.conf){: external}.
+1. Enable and start the SQUID service:
    ```bash
-   ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand=\"ssh -W %h:%p root@\<access_host_floating_ip\>\" root@\<network_services_host_private_ip\>
+   systemctl enable squid
+   systemctl restart squid
+   systemctl status squid
    ```
    {: pre}
 
-1. Make sure that the required NFS software is available. On SUSE: `zypper update -y; zypper install -y nfs-utils`. On RHEL: `yum update -y; yum install epel-release; yum install -y nfs-utils`.
-1. Create a directory where NFS is mounted and export it.
-1. Start NFS service and verify that the directory is exported. Use command `showmount -e`.
-1. Make sure that the awscli software is available. This software is used later to download the software from S3 storage (IBM Cloud Object Storage). On SUSE: `zypper update -y; zypper install -y aws-cli`. On RHEL: `yum update -y; yum install epel-release; yum install -y awscli`.
 
-### Setting up NFS server for SAP installation files -- Ansible
-{: #powervs-set-up-nfs-server-ansible}
+## Configure NTP service
+{: #vpc-configure-ntp}
+{: step}
 
-To perform the previous steps through ansible automation, download ansible-galaxy collection `ibm.power_linux_sap`.
+Configure the NTP service to ensure time synchronization across all systems in your SAP landscape.
 
-```yaml
-ansible-galaxy collection install ibm.power_linux_sap
-```
-{: pre}
+1. Log in to the network services host.
+1. Install chrony:
+     ```bash
+     yum update -y && yum install -y chrony
+     ```
+     {: pre}
 
-After the ansible collection is installed, update the variable file `playbook/vars/sample-variables-configure-network-services-host.yml` to set up NFS.
-
-```yaml
-server_config: {
-  nfs: { enable: true, nfs_directory: "/NFS;/hana/software" }
-}
-```
-{: pre}
-
-After file is updated, run the following ansible-playbook command.
-
-```yaml
-ansible-playbook \--connection=local -i \"localhost,\" playbooks/sample-configure-network-services-host.yml
-```
-{: pre}
-
-This ansible execution makes sure that the host for network services acts as an NFS server.
-
-### Setting up NTP proxy and forwarder
-{: #powervs-set-up-ntp-server}
-
-1. Ensure all required ports in the security group in {{site.data.keyword.vpc_short}} for network services that are used by host for private services are open. The needed ports are configured for private services. Required port for NTP forwarder is: 123 (TCP).
-1. Log in to the network services instance. SSH command example:
-
-   ```bash
-   ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand=\"ssh -W %h:%p root@\<access_host_floating_ip\>\" root@\<network_services_host_private_ip\>
-   ```
-   {: pre}
-
-1. Make sure that the required NTP software is available. On SUSE: `zypper update -y; zypper install -y chrony`. On RHEL: `yum update -y; yum install epel-release; yum install -y chrony`.
-1. Modify file '/etc/chrony.conf' and add following lines. Replace `\<pvs_mgmt_cidr\>` with {{site.data.keyword.powerSys_notm}} management CIDR block (network segment)
-
-   ```yaml
+1. Edit `/etc/chrony.conf` and add the following lines (replace `<pvs_mgmt_cidr>` with your {{site.data.keyword.powerSys_notm}} management network CIDR, such as `10.51.0.0/24`):
+   ```text
    local stratum 10
    manual
-   allow \<pvs_mgmt_cidr \>
+   allow <pvs_mgmt_cidr>
    ```
-   {: pre}
+   {: codeblock}
 
-5. Enable and start chrony service: `systemctl stop chronyd; systemctl start chronyd; systemctl enable chronyd;`.
-
-
-### Setup NTP proxy or forwarder -- Ansible
-{: #powervs-set-up-ntp-server-ansible}
-
-To perform previous steps through ansible automation, download ansible-galaxy collection `ibm.power_linux_sap`.
-
-```yaml
-ansible-galaxy collection install ibm.power_linux_sap
-```
-{: pre}
-
-After the ansible collection is installed, to set up NTP, update the variable file `playbook/vars/sample-variables-configure-network-services-host.yml`.
-
-```yaml
-server_config: {
-  ntp: { enable: true }
-}
-```
-{: pre}
-
-After the file is updated, run the following ansible-playbook command.
-
-```yaml
-ansible-playbook \--connection=local -i \"localhost,\" playbooks/sample-configure-network-services-host.yml
-```
-{: pre}
-
-This ansible execution ensures that the NTP proxy is configured on the host for network services.
-
-### Setting up IBM Cloud-native DNS service (DNS option 1)
-{: #powervs-set-up-dns-service}
-
-You can use IBM Cloud DNS service that is directly reachable from IBM {{site.data.keyword.powerSys_notm}}s over custom resolver. For more information, see the following links.
-
-* [Setting up an instance](/docs/dns-svcs?topic=dns-svcs-setting-up-your-dns-instance)
-* [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones&interface=ui)
-* [Managing permitted networks](/docs/dns-svcs?topic=dns-svcs-managing-permitted-networks&interface=ui)
-* [Managing DNS records](/docs/dns-svcs?topic=dns-svcs-managing-dns-records)
-* [Configuring custom resolver](/docs/dns-svcs?topic=dns-svcs-ui-create-cr).
-
-Specify VPE subnet of {{site.data.keyword.vpc_short}} for network services as location in the resolver.
-
-Make sure that all required ports in the security group in {{site.data.keyword.vpc_short}} for network services that are used by host for private services are open. The needed ports are configured for private services. Required port for DNS is: 53 (TCP and UDP). As result, you get a private IP address that you can specify in {{site.data.keyword.powerSysShort}} instances as DNS endpoints by private subnet configuration. These IP addresses are entered into `/etc/resolv.conf` in the operating system.
-
-### Setting up DNS forwarder (DNS option 2)
-{: #powervs-set-up-dns-forwarder}
-
-If you use your own DNS service, its IP must be reachable from VPC for network services. If the IP is not directly reachable from IBM Power Systems Virtual Servers, a DNS forwarder on the host for critical management services is required. Use the following steps to complete the configuration:
-
-1. Make sure that all required ports in the security group in {{site.data.keyword.vpc_short}} for network services that are used by host for private services are open. The needed ports are configured for private services. Required port for DNS is: 53 (TCP and UDP).
-1. Log in to the private services instance. You can use the following SSH command example:
-
+1. Enable and start the chrony service:
    ```bash
-   ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand=\"ssh -W %h:%p root@\<access_host_floating_ip\>\" root@\<network_services_host_private_ip\>
+   systemctl enable chronyd
+   systemctl start chronyd
+   systemctl status chronyd
    ```
    {: pre}
 
-1. Make sure that the required DNS software is available. On SUSE: `zypper update -y; zypper install -y bind`. On RHEL: `yum update -y; yum install epel-release; yum install -y bind`.
-1. Modify file `/etc/named.conf`:
-   * Add the following lines at the beginning of the file direct after the starting comment (before the `options` section starts). Replace `\<pvs_mgmt_cidr\>` with {{site.data.keyword.powerSys_notm}} management CIDR block (network segment)
+## Configure DNS services
+{: #vpc-configure-dns}
+{: step}
 
-      ```yaml
-      acl allowed_clients {
-      localhost;
-      10.10.0.0/16;
-      };
-      ```
-      {: pre}
+Configure DNS services for name resolution. You can choose between using IBM Cloud DNS service or configuring a DNS forwarder.
 
-   * Add the following lines at the beginning of the `options` section. Both 161.26.0.x IPs are the IBM Cloud DNS servers. 9.9.9.9 IP is the IBM public DNS server IP. Replace or extend this IP list with DNS servers of your choice.
+### Option 1: Using IBM Cloud DNS service (recommended)
+{: #vpc-dns-cloud-service}
 
-      ```yaml
-      forwarders {
-      161.26.0.7;
-      161.26.0.8;
-      9.9.9.9;
-      };
-      recursion yes;
-      allow-query { allowed_clients; };
-      forward only;
-      ```
-      {: pre}
+IBM Cloud DNS service is directly reachable from {{site.data.keyword.powerSys_notm}} instances through a custom resolver.
 
-5. Enable and start DNS service: `systemctl stop named; systemctl start named; systemctl enable named;`.
+1. Create a DNS service instance. For more information, see [Setting up an instance](/docs/dns-svcs?topic=dns-svcs-setting-up-your-dns-instance).
+1. Create DNS zones. For more information, see [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones&interface=ui).
+1. Configure permitted networks. For more information, see [Managing permitted networks](/docs/dns-svcs?topic=dns-svcs-managing-permitted-networks&interface=ui).
+1. Create DNS records. For more information, see [Managing DNS records](/docs/dns-svcs?topic=dns-svcs-managing-dns-records).
+1. Configure a custom resolver with the VPE subnet as the location. For more information, see [Configuring custom resolver](/docs/dns-svcs?topic=dns-svcs-ui-create-cr).
 
-### Setup DNS forwarder (DNS option 2) -- Ansible
-{: #powervs-set-up-dns-forwarder-ansible}
+The custom resolver provides private IP addresses that you can specify in {{site.data.keyword.powerSys_notm}} subnet configurations.
 
-To perform the previous steps through ansible automation, download ansible-galaxy collection `ibm.power_linux_sap`.
+### Option 2: Configuring DNS forwarder
+{: #vpc-dns-forwarder}
 
-```yaml
-ansible-galaxy collection install ibm.power_linux_sap
-```
-{: pre}
+If you use your own DNS service, configure a DNS forwarder on the network services host.
 
-After the ansible collection is installed, to set up proxy, update the variable file `playbook/vars/sample-variables-configure-network-services-host.yml`
+1. Log in to the network services host.
+1. Install BIND:
+     ```bash
+     yum update -y && yum install -y bind
+     ```
+     {: pre}
 
-```yaml
-server_config: {
-  dns: { enable: false, dns_servers: "161.26.0.7; 161.26.0.8; 9.9.9.9;" }
-}
-```
-{: pre}
+1. Edit `/etc/named.conf`:
+   - Add the following ACL at the beginning (replace `<pvs_mgmt_cidr>` with your {{site.data.keyword.powerSys_notm}} management network CIDR):
+     ```text
+     acl allowed_clients {
+       localhost;
+       <pvs_mgmt_cidr>;
+     };
+     ```
+     {: codeblock}
 
-After the file is updated, run the following ansible-playbook command.
+   - Add the following lines in the `options` section:
+     ```text
+     forwarders {
+       161.26.0.7;
+       161.26.0.8;
+       9.9.9.9;
+     };
+     recursion yes;
+     allow-query { allowed_clients; };
+     forward only;
+     ```
+     {: codeblock}
 
-```yaml
-ansible-playbook \--connection=local -i \"localhost,\" playbooks/sample-configure-network-services-host.yml
-```
-{: pre}
+1. Enable and start the DNS service:
+   ```bash
+   systemctl enable named
+   systemctl restart named
+   systemctl status named
+   ```
+   {: pre}
 
-This ansible execution ensures that the DNS forwarder services are configured on {{site.data.keyword.powerSys_notm}}.
+## Automate with Ansible (optional)
+{: #vpc-ansible-automation}
 
-### Optional steps on {{site.data.keyword.vpc_short}} for other services
-{: #vpc-management-services}
+You can automate the configuration of network services using the `ibm.power_linux_sap` Ansible collection.
 
-To create other VPC resources, such as load balancer, and other resources, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
+1. Install the Ansible collection:
+   ```bash
+   ansible-galaxy collection install ibm.power_linux_sap
+   ```
+   {: pre}
 
-## Terraform automation - Deploying the VPC landing zone for {{site.data.keyword.powerSys_notm}}
-{: #vpc-landing-zone-automation}
+1. Update the variable file `playbook/vars/sample-variables-configure-network-services-host.yml`:
+   ```yaml
+   server_config: {
+     squid: { enable: true },
+     ntp: { enable: true },
+     dns: { enable: true, dns_servers: "161.26.0.7; 161.26.0.8; 9.9.9.9;" }
+   }
+   ```
+   {: codeblock}
 
-All the above steps are automated using terraform and ansible and is available as a Deployable Architecture Solution in IBM Cloud Catalog. To configure and deploy check the [link](/docs/powervs-vpc?topic=powervs-vpc-deploy-arch-ibm-pvs-inf-standard) for further details.
+1. Run the Ansible playbook:
+   ```bash
+   ansible-playbook --connection=local -i "localhost," playbooks/sample-configure-network-services-host.yml
+   ```
+   {: pre}
+
+## Next steps
+{: #vpc-next-steps}
+
+After you complete the VPC infrastructure setup, proceed with creating the {{site.data.keyword.powerSys_notm}} workspace:
+
+* [Preparing {{site.data.keyword.powerSys_notm}} workspaces for SAP workloads](/docs/sap?topic=sap-powervs-set-up-power-infrastructure)
+
+Alternatively, you can use the automated Deployable Architecture solution available in the {{site.data.keyword.cloud_notm}} catalog to deploy the complete VPC landing zone using Terraform and Ansible. For more information, see [Deploying the VPC landing zone for {{site.data.keyword.powerSys_notm}}](/docs/powervs-vpc?topic=powervs-vpc-deploy-arch-ibm-pvs-inf-standard).

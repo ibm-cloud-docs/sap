@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
@@ -27,7 +27,7 @@ Also, the architecture incorporates the {{site.data.keyword.tg_full}} and the {{
 {: external download="deploy-arch-ibm-pvs-sap-s4hana-bw4hana.svg"}
 
 ## Deploying infrastructure components for the SAP system in the {{site.data.keyword.powerSys_notm}} workspace
-{: #powervs-set-up-power-infrastructure}
+{: #powervs-deploy-instance-infrastructure}
 
 Deploy the following resources for the SAP system in the {{site.data.keyword.powerSys_notm}} workspace:
 - A private subnet to enable communication within the SAP system.
