@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-28"
+lastupdated: "2026-07-01"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, sapphire rapids, Skylake, Cascade lake, VPC, VSI, certified profiles
 subcollection: sap
 ---
@@ -24,8 +24,8 @@ The first letter of the profile name indicates the profile family that is mentio
 | **First letter** | **Characteristics of the related profile family**                                                                                                   |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | c                | *Compute Optimized* family profiles provide more compute power, and they have more cores with less memory ratio SPR 1:2.5, CL 1:2                   |
-| b                | *Balanced* family profiles provide a good mix of performance and scalability for more common workloads, higher vCPU to memory ratio SPR 1:4 and 1:5, CL 1:4 |
-| m                | *Memory Optimized* family, higher vCPU to memory ratio SPR 1:8 and 1:10 , CL 1:8                                                                    |
+| b                | *Balanced* family profiles provide a good mix of performance and scalability for more common workloads, higher vCPU to memory ratio SPR 1:4 and 1:5, GR and CL 1:4 |
+| m                | *Memory Optimized* family, higher vCPU to memory ratio SPR 1:8 and 1:10 , GR and CL 1:8                                                                    |
 | v                | *Very High Memory Optimized* family profiles cater to memory intensive workloads, such as demanding database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads, very high vCPU to memory ratio SPR 1:16, CL 1:14 |
 | u                | *Ultra High Memory Optimized* family profiles cater to memory intensive workloads, such as demanding database applications and in-memory analytics workloads, and are especially designed for SAP HANA workloads, ultra high vCPU to memory SPR ratio n/a, CL 1:28 |
 {: caption="Characteristics" caption-side="top"}
@@ -39,7 +39,7 @@ The following table illustrates an example of an {{site.data.keyword.sap_app_ser
 | ------------ | --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | mx2-16x128   | m                           | *Memory Optimized* family                                                                                           |
 |              | x                           | *separator*                                                                                                         |
-|              | ? \n   2 \n   3 \n   f      | The Intel generation for the underlying hardware \n   Cascade Lake \n   Sapphire Rapids  \n   "flexible profile" - deployed on gen2 or gen3 hardware   |
+|              | ? \n 2 \n 3 \n 4 \n f       | The Intel generation for the underlying hardware \n Cascade Lake \n Sapphire Rapids  \n Granite Rapids  \n "flexible profile" - deployed on gen2 or gen3 hardware   |
 |              | d                           | the optional 'd' in the name indicates that the server is equipped with one or more internal SSD storage devices (*)|
 |              | —                           | *separator*                                                                                                         |
 |              | 16                          | 16 vCPU                                                                                                             |
@@ -57,10 +57,48 @@ For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virt
 The following tables provide an overview of the SAP-certified profiles for {{site.data.keyword.vsi_is_short}}:
 
 
+## Profiles hosted on Intel Granite Rapids CPUs
+{: #nw-gr-profiles}
+
+### bx4 profiles
+{: #nw-gr-bx4d-profiles}
+
+| **Profile name**             | **Virtual CPUs** | **Memory (GiB)** | **aSAPS** |
+|------------------------------|------------------|------------------|-----------|
+| bx4-2x8 \n bx4d-2x8          | 2                | 8                | 600       |
+| bx4-4x16 \n bx4d-4x16        | 4                | 16               | 1,300     |
+| bx4-8x32 \n bx4d-8x32        | 8                | 32               | 2,700     |
+| bx4-16x64 \n bx4d-16x64      | 16               | 64               | 5,500     |
+| bx4-32x128 \n bx4d-32x128    | 32               | 128              | 11,000    |
+| bx4-48x192 \n bx4d-48x192    | 48               | 192              | 16,500    |
+| bx4-64x256 \n bx4d-64x256    | 64               | 256              | 22,000    |
+| bx4-96x384 \n bx4d-96x384    | 96               | 384              | 33,100    |
+| bx4-128x512 \n bx4d-128x512  | 128              | 512              | 44,100    |
+| bx4-176x704 \n bx4d-176x704  | 176              | 704              | 60,700    |
+{: caption="Balanced profiles on Intel Granite Rapids" caption-side="bottom"}
+
+### mx4 profiles
+{: #nw-gr-mx4d-profiles}
+
+| **Profile name**              | **Virtual CPUs** | **Memory (GiB)** | **aSAPS** |
+|-------------------------------|------------------|------------------|-----------|
+| mx4-2x16 \n mx4d-2x16         | 2                | 16               | 600       |
+| mx4-4x32 \n mx4d-4x32         | 4                | 32               | 1,300     |
+| mx4-8x64 \n mx4d-8x64         | 8                | 64               | 2,700     |
+| mx4-16x128 \n mx4d-16x128     | 16               | 128              | 5,500     |
+| mx4-32x256 \n mx4d-32x256     | 32               | 256              | 11,100    |
+| mx4-48x384 \n mx4d-48x384     | 48               | 384              | 16,700    |
+| mx4-64x512 \n mx4d-64x512     | 64               | 512              | 22,200    |
+| mx4-96x768 \n mx4d-96x768     | 96               | 768              | 33,400    |
+| mx4-128x1024 \n mx4d-128x1024 | 128              | 1,024            | 44,500    |
+| mx4-176x1408 \n mx4d-176x1408 | 176              | 1,408            | 61,300    |
+{: caption="Memory optimized profiles on Intel Granite Rapids" caption-side="bottom"}
+
+
 ## Profiles hosted on Intel Sapphire Rapids CPUs
 {: #nw-sr-profiles}
 
-### cx3d profiles
+### cx3 profiles
 {: #nw-sr-cx3d-profiles}
 
 | **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPS**  |
@@ -113,7 +151,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 {: caption="Balanced profiles on Intel Sapphire Rapids" caption-side="bottom"}
 
 
-### mx3d profiles with ratio 1:8
+### mx3 profiles with ratio 1:8
 {: #nw-sr-mx3d-1-8-profiles}
 
 | **Profile name**              | **Virtual CPUs** | **Memory (GiB)** | **aSAPS** |
@@ -129,7 +167,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 | mx3-128x1024 \n mx3d-128x1024 | 128              | 1,024            | 36,600    |
 {: caption="Memory optimized profiles on Intel Sapphire Rapids" caption-side="bottom"}
 
-### mx3d profiles with ratio 1:10
+### mx3 profiles with ratio 1:10
 {: #nw-sr-mx3d-profiles}
 
 | **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **aSAPS** |
@@ -147,7 +185,7 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 | mx3d-176x1760    | 176              | 1,760            | 227,880  | 45,300    |
 {: caption="Memory optimized profiles on Intel Sapphire Rapids" caption-side="bottom"}
 
-### vx3d profiles
+### vx3 profiles
 {: #nw-sr-vx3d-profiles}
 
 | **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** | **aSAPS** |

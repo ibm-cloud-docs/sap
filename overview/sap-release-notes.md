@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-07-01"
 keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
@@ -21,13 +21,13 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 
 - Introduced new [P11 sr3 profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr3-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
 - Introduced new [P11 sr3 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr3-nw-profiles) for SAP application servers on {{site.data.keyword.powerSysFull}}.
-
+- Introduced new [Intel Granite Rapids bx4 and mx4 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi#nw-gr-profiles) for SAP application servers on {{site.data.keyword.vpc_full}}.
 
 ## May 2026
 {: #sap-2026-05}
 
 - New document: [Preparing SAP solutions for disaster recovery on IBM Power Virtual Server using rsync](/docs/sap?topic=sap-ha-dr-hana-rsync-overview).
-- Introduced new [Intel Sapphire Rapids](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi#nw-sr-profiles) `bx3` and `mx3d` profiles for SAP application servers on virtual server instances in VPC Infrastructure, with vCPU-to-RAM ratios of 1:4 and 1:5 (bx3) and 1:8 and 1:10 (mx3d), compatible with Gen 2 and Gen 4.
+- Introduced new [Intel Sapphire Rapids](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi#nw-sr-profiles) `bx3` and `mx3` profiles for SAP application servers on virtual server instances in VPC Infrastructure, with vCPU-to-RAM ratios of 1:4 (bx3) and 1:8 (mx3), to be compatible with Gen 2 and Gen 4 profiles.
 - **4-node SAP HANA scale-out** is now certified and supported on {{site.data.keyword.powerSys_notm}} profile `sr3-229x30500`, see [sr3 - Certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr3-profiles-sizing).
 
 
