@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-07-08"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -41,7 +41,7 @@ Our infrastructure options are designed to support all your SAP workloads in dif
 - SAP HANA
 - SAP AnyDB
 - SAP NetWeaver
-- Other SAP products that use other technologies (for example, older applications such as SAP Content Server, or newer applications such as SAP Data Intelligence)
+- Other SAP products that use other technologies (for example SAP Content Server)
 
 Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append with more capabilities specific to SAP workloads.
 
@@ -57,7 +57,6 @@ Our key offerings are SAP-certified Infrastructure-as-a-Service, which we append
 - SAP BW
 - SAP Business One
 - SAP Business Objects Business Intelligence Suite (BOBJ/BO-BI)
-- SAP Data Intelligence 3.x / SAP Data Hub 2.x
 - ...more
 
 ## Supported SAP Technical Applications
@@ -139,7 +138,7 @@ However, the core cloud-native SAP technologies are able to be used directly wit
 
 Cloud-native SAP technologies which are portable, directly to Red Hat OpenShift on {{site.data.keyword.cloud_notm}} or Cloud Foundry from {{site.data.keyword.cloud_notm}}, examples include:
 - [SAP Fundamental Library Styles component library](https://sap.github.io/fundamental-styles){: external} for UI Frameworks (Angular, React, Vue, and other frameworks)
-- [SAPUI5 Framework](https://sapui5.hana.ondemand.com){: external} (and upstream project [OpenUI5](https://openui5.org){: external})
+- [SAPUI5 Framework](https://ui5.sap.com){: external} (and upstream project [OpenUI5](https://openui5.org){: external})
 
 ## SAP's Software-as-a-Service (SaaS) offerings
 {: #saas-offerings-summary}

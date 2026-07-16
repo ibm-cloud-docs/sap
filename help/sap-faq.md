@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-12"
+lastupdated: "2026-07-06"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -300,7 +300,6 @@ For a full updated list of SAP NetWeaver versions and SAP Kernel Patch Levels su
 - [SAP Note 2414820 - SAP on IBM Cloud: Support prerequisites](https://me.sap.com/notes/2414820){: external}
 - [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure environment](https://me.sap.com/notes/2414097){: external}
 - [SAP Note 2279688 - SAP on IBM Cloud: Support for SAP BusinessObjects](https://me.sap.com/notes/2279688){: external}
-- [SAP Note 2686169 - Prerequisites for installing SAP Data Hub 2](https://me.sap.com/notes/2686169){: external}
 
 ### {{site.data.keyword.cloud_notm}} VPC Infrastructure
 {: #faq-ibm-cloud-for-sap-portfolio-snotes-vpc}

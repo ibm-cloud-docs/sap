@@ -5,6 +5,7 @@ If you use the `powervs-move-ip` resource agent, run the following command on NO
 
 
 
+[API key]{: tag-teal}
 ```sh
 pcs resource create ${sid}_vip_ers${ERS_INSTNO} powervs-move-ip \
     api_key=${APIKEY} \

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-06-12"
+lastupdated: "2026-07-08"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, SAP HANA scale-out, High Availability, HA, Linux, Pacemaker, RHEL HA Add-On
 subcollection: sap
 ---
@@ -38,7 +38,7 @@ Review the general requirements, product documentation, support articles, and SA
    The setup can be extended to *2n + 1* nodes, where *n* is the number of SAP HANA nodes on one system replication site.
 
    Ensure that the virtual server instances meet the hardware and resource requirements for SAP HANA.
-   Refer to [Planning your deployment](/docs/sap?topic=sap-powervs-planning-items) for guidance.
+   Refer to [SAP HANA certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs) for guidance.
 
    The majoritymaker host must be a dedicated virtual instance with no other workload.
    A minimal configuration of 2 vCPUs and a 50 GB root partition is sufficient.

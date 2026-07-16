@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-07-08"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -23,13 +23,13 @@ A SAP HANA certified instance or profile on {{site.data.keyword.powerSysFull}} d
 
 SAP HANA workloads that use {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s run on {{site.data.keyword.IBM_notm}} Power Systems, with block storage powered by [{{site.data.keyword.IBM_notm}} FlashSystem family](https://www.ibm.com/solutions/storage){: external}, connected through the Fibre Channel protocol. The following {{site.data.keyword.IBM_notm}} Power Systems are certified to run SAP HANA workloads in {{site.data.keyword.BluSoftlayer_notm}}:
 
-- [IBM Power System S1122 (9824-22A)](https://www.ibm.com/downloads/documents/us-en/13774247783d5fe6){: external}
-- [IBM Power System E1150 (9043‑MRU)](https://www.ibm.com/downloads/documents/us-en/137a1e1e625bad7e){: external}
-- [IBM Power System E1180 (9080-HEU)](https://www.ibm.com/downloads/documents/us-en/137a1e1e625bad80){: external}
-- [IBM Power System S1022 (9105-22A)](https://www.ibm.com/downloads/documents/us-en/107a02e95b48f639){: external}
-- [IBM Power System E1050 (9043‑MRX)](https://www.ibm.com/downloads/documents/us-en/10a99803f2afd7aa){: external}
-- [IBM Power System E1080 (9080‑HEX)](https://www.ibm.com/downloads/documents/us-en/107a02e95c48f71a){: external}
-- [IBM Power System E980 (9080-M9S)](https://www.ibm.com/downloads/documents/us-en/10a99803f42fd831){: external}
+- [IBM Power System S1122 (9824-22A)](https://www-api.ibm.com/adobe/assets/urn:aaid:aem:80e3064d-99fb-4fad-a967-0e1813a99e8e/original/as/ibm-power-s1122-data-sheet-ph.pdf){: external}
+- [IBM Power System E1150 (9043‑MRU)](https://www-api.ibm.com/adobe/assets/urn:aaid:aem:81c04ae4-9377-44bf-9ab4-19a1f55b9fc6/original/as/ibm-power-e1150-data-sheet-ph.pdf){: external}
+- [IBM Power System E1180 (9080-HEU)](https://www-api.ibm.com/adobe/assets/urn:aaid:aem:5bcdfec0-e2c1-403d-acbb-b7b8a28defae/original/as/ibm-power-e1180-data-sheet-ph.pdf){: external}
+- [IBM Power System S1022 (9105-22A)](https://www-api.ibm.com/adobe/assets/urn:aaid:aem:40641b36-9af4-41c5-aba7-351df3900b4e/original/as/IBM_Power_S1022s.pdf){: external}
+- [IBM Power System E1050 (9043‑MRX)](https://www-api.ibm.com/adobe/assets/urn:aaid:aem:54cb9345-c204-466a-ba1c-a0402e4e51e7/original/as/IBM_Power_E1050_Datasheet.pdf){: external}
+- [IBM Power System E1080 (9080‑HEX)](https://www-api.ibm.com/adobe/assets/urn:aaid:aem:54cb9345-c204-466a-ba1c-a0402e4e51e7/original/as/IBM_Power_E1050_Datasheet.pdf){: external}
+- [IBM Power System E980 (9080-M9S)](https://www-api.ibm.com/adobe/assets/urn:aaid:aem:ee9de2eb-755a-4c65-9093-1fe66d45f33a/original/as/09019709.pdf){: external}
 
 For further information, see [hardware specifications for {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](/docs/power-iaas?topic=power-iaas-on-cloud-architecture#hardware-specifications-on-cloud).
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-30"
+lastupdated: "2026-07-15"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Workspace, SSH Key, Transit Gateway, {{site.data.keyword.powerSys_notm}} Subnets, Networks, Network security groups, Network address groups
 subcollection: sap
 content-type: tutorial
@@ -261,7 +261,7 @@ Example network address groups for SAP environments:
 | `backup-servers` | 10.40.20.0/24 | Backup network subnet |
 {: caption="Example network address groups for SAP environments" caption-side="bottom"}
 
-For more information, see [Network address groups](/docs/power-iaas?topic=power-iaas-network-address-groups){: external}.
+For more information, see [Network address groups](/docs/power-iaas?topic=power-iaas-nsg#nag).
 
 ## Next steps
 {: #workspace-next-steps}

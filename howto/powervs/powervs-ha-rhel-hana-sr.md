@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-07-08"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -31,7 +31,7 @@ Review the general requirements, product documentation, support articles, and SA
 - A Red Hat High Availability cluster is deployed on two virtual server instances in {{site.data.keyword.powerSys_notm}}.
    - Install and set up the RHEL High Availability Add-On cluster as described in [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster](/docs/sap?topic=sap-ha-rhel).
    - Configure and verify fencing as described in that topic.
-- The virtual server instances must meet the hardware and resource requirements for the SAP HANA systems in scope. Follow the guidelines in [Planning your deployment](/docs/sap?topic=sap-powervs-planning-items).
+- The virtual server instances must meet the hardware and resource requirements for the SAP HANA systems in scope. Follow the guidelines in [SAP HANA certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
 - The hostnames of the virtual server instances must meet SAP HANA requirements.
 - SAP HANA is installed on both virtual server instances, and SAP HANA system replication is configured. The installation of SAP HANA and the setup of SAP HANA system replication are not specific to the {{site.data.keyword.powerSys_notm}} environment, so follow the standard procedures.
 - A valid *RHEL for SAP Applications* or *RHEL for SAP Solutions* subscription is required to enable the repositories that you need to install SAP HANA and the resource agents for high availability configurations.

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-12"
+lastupdated: "2026-07-08"
 keywords: SAP, FlashSystem, Power, storage tiers, IOPS, log, data, shared, cos, file storage, boot, block storage, sapmnt, plan
 subcollection: sap
 ---
@@ -29,7 +29,7 @@ The storage architecture for {{site.data.keyword.powerSys_notm}} operates indepe
 IBM provisions, maintains, and manages the entire storage infrastructure in IBM‑operated data centers.
 
 IBM {{site.data.keyword.powerSys_notm}} uses SAN-attached IBM FlashSystem&reg; storage arrays to deliver enterprise-grade, low-latency, and high-performance capabilities.
-For more information, see [IBM FlashSystem&reg;](https://www.ibm.com/flashsystem){: external}.
+For more information, see [IBM FlashSystem&reg;](https://www.ibm.com/products/flashsystem){: external}.
 
 Clients use storage in the form of boot volumes and data volumes.
 IBM manages all underlying physical storage hardware.
@@ -166,7 +166,7 @@ Configure an own {{site.data.keyword.powerSys_notm}} storage volume for the `/us
 ## References
 {: #references}
 
-- [IBM FlashSystem&reg;](https://www.ibm.com/flashsystem){: external}
+- [IBM FlashSystem&reg;](https://www.ibm.com/products/flashsystem){: external}
 - [Storage tiers](/docs/power-iaas?topic=power-iaas-private-cloud-architecture#storage-tiers-spec-private-cloud)
 - [File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about)
 - [Cloud Object Storage classes](/docs/cloud-object-storage?topic=cloud-object-storage-classes)

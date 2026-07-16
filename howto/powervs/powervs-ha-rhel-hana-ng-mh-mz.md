@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-06-12"
+lastupdated: "2026-07-08"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, SAP HANA scale-out, High Availability, HA, Linux, Pacemaker, RHEL HA Add-On
 subcollection: sap
 ---
@@ -49,7 +49,7 @@ The tiebreaker participates in quorum voting but does not host cluster resources
    Deploy the majoritymaker host in {{site.data.keyword.vpc_short}} in the third zone.
 
    Ensure that the {{site.data.keyword.powerSys_notm}} instances meet the hardware and resource requirements for SAP HANA.
-   For guidance, see [Planning your deployment](/docs/sap?topic=sap-powervs-planning-items).
+   For guidance, see [SAP HANA certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
 
    Use a dedicated VPC virtual server instance for the majoritymaker host. Do not run any other workload on it.
    A minimal configuration with 2 vCPUs and a 50 GB root partition is sufficient.

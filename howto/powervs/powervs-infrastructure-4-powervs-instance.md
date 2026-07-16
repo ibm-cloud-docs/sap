@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-30"
+lastupdated: "2026-07-16"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}} Instance, SAP HANA DB, SAP Netweaver, Storage, Tune, Tuning OS, saptune, Ansible Roles, RHEL System Roles, RHEL SAP Roles, Ansible galaxy, Power linux sap
 subcollection: sap
 ---
@@ -100,9 +100,10 @@ Complete the fields in the **General** section.
    | Number of instances | Enter '1'. |
    | Add to a server placement group | Optional and can be skipped. |
    | Add to a shared processor pool | Optional and can be skipped. |
-   | Virtual server pinning | Optional, choose the default selection "None". |
    | SSH key | Choose an existing SSH key. |
    {: caption="General parameter selection for the SAP HANA instance" caption-side="bottom"}
+
+   Expand the **Advanced Configurations** section, and keep **Virtual server pinning** disabled.
 
    
 

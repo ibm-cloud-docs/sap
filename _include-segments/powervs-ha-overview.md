@@ -179,7 +179,7 @@ Table 2 compares high availability cluster configurations for single-workspace a
 The following figures illustrate the architecture of a highly available SAP system.
 
 SAP Web Dispatcher serves as a reverse proxy for HTTP(S) requests to the SAP system.
-Two SAP Web Dispatchers run in parallel in {{site.data.keyword.vpc_full}}s behind a {{site.data.keyword.loadbalancer_full}}.
+Two SAP Web Dispatchers run in parallel in {{site.data.keyword.vpc_full}}s behind an {{site.data.keyword.loadbalancer_full}}.
 {{site.data.keyword.tg_full}} interconnects the {{site.data.keyword.vpc_short}} with resources in {{site.data.keyword.powerSys_notm}} workspaces.
 Business users access the SAP system through the {{site.data.keyword.loadbalancer_short}} and SAP Web Dispatchers.
 
@@ -344,7 +344,10 @@ They use the API to complete the following tasks:
 
 You enable the authentication of the resource and fencing agents with the IBM Power Cloud API by using the following method:
 
-- Use a Service ID and an API Key. Create a Service ID in {{site.data.keyword.iamlong}}, and generate an API key for it. Assign the necessary IBM Power Cloud API permissions to the Service ID, and configure or store the API key on the {{site.data.keyword.powerSys_notm}} instance. The instance uses this API key to authenticate to the IBM Power Cloud API endpoints.
+- [API key]{: tag-teal} Use a Service ID and API Key.
+ Create a Service ID in {{site.data.keyword.iamlong}} and generate an API key for it.
+ Assign the required IBM Power Cloud API permissions to the Service ID, and then configure or store the API key on the {{site.data.keyword.powerSys_notm}} instance.
+ The instance uses the API key to authenticate with the IBM Power Cloud API endpoints.
 
 ### SAP application server considerations in a multizone region
 {: #ha-overview-hana-mzr-app-server}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-01"
+lastupdated: "2026-07-06"
 keywords: SAP-Certified HANA profiles, VPC, baremetal, log, data, shared, sapphire rapids, Skylake, Cascade lake, boot only, bare metal
 subcollection: sap
 ---
@@ -68,55 +68,54 @@ Refer to [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud
 ## Profiles hosted on Intel Sapphire Rapids CPU
 {: #sr-profiles}
 
-
-| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** |
-| --------------------| ------------- | ---------------- | ---------------- |
-| bx3d-metal-48x256   | 24            | 48               | 256              |
-| bx3d-metal-64x256   | 32            | 64               | 256              |
-| bx3d-metal-192x1024 | 96            | 192              | 1,024            |
-| mx3d-metal-16x128   | 8             | 16               | 128              |
-| mx3d-metal-48x512   | 24            | 48               | 512              |
-| mx3d-metal-64x512   | 32            | 64               | 512              |
-| mx3d-metal-96x1024  | 48            | 96               | 1,024            |
-| mx3d-metal-128x1024 | 64            | 128              | 1,024            |
-| vx3d-metal-16x256   | 8             | 16               | 256              |
-| ux3d-metal-16x512   | 8             | 16               | 512              |
+| **Profile name**                          | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** |
+| ------------------------------------------| ------------- | ---------------- | ---------------- |
+| bx3-metal-48x256 \n bx3d-metal-48x256     | 24            | 48               | 256              |
+| bx3-metal-64x256 \n bx3d-metal-64x256     | 32            | 64               | 256              |
+| bx3-metal-192x1024 \n bx3d-metal-192x1024 | 96            | 192              | 1,024            |
+| mx3-metal-16x128 \n mx3d-metal-16x128     | 8             | 16               | 128              |
+| mx3-metal-48x512 \n mx3d-metal-48x512     | 24            | 48               | 512              |
+| mx3-metal-64x512 \n mx3d-metal-64x512     | 32            | 64               | 512              |
+| mx3-metal-96x1024 \n mx3d-metal-96x1024   | 48            | 96               | 1,024            |
+| mx3-metal-128x1024 \n mx3d-metal-128x1024 | 64            | 128              | 1,024            |
+| vx3-metal-16x256 \n vx3d-metal-16x256     | 8             | 16               | 256              |
+| ux3-metal-16x512 \n ux3d-metal-16x512     | 8             | 16               | 512              |
 {: class="simple-tab-table"}
 {: tab-group="sr-profiles"}
 {: caption="Intel Bare Metal Sapphire Rapids profiles for SAP HANA" caption-side="bottom"}
 {: #sr-profiles-table}
 {: tab-title="Certified Profiles"}
 
-| **Profile name**    | **Workload type**.         | **SAPS** | **aSAPS** |
-| --------------------| -------------------------- | -------- | --------- |
-| bx3d-metal-48x256   | OLTP/SAP Business One      | 93,670   | 18,400    |
-| bx3d-metal-64x256   | OLTP                       | 124,520  | 24,600    |
-| bx3d-metal-192x1024 | OLTP/OLAP                  | 297,770  | 57,400    |
-| mx3d-metal-16x128   | SAP Business One           | 30,030   | n/a       |
-| mx3d-metal-48x512   | OLTP/OLAP/SAP Business One | 97,830   | 18,700    |
-| mx3d-metal-64x512   | OLTP/OLAP                  | 128,750  | 24,200    |
-| mx3d-metal-96x1024  | OLTP/OLAP                  | 182,670  | 33,700    |
-| mx3d-metal-128x1024 | OLTP/OLAP                  | 239,300  | 46,000    |
-| vx3d-metal-16x256   | OLTP                       | 35,520   | 6,900     |
-| ux3d-metal-16x512   | OLTP                       | 34,320   | 6,900     |
+| **Profile name**                          | **Workload type**.         | **SAPS** | **aSAPS** |
+| ------------------------------------------| -------------------------- | -------- | --------- |
+| bx3-metal-48x256 \n bx3d-metal-48x256     | OLTP/SAP Business One      | 93,670   | 18,400    |
+| bx3-metal-64x256 \n bx3d-metal-64x256     | OLTP                       | 124,520  | 24,600    |
+| bx3-metal-192x1024 \n bx3d-metal-192x1024 | OLTP/OLAP                  | 297,770  | 57,400    |
+| mx3-metal-16x128 \n mx3d-metal-16x128     | SAP Business One           | 30,030   | n/a       |
+| mx3-metal-48x512 \n mx3d-metal-48x512     | OLTP/OLAP/SAP Business One | 97,830   | 18,700    |
+| mx3-metal-64x512 \n mx3d-metal-64x512     | OLTP/OLAP                  | 128,750  | 24,200    |
+| mx3-metal-96x1024 \n mx3d-metal-96x1024   | OLTP/OLAP                  | 182,670  | 33,700    |
+| mx3-metal-128x1024 \n mx3d-metal-128x1024 | OLTP/OLAP                  | 239,300  | 46,000    |
+| vx3-metal-16x256 \n vx3d-metal-16x256     | OLTP                       | 35,520   | 6,900     |
+| ux3-metal-16x512 \n ux3d-metal-16x512     | OLTP                       | 34,320   | 6,900     |
 {: class="simple-tab-table"}
 {: tab-group="sr-profiles"}
 {: caption="Intel Bare Metal Sapphire Rapids profiles for SAP HANA" caption-side="bottom"}
 {: #sr-sizing}
 {: tab-title="Sizing"}
 
-| **Profile name**    | **Storage Array**        |
-| --------------------|--------------------------|
-| bx3d-metal-48x256   | 1 x 480 GB, 4 x 7,680 GB |
-| bx3d-metal-64x256   | 1 x 480 GB, 4 x 7,680 GB |
-| bx3d-metal-192x1024 | 1 x 480 GB, 8 x 7,680 GB |
-| mx3d-metal-16x128   | 1 x 480 GB, 4 x 7,680 GB |
-| mx3d-metal-48x512   | 1 x 480 GB, 4 x 7,680 GB |
-| mx3d-metal-64x512   | 1 x 480 GB, 4 x 7,680 GB |
-| mx3d-metal-96x1024  | 1 x 480 GB, 8 x 7,680 GB |
-| mx3d-metal-128x1024 | 1 x 480 GB, 8 x 7,680 GB |
-| vx3d-metal-16x256   | 1 x 480 GB, 4 x 7,680 GB |
-| ux3d-metal-16x512   | 1 x 480 GB, 4 x 7,680 GB |
+| **Profile name**                          | **Storage Array**        |
+| ------------------------------------------|--------------------------|
+| bx3-metal-48x256 \n bx3d-metal-48x256     | 1 x 480 GB, 4 x 7,680 GB |
+| bx3-metal-64x256 \n bx3d-metal-64x256     | 1 x 480 GB, 4 x 7,680 GB |
+| bx3-metal-192x1024 \n bx3d-metal-192x1024 | 1 x 480 GB, 8 x 7,680 GB |
+| mx3-metal-16x128 \n mx3d-metal-16x128     | 1 x 480 GB, 4 x 7,680 GB |
+| mx3-metal-48x512 \n mx3d-metal-48x512     | 1 x 480 GB, 4 x 7,680 GB |
+| mx3-metal-64x512 \n mx3d-metal-64x512     | 1 x 480 GB, 4 x 7,680 GB |
+| mx3-metal-96x1024 \n mx3d-metal-96x1024   | 1 x 480 GB, 8 x 7,680 GB |
+| mx3-metal-128x1024 \n mx3d-metal-128x1024 | 1 x 480 GB, 8 x 7,680 GB |
+| vx3-metal-16x256 \n vx3d-metal-16x256     | 1 x 480 GB, 4 x 7,680 GB |
+| ux3-metal-16x512 \n ux3d-metal-16x512     | 1 x 480 GB, 4 x 7,680 GB |
 {: class="simple-tab-table"}
 {: tab-group="sr-profiles"}
 {: caption="Intel Bare Metal Sapphire Rapids profiles for SAP HANA" caption-side="bottom"}
@@ -127,40 +126,39 @@ Refer to [SAP Note 2927211 - SAP Applications on IBM Cloud Virtual Private Cloud
 ## Profiles hosted on Intel Cascade Lake CPU
 {: #cl-profiles}
 
-
-| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** |
-| --------------------| ------------- | ---------------- | ---------------- |
-| cx2d-metal-96x192   | 48            | 96               | 192              |
-| bx2d-metal-96x384   | 48            | 96               | 384              |
-| mx2d-metal-96x768   | 48            | 96               | 768              |
-| ux2d-metal-112x3072 | 56            | 112              | 3,072            |
-| ux2d-metal-224x6144 | 122           | 224              | 6,144            |
+| **Profile name**                          | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** |
+| ------------------------------------------| ------------- | ---------------- | ---------------- |
+| cx2-metal-96x192 \n cx2d-metal-96x192     | 48            | 96               | 192              |
+| bx2-metal-96x384 \n bx2d-metal-96x384     | 48            | 96               | 384              |
+| mx2-metal-96x768 \n mx2d-metal-96x768     | 48            | 96               | 768              |
+| ux2-metal-112x3072 \n ux2d-metal-112x3072 | 56            | 112              | 3,072            |
+| ux2-metal-224x6144 \n ux2d-metal-224x6144 | 122           | 224              | 6,144            |
 {: class="simple-tab-table"}
 {: tab-group="cl-profiles"}
 {: caption="Intel Bare Metal Cascade Lake profiles for SAP HANA" caption-side="bottom"}
 {: #cl-profiles-table}
 {: tab-title="Certified Profiles"}
 
-| **Profile name**    | **Workload type**          | **SAPS** |
-| --------------------| -------------------------- | -------- |
-| cx2d-metal-96x192   | SAP Business One           | 101,070  |
-| bx2d-metal-96x384   | OLTP/OLAP/SAP Business One | 124,130  |
-| mx2d-metal-96x768   | OLTP/OLAP/SAP Business One | 127,620  |
-| ux2d-metal-112x3072 | OLTP/OLAP                  | 140,730  |
-| ux2d-metal-224x6144 | OLTP/OLAP                  | 294,730  |
+| **Profile name**                          | **Workload type**          | **SAPS** |
+| ------------------------------------------| -------------------------- | -------- |
+| cx2-metal-96x192 \n cx2d-metal-96x192     | SAP Business One           | 101,070  |
+| bx2-metal-96x384 \n bx2d-metal-96x384     | OLTP/OLAP/SAP Business One | 124,130  |
+| mx2-metal-96x768 \n mx2d-metal-96x768     | OLTP/OLAP/SAP Business One | 127,620  |
+| ux2-metal-112x3072 \n ux2d-metal-112x3072 | OLTP/OLAP                  | 140,730  |
+| ux2-metal-224x6144 \n ux2d-metal-224x6144 | OLTP/OLAP                  | 294,730  |
 {: class="simple-tab-table"}
 {: tab-group="cl-profiles"}
 {: caption="Intel Bare Metal Cascade Lake profiles for SAP HANA" caption-side="bottom"}
 {: #cl-sizing}
 {: tab-title="Sizing"}
 
-| **Profile name**    | **Storage Array**          |
-| --------------------|----------------------------|
-| cx2d-metal-96x192   |  1 x 960 GB, 8 x 3,200 GB  |
-| bx2d-metal-96x384   |  1 x 960 GB, 8 x 3,200 GB  |
-| mx2d-metal-96x768   |  1 x 960 GB, 8 x 3,200 GB  |
-| ux2d-metal-112x3072 |  1 x 960 GB, 8 x 3,200 GB  |
-| ux2d-metal-224x6144 |  1 x 960 GB, 2 x 2,5600 GB |
+| **Profile name**                          | **Storage Array**          |
+| ------------------------------------------|----------------------------|
+| cx2-metal-96x192 \n cx2d-metal-96x192     |  1 x 960 GB, 8 x 3,200 GB  |
+| bx2-metal-96x384 \n bx2d-metal-96x384     |  1 x 960 GB, 8 x 3,200 GB  |
+| mx2-metal-96x768 \n mx2d-metal-96x768     |  1 x 960 GB, 8 x 3,200 GB  |
+| ux2-metal-112x3072 \n ux2d-metal-112x3072 |  1 x 960 GB, 8 x 3,200 GB  |
+| ux2-metal-224x6144 \n ux2d-metal-224x6144 |  1 x 960 GB, 2 x 2,5600 GB |
 {: class="simple-tab-table"}
 {: tab-group="cl-profiles"}
 {: caption="Intel Bare Metal Cascade Lake profiles for SAP HANA" caption-side="bottom"}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-01"
+lastupdated: "2026-07-06"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, sapphire rapids, Skylake, Cascade lake, VPC, VSI, certified profiles
 subcollection: sap
 ---
@@ -119,17 +119,17 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 ### bx3 profiles with ratio 1:4
 {: #nw-sr-bx3d-1-4-profiles}
 
-| **Profile name**             | **Virtual CPUs** | **Memory (GiB)** | **aSAPS** |
-|------------------------------|------------------|------------------|-----------|
-| bx3-2x8 \n bx3d-2x8          | 2                | 8                | 500       |
-| bx3-4x16 \n bx3d-4x16        | 4                | 16               | 1,100     |
-| bx3-8x32 \n bx3d-8x32        | 8                | 32               | 2,300     |
-| bx3-16x64 \n bx3d-16x64      | 16               | 64               | 4,600     |
-| bx3-32x128 \n bx3d-32x128    | 32               | 128              | 9,200     |
-| bx3-48x192 \n bx3d-48x192    | 48               | 192              | 13,800    |
-| bx3-64x256 \n bx3d-64x256    | 64               | 256              | 18,400    |
-| bx3-96x384 \n bx3d-96x384    | 96               | 384              | 27,600    |
-| bx3-128x512 \n bx3d-128x512  | 128              | 512              | 36,800    |
+| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **aSAPS** |
+|------------------|------------------|------------------|-----------|
+| bx3-2x8          | 2                | 8                | 500       |
+| bx3-4x16         | 4                | 16               | 1,100     |
+| bx3-8x32         | 8                | 32               | 2,300     |
+| bx3-16x64        | 16               | 64               | 4,600     |
+| bx3-32x128       | 32               | 128              | 9,200     |
+| bx3-48x192       | 48               | 192              | 13,800    |
+| bx3-64x256       | 64               | 256              | 18,400    |
+| bx3-96x384       | 96               | 384              | 27,600    |
+| bx3-128x512      | 128              | 512              | 36,800    |
 {: caption="Balanced profiles on Intel Sapphire Rapids" caption-side="bottom"}
 
 ### bx3 profiles with ratio 1:5
@@ -154,17 +154,17 @@ The following tables provide an overview of the SAP-certified profiles for {{sit
 ### mx3 profiles with ratio 1:8
 {: #nw-sr-mx3d-1-8-profiles}
 
-| **Profile name**              | **Virtual CPUs** | **Memory (GiB)** | **aSAPS** |
-|-------------------------------|------------------|------------------|-----------|
-| mx3-2x16 \n mx3d-2x16         | 2                | 16               | 500       |
-| mx3-4x32 \n mx3d-4x32         | 4                | 32               | 1,100     |
-| mx3-8x64 \n mx3d-8x64         | 8                | 64               | 2,200     |
-| mx3-16x128 \n mx3d-16x128     | 16               | 128              | 4,500     |
-| mx3-32x256 \n mx3d-32x256     | 32               | 256              | 9,100     |
-| mx3-48x384 \n mx3d-48x384     | 48               | 384              | 13,700    |
-| mx3-64x512 \n mx3d-64x512     | 64               | 512              | 18,300    |
-| mx3-96x768 \n mx3d-96x768     | 96               | 768              | 27,400    |
-| mx3-128x1024 \n mx3d-128x1024 | 128              | 1,024            | 36,600    |
+| **Profile name** | **Virtual CPUs** | **Memory (GiB)** | **aSAPS** |
+|------------------|------------------|------------------|-----------|
+| mx3-2x16         | 2                | 16               | 500       |
+| mx3-4x32         | 4                | 32               | 1,100     |
+| mx3-8x64         | 8                | 64               | 2,200     |
+| mx3-16x128       | 16               | 128              | 4,500     |
+| mx3-32x256       | 32               | 256              | 9,100     |
+| mx3-48x384       | 48               | 384              | 13,700    |
+| mx3-64x512       | 64               | 512              | 18,300    |
+| mx3-96x768       | 96               | 768              | 27,400    |
+| mx3-128x1024     | 128              | 1,024            | 36,600    |
 {: caption="Memory optimized profiles on Intel Sapphire Rapids" caption-side="bottom"}
 
 ### mx3 profiles with ratio 1:10

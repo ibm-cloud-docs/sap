@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-12"
+lastupdated: "2026-07-08"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -57,7 +57,8 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 ### High availability
 {: #fast-path-power-vs-plan-high-availability}
 
-- [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-overview)
+- [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} on Red Hat Enterprise Linux](/docs/sap?topic=sap-powervs-ha-rhel-overview)
+- [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}} on SUSE Linux Enterprise Server](/docs/sap?topic=sap-powervs-ha-sles-overview)
 
 
 
@@ -76,7 +77,7 @@ Refer to [SAP on Power Virtual Server](/docs/pattern-sap-on-powervs) for a refer
 {: #fast-path-power-vs-how-to-deploy}
 
 - Preparing the deployment
-   - [Planning your deployment](/docs/sap?topic=sap-powervs-planning-items)
+   - [SAP HANA certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
    - [Deploying IBM Cloud VPC infrastructure for {{site.data.keyword.powerSys_notm}} workloads](/docs/sap?topic=sap-powervs-set-up-vpc-infrastructure)
    - [Deploying SAP {{site.data.keyword.powerSys_notm}} workloads](/docs/sap?topic=sap-powervs-set-up-power-infrastructure)
 

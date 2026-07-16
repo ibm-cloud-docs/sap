@@ -1,6 +1,6 @@
 
 Decide which resource agent to use for managing virtual IP resources in the cluster.
-For details, see [SAP HANA high availability solution in a multizone region environment - Network considerations](/docs/sap?topic=sap-ha-overview#ha-overview-hana-mzr-network).
+For details, see [SAP HANA high availability solution in a multizone region environment - Network considerations](/docs/sap?topic=sap-powervs-ha-rhel-overview#ha-overview-hana-mzr-network).
 
 Complete all steps that are described in [Preparing a multi-zone RHEL HA Add-On cluster for a virtual IP address resource](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-create-vip).
 
@@ -11,6 +11,7 @@ Use the `pcs resource describe` command to view detailed parameter information f
 If you use the `powervs-move-ip` resource agent, run the following command on NODE1 to create a cluster resource for the ASCS virtual IP address.
 
 
+[API key]{: tag-teal}
 ```sh
 pcs resource create ${sid}_vip_ascs${ASCS_INSTNO} powervs-move-ip \
     api_key=${APIKEY} \

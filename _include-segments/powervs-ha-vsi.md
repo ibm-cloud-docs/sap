@@ -7,7 +7,7 @@ Complete the following tasks to configure the workspace for the cluster nodes.
 
 1. Create a workspace.
 
-    To create a workspace, follow the instructions in [Deploying a {{site.data.keyword.powerSys_notm}} workspace](/docs/sap?topic=sap-powervs-set-up-power-service).
+    To create a workspace, follow the instructions in [Deploying a {{site.data.keyword.powerSys_notm}} workspace](/docs/sap?topic=sap-powervs-set-up-power-infrastructure#powervs-set-up-power-service).
     After you create the workspace, it appears under **Workspaces** in the left navigation panel of the {{site.data.keyword.powerSys_notm}} user interface.
 1. Create network subnets in the workspace.
 
@@ -42,6 +42,7 @@ Create a custom role that restricts agent actions to the minimum required set.
 
 A service ID in {{site.data.keyword.cloud_notm}} is a unique identifier that enables applications and services to authenticate with IBM Cloud services.
 Create a service ID for the agents so that they can access IBM Power Cloud actions such as monitoring or controlling virtual server instances.
+
 
 ### Verifying access to {{site.data.keyword.iamshort}}
 {: #ha-vsi-iam-logon}
@@ -301,7 +302,7 @@ Gather the parameters, and note them for the cluster configuration.
 
 
 - `APIKEY`, the API key for the fencing agent.
-   Use the value of the `apikey` entry from the JSON file that was downloaded in the [Creating an API key for the Service ID](/docs/sap?topic=sap-ha-vsi#ha-vsi-create-service-api-key) section.
+   Use the value of the `apikey` entry from the JSON file that was downloaded in the [Creating an API key for the Service ID](#ha-vsi-create-service-api-key) section.
 
    For deployments in a multizone region, an API key is also required for the `powervs-move-ip` or `powervs-subnet` cluster resource agents.
    As with the fencing agent, you can use the value of the `apikey` entry for the `APIKEY` parameter.

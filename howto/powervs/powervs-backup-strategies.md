@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-07-16"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, Backup, Compass, Cobalt Iron, Backint, agent, Cloud {{site.data.keyword.cos_short}}, COS
 subcollection: sap
 
@@ -15,46 +15,41 @@ subcollection: sap
 {: #powervs-backup-strategies}
 
 IBM Cloud offers a robust {{site.data.keyword.powerSysFull}} infrastructure to run SAP HANA, and this document outlines the steps and best practices for performing backups of SAP HANA database.
+{: shortdesc}
 
-When deploying SAP HANA on {{site.data.keyword.powerSys_notm}} instance, it is essential to implement a reliable and efficient backup strategy to ensure the availability and recoverability of your data. Two primary methods are available for performing backups of SAP HANA database running on {{site.data.keyword.powerSys_notm}} instance:
+When you deploy SAP HANA on an {{site.data.keyword.powerSys_notm}} instance, implement a reliable and efficient backup strategy to help ensure data availability and recoverability. Two primary backup methods are available for SAP HANA databases that run on {{site.data.keyword.powerSys_notm}}:
 
 1. [IBM SAP HANA Backint Agent for {{site.data.keyword.cos_full_notm}}](#powervs-backup-using-sap-backint-agent)
 1. [Secure automated backup with Compass for SAP HANA](#powervs-backup-using-compass)
 
 
-Both of these methods offer flexible, secure, and scalable solutions for backing up SAP HANA, and each has its own set of advantages based on your infrastructure and requirements.
+These methods provide flexible, secure, and scalable backup options for SAP HANA. The method that you choose depends on your infrastructure and requirements.
 
 ## IBM SAP HANA Backint agent for {{site.data.keyword.cos_full_notm}}
 {: #powervs-backup-using-sap-backint-agent}
 
-* **Backint for SAP HANA** is an API that enables third-party solutions to directly connect their backup agents to the SAP HANA database.
-* The **IBM Backint Agent for SAP HANA with {{site.data.keyword.cos_full_notm}}**, developed by IBM, is essential for performing backups of SAP HANA in compliance with SAP’s backup guidelines.
-* IBM SAP HANA Backint agent is supported both on SUSE Linux Enterprise Server (SLES) and Red Hat Enterprise Linux (RHEL) platforms.
+The IBM Backint Agent for SAP HANA with {{site.data.keyword.cos_full_notm}} is an SAP-certified backup agent that IBM developed. It implements the SAP Backint API and connects SAP HANA directly to {{site.data.keyword.cos_full_notm}} for data, log, and catalog backups. The agent runs on IBM Power servers (ppc64le) and supports both SUSE Linux Enterprise Server (SLES) and Red Hat Enterprise Linux (RHEL).
+
+For documentation, installation steps, and the latest release, see the [ibm-sap-hana-backint-cos GitHub repository](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos){: external}.
 
 ### Prerequisites
 {: #powervs-backup-using-sap-backint-agent-prereqs}
 
-Before you begin, ensure that the following prerequisites are met:
+Before you begin, ensure that following prerequisites are met:
 
-1. It is required to have an {{site.data.keyword.cos_full_notm}} (COS) instance. Within this instance, an {{site.data.keyword.cos_short}} Bucket is required. Refer to [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage) for more details.
-   1. Log in to the [IBM Cloud console](https://cloud.ibm.com/){: external} and create an instance of **{{site.data.keyword.cos_full_notm}}**.
-   1. Create a **bucket** where backups will be stored.
-   1. Make sure to set the **bucket’s permissions** properly to control access.
-   1. Obtain the **service credentials** (API key) required to authenticate your backups.
-   1. Follow additional prerequisites mentioned in [github readme](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos/blob/main/README.md#prerequisites){: external}
-1. Downloaded the latest release from [ibm-sap-hana-backint-cos github repository](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos/releases){: external}.
+- You have an active [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage) instance with a bucket that uses **Regional resiliency** and has **Object Versioning** and **Object Lock** enabled. Cross-region resiliency is not supported.
+- The IAM identity that the agent uses has the required permissions on the bucket. For the complete list, see the [prerequisites in the GitHub README](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos/blob/main/README.md#prerequisites){: external}.
+- You have downloaded the latest release from the [GitHub releases page](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos/releases){: external}.
 
-To improve the backup performance create an {{site.data.keyword.vpc_short}}(VPC) and create a [Virtual Private Endpoint gateway (VPE)](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=ui) of type Cloud {{site.data.keyword.cos_short}}.
-Add the virtual private endpoint IP address and name to the hosts file `/etc/hosts` on the {{site.data.keyword.powerSys_notm}} instance.
-To access the VPE from the {{site.data.keyword.powerSys_notm}} instance, the VPC subnet and the {{site.data.keyword.powerSys_notm}} Workspace must be attached to the same {{site.data.keyword.tg_short}}.
+For better backup performance and security, create a [Virtual Private Endpoint gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=ui) of type **Cloud Object Storage** in an {{site.data.keyword.vpc_short}}. Then, attach both the VPC and the {{site.data.keyword.powerSys_notm}} workspace to the same {{site.data.keyword.tg_short}}. Add the VPE IP address and hostname to `/etc/hosts` on the {{site.data.keyword.powerSys_notm}} instance.
+{: tip}
 
-### Installation and configuration of agent on host
+### Installing and configuring the agent on the host
 {: #powervs-backup-using-sap-backint-agent-install}
 
-1. For installation guide follow the [github readme](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos/blob/main/README.md#install-the-agent){: external}.
-1. For configuring correct SAP HANA and backint agent parameters refer to the [github readme](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos/blob/main/README.md#configure-sap-hana-database-to-use-the-parameter-file){: external}.
+For installation and configuration instructions, see the [GitHub README](https://github.com/IBM-Cloud/ibm-sap-hana-backint-cos/blob/main/README.md){: external}. The README describes how to download and install the agent, choose an authentication method, create the configuration file, and set the required SAP HANA `global.ini` parameters. For IBM {{site.data.keyword.powerSys_notm}}, OAuth trusted profile authentication is recommended.
 
-Referenced in [SAP Note 3644731 -  Install and Configure IBM Backint agent for SAP HANA with IBM Cloud Object Storage](https://me.sap.com/notes/3644731){: external}.
+This agent is also referenced in [SAP Note 3644731 - Install and Configure IBM Backint agent for SAP HANA with IBM Cloud Object Storage](https://me.sap.com/notes/3644731){: external}.
 
 
 ## Secure automated backup with Compass for Linux
@@ -92,7 +87,7 @@ The Backup Offering provides various integrated security and operational feature
 Connectivity between {{site.data.keyword.powerSys_notm}} instances and the backup servers is established via a Transit Gateway connection to the backup VPC. Name resolution is for the backup server connections, which is also required. You can accomplish this using the agent system's /etc/hosts file, or by adding CNAME entries to your agent system's DNS server. These elements need to be deployed in your account (Transit Gateway and VPC provisioning and setup happens through automation when the Backup Offering is provisioned).
 {: tip}
 
-### Installation and configuration of agent on host
+### Installing and configuring the agent on the host
 {: #powervs-backup-using-sap-compass-agent-install}
 
 For detailed installation and configuration steps refer to the [SAP HANA agent setup process PDF](https://help.cobaltiron.com/wp-content/uploads/2024/01/CobaltIron-PowerVS-AgentSetup-SAPHANA-20240327.pdf){: external}

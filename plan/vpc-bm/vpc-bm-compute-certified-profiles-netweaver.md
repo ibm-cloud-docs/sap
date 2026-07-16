@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-07-06"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, sapphire rapids, Skylake, Cascade lake, baremetal
 subcollection: sap
 ---
@@ -55,20 +55,20 @@ For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virt
 {: #nw-sr-profiles}
 
 
-| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS**  | **aSAPS**    |
-| --------------------| ------------- | ---------------- | ---------------- | --------- |------------- |
-| cx3d-metal-48x128   | 24            | 48               | 128              | 62,029    | n/a          |
-| cx3d-metal-64x128   | 32            | 64               | 128              | 63,950    | n/a          |
-| bx3d-metal-48x256   | 24            | 48               | 256              | 93,670    | 18,400       |
-| bx3d-metal-64x256   | 32            | 64               | 256              | 124,520   | 24,600       |
-| bx3d-metal-192x1024 | 96            | 192              | 1,024            | 297,770   | 57,400       |
-| mx3d-metal-16x128   | 8             | 16               | 128              | 30,030    | n/a          |
-| mx3d-metal-48x512   | 24            | 48               | 512              | 97,830    | 18,700       |
-| mx3d-metal-64x512   | 32            | 64               | 512              | 128,750   | 24,200       |
-| mx3d-metal-96x1024  | 48            | 96               | 1,024            | 182,670   | 33,700       |
-| mx3d-metal-128x1024 | 64            | 128              | 1,024            | 239,300   | 46,000       |
-| vx3d-metal-16x256   | 8             | 16               | 256              | 35,520    | 6,900        |
-| ux3d-metal-16x512   | 8             | 16               | 512              | 34,320    | 6,900        |
+| **Profile name**                          | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS**  | **aSAPS**    |
+| ------------------------------------------| ------------- | ---------------- | ---------------- | --------- |------------- |
+| cx3-metal-48x128 \n cx3d-metal-48x128     | 24            | 48               | 128              | 62,029    | n/a          |
+| cx3-metal-64x128 \n cx3d-metal-64x128     | 32            | 64               | 128              | 63,950    | n/a          |
+| bx3-metal-48x256 \n bx3d-metal-48x256     | 24            | 48               | 256              | 93,670    | 18,400       |
+| bx3-metal-64x256 \n bx3d-metal-64x256     | 32            | 64               | 256              | 124,520   | 24,600       |
+| bx3-metal-192x1024 \n bx3d-metal-192x1024 | 96            | 192              | 1,024            | 297,770   | 57,400       |
+| mx3-metal-16x128 \n mx3d-metal-16x128     | 8             | 16               | 128              | 30,030    | n/a          |
+| mx3-metal-48x512 \n mx3d-metal-48x512     | 24            | 48               | 512              | 97,830    | 18,700       |
+| mx3-metal-64x512 \n mx3d-metal-64x512     | 32            | 64               | 512              | 128,750   | 24,200       |
+| mx3-metal-96x1024 \n mx3d-metal-96x1024   | 48            | 96               | 1,024            | 182,670   | 33,700       |
+| mx3-metal-128x1024 \n mx3d-metal-128x1024 | 64            | 128              | 1,024            | 239,300   | 46,000       |
+| vx3-metal-16x256 \n vx3d-metal-16x256     | 8             | 16               | 256              | 35,520    | 6,900        |
+| ux3-metal-16x512 \n ux3d-metal-16x512     | 8             | 16               | 512              | 34,320    | 6,900        |
 {: caption="Intel Sapphire Rapids servers certified for {{site.data.keyword.sap_app_server}}" caption-side="bottom"}
 
 
@@ -76,13 +76,13 @@ For more information, see [SAP Note 2927211 - SAP Applications on IBM Cloud Virt
 ## Profiles hosted on Intel Cascade Lake CPU
 {: #nw-cl-profiles}
 
-| **Profile name**    | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** |
-| --------------------| ------------- | ---------------- | ---------------- | --------- |
-| cx2d-metal-96x192   | 48            | 96               | 192              | 101,070   |
-| bx2d-metal-96x384   | 48            | 96               | 384              | 124,130   |
-| mx2d-metal-96x768   | 48            | 96               | 768              | 127,620   |
-| ux2d-metal-112x3072 | 56            | 112              | 3,072            | 140,730   |
-| ux2d-metal-224x6144 | 112           | 224              | 6,144            | 294,730   |
+| **Profile name**                          | **CPU cores** | **Virtual CPUs** | **Memory (GiB)** | **SAPS** |
+| ------------------------------------------| ------------- | ---------------- | ---------------- | --------- |
+| cx2-metal-96x192 \n cx2d-metal-96x192     | 48            | 96               | 192              | 101,070   |
+| bx2-metal-96x384 \n bx2d-metal-96x384     | 48            | 96               | 384              | 124,130   |
+| mx2-metal-96x768 \n mx2d-metal-96x768     | 48            | 96               | 768              | 127,620   |
+| ux2-metal-112x3072 \n ux2d-metal-112x3072 | 56            | 112              | 3,072            | 140,730   |
+| ux2-metal-224x6144 \n ux2d-metal-224x6144 | 112           | 224              | 6,144            | 294,730   |
 {: caption="Intel Cascade Lake servers certified for {{site.data.keyword.sap_app_server}}" caption-side="bottom"}
 
 
