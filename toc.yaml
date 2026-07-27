@@ -16,26 +16,28 @@ toc:
   - navgroup:
       id: overview
       topics:
-      - navtitle: Get started
-        topic: overview/sap-getting-started.md
-      - navtitle: Overview of IBM Cloud for SAP
-        topic: overview/sap-offerings-overview.md
       - navtitle: Release notes
         topic: overview/sap-release-notes.md
       - topicgroup:
-          label: Fast path site maps
-          id: "fast-path-site-maps"
+          label: Understand SAP on IBM Cloud
+          id: overview-understand-sap
           topics:
-          - navtitle: Power Virtual Server
-            topic: overview/sap-fast-path-site-map-ibm-power-vs.md
-          - navtitle: Intel virtual servers in VPC
-            topic: overview/sap-fast-path-site-map-intel-vs-gen2.md
-          - navtitle: Intel Bare Metal servers in VPC
-            topic: overview/sap-fast-path-site-map-intel-bm-vpc.md
-          - navtitle: Intel Bare Metal servers in Classic
-            topic: overview/sap-fast-path-site-map-intel-bm.md
-          - navtitle: VMware in Classic
-            topic: overview/sap-fast-path-site-map-vmware-sddc.md
+          - navtitle: What is SAP on IBM Cloud
+            topic: overview/sap-what-is.md
+          - navtitle: Why choose IBM Cloud for SAP
+            topic: overview/sap-why-ibm-cloud.md
+          - navtitle: Supported SAP workloads
+            topic: overview/sap-supported-workloads.md
+          - navtitle: Integration with ecosystem
+            topic: overview/sap-integration-ecosystem.md
+      - navtitle: Infrastructure platforms
+        topic: overview/sap-deployment-options-comparison.md
+      - navtitle: Decision guidance
+        topic: overview/sap-decision-guidance.md
+      - navtitle: Pricing and cost considerations
+        topic: overview/sap-pricing-cost.md
+      - navtitle: IBM Cloud regions
+        topic: overview/sap-regions.md
       - link:
           label: Executive solution brief of IBM Cloud for SAP
           href: https://www.ibm.com/cloud/smartpapers/accelerate-SAP/
@@ -149,6 +151,16 @@ toc:
               topics:
               - navtitle: Building RHEL
                 topic: howto/powervs/powervs-custom-os-image-build-rhel.md
+          - topicgroup:
+              id: howto-powervs-iam
+              label: Identity and Access Management
+              topics:
+              - navtitle: Access roles
+                topic: howto/powervs/powervs-iam-iam.md
+              - navtitle: Trusted profiles
+                topic: howto/powervs/powervs-iam-trusted-profiles.md
+              - navtitle: Metadata service
+                topic: howto/powervs/powervs-iam-instance-metadata-service.md
           - topicgroup:
               id: howto-powervs-ha-rhel
               label: High availability on RHEL
@@ -387,130 +399,6 @@ toc:
                 topic: howto/vpc/intel-vsi-sap-workloads-refarch-sol-mgr-hana-db-rhel.md
               - navtitle: IBM Cloud Logging, Monitoring, and Alerting
                 topic: howto/vpc/intel-vsi-sap-workloads-refarch-cloud-monitoring.md
-      - topicgroup:
-          label: Terraform for SAP solutions on Intel VPC
-          id: "terraform-for-sap-in-vpc"
-          topics:
-          - navtitle: Terraform deployment templates
-            topic: howto/vpc/intel-vsi-terraform-automate-overview.md
-          - navtitle: Deploying the SAP bastion server – SAP media storage repository
-            topic: howto/vpc/intel-vsi-terraform-automate-bastion-server.md
-          - navtitle: Creating single-tier VPC for SAP
-            topic: howto/vpc/intel-vsi-terraform-automate-create-single-tier.md
-          - navtitle: Deploying SAP AnyDB (non-SAP HANA) 2-tier and 3-tier distributed architecture in VPC
-            topic: howto/vpc/intel-vsi-terraform-automate-anydb-nonhana-multi-tier.md
-          - topicgroup:
-              label: SAP NetWeaver and Db2 2-tier in VPC
-              id: "terraform-for-sap-netweaver-and-db2-2tier-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-db2-2tier-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-db2-2tier-deploy.md
-          - topicgroup:
-              label: SAP NetWeaver and Db2 3-tier in VPC
-              id: "terraform-for-sap-netweaver-and-db2-3tier-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-db2-3tier-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-db2-3tier-deploy.md
-          - topicgroup:
-              label: SAP HANA stand-alone VSI in VPC
-              id: "terraform-sap-hana-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-hana-standalone-vsi-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-hana-standalone-vsi-deploy.md
-          - topicgroup:
-              label: SAP AAS for SAP HANA and AnyDB in VPC
-              id: "terraform-sap-aas-for-hana-and-anydb-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-aas-hana-anydb-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-aas-hana-anydb-deploy.md
-          - topicgroup:
-              label: SAP NetWeaver and SAP ASE in VPC
-              id: "terraform-sap-netweaver-and-ase-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-ase-sybase-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-ase-sybase-deploy.md
-          - topicgroup:
-              label: SAP NetWeaver (ABAP) on SAP ASE HA deployment in VPC
-              id: "terraform-sap-netweaver-and-ase-ha-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-ase-sybase-ha-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-ase-sybase-ha-deploy.md
-          - topicgroup:
-              label: SAP S/4HANA HA deployment in VPC
-              id: "terraform-sap-hana-ha-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-s4hana-ha-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-s4hana-ha-deploy.md
-          - topicgroup:
-              label: SAP NetWeaver HA deployment in VPC
-              id: "terraform-sap-netweaver-ha-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-ha-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-ha-deploy.md
-          - topicgroup:
-              label: SAP HANA DB backup to Cloud Object Storage
-              id: "terraform-sap-hana-backup-to-cos"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-hana-backup-cos-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-hana-backup-cos-deploy.md
-          - topicgroup:
-              label: SAP S/4HANA workload deployment in VPC
-              id: "terraform-sap-s4hana-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-s4hana-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-s4hana-deploy.md
-          - topicgroup:
-              label: SAP HANA DB cross-region DR automation in VPC
-              id: "terraform-sap-hana-cross-region-dr-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-hana-crossregion-dr-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-hana-crossregion-dr-deploy.md
-          - topicgroup:
-              label: SAP BW/4HANA 3-tier in VPC
-              id: "terraform-sap-bw4hana-3tier-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-bw4hana-3tier-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-bw4hana-3tier-deploy.md
-          - topicgroup:
-              label: SAP NetWeaver 7.x on HANA db 3-tier in VPC
-              id: "terraform-sap-netweaver-hana-3tier-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-hana-3tier-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-nw-hana-3tier-deploy.md
-          - topicgroup:
-              label: SAP ASE standalone database instance in VPC
-              id: "terraform-sap-ase-in-vpc"
-              topics:
-              - navtitle: Overview
-                topic: howto/vpc/intel-vsi-terraform-automate-ase-sybase-standalone-vsi-overview.md
-              - navtitle: Deploying
-                topic: howto/vpc/intel-vsi-terraform-automate-ase-sybase-standalone-vsi-deploy.md
   - navgroup:
       id: help
       topics:

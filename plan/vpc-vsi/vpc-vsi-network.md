@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-07-26"
 keywords: SAP, VPC, Virtual Server Instance, networking, network planning, VPC networking, subnets, security groups, ACL, connectivity, private network, VPE, Direct Link, VPN, network topology
 subcollection: sap
 ---
@@ -204,9 +204,6 @@ For complex SAP landscapes spanning multiple VPCs, you can establish connectivit
     - Separating production and non-production environments.
     - Implementing hub-spoke network architectures.
     - Connecting SAP systems across different VPCs.
-
-VPC peering
-:   Establishes direct connectivity between two VPCs, allowing resources to communicate as if they were in the same network.
 
 ### Connectivity to Classic Infrastructure
 {: #network-connectivity-classic}
@@ -493,7 +490,7 @@ Requirements and considerations:
    - Class B: 172.16.0.0/12.
    - Class C: 192.168.0.0/16.
 
-- Non-RFC 1918 ranges are not supported for BYOIP in VPC.
+- Non-RFC 1918 ranges require special attention, see [Choosing IP ranges for your VPC](/docs/vpc?topic=vpc-choosing-ip-ranges-for-your-vpc).
 - BYOIP ranges can be used with {{site.data.keyword.dl_short}} connectivity.
 - Plan IP address ranges carefully to avoid conflicts with on-premises networks.
 

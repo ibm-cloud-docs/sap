@@ -12,7 +12,7 @@ subcollection: sap
 # Planning your deployment
 {: #bm-vpc-planning-items}
 
-You must already be familiar with the fundamental components and options that are provided by IBM VPC Infrastructure for SAP. Before you start deploying servers, make sure that you read the important information in the [**_Get Started_**](/docs/sap?topic=sap-get-started) section.
+You must already be familiar with the fundamental components and options that are provided by IBM VPC Infrastructure for SAP. Before you start deploying servers, make sure that you read the important information in the [planning section](docs/sap?group=plan-vpc-vsi).
 {: shortdesc}
 
 

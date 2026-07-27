@@ -182,7 +182,7 @@ In the *Access policies* section, click **Assign access** and repeat the steps t
 {: important}
 
 #### Creating an API key for the Service ID
-{: #ha-vsi-create-service-api-key}
+{: #ha-vsi-create-api-key}
 
 When you configure an agent in a high availability cluster as a fencing device or cluster resource, you must specify an *API key*.
 The *API key* authorizes the fencing or resource agent to use the IBM Power Cloud API to perform the actions that are defined in the *Service ID*.
@@ -302,7 +302,7 @@ Gather the parameters, and note them for the cluster configuration.
 
 
 - `APIKEY`, the API key for the fencing agent.
-   Use the value of the `apikey` entry from the JSON file that was downloaded in the [Creating an API key for the Service ID](#ha-vsi-create-service-api-key) section.
+   Use the value of the `apikey` entry from the JSON file that was downloaded in the [Creating an API key for the Service ID](#ha-vsi-create-api-key) section.
 
    For deployments in a multizone region, an API key is also required for the `powervs-move-ip` or `powervs-subnet` cluster resource agents.
    As with the fencing agent, you can use the value of the `apikey` entry for the `APIKEY` parameter.

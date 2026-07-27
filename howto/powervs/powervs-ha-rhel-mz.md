@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-12"
+lastupdated: "2026-07-22"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn
 subcollection: sap
 ---
@@ -514,7 +514,6 @@ Two specific resource agents are available to manage a service IP address in a m
 - `powervs-move-ip` resource agent
 
     During a takeover event, the resource agent `powervs-move-ip` updates predefined static routes in the IBM {{site.data.keyword.powerSys_notm}}, and configures an overlay IP address as IP alias address on the virtual server instance.
-    If you use the `powervs-move-ip` resource agent, continue with the steps in [Installing the powervs-move-ip resource agent](#ha-rhel-mz-install-powervs-move-ip-resource-agent)
 
 - `powervs-subnet` resource agent
 
@@ -528,67 +527,21 @@ The package requires RHEL 9.4 or later and became available with a recent updat
 
 Run the following command on each cluster node to install the resource agents.
 
-```bash
-dnf install -y resource-agents-cloud
-```
-
-### Preparing the powervs-subnet resource agent
-{: #ha-rhel-mz-prepare-powervs-subnet-resource-agent}
-
-
-The *powervs-subnet* resource agent is included in the `resource-agents-cloud` package in RHEL 9.4 or later and does not require a separate download or manual installation.
-However, specific NetworkManager settings are required for the resource agent to operate correctly.
-
-
-1. Verify that the `NetworkManager-config-server` package is installed.
-
-   On both nodes, run the following command.
-
-   ```sh
-   dnf list NetworkManager-config-server
-   ```
-   {: pre}
-
-   Sample output:
-
-   ```sh
-   # dnf list NetworkManager-config-server
-   Installed Packages
-   NetworkManager-config-server.noarch                                    1:1.42.2-16.el9_2                                     @rhel-9-for-ppc64le-baseos-e4s-rpms
-   ```
-   {: screen}
-
-1. Make sure that the NetworkManager `no-auto-default` configuration variable is set to `*`.
-
-   ```sh
-   NetworkManager --print-config | grep "no-auto-default="
-   ```
-   {: pre}
-
-   Sample output:
-
-   ```sh
-   # NetworkManager --print-config | grep "no-auto-default="
-   no-auto-default=*
-   ```
-   {: screen}
-
-   If the `no-auto-default` shows a value other than `*`, edit the `/etc/NetworkManager/conf.d/00-server.conf` file and change the variable as needed.
-
-
-After you complete these steps, verify that the powervs-subnet resource agent is available.
-
 ```sh
-pcs resource describe powervs-subnet
+dnf install -y resource-agents-cloud
 ```
 {: pre}
 
-Continue with the steps in [Creating a service ID for the resource agent](#ha-rhel-mz-iam-custom-role)
+The following steps describe the preparation for the `powervs-move-ip` resource agent.
+If you use the `powervs-subnet` resource agent, continue with the steps in [Preparing the powervs-subnet resource agent](#ha-rhel-mz-prepare-powervs-subnet-resource-agent)
 
 ### Verifying the powervs-move-ip resource agent
 {: #ha-rhel-mz-verify-powervs-move-ip-resource-agent}
 
 The *powervs-move-ip* resource agent is included in the `resource-agents-cloud` package in RHEL 9.4 or later and does not require a separate download or manual installation.
+
+
+
 After you install the resource agents package, verify that the powervs‑move‑ip resource agent is available and registered correctly.
 
 Use the following command on either node to display a brief description of the resource agent.
@@ -647,6 +600,57 @@ pcs resource describe powervs-move-ip
     Repeat the step for both cluster nodes.
     Note the cloud resource name *CRN* for each of the routes.
     You need to enter the CRNs during the cluster resource configuration steps for the specific high availability scenario.
+
+Continue with the steps in [Creating a service ID for the resource agent](#ha-rhel-mz-iam-custom-role)
+
+### Preparing the powervs-subnet resource agent
+{: #ha-rhel-mz-prepare-powervs-subnet-resource-agent}
+
+The *powervs-subnet* resource agent is included in the `resource-agents-cloud` package in RHEL 9.4 or later and does not require a separate download or manual installation.
+However, specific NetworkManager settings are required for the resource agent to operate correctly.
+
+1. Verify that the `NetworkManager-config-server` package is installed.
+
+   On both nodes, run the following command.
+
+   ```sh
+   dnf list NetworkManager-config-server
+   ```
+   {: pre}
+
+   Sample output:
+
+   ```sh
+   # dnf list NetworkManager-config-server
+   Installed Packages
+   NetworkManager-config-server.noarch                                    1:1.42.2-16.el9_2                                     @rhel-9-for-ppc64le-baseos-e4s-rpms
+   ```
+   {: screen}
+
+1. Make sure that the NetworkManager `no-auto-default` configuration variable is set to `*`.
+
+   ```sh
+   NetworkManager --print-config | grep "no-auto-default="
+   ```
+   {: pre}
+
+   Sample output:
+
+   ```sh
+   # NetworkManager --print-config | grep "no-auto-default="
+   no-auto-default=*
+   ```
+   {: screen}
+
+   If the `no-auto-default` shows a value other than `*`, edit the `/etc/NetworkManager/conf.d/00-server.conf` file and change the variable as needed.
+
+
+After you complete these steps, verify that the powervs-subnet resource agent is available.
+
+```sh
+pcs resource describe powervs-subnet
+```
+{: pre}
 
 ### Creating a custom role, service ID, and API key for the resource agent
 {: #ha-rhel-mz-iam-custom-role}

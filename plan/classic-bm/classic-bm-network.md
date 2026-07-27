@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-05-27"
+lastupdated: "2026-07-20"
 keywords: SAP, Bare Metal, Classic, networking, network planning, Classic Infrastructure, VLANs, subnets, connectivity, private network, Direct Link, VPN, network topology
 subcollection: sap
 ---
@@ -43,7 +43,7 @@ The {{site.data.keyword.cloud_notm}} Classic Infrastructure network provides con
 The {{site.data.keyword.cloud_notm}} Classic Infrastructure network consists of three distinct and redundant network architectures that are seamlessly integrated in a secured network-within-a-network topology:
 
 Public network
-:   The public network provides carrier-grade internet connectivity to multi-home backbone carriers. Traffic travels directly across the {{site.data.keyword.cloud_notm}} data center network backbone, minimizing network hops and latency.
+:   The public network provides carrier grade internet connectivity to multi-home backbone carriers. Traffic travels directly across the {{site.data.keyword.cloud_notm}} data center network backbone, minimizing network hops and latency.
 
 Private network
 :   The private network provides complete control of secured networking traffic without performance degradation. It includes:
@@ -113,10 +113,18 @@ For more information, see [Getting started with subnets and IPs](/docs/subnets?t
 
 Each provisioned bare metal server has network interfaces available at speeds of 100 Mbps, 1 Gbps, or 10 Gbps.
 
+Select bare metal server profiles provide 1 Gbps, 10 Gbps, or [25 Gbps port speed](/docs/bare-metal?topic=bare-metal-network-options#25gb-port-speed) options. Among them are the SAP certified server profiles `BI.S4.*` with "S4 CPU" generation, i.e. Intel Cascade Lake - see [bare metal server naming convention](/docs/sap?topic=sap-nw-iaas-offerings-profiles-classic-bm#naming-convention).
+{: note}
+
+
 Interface options
-:   - External interface with public IP address.
-:   - Internal interface with private IP address (RFC 1918 compliant).
-:   - Single internal interface with private IP only.
+:   - Single interface with private IP only.
+:   - Two interfaces with public and private IP addresses.
+
+IP addresses to primary interfaces are assigned automatically and are managed by IBM Cloud. Primary and secondary subnets use a prefix from RFC1918 address space 10.0.0.0/8. see [primary subnets](/docs/subnets?topic=subnets-about-subnets-and-ips#primary-subnets) and [network options](/docs/bare-metal?topic=bare-metal-network-options)
+
+You can't add a public interface to a server after it is provisioned with only a private interface.
+{: note}
 
 Network redundancy
 :   Both public and private interfaces can be made redundant through:

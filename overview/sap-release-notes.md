@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-07-01"
+lastupdated: "2026-07-22"
 keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
@@ -80,7 +80,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 - New document: [Configuring SAP HANA multiple-host system replication in a Red Hat Enterprise Linux (RHEL) High Availability (HA) Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-mh)
 - Updated the following documents for new IP-Overlay resource agent `powervs-move-ip` in multi-zone HA scenarios including:
    - Overview - [Resource agent](/docs/sap?topic=sap-powervs-ha-rhel-overview#ha-overview-hana-network-ra-move-ip) `powervs-move-ip`
-   - [Installing the powervs-move-ip resource agent](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-install-powervs-move-ip-resource-agent)
+   - [Installing the IBM Cloud resource agents](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-install-vip-resource-agents)
    - [Creating a virtual IP cluster resource in a multizone region environment](/docs/sap?topic=sap-ha-rhel-hana-ng-sh#ha-rhel-hana-ng-sh-mz-create-virtual-ip-resource)
 - IBM Power9 SAP HANA certified profiles are now discouraged for new deployments. Users are advised to migrate to IBM Power10 SAP HANA certified profiles or later, selecting the appropriate profile based on memory and core requirements. For more information, see [SAP HANA certified instances on {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
 - Added a list of IBM Power10 SAP HANA sr2 discouraging profiles with recommended alternative profiles for each configuration based on required cores and memory. Users are advised to update their profiles accordingly. For more information, see [sr2 - Discouraging Profiles](https://cloud.ibm.com/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr2-profiles).
