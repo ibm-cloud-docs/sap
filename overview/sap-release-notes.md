@@ -1,12 +1,13 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-07-22"
+lastupdated: "2026-07-30"
 keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # Release notes
 {: #release-notes}
@@ -15,6 +16,15 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 {: shortdesc}
 
 
+
+## July 2026
+{: #sap-2026-07}
+
+- Restructured the [overview](/docs/sap?group=overview) section to improve clarity and navigation.
+- New document: [Resizing and migrating hardware profiles for IBM {{site.data.keyword.powerSys_notm}} instance in the same workspace](/docs/sap?topic=sap-sapmig-resizing-migrating-hardware-profiles).
+- New document: [Managing identity and access for SAP on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-iam).
+- New document: [Using trusted profiles for SAP workloads on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-iam-trusted-profiles).
+- New document: [Configuring and managing the metadata service for SAP on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-instance-metadata-service).
 
 ## June 2026
 {: #sap-2026-06}
@@ -147,7 +157,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 ## April 2025
 {: #sap-2025-04}
 
-- Enhanced the [fast path for Power Virtual Server](/docs/sap?topic=sap-fast-path-site-map-power-vs) with improved headings, intuitive navigation, and enriched informational content.
+- Enhanced the fast path for Power Virtual Server with improved headings, intuitive navigation, and enriched informational content.
 - Introduced 3 new [x86_64 Bare Metal certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-classic-intel-bm) for SAP HANA on IBM Cloud Classic.
 - Introduced 12 new [x86_64 VSI  certified profiles (vx3*)](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi#nw-sr-vx3d-profiles) for SAP NetWeaver on IBM Cloud VPC.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-07-27"
 keywords: SAP, IBM Cloud benefits, SAP infrastructure, enterprise cloud, SAP performance, high availability, disaster recovery, backup, monitoring, automation
 subcollection: sap
 ---
@@ -18,7 +18,7 @@ IBM Cloud provides enterprise-grade infrastructure specifically designed and cer
 ## IBM and SAP strategic partnership
 {: #ibm-sap-partnership}
 
-IBM and SAP have maintained a strategic technology partnership for over 50 years, resulting in deep integration expertise, joint innovation, and proven reliability for enterprise SAP deployments. This long-standing collaboration ensures that IBM Cloud infrastructure is optimized for SAP workloads and backed by both IBM and SAP support organizations. For more information about the partnership, see [IBM and SAP](https://www.ibm.com/partnerworld/program/benefits/sap){: external}.
+IBM and SAP have maintained a strategic technology partnership for over 50 years, resulting in deep integration expertise, joint innovation, and proven reliability for enterprise SAP deployments. This long-standing collaboration ensures that IBM Cloud infrastructure is optimized for SAP workloads and backed by both IBM and SAP support organizations. For more information about the partnership, see [IBM and SAP partnership](https://www.ibm.com/sap){: external}.
 
 ## Enterprise-grade infrastructure for SAP
 {: #enterprise-infrastructure}
@@ -59,8 +59,6 @@ IBM Cloud delivers infrastructure built specifically for enterprise SAP workload
 {: caption="Comprehensive security capabilities" caption-side="bottom"}
 
 **TCO benefit**: Built-in security features eliminate the need for additional security infrastructure and tools. Compliance certifications reduce audit costs and accelerate compliance validation processes.
-
-For security guidance, see [Security for SAP](/docs/sap?topic=sap-security).
 
 ## SAP certification and support
 {: #sap-certification}
@@ -213,6 +211,6 @@ IBM Cloud infrastructure is optimized for SAP workloads through SAP-certified pr
 {: #next-steps}
 
 - Review [Planning your SAP deployment](/docs/sap?group=plan) to understand infrastructure requirements
-- Learn about [Infrastructure options](/docs/sap?topic=sap-infrastructure-options) to compare platforms
+- Learn about [SAP deployment options comparison](/docs/sap?topic=sap-deployment-options-comparison) to compare platforms
 - See [How-to guides](/docs/sap?group=howto) for detailed implementation procedures
-- Review [Cost considerations](/docs/sap?topic=sap-cost-considerations) for TCO analysis and optimization strategies
+- Review [Pricing and cost considerations](/docs/sap?topic=sap-pricing) for TCO analysis and optimization strategies

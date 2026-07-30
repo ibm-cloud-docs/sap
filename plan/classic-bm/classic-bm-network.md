@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-07-20"
+lastupdated: "2026-07-27"
 keywords: SAP, Bare Metal, Classic, networking, network planning, Classic Infrastructure, VLANs, subnets, connectivity, private network, Direct Link, VPN, network topology
 subcollection: sap
 ---
@@ -181,14 +181,8 @@ For more information, see [Setting up access to Classic infrastructure](/docs/vp
 
 {{site.data.keyword.cloud_notm}} Classic Infrastructure offers multiple firewall and security options:
 
-Hardware Firewall (shared)
-:   A shared firewall providing basic protection. For more information, see [Hardware Firewall (Shared)](/docs/hardware-firewall-shared?topic=hardware-firewall-shared-getting-started).
-
 Vyatta Virtual Router Appliance (dedicated)
 :   A dedicated virtual router appliance with advanced routing and firewall capabilities. For more information, see [About the VRA](/docs/virtual-router-appliance?topic=virtual-router-appliance-about-the-vra).
-
-FortiGate Security Appliance (dedicated)
-:   A dedicated hardware security appliance with comprehensive security features. For more information, see [Getting started with FortiGate Security Appliance](/docs/fortigate-10g?topic=fortigate-10g-getting-started).
 
 Gateway Appliances
 :   Provide demilitarized zone (DMZ) configuration with public-facing and private-facing VLANs for enhanced security.
@@ -250,8 +244,6 @@ For more information about {{site.data.keyword.cloud_notm}} Classic Infrastructu
 - [Getting started with subnets and IPs](/docs/subnets?topic=subnets-getting-started)
 - [About subnets and IPs](/docs/subnets?topic=subnets-about-subnets-and-ips)
 - [Direct Link 1.0](/docs/direct-link)
-- [Hardware Firewall (Shared)](/docs/hardware-firewall-shared?topic=hardware-firewall-shared-getting-started)
 - [About the VRA](/docs/virtual-router-appliance?topic=virtual-router-appliance-about-the-vra)
-- [Getting started with FortiGate Security Appliance](/docs/fortigate-10g?topic=fortigate-10g-getting-started)
 - [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure)
 - [Getting started with {{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gateway-getting-started)

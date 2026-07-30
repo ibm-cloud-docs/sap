@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-07-27"
 keywords: SAP, pricing, cost, billing, cost optimization, pricing model
 subcollection: sap
 ---
@@ -100,7 +100,7 @@ IBM Cloud infrastructure costs are separate from SAP software licensing costs.
 | **Package licenses** | Bundled licenses for specific SAP solutions |
 {: caption="SAP license types" caption-side="bottom"}
 
-Consult with SAP for licensing requirements and compliance. For more information, see [SAP licensing](https://www.sap.com/about/agreements/policies/licensing.html){: external}.
+Consult with SAP for licensing requirements and compliance.
 
 ## Cost estimation
 {: #cost-estimation}

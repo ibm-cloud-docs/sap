@@ -146,8 +146,8 @@ Create a **custom role** in IAM.
 1. Select **Workspace for {{site.data.keyword.powerSys_notm}}** from the **Service** list.
 1. Set **View** to **Manager** and **Type** to **Service**, and then search for `route` to simplify the list.
 1. Select the following actions in the **Actions** list.
-   - power-iaas.route.read
-   - power-iaas.route.update
+   - power-iaas.cloud-instance.read
+   - power-iaas.cloud-instance.modify
 1. Click **Create** to save the role.
 
 

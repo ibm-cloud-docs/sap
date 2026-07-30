@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-07-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, {{site.data.keyword.powerSys_notm}}, trusted profile, compute resource identity, backup, HA, resource agent, instance metadata
 subcollection: sap
 ---
@@ -144,10 +144,10 @@ For fence agent `fence_ibm_powervs`:
 
 For resource agent `powervs-move-ip`:
 
-| Action                   | Purpose                                                                                               |
-| -------------------------| ----------------------------------------------------------------------------------------------------- |
-| `power-iaas.route.read`  | view routing configurations within an IBM {{site.data.keyword.powerSys_notm}} workspace               |
-| `power-iaas.route.update`| modify or update routing configurations within an IBM {{site.data.keyword.powerSys_notm}} workspace   |
+| Action                            | Purpose                                                                                              |
+| ----------------------------------| ---------------------------------------------------------------------------------------------------- |
+| `power-iaas.cloud-instance.read`  | view instance configurations within an IBM {{site.data.keyword.powerSys_notm}} workspace             |
+| `power-iaas.cloud-instance.modify`| modify or update instance configurations within an IBM {{site.data.keyword.powerSys_notm}} workspace |
 {: caption="Minimum IAM access for resource agent powervs-move-ip trusted profile" caption-side="bottom"}
 
 **To configure a trusted profile for HA resource agents:**
@@ -157,7 +157,7 @@ For resource agent `powervs-move-ip`:
 3. Enable the metadata service on both cluster VSIs.
 4. Configure the HA resource agent (for example, `powervs-move-ip`) to retrieve its authorization token from the instance metadata service.
 
-For guidance on migrating an existing `powervs-move-ip` setup from service ID authorization to trusted profile authorization, see [Migrating `powervs-move-ip` from service ID to trusted profile authorization](/docs/sap?topic=sap-powervs-ha-rhel-tp-migrate).
+See [Migrating `powervs-move-ip` from service ID to trusted profile authorization](/docs/sap?topic=sap-powervs-ha-rhel-tp-migrate) for guidance on migrating an existing setup to trusted profile authorization.
 
 ## IAM access policies and session limits
 {: #access-policies}

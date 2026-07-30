@@ -1,12 +1,13 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-26"
+lastupdated: "2026-07-30"
 keywords: SAP, IBM Cloud benefits, SAP infrastructure, enterprise cloud, SAP performance, high availability, disaster recovery, backup, monitoring, automation
 subcollection: sap
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # IBM Cloud regions
 {: #regions}

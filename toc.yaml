@@ -279,6 +279,12 @@ toc:
                 topic: howto/powervs/powervs-migration-hybrid-cloud-networking.md
               - navtitle: Migration considerations from SAP ERP 6.0 to S/4HANA on IBM Power Virtual Server
                 topic: howto/powervs/powervs-migration-sum-dmo.md
+          - topicgroup:
+              id: howto-powervs-migration-between-powervs-instances
+              label: Migration between Power Virtual Server Instances
+              topics:
+              - navtitle: Resizing and migrating hardware profiles
+                topic: howto/powervs/powervs-migration-hana-profile.md
       - topicgroup:
           label: SAP workloads in VPC
           id: sap-workloads-in-vpc

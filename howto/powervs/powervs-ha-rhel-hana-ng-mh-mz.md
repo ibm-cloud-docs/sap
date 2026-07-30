@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-07-22"
+lastupdated: "2026-07-27"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, SAP HANA scale-out, High Availability, HA, Linux, Pacemaker, RHEL HA Add-On
 subcollection: sap
 ---
@@ -996,7 +996,7 @@ pcs resource config SAPHanaController_${SID}_${INSTNO}-clone
 ### Creating a virtual IP address cluster resource
 {: #ha-rhel-hana-ng-mh-mz-create-virtual-ip-resource}
 
-Follow the procedures in [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster in a multi-zone region environment](/docs/sap?topic=sap-ha-rhel-mz##ha-rhel-mz-install-vip-resource-agents).
+Follow the procedures in [Implementing a Red Hat Enterprise Linux High Availability Add-On cluster in a multi-zone region environment](/docs/sap?topic=sap-ha-rhel-mz#ha-rhel-mz-install-vip-resource-agents).
 For architectural details and additional information, see [Resource agent powervs-move-ip](/docs/sap?topic=sap-powervs-ha-rhel-overview#ha-overview-hana-network-ra-move-ip).
 
 Install the `powervs-move-ip` resource agent on all cluster nodes, create the static route in the workspace for the virtual IP and create a service ID for the resource agent.
