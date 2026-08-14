@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-12"
+lastupdated: "2026-08-12"
 keywords: SAP, Bare Metal, VPC, NVMe, storage, IOPS, HANA, log, data, shared, {{site.data.keyword.filestorage_vpc_short}}, sapmnt, {{site.data.keyword.cos_full_notm}}, VPE, plan, nvme, raid, local storage
 subcollection: sap
 ---
@@ -158,7 +158,7 @@ The exact RAID configuration and number of NVMe devices depend on your specific 
 ### Volume layout
 {: #app-server-layout}
 
-To plan storage volumes for the {{site.data.keyword.sap_app_server}}, refer to the storage section in [{{site.data.keyword.sap_app_server}} certified instances on Intel-powered bare metal servers in VPC Infrastructure](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-bm#nw-iaas-intel-bm-vpc-int-storage). Use the SAP application server file system tab to determine the storage tier and the size of the storage volume for the `/usr/sap` file system.
+To plan storage volumes for the {{site.data.keyword.sap_app_server}}, refer to the storage section in [{{site.data.keyword.sap_app_server}} certified instances on Intel-powered bare metal servers in VPC Infrastructure](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-bm#internal-storage). Use the SAP application server file system tab to determine the storage tier and the size of the storage volume for the `/usr/sap` file system.
 
 Configure storage as follows:
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-27"
+lastupdated: "2026-08-12"
 keywords: SAP, pricing, cost, billing, cost optimization, pricing model
 subcollection: sap
 ---
@@ -21,7 +21,7 @@ For detailed pricing information, use the [IBM Cloud Cost Estimator](https://clo
 {: #model}
 
 | Attribute | Description |
-|---|---|
+| --- | --- |
 | **Pay-as-you-go** | Pay only for resources consumed with monthly billing based on actual usage |
 | **No long-term contracts** | No minimum commitments required (reserved capacity available for discounts) |
 | **Bring Your Own License (BYOL)** | Use existing SAP licenses on IBM Cloud infrastructure to reduce software costs |
@@ -35,7 +35,7 @@ For detailed pricing information, use the [IBM Cloud Cost Estimator](https://clo
 {: #compute-costs}
 
 | Resource | Billing basis | Best for |
-|---|---|---|
+| --- | --- | --- |
 | **VPC virtual servers** | Hourly or monthly, based on profile (vCPU and memory) | Development, test, and smaller production workloads |
 | **VPC bare metal servers** | Monthly, based on server configuration (CPU cores, memory, local storage) | Production workloads requiring dedicated resources |
 | **IBM Power Virtual Server** | Hourly, based on core count and memory allocation | Mission-critical workloads, AIX, maximum SAP HANA performance |
@@ -45,7 +45,7 @@ For detailed pricing information, use the [IBM Cloud Cost Estimator](https://clo
 {: #storage-costs}
 
 | Storage type | Billing basis | Use case |
-|---|---|---|
+| --- | --- | --- |
 | **Block storage** | Provisioned capacity and IOPS tier | SAP HANA data and log volumes |
 | **File storage** | Provisioned capacity and performance tier | Shared file systems |
 | **Object storage** | Data stored and data transfer | SAP backups and long-term archiving (lowest cost) |
@@ -55,30 +55,20 @@ For detailed pricing information, use the [IBM Cloud Cost Estimator](https://clo
 {: #network-costs}
 
 | Network component | Cost | Notes |
-|---|---|---|
+| --- | --- | --- |
 | **Private network (same region)** | Free | Use for all internal SAP traffic |
 | **Public network outbound** | Per GB transferred | Minimize to reduce costs |
 | **IBM Cloud Direct Link** | Based on port speed and location | Dedicated hybrid connectivity |
 | **Load balancers and VPN** | Based on type, data processed, connection usage | As required |
 {: caption="Network cost billing" caption-side="bottom"}
 
-## Infrastructure cost comparison
-{: #cost-comparison}
 
-| Infrastructure | Relative cost | Best for |
-|---|---|---|
-| VPC virtual servers | $ (Lowest) | Development, test, cost optimization |
-| VPC bare metal servers | $$ (Medium) | Production workloads, balance of cost and performance |
-| IBM Power Virtual Server | $$$ (Premium) | Mission-critical SAP HANA, maximum performance, AIX workloads |
-{: caption="Infrastructure cost comparison" caption-side="bottom"}
-
-Actual costs depend on specific configurations, usage patterns, and applicable discounts.
 
 ## Cost optimization strategies
 {: #optimization-strategies}
 
 | Strategy | Actions | Potential savings |
-|---|---|---|
+| --- | --- | --- |
 | **Right-sizing** | Use SAP Quick Sizer for accurate sizing; monitor actual utilization; avoid "just in case" over-provisioning | 20–40% |
 | **Environment optimization** | Deploy dev/test on VPC virtual servers; suspend non-production systems when idle; share infrastructure across non-production systems | 40–60% on non-production |
 | **Storage optimization** | Use appropriate storage tiers; move backups to Object Storage; implement lifecycle policies; delete unused snapshots | 30–50% on storage |
@@ -94,7 +84,7 @@ IBM Cloud infrastructure costs are separate from SAP software licensing costs.
 **Bring Your Own License (BYOL)**: Use existing SAP licenses on IBM Cloud infrastructure. No additional SAP license costs are required. Ensure compliance with SAP licensing terms.
 
 | License type | Basis |
-|---|---|
+| --- | --- |
 | **Named user licenses** | Per individual user |
 | **Engine licenses** | Processing power (for SAP HANA, SAP BW/4HANA) |
 | **Package licenses** | Bundled licenses for specific SAP solutions |
@@ -121,7 +111,7 @@ For accurate pricing based on your specific requirements, contact IBM Cloud sale
 {: #tco}
 
 | TCO component | On-premises | IBM Cloud |
-|---|---|---|
+| --- | --- | --- |
 | **Hardware** | Capital expenditure required | Eliminated — pay only for resources used |
 | **Data center facilities** | Owned or leased, power and cooling costs | Included in IBM Cloud pricing |
 | **Over-provisioning** | Required for peak capacity and HA standby | Eliminated — scale on demand |
@@ -134,7 +124,7 @@ For accurate pricing based on your specific requirements, contact IBM Cloud sale
 {: #cost-management}
 
 | Tool | Description |
-|---|---|
+| --- | --- |
 | **IBM Cloud Cost and Usage Reports** | Detailed cost breakdowns, usage tracking by resource, cost trends, and forecasting. Access through IBM Cloud console > **Manage** > **Billing and usage**. |
 | **Resource tagging** | Tag resources for cost allocation by department, project, environment, or cost center |
 | **Billing alerts** | Configure spending thresholds and receive notifications when costs exceed limits |

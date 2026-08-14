@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-08-11"
 keywords: SAP, SAP on IBM Cloud, SAP infrastructure, SAP HANA, SAP NetWeaver, SAP S/4HANA
 subcollection: sap
 ---
@@ -23,7 +23,7 @@ IBM Cloud provides multiple infrastructure options for SAP workloads, all hosted
 IBM Cloud offers three SAP-certified infrastructure platforms, each designed for specific deployment scenarios and performance requirements.
 
 | Platform | Best for | OS support | SAP HANA max |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **IBM Power Virtual Server** | Mission-critical SAP HANA production, AIX workloads | AIX, RHEL, SLES | Up to 30 TB |
 | **VPC Infrastructure** | New deployments, dev/test, cloud-native architectures | RHEL, SLES, Windows | VSI: 5.7 TB, bare metal: 12 TB |
 | **Classic Infrastructure** | Existing Classic deployments only | RHEL, SLES, Windows | Up to 12 TB |
@@ -40,9 +40,9 @@ IBM Cloud supports the full spectrum of SAP applications and databases across al
 {: #sap-applications}
 
 | Application | Description |
-|---|---|
+| --- | --- |
 | **SAP S/4HANA** | Next-generation intelligent ERP suite built on the SAP HANA in-memory database platform |
-| **SAP ECC (ERP Central Component)** | Traditional SAP ERP system supporting SAP HANA, IBM Db2, Oracle, Microsoft SQL Server, and SAP ASE |
+| **SAP ECC (ERP Central Component)** | Traditional SAP ERP system supporting SAP HANA, IBM Db2, Microsoft SQL Server, and SAP ASE |
 | **SAP BW/4HANA** | Data warehousing solution built for SAP HANA, providing real-time analytics and reporting |
 | **SAP Business One** | ERP solution designed for small and medium-sized businesses |
 | **SAP NetWeaver** | Application server platform for SAP business applications |
@@ -52,9 +52,9 @@ IBM Cloud supports the full spectrum of SAP applications and databases across al
 {: #sap-databases}
 
 | Database | Description |
-|---|---|
+| --- | --- |
 | **SAP HANA** | In-memory database platform that powers SAP S/4HANA, BW/4HANA, and other SAP applications. Supported on all three infrastructure platforms with optimized performance on IBM Power Virtual Server. |
-| **SAP AnyDB** | Multiple third-party databases including IBM Db2, Oracle Database, Microsoft SQL Server, SAP ASE (Sybase), and SAP MaxDB |
+| **SAP AnyDB** | Multiple third-party databases including IBM Db2, Microsoft SQL Server, SAP ASE (Sybase), and SAP MaxDB |
 {: caption="Supported SAP databases" caption-side="bottom"}
 
 ### SAP components
@@ -91,13 +91,13 @@ All infrastructure profiles documented in this guide are SAP-certified, which me
 - Deployments are supported by SAP for production workloads
 - Profiles are regularly tested and updated to maintain certification
 
-For current SAP certification details, see the [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas){: external} and [SAP Note 2414097 - SAP Applications on IBM Cloud](https://launchpad.support.sap.com/){: external}.
+For current SAP certification details, see the [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas){: external} and [SAP Note 2414097 - SAP Applications on IBM Cloud](https://me.sap.com/notes/2414097/){: external}.
 
 ## Key benefits
 {: #key-benefits}
 
 | Benefit | Description |
-|---|---|
+| --- | --- |
 | **Enterprise-grade infrastructure** | Leverage IBM's decades of experience running mission-critical workloads with enterprise-class hardware and support |
 | **SAP-certified profiles** | Choose from preconfigured, SAP-certified infrastructure profiles designed to meet SAP performance requirements |
 | **Global availability** | Deploy SAP workloads in IBM Cloud data centers across the globe |
@@ -110,7 +110,7 @@ For current SAP certification details, see the [SAP Certified and Supported SAP 
 {: #use-cases}
 
 | Use case | Description |
-|---|---|
+| --- | --- |
 | **New SAP deployments** | Launch new SAP S/4HANA or other SAP systems directly in the cloud, taking advantage of rapid provisioning and cloud-native capabilities |
 | **SAP migration to cloud** | Move existing on-premises SAP systems to IBM Cloud infrastructure with minimal disruption |
 | **Development and test environments** | Create isolated development, test, and sandbox environments for SAP projects with flexible sizing and rapid provisioning |

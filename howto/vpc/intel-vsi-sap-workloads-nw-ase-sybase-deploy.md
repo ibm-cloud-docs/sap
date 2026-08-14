@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-08-12"
 keywords:
 subcollection: sap
 ---
@@ -56,71 +56,58 @@ The storage component is also an important part of any VSI deployment process an
 
 Before any deployment of SAP and database applications, you should prepare and deploy the necessary cloud resources in the {{site.data.keyword.vpc_short}}. It is important to know the business and geographical location of the VPC placement. For more information, see [SAP NetWeaver deployment to Intel Virtual Server on VPC Infrastructure that uses RHEL](/docs/sap?topic=sap-quickstudy-vs-gen2-netweaver-rhel).
 
+### VPC details
+{: #vpc-details}
+
 For instance, the following example data is of a VPC created in Germany with data centers spanning in the Frankfurt area:
 
 | VPC name | VPC region | VPC zones |
 | ---------------: | ---------: | ---------: |
-| “bog-sap” | “eu-de” | “eu-de-1”, “eu-de-2” and “eu-de-3” |
+| “sap-vpc” | “eu-de” | “eu-de-1”, “eu-de-2” and “eu-de-3” |
 {: caption="VPC details" caption-side="top"}
 
-![Figure 1. VPC details](../../images/vpc-intel-vsi-vpc-details-ase.png "VPC details"){: caption="VPC details" caption-side="bottom"}
+Once the VPC is created, the IBM Cloud console shows a details page confirming all the configuration properties. The VPC is assigned a unique ID `r010-22415c67-d724-4fc9-8d8c-e048f963d0d9` along with a Cloud Resource Name (CRN) prefixed with `crn:v1:bluemix:public:is:eu-de:`. The resource is placed under the resource group `wes-automation`, which was set up beforehand to organize all related cloud components for this deployment. The location is confirmed as Frankfurt (`eu-de`) and the VPC is created.
 
-The Resource group where the VPC was previously created, “wes-automation” will hold and group other necessary components (VSIs, and so on).”
-{: note}
-
-The following subnets are defined and available for the example VPC:
+The following three subnets are defined and available within this VPC, each placed in one of the three Frankfurt zones to ensure zone-level redundancy:
 
 | VPC subnet | Location |
 | ---------------: | ---------: |
-|“bog-bastion-fra-subnet-01” | “eu-de-1” |
-|“bog-bastion-fra-subnet-02” | “eu-de-2” |
-|“bog-bastion-fra-subnet-03” | “eu-de-3” |
+|“sap-bastion-fra-subnet-01” | “eu-de-1” |
+|“sap-bastion-fra-subnet-02” | “eu-de-2” |
+|“sap-bastion-fra-subnet-03” | “eu-de-3” |
 {: caption="VPC details" caption-side="top"}
 
-![Figure 2. Subnets](../../images/vpc-intel-vsi-subnets-ase.png "Subnets"){: caption="Subnets" caption-side="bottom"}
+This ensures that each VSI or workload can be placed in the appropriate zone with its own dedicated subnet.
 
-Security group `bastion-sg-bog-bast-de` is used for this example. During the planning phase, it is important to use the {{site.data.keyword.vpc_short}} security resources and services (Security groups) by using inbound and outbound rules governing traffic to and from specific VSIs. The user can easily manage access and align with any security standards the business requires.
+Security group `bastion-sg-sap-bast-de` is used for this example. During the planning phase, it is important to use the {{site.data.keyword.vpc_short}} security resources and services (Security groups) by using inbound and outbound rules governing traffic to and from specific VSIs. The user can easily manage access and align with any security standards the business requires.
 
 Before you begin the deployment of the required VSI, note the following {{site.data.keyword.vpc_short}} resource parameters:
 
-* VPC name - “bog-sap”
+* VPC name - “sap-vpc”
 * Region - “eu-de”
 * Zone - “eu-de-1”
-* Subnet - “bog-bastion-fra-subnet-01”
-* Security Group - “bastion-sg-bog-bast-de"
+* Subnet - “sap-bastion-fra-subnet-01”
+* Security Group - “bastion-sg-sap-bast-de"
 * Resource Group - "wes-automation"
 
-![Figure 3. Virtual Server for VPC](../../images/vpc-intel-vsi-virtual-server-vpc-ase.png "Virtual Server for VPC"){: caption="Virtual Server for VPC" caption-side="bottom"}
+When creating the VSI through the IBM Cloud console under **Virtual Server for VPC**, the resource group is set to `wes-automation` to keep the instance alongside all other related components. The location is set to Frankfurt (`eu-de`) with the specific zone `eu-de-1` selected to align with the first subnet. The VSI is attached to the existing VPC `sap-vpc`, placed inside the subnet `sap-bastion-fra-subnet-01`, and assigned to the security group `bastion-sg-sap-bast-de` which controls the inbound and outbound traffic rules for this instance.
 
-![Figure 4. Virtual Server for VPC details](../../images/vpc-intel-vsi-virtual-server-vpc-details-ase.png "Virtual Server for VPC details"){: caption="Virtual Server for VPC details" caption-side="bottom"}
+Once the VSI is provisioned, the IBM Cloud console shows the instance detail page confirming that the Geography is set to Europe, the Region is Frankfurt (`eu-de`), and the Zone is `eu-de-1`. The instance is running inside the VPC `sap-vpc`, connected to the subnet `sap-bastion-fra-subnet-01`, protected by the security group `bastion-sg-sap-bast-de`, and organized under the resource group `wes-automation`. All of these values mirror the VPC configuration, which confirms the VSI has been correctly created inside the intended VPC environment.
 
-The Geography, Region, and Zone values correspond to the values mentioned for the example VPC. In other words, an example VSI is created inside the existing VPC, by choosing the same properties and the location (Geography, Region, Zone).
-{: note}
+### VSI creation - Image
+{: #vsi-image}
 
-Selecting the **Image** and **Profiles** is an important step during the VSI creation process. For the example purpose, “Red Hat Enterprise Linux for SAP 9.4” for the OS image and “bx2-2x8” for the profile is chosen.
+Selecting the image and profile is an important step during the VSI creation process. In the **Image** section of the creation form, the OS image catalog is browsed and `Red Hat Enterprise Linux for SAP 9.4` is selected. This image belongs to the Red Hat Enterprise Linux family and targets the x86-64 architecture. It comes pre-configured with the packages and settings required by SAP workloads, making it the appropriate choice for running SAP NetWeaver with ASE on IBM Cloud VPC.
 
-![Figure 5. VSI creation - Image](../../images/vpc-intel-vsi-server-image-ase.png "VSI creation - Image"){: caption="VSI creation - Image" caption-side="bottom"}
+### VSI creation - Profile
+{: #vsi-profile}
 
-![Figure 6. VSI creation - Profile](../../images/vpc-intel-vsi-server-profile-ase.png "VSI creation - Profile"){: caption="VSI creation - Profile" caption-side="bottom"}
+In the **Profile** section, the profile `bx2-2x8` is selected. This is a balanced compute profile from the `bx2` family, providing 2 vCPUs and 8 GB of memory. For this example deployment the profile is sufficient to demonstrate the installation process, though production workloads should be sized according to SAP's sizing guidelines and expected system load.
 
-In the Storage section, additional data volumes are added to align with the [File system layout](/docs/sap?topic=sap-deploy-sap-ase#file-system-prep-ase).
+### Data Volumes
+{: #data-volumes}
 
-Create the **Data volume** one by one according to the requirements of SAP and ASE Sybase:
-
-* SWAP disk – 32 GB
-* Log volumes disk – 32 GB
-* Sybase software – 64 GB
-* SAP applications – 128 GB
-* Data file disk – 256 GB
-
-After creating the data volume, the output is displayed as shown:
-
-![Figure 7. Data Volumes](../../images/vpc-intel-vsi-server-datavolumes-ase.png "Data Volumes"){: caption="Data Volumes" caption-side="bottom"}
-
-There may be solutions (for High Availability or distributed installations) where using NFS for holding Application or Database data would be needed. For example `/sapmnt/<SID>`, `/usr/sap/<SID>` or `/usr/sap/trans` file systems.
-{: important}
-
-In those cases, it is necessary to create NFS file systems as file-shares and use them as mount points for SAP application data.
+After all five volumes are created and attached, the IBM Cloud console lists them in the Storage section of the VSI detail page. The 32 GB SWAP volume is attached as device `vdb`, the 32 GB log volume as `vdc`, the 64 GB Sybase software volume as `vdd`, the 128 GB SAP application volume as `vde`, and the 256 GB data file volume as `vdf`. The device names assigned here correspond directly to the physical volumes used in the LVM setup during the file system preparation steps that follow.
 
 For more information on NFS-based file storage for VSI on VPC infrastructure, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui).
 
@@ -140,11 +127,11 @@ The installation of the SAP NetWeaver 7.5 with ASE on RHEL 9.4 is performed base
 
 | Disk name| Disk size (GB) | Physical volume | Volume group | Logical volume name | Logical volume size (GB) | File system | Mount point |
 | - | - | - | - | - | - | - | - |
-| vdb | 32 | /dev/vdb | bog_swap_vg | bog_swap_lv | 30 | /dev/bog_swap_vg/bog_swap_lv | [SWAP] |
-| vdc | 32 | /dev/vdc | bog_log_vg | bog_saplog1_lv \n bog_saplog2_lv \n bog_saplog3_lv \n bog_saplog4_lv | 7 \n 7 \n 7 \n 7 | /dev/bog_log_vg/bog_saplog1_lv \n /dev/bog_log_vg/bog_saplog2_lv \n /dev/bog_log_vg/bog_saplog3_lv \n /dev/bog_log_vg/bog_saplog4_lv | /sybase/BOG/saplog_1 \n /sybase/BOG/saplog_2 \n /sybase/BOG/saplog_3 \n /sybase/BOG/saplog_4 |
-| vdd | 64 | /dev/vdd | bog_syb_vg | bog_sybsoftware_lv \n bog_sybsystem_lv \n bog_sybtemp_lv \n bog_saptemp_lv \n bog_sapdiag_lv \n bog_sybsecurity_lv | 8 \n 10 \n 8 \n 12 \n 8 \n 8 | /dev/bog_syb_vg/bog_sybsoftware_lv \n /dev/bog_syb_vg/bog_sybsystem_lv \n /dev/bog_syb_vg/bog_sybtemp_lv \n /dev/bog_syb_vg/bog_saptemp_lv \n /dev/bog_syb_vg/bog_sapdiag_lv \n /dev/bog_syb_vg/bog_sybsecurity_lv | /sybase/BOG \n /sybase/BOG/sybsystem \n /sybase/BOG/sybtemp \n /sybase/BOG/saptemp \n /sybase/BOG/sapdiag \n /sybase/BOG/sybsecurity |
-| vde | 128 | /dev/vde | bog_app_vg | bog_usrsap_lv \n bog_sap_lv \n bog_sapmnt_lv \n bog_saptrans_lv | 5 \n 20 \n 20 \n 20 | /dev/bog_app_vg/bog_usrsap_lv \n /dev/bog_app_vg/bog_sap_lv \n /dev/bog_app_vg/bog_sapmnt_lv \n /dev/bog_app_vg/bog_saptrans_lv | /usr/sap \n /usr/sap/BOG \n /sapmnt/BOG \n /usr/sap/trans |
-| vdf | 256 | /dev/vdf | bog_data_vg | bog_sapdata1_lv \n bog_sapdata2_lv \n bog_sapdata3_lv \n bog_sapdata4_lv | 30 \n 30 \n 30 \n 30 | /dev/bog_data_vg/bog_sapdata1_lv \n /dev/bog_data_vg/bog_sapdata2_lv \n /dev/bog_data_vg/bog_sapdata3_lv \n /dev/bog_data_vg/bog_sapdata4_lv | /sybase/BOG/sapdata_1 \n /sybase/BOG/sapdata_2 \n /sybase/BOG/sapdata_3 \n /sybase/BOG/sapdata_4 |
+| vdb | 32 | /dev/vdb | ts_swap_vg | ts_swap_lv | 30 | /dev/ts_swap_vg/ts_swap_lv | [SWAP] |
+| vdc | 32 | /dev/vdc | ts_log_vg | ts_saplog1_lv \n ts_saplog2_lv \n ts_saplog3_lv \n ts_saplog4_lv | 7 \n 7 \n 7 \n 7 | /dev/ts_log_vg/ts_saplog1_lv \n /dev/ts_log_vg/ts_saplog2_lv \n /dev/ts_log_vg/ts_saplog3_lv \n /dev/ts_log_vg/ts_saplog4_lv | /sybase/TS/saplog_1 \n /sybase/TS/saplog_2 \n /sybase/TS/saplog_3 \n /sybase/TS/saplog_4 |
+| vdd | 64 | /dev/vdd | ts_syb_vg | ts_sybsoftware_lv \n ts_sybsystem_lv \n ts_sybtemp_lv \n ts_saptemp_lv \n ts_sapdiag_lv \n ts_sybsecurity_lv | 8 \n 10 \n 8 \n 12 \n 8 \n 8 | /dev/ts_syb_vg/ts_sybsoftware_lv \n /dev/ts_syb_vg/ts_sybsystem_lv \n /dev/ts_syb_vg/ts_sybtemp_lv \n /dev/ts_syb_vg/ts_saptemp_lv \n /dev/ts_syb_vg/ts_sapdiag_lv \n /dev/ts_syb_vg/ts_sybsecurity_lv | /sybase/TS \n /sybase/TS/sybsystem \n /sybase/TS/sybtemp \n /sybase/TS/saptemp \n /sybase/TS/sapdiag \n /sybase/TS/sybsecurity |
+| vde | 128 | /dev/vde | ts_app_vg | ts_usrsap_lv \n ts_sap_lv \n ts_sapmnt_lv \n ts_saptrans_lv | 5 \n 20 \n 20 \n 20 | /dev/ts_app_vg/ts_usrsap_lv \n /dev/ts_app_vg/ts_sap_lv \n /dev/ts_app_vg/ts_sapmnt_lv \n /dev/ts_app_vg/ts_saptrans_lv | /usr/sap \n /usr/sap/TS \n /sapmnt/TS \n /usr/sap/trans |
+| vdf | 256 | /dev/vdf | ts_data_vg | ts_sapdata1_lv \n ts_sapdata2_lv \n ts_sapdata3_lv \n ts_sapdata4_lv | 30 \n 30 \n 30 \n 30 | /dev/ts_data_vg/ts_sapdata1_lv \n /dev/ts_data_vg/ts_sapdata2_lv \n /dev/ts_data_vg/ts_sapdata3_lv \n /dev/ts_data_vg/ts_sapdata4_lv | /sybase/TS/sapdata_1 \n /sybase/TS/sapdata_2 \n /sybase/TS/sapdata_3 \n /sybase/TS/sapdata_4 |
 {: row-headers}
 {: caption="File system preparation" caption-side="bottom"}
 
@@ -153,18 +140,26 @@ The installation of the SAP NetWeaver 7.5 with ASE on RHEL 9.4 is performed base
 
 A proper file system layout is necessary for a correct installation of any SAP solution within the {{site.data.keyword.vpc_short}}.
 
-For the presented example, the SAP SID is BOG, thus the naming for the volume groups, logical volumes, and file systems are considered as this SID.
+For the presented example, the SAP SID is `TST`, thus the naming for the volume groups, logical volumes, and file systems are considered as this SID.
 {: note}
 
 At the operating system level, physical volumes, volume groups, logical volumes, and file systems are created in a specific sequence.
 
-1. List the available disk by using the command: `# lsblk`
+1. List the available disk by using the command:
 
-2. To use LVM, the Linux package "lvm2" must be installed by using the command: `# dnf install lvm2`
+    ```bash
+    # lsblk
+    ```
+
+2. To use LVM, the Linux package `lvm2` must be installed by using the command:
+
+    ```bash
+    # dnf install lvm2
+    ```
 
 3. Create the required physical volumes by using the following commands:
 
-    ```pre
+    ```bash
     # pvcreate /dev/vdb
     # pvcreate /dev/vdc
     # pvcreate /dev/vdd
@@ -174,144 +169,152 @@ At the operating system level, physical volumes, volume groups, logical volumes,
 
 4. Create the required volume groups by using the following commands:
 
-    ```pre
-    # vgcreate bog_swap_vg /dev/vdb
-    # vgcreate bog_log_vg /dev/vdc
-    # vgcreate bog_syb_vg /dev/vdd
-    # vgcreate bog_app_vg /dev/vde
-    # vgcreate bog_data_vg /dev/vdf
+    ```bash
+    # lvcreate -L 8G -n ts_sybsoftware_lv ts_syb_vg
+    # lvcreate -L 10G -n ts_sybsystem_lv ts_syb_vg
+    # lvcreate -L 8G -n ts_sybtemp_lv ts_syb_vg
+    # lvcreate -L 12G -n ts_saptemp_lv ts_syb_vg
+    # lvcreate -L 8G -n ts_sapdiag_lv ts_syb_vg
+    # lvcreate -L 8G -n ts_sybsecurity_lv ts_syb_vg
+    # lvcreate -L 30G -n ts_sapdata1_lv ts_data_vg
+    # lvcreate -L 30G -n ts_sapdata2_lv ts_data_vg
+    # lvcreate -L 30G -n ts_sapdata3_lv ts_data_vg
+    # lvcreate -L 30G -n ts_sapdata4_lv ts_data_vg
+    # lvcreate -L 7G -n ts_saplog1_lv ts_log_vg
+    # lvcreate -L 7G -n ts_saplog2_lv ts_log_vg
+    # lvcreate -L 7G -n ts_saplog3_lv ts_log_vg
+    # lvcreate -L 7G -n ts_saplog4_lv ts_log_vg
     ```
 
 5. Create the ASE logical volumes by using the following commands:
 
-    ```pre
-    # lvcreate -L 8G -n bog_sybsoftware_lv bog_syb_vg
-    # lvcreate -L 10G -n bog_sybsystem_lv bog_syb_vg
-    # lvcreate -L 8G -n bog_sybtemp_lv bog_syb_vg
-    # lvcreate -L 12G -n bog_saptemp_lv bog_syb_vg
-    # lvcreate -L 8G -n bog_sapdiag_lv bog_syb_vg
-    # lvcreate -L 8G -n bog_sybsecurity_lv bog_syb_vg
-    # lvcreate -L 30G -n bog_sapdata1_lv bog_data_vg
-    # lvcreate -L 30G -n bog_sapdata2_lv bog_data_vg
-    # lvcreate -L 30G -n bog_sapdata3_lv bog_data_vg
-    # lvcreate -L 30G -n bog_sapdata4_lv bog_data_vg
-    # lvcreate -L 7G -n bog_saplog1_lv bog_log_vg
-    # lvcreate -L 7G -n bog_saplog2_lv bog_log_vg
-    # lvcreate -L 7G -n bog_saplog3_lv bog_log_vg
-    # lvcreate -L 7G -n bog_saplog4_lv bog_log_vg
+    ```bash
+    # lvcreate -L 5G -n ts_usrsap_lv ts_app_vg
+    # lvcreate -L 20G -n ts_sap_lv ts_app_vg
+    # lvcreate -L 20G -n ts_sapmnt_lv ts_app_vg
+    # lvcreate -L 20G -n ts_saptrans_lv ts_app_vg
     ```
 
 6. Create the SAP application logical volumes by using the following commands:
 
-    ```pre
-    # lvcreate -L 5G -n bog_usrsap_lv bog_app_vg
-    # lvcreate -L 20G -n bog_sap_lv bog_app_vg
-    # lvcreate -L 20G -n bog_sapmnt_lv bog_app_vg
-    # lvcreate -L 20G -n bog_saptrans_lv bog_app_vg
+    ```bash
+    # lvcreate -L 5G -n ts_usrsap_lv ts_app_vg
+    # lvcreate -L 20G -n ts_sap_lv ts_app_vg
+    # lvcreate -L 20G -n ts_sapmnt_lv ts_app_vg
+    # lvcreate -L 20G -n ts_saptrans_lv ts_app_vg
     ```
 
-7. Create the logical volume for the OS SWAP using the following command: `# lvcreate -L 32G -n bog_swap_lv bog_swap_vg`
+7. Create the logical volume for the OS SWAP:
+
+    ```bash
+    # lvcreate -L 32G -n ts_swap_lv ts_swap_vg
+    ```
 
 8. Create the ASE file systems by using the following commands:
 
-    ```pre
-    # mkfs.ext4 /dev/bog_syb_vg/bog_sybsoftware_lv
-    # mkfs.ext4 /dev/bog_syb_vg/bog_sybsystem_lv
-    # mkfs.ext4 /dev/bog_syb_vg/bog_sybtemp_lv
-    # mkfs.ext4 /dev/bog_syb_vg/bog_saptemp_lv
-    # mkfs.ext4 /dev/bog_syb_vg/bog_sapdiag_lv
-    # mkfs.ext4 /dev/bog_syb_vg/bog_sybsecurity_lv
-    # mkfs.ext4 /dev/bog_data_vg/bog_sapdata1_lv
-    # mkfs.ext4 /dev/bog_data_vg/bog_sapdata2_lv
-    # mkfs.ext4 /dev/bog_data_vg/bog_sapdata3_lv
-    # mkfs.ext4 /dev/bog_data_vg/bog_sapdata4_lv
-    # mkfs.ext4 /dev/bog_log_vg/bog_saplog1_lv
-    # mkfs.ext4 /dev/bog_log_vg/bog_saplog2_lv
-    # mkfs.ext4 /dev/bog_log_vg/bog_saplog3_lv
-    # mkfs.ext4 /dev/bog_log_vg/bog_saplog4_lv
+    ```bash
+    # mkfs.ext4 /dev/ts_syb_vg/ts_sybsoftware_lv
+    # mkfs.ext4 /dev/ts_syb_vg/ts_sybsystem_lv
+    # mkfs.ext4 /dev/ts_syb_vg/ts_sybtemp_lv
+    # mkfs.ext4 /dev/ts_syb_vg/ts_saptemp_lv
+    # mkfs.ext4 /dev/ts_syb_vg/ts_sapdiag_lv
+    # mkfs.ext4 /dev/ts_syb_vg/ts_sybsecurity_lv
+    # mkfs.ext4 /dev/ts_data_vg/ts_sapdata1_lv
+    # mkfs.ext4 /dev/ts_data_vg/ts_sapdata2_lv
+    # mkfs.ext4 /dev/ts_data_vg/ts_sapdata3_lv
+    # mkfs.ext4 /dev/ts_data_vg/ts_sapdata4_lv
+    # mkfs.ext4 /dev/ts_log_vg/ts_saplog1_lv
+    # mkfs.ext4 /dev/ts_log_vg/ts_saplog2_lv
+    # mkfs.ext4 /dev/ts_log_vg/ts_saplog3_lv
+    # mkfs.ext4 /dev/ts_log_vg/ts_saplog4_lv
     ```
 
-9. The SAP application file systems are created by using the following commands:
 
-    ```pre
-    # mkfs.ext4 /dev/bog_app_vg/bog_usrsap_lv
-    # mkfs.ext4 /dev/bog_app_vg/bog_sap_lv
-    # mkfs.ext4 /dev/bog_app_vg/bog_sapmnt_lv
-    # mkfs.ext4 /dev/bog_app_vg/bog_saptrans_lv
+9. Create the SAP application file systems by using the following commands:
+
+    ```bash
+    # mkfs.ext4 /dev/ts_app_vg/ts_usrsap_lv
+    # mkfs.ext4 /dev/ts_app_vg/ts_sap_lv
+    # mkfs.ext4 /dev/ts_app_vg/ts_sapmnt_lv
+    # mkfs.ext4 /dev/ts_app_vg/ts_saptrans_lv
     ```
 
-10. Finally, create and enable the OS SWAP by using the following commands:
+10. Create and enable the OS SWAP by using the following commands:
 
-    ```pre
-    # mkswap /dev/bog_swap_vg/bog_swap_lv
-    # swapon /dev/bog_swap_vg/bog_swap_lv
+    ```bash
+    # mkswap /dev/ts_swap_vg/ts_swap_lv
+    # swapon /dev/ts_swap_vg/ts_swap_lv
     ```
 
-11. After creating all the required file system, you can create the necessary mount points by using the following commands:
+11. After creating all the required file systems, create the necessary mount points by using the following commands:
 
-    ```pre
-    # mkdir -p /sybase/BOG
-    # mount /dev/bog_syb_vg/bog_sybsoftware_lv /sybase/BOG
-    # mkdir -p /sybase/BOG/sybsystem
-    # mount /dev/bog_syb_vg/bog_sybsystem_lv /sybase/BOG/sybsystem
-    # mkdir -p /sybase/BOG/sybtemp
-    # mount /dev/bog_syb_vg/bog_sybtemp_lv /sybase/BOG/sybtemp
-    # mkdir -p /sybase/BOG/saptemp
-    # mount /dev/bog_syb_vg/bog_saptemp_lv /sybase/BOG/saptemp
-    # mkdir -p /sybase/BOG/sapdiag
-    # mount /dev/bog_syb_vg/bog_sapdiag_lv /sybase/BOG/sapdiag
-    # mkdir -p /sybase/BOG/sybsecurity
-    # mount /dev/bog_syb_vg/bog_sybsecurity_lv /sybase/BOG/sybsecurity
-    # mkdir -p /sybase/BOG/sapdata_1
-    # mount /dev/bog_data_vg/bog_sapdata1_lv /sybase/BOG/sapdata_1
-    # mkdir -p /sybase/BOG/sapdata_2
-    # mount /dev/bog_data_vg/bog_sapdata2_lv /sybase/BOG/sapdata_2
-    # mkdir -p /sybase/BOG/sapdata_3
-    # mount /dev/bog_data_vg/bog_sapdata3_lv /sybase/BOG/sapdata_3
-    # mkdir -p /sybase/BOG/sapdata_4
-    # mount /dev/bog_data_vg/bog_sapdata4_lv /sybase/BOG/sapdata_4
-    # mkdir -p /sybase/BOG/saplog_1
-    # mount /dev/bog_log_vg/bog_saplog1_lv /sybase/BOG/saplog_1
-    # mkdir -p /sybase/BOG/saplog_2
-    # mount /dev/bog_log_vg/bog_saplog2_lv /sybase/BOG/saplog_2
-    # mkdir -p /sybase/BOG/saplog_3
-    # mount /dev/bog_log_vg/bog_saplog3_lv /sybase/BOG/saplog_3
-    # mkdir -p /sybase/BOG/saplog_4
-    # mount /dev/bog_log_vg/bog_saplog4_lv /sybase/BOG/saplog_4
+    ```bash
+    # mkdir -p /sybase/ts
+    # mount /dev/ts_syb_vg/ts_sybsoftware_lv /sybase/ts
+    # mkdir -p /sybase/ts/sybsystem
+    # mount /dev/ts_syb_vg/ts_sybsystem_lv /sybase/ts/sybsystem
+    # mkdir -p /sybase/ts/sybtemp
+    # mount /dev/ts_syb_vg/ts_sybtemp_lv /sybase/ts/sybtemp
+    # mkdir -p /sybase/ts/saptemp
+    # mount /dev/ts_syb_vg/ts_saptemp_lv /sybase/ts/saptemp
+    # mkdir -p /sybase/ts/sapdiag
+    # mount /dev/ts_syb_vg/ts_sapdiag_lv /sybase/ts/sapdiag
+    # mkdir -p /sybase/ts/sybsecurity
+    # mount /dev/ts_syb_vg/ts_sybsecurity_lv /sybase/ts/sybsecurity
+    # mkdir -p /sybase/ts/sapdata_1
+    # mount /dev/ts_data_vg/ts_sapdata1_lv /sybase/ts/sapdata_1
+    # mkdir -p /sybase/ts/sapdata_2
+    # mount /dev/ts_data_vg/ts_sapdata2_lv /sybase/ts/sapdata_2
+    # mkdir -p /sybase/ts/sapdata_3
+    # mount /dev/ts_data_vg/ts_sapdata3_lv /sybase/ts/sapdata_3
+    # mkdir -p /sybase/ts/sapdata_4
+    # mount /dev/ts_data_vg/ts_sapdata4_lv /sybase/ts/sapdata_4
+    # mkdir -p /sybase/ts/saplog_1
+    # mount /dev/ts_log_vg/ts_saplog1_lv /sybase/ts/saplog_1
+    # mkdir -p /sybase/ts/saplog_2
+    # mount /dev/ts_log_vg/ts_saplog2_lv /sybase/ts/saplog_2
+    # mkdir -p /sybase/ts/saplog_3
+    # mount /dev/ts_log_vg/ts_saplog3_lv /sybase/ts/saplog_3
+    # mkdir -p /sybase/ts/saplog_4
+    # mount /dev/ts_log_vg/ts_saplog4_lv /sybase/ts/saplog_4
     # mkdir -p /usr/sap
-    # mount /dev/bog_app_vg/bog_usrsap_lv /usr/sap
-    # mkdir -p /usr/sap/BOG
-    # mount /dev/bog_app_vg/bog_sap_lv /usr/sap/BOG
-    # mkdir -p /sapmnt/BOG
-    # mount /dev/bog_app_vg/bog_sapmnt_lv /sapmnt/BOG
+    # mount /dev/ts_app_vg/ts_usrsap_lv /usr/sap
+    # mkdir -p /usr/sap/ts
+    # mount /dev/ts_app_vg/ts_sap_lv /usr/sap/ts
+    # mkdir -p /sapmnt/ts
+    # mount /dev/ts_app_vg/ts_sapmnt_lv /sapmnt/ts
     # mkdir -p /usr/sap/trans
-    # mount /dev/bog_app_vg/bog_saptrans_lv /usr/sap/trans
+    # mount /dev/ts_app_vg/ts_saptrans_lv /usr/sap/trans
     ```
 
-12. Resize the TMPFS according to [SAP Note 941735 - SAP memory management system for 64-bit Linux systems](https://me.sap.com/notes/941735/E){: external} (file system /dev/shm) using the following command: `# mount -o remount,size=47G /dev/shm`
+12. Resize the TMPFS according to [SAP Note 941735 - SAP memory management system for 64-bit Linux systems](https://launchpad.support.sap.com/#/notes/941735) (file system `/dev/shm`) using the following command:
+
+    ```bash
+    # mount -o remount,size=47G /dev/shm
+    ```
 
 13. Add the following entries in the `/etc/fstab` file to create all the permanent mounts:
 
-    ```pre
-    /dev/bog_syb_vg/bog_sybsoftware_lv /sybase/BOG ext4 defaults 0 0
-    /dev/bog_syb_vg/bog_sybsystem_lv /sybase/BOG/sybsystem ext4 defaults 0 0
-    /dev/bog_syb_vg/bog_sybtemp_lv /sybase/BOG/sybtemp ext4 defaults 0 0
-    /dev/bog_syb_vg/bog_saptemp_lv /sybase/BOG/saptemp ext4 defaults 0 0
-    /dev/bog_syb_vg/bog_sapdiag_lv /sybase/BOG/sapdiag ext4 defaults 0 0
-    /dev/bog_syb_vg/bog_sybsecurity_lv /sybase/BOG/sybsecurity ext4 defaults 0 0
-    /dev/bog_data_vg/bog_sapdata1_lv /sybase/BOG/sapdata_1 ext4 defaults 0 0
-    /dev/bog_data_vg/bog_sapdata2_lv /sybase/BOG/sapdata_2 ext4 defaults 0 0
-    /dev/bog_data_vg/bog_sapdata3_lv /sybase/BOG/sapdata_3 ext4 defaults 0 0
-    /dev/bog_data_vg/bog_sapdata4_lv /sybase/BOG/sapdata_4 ext4 defaults 0 0
-    /dev/bog_log_vg/bog_saplog1_lv /sybase/BOG/saplog_1 ext4 defaults 0 0
-    /dev/bog_log_vg/bog_saplog2_lv /sybase/BOG/saplog_2 ext4 defaults 0 0
-    /dev/bog_log_vg/bog_saplog3_lv /sybase/BOG/saplog_3 ext4 defaults 0 0
-    /dev/bog_log_vg/bog_saplog4_lv /sybase/BOG/saplog_4 ext4 defaults 0 0
-    /dev/bog_app_vg/bog_usrsap_lv /usr/sap ext4 defaults 0 0
-    /dev/bog_app_vg/bog_sap_lv /usr/sap/BOG ext4 defaults 0 0
-    /dev/bog_app_vg/bog_sapmnt_lv /sapmnt/BOG ext4 defaults 0 0
-    /dev/bog_app_vg/bog_saptrans_lv /usr/sap/trans ext4 defaults 0 0
-    /dev/bog_swap_vg/bog_swap_lv swap swap defaults 0 0
+    ```bash
+    /dev/ts_syb_vg/ts_sybsoftware_lv /sybase/ts ext4 defaults 0 0
+    /dev/ts_syb_vg/ts_sybsystem_lv /sybase/ts/sybsystem ext4 defaults 0 0
+    /dev/ts_syb_vg/ts_sybtemp_lv /sybase/ts/sybtemp ext4 defaults 0 0
+    /dev/ts_syb_vg/ts_saptemp_lv /sybase/ts/saptemp ext4 defaults 0 0
+    /dev/ts_syb_vg/ts_sapdiag_lv /sybase/ts/sapdiag ext4 defaults 0 0
+    /dev/ts_syb_vg/ts_sybsecurity_lv /sybase/ts/sybsecurity ext4 defaults 0 0
+    /dev/ts_data_vg/ts_sapdata1_lv /sybase/ts/sapdata_1 ext4 defaults 0 0
+    /dev/ts_data_vg/ts_sapdata2_lv /sybase/ts/sapdata_2 ext4 defaults 0 0
+    /dev/ts_data_vg/ts_sapdata3_lv /sybase/ts/sapdata_3 ext4 defaults 0 0
+    /dev/ts_data_vg/ts_sapdata4_lv /sybase/ts/sapdata_4 ext4 defaults 0 0
+    /dev/ts_log_vg/ts_saplog1_lv /sybase/ts/saplog_1 ext4 defaults 0 0
+    /dev/ts_log_vg/ts_saplog2_lv /sybase/ts/saplog_2 ext4 defaults 0 0
+    /dev/ts_log_vg/ts_saplog3_lv /sybase/ts/saplog_3 ext4 defaults 0 0
+    /dev/ts_log_vg/ts_saplog4_lv /sybase/ts/saplog_4 ext4 defaults 0 0
+    /dev/ts_app_vg/ts_usrsap_lv /usr/sap ext4 defaults 0 0
+    /dev/ts_app_vg/ts_sap_lv /usr/sap/ts ext4 defaults 0 0
+    /dev/ts_app_vg/ts_sapmnt_lv /sapmnt/ts ext4 defaults 0 0
+    /dev/ts_app_vg/ts_saptrans_lv /usr/sap/trans ext4 defaults 0 0
+    /dev/ts_swap_vg/ts_swap_lv swap swap defaults 0 0
     tmpfs /dev/shm tmpfs size=47G,rw,nosuid,nodev 0 0
     ```
 
@@ -332,29 +335,25 @@ In some HA or distributed environment, by using NFS to store the application or 
 
 The following is an example where `/usr/sap/trans` file system is defined as an {{site.data.keyword.vpc_short}} file share and mounted to the SAP system VSI:
 
-* File storage share for VPC
+* **File storage share for VPC**
 
-![Figure 8. File storage for VPC](../../images/vpc-intel-vsi-filestorage-vpc-ase.png "File storage for VPC"){: caption="File storage for VPC" caption-side="bottom"}
+A new file storage share is created through the IBM Cloud VPC console by navigating to **Storage > File Shares** and selecting **Create**. During creation, the share is given a descriptive name, assigned to the resource group `wes-automation` so it is grouped with the other VPC resources for this deployment, and placed in the Frankfurt (`eu-de`) region with the zone set to `eu-de-1`. The intended use is set to **VPC**, which means the share will be accessible to VSIs within the same VPC via a mount target.
 
-![Figure 9. File storage for VPC details](../../images/vpc-intel-vsi-filestorage-vpc-details-ase.png "File storage for VPC details"){: caption="File storage for VPC details" caption-side="bottom"}
+* **File storage for VPC details**
 
-* Profile
+Once the file share is provisioned, the IBM Cloud console shows its detail page. The share is identified by the unique share ID `41677eaf-e50c-4478-8d5c-6158ff397eb5`, which also forms part of the NFS mount path later used on the VSI. The status is shown as **Stable**, confirming the share is fully available and ready for a mount target to be attached. The resource group is `wes-automation`, the region is Frankfurt (`eu-de`), and the zone is `eu-de-1`, all consistent with the rest of the deployment.
 
-![Figure 10. File storage for VPC profile](../../images/vpc-intel-vsi-filestorage-vpc-profile-ase.png "File storage for VPC profile"){: caption="File storage for VPC profile" caption-side="bottom"}
+* **File storage for VPC profile**
 
-* Mount target access mode
+During file share creation, a performance profile is selected to define the storage characteristics. The `dp2` profile is chosen, which provides a capacity of 100 GB with a maximum of 3000 IOPS and a throughput of approximately 393 MB/s. This profile is suitable for the `/usr/sap/trans` transport directory, which handles SAP transport requests and requires reliable read/write performance across multiple application servers.
 
-![Figure 11. Mount target access mode](../../images/vpc-intel-vsi-mount-target-ase.png "Mount target access mode"){: caption="Mount target access mode" caption-side="bottom"}
+* **Mount target access**
 
-After the File Share is created, check the path by selecting “View Path” on the Mount Target. This path is used to mount the NFS share on the target VSI.
+When creating the mount target for the file share, the access mode is set to **Security group**. This mode restricts NFS access to only those VSIs that are members of the specified security group, rather than granting access to the entire VPC or subnet. The mount target is associated with the VPC `sap-vpc`, placed on the subnet `sap-bastion-fra-subnet-01`, and controlled by the security group `bastion-sg-sap-bast-de`. This approach ensures that only authorized VSIs within the security group can mount and access the file share.
 
 * **Mount path**
 
-![Figure 12. Mount path](../../images/vpc-intel-vsi-mount-path-ase.png "Mount path"){: caption="Mount path" caption-side="bottom"}
-
-Use this path to mount the FileShare over the `/usr/sap/trans` file system. Add it to `/etc/fstab` file.
-
-`10.243.0.20:/41677eaf_e50c_4478_8d5c_6158ff397eb5 /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys 0 0`
+After the file share is created, check the path by selecting **View Path** on the mount target. The IBM Cloud console exposes the NFS mount path composed of the private IP address assigned to the mount target within the subnet, followed by the share UUID used as the export path. For this example, the mount path is `10.243.0.20:/41677eaf_e50c_4478_8d5c_6158ff397eb5`, where `10.243.0.20` is the private IP address of the mount target inside the subnet `sap-bastion-fra-subnet-01`, and `41677eaf_e50c_4478_8d5c_6158ff397eb5` is the unique identifier of the file share. This path must be noted down as it is required for the `fstab` entry and any manual mount operations on the target VSI.
 
 ### Shared application file systems by using classic NFS
 {: #shared-fs-classic-ase}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-27"
+lastupdated: "2026-08-12"
 keywords: SAP, IBM Cloud benefits, SAP infrastructure, enterprise cloud, SAP performance, high availability, disaster recovery, backup, monitoring, automation
 subcollection: sap
 ---
@@ -29,7 +29,7 @@ IBM Cloud delivers infrastructure built specifically for enterprise SAP workload
 {: #high-performance}
 
 | Capability | Description |
-|---|---|
+| --- | --- |
 | **SAP-certified profiles** | Preconfigured server profiles tested and certified by SAP to meet or exceed performance benchmarks for SAP HANA and SAP applications |
 | **IBM Power Virtual Server for SAP HANA** | Enterprise-grade IBM Power Systems architecture (Power10 and Power9 processors) delivers industry-leading performance for SAP HANA in-memory computing. Power Virtual Server is optimized for mission-critical SAP HANA workloads including SAP S/4HANA and SAP BW/4HANA. For performance benchmarks, see the [SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}. |
 | **High-performance storage** | Multiple storage tiers including Tier 0 and Tier 1 NVMe storage on IBM Power Virtual Server deliver maximum IOPS and minimum latency for SAP HANA databases |
@@ -40,7 +40,7 @@ IBM Cloud delivers infrastructure built specifically for enterprise SAP workload
 {: #enterprise-reliability}
 
 | Capability | Description |
-|---|---|
+| --- | --- |
 | **Service level agreements** | Infrastructure availability SLAs backed by IBM Cloud support. For details, see [IBM Cloud Service Level Agreements](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en){: external}. |
 | **24x7 expert support** | Access to IBM Cloud support specialists and SAP-certified engineers around the clock |
 | **Redundant infrastructure** | Built-in redundancy at compute, storage, and network layers to minimize single points of failure |
@@ -51,11 +51,11 @@ IBM Cloud delivers infrastructure built specifically for enterprise SAP workload
 {: #comprehensive-security}
 
 | Capability | Description |
-|---|---|
+| --- | --- |
 | **Network isolation** | VPC software-defined networking provides complete network isolation with security groups and network ACLs for granular traffic control |
 | **Data encryption** | Encryption at rest using IBM Key Protect or Hyper Protect Crypto Services, and encryption in transit using TLS/SSL protocols |
 | **Access management** | IBM Cloud IAM provides fine-grained access control with integration to enterprise identity providers |
-| **Compliance certifications** | IBM Cloud maintains compliance with industry standards including ISO 27001, SOC 1/2/3, PCI DSS, HIPAA, and regional data protection regulations. For current certifications, see [IBM Cloud compliance programs](https://www.ibm.com/cloud/compliance){: external}. |
+| **Compliance certifications** | IBM Cloud maintains compliance with industry standards including ISO 27001, SOC 1/2/3, PCI DSS, HIPAA, and regional data protection regulations. For current certifications, see [IBM Cloud compliance programs](https://www.ibm.com/products/cloud/compliance){: external}. |
 {: caption="Comprehensive security capabilities" caption-side="bottom"}
 
 **TCO benefit**: Built-in security features eliminate the need for additional security infrastructure and tools. Compliance certifications reduce audit costs and accelerate compliance validation processes.
@@ -65,9 +65,12 @@ IBM Cloud delivers infrastructure built specifically for enterprise SAP workload
 
 All IBM Cloud infrastructure options for SAP are rigorously certified by SAP to ensure compatibility, performance, and full SAP support for production workloads. SAP certification validates that infrastructure meets SAP's stringent requirements and is regularly updated to maintain compliance with SAP standards.
 
-For current SAP certifications, see:
-- [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas){: external}
-- [SAP Note 2414097 - SAP Applications on IBM Cloud](https://launchpad.support.sap.com/){: external} (requires SAP S-user credentials)
+For current SAP HANA certified servers, see:
+- [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}
+- (requires SAP S-user credentials)
+   - [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure](https://me.sap.com/notes/2414097/){: external}
+   - [SAP Note 2414097 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC)](https://me.sap.com/notes/2927211/){: external}
+   - [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579/){: external}
 
 ## Global infrastructure availability
 {: #global-availability}
@@ -85,7 +88,7 @@ IBM Cloud offers three SAP-certified infrastructure platforms — IBM Power Virt
 {: #high-availability}
 
 | Capability | Description | TCO benefit |
-|---|---|---|
+| --- | --- | --- |
 | **Database high availability** | SAP HANA System Replication (synchronous and asynchronous) and database-specific clustering provide automatic failover for SAP HANA and AnyDB databases | Eliminates need for duplicate on-premises standby hardware |
 | **Application server redundancy** | Multiple application servers with load balancing ensure continuous availability and distribute workload across servers | Pay only for resources consumed rather than maintaining idle standby systems |
 | **Multi-zone deployments** | Deploy SAP components across availability zones within a region for zone-level resilience and protection against data center failures | No secondary data center capital expenditure required |
@@ -97,7 +100,7 @@ IBM Cloud offers three SAP-certified infrastructure platforms — IBM Power Virt
 {: #disaster-recovery}
 
 | DR strategy | Description | Best for |
-|---|---|---|
+| --- | --- | --- |
 | **Cross-region replication** | SAP HANA System Replication across IBM Cloud regions provides near-real-time data protection with defined RTO and RPO | Low RTO/RPO requirements, mission-critical systems |
 | **Backup-based recovery** | Store backups in different regions using IBM Cloud Object Storage for cost-effective disaster recovery with longer RTO | Cost-sensitive workloads, less stringent recovery objectives |
 | **Pilot light** | Minimal DR environment scaled up during disasters | Balance of cost and recovery speed |
@@ -112,7 +115,7 @@ IBM Cloud offers three SAP-certified infrastructure platforms — IBM Power Virt
 {: #backup-data-protection}
 
 | Capability | Description |
-|---|---|
+| --- | --- |
 | **Database backups** | Full, incremental, and log backups for SAP HANA and AnyDB databases with SAP HANA Backint integration and database-native tools |
 | **Automated scheduling** | Configure automated backup schedules with customizable retention policies to meet compliance requirements |
 | **Cost-effective archiving** | Store backups in IBM Cloud Object Storage for long-term retention at significantly lower cost than primary storage |
@@ -126,7 +129,7 @@ IBM Cloud offers three SAP-certified infrastructure platforms — IBM Power Virt
 {: #monitoring-observability}
 
 | Capability | Description |
-|---|---|
+| --- | --- |
 | **Infrastructure monitoring** | IBM Cloud Monitoring tracks compute, storage, and network resource utilization with customizable dashboards and metrics |
 | **Log aggregation** | IBM Cloud Log Analysis centralizes logs from all SAP components for troubleshooting and compliance |
 | **Automated alerting** | Configure alerts for critical events, threshold violations, and performance anomalies with notifications through multiple channels |
@@ -140,7 +143,7 @@ IBM Cloud offers three SAP-certified infrastructure platforms — IBM Power Virt
 {: #automation}
 
 | Capability | Description |
-|---|---|
+| --- | --- |
 | **Unified management console** | Single IBM Cloud console for provisioning, monitoring, and managing all SAP infrastructure resources |
 | **Terraform automation** | Pre-built Terraform modules for SAP on IBM Cloud enable repeatable, consistent infrastructure provisioning with version-controlled configurations |
 | **Automated deployments** | Deploy complete SAP landscapes automatically using tested automation templates, reducing deployment time from weeks to hours |
@@ -167,7 +170,7 @@ For a full breakdown of pricing components, optimization strategies, and the IBM
 {: #hybrid-cloud}
 
 | Capability | Description |
-|---|---|
+| --- | --- |
 | **IBM Cloud Direct Link** | Dedicated, high-bandwidth connectivity between on-premises data centers and IBM Cloud for secure, low-latency connections |
 | **VPN connectivity** | Encrypted VPN tunnels for secure communication between on-premises and cloud-based SAP systems |
 | **Hybrid cloud architectures** | Support for distributed SAP landscapes spanning on-premises and cloud infrastructure |
@@ -178,7 +181,7 @@ For a full breakdown of pricing components, optimization strategies, and the IBM
 {: #migration-support}
 
 | Capability | Description |
-|---|---|
+| --- | --- |
 | **Multiple migration approaches** | Support for lift-and-shift, database migration, heterogeneous migration (for example, Oracle to SAP HANA), and SAP S/4HANA conversion |
 | **Hybrid connectivity** | IBM Cloud Direct Link and VPN enable secure, high-bandwidth connectivity between on-premises and cloud environments during migration |
 | **Migration automation** | Tools and automation accelerate migration processes and reduce manual effort |
@@ -192,7 +195,7 @@ For a full breakdown of pricing components, optimization strategies, and the IBM
 {: #scalability}
 
 | Capability | Description |
-|---|---|
+| --- | --- |
 | **Rapid provisioning** | Virtual servers provision in minutes, bare metal servers typically within hours — dramatically faster than procuring and installing physical hardware |
 | **Vertical and horizontal scaling** | Scale up (increase resources of existing servers) or scale out (add more servers) based on workload requirements |
 | **SAP HANA scale-out** | Support for multi-node SAP HANA scale-out configurations for databases exceeding single-node limits |

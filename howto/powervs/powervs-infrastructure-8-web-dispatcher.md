@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-06-16"
+lastupdated: "2026-08-12"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP Web Dispatcher, {{site.data.keyword.cloud_notm}} Application Load Balancer, {{site.data.keyword.alb_full}}
 subcollection: sap
 ---
@@ -176,7 +176,7 @@ The following steps describe how to install SAP Web Dispatcher by using *Softwar
 
    The Software Provisioning Manager verifies the integrity of all SAP-provided software.
    Ensure that the certificate revocation list (CRL) file `crlbag.p7s` is present in the `/root/.sapinst/` directory.
-   If the CRL is not downloaded automatically, you can manually download it from this [SAP server link](https://tcs.mysap.com/crl/crlbag.p7s){: external}.
+   If the CRL is not downloaded automatically, you can manually download it from this [SAP server link](https://tcs.mysap.com/crl/crlbag.p7s){: external download="crlbag.p7s"}.
    {: note}
 
    To access the *SWPM* installer GUI, ensure that your local workstation is connected to the previously deployed VPN server and that the VPN client is active.

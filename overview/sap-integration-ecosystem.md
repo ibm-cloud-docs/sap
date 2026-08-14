@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-22"
+lastupdated: "2026-08-12"
 keywords: SAP, integration, ecosystem, IBM Cloud services, SAP BTP, hybrid cloud
 subcollection: sap
 ---
@@ -22,7 +22,7 @@ SAP on IBM Cloud integrates seamlessly with IBM Cloud services, SAP Business Tec
 {: #storage-data}
 
 | Service | Description |
-|---|---|
+| --- | --- |
 | **IBM Cloud Object Storage** | Cost-effective storage for SAP HANA backups, archives, and long-term data retention. Significantly lower cost than primary storage for backup retention. |
 | **IBM Cloud Databases** | Managed database services for non-SAP applications that integrate with SAP systems |
 | **IBM Watson Studio** | Build AI and machine learning models using SAP business data for predictive analytics and intelligent automation |
@@ -32,7 +32,7 @@ SAP on IBM Cloud integrates seamlessly with IBM Cloud services, SAP Business Tec
 {: #security-compliance}
 
 | Service | Description |
-|---|---|
+| --- | --- |
 | **IBM Key Protect** | Centralized encryption key management for SAP data protection with FIPS 140-2 Level 3 certified hardware security modules |
 | **IBM Secrets Manager** | Securely store and manage SAP credentials, certificates, and sensitive configuration data |
 | **IBM Cloud Security and Compliance Center** | Monitor security posture and compliance for SAP infrastructure with automated compliance reporting |
@@ -42,7 +42,7 @@ SAP on IBM Cloud integrates seamlessly with IBM Cloud services, SAP Business Tec
 {: #monitoring-observability}
 
 | Service | Description |
-|---|---|
+| --- | --- |
 | **IBM Cloud Monitoring** | Monitor SAP infrastructure performance, resource utilization, and health with customizable dashboards and alerts |
 | **IBM Cloud Log Analysis** | Centralize and analyze logs from SAP systems and infrastructure for troubleshooting and compliance |
 | **IBM Cloud Activity Tracker** | Track administrative actions and changes to SAP infrastructure for audit trails and compliance |
@@ -52,7 +52,7 @@ SAP on IBM Cloud integrates seamlessly with IBM Cloud services, SAP Business Tec
 {: #networking-services}
 
 | Service | Description |
-|---|---|
+| --- | --- |
 | **IBM Cloud Direct Link** | Dedicated, high-bandwidth connectivity between on-premises data centers and IBM Cloud for hybrid SAP landscapes. Recommended for production workloads and large data transfers. |
 | **IBM Cloud VPN** | Secure encrypted connections for hybrid SAP deployments with lower bandwidth requirements |
 | **IBM Cloud Load Balancer** | Distribute traffic across SAP application servers for high availability and performance |
@@ -62,7 +62,7 @@ SAP on IBM Cloud integrates seamlessly with IBM Cloud services, SAP Business Tec
 {: #sap-btp-integration}
 
 | Service | Description |
-|---|---|
+| --- | --- |
 | **SAP Integration Suite** | Connect SAP systems with other applications and services using pre-built connectors and integration flows |
 | **SAP Extension Suite** | Build custom extensions for SAP applications using low-code/no-code development tools |
 | **SAP Analytics Cloud** | Cloud-based analytics and planning integrated with SAP data for real-time insights |
@@ -70,7 +70,6 @@ SAP on IBM Cloud integrates seamlessly with IBM Cloud services, SAP Business Tec
 
 **Integration approaches**: SAP Cloud Connector for secure connectivity between SAP BTP and on-premises or cloud SAP systems; OData services for RESTful data integration; APIs for application integration; event-driven architectures for real-time integration.
 
-SAP BTP can be deployed on IBM Cloud infrastructure or accessed as a managed service. For deployment options, consult IBM Cloud and SAP documentation.
 
 ## Hybrid cloud integration
 {: #hybrid-cloud}
@@ -79,7 +78,7 @@ SAP BTP can be deployed on IBM Cloud infrastructure or accessed as a managed ser
 {: #hybrid-scenarios}
 
 | Scenario | Description |
-|---|---|
+| --- | --- |
 | **Production on-premises, DR in cloud** | Maintain production SAP systems on-premises with cost-effective disaster recovery in IBM Cloud |
 | **Dev/test in cloud, production on-premises** | Use IBM Cloud for rapidly provisioned, cost-effective development and test environments while keeping production on-premises |
 | **Gradual cloud migration** | Migrate SAP systems to IBM Cloud incrementally, reducing risk and allowing validation at each step |
@@ -89,7 +88,7 @@ SAP BTP can be deployed on IBM Cloud infrastructure or accessed as a managed ser
 {: #connectivity-options}
 
 | Option | Bandwidth | Best for |
-|---|---|---|
+| --- | --- | --- |
 | **IBM Cloud Direct Link** | 1–10 Gbps dedicated | Production workloads, large data transfers, low-latency requirements |
 | **VPN connections** | Lower bandwidth | Non-production workloads, encrypted connections with lower bandwidth requirements |
 {: caption="Hybrid connectivity options" caption-side="bottom"}
@@ -100,7 +99,7 @@ Evaluate bandwidth requirements, latency sensitivity, security requirements, and
 {: #data-sync}
 
 | Tool | Description |
-|---|---|
+| --- | --- |
 | **SAP Landscape Transformation Replication Server (SLT)** | Real-time data replication between SAP systems for hybrid deployments |
 | **SAP Data Services** | ETL and data integration between SAP and non-SAP systems |
 | **Database replication** | Native database replication tools for data synchronization between on-premises and cloud |
@@ -110,7 +109,7 @@ Evaluate bandwidth requirements, latency sensitivity, security requirements, and
 {: #third-party-tools}
 
 | Category | Tools | Description |
-|---|---|---|
+| --- | --- | --- |
 | **Backup and recovery** | Veeam, Commvault, IBM Spectrum Protect | SAP HANA Backint integration for database backups and long-term archiving |
 | **SAP monitoring** | SAP Solution Manager, SAP Focused Run | Central management, monitoring, and analytics for SAP landscapes |
 | **Application performance monitoring** | Third-party APM tools | Application performance monitoring solutions for SAP system optimization |
@@ -124,7 +123,7 @@ Evaluate bandwidth requirements, latency sensitivity, security requirements, and
 {: #integration-patterns}
 
 | Pattern | Technology | Best for |
-|---|---|---|
+| --- | --- | --- |
 | **API-based** | REST APIs, OData services | Mobile applications, microservices, real-time data exchange |
 | **Event-driven** | Event streaming, messaging | Real-time notifications, workflow automation, system decoupling |
 | **Batch** | Scheduled batch processing | Nightly data loads, periodic reporting, bulk data transfers |
@@ -135,7 +134,7 @@ Evaluate bandwidth requirements, latency sensitivity, security requirements, and
 {: #best-practices}
 
 | Practice | Guidance |
-|---|---|
+| --- | --- |
 | **Security** | Use secure connections (TLS/SSL) and proper authentication for all integrations |
 | **Monitoring** | Implement monitoring and alerting for all integration points to detect issues proactively |
 | **Error handling** | Design robust error handling and retry mechanisms for resilient integrations |

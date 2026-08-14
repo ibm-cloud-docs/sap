@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-07-30"
+lastupdated: "2026-08-12"
 keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
@@ -14,6 +14,7 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
 
 
 
@@ -136,7 +137,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 - Introduced new [sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr2-nw-profiles) for SAP NetWeaver/Application Servers on {{site.data.keyword.powerSysFull}}.
 - New documentation: [Accessing File Storage for VPC from {{site.data.keyword.powerSysFull}} Instances](/docs/sap?topic=sap-nfs-zonal-powervs-intro)
 - New documentation: [Alerting and notification in IBM Cloud Monitoring](/docs/sap?topic=sap-powervs-monitoring-alerting-notification)
-- Updated [architecture diagram](/docs/sap?topic=sap-powervs-monitoring#monitoring-architecture) for {{site.data.keyword.mon_full_notm}} solution.
+- Updated [architecture diagram](/docs/sap?topic=sap-powervs-monitoring#architecture) for {{site.data.keyword.mon_full_notm}} solution.
 
 ## June 2025
 {: #sap-2025-06}

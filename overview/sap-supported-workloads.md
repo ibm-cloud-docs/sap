@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-08-11"
 keywords: SAP, SAP workloads, SAP HANA, SAP NetWeaver, SAP S/4HANA, SAP applications, SAP scenarios
 subcollection: sap
 ---
@@ -26,7 +26,7 @@ SAP HANA is an in-memory database and application platform that powers modern SA
 SAP S/4HANA is SAP's next-generation intelligent ERP system designed to run exclusively on SAP HANA database. It provides real-time business processes and analytics with a simplified data model.
 
 | Configuration | Recommended infrastructure |
-|---|---|
+| --- | --- |
 | Single-host deployment (small to medium) | VPC virtual servers |
 | Production system up to 12 TB memory | VPC bare metal servers |
 | Mission-critical production system | IBM Power Virtual Server |
@@ -39,7 +39,7 @@ SAP S/4HANA is SAP's next-generation intelligent ERP system designed to run excl
 SAP BW/4HANA is SAP's next-generation data warehouse solution optimized for SAP HANA's in-memory capabilities, providing real-time analytics and reporting.
 
 | Configuration | Recommended infrastructure |
-|---|---|
+| --- | --- |
 | Development and test environments | VPC virtual servers |
 | Medium to large data warehouse implementations | VPC bare metal servers |
 | Large-scale analytics, maximum performance | IBM Power Virtual Server |
@@ -52,7 +52,7 @@ SAP BW/4HANA is SAP's next-generation data warehouse solution optimized for SAP 
 SAP HANA can be deployed as a standalone database platform for SAP Business Suite applications, custom applications, or third-party applications.
 
 | Database size | Recommended infrastructure |
-|---|---|
+| --- | --- |
 | Up to 5.7 TB — development, test | VPC virtual servers |
 | Up to 12 TB — production | VPC bare metal servers |
 | Greater than 12 TB, up to 30 TB — production | IBM Power Virtual Server |
@@ -72,10 +72,9 @@ SAP ECC is SAP's traditional ERP system supporting multiple database platforms. 
 **Supported databases:**
 
 | Database | Notes |
-|---|---|
+| --- | --- |
 | SAP HANA | All platforms |
 | IBM Db2 | IBM Power Virtual Server (AIX and Linux), VPC |
-| Oracle Database | VPC bare metal servers and virtual servers |
 | Microsoft SQL Server | VPC bare metal servers and virtual servers |
 | SAP ASE (Sybase) | VPC bare metal servers and virtual servers |
 | SAP MaxDB | VPC bare metal servers and virtual servers |
@@ -89,7 +88,7 @@ SAP ECC is SAP's traditional ERP system supporting multiple database platforms. 
 SAP Business Suite is an integrated suite of SAP business applications built on SAP NetWeaver platform.
 
 | Application | Description |
-|---|---|
+| --- | --- |
 | **SAP ERP (ECC)** | Enterprise Resource Planning |
 | **SAP CRM** | Customer Relationship Management |
 | **SAP SCM** | Supply Chain Management |
@@ -103,7 +102,7 @@ All Business Suite applications are supported on IBM Power Virtual Server, VPC b
 {: #netweaver-components}
 
 | Component | Description |
-|---|---|
+| --- | --- |
 | **SAP Web Dispatcher** | Load balancing and security component for distributing HTTP/HTTPS requests across SAP application servers |
 | **SAP Gateway** | Enables OData services and connectivity for mobile applications and external systems |
 | **SAP Fiori Front-end Server** | Dedicated server for SAP Fiori user interface, providing modern user experience |
@@ -119,7 +118,7 @@ All SAP NetWeaver components are supported on IBM Power Virtual Server (AIX and 
 SAP Business One is an ERP solution designed for small and medium-sized enterprises, providing integrated business management capabilities.
 
 | Configuration | Supported databases | Recommended infrastructure |
-|---|---|---|
+| --- | --- | --- |
 | Single-server deployment (small businesses) | SAP HANA, Microsoft SQL Server | VPC virtual servers |
 | Distributed deployment (separate DB and app servers) | SAP HANA, Microsoft SQL Server | VPC bare metal servers (production), VPC virtual servers (cost-effective) |
 {: caption="SAP Business One configurations" caption-side="bottom"}
@@ -130,9 +129,8 @@ SAP Business One is an ERP solution designed for small and medium-sized enterpri
 SAP applications support multiple database platforms beyond SAP HANA, collectively referred to as SAP AnyDB.
 
 | Database | Description | Infrastructure support |
-|---|---|---|
+| --- | --- | --- |
 | **IBM Db2** | IBM's enterprise relational database supporting SAP ECC, SAP Business Suite, and SAP NetWeaver applications | IBM Power Virtual Server (AIX and Linux), VPC |
-| **Oracle Database** | Oracle's enterprise database supporting all SAP NetWeaver-based applications | VPC bare metal servers, VPC virtual servers |
 | **Microsoft SQL Server** | Microsoft's relational database supporting SAP applications on Windows and Linux | VPC bare metal servers, VPC virtual servers |
 | **SAP ASE (Sybase)** | SAP's Adaptive Server Enterprise supporting SAP NetWeaver applications | VPC bare metal servers, VPC virtual servers |
 | **SAP MaxDB** | SAP MaxDB for SAP ECC and SAP NetWeaver-based systems on Linux and Windows | VPC bare metal servers, VPC virtual servers |
@@ -144,7 +142,7 @@ For specific database version support and certification details, consult SAP doc
 {: #additional-applications}
 
 | Application | Description |
-|---|---|
+| --- | --- |
 | **SAP Content Server** | Document management and archiving solution for SAP systems |
 | **SAP Data Intelligence** | Data orchestration and management platform for enterprise data landscapes |
 | **SAP Commerce** | E-commerce platform for omnichannel customer experiences |
@@ -157,7 +155,7 @@ For deployment guidance on these applications, consult IBM Cloud support and SAP
 {: #environment-types}
 
 | Environment | Purpose | Recommended infrastructure |
-|---|---|---|
+| --- | --- | --- |
 | **Production** | Mission-critical systems requiring high availability, disaster recovery, and maximum performance | IBM Power Virtual Server or VPC bare metal servers with high availability configurations |
 | **Quality assurance** | Testing and validation systems requiring production-like configurations | VPC bare metal servers or VPC virtual servers based on workload size |
 | **Development** | Flexible environments for application development and customization | VPC virtual servers — cost-effective, rapidly provisioned |
@@ -171,7 +169,7 @@ For deployment guidance on these applications, consult IBM Cloud support and SAP
 Select infrastructure based on SAP HANA memory requirements and workload characteristics:
 
 | Workload size | Memory range | Recommended infrastructure |
-|---|---|---|
+| --- | --- | --- |
 | **Small** | Up to 500 GB | VPC virtual servers (cost-effective) or VPC bare metal servers (dedicated performance) |
 | **Medium** | 500 GB to 2 TB | VPC bare metal servers or IBM Power Virtual Server for enhanced performance |
 | **Large** | 2 TB to 12 TB | IBM Power Virtual Server (optimal performance) or VPC bare metal servers |
@@ -184,7 +182,7 @@ For detailed sizing guidance, see [Planning your SAP deployment](/docs/sap?group
 {: #architecture-patterns}
 
 | Pattern | Description | Best for |
-|---|---|---|
+| --- | --- | --- |
 | **Single-tier** | All SAP components (database and application servers) on a single server | Small systems, non-production environments |
 | **Two-tier** | Database server and application servers separated | Most SAP deployments |
 | **Three-tier** | Database server, application servers, and presentation layer separated | Large, distributed SAP landscapes |

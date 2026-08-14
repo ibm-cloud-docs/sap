@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-30"
+lastupdated: "2026-08-12"
 keywords: SAP, IBM Cloud benefits, SAP infrastructure, enterprise cloud, SAP performance, high availability, disaster recovery, backup, monitoring, automation
 subcollection: sap
 ---
@@ -33,8 +33,8 @@ The network round-trip latency, also known as round-trip time (RTT), is approxim
 [^1]: For more information about the list of classic data centers in IBM Cloud, see [Classic data centers](/docs/overview?topic=overview-locations#data-centers){: external}.
 [^2]: This is a single data center for the location.
 [^6]: For more information about the IBM Cloud regions that support VPC, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region&interface=cli){: external}.
-[^9]: IBM Cloud for government. [Learn more](https://www.ibm.com/cloud/government){: external}.
-[^9a]: IBM Cloud for government. [Learn more](https://www.ibm.com/cloud/government){: external}.
+[^9]: IBM Cloud for government. [Learn more](https://www.ibm.com/products/cloud/government){: external}.
+[^9a]: IBM Cloud for government. [Learn more](https://www.ibm.com/products/cloud/government){: external}.
 [^x]: IBM Cloud maps the VPC zone names by account and uses the universal zone names. For more information about the zone mapping by account, see [Zone mapping per account](https://cloud.ibm.com/docs/overview?topic=overview-locations&locale=en#zone-mapping){: external} and the tip after the table.
 
 | Location  | VPC region[^7] | {{site.data.keyword.powerSys_notm}} region | VPC zone                        | {{site.data.keyword.powerSys_notm}} zone | Classic infrastructure[^3]         |

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-08-12"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -43,11 +43,11 @@ The following table illustrates an example of an SAP HANA certified instance pro
 
 | Profile name | Naming convention component | Description           |
 | ------------ | --------------------------- | --------------------- |
-| sh2-33x1900  | sh2                         | Profile prefix        |
+| sr2-35x3000  | sr2                         | Profile prefix        |
 |              | *-*                         | *separator*           |
-|              | 33                          | 33 physical CPU Cores |
+|              | 35                          | 35 physical CPU Cores |
 |              | x                           | *separator*           |
-|              | 1900                        | 1900 GiB RAM          |
+|              | 3000                        | 3000 GiB RAM          |
 {: caption="Profile naming scheme for SAP HANA" caption-side="bottom"}
 
 Refer to [SAP Note 2947579 - SAP HANA on {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}s](https://launchpad.support.sap.com/#/notes/2947579){: external} for up-to-date information on certified SAP HANA profiles.
@@ -72,7 +72,7 @@ The following table lists available profile families for IBM Power11 processor-b
 
 | Families | Description |
 | -------- | ----------- |
-| [Profiles with sr3 prefix](#sr3-profiles) | Profiles with the prefix *sr3* are SAP RISE profiles.|
+| [Profiles with sr3 prefix](#sr3-profiles) | Profiles with the prefix *sr3* are SAP RISE profiles.\nTo view and deploy standard **sr3** profiles in the UI, navigate to **Advanced Configuration** and enable **SAP RISE Deployment**. The standard **sr3** profiles are then available for selection. |
 {: caption="Profile families for Power11 server generation" caption-side="bottom"}
 
 
@@ -89,14 +89,18 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | sr3-6x384        | 6             | 48               | 384              | SMT8                        |
 | sr3-11x512       | 11            | 88               | 512              | SMT8                        |
 | sr3-11x740       | 11            | 88               | 740              | SMT8                        |
+| sr3-10x950       | 10            | 80               | 950              | SMT8                        |
 | sr3-19x1024      | 19            | 152              | 1,024            | SMT8                        |
+| sr3-10x1450      | 10            | 80               | 1,450            | SMT8                        |
+| sr3-19x1536      | 19            | 152              | 1,536            | SMT8                        |
 | sr3-24x1900      | 24            | 192              | 1,900            | SMT8                        |
 | sr3-32x3000      | 32            | 256              | 3,000            | SMT8                        |
 | sr3-32x3900      | 32            | 256              | 3,900            | SMT8                        |
 | sr3-76x6144      | 76            | 608              | 6,144            | SMT8                        |
+| sr3-80x7600      | 80            | 640              | 7,600            | SMT8                        |
 | sr3-80x12288     | 80            | 640              | 12,288           | SMT8                        |
-| sr3-229x20000    | 229           | 1,832             | 20,000          | SMT8                        |
-| sr3-229x30500    | 229           | 1,832             | 30,500          | SMT8                        |
+| sr3-229x20000    | 229           | 1,832            | 20,000           | SMT8                        |
+| sr3-229x30500    | 229           | 1,832            | 30,500           | SMT8                        |
 {: class="simple-tab-table"}
 {: tab-group="sr3-profiles"}
 {: caption="P11 Certified Instance profiles with sr3 prefix" caption-side="bottom"}
@@ -110,11 +114,15 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | sr3-6x384        | OLTP                                    | 47,400   | 9,800     |
 | sr3-11x512       | OLTP                                    | 86,900   | 16,200    |
 | sr3-11x740       | OLTP/OLAP                               | 86,900   | 16,200    |
+| sr3-10x950       | OLTP/OLAP                               | 79,000   | 14,600    |
 | sr3-19x1024      | OLTP/OLAP                               | 150,100  | 30,900    |
+| sr3-10x1450      | OLTP/OLAP                               | 79,000   | 14,600    |
+| sr3-19x1536      | OLTP/OLAP                               | 150,100  | 30,300    |
 | sr3-24x1900      | OLTP/OLAP                               | 196,800  | 35,500    |
 | sr3-32x3000      | OLTP/OLAP                               | 262,400  | 49,400    |
 | sr3-32x3900      | OLTP/OLAP                               | 262,400  | 49,400    |
 | sr3-76x6144      | OLTP/OLAP                               | 623,200  | 103,900   |
+| sr3-80x7600      | OLTP/OLAP                               | 656,000  | 109,600   |
 | sr3-80x12288     | OLTP/OLAP                               |    N/A   | 115,800   |
 | sr3-229x20000    | OLTP/OLAP                               |    N/A   | 307,000   |
 | sr3-229x30500    | OLTP/OLAP/OLTP scale-out (up to 4 nodes)|    N/A   | 307,000   |
@@ -131,11 +139,15 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | sr3-6x384                  | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-11x512                 | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-11x740                 | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
+| sr3-10x950                 | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-19x1024                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
+| sr3-10x1450                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
+| sr3-19x1536                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-24x1900                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-32x3000                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-32x3900                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-76x6144                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
+| sr3-80x7600                | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-80x12288               | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-229x20000              | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-229x30500              | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
@@ -152,11 +164,15 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 | sr3-6x384                  | 8,000             | 4 x 116 GB                                | Tier 0                              | 464 GB                        | 11,600             |
 | sr3-11x512                 | 8,000             | 4 x 154 GB                                | Tier 0                              | 616 GB                        | 15,400             |
 | sr3-11x740                 | 8,000             | 4 x 222 GB                                | Tier 0                              | 888 GB                        | 22,200             |
+| sr3-10x950                 | 8,000             | 4 x 285 GB                                | Tier 0                              | 1,140 GB                      | 28,500             |
 | sr3-19x1024                | 8,000             | 4 x 307 GB                                | Tier 0                              | 1,228 GB                      | 30,700             |
+| sr3-10x1450                | 8,000             | 4 x 363 GB                                | Tier 0                              | 1,452 GB                      | 36,300             |
+| sr3-19x1536                | 8,000             | 4 x 461 GB                                | Tier 0                              | 1,844 GB                      | 46,100             |
 | sr3-24x1900                | 8,000             | 4 x 570 GB                                | Tier 0                              | 2,280 GB                      | 57,000             |
 | sr3-32x3000                | 8,000             | 4 x 900 GB                                | Tier 3                              | 3,600 GB                      | 10,800             |
 | sr3-32x3900                | 8,000             | 4 x 1,170 GB                              | Tier 3                              | 4,680 GB                      | 14,040             |
 | sr3-76x6144                | 8,000             | 4 x 1,844 GB                              | Tier 3                              | 7,376 GB                      | 22,128             |
+| sr3-80x7600                | 8,000             | 4 x 2,280 GB                              | Tier 3                              | 9,120 GB                      | 27,360             |
 | sr3-80x12288               | 8,000             | 4 x 3,686 GB                              | Tier 3                              | 14,744 GB                     | 44,232             |
 | sr3-229x20000              | 8,000             | 4 x 6,000 GB                              | Tier 3                              | 24,000 GB                     | 72,000             |
 | sr3-229x30500              | 8,000             | 4 x 9,150 GB                              | Tier 3                              | 36,600 GB                     | 109,800            |
@@ -173,10 +189,14 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 |  sr3-6x384                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-11x512                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-11x740                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  sr3-10x950                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-19x1024               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  sr3-10x1450               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  sr3-19x1536               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-24x1900               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-32x3000               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-32x3900               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  sr3-80x7600               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-80x12288              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-229x20000             | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-76x6144               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
@@ -199,16 +219,12 @@ The following table lists available profile families for IBM Power10 processor-b
 
 | Families | Description |
 | -------- | ----------- |
-| [Profiles with sr2 prefix](#sr2-profiles) | Profiles with the prefix *sr2* are SAP RISE profiles.|
+| [Profiles with sr2 prefix](#sr2-profiles) | Profiles with the prefix *sr2* are SAP RISE profiles.\nTo view and deploy standard **sr2** profiles in the UI, navigate to **Advanced Configuration** and enable **SAP RISE Deployment**. The standard **sr2** profiles are then available for selection.\nsr2 profiles support flexible combinations of physical CPU cores and memory.\n**Custom sr2-XxX profiles** can be deployed only by using the **CLI or API**. These custom profiles are not available in the UI and are not supported by SAP. |
 | [Profiles with sh2 prefix](#sh2-profiles) | Profiles with the prefix *sh2* support HANA database sizes up to 1,900 GiB. |
 | [Profiles with bh2 prefix](#bh2-profiles) | Profiles with the prefix *bh2* are balanced profiles and are best suited for midsize databases and common cloud applications with moderate traffic. |
-| [Profiles with ch2 prefix](#ch2-profiles)  | Profiles with the prefix *ch2* are compute intensive profiles and are best suited for moderate to high web traffic workloads. Compute profiles are best suited for cpu-intensive workloads, such as heavy web traffic, production batch processing, and front-end web servers. |
+| [Profiles with ch2 prefix](#ch2-profiles) | Profiles with the prefix *ch2* are compute intensive profiles and are best suited for moderate to high web traffic workloads. Compute profiles are best suited for cpu-intensive workloads, such as heavy web traffic, production batch processing, and front-end web servers. |
 | [Profiles with mh2 prefix](#mh2-profiles) | Profiles with the prefix *mh2* are very high memory profiles and are best suited for server OLAP databases, such as {{site.data.keyword.sap_app_server}}. |
 {: caption="Profile families for Power10 server generation" caption-side="bottom"}
-
-**sr2 profiles** also support custom combination of physical CPU cores and memory. **Custom sr2 profiles** must be deployed by using the **CLI or API** interface only and these custom profiles are not supported by SAP.
-
-
 
 ### sr2 - Certified profiles
 {: #sr2-profiles}
@@ -999,7 +1015,7 @@ The following profile families are available for IBM Power9 processor-based serv
 | [Profiles with cnp prefix](#cnpprofiles) | Profiles with the prefix *cnp* are custom profiles for test or development use only. These profiles are not intended for production use and are not supported or certified for SAP production. Each profile must have minimum of two physical CPU cores. |
 | [Profiles with ush1 prefix](#ush1profiles) | Profiles with the prefix *ush* are small profiles and are best suited for balanced workloads that require less CPU and storage consumption. |
 | [Profiles with bh1 prefix](#bh1profiles) | Profiles with the prefix *bh1* are balanced profiles and are best suited for midsize databases and common cloud applications with moderate traffic. |
-| [Profiles with ch1 prefix](#ch1profiles)  | Profiles with the prefix *ch1* are compute intensive profiles and are best suited for moderate to high web traffic workloads. Compute profiles are best suited for cpu-intensive workloads, such as heavy web traffic, production batch processing, and front-end web servers. |
+| [Profiles with ch1 prefix](#ch1profiles) | Profiles with the prefix *ch1* are compute intensive profiles and are best suited for moderate to high web traffic workloads. Compute profiles are best suited for cpu-intensive workloads, such as heavy web traffic, production batch processing, and front-end web servers. |
 | [Profiles with mh1 prefix](#mh1profiles) | Profiles with the prefix *mh1* are very high memory profiles and are best suited for server OLAP databases, such as {{site.data.keyword.sap_app_server}}. |
 | [Profiles with umh prefix](#umhprofiles) | Profiles with the prefix *umh* are ultra memory profiles that provide the highest vCPU-to-memory ratios for serving in-memory OLTP databases, such as SAP HANA. |
 {: caption="Profile families for Power9 server generation" caption-side="bottom"}

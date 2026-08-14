@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-08-11"
 keywords: SAP, deployment options, VPC, Power Virtual Server, Classic Infrastructure, comparison, infrastructure
 subcollection: sap
 ---
@@ -37,9 +37,9 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 | **SAP NetWeaver** | Supported on AIX and Linux | Supported on Linux and Windows | Supported on Linux and Windows |
 | **SAP S/4HANA** | Fully certified | Fully certified | Fully certified |
 | **SAP BW/4HANA** | Fully certified | Fully certified | Fully certified |
-| **SAP AnyDB** | IBM Db2, Oracle | IBM Db2, Oracle, SQL Server, SAP ASE, SAP MaxDB | IBM Db2, Oracle, SQL Server, SAP ASE, SAP MaxDB |
+| **SAP AnyDB** | IBM Db2, Oracle | IBM Db2, Microsoft SQL Server, SAP ASE, SAP MaxDB | IBM Db2, Microsoft SQL Server, SAP ASE, SAP MaxDB |
 | **AIX support** | Native support | Not supported | Not supported |
-| **SAP certification notes** | [SAP Note 2855850](https://launchpad.support.sap.com/){: external} | [SAP Note 2927211](https://launchpad.support.sap.com/){: external} | [SAP Note 2414097](https://launchpad.support.sap.com/){: external} |
+| **SAP certification notes** | [SAP Note 2855850](https://me.sap.com/notes/2855850/){: external} | [SAP Note 2927211](https://me.sap.com/notes/2927211/){: external} | [SAP Note 2414097](https://me.sap.com/notes/2414097/){: external} |
 {: caption="SAP certifications and support comparison" caption-side="bottom"}
 
 ## Operating system support

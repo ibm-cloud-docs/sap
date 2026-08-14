@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-08-11"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads
 subcollection: sap
 ---
@@ -114,10 +114,10 @@ High availability for SAP can be achieved for:
 - SAP HANA High Availability - [Implementing high availability for SAP applications on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-ha-rhel-overview) and [SAP Note 2057595](https://me.sap.com/notes/2057595){: external}
 
 - SAP AnyDB High Availability (for example, IBM Db2, MS SQL, and so on.)
-   - [Db2](https://me.sap.com/notes/1612105/){: external}
-   - MaxDB
-   - [Oracle](https://me.sap.com/notes/527843/){: external}
-   - SQL Server
+   - [IBM Db2](https://me.sap.com/notes/1612105/){: external}
+   - [SAP ASE](https://me.sap.com/notes/1650511/){: external}
+   - [SAP MaxDB](https://me.sap.com/notes/1463606/){: external}
+   - [Microsoft SQL Server](https://me.sap.com/notes/1772688/){: external}
 
 High availability can be configured at:
 - SAP Technical Application layer (for example, system replication, system clustering)
