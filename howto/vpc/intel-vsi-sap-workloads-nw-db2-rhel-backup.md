@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-08-31"
 keywords:
 subcollection: sap
 ---
@@ -128,6 +128,6 @@ For more information, see [Db2 Advanced Copy Services (ACS) for snapshot backups
 
 To perform a snapshot backup or a restore operation, see the following topics:
 
-* For more information, see [Performing a snapshot backup with a script](https://www.ibm.com/docs/en/db2/12.1.x?topic=backup-performing-snapshot-script).
+* For more information, see [Performing a snapshot backup with a script](https://www.ibm.com/docs/en/db2/12.1.x?topic=backup-performing-snapshot-script){: external}.
 
-* For more information, see [Restoring from a snapshot backup image with a script](https://www.ibm.com/docs/en/db2/12.1.x?topic=image-restoring-from-snapshot-backup-script).
+* For more information, see [Restoring from a snapshot backup image with a script](https://www.ibm.com/docs/en/db2/12.1.x?topic=image-restoring-from-snapshot-backup-script){: external}.

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-08-31"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, heterogeneous migration, Linux, Red Hat, RHEL, SuSE, Db2, Oracle, HANA, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize, sum, software update manager, dmo, database migration option, dmove2s4, Software Provisioning Manager, SWPM
 subcollection: sap
 ---
@@ -272,7 +272,7 @@ Review the existing migration documentation for your database software version a
 
 Use the following steps to prepare the target system landscape.
 
-1. Access the most recent version of "Database Migration Option: Target Database SAP HANA" from [Database Migration Option: Target Database SAP HANA](https://help.sap.com/doc/38301960cfe4484587f9cedb8c6a740f/dmosum20.23/en-US/dmo_of_sum2_to_hana.pdf), then select **Download Link**.
+1. Access the most recent version of "Database Migration Option: Target Database SAP HANA" from [Database Migration Option: Target Database SAP HANA](https://help.sap.com/docs/SLTOOLSET/7d57e56e12104cc68bce7646cd9f4cbf/12cee403890748cbaf336da7e3f81855.html), then select **Download Link**.
 
    This migration scenario uses the "System Move" option. A single stack SAP Netweaver DB/Application is moved to a separate S/4HANA 2023 Application Server and a dedicated server for the SAP HANA database.
    {: note}
@@ -547,7 +547,7 @@ An SAP *S-User* access is required to access the following links.
 
 The following document outlines the DMO steps for a migration of an SAP system from anyDB to an SAP HANA Database.
 
-* [Database Migration Option: Target Database SAP HANA](https://help.sap.com/doc/38301960cfe4484587f9cedb8c6a740f/dmosum20.23/en-US/dmo_of_sum2_to_hana.pdf){: external}
+* [Database Migration Option: Target Database SAP HANA](https://help.sap.com/docs/SLTOOLSET/7d57e56e12104cc68bce7646cd9f4cbf/12cee403890748cbaf336da7e3f81855.html){: external}
 
 * [Software Logistics Toolset](https://support.sap.com/en/tools/software-logistics-tools.html){: external}
 

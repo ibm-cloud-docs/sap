@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-08-31"
 keywords: SAP, FlashSystem, Power, storage tiers, IOPS, log, data, shared, cos, file storage, boot, block storage, sapmnt, plan
 subcollection: sap
 ---
@@ -134,7 +134,7 @@ Refer to the following resources:
 - [SAP HANA Tailored Data Center Integration](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html){: external}
 - [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}.
 - [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}
-- [Outlining how to use the Hardware Measurement Tool](https://learning.sap.com/courses/sap-hana-installation-and-administration/outlining-how-to-use-the-hardware-measurement-tool){: external}.
+- [Outlining how to use the Hardware Measurement Tool](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}.
 
 For file system sizes, see [SAP HANA Storage Requirements](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html){: external}
 
@@ -174,7 +174,7 @@ Configure an own {{site.data.keyword.powerSys_notm}} storage volume for the `/us
 - [SAP HANA Tailored Data Center Integration](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html){: external}
 - [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}
 - [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}
-- [Outlining how to use the Hardware Measurement Tool](https://learning.sap.com/courses/sap-hana-installation-and-administration/outlining-how-to-use-the-hardware-measurement-tool){: external}
+- [Outlining how to use the Hardware Measurement Tool](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}
 - [SAP HANA Storage Requirements](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html){: external}
 - [SAP HANA certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
 - [{{site.data.keyword.sap_app_server}} certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-08-12"
+lastupdated: "2026-08-31"
 keywords: SAP, IBM Cloud benefits, SAP infrastructure, enterprise cloud, SAP performance, high availability, disaster recovery, backup, monitoring, automation
 subcollection: sap
 ---
@@ -77,7 +77,7 @@ For current SAP HANA certified servers, see:
 
 IBM Cloud operates data centers across North America, Europe, Asia Pacific, and South America, enabling you to deploy SAP workloads close to your users and operations. Multi-zone regions provide high availability and disaster recovery capabilities, while geographic distribution helps meet data residency and sovereignty requirements.
 
-For current data center locations, see [IBM Cloud global infrastructure](https://www.ibm.com/cloud/data-centers){: external}.
+For current data center locations, see [IBM Cloud global infrastructure](https://www.ibm.com/solutions/cloud-data-centers){: external}.
 
 ## Flexible deployment options
 {: #flexible-deployment}

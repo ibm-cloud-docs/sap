@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-08-31"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, Storage, VPC, {{site.data.keyword.block_storage_is_short}}, {{site.data.keyword.filestorage_vpc_short}}, IOPS, performance, capacity, tiers
 subcollection: sap
 ---
@@ -145,7 +145,7 @@ Refer to the following resources for more information:
 - [SAP Help Portal: SAP HANA Tailored Data Center Integration](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html){: external}
 - [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}
 - [SAP Help Portal: SAP HANA Hardware and Cloud Measurement Tools guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}
-- [SAP Learning Resources: Outlining how to use the Hardware Measurement Tool](https://learning.sap.com/courses/sap-hana-installation-and-administration/outlining-how-to-use-the-hardware-measurement-tool){: external}
+- [SAP Learning Resources: Outlining how to use the Hardware Measurement Tool](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}
 
 For file system sizes, see [SAP HANA Storage Requirements](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html){: external}.
 
@@ -334,5 +334,5 @@ For shared file systems, use {{site.data.keyword.filestorage_vpc_short}} for `/s
 - [SAP Help Portal: SAP HANA Tailored Data Center Integration](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html){: external}
 - [SAP Note 2493172 - SAP HANA Hardware and Cloud Measurement Tools](https://me.sap.com/notes/2493172){: external}
 - [SAP Help Portal: SAP HANA Hardware and Cloud Measurement Tools guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS/02bb1e64c2ae4de7a11369f4e70a6394/7e878f6e16394f2990f126e639386333.html){: external}
-- [SAP Learning Resources: Outlining how to use the Hardware Measurement Tool](https://learning.sap.com/courses/sap-hana-installation-and-administration/outlining-how-to-use-the-hardware-measurement-tool){: external}
+- [SAP Learning Resources: Outlining how to use the Hardware Measurement Tool](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}
 - [SAP HANA certified instances on Intel-powered virtual servers on VPC Infrastructure](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi)
