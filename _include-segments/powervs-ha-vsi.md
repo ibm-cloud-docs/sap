@@ -308,6 +308,10 @@ Gather the parameters, and note them for the cluster configuration.
    As with the fencing agent, you can use the value of the `apikey` entry for the `APIKEY` parameter.
    However, the recommended approach is to store a copy of the downloaded JSON key file on both nodes and configure `APIKEY` to reference the file by using an `@` prefix followed by the absolute path to the key file.
 
+   Set the permissions of the file equivalent to `chmod 600 (rw-------)`, allowing only the `root` user to read and modify the file while denying all access to group and other users.
+   <: note>
+
+
 
 ## Creating virtual server instances
 {: #ha-vsi-create-virtual-server-instances}
