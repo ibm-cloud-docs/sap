@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-30"
 keywords: SAP, IBM Cloud benefits, SAP infrastructure, enterprise cloud, SAP performance, high availability, disaster recovery, backup, monitoring, automation
 subcollection: sap
 ---
@@ -14,6 +14,8 @@ subcollection: sap
 
 IBM Cloud provides enterprise-grade infrastructure specifically designed and certified for SAP workloads, combining proven IBM and SAP partnership expertise with modern cloud capabilities to deliver performance, reliability, and flexibility for mission-critical SAP systems.
 {: shortdesc}
+
+IBM Power Virtual Server is the preferred platform for SAP HANA workloads across development, test, and production environments. VPC Infrastructure is the preferred platform for SAP AnyDB workloads and SAP application servers.
 
 ## IBM and SAP strategic partnership
 {: #ibm-sap-partnership}
@@ -58,7 +60,7 @@ IBM Cloud delivers infrastructure built specifically for enterprise SAP workload
 | **Compliance certifications** | IBM Cloud maintains compliance with industry standards including ISO 27001, SOC 1/2/3, PCI DSS, HIPAA, and regional data protection regulations. For current certifications, see [IBM Cloud compliance programs](https://www.ibm.com/products/cloud/compliance){: external}. |
 {: caption="Comprehensive security capabilities" caption-side="bottom"}
 
-**TCO benefit**: Built-in security features eliminate the need for additional security infrastructure and tools. Compliance certifications reduce audit costs and accelerate compliance validation processes.
+**Total cost of ownership (TCO) benefit**: Built-in security features eliminate the need for additional security infrastructure and tools. Compliance certifications reduce audit costs and accelerate compliance validation processes.
 
 ## SAP certification and support
 {: #sap-certification}

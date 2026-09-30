@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-09-30"
 keywords: SAP, decision guidance, infrastructure selection, choosing infrastructure, deployment decision
 subcollection: sap
 ---
@@ -12,7 +12,9 @@ subcollection: sap
 # Choosing infrastructure for SAP workloads
 {: #choosing-infrastructure}
 
-Select the most appropriate IBM Cloud infrastructure for your SAP workloads based on workload characteristics, performance requirements, and business needs. IBM Cloud recommends IBM Power Virtual Server for mission-critical SAP HANA workloads and VPC Infrastructure for modern cloud-native SAP deployments.
+Select the IBM Cloud infrastructure for your SAP workloads based on workload type, performance requirements, and business needs.
+IBM Power Virtual Server is the preferred platform for SAP HANA workloads. 
+VPC Infrastructure is the preferred platform for SAP AnyDB workloads.
 {: shortdesc}
 
 ## Quick decision guide
@@ -22,21 +24,23 @@ For a full use-case-to-platform mapping, see [Infrastructure platforms for SAP w
 
 Key rules of thumb:
 
-- **AIX required or SAP HANA >12 TB** → IBM Power Virtual Server (only option)
-- **Mission-critical production SAP HANA** → IBM Power Virtual Server
-- **New deployments, development and test, application servers** → VPC Infrastructure
+- Use IBM Power Virtual Server for SAP HANA workloads of any size.
+- Use VPC Infrastructure for SAP AnyDB workloads, including Db2, ASE, MaxDB, and SQL Server.
+- Use VPC Infrastructure for SAP application servers, including ASCS, ERS, PAS, AAS, and Web Dispatcher.
+- If AIX is required, use IBM Power Virtual Server.
 
-## Decision by workload size
-{: #by-workload-size}
+## Decision by workload type
+{: #by-workload-type}
 
-For complete workload sizing guidance including recommended infrastructure per memory range, see [Supported SAP workloads and scenarios](/docs/sap?topic=sap-supported-workloads#sizing-guidance).
+The primary decision factor is the database platform, not the database size.
 
-Summary:
-
-- **Less than 1 TB** → VPC virtual servers
-- **1–2 TB** → VPC bare metal servers
-- **2–12 TB** → VPC bare metal servers or IBM Power Virtual Server
-- **Greater than 12 TB** → IBM Power Virtual Server
+| Workload | Preferred platform | Rationale |
+|---|---|---|
+| SAP HANA, including SAP S/4HANA, SAP BW/4HANA, and standalone SAP HANA | IBM Power Virtual Server | Supports SAP HANA workloads from development environments to production deployments of up to 30.5 TB |
+| SAP AnyDB, including IBM Db2, SAP ASE, SAP MaxDB, and Microsoft SQL Server | VPC Infrastructure | Supports compute and storage options for SAP AnyDB workloads |
+| SAP application servers, including ASCS, ERS, PAS, and AAS | VPC Infrastructure | Cost-effective, rapidly provisioned virtual servers ideal for the application tier |
+| SAP Web Dispatcher, SAP Gateway, and SAP Router | VPC Infrastructure | Supports lightweight components benefit from VPC's flexible scaling and advanced networking |
+{: caption="Infrastructure selection by workload type" caption-side="bottom"}
 
 ## Decision by environment type
 {: #by-environment}
@@ -45,9 +49,10 @@ For a full description of each environment type and its recommended infrastructu
 
 Summary:
 
-- **Production** → IBM Power Virtual Server (mission-critical) or VPC bare metal servers
-- **Quality assurance** → VPC bare metal servers or virtual servers
-- **Development and sandbox** → VPC virtual servers
+- Use IBM Power Virtual Server for SAP HANA production workloads.
+- *Use IBM Power Virtual Server for SAP HANA development and test workloads. You can use VPC virtual servers for cost-sensitive non-production environments.
+- Use VPC Infrastructure for SAP AnyDB workloads in all environments.
+- Use VPC Infrastructure for SAP application servers in all environments
 
 ## Decision by key requirements
 {: #by-requirements}
@@ -70,14 +75,14 @@ Summary:
 ### New SAP S/4HANA production system
 {: #scenario-new-s4hana}
 
-**Requirements**: New SAP S/4HANA, 3 TB database, high availability
+**Requirements**: New SAP S/4HANA, HANA database, high availability
 
-| Tier | Recommended infrastructure | Rationale |
+| Tier | Preferred infrastructure | Rationale |
 |---|---|---|
-| Database | IBM Power Virtual Server or VPC bare metal servers | Optimal SAP HANA performance |
-| Application servers | VPC virtual servers | Cost-effective, flexible resources for application tier |
-| Web Dispatcher | VPC virtual servers | Cost-effective, easily scaled |
-{: caption="New SAP S/4HANA production system — recommended infrastructure" caption-side="bottom"}
+| SAP HANA database | IBM Power Virtual Server | Optimal SAP HANA performance at any scale; enterprise-grade reliability |
+| SAP application servers | VPC virtual servers | Cost-effective, flexible resources for the application tier |
+| SAP Web Dispatcher | VPC virtual servers | Cost-effective, easily scaled |
+{: caption="New SAP S/4HANA production system and infrastructure selection" caption-side="bottom"}
 
 ### Development and test landscape
 {: #scenario-dev-test}
@@ -117,12 +122,12 @@ Summary:
 
 | Platform | Choose when you need |
 |---|---|
-| **IBM Power Virtual Server** | AIX operating system for SAP NetWeaver \n SAP HANA databases larger than 12 TB (up to 30 TB) \n Maximum SAP HANA performance for mission-critical systems \n Enterprise-grade reliability for production workloads |
-| **VPC Infrastructure** | Modern cloud-native architecture for new SAP deployments \n Advanced networking and security features \n Flexible compute (virtual servers and bare metal) \n Cost-effective development and test environments |
+| **IBM Power Virtual Server** | Any SAP HANA workload — development, test, or production (up to 30.5 TB) \n AIX operating system for SAP NetWeaver \n Maximum SAP HANA performance and enterprise-grade reliability |
+| **VPC Infrastructure** | SAP AnyDB workloads (IBM Db2, SAP ASE, SAP MaxDB, Microsoft SQL Server) \n SAP application servers (ASCS, ERS, PAS, AAS, Web Dispatcher) \n Modern cloud-native architecture with advanced networking and security |
 | **Classic Infrastructure (existing deployments only)** | Continue operating existing Classic Infrastructure systems \n Plan migration to VPC or Power Virtual Server for new capabilities |
 {: caption="Platform-specific considerations" caption-side="bottom"}
 
-For new deployments, IBM Cloud recommends VPC Infrastructure or Power Virtual Server rather than Classic Infrastructure.
+For new deployments, IBM Cloud recommends IBM Power Virtual Server for SAP HANA and VPC Infrastructure for SAP AnyDB workloads and application servers.
 
 ## Decision flowchart
 {: #decision-flowchart}
@@ -133,19 +138,17 @@ Follow this decision flow to select infrastructure:
    - Yes → **IBM Power Virtual Server** (only option)
    - No → Continue to step 2
 
-2. **What is the SAP HANA database size?**
-   - Greater than 12 TB → **IBM Power Virtual Server**
-   - 2-12 TB → **IBM Power Virtual Server** or **VPC bare metal servers**
-   - Less than 2 TB → **VPC bare metal servers** or **VPC virtual servers**
+2. **What database platform are you running?**
+   - SAP HANA → **IBM Power Virtual Server**
+   - SAP AnyDB (IBM Db2, SAP ASE, SAP MaxDB, Microsoft SQL Server) → **VPC Infrastructure**
 
-3. **Is this production or non-production?**
-   - Production → **IBM Power Virtual Server** or **VPC bare metal servers**
-   - Non-production → **VPC virtual servers**
+3. **Are these SAP application servers only (no database)?**
+   - Yes → **VPC Infrastructure**
+   - No → Decision already made in step 2
 
-4. **What is your priority?**
-   - Maximum performance → **IBM Power Virtual Server**
-   - Balance of performance and cost → **VPC bare metal servers**
-   - Cost optimization → **VPC virtual servers**
+4. **Is this SAP HANA dev/test with strict cost constraints?**
+   - Yes → VPC virtual servers are acceptable for non-production HANA
+   - No → **IBM Power Virtual Server** for all SAP HANA environments
 
 ## Getting assistance
 {: #getting-assistance}

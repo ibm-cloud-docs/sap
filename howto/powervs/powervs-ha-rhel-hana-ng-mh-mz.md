@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-07-27"
+lastupdated: "2026-09-16"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, SAP HANA scale-out, High Availability, HA, Linux, Pacemaker, RHEL HA Add-On
 subcollection: sap
 ---
@@ -1017,6 +1017,8 @@ pcs resource create vip_${SID}_${INSTNO} powervs-move-ip \
     --disabled
 ```
 {: pre}
+
+
 
 Verify the cluster resource for the virtual IP:
 

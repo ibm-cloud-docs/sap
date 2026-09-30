@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-07-30"
+lastupdated: "2026-09-16"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, capture and export, SAP workloads, SAP HANA, migration of hardware profile, relocate SAP workload on IBM {{site.data.keyword.powerSys_notm}}
 subcollection: sap
 ---
@@ -12,7 +12,7 @@ subcollection: sap
 # Resizing and migrating hardware profiles for IBM {{site.data.keyword.powerSys_notm}} instance in the same workspace
 {: #sapmig-resizing-migrating-hardware-profiles}
 
-IBM Cloud provides multiple ways to resize an IBM {{site.data.keyword.powerSysFull}} instance in the same workspace.
+IBM Cloud provides multiple ways to resize an {{site.data.keyword.powerSysFull}} instance in the same workspace.
 Depending on the workload requirements, you can adjust CPU and memory resources, increase storage capacity, or migrate the workload to a new virtual server with a different hardware profile.
 Each method has different operational effects, so you can choose the approach that fits your maintenance, capacity planning, and application requirements.
 {: shortdesc}

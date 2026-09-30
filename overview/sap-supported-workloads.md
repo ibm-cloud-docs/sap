@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-08-11"
+lastupdated: "2026-09-30"
 keywords: SAP, SAP workloads, SAP HANA, SAP NetWeaver, SAP S/4HANA, SAP applications, SAP scenarios
 subcollection: sap
 ---
@@ -25,12 +25,14 @@ SAP HANA is an in-memory database and application platform that powers modern SA
 
 SAP S/4HANA is SAP's next-generation intelligent ERP system designed to run exclusively on SAP HANA database. It provides real-time business processes and analytics with a simplified data model.
 
-| Configuration | Recommended infrastructure |
+IBM Power Virtual Server is the preferred platform for SAP S/4HANA deployments. Power Systems architecture supports SAP HANA workloads across development, test, and production environments.
+
+| Configuration | Preferred infrastructure |
 | --- | --- |
-| Single-host deployment (small to medium) | VPC virtual servers |
-| Production system up to 12 TB memory | VPC bare metal servers |
-| Mission-critical production system | IBM Power Virtual Server |
-| Multi-host scale-out, high availability, disaster recovery | IBM Power Virtual Server or VPC bare metal servers |
+| Development and test | IBM Power Virtual Server |
+| Production (any size, up to 30.5 TB) | IBM Power Virtual Server |
+| High availability and disaster recovery | IBM Power Virtual Server |
+| Multi-host scale-out | IBM Power Virtual Server |
 {: caption="SAP S/4HANA configurations and recommended infrastructure" caption-side="bottom"}
 
 ### SAP BW/4HANA
@@ -38,26 +40,31 @@ SAP S/4HANA is SAP's next-generation intelligent ERP system designed to run excl
 
 SAP BW/4HANA is SAP's next-generation data warehouse solution optimized for SAP HANA's in-memory capabilities, providing real-time analytics and reporting.
 
-| Configuration | Recommended infrastructure |
+IBM Power Virtual Server is the preferred platform for all SAP BW/4HANA deployments, delivering the performance required for large-scale analytics and real-time data warehousing workloads.
+
+| Configuration | Preferred infrastructure |
 | --- | --- |
-| Development and test environments | VPC virtual servers |
-| Medium to large data warehouse implementations | VPC bare metal servers |
+| Development and test environments | IBM Power Virtual Server |
+| Data warehouse production (any size) | IBM Power Virtual Server |
 | Large-scale analytics, maximum performance | IBM Power Virtual Server |
-| Multi-host scale-out, high availability | IBM Power Virtual Server or VPC bare metal servers |
-{: caption="SAP BW/4HANA configurations and recommended infrastructure" caption-side="bottom"}
+| Multi-host scale-out, high availability | IBM Power Virtual Server |
+{: caption="SAP BW/4HANA configurations and preferred infrastructure" caption-side="bottom"}
 
 ### SAP HANA database
 {: #hana-database}
 
 SAP HANA can be deployed as a standalone database platform for SAP Business Suite applications, custom applications, or third-party applications.
 
-| Database size | Recommended infrastructure |
+IBM Power Virtual Server is the preferred platform for SAP HANA workloads. 
+It supports SAP HANA systems that range from small development environments to production deployments of up to 30.5 TB.
+
+| Deployment type | Preferred infrastructure |
 | --- | --- |
-| Up to 5.7 TB — development, test | VPC virtual servers |
-| Up to 12 TB — production | VPC bare metal servers |
-| Greater than 12 TB, up to 30 TB — production | IBM Power Virtual Server |
-| Multi-host scale-out, SAP HANA System Replication | IBM Power Virtual Server or VPC bare metal servers |
-{: caption="SAP HANA database sizing and recommended infrastructure" caption-side="bottom"}
+| Development and test | IBM Power Virtual Server |
+| Production (all sizes, up to 30 TB) | IBM Power Virtual Server |
+| High availability with SAP HANA System Replication | IBM Power Virtual Server |
+| Multi-host scale-out | IBM Power Virtual Server |
+{: caption="SAP HANA database deployments and preferred infrastructure" caption-side="bottom"}
 
 ## SAP NetWeaver-based workloads
 {: #netweaver-workloads}
@@ -71,14 +78,14 @@ SAP ECC is SAP's traditional ERP system supporting multiple database platforms. 
 
 **Supported databases:**
 
-| Database | Notes |
+| Database | Preferred infrastructure |
 | --- | --- |
-| SAP HANA | All platforms |
-| IBM Db2 | IBM Power Virtual Server (AIX and Linux), VPC |
-| Microsoft SQL Server | VPC bare metal servers and virtual servers |
-| SAP ASE (Sybase) | VPC bare metal servers and virtual servers |
-| SAP MaxDB | VPC bare metal servers and virtual servers |
-{: caption="SAP ECC supported databases" caption-side="bottom"}
+| SAP HANA | IBM Power Virtual Server |
+| IBM Db2 | VPC Infrastructure (Linux); IBM Power Virtual Server (AIX) |
+| Microsoft SQL Server | VPC Infrastructure |
+| SAP ASE (Sybase) | VPC Infrastructure |
+| SAP MaxDB | VPC Infrastructure |
+{: caption="SAP ECC supported databases and preferred infrastructure" caption-side="bottom"}
 
 **Infrastructure options:** IBM Power Virtual Server (AIX-based and Linux-based deployments), VPC bare metal servers, VPC virtual servers.
 
@@ -126,15 +133,17 @@ SAP Business One is an ERP solution designed for small and medium-sized enterpri
 ## SAP AnyDB workloads
 {: #anydb-workloads}
 
-SAP applications support multiple database platforms beyond SAP HANA, collectively referred to as SAP AnyDB.
+SAP applications support multiple database platforms beyond SAP HANA, collectively referred to as SAP AnyDB. 
+VPC Infrastructure is the preferred platform for SAP AnyDB workloads.
+It supports compute and storage options across VPC virtual servers and bare metal servers.
 
-| Database | Description | Infrastructure support |
+| Database | Description | Preferred infrastructure |
 | --- | --- | --- |
-| **IBM Db2** | IBM's enterprise relational database supporting SAP ECC, SAP Business Suite, and SAP NetWeaver applications | IBM Power Virtual Server (AIX and Linux), VPC |
-| **Microsoft SQL Server** | Microsoft's relational database supporting SAP applications on Windows and Linux | VPC bare metal servers, VPC virtual servers |
-| **SAP ASE (Sybase)** | SAP's Adaptive Server Enterprise supporting SAP NetWeaver applications | VPC bare metal servers, VPC virtual servers |
-| **SAP MaxDB** | SAP MaxDB for SAP ECC and SAP NetWeaver-based systems on Linux and Windows | VPC bare metal servers, VPC virtual servers |
-{: caption="SAP AnyDB supported databases" caption-side="bottom"}
+| **IBM Db2** | IBM's enterprise relational database supporting SAP ECC, SAP Business Suite, and SAP NetWeaver applications | VPC Infrastructure (Linux); IBM Power Virtual Server (AIX only) |
+| **Microsoft SQL Server** | Microsoft's relational database supporting SAP applications on Windows and Linux | VPC Infrastructure |
+| **SAP ASE (Sybase)** | SAP's Adaptive Server Enterprise supporting SAP NetWeaver applications | VPC Infrastructure |
+| **SAP MaxDB** | SAP MaxDB for SAP ECC and SAP NetWeaver-based systems on Linux and Windows | VPC Infrastructure |
+{: caption="SAP AnyDB supported databases and preferred infrastructure" caption-side="bottom"}
 
 For specific database version support and certification details, consult SAP documentation and IBM Cloud support.
 
@@ -154,29 +163,29 @@ For deployment guidance on these applications, consult IBM Cloud support and SAP
 ## Environment types
 {: #environment-types}
 
-| Environment | Purpose | Recommended infrastructure |
-| --- | --- | --- |
-| **Production** | Mission-critical systems requiring high availability, disaster recovery, and maximum performance | IBM Power Virtual Server or VPC bare metal servers with high availability configurations |
-| **Quality assurance** | Testing and validation systems requiring production-like configurations | VPC bare metal servers or VPC virtual servers based on workload size |
-| **Development** | Flexible environments for application development and customization | VPC virtual servers — cost-effective, rapidly provisioned |
-| **Sandbox** | Proof-of-concept, training, and experimentation systems | VPC virtual servers — flexible sizing and rapid provisioning |
-| **Disaster recovery** | Secondary systems for business continuity | IBM Power Virtual Server or VPC infrastructure in different regions |
-{: caption="SAP environment types and recommended infrastructure" caption-side="bottom"}
+| Environment | Purpose | SAP HANA | SAP AnyDB |
+| --- | --- | --- | --- |
+| **Production** | Mission-critical systems requiring high availability, disaster recovery, and maximum performance | IBM Power Virtual Server | VPC Infrastructure |
+| **Quality assurance** | Testing and validation systems requiring production-like configurations | IBM Power Virtual Server | VPC Infrastructure |
+| **Development** | Flexible environments for application development and customization | IBM Power Virtual Server | VPC Infrastructure |
+| **Sandbox** | Proof-of-concept, training, and experimentation systems | IBM Power Virtual Server (or VPC for strict cost constraints) | VPC Infrastructure |
+| **Disaster recovery** | Secondary systems for business continuity | IBM Power Virtual Server in a different region | VPC Infrastructure in a different region |
+{: caption="SAP environment types and preferred infrastructure" caption-side="bottom"}
 
 ## Workload sizing guidance
 {: #sizing-guidance}
 
-Select infrastructure based on SAP HANA memory requirements and workload characteristics:
+Infrastructure selection is based on the database platform, not on database size.
+IBM Power Virtual Server supports SAP HANA workloads that range from small development systems to production deployments of up to 30.5 TB.
+You do not need to move to a different platform as workloads grow.
 
-| Workload size | Memory range | Recommended infrastructure |
+| Database platform | All sizes | Notes |
 | --- | --- | --- |
-| **Small** | Up to 500 GB | VPC virtual servers (cost-effective) or VPC bare metal servers (dedicated performance) |
-| **Medium** | 500 GB to 2 TB | VPC bare metal servers or IBM Power Virtual Server for enhanced performance |
-| **Large** | 2 TB to 12 TB | IBM Power Virtual Server (optimal performance) or VPC bare metal servers |
-| **Very large** | Greater than 12 TB | IBM Power Virtual Server — supports SAP HANA up to 30 TB memory |
-{: caption="Workload sizing guidance" caption-side="bottom"}
+| **SAP HANA** | IBM Power Virtual Server | Supports up to 30 TB; consistent platform from dev/test through production |
+| **SAP AnyDB** (Db2, ASE, MaxDB, SQL Server) | VPC Infrastructure | Flexible compute (virtual servers and bare metal) for all AnyDB workloads |
+{: caption="Workload platform guidance" caption-side="bottom"}
 
-For detailed sizing guidance, see [Planning your SAP deployment](/docs/sap?group=plan).
+For detailed sizing guidance and certified profile specifications, see [Planning your SAP deployment](/docs/sap?group=plan).
 
 ## Architecture patterns
 {: #architecture-patterns}

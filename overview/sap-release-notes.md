@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-29"
 keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
@@ -14,6 +14,11 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+## September 2026
+{: #sap-2026-09}
+
+- Introduced new [P11 sr3 profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr3-profiles) for SAP HANA on {{site.data.keyword.powerSysFull}}.
 
 
 

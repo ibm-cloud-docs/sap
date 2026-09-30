@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-08-11"
+lastupdated: "2026-09-30"
 keywords: SAP, deployment options, VPC, Power Virtual Server, Classic Infrastructure, comparison, infrastructure
 subcollection: sap
 ---
@@ -20,10 +20,10 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 
 | | IBM Power Virtual Server | VPC Infrastructure | Classic Infrastructure |
 | --- | --- | --- | --- |
-| **Status** | Recommended for mission-critical workloads | Recommended for new deployments | Legacy platform (migration recommended) |
+| **Status** | Preferred platform for SAP HANA workloads | Preferred platform for SAP AnyDB workloads and application servers | Legacy platform (migration recommended) |
 | **Architecture** | Enterprise-grade Power Systems | Modern cloud-native platform | Legacy dedicated infrastructure |
 | **Compute options** | Virtual servers on Power Systems | Virtual servers and bare metal | Bare metal servers only |
-| **Best for** | Mission-critical SAP HANA, AIX workloads | New SAP deployments, cloud-native architectures | Existing deployments only |
+| **Best for** | SAP HANA (all sizes), AIX workloads | SAP AnyDB workloads, SAP application servers | Existing deployments only |
 | **Provisioning time** | Minutes to hours | Minutes (VSI) to hours (bare metal) | Hours to days |
 {: caption="Platform overview comparison" caption-side="bottom"}
 
@@ -125,20 +125,18 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 ## Use case recommendations
 {: #use-case-recommendations}
 
-| Use case | Recommended platform | Rationale |
+| Use case | Preferred platform | Rationale |
 | --- | --- | --- |
-| **New SAP deployments** | VPC Infrastructure | Modern cloud-native architecture, flexible compute options, rapid provisioning |
-| **Mission-critical SAP HANA production** | IBM Power Virtual Server | Industry-leading performance, enterprise-grade reliability, up to 30.5 TB memory |
+| **SAP HANA (all sizes, all environments)** | IBM Power Virtual Server | Industry-leading HANA performance on Power Systems architecture; consistent platform from dev/test to the largest production systems (up to 30.5 TB) |
+| **SAP S/4HANA production** | IBM Power Virtual Server | Optimal performance and enterprise-grade reliability for mission-critical ERP workloads |
+| **SAP BW/4HANA and analytics** | IBM Power Virtual Server | Optimized for in-memory computing and large-scale analytics workloads |
+| **SAP AnyDB workloads** (Db2, ASE, MaxDB, SQL Server) | VPC Infrastructure | Recommended platform for all SAP AnyDB databases; flexible compute and storage options |
+| **SAP application servers** (ASCS, ERS, PAS, AAS) | VPC Infrastructure | Cost-effective, rapidly provisioned virtual servers for the application tier |
+| **SAP Web Dispatcher / Gateway** | VPC Infrastructure | Advanced networking and flexible scaling for SAP connectivity components |
 | **AIX-based SAP workloads** | IBM Power Virtual Server | Only cloud platform supporting AIX operating system |
-| **Large SAP HANA databases (>12 TB)** | IBM Power Virtual Server | Support for SAP HANA up to 30.5 TB memory |
-| **Development and test environments** | VPC Infrastructure (Virtual Servers) | Cost-effective, rapid provisioning, flexible scaling |
-| **SAP application servers** | VPC Infrastructure (Virtual Servers) | Flexible, cost-effective, easy to scale |
-| **Cloud-native SAP architectures** | VPC Infrastructure | Advanced networking, microservices support, container integration |
-| **Hybrid cloud integration** | VPC Infrastructure | Advanced networking features, seamless on-premises integration |
-| **Existing Classic Infrastructure deployments** | Classic Infrastructure (short-term) | Continue existing deployments while planning migration to VPC or Power VS |
-| **High-performance SAP HANA analytics** | IBM Power Virtual Server | Optimized for in-memory computing, superior performance benchmarks |
-| **Cost-sensitive SAP workloads** | VPC Infrastructure (Virtual Servers) | Pay-as-you-go pricing, flexible resource allocation |
-| **Compliance-driven dedicated hardware** | VPC Infrastructure (Bare Metal) or Power Virtual Server | Dedicated resources with modern cloud capabilities |
+| **Hybrid cloud integration** | VPC Infrastructure | Advanced networking features, Direct Link, and seamless on-premises integration |
+| **Existing Classic Infrastructure deployments** | Classic Infrastructure (short-term) | Continue existing deployments while planning migration to VPC or Power Virtual Server |
+| **SAP HANA dev/test (strict cost constraints)** | IBM Power Virtual Server (preferred); VPC virtual servers (acceptable) | PowerVS preferred for consistency; VPC acceptable when cost is the primary constraint |
 {: caption="Use case recommendations" caption-side="bottom"}
 
 ## Migration paths
@@ -159,10 +157,11 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 
 For a full breakdown of pricing models, cost components, and optimization strategies across all platforms, see [Pricing and cost considerations](/docs/sap?topic=sap-pricing).
 
-At a high level, VPC virtual servers are the most cost-effective option for development and test workloads, VPC bare metal servers balance cost and performance for production, and IBM Power Virtual Server carries premium pricing for mission-critical workloads.
+IBM Power Virtual Server is typically priced compatitively and is used for SAP HANA workloads. 
+VPC Infrastructure supports SAP AnyDB workloads and SAP application servers across virtual servers and bare metal servers.
 
 ## Next steps
 {: #next-steps}
 
-- Use the [Choosing infrastructure for SAP workloads](/docs/sap?topic=sap-choosing-infrastructure) guide to select the right platform based on your workload size, environment type, and business requirements
+- Use the [Choosing infrastructure for SAP workloads](/docs/sap?topic=sap-choosing-infrastructure) guide to select the right platform based on your workload type and business requirements
 - Explore [Planning](/docs/sap?group=plan) section to plan compute, storage, networking and to choose your operating system.

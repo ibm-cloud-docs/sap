@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-08-12"
+lastupdated: "2026-09-30"
 keywords: SAP, pricing, cost, billing, cost optimization, pricing model
 subcollection: sap
 ---
@@ -107,7 +107,7 @@ Create multiple estimates to compare different infrastructure options and config
 
 For accurate pricing based on your specific requirements, contact IBM Cloud sales.
 
-## Total Cost of Ownership (TCO)
+## Total cost of ownership (TCO)
 {: #tco}
 
 | TCO component | On-premises | IBM Cloud |
