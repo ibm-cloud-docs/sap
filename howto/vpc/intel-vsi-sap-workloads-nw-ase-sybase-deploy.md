@@ -1,29 +1,36 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-08-12"
-keywords:
+lastupdated: "2026-10-15"
+keywords: SAP, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, NetWeaver, ASE
 subcollection: sap
+content-type: tutorial
+services: vpc, workloads, ase
+account-plan: lite
+completion-time: 1h
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
 
 # Deploying SAP NetWeaver 7.5 with ASE
-{: #deploy-sap-ase}
+{: #deploy-sap-ase-intro}
+{: toc-content-type="tutorial"}
+{: toc-services="vpc, workload, netweaver, ase"}
+{: toc-completion-time="1h"}
 
-The deployment for SAP NetWeaver 7.5 with ASE Sybase on Red Hat&reg; Enterprise Linux&reg; (RHEL) 9.4 is performed in phases:
+This tutorial describes the deployment of SAP NetWeaver 7.5 with ASE Sybase on Red Hat&reg; Enterprise Linux&reg; (RHEL) 9.4 performed in phases:
 
-1. [Cloud infrastructure planning](/docs/sap?topic=sap-deploy-sap-ase#cloud-infra-plan-ase)
-2. [Cloud resource deployment](/docs/sap?topic=sap-deploy-sap-ase#cloud-resource-deploy-ase)
-3. [File system preparation](/docs/sap?topic=sap-deploy-sap-ase#file-system-prep-ase)
-4. [Operating system preparation](/docs/sap?topic=sap-deploy-sap-ase#os-prep-ase)
-5. [Installation of SAP NetWeaver 7.5 with ASE with Software Provisioning Manager (SWPM)](/docs/sap?topic=sap-deploy-sap-ase#install-sapnw-ase)
+1. [Cloud infrastructure planning](/docs/sap?topic=sap-deploy-sap-ase-intro#cloud-infra-plan-ase)
+2. [Cloud resource deployment](/docs/sap?topic=sap-deploy-sap-ase-intro#cloud-resource-deploy-ase)
+3. [File system preparation](/docs/sap?topic=sap-deploy-sap-ase-intro#file-system-prep-ase)
+4. [Operating system preparation](/docs/sap?topic=sap-deploy-sap-ase-intro#os-prep-ase)
+5. [Installation of SAP NetWeaver 7.5 with ASE with Software Provisioning Manager (SWPM)](/docs/sap?topic=sap-deploy-sap-ase-intro#install-sapnw-ase)
 
 ## Cloud infrastructure planning
 {: #cloud-infra-plan-ase}
 
-Before performing any deployment, it is important to plan the cloud infrastructure requirements and can ensure that all the required components are deployed on cloud VPC level. Learn about the cloud components that are required for deploying the SAP NetWeaver 7.5 with ASE solution:
+Before performing any deployment, it is important to plan the cloud infrastructure requirements and  ensure that all the required components are deployed on Cloud VPC level.
 
 ### Virtual Private Cloud (VPC) deployment
 {: #vpc-deploy-ase}
@@ -107,31 +114,36 @@ In the **Profile** section, the profile `bx2-2x8` is selected. This is a balance
 ### Data Volumes
 {: #data-volumes}
 
-After all five volumes are created and attached, the IBM Cloud console lists them in the Storage section of the VSI detail page. The 32 GB SWAP volume is attached as device `vdb`, the 32 GB log volume as `vdc`, the 64 GB Sybase software volume as `vdd`, the 128 GB SAP application volume as `vde`, and the 256 GB data file volume as `vdf`. The device names assigned here correspond directly to the physical volumes used in the LVM setup during the file system preparation steps that follow.
+In the **Storage** section, additional data volumes are created to align with the required file system layout. Create and attach the following volumes individually based on the SAP and ASE Sybase requirements:
 
-For more information on NFS-based file storage for VSI on VPC infrastructure, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui).
+- 32 GB SWAP disk
+- 64 GB log volume disk
+- 64 GB Sybase software disk
+- 128 GB SAP application disk
+- 256 GB data file disk
 
-For successfully mounting the file storage share through NFS, you need to note down the “Mount path”.
-{: note}
+After all the five volumes are created and attached, they appear in the Storage section of the VSI details page in the IBM Cloud console. The volumes are assigned to the following devices:
 
-For demonstration purposes, the file system `/usr/sap/trans` is used in two different scenarios:
-* as a local file system
-* as a NFS-based file system, by using the File storage share service available in the {{site.data.keyword.vpc_short}}.
+- vdb - 32 GB SWAP volume
+- vdc - 64 GB log volume
+- vdd - 64 GB Sybase software volume
+- vde - 128 GB SAP application volume
+- vdf - 256 GB data file volume
 
-For more information and procedures regarding {{site.data.keyword.vpc_short}} file share resource, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
+The device names assigned here correspond directly to the physical volumes used in the LVM configuration during the subsequent file system preparation steps.
 
 ## File system preparation
 {: #file-system-prep-ase}
 
-The installation of the SAP NetWeaver 7.5 with ASE on RHEL 9.4 is performed based on the file system layout:
+The installation of SAP NetWeaver 7.5 with ASE is performed based on the following file system layout. The SAP SID is **SFD** and all volume group, logical volume, and directory names follow this SID convention.
 
 | Disk name| Disk size (GB) | Physical volume | Volume group | Logical volume name | Logical volume size (GB) | File system | Mount point |
 | - | - | - | - | - | - | - | - |
-| vdb | 32 | /dev/vdb | ts_swap_vg | ts_swap_lv | 30 | /dev/ts_swap_vg/ts_swap_lv | [SWAP] |
-| vdc | 32 | /dev/vdc | ts_log_vg | ts_saplog1_lv \n ts_saplog2_lv \n ts_saplog3_lv \n ts_saplog4_lv | 7 \n 7 \n 7 \n 7 | /dev/ts_log_vg/ts_saplog1_lv \n /dev/ts_log_vg/ts_saplog2_lv \n /dev/ts_log_vg/ts_saplog3_lv \n /dev/ts_log_vg/ts_saplog4_lv | /sybase/TS/saplog_1 \n /sybase/TS/saplog_2 \n /sybase/TS/saplog_3 \n /sybase/TS/saplog_4 |
-| vdd | 64 | /dev/vdd | ts_syb_vg | ts_sybsoftware_lv \n ts_sybsystem_lv \n ts_sybtemp_lv \n ts_saptemp_lv \n ts_sapdiag_lv \n ts_sybsecurity_lv | 8 \n 10 \n 8 \n 12 \n 8 \n 8 | /dev/ts_syb_vg/ts_sybsoftware_lv \n /dev/ts_syb_vg/ts_sybsystem_lv \n /dev/ts_syb_vg/ts_sybtemp_lv \n /dev/ts_syb_vg/ts_saptemp_lv \n /dev/ts_syb_vg/ts_sapdiag_lv \n /dev/ts_syb_vg/ts_sybsecurity_lv | /sybase/TS \n /sybase/TS/sybsystem \n /sybase/TS/sybtemp \n /sybase/TS/saptemp \n /sybase/TS/sapdiag \n /sybase/TS/sybsecurity |
-| vde | 128 | /dev/vde | ts_app_vg | ts_usrsap_lv \n ts_sap_lv \n ts_sapmnt_lv \n ts_saptrans_lv | 5 \n 20 \n 20 \n 20 | /dev/ts_app_vg/ts_usrsap_lv \n /dev/ts_app_vg/ts_sap_lv \n /dev/ts_app_vg/ts_sapmnt_lv \n /dev/ts_app_vg/ts_saptrans_lv | /usr/sap \n /usr/sap/TS \n /sapmnt/TS \n /usr/sap/trans |
-| vdf | 256 | /dev/vdf | ts_data_vg | ts_sapdata1_lv \n ts_sapdata2_lv \n ts_sapdata3_lv \n ts_sapdata4_lv | 30 \n 30 \n 30 \n 30 | /dev/ts_data_vg/ts_sapdata1_lv \n /dev/ts_data_vg/ts_sapdata2_lv \n /dev/ts_data_vg/ts_sapdata3_lv \n /dev/ts_data_vg/ts_sapdata4_lv | /sybase/TS/sapdata_1 \n /sybase/TS/sapdata_2 \n /sybase/TS/sapdata_3 \n /sybase/TS/sapdata_4 |
+| vdb | 32 | /dev/vdb | sfd_swap_vg | sfd_swap_lv | 30 | /dev/sfd_swap_vg/sfd_swap_lv | [SWAP] |
+| vdc | 64 | /dev/vdc | sfd_log_vg | sfd_saplog1_lv \n sfd_saplog2_lv \n sfd_saplog3_lv \n sfd_saplog4_lv | 12 \n 12 \n 12 \n 12 | /dev/sfd_log_vg/sfd_saplog1_lv \n /dev/sfd_log_vg/sfd_saplog2_lv \n /dev/sfd_log_vg/sfd_saplog3_lv \n /dev/sfd_log_vg/sfd_saplog4_lv | /sybase/SFD/saplog_1 \n /sybase/SFD/saplog_2 \n /sybase/SFD/saplog_3 \n /sybase/SFD/saplog_4 |
+| vdd | 64 | /dev/vdd | sfd_syb_vg | sfd_sybsoftware_lv \n sfd_sybsystem_lv \n sfd_sybtemp_lv \n sfd_saptemp_lv \n sfd_sapdiag_lv \n sfd_sybsecurity_lv | 8 \n 10 \n 8 \n 12 \n 8 \n 8 | /dev/sfd_syb_vg/sfd_sybsoftware_lv \n /dev/sfd_syb_vg/sfd_sybsystem_lv \n /dev/sfd_syb_vg/sfd_sybtemp_lv \n /dev/sfd_syb_vg/sfd_saptemp_lv \n /dev/sfd_syb_vg/sfd_sapdiag_lv \n /dev/sfd_syb_vg/sfd_sybsecurity_lv | //sybase/SFD \n /sybase/SFD/sybsystem \n /sybase/SFD/sybtemp \n /sybase/SFD/saptemp \n /sybase/SFD/sapdiag \n /sybase/SFD/sybsecurity |
+| vde | 128 | /dev/vde | sfd_app_vg | sfd_usrsap_lv \n sfd_sap_lv \n sfd_sapmnt_lv \n sfd_saptrans_lv | 5 \n 20 \n 20 \n 20 | /dev/sfd_app_vg/sfd_usrsap_lv \n /dev/sfd_app_vg/sfd_sap_lv \n /dev/sfd_app_vg/sfd_sapmnt_lv \n /dev/sfd_app_vg/sfd_saptrans_lv | /usr/sap \n /usr/sap/SFD \n /sapmnt/SFD \n /usr/sap/trans |
+| vdf | 256 | /dev/vdf | sfd_data_vg | sfd_sapdata1_lv \n sfd_sapdata2_lv \n sfd_sapdata3_lv \n sfd_sapdata4_lv | 45 \n 45 \n 45 \n 45 | /dev/sfd_data_vg/sfd_sapdata1_lv \n /dev/sfd_data_vg/sfd_sapdata2_lv \n /dev/sfd_data_vg/sfd_sapdata3_lv \n /dev/sfd_data_vg/sfd_sapdata4_lv | /sybase/SFD/sapdata_1 \n /sybase/SFD/sapdata_2 \n /sybase/SFD/sapdata_3 \n /sybase/SFD/sapdata_4 |
 {: row-headers}
 {: caption="File system preparation" caption-side="bottom"}
 
@@ -140,7 +152,7 @@ The installation of the SAP NetWeaver 7.5 with ASE on RHEL 9.4 is performed base
 
 A proper file system layout is necessary for a correct installation of any SAP solution within the {{site.data.keyword.vpc_short}}.
 
-For the presented example, the SAP SID is `TST`, thus the naming for the volume groups, logical volumes, and file systems are considered as this SID.
+For the presented example, the SAP SID is `SFD`, thus the naming for the volume groups, logical volumes, and file system directories use this SID as their naming prefix
 {: note}
 
 At the operating system level, physical volumes, volume groups, logical volumes, and file systems are created in a specific sequence.
@@ -151,10 +163,31 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # lsblk
     ```
 
+    **Verification**: Confirm that devices vdb, vdc, vdd, vde, and vdf appear in the output and are not yet partitioned or formatted. Expected output:
+
+    | NAME | MAJ:MIN RM | SIZE | RO | TYPE | MOUNTPOINT |
+    | - | - | - | - | - | - |
+    | vda |  252:0  | 0 | 25G  | 0 | disk |
+    | vdb |  252:16 | 0 | 32G  | 0 | disk |
+    | vdc |  252:32 | 0 | 64G  | 0 | disk |
+    | vdd |  252:48 | 0 | 64G  | 0 | disk |
+    | vde |  252:64 | 0 | 128G | 0 | disk |
+    | vdf |  252:80 | 0 | 256G | 0 | disk |
+    {: caption="Verification" caption-side="bottom"}
+    
+
 2. To use LVM, the Linux package `lvm2` must be installed by using the command:
+
+    [RHEL]{: tag-red}
 
     ```bash
     # dnf install lvm2
+    ```
+
+    [SLES]{: tag-green}
+
+    ```bash
+    # zypper install lvm2
     ```
 
 3. Create the required physical volumes by using the following commands:
@@ -167,157 +200,216 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # pvcreate /dev/vdf
     ```
 
+    **Verification**: List all physical volumes:
+
+    ```bash
+    # pvs
+    # pvdisplay
+    ```
+
+    Each device should appear with a PV label and a PVSize matching the disk size.
+
 4. Create the required volume groups by using the following commands:
 
     ```bash
-    # lvcreate -L 8G -n ts_sybsoftware_lv ts_syb_vg
-    # lvcreate -L 10G -n ts_sybsystem_lv ts_syb_vg
-    # lvcreate -L 8G -n ts_sybtemp_lv ts_syb_vg
-    # lvcreate -L 12G -n ts_saptemp_lv ts_syb_vg
-    # lvcreate -L 8G -n ts_sapdiag_lv ts_syb_vg
-    # lvcreate -L 8G -n ts_sybsecurity_lv ts_syb_vg
-    # lvcreate -L 30G -n ts_sapdata1_lv ts_data_vg
-    # lvcreate -L 30G -n ts_sapdata2_lv ts_data_vg
-    # lvcreate -L 30G -n ts_sapdata3_lv ts_data_vg
-    # lvcreate -L 30G -n ts_sapdata4_lv ts_data_vg
-    # lvcreate -L 7G -n ts_saplog1_lv ts_log_vg
-    # lvcreate -L 7G -n ts_saplog2_lv ts_log_vg
-    # lvcreate -L 7G -n ts_saplog3_lv ts_log_vg
-    # lvcreate -L 7G -n ts_saplog4_lv ts_log_vg
+    # vgcreate sfd_swap_vg /dev/vdb
+    # vgcreate sfd_log_vg /dev/vdc
+    # vgcreate sfd_syb_vg /dev/vdd
+    # vgcreate sfd_app_vg /dev/vde
+    # vgcreate sfd_data_vg /dev/vdf
     ```
 
-5. Create the ASE logical volumes by using the following commands:
+    **Verification**: List all volume groups:
+    ```bash
+    # vgs
+    # vgdisplay
+    ```
+    
+    All five volume groups (`sfd_swap_vg`, `sfd_log_vg`, `sfd_syb_vg`, `sfd_app_vg`, `sfd_data_vg`) should appear with VG status: resizable and their respective sizes.
+    
+5. Create the SAP ASE logical volumes by using the following commands:
 
     ```bash
-    # lvcreate -L 5G -n ts_usrsap_lv ts_app_vg
-    # lvcreate -L 20G -n ts_sap_lv ts_app_vg
-    # lvcreate -L 20G -n ts_sapmnt_lv ts_app_vg
-    # lvcreate -L 20G -n ts_saptrans_lv ts_app_vg
+    # lvcreate -L 8G  -n sfd_sybsoftware_lv sfd_syb_vg
+    # lvcreate -L 10G -n sfd_sybsystem_lv   sfd_syb_vg
+    # lvcreate -L 8G  -n sfd_sybtemp_lv     sfd_syb_vg
+    # lvcreate -L 12G -n sfd_saptemp_lv     sfd_syb_vg
+    # lvcreate -L 8G  -n sfd_sapdiag_lv     sfd_syb_vg
+    # lvcreate -L 8G  -n sfd_sybsecurity_lv sfd_syb_vg
+    # lvcreate -L 45G -n sfd_sapdata1_lv    sfd_data_vg
+    # lvcreate -L 45G -n sfd_sapdata2_lv    sfd_data_vg
+    # lvcreate -L 45G -n sfd_sapdata3_lv    sfd_data_vg
+    # lvcreate -L 45G -n sfd_sapdata4_lv    sfd_data_vg
+    # lvcreate -L 12G -n sfd_saplog1_lv     sfd_log_vg
+    # lvcreate -L 12G -n sfd_saplog2_lv     sfd_log_vg
+    # lvcreate -L 12G -n sfd_saplog3_lv     sfd_log_vg
+    # lvcreate -L 12G -n sfd_saplog4_lv     sfd_log_vg
     ```
 
 6. Create the SAP application logical volumes by using the following commands:
 
     ```bash
-    # lvcreate -L 5G -n ts_usrsap_lv ts_app_vg
-    # lvcreate -L 20G -n ts_sap_lv ts_app_vg
-    # lvcreate -L 20G -n ts_sapmnt_lv ts_app_vg
-    # lvcreate -L 20G -n ts_saptrans_lv ts_app_vg
+    # lvcreate -L 5G  -n sfd_usrsap_lv   sfd_app_vg
+    # lvcreate -L 20G -n sfd_sap_lv      sfd_app_vg
+    # lvcreate -L 20G -n sfd_sapmnt_lv   sfd_app_vg
+    # lvcreate -L 20G -n sfd_saptrans_lv sfd_app_vg
     ```
+
+    **Verification**: List all logical volumes to confirm all ASE and SAP application LVs were created:
+
+    ```bash
+    # lvs
+    # lvdisplay
+    ```
+    Eighteen logical volumes should appear in total across all volume groups.
 
 7. Create the logical volume for the OS SWAP:
 
     ```bash
-    # lvcreate -L 32G -n ts_swap_lv ts_swap_vg
+    # lvcreate -L 30G -n sfd_swap_lv sfd_swap_vg
     ```
 
 8. Create the ASE file systems by using the following commands:
 
     ```bash
-    # mkfs.ext4 /dev/ts_syb_vg/ts_sybsoftware_lv
-    # mkfs.ext4 /dev/ts_syb_vg/ts_sybsystem_lv
-    # mkfs.ext4 /dev/ts_syb_vg/ts_sybtemp_lv
-    # mkfs.ext4 /dev/ts_syb_vg/ts_saptemp_lv
-    # mkfs.ext4 /dev/ts_syb_vg/ts_sapdiag_lv
-    # mkfs.ext4 /dev/ts_syb_vg/ts_sybsecurity_lv
-    # mkfs.ext4 /dev/ts_data_vg/ts_sapdata1_lv
-    # mkfs.ext4 /dev/ts_data_vg/ts_sapdata2_lv
-    # mkfs.ext4 /dev/ts_data_vg/ts_sapdata3_lv
-    # mkfs.ext4 /dev/ts_data_vg/ts_sapdata4_lv
-    # mkfs.ext4 /dev/ts_log_vg/ts_saplog1_lv
-    # mkfs.ext4 /dev/ts_log_vg/ts_saplog2_lv
-    # mkfs.ext4 /dev/ts_log_vg/ts_saplog3_lv
-    # mkfs.ext4 /dev/ts_log_vg/ts_saplog4_lv
+    # mkfs.ext4 /dev/sfd_syb_vg/sfd_sybsoftware_lv
+    # mkfs.ext4 /dev/sfd_syb_vg/sfd_sybsystem_lv
+    # mkfs.ext4 /dev/sfd_syb_vg/sfd_sybtemp_lv
+    # mkfs.ext4 /dev/sfd_syb_vg/sfd_saptemp_lv
+    # mkfs.ext4 /dev/sfd_syb_vg/sfd_sapdiag_lv
+    # mkfs.ext4 /dev/sfd_syb_vg/sfd_sybsecurity_lv
+    # mkfs.ext4 /dev/sfd_data_vg/sfd_sapdata1_lv
+    # mkfs.ext4 /dev/sfd_data_vg/sfd_sapdata2_lv
+    # mkfs.ext4 /dev/sfd_data_vg/sfd_sapdata3_lv
+    # mkfs.ext4 /dev/sfd_data_vg/sfd_sapdata4_lv
+    # mkfs.ext4 /dev/sfd_log_vg/sfd_saplog1_lv
+    # mkfs.ext4 /dev/sfd_log_vg/sfd_saplog2_lv
+    # mkfs.ext4 /dev/sfd_log_vg/sfd_saplog3_lv
+    # mkfs.ext4 /dev/sfd_log_vg/sfd_saplog4_lv
     ```
-
 
 9. Create the SAP application file systems by using the following commands:
 
     ```bash
-    # mkfs.ext4 /dev/ts_app_vg/ts_usrsap_lv
-    # mkfs.ext4 /dev/ts_app_vg/ts_sap_lv
-    # mkfs.ext4 /dev/ts_app_vg/ts_sapmnt_lv
-    # mkfs.ext4 /dev/ts_app_vg/ts_saptrans_lv
+    # mkfs.ext4 /dev/sfd_app_vg/sfd_usrsap_lv
+    # mkfs.ext4 /dev/sfd_app_vg/sfd_sap_lv
+    # mkfs.ext4 /dev/sfd_app_vg/sfd_sapmnt_lv
+    # mkfs.ext4 /dev/sfd_app_vg/sfd_saptrans_lv
     ```
 
 10. Create and enable the OS SWAP by using the following commands:
 
     ```bash
-    # mkswap /dev/ts_swap_vg/ts_swap_lv
-    # swapon /dev/ts_swap_vg/ts_swap_lv
+    # mkswap /dev/sfd_swap_vg/sfd_swap_lv
+    # swapon /dev/sfd_swap_vg/sfd_swap_lv
     ```
+
+    **Verification**: Confirm SWAP is active:
+
+    ```bash
+    # swapon --show
+    # free -m
+    ```
+    
+    The swapon `--show` output should list the SWAP device with the correct size. `free -m` should show swap total ≥ 30 GB.
 
 11. After creating all the required file systems, create the necessary mount points by using the following commands:
 
     ```bash
-    # mkdir -p /sybase/ts
-    # mount /dev/ts_syb_vg/ts_sybsoftware_lv /sybase/ts
-    # mkdir -p /sybase/ts/sybsystem
-    # mount /dev/ts_syb_vg/ts_sybsystem_lv /sybase/ts/sybsystem
-    # mkdir -p /sybase/ts/sybtemp
-    # mount /dev/ts_syb_vg/ts_sybtemp_lv /sybase/ts/sybtemp
-    # mkdir -p /sybase/ts/saptemp
-    # mount /dev/ts_syb_vg/ts_saptemp_lv /sybase/ts/saptemp
-    # mkdir -p /sybase/ts/sapdiag
-    # mount /dev/ts_syb_vg/ts_sapdiag_lv /sybase/ts/sapdiag
-    # mkdir -p /sybase/ts/sybsecurity
-    # mount /dev/ts_syb_vg/ts_sybsecurity_lv /sybase/ts/sybsecurity
-    # mkdir -p /sybase/ts/sapdata_1
-    # mount /dev/ts_data_vg/ts_sapdata1_lv /sybase/ts/sapdata_1
-    # mkdir -p /sybase/ts/sapdata_2
-    # mount /dev/ts_data_vg/ts_sapdata2_lv /sybase/ts/sapdata_2
-    # mkdir -p /sybase/ts/sapdata_3
-    # mount /dev/ts_data_vg/ts_sapdata3_lv /sybase/ts/sapdata_3
-    # mkdir -p /sybase/ts/sapdata_4
-    # mount /dev/ts_data_vg/ts_sapdata4_lv /sybase/ts/sapdata_4
-    # mkdir -p /sybase/ts/saplog_1
-    # mount /dev/ts_log_vg/ts_saplog1_lv /sybase/ts/saplog_1
-    # mkdir -p /sybase/ts/saplog_2
-    # mount /dev/ts_log_vg/ts_saplog2_lv /sybase/ts/saplog_2
-    # mkdir -p /sybase/ts/saplog_3
-    # mount /dev/ts_log_vg/ts_saplog3_lv /sybase/ts/saplog_3
-    # mkdir -p /sybase/ts/saplog_4
-    # mount /dev/ts_log_vg/ts_saplog4_lv /sybase/ts/saplog_4
+    # mkdir -p /sybase/SFD
+    # mount /dev/sfd_syb_vg/sfd_sybsoftware_lv /sybase/SFD
+    # mkdir -p /sybase/SFD/sybsystem
+    # mount /dev/sfd_syb_vg/sfd_sybsystem_lv /sybase/SFD/sybsystem
+    # mkdir -p /sybase/SFD/sybtemp
+    # mount /dev/sfd_syb_vg/sfd_sybtemp_lv /sybase/SFD/sybtemp
+    # mkdir -p /sybase/SFD/saptemp
+    # mount /dev/sfd_syb_vg/sfd_saptemp_lv /sybase/SFD/saptemp
+    # mkdir -p /sybase/SFD/sapdiag
+    # mount /dev/sfd_syb_vg/sfd_sapdiag_lv /sybase/SFD/sapdiag
+    # mkdir -p /sybase/SFD/sybsecurity
+    # mount /dev/sfd_syb_vg/sfd_sybsecurity_lv /sybase/SFD/sybsecurity
+    # mkdir -p /sybase/SFD/sapdata_1
+    # mount /dev/sfd_data_vg/sfd_sapdata1_lv /sybase/SFD/sapdata_1
+    # mkdir -p /sybase/SFD/sapdata_2
+    # mount /dev/sfd_data_vg/sfd_sapdata2_lv /sybase/SFD/sapdata_2
+    # mkdir -p /sybase/SFD/sapdata_3
+    # mount /dev/sfd_data_vg/sfd_sapdata3_lv /sybase/SFD/sapdata_3
+    # mkdir -p /sybase/SFD/sapdata_4
+    # mount /dev/sfd_data_vg/sfd_sapdata4_lv /sybase/SFD/sapdata_4
+    # mkdir -p /sybase/SFD/saplog_1
+    # mount /dev/sfd_log_vg/sfd_saplog1_lv /sybase/SFD/saplog_1
+    # mkdir -p /sybase/SFD/saplog_2
+    # mount /dev/sfd_log_vg/sfd_saplog2_lv /sybase/SFD/saplog_2
+    # mkdir -p /sybase/SFD/saplog_3
+    # mount /dev/sfd_log_vg/sfd_saplog3_lv /sybase/SFD/saplog_3
+    # mkdir -p /sybase/SFD/saplog_4
+    # mount /dev/sfd_log_vg/sfd_saplog4_lv /sybase/SFD/saplog_4
     # mkdir -p /usr/sap
-    # mount /dev/ts_app_vg/ts_usrsap_lv /usr/sap
-    # mkdir -p /usr/sap/ts
-    # mount /dev/ts_app_vg/ts_sap_lv /usr/sap/ts
-    # mkdir -p /sapmnt/ts
-    # mount /dev/ts_app_vg/ts_sapmnt_lv /sapmnt/ts
+    # mount /dev/sfd_app_vg/sfd_usrsap_lv /usr/sap
+    # mkdir -p /usr/sap/SFD
+    # mount /dev/sfd_app_vg/sfd_sap_lv /usr/sap/SFD
+    # mkdir -p /sapmnt/SFD
+    # mount /dev/sfd_app_vg/sfd_sapmnt_lv /sapmnt/SFD
     # mkdir -p /usr/sap/trans
-    # mount /dev/ts_app_vg/ts_saptrans_lv /usr/sap/trans
+    # mount /dev/sfd_app_vg/sfd_saptrans_lv /usr/sap/trans
     ```
 
-12. Resize the TMPFS according to [SAP Note 941735 - SAP memory management system for 64-bit Linux systems](https://launchpad.support.sap.com/#/notes/941735) (file system `/dev/shm`) using the following command:
+    **Verification**: Confirm all file systems are mounted correctly:
 
     ```bash
-    # mount -o remount,size=47G /dev/shm
+    # df -hT | grep -E "sybase|usr/sap|sapmnt"
     ```
+
+    All 18 mount points should appear with their ext4 type and the correct device mapper paths.
+    
+12. Resize the TMPFS according to [SAP Note 941735 - SAP memory management system for 64-bit Linux systems](https://launchpad.support.sap.com/#/notes/941735){: external} (file system `/dev/shm`). For the bx2-2x8 profile (8 GB RAM, 30 GB SWAP = 38 GB total), the recommended size is 75% of total memory = 28 GB:
+
+    ```bash
+    # mount -o remount,size=28G /dev/shm
+    ```
+
+    **Verification**: Confirm the new TMPFS size:
+
+    ```bash
+    # df -h /dev/shm
+    ```
+
+    The Size column should report 28G.
 
 13. Add the following entries in the `/etc/fstab` file to create all the permanent mounts:
 
     ```bash
-    /dev/ts_syb_vg/ts_sybsoftware_lv /sybase/ts ext4 defaults 0 0
-    /dev/ts_syb_vg/ts_sybsystem_lv /sybase/ts/sybsystem ext4 defaults 0 0
-    /dev/ts_syb_vg/ts_sybtemp_lv /sybase/ts/sybtemp ext4 defaults 0 0
-    /dev/ts_syb_vg/ts_saptemp_lv /sybase/ts/saptemp ext4 defaults 0 0
-    /dev/ts_syb_vg/ts_sapdiag_lv /sybase/ts/sapdiag ext4 defaults 0 0
-    /dev/ts_syb_vg/ts_sybsecurity_lv /sybase/ts/sybsecurity ext4 defaults 0 0
-    /dev/ts_data_vg/ts_sapdata1_lv /sybase/ts/sapdata_1 ext4 defaults 0 0
-    /dev/ts_data_vg/ts_sapdata2_lv /sybase/ts/sapdata_2 ext4 defaults 0 0
-    /dev/ts_data_vg/ts_sapdata3_lv /sybase/ts/sapdata_3 ext4 defaults 0 0
-    /dev/ts_data_vg/ts_sapdata4_lv /sybase/ts/sapdata_4 ext4 defaults 0 0
-    /dev/ts_log_vg/ts_saplog1_lv /sybase/ts/saplog_1 ext4 defaults 0 0
-    /dev/ts_log_vg/ts_saplog2_lv /sybase/ts/saplog_2 ext4 defaults 0 0
-    /dev/ts_log_vg/ts_saplog3_lv /sybase/ts/saplog_3 ext4 defaults 0 0
-    /dev/ts_log_vg/ts_saplog4_lv /sybase/ts/saplog_4 ext4 defaults 0 0
-    /dev/ts_app_vg/ts_usrsap_lv /usr/sap ext4 defaults 0 0
-    /dev/ts_app_vg/ts_sap_lv /usr/sap/ts ext4 defaults 0 0
-    /dev/ts_app_vg/ts_sapmnt_lv /sapmnt/ts ext4 defaults 0 0
-    /dev/ts_app_vg/ts_saptrans_lv /usr/sap/trans ext4 defaults 0 0
-    /dev/ts_swap_vg/ts_swap_lv swap swap defaults 0 0
-    tmpfs /dev/shm tmpfs size=47G,rw,nosuid,nodev 0 0
+    /dev/sfd_syb_vg/sfd_sybsoftware_lv /sybase/SFD          ext4 defaults 0 0
+    /dev/sfd_syb_vg/sfd_sybsystem_lv   /sybase/SFD/sybsystem ext4 defaults 0 0
+    /dev/sfd_syb_vg/sfd_sybtemp_lv     /sybase/SFD/sybtemp   ext4 defaults 0 0
+    /dev/sfd_syb_vg/sfd_saptemp_lv     /sybase/SFD/saptemp   ext4 defaults 0 0
+    /dev/sfd_syb_vg/sfd_sapdiag_lv     /sybase/SFD/sapdiag   ext4 defaults 0 0
+    /dev/sfd_syb_vg/sfd_sybsecurity_lv /sybase/SFD/sybsecurity ext4 defaults 0 0
+    /dev/sfd_data_vg/sfd_sapdata1_lv   /sybase/SFD/sapdata_1 ext4 defaults 0 0
+    /dev/sfd_data_vg/sfd_sapdata2_lv   /sybase/SFD/sapdata_2 ext4 defaults 0 0
+    /dev/sfd_data_vg/sfd_sapdata3_lv   /sybase/SFD/sapdata_3 ext4 defaults 0 0
+    /dev/sfd_data_vg/sfd_sapdata4_lv   /sybase/SFD/sapdata_4 ext4 defaults 0 0
+    /dev/sfd_log_vg/sfd_saplog1_lv     /sybase/SFD/saplog_1  ext4 defaults 0 0
+    /dev/sfd_log_vg/sfd_saplog2_lv     /sybase/SFD/saplog_2  ext4 defaults 0 0
+    /dev/sfd_log_vg/sfd_saplog3_lv     /sybase/SFD/saplog_3  ext4 defaults 0 0
+    /dev/sfd_log_vg/sfd_saplog4_lv     /sybase/SFD/saplog_4  ext4 defaults 0 0
+    /dev/sfd_app_vg/sfd_usrsap_lv      /usr/sap              ext4 defaults 0 0
+    /dev/sfd_app_vg/sfd_sap_lv         /usr/sap/SFD          ext4 defaults 0 0
+    /dev/sfd_app_vg/sfd_sapmnt_lv      /sapmnt/SFD           ext4 defaults 0 0
+    /dev/sfd_app_vg/sfd_saptrans_lv    /usr/sap/trans        ext4 defaults 0 0
+    /dev/sfd_swap_vg/sfd_swap_lv       swap                  swap defaults 0 0
+    tmpfs /dev/shm tmpfs size=28G,rw,nosuid,nodev 0 0
     ```
 
+    **Verification**: Validate the fstab syntax and test all entries without rebooting:
+
+    ```bash
+    # mount -a
+    # echo $?
+    ```
+
+    A return code of 0 confirms all entries are valid and all file systems mounted successfully.
+    
 ### NFS file system by using {{site.data.keyword.vpc_short}} File Shares
 {: #nfs-application-vpc-ase}
 
@@ -379,145 +471,477 @@ If the installation scenario requires, then export one or more file systems. For
 ## Operating system preparation
 {: #os-prep-ase}
 
+The operating system must be configured according to the SAP prerequisite requirements before any SAP software is installed. The operating system is prepared according to [SAP Note 3108316](https://me.sap.com/notes/3108316/E){: external} (RHEL) and [SAP Note 1275776](https://me.sap.com/notes/1275776/E){: external} for SLES.
+
+### Step 1 – Install required OS packages
+{: #step1}
+
 [RHEL]{: tag-red}
 
-The operating system is prepared according to [SAP note 3108316](https://me.sap.com/notes/3108316/E){: external}. The OS packages are installed by using the command: `# dnf install uuidd libnsl tcsh nfs-utils`
-
-1. After successful installation, check if the `uuidd` daemon is running by using: `# systemctl status uuidd`
-
-2. Next, `SELinux` needs to be set to “permissive”. Open the configuration file “/etc/selinux/config” and set the following: `SELinux=permissive`
-
-3. Once the changes are saved, restart the VSI and verify the above settings by using the command: `# getenforce`
-
-4. Verify the short hostname and FQDN by using the OS level commands:
-
-    * `# hostname`
-    * `# hostname -s`
-    * `# hostname -f`
-
-5. Verify whether the Linux service `chronyd` is running correctly (enabled by default in RHEL9.4) using the command: `# systemctl status chronyd`
-
-6. Next, check whether the firewall is disabled.
-
-    If the customer-specific security rules are required, then it can be enabled and configured to allow the communication ports of the SAP System.
-    {: note}
-
-7. Check the status of the firewall by using the command: `# systemctl status firewall.d`
-
-8. Configure the required Linux Kernel parameters by creating a file named “sap.conf” in the directory “/etc/sysctl.d”. The file content is:
-
-    * `vm.max_map_count=2147483647`
-
-    * `kernel.pid_max=4194304`
-
-9. No process limits are configured as you run “systemd” higher than 239 and SAP kernel 7.54. Check the “systemd” version by running the command: `# systemctl –version`
-
-    Regarding “temp files” you need to ensure that a file “sap.conf” is created under the directory `/etc/tmpfiles.d`, and add the following lines, inside the file:
-
-    ```pre
-    # systemd.tmpfiles exclude file for SAP
-    # SAP software stores some important files in /tmp which should not be deleted automatically
-    # Exclude SAP socket and lock files
-    x /tmp/.sap*
-    # Exclude TREX lock file
-    x /tmp/.trex*lock
-    ```
-
-10. Next, check whether the following Linux kernel parameters have the values:
-
-    ```pre
-    # sysctl kernel.shmmax kernel.shmall
-    kernel.shmmax = 18446744073692774399
-    kernel.shmall = 18446744073692774399
-       ```
-
-11. Finally, check the OS SWAP space by using the command: `# free -m`
-
-14. Once all the OS preconfigures activities (according to [SAP Note 3108316 - Red Hat Enterprise Linux 9.x: Installation and Configuration](https://me.sap.com/notes/3108316){: external}) and the ASE prerequisites checks are successfully completed, then the operating system needs to be tuned for running SAP NetWeaver Applications. This is done by installing and activating the `tuned-profiles-sap` using the following commands:
-
-    * `# dnf install tuned-profiles-sap`
-
-    * `# tuned-adm profile sap-netweaver`
+```bash
+dnf install -y uuidd libnsl tcsh nfs-utils libstdc++ compat-openssl11 java-11-openjdk xorg-x11-fonts-Type1 csh
+```
 
 [SLES]{: tag-green}
 
-The operating system is prepared according to [SAP note 1275776](https://me.sap.com/notes/1275776/E){: external}
+```bash
+zypper install -y uuidd libnsl1 tcsh nfs-utils libstdc++6 libopenssl1_1  java-11-openjdk xorg-x11-fonts
+```
 
-* Run the following commands to check or install the package “saptune”:
+After installation, start and enable the uuidd daemon, which is used by SAP to generate universally unique identifiers for enqueue table entries.
 
-    `# zypper info saptune`
+```bash
+systemctl enable --now uuidd
+systemctl status uuidd
+```
 
-    `# saptune service enablestart`
+Confirm that `uuidd` is shown as active (running) in the output of the status command.
 
-* The “saptune” service is enabled and by using the command: `# saptune solution list`
+### Step 2 – Configuring SELinux
+{: #step2}
 
-As you are running both SAP NetWeaver and SAP ASE on the same VSI, you need to enable the solution "NetWeaver" and additionally the SAP note **1680803** (which is the only difference between the two solutions).
+[RHEL]{: tag-red}
 
-`# saptune solution apply NETWEAVER`
+SELinux must be set to permissive mode for SAP. Open the configuration file /etc/selinux/config and set:
 
-* SAP note “1680803” - `# saptune note apply 1680803`
+```bash
+SELINUX=permissive
+```
 
-After successful installation of the “saptune”, check and configure the operating system installation according to SAP Note 2578899. The commands are:
+Restart the VSI and verify:
 
-* Check input/output scheduler - `# grep . /sys/block/*/queue/scheduler`
+```bash
+# reboot
+# getenforce
+```
 
-* Check user TasksMax - `# systemctl --version`
+**Verification**: The output must be Permissive. 
 
-    No changes are done for version 254.24
-    {: note}
+[SLES]{: tag-green}
 
-* Setting of “kernel.pid_max” - `# sysctl -a | grep kernel.pid_max`. Set according to SAP note “2578899”.
+```bash
+# systemctl stop apparmor
+# systemctl disable apparmor
+```
 
-* Check the status for “sysstat” - `# systemctl status sysstat`
+Verify AppArmor is no longer enforcing profiles:
 
-* Check the status for “sysctl” monitoring - `# systemctl status sysctl-logger.service`
+```bash
+# aa-status
+```
+**Verification**: The output should show 0 profiles in enforce mode. If AppArmor must remain active per your security policy, add SAP-specific AppArmor profiles instead.
 
-* Check the status for the “UUID daemon” - `# systemctl status uuidd.socket`
-
-* Check that “Polkit” is installed - `# zypper info polkit`
-
-* Check values for “vm.dirty_background_bytes/vm.dirty_bytes”
-
-    `# sysctl -a | grep vm.dirty_background_bytes`
-
-    `# sysctl -a | grep vm.dirty_bytes`
-
-This is already taken care by “saptune”
-
-* Install package “insserv-compat”
-
-    `# zypper in insserv-compat`
-
-    `# zypper info insserv-compat`
-
-* If the VSI is part of a domain, verify that the short hostname and FQDN are reported correctly by the following OS level commands:
-
-    `# hostname`
-
-    `# hostname -s`
-
-    `# hostname -f`
-
-* Check the status of “chronyd” - `# systemctl status chronyd`
-
-* Check the version for package “glibc” - `# zypper info glibc`
-
-According to SAP note 3425215, there is no issue by using SAP ASE 16.0 SP04 PL06.
-
-* Initialize **TMPFS.**
-
-* Resize TMPFS according to SAP Note 941735 (file system /dev/shm): - `# mount -o remount,size=43G /dev/shm`
-
-43 GB represents 70% of RAM + SWAP
+There is no SELINUX=permissive equivalent on SLES — do not create /etc/selinux/config. **AppArmor** is the security module used on SLES.
 {: note}
 
-To make the new size for the “TMPFS” permanent, add the following entry in the “/etc/fstab” file:
-Check the new size of “TMPFS” with the following command: - `# df -h /dev/shm`
+### Step 3 – Configuring hostname and DNS
+{: #step3}
+
+Verify the short hostname and FQDN:
+
+```bash
+# hostname
+# hostname -s
+# hostname -f
+```
+
+**Verification**: `hostname -s` must return only the short hostname (no dots). `hostname -f` must return the fully qualified domain name. Both must match the /etc/hosts entry:
+
+```bash
+# grep $(hostname -s) /etc/hosts
+```
+
+The entry should resolve to the VSI’s primary private IP.
+
+### Step 4 – Configuring Linux kernel parameters for SAP
+{: #step4}
+
+Create the file `/etc/sysctl.d/sap.conf` with the following content:
+
+vm.max_map_count=2147483647
+kernel.pid_max=4194304
+
+Apply immediately without reboot:
+
+```bash
+# sysctl -p /etc/sysctl.d/sap.conf
+```
+
+**Verification**: Confirm the kernel parameters are applied:
+
+```bash
+# sysctl vm.max_map_count kernel.pid_max kernel.shmmax kernel.shmall
+```
+
+**Expected output:**
+
+vm.max_map_count = 2147483647
+kernel.pid_max = 4194304
+kernel.shmmax = 18446744073692774399
+kernel.shmall = 18446744073692774399
+
+### Step 5 – Configuring tmpfiles for SAP
+{: #step5}
+
+Create `/etc/tmpfiles.d/sap.conf` with the following content to prevent SAP temporary files from being cleaned by `systemd-tmpfiles`:
+
+```bash
+# systemd.tmpfiles exclude file for SAP
+# SAP software stores some important files in /tmp which should not be deleted automatically
+# Exclude SAP socket and lock files
+x /tmp/.sap*
+# Exclude TREX lock file
+x /tmp/.trex*lock
+```
+
+### Step  6 – Check time synchronization
+{: #step6}
+
+Verify that `chronyd` is running correctly:
+
+```bash
+# systemctl status chronyd
+```
+
+**Verification**: Status must be active (running). Check synchronization:
+
+```bash
+# chronyc tracking
+```
+
+The system time offset should be within milliseconds of the NTP source.
+
+### Step 7 – Check firewall status
+{: #step7}
+
+Check whether the firewall is disabled:
+
+```bash
+# systemctl status firewalld
+```
+
+If customer-specific security rules are required, the firewall can be enabled and configured to allow the communication ports of the SAP system.
+{: note}
+
+### Step 8 – Apply SAP NetWeaver tuned profile
+{: #step8}
+
+[RHEL]{: tag-red}
+
+Install and activate the SAP NetWeaver performance tuning profile:
+
+```bash
+# dnf install tuned-profiles-sap
+# tuned-adm profile sap-netweaver
+# tuned-adm active
+```
+
+**Verification**: The output of `tuned-adm` active must show: Current active profile: sap-netweaver
+
+[SLES]{: tag-green}
+
+Install saptune if it is not already present:
+
+```bash
+# zypper install -y saptune
+```
+
+Enable the service and apply the SAP NetWeaver solution:
+
+```bash
+# saptune service enable
+# saptune service start
+# saptune solution apply NETWEAVER
+```
+
+**Verification**: Confirm the solution is active:
+
+```bash
+# saptune solution enabled
+# saptune status
+```
+
+The output of saptune solution enabled must show NETWEAVER. The output of saptune status must show `saptune.service` as enabled and active.
+
+### Step 9 – Check SWAP space
+{: #step9}
+
+Run the following commands to check the SWAP space:
+
+```bash
+# free -m
+# swapon --show
+```
+
+**Verification**: The total SWAP should show ≥ 30 GB as configured in the LVM layout.
 
 ## Installation of SAP NetWeaver 7.5 with ASE with SWPM
 {: #install-sapnw-ase}
 
 After you download the installation media, follow the standard SAP installation procedure that is documented in the SAP installation guides for your SAP version and components. Also, review the corresponding SAP notes.
+
+### Downloading and staging installation media
+{: #download-stage}
+
+All installation media must be organised into dedicated subdirectories under `/software` on the VSI before the installer is launched. The following directory structure is required:
+
+```bash
+/software/
+├ sapcar/       		# SAPCAR extraction tool (SAPCAR_xxx.EXE)
+├ swpm/         		# SWPM 2.0 SAR archive, extracted sapinst binary lands here
+├ kernel/       		# SAP Kernel SAR archives (SAPEXE + SAPEXEDB)
+├ igs/          		# Internet Graphics Server archives (igsexe + igshelper)
+├ hostagent/    	    # SAP Host Agent SAR archive
+├ ase/          		# SAP ASE 16.0 SP04 ZIP archive
+└- export/       		# SAP NW 7.5 ABAP Export ZIP archives
+```
+
+#### Step 1 – Download the installation media
+{: #download-media}
+
+Log on to [SAP Software Downloads Center (SWDC)](https://support.sap.com/en/my-support/software-downloads.html?isu_page=1){: external} and download the following components.
+
+Always download the latest available patch level for your OS. Earlier releases may not pass SWPM’s operating system compatibility check. Exact minimum patch levels vary by OS release and are updated frequently — always verify current certification status in the SAP Product Availability Matrix (PAM) and the referenced SAP Notes before downloading.
+{: note}
+
+| Component | SAP SWDC name / search term | Target folder on VSI | Description |
+| -- | -- | -- | -- |
+| SAPCAR | SAPCAR_*.EXE | /software/sapcar/ | Archive extraction tool — download first |
+| SWPM 2.0 | SWPM20SP*.SAR | /software/swpm/ | SAP Software Provisioning Manager 2.0 | 
+| SAP Kernel 7.54 (UC) | SAPEXE_*.SAR | /software/kernel/ | SAP NetWeaver 7.5 kernel – Unicode | 
+| SAP Kernel 7.54 DB (UC) | SAPEXEDB_*.SAR | /software/kernel/ | SAP kernel DB libraries for ASE — must match kernel patch level |
+| Internet Graphics Server | igsexe_*.sar | /software/igs/ | SAP IGS executable |
+| IGS Helper | igshelper_*.sar | /software/igs/ | SAP IGS helper — must match IGS executable release |
+| SAP Host Agent | SAPHOSTAGENT_*.SAR | /software/hostagent/ | SAP Host Agent |
+| SAP ASE 16.0 SP04 | SYBASE_ASE_16_*.zip | /software/ase/ | SAP ASE for Linux x86_64 |
+| SAP NW 7.5 Export | NW_ABAP_*_Export_*.zip | /software/export/ | ABAP initial system export |
+{: caption="Installation media" caption-side="bottom"}
+
+
+#### Step 2 – Creating the staging directory structure on the VSI
+{: #create-staging}
+
+Create all required directories before transferring files:
+
+```bash
+# mkdir -p /software/sapcar
+# mkdir -p /software/swpm
+# mkdir -p /software/kernel
+# mkdir -p /software/igs
+# mkdir -p /software/hostagent
+# mkdir -p /software/ase
+# mkdir -p /software/export
+```
+
+#### Step 3 – Transfer and place files into the correct folders
+{: #transfer}
+
+Transfer the downloaded files to the VSI using scp or sftp, placing each file in its designated directory:
+
+```bash
+# scp SAPCAR_*.EXE         root@<vsi_ip>:/software/sapcar/
+# scp SWPM20SP*.SAR        root@<vsi_ip>:/software/swpm/
+# scp SAPEXE_*.SAR         root@<vsi_ip>:/software/kernel/
+# scp SAPEXEDB_*.SAR       root@<vsi_ip>:/software/kernel/
+# scp igsexe_*.sar         root@<vsi_ip>:/software/igs/
+# scp igshelper_*.sar      root@<vsi_ip>:/software/igs/
+# scp SAPHOSTAGENT_*.SAR   root@<vsi_ip>:/software/hostagent/
+# scp SYBASE_ASE_16_*.zip  root@<vsi_ip>:/software/ase/
+# scp NW_ABAP_*_Export_*.zip root@<vsi_ip>:/software/export/
+```
+
+#### Step 4 – Make SAPCAR executable and extract the SWPM archive
+{: #sapcr}
+
+SAPCAR is the SAP archive extraction tool. It must be made executable before use, and is also required to extract the SWPM SAR archive:
+
+```bash
+# chmod +x /software/sapcar/SAPCAR*.EXE
+# /software/sapcar/SAPCAR*.EXE -xvf /software/swpm/SWPM20SP*.SAR -R /software/swpm/
+```
+
+**Verification**: Confirm the sapinst binary is present and executable:
+
+```bash
+# ls -lh /software/swpm/sapinst
+# /software/swpm/sapinst --version
+```
+
+**Expected**: a version string beginning with SWPM followed by the SP and patch level number, for example SWPM 2.0, patch level 27.
+
+### GUI installation with SWPM
+{: #gui-install}
+
+Use this method for a browser-based installation. SWPM provides a web GUI served over HTTPS on port 4237. No local display or X11 forwarding is required — any browser with access to the VSI’s IP on that port is sufficient.
+
+#### Step 1 – Launch the SWPM GUI
+{: #launch}
+
+Start the SWPM installer as `root`. Because SWPM auto-detects the hostname for its TLS certificate, pass the servers primary private IP address using `SAPINST_GUI_HOSTNAME` to avoid a certificate SAN mismatch error:
+
+```bash
+# cd /software/swpm
+# ./sapinst SAPINST_GUI_HOSTNAME=<vsi_private_ip>
+```
+
+SWPM prints the GUI URL to the terminal:
+
+```bash
+https://<vsi_private_ip>:4237/sapinst/docs/index.html
+Logon users: [root]
+```
+
+Open that URL in a browser. Accept the self-signed certificate warning — this is expected. Log in as **root** when prompted.
+
+#### Step 2 – Navigate the SWPM product tree
+{: #navigate}
+
+In the SWPM launcher, expand the product tree and navigate to:
+
+SAP NetWeaver 7.5
+  └── SAP ASE
+        └── Installation
+              └── Application Server ABAP
+                    └── Standard System
+                          └── Standard System
+
+Select Standard System and click **Next**.
+
+#### Step 3 – Follow the SWPM installation screens
+{: #follow}
+
+Follow the instructions on the Software Provisioning Manager screens and enter the required parameters. In Typical mode, SWPM prompts only for the essential inputs listed below; all other parameters are set to defaults and can be reviewed on the **Parameter Summary** screen before the installation starts.
+
+#### Step 4 - Parameter Summary screen (Review Parameters)
+{: #parameter}
+
+**Screen title:** Parameter Summary
+
+The wizard moves to the Review Parameters phase. SWPM displays a collapsible summary of every parameter entered across all screens. Review each section carefully:
+
+| Section | Key values to verify |
+| -- | -- |
+| Parameter Settings | Mode: Typical |
+| General SAP System Parameters | SAPSID: SFD, SAP Mount Directory: /sapmnt/SFD |
+| DNS Domain Name | Set FQDN for SAP system: unchecked |
+| Master Password | Password for All Users: (masked) |
+| Software Package Browser | All 4 kernel/IGS packages: Available |
+| Software Package Browser | SAPHOSTAGENT: Available |
+| SAP ASE Database System Parameters | Package Path: /software/ase |
+| SAP ASE Database System Parameters | Physical Memory: 7000 MB, Cores: 4, Connections: 200 |
+| SAP System Database Import | Number of Parallel Jobs: 3 | 
+| PAS and ASCS Instance | PAS: 00 on stg-nwsyb-vm, ASCS: 01 on stg-nwsyb-vm |
+{: caption="Parameter Summary" caption-side="bottom"}
+
+To change any value, check the checkbox next to the section name and click **Revise**. SWPM takes you back to that screen. When all parameters are correct, click **Next** to proceed to Execute Service and start the installation.
+
+#### Step 5 – Monitor installation progress and logs
+{: #monitor}
+
+Once the **Execute Service** phase begins, SWPM runs all installation steps automatically. Monitor the progress in the SWPM GUI status bar.
+
+If an error occurs, SWPM pauses and displays the error message with **Retry**, **Log Files**, and **Stop** options. Logs are also available at:
+
+```bash
+# tail -f /tmp/sapinst_instdir/NW750/SYB/INSTALL/STD/ABAP/sapinst.log
+# tail -f /tmp/sapinst_instdir/NW750/SYB/INSTALL/STD/ABAP/sapinst_dev.log
+```
+
+Resolve the displayed error, then click **Retry** in the SWPM GUI to resume the installation from the failed step without restarting from scratch.
+
+The full installation may take 60–120 minutes depending on the hardware profile and storage IOPS.
+{: note}
+
+#### Step 6 – Service Completed screen (Information)
+{: #service}
+
+**Screen title:** Service Completed SWPM phase indicator: Define Parameters > Review Parameters > Execute Service > Service Completed
+
+When all installation steps succeed, SWPM advances to the Service Completed phase and shows a progress bar at 100% with a green checkmark.
+
+Click **Ok** to acknowledge the completion message. SWPM moves to the final confirmation screen.
+
+SAP Note 1923064 describes the ABAP task manager for lifecycle management automation (LMA). It provides a framework for automating post-installation configuration tasks such as client settings, transport configuration, and system parameters. Review this note after the installation is complete.
+{: note}
+
+#### Step 7 – Installation successfully finished (Exit)
+{: #exit}
+
+**Screen title:** Service Completed SWPM phase indicator: Define Parameters > Review Parameters > Execute Service > Service Completed.
+
+After clicking **Ok** on the Information screen, SWPM displays the final confirmation:
+
+The process execution is finished successfully.
+
+The progress bar remains at 100% with a green checkmark. An Exit button is displayed at the bottom of the screen.
+
+Click **Exit** to close the SWPM web UI. The sapinst process on the server terminates automatically.
+
+The SAP NetWeaver 7.5 with SAP ASE installation is now complete. Proceed to the Post-installation verification and validation section to confirm all services are running correctly before using the system.
+
+### Post-installation verification and validation
+{: #post-install}
+
+1. Verify SAP ASE processes are running
+
+    Switch to the Sybase OS user and check running servers:
+
+    ```bash
+    # su - sybsfd
+    $ showserver
+    ```
+
+    Expected output shows dataserver, and backupserver entries.
+    From the OS level:
+
+    ```bash
+    # ps -ef | grep -E "dataserver|backupserver" | grep -v grep
+    ```
+
+    All three processes should be running under the sybsfd user.
+
+    **Test database connectivity using isql:**
+
+    ```bash
+    **# su - sybsfd
+    $ isql -S SFD -U sapsa -X
+    Password: ********
+    1> select @@version
+    2> go
+    ```
+
+    Expected: SAP ASE version string is returned, for example:
+    Adaptive Server Enterprise/16.0 SP04 PL06/...
+
+    **Check the ASE error log for any startup errors:
+
+    **$ cat $SYBASE/$SYBASE_ASE/install/SFD.log | tail -100
+    Look for the line Recovery complete. which indicates a clean startup.
+
+    2. Verify SAP NetWeaver instances are running
+
+        Switch to the SAP admin user and check instance status:
+
+        ```bash
+        # su - sfdadm
+        $ sapcontrol -nr 01 -function GetProcessList
+        $ sapcontrol -nr 00 -function GetProcessList
+        ```
+
+        All listed processes should show GREEN or Running status.
+
+        List all instances registered with the system:
+
+        ```bash
+        $ sapcontrol -nr 00 -function GetSystemInstanceList
+        ```
+
+        All listed processes should show GREEN or Running status.
+        Start all instances if they are not yet running:
+
+        ```bash
+        $ startsap ALL
+        ```
 
 ## Related information
 {: #related-info-ase}

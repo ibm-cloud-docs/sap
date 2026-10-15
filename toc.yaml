@@ -203,6 +203,8 @@ toc:
                 topic: howto/powervs/powervs-ha-rhel-nfs.md
               - navtitle: Implementing SBD poison-pill fencing
                 topic: howto/powervs/powervs-ha-rhel-sbd.md
+              - navtitle: Maintenance operations in HA clusters
+                topic: howto/powervs/powervs-ha-rhel-lpm-maintenance.md
           - topicgroup:
               id: howto-powervs-ha-sles
               label: High availability on SLES
