@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-09-30"
+lastupdated: "2026-10-30"
 keywords: SAP, IBM Cloud benefits, SAP infrastructure, enterprise cloud, SAP performance, high availability, disaster recovery, backup, monitoring, automation
 subcollection: sap
 ---
@@ -15,7 +15,7 @@ subcollection: sap
 IBM Cloud provides enterprise-grade infrastructure specifically designed and certified for SAP workloads, combining proven IBM and SAP partnership expertise with modern cloud capabilities to deliver performance, reliability, and flexibility for mission-critical SAP systems.
 {: shortdesc}
 
-IBM Power Virtual Server is the preferred platform for SAP HANA workloads across development, test, and production environments. VPC Infrastructure is the preferred platform for SAP AnyDB workloads and SAP application servers.
+IBM {{site.data.keyword.powerSys_notm}} is the preferred platform for SAP HANA workloads across development, test, and production environments. VPC Infrastructure is the preferred platform for SAP AnyDB workloads and SAP application servers.
 
 ## IBM and SAP strategic partnership
 {: #ibm-sap-partnership}
@@ -33,8 +33,8 @@ IBM Cloud delivers infrastructure built specifically for enterprise SAP workload
 | Capability | Description |
 | --- | --- |
 | **SAP-certified profiles** | Preconfigured server profiles tested and certified by SAP to meet or exceed performance benchmarks for SAP HANA and SAP applications |
-| **IBM Power Virtual Server for SAP HANA** | Enterprise-grade IBM Power Systems architecture (Power10 and Power9 processors) delivers industry-leading performance for SAP HANA in-memory computing. Power Virtual Server is optimized for mission-critical SAP HANA workloads including SAP S/4HANA and SAP BW/4HANA. For performance benchmarks, see the [SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}. |
-| **High-performance storage** | Multiple storage tiers including Tier 0 and Tier 1 NVMe storage on IBM Power Virtual Server deliver maximum IOPS and minimum latency for SAP HANA databases |
+| **IBM {{site.data.keyword.powerSys_notm}} for SAP HANA** | Enterprise-grade IBM Power Systems architecture (Power10 and Power9 processors) delivers industry-leading performance for SAP HANA in-memory computing. Power Virtual Server is optimized for mission-critical SAP HANA workloads including SAP S/4HANA and SAP BW/4HANA. For performance benchmarks, see the [SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:28){: external}. |
+| **High-performance storage** | Multiple storage tiers including Tier 0 and Tier 1 NVMe storage on IBM {{site.data.keyword.powerSys_notm}} deliver maximum IOPS and minimum latency for SAP HANA databases |
 | **Optimized networking** | High-bandwidth, low-latency networking infrastructure to support distributed SAP architectures and data-intensive workloads |
 {: caption="High-performance computing capabilities" caption-side="bottom"}
 
@@ -72,7 +72,7 @@ For current SAP HANA certified servers, see:
 - (requires SAP S-user credentials)
    - [SAP Note 2414097 - SAP Applications on IBM Cloud Classic Infrastructure](https://me.sap.com/notes/2414097/){: external}
    - [SAP Note 2414097 - SAP Applications on IBM Cloud Virtual Private Cloud (VPC)](https://me.sap.com/notes/2927211/){: external}
-   - [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers](https://me.sap.com/notes/2947579/){: external}
+   - [SAP Note 2947579 - SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s](https://me.sap.com/notes/2947579/){: external}
 
 ## Global infrastructure availability
 {: #global-availability}
@@ -84,7 +84,7 @@ For current data center locations, see [IBM Cloud global infrastructure](https:/
 ## Flexible deployment options
 {: #flexible-deployment}
 
-IBM Cloud offers three SAP-certified infrastructure platforms — IBM Power Virtual Server, VPC Infrastructure, and Classic Infrastructure — covering a range of workload sizes, operating systems, and deployment models. For platform descriptions, supported operating systems, and supported databases, see [What is SAP on IBM Cloud](/docs/sap?topic=sap-what-is-sap#infrastructure-options).
+IBM Cloud offers three SAP-certified infrastructure platforms — IBM {{site.data.keyword.powerSys_notm}}, VPC Infrastructure, and Classic Infrastructure — covering a range of workload sizes, operating systems, and deployment models. For platform descriptions, supported operating systems, and supported databases, see [What is SAP on IBM Cloud](/docs/sap?topic=sap-what-is-sap#infrastructure-options).
 
 ## High availability and business continuity
 {: #high-availability}
@@ -209,7 +209,7 @@ For a full breakdown of pricing components, optimization strategies, and the IBM
 ## Performance optimization
 {: #performance-optimization}
 
-IBM Cloud infrastructure is optimized for SAP workloads through SAP-certified profiles, high-performance Tier 0 and Tier 1 NVMe storage on IBM Power Virtual Server, and high-bandwidth low-latency networking. For platform-by-platform performance details, see [Infrastructure platforms for SAP workloads](/docs/sap?topic=sap-deployment-options-comparison).
+IBM Cloud infrastructure is optimized for SAP workloads through SAP-certified profiles, high-performance Tier 0 and Tier 1 NVMe storage on IBM {{site.data.keyword.powerSys_notm}}, and high-bandwidth low-latency networking. For platform-by-platform performance details, see [Infrastructure platforms for SAP workloads](/docs/sap?topic=sap-deployment-options-comparison).
 
 
 ## Next steps

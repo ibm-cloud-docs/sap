@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2025-05-19"
+lastupdated: "2026-10-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}} SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, Linux, RHEL, RedHat, Custom Image
 subcollection: sap
 ---
@@ -32,7 +32,7 @@ Complete the following requirements before you start the image build process:
 
 - Create an image build server, where you configure an image build environment and build an OS image. It consists of an {{site.data.keyword.powerSys_notm}} instance running RHEL 9.2 (RHEL9-SP2-SAP-NETWEAVER) or higher RHEL version, with the additional storage volume of 200 GByte. There are two methods how to set up the image build server:
 
-   - For a manual approach, refer to the detailed information in [Getting started with {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-getting-started) and [Creating an IBM Power Virtual Server](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-service).
+   - For a manual approach, refer to the detailed information in [Getting started with {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-getting-started) and [Creating an IBM {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-service).
 
    - For an automated approach, refer to the [Power Virtual Server with VPC Landing Zone](/docs/powervs-vpc)deployment guide.
 

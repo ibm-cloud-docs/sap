@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-10-30"
 keywords: SAP,{{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, VPMEM, Virtual persistent memory, VPMEM on {{site.data.keyword.powerSys_notm}}, Configure VPMEM
 subcollection: sap
 ---
@@ -65,10 +65,10 @@ The following SAP HANA certified profiles support vPMEM on IBM {{site.data.keywo
 |ch2-87x7000	|87	    |7000	   |10%	         |90%	       |
 |sr2-87x7600	|87	    |7600	   |10%	         |90%	       |
 |ch2-87x7600	|87	    |7600	   |10%	         |90%	       |
-{: caption="vPMEM‑supported SAP HANA profiles on IBM Power Virtual Server" caption-side="bottom"}
+{: caption="vPMEM‑supported SAP HANA profiles on IBM {{site.data.keyword.powerSys_notm}}" caption-side="bottom"}
 
 
-Currently, only specific profiles of Power S1022 and Power E1050 support vPMEM on {{site.data.keyword.powerSys_notm}}. More profiles will be added in future releases, including those for Power E1080 and the latest Power11 servers. For detailed information about the vPMEM supported profiles, see [SAP HANA certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
+Currently, only specific profiles of Power S1022 and Power E1050 support vPMEM on {{site.data.keyword.powerSys_notm}}. More profiles will be added in future releases, including those for Power E1080 and the latest Power11 servers. For detailed information about the vPMEM supported profiles, see [SAP HANA certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
 {:note: .note}
 
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-10-30"
 keywords: SAP, FlashSystem, Power, storage tiers, IOPS, log, data, shared, cos, file storage, boot, block storage, sapmnt, plan
 subcollection: sap
 ---
@@ -141,7 +141,7 @@ For file system sizes, see [SAP HANA Storage Requirements](https://www.sap.com/d
 ### Volume layout
 {: #hana-layout}
 
-To plan storage volumes for SAP HANA, refer to the tables provided in [SAP HANA certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
+To plan storage volumes for SAP HANA, refer to the tables provided in [SAP HANA certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs).
 Locate the compute profile applicable to your deployment, and review the tabs in the table for the log file system, data file system, and shared file system configuration.
 These tabs specify the required quantity of storage volumes, the storage tier, and the corresponding volume sizes for the file systems `/hana/log`, `/hana/data`, and `/hana/shared`.
 
@@ -155,7 +155,7 @@ These tabs specify the required quantity of storage volumes, the storage tier, a
 ## {{site.data.keyword.sap_app_server}} storage guidelines
 {: #app-server-storage-guidelines}
 
-To plan storage volumes for the {{site.data.keyword.sap_app_server}}, refer to the table in [{{site.data.keyword.sap_app_server}} certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs).
+To plan storage volumes for the {{site.data.keyword.sap_app_server}}, refer to the table in [{{site.data.keyword.sap_app_server}} certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs).
 Then, review the **Storage** tab to identify the storage tier, and the size of the storage volume for the `/usr/sap` file system.
 
 ### Volume layout
@@ -176,5 +176,5 @@ Configure an own {{site.data.keyword.powerSys_notm}} storage volume for the `/us
 - [HCMT guide](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}
 - [Outlining how to use the Hardware Measurement Tool](https://help.sap.com/docs/HANA_HW_CLOUD_TOOLS){: external}
 - [SAP HANA Storage Requirements](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html){: external}
-- [SAP HANA certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
-- [{{site.data.keyword.sap_app_server}} certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)
+- [SAP HANA certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
+- [{{site.data.keyword.sap_app_server}} certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs)

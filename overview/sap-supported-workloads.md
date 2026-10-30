@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-09-30"
+lastupdated: "2026-10-30"
 keywords: SAP, SAP workloads, SAP HANA, SAP NetWeaver, SAP S/4HANA, SAP applications, SAP scenarios
 subcollection: sap
 ---
@@ -25,14 +25,14 @@ SAP HANA is an in-memory database and application platform that powers modern SA
 
 SAP S/4HANA is SAP's next-generation intelligent ERP system designed to run exclusively on SAP HANA database. It provides real-time business processes and analytics with a simplified data model.
 
-IBM Power Virtual Server is the preferred platform for SAP S/4HANA deployments. Power Systems architecture supports SAP HANA workloads across development, test, and production environments.
+IBM {{site.data.keyword.powerSys_notm}} is the preferred platform for SAP S/4HANA deployments. Power Systems architecture supports SAP HANA workloads across development, test, and production environments.
 
 | Configuration | Preferred infrastructure |
 | --- | --- |
-| Development and test | IBM Power Virtual Server |
-| Production (any size, up to 30.5 TB) | IBM Power Virtual Server |
-| High availability and disaster recovery | IBM Power Virtual Server |
-| Multi-host scale-out | IBM Power Virtual Server |
+| Development and test | IBM {{site.data.keyword.powerSys_notm}} |
+| Production (any size, up to 30.5 TB) | IBM {{site.data.keyword.powerSys_notm}} |
+| High availability and disaster recovery | IBM {{site.data.keyword.powerSys_notm}} |
+| Multi-host scale-out | IBM {{site.data.keyword.powerSys_notm}} |
 {: caption="SAP S/4HANA configurations and recommended infrastructure" caption-side="bottom"}
 
 ### SAP BW/4HANA
@@ -40,14 +40,14 @@ IBM Power Virtual Server is the preferred platform for SAP S/4HANA deployments. 
 
 SAP BW/4HANA is SAP's next-generation data warehouse solution optimized for SAP HANA's in-memory capabilities, providing real-time analytics and reporting.
 
-IBM Power Virtual Server is the preferred platform for all SAP BW/4HANA deployments, delivering the performance required for large-scale analytics and real-time data warehousing workloads.
+IBM {{site.data.keyword.powerSys_notm}} is the preferred platform for all SAP BW/4HANA deployments, delivering the performance required for large-scale analytics and real-time data warehousing workloads.
 
 | Configuration | Preferred infrastructure |
 | --- | --- |
-| Development and test environments | IBM Power Virtual Server |
-| Data warehouse production (any size) | IBM Power Virtual Server |
-| Large-scale analytics, maximum performance | IBM Power Virtual Server |
-| Multi-host scale-out, high availability | IBM Power Virtual Server |
+| Development and test environments | IBM {{site.data.keyword.powerSys_notm}} |
+| Data warehouse production (any size) | IBM {{site.data.keyword.powerSys_notm}} |
+| Large-scale analytics, maximum performance | IBM {{site.data.keyword.powerSys_notm}} |
+| Multi-host scale-out, high availability | IBM {{site.data.keyword.powerSys_notm}} |
 {: caption="SAP BW/4HANA configurations and preferred infrastructure" caption-side="bottom"}
 
 ### SAP HANA database
@@ -55,15 +55,15 @@ IBM Power Virtual Server is the preferred platform for all SAP BW/4HANA deployme
 
 SAP HANA can be deployed as a standalone database platform for SAP Business Suite applications, custom applications, or third-party applications.
 
-IBM Power Virtual Server is the preferred platform for SAP HANA workloads. 
+IBM {{site.data.keyword.powerSys_notm}} is the preferred platform for SAP HANA workloads.
 It supports SAP HANA systems that range from small development environments to production deployments of up to 30.5 TB.
 
 | Deployment type | Preferred infrastructure |
 | --- | --- |
-| Development and test | IBM Power Virtual Server |
-| Production (all sizes, up to 30 TB) | IBM Power Virtual Server |
-| High availability with SAP HANA System Replication | IBM Power Virtual Server |
-| Multi-host scale-out | IBM Power Virtual Server |
+| Development and test | IBM {{site.data.keyword.powerSys_notm}} |
+| Production (all sizes, up to 30 TB) | IBM {{site.data.keyword.powerSys_notm}} |
+| High availability with SAP HANA System Replication | IBM {{site.data.keyword.powerSys_notm}} |
+| Multi-host scale-out | IBM {{site.data.keyword.powerSys_notm}} |
 {: caption="SAP HANA database deployments and preferred infrastructure" caption-side="bottom"}
 
 ## SAP NetWeaver-based workloads
@@ -80,14 +80,14 @@ SAP ECC is SAP's traditional ERP system supporting multiple database platforms. 
 
 | Database | Preferred infrastructure |
 | --- | --- |
-| SAP HANA | IBM Power Virtual Server |
-| IBM Db2 | VPC Infrastructure (Linux); IBM Power Virtual Server (AIX) |
+| SAP HANA | IBM {{site.data.keyword.powerSys_notm}} |
+| IBM Db2 | VPC Infrastructure (Linux); IBM {{site.data.keyword.powerSys_notm}} (AIX) |
 | Microsoft SQL Server | VPC Infrastructure |
 | SAP ASE (Sybase) | VPC Infrastructure |
 | SAP MaxDB | VPC Infrastructure |
 {: caption="SAP ECC supported databases and preferred infrastructure" caption-side="bottom"}
 
-**Infrastructure options:** IBM Power Virtual Server (AIX-based and Linux-based deployments), VPC bare metal servers, VPC virtual servers.
+**Infrastructure options:** IBM {{site.data.keyword.powerSys_notm}} (AIX-based and Linux-based deployments), VPC bare metal servers, VPC virtual servers.
 
 ### SAP Business Suite
 {: #business-suite}
@@ -103,7 +103,7 @@ SAP Business Suite is an integrated suite of SAP business applications built on 
 | **SAP PLM** | Product Lifecycle Management |
 {: caption="SAP Business Suite applications" caption-side="bottom"}
 
-All Business Suite applications are supported on IBM Power Virtual Server, VPC bare metal servers, and VPC virtual servers. Deployment models include standalone applications, integrated suite with shared database, and hybrid deployments with SAP S/4HANA.
+All Business Suite applications are supported on IBM {{site.data.keyword.powerSys_notm}}, VPC bare metal servers, and VPC virtual servers. Deployment models include standalone applications, integrated suite with shared database, and hybrid deployments with SAP S/4HANA.
 
 ### SAP NetWeaver components
 {: #netweaver-components}
@@ -117,7 +117,7 @@ All Business Suite applications are supported on IBM Power Virtual Server, VPC b
 | **SAP Router** | Secure network connection component for SAP support infrastructure access |
 {: caption="SAP NetWeaver components" caption-side="bottom"}
 
-All SAP NetWeaver components are supported on IBM Power Virtual Server (AIX and Linux), VPC bare metal servers, and VPC virtual servers.
+All SAP NetWeaver components are supported on IBM {{site.data.keyword.powerSys_notm}} (AIX and Linux), VPC bare metal servers, and VPC virtual servers.
 
 ### SAP Business One
 {: #business-one}
@@ -133,13 +133,13 @@ SAP Business One is an ERP solution designed for small and medium-sized enterpri
 ## SAP AnyDB workloads
 {: #anydb-workloads}
 
-SAP applications support multiple database platforms beyond SAP HANA, collectively referred to as SAP AnyDB. 
+SAP applications support multiple database platforms beyond SAP HANA, collectively referred to as SAP AnyDB.
 VPC Infrastructure is the preferred platform for SAP AnyDB workloads.
 It supports compute and storage options across VPC virtual servers and bare metal servers.
 
 | Database | Description | Preferred infrastructure |
 | --- | --- | --- |
-| **IBM Db2** | IBM's enterprise relational database supporting SAP ECC, SAP Business Suite, and SAP NetWeaver applications | VPC Infrastructure (Linux); IBM Power Virtual Server (AIX only) |
+| **IBM Db2** | IBM's enterprise relational database supporting SAP ECC, SAP Business Suite, and SAP NetWeaver applications | VPC Infrastructure (Linux); IBM {{site.data.keyword.powerSys_notm}} (AIX only) |
 | **Microsoft SQL Server** | Microsoft's relational database supporting SAP applications on Windows and Linux | VPC Infrastructure |
 | **SAP ASE (Sybase)** | SAP's Adaptive Server Enterprise supporting SAP NetWeaver applications | VPC Infrastructure |
 | **SAP MaxDB** | SAP MaxDB for SAP ECC and SAP NetWeaver-based systems on Linux and Windows | VPC Infrastructure |
@@ -165,23 +165,23 @@ For deployment guidance on these applications, consult IBM Cloud support and SAP
 
 | Environment | Purpose | SAP HANA | SAP AnyDB |
 | --- | --- | --- | --- |
-| **Production** | Mission-critical systems requiring high availability, disaster recovery, and maximum performance | IBM Power Virtual Server | VPC Infrastructure |
-| **Quality assurance** | Testing and validation systems requiring production-like configurations | IBM Power Virtual Server | VPC Infrastructure |
-| **Development** | Flexible environments for application development and customization | IBM Power Virtual Server | VPC Infrastructure |
-| **Sandbox** | Proof-of-concept, training, and experimentation systems | IBM Power Virtual Server (or VPC for strict cost constraints) | VPC Infrastructure |
-| **Disaster recovery** | Secondary systems for business continuity | IBM Power Virtual Server in a different region | VPC Infrastructure in a different region |
+| **Production** | Mission-critical systems requiring high availability, disaster recovery, and maximum performance | IBM {{site.data.keyword.powerSys_notm}} | VPC Infrastructure |
+| **Quality assurance** | Testing and validation systems requiring production-like configurations | IBM {{site.data.keyword.powerSys_notm}} | VPC Infrastructure |
+| **Development** | Flexible environments for application development and customization | IBM {{site.data.keyword.powerSys_notm}} | VPC Infrastructure |
+| **Sandbox** | Proof-of-concept, training, and experimentation systems | IBM {{site.data.keyword.powerSys_notm}} (or VPC for strict cost constraints) | VPC Infrastructure |
+| **Disaster recovery** | Secondary systems for business continuity | IBM {{site.data.keyword.powerSys_notm}} in a different region | VPC Infrastructure in a different region |
 {: caption="SAP environment types and preferred infrastructure" caption-side="bottom"}
 
 ## Workload sizing guidance
 {: #sizing-guidance}
 
 Infrastructure selection is based on the database platform, not on database size.
-IBM Power Virtual Server supports SAP HANA workloads that range from small development systems to production deployments of up to 30.5 TB.
+IBM {{site.data.keyword.powerSys_notm}} supports SAP HANA workloads that range from small development systems to production deployments of up to 30.5 TB.
 You do not need to move to a different platform as workloads grow.
 
 | Database platform | All sizes | Notes |
 | --- | --- | --- |
-| **SAP HANA** | IBM Power Virtual Server | Supports up to 30 TB; consistent platform from dev/test through production |
+| **SAP HANA** | IBM {{site.data.keyword.powerSys_notm}} | Supports up to 30 TB; consistent platform from dev/test through production |
 | **SAP AnyDB** (Db2, ASE, MaxDB, SQL Server) | VPC Infrastructure | Flexible compute (virtual servers and bare metal) for all AnyDB workloads |
 {: caption="Workload platform guidance" caption-side="bottom"}
 

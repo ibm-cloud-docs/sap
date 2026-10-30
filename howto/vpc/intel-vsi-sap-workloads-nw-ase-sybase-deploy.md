@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-10-15"
+lastupdated: "2026-10-28"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, {{site.data.keyword.ibm_cloud_sap}}, NetWeaver, ASE
 subcollection: sap
 content-type: tutorial
@@ -174,7 +174,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     | vde |  252:64 | 0 | 128G | 0 | disk |
     | vdf |  252:80 | 0 | 256G | 0 | disk |
     {: caption="Verification" caption-side="bottom"}
-    
+
 
 2. To use LVM, the Linux package `lvm2` must be installed by using the command:
 
@@ -224,9 +224,9 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # vgs
     # vgdisplay
     ```
-    
+
     All five volume groups (`sfd_swap_vg`, `sfd_log_vg`, `sfd_syb_vg`, `sfd_app_vg`, `sfd_data_vg`) should appear with VG status: resizable and their respective sizes.
-    
+
 5. Create the SAP ASE logical volumes by using the following commands:
 
     ```bash
@@ -310,7 +310,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     # swapon --show
     # free -m
     ```
-    
+
     The swapon `--show` output should list the SWAP device with the correct size. `free -m` should show swap total ≥ 30 GB.
 
 11. After creating all the required file systems, create the necessary mount points by using the following commands:
@@ -361,7 +361,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     ```
 
     All 18 mount points should appear with their ext4 type and the correct device mapper paths.
-    
+
 12. Resize the TMPFS according to [SAP Note 941735 - SAP memory management system for 64-bit Linux systems](https://launchpad.support.sap.com/#/notes/941735){: external} (file system `/dev/shm`). For the bx2-2x8 profile (8 GB RAM, 30 GB SWAP = 38 GB total), the recommended size is 75% of total memory = 28 GB:
 
     ```bash
@@ -409,7 +409,7 @@ At the operating system level, physical volumes, volume groups, logical volumes,
     ```
 
     A return code of 0 confirms all entries are valid and all file systems mounted successfully.
-    
+
 ### NFS file system by using {{site.data.keyword.vpc_short}} File Shares
 {: #nfs-application-vpc-ase}
 
@@ -515,7 +515,7 @@ Restart the VSI and verify:
 # getenforce
 ```
 
-**Verification**: The output must be Permissive. 
+**Verification**: The output must be Permissive.
 
 [SLES]{: tag-green}
 
@@ -707,8 +707,8 @@ Always download the latest available patch level for your OS. Earlier releases m
 | Component | SAP SWDC name / search term | Target folder on VSI | Description |
 | -- | -- | -- | -- |
 | SAPCAR | SAPCAR_*.EXE | /software/sapcar/ | Archive extraction tool — download first |
-| SWPM 2.0 | SWPM20SP*.SAR | /software/swpm/ | SAP Software Provisioning Manager 2.0 | 
-| SAP Kernel 7.54 (UC) | SAPEXE_*.SAR | /software/kernel/ | SAP NetWeaver 7.5 kernel – Unicode | 
+| SWPM 2.0 | SWPM20SP*.SAR | /software/swpm/ | SAP Software Provisioning Manager 2.0 |
+| SAP Kernel 7.54 (UC) | SAPEXE_*.SAR | /software/kernel/ | SAP NetWeaver 7.5 kernel – Unicode |
 | SAP Kernel 7.54 DB (UC) | SAPEXEDB_*.SAR | /software/kernel/ | SAP kernel DB libraries for ASE — must match kernel patch level |
 | Internet Graphics Server | igsexe_*.sar | /software/igs/ | SAP IGS executable |
 | IGS Helper | igshelper_*.sar | /software/igs/ | SAP IGS helper — must match IGS executable release |
@@ -829,7 +829,7 @@ The wizard moves to the Review Parameters phase. SWPM displays a collapsible sum
 | Software Package Browser | SAPHOSTAGENT: Available |
 | SAP ASE Database System Parameters | Package Path: /software/ase |
 | SAP ASE Database System Parameters | Physical Memory: 7000 MB, Cores: 4, Connections: 200 |
-| SAP System Database Import | Number of Parallel Jobs: 3 | 
+| SAP System Database Import | Number of Parallel Jobs: 3 |
 | PAS and ASCS Instance | PAS: 00 on stg-nwsyb-vm, ASCS: 01 on stg-nwsyb-vm |
 {: caption="Parameter Summary" caption-side="bottom"}
 

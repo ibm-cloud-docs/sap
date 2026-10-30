@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-10-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP HANA Disaster Recovery , High Availability, HA, Disaster Recovery, DR, RSYNC, rsync, SAP HANA Cross Region DR, SAP HANA Cross Account DR
 subcollection: sap
 ---
@@ -43,7 +43,7 @@ You might need to adjust access control list (ACL) and security groups on both s
 ## Setting up {{site.data.keyword.filestorage_vpc_full_notm}}
 {: #config-nfs}
 
-To synchronize data between the primary and secondary locations, mount file share storages on the {{site.data.keyword.vpc_full}} (VPC) instances. You cannot mount the file share directly on {{site.data.keyword.powerSys_notm}} instances. Therefore, create a {{site.data.keyword.nlb_full}} in each VPC. To set up the file storage shares, see {{site.data.keyword.cloud_notm}} documentation [Accessing VPC regional file storage shares from IBM Power Virtual Server instances](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro).
+To synchronize data between the primary and secondary locations, mount file share storages on the {{site.data.keyword.vpc_full}} (VPC) instances. You cannot mount the file share directly on {{site.data.keyword.powerSys_notm}} instances. Therefore, create a {{site.data.keyword.nlb_full}} in each VPC. To set up the file storage shares, see {{site.data.keyword.cloud_notm}} documentation [Accessing VPC regional file storage shares from IBM {{site.data.keyword.powerSys_notm}} instances](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro).
 
 For example, mount the remote file storage shares by using the following command:
 

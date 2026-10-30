@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-09-16"
+lastupdated: "2026-10-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, capture and export, SAP workloads, SAP HANA, migration of hardware profile, relocate SAP workload on IBM {{site.data.keyword.powerSys_notm}}
 subcollection: sap
 ---
@@ -33,7 +33,7 @@ The following options are available for resizing an IBM {{site.data.keyword.powe
    When you deploy the new instance, you can do the following tasks:
    - Increase or decrease CPU and memory resources by selecting a different SAP hardware profile.
    - Resize storage volumes, including SAP HANA volumes, to user-defined capacities.
-   - Keep the original IBM Power Virtual Server instance as a backup because it remains unchanged throughout the process.
+   - Keep the original IBM {{site.data.keyword.powerSys_notm}} instance as a backup because it remains unchanged throughout the process.
 
 
 Do not update the operating system.

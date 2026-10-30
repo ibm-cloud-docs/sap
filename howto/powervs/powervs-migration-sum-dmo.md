@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-10-30"
 keywords: SAP, SAP-Certified Infrastructure, SAP Workloads, on-prem, on premises, Hybrid Cloud, Migration, heterogeneous migration, Linux, Red Hat, RHEL, SuSE, Db2, Oracle, HANA, clean up, pre migration step, Row Store Re-organization, reorg, row, store, sync, Synchronize, sum, software update manager, dmo, database migration option, dmove2s4, Software Provisioning Manager, SWPM
 subcollection: sap
 ---
@@ -18,7 +18,7 @@ the SAP system to IBM {{site.data.keyword.powerSys_notm}} is complex.
 
 The following items are best practices for a heterogeneous SAP migration.
 
-* Either sign a contract for [RISE with SAP on IBM Power Virtual Server](https://www.ibm.com/products/rise-with-sap){: external}. The IBM RISE contract includes the service to migrate your SAP system to IBM {{site.data.keyword.powerSys_notm}}.
+* Either sign a contract for [RISE with SAP on IBM {{site.data.keyword.powerSys_notm}}](https://www.ibm.com/products/rise-with-sap){: external}. The IBM RISE contract includes the service to migrate your SAP system to IBM {{site.data.keyword.powerSys_notm}}.
 * Or contact [IBM consulting](https://www.ibm.com/consulting/sap){: external} for more help with SAP migration service options.
 
 This information does not replace required expert advice or support.
@@ -253,8 +253,8 @@ They are the typical criteria in the report to plan for system growth.
 After the report is complete, it displays the recommended core, memory, SAPS, and storage requirements for your target system.
 Use the following links to compare the SAP Sizing report recommendations with the current IBM {{site.data.keyword.powerSys_notm}} profile offerings and select the profile that aligns with the sizing report recommendation.
 
-   * [SAP Note 2947579 - SAP HANA on IBM Power Virtual Servers)](https://me.sap.com/notes/2947579){: external}
-   * [IBM Power Virtual Server certified profiles for SAP HANA {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
+   * [SAP Note 2947579 - SAP HANA on IBM {{site.data.keyword.powerSys_notm}}s)](https://me.sap.com/notes/2947579){: external}
+   * [IBM {{site.data.keyword.powerSys_notm}} certified profiles for SAP HANA {{site.data.keyword.powerSysFull}}](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs)
 
 SAP maintains a list of certified and supported SAP HANA® hardware.
 Certified IBM {{site.data.keyword.powerSys_notm}} profiles and certified IBM server hardware are listed in the [SAP Certified and Supported SAP HANA® Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;iaas;v:ca270&sort=Latest%20Certification&sortDesc=true){: external}.

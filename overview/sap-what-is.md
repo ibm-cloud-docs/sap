@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-09-30"
+lastupdated: "2026-10-30"
 keywords: SAP, SAP on IBM Cloud, SAP infrastructure, SAP HANA, SAP NetWeaver, SAP S/4HANA
 subcollection: sap
 ---
@@ -15,7 +15,7 @@ subcollection: sap
 SAP on IBM Cloud enables you to run enterprise SAP workloads on IBM Cloud's SAP-certified infrastructure, combining the power of SAP applications with the flexibility, security, and global reach of IBM Cloud.
 {: shortdesc}
 
-IBM Cloud provides multiple infrastructure options for SAP workloads, all hosted in IBM Cloud data centers and certified by SAP to meet stringent performance and compatibility requirements. IBM Power Virtual Server is the preferred platform for SAP HANA workloads. VPC Infrastructure is the preferred platform for SAP AnyDB workloads and SAP application servers.
+IBM Cloud provides multiple infrastructure options for SAP workloads, all hosted in IBM Cloud data centers and certified by SAP to meet stringent performance and compatibility requirements. IBM {{site.data.keyword.powerSys_notm}} is the preferred platform for SAP HANA workloads. VPC Infrastructure is the preferred platform for SAP AnyDB workloads and SAP application servers.
 
 ## Infrastructure options for SAP workloads
 {: #infrastructure-options}
@@ -24,7 +24,7 @@ IBM Cloud offers three SAP-certified infrastructure platforms, each optimized fo
 
 | Platform | Best for | OS support | SAP HANA max |
 | --- | --- | --- | --- |
-| **IBM Power Virtual Server** | SAP HANA workloads (all sizes), AIX workloads | AIX, RHEL, SLES | Up to 30 TB |
+| **IBM {{site.data.keyword.powerSys_notm}}** | SAP HANA workloads (all sizes), AIX workloads | AIX, RHEL, SLES | Up to 30 TB |
 | **VPC Infrastructure** | SAP AnyDB workloads, SAP application servers, dev/test | RHEL, SLES, Windows | VSI: 5.7 TB, bare metal: 12 TB |
 | **Classic Infrastructure** | Existing Classic deployments only | RHEL, SLES, Windows | Up to 12 TB |
 {: caption="IBM Cloud infrastructure platforms for SAP" caption-side="bottom"}
@@ -53,7 +53,7 @@ IBM Cloud supports the full spectrum of SAP applications and databases across al
 
 | Database | Description | Preferred platform |
 | --- | --- | --- |
-| **SAP HANA** | In-memory database platform that powers SAP S/4HANA, BW/4HANA, and other SAP applications | IBM Power Virtual Server |
+| **SAP HANA** | In-memory database platform that powers SAP S/4HANA, BW/4HANA, and other SAP applications | IBM {{site.data.keyword.powerSys_notm}} |
 | **SAP AnyDB** | Multiple third-party databases including IBM Db2, Microsoft SQL Server, SAP ASE (Sybase), and SAP MaxDB | VPC Infrastructure |
 {: caption="Supported SAP databases and preferred platform" caption-side="bottom"}
 
@@ -111,12 +111,12 @@ For current SAP certification details, see the [SAP Certified and Supported SAP 
 
 | Use case | Description | Preferred platform |
 | --- | --- | --- |
-| **New SAP HANA deployments** | Launch new SAP S/4HANA or SAP BW/4HANA systems directly in the cloud with industry-leading HANA performance | IBM Power Virtual Server |
+| **New SAP HANA deployments** | Launch new SAP S/4HANA or SAP BW/4HANA systems directly in the cloud with industry-leading HANA performance | IBM {{site.data.keyword.powerSys_notm}} |
 | **SAP AnyDB deployments** | Run SAP ECC, SAP Business Suite, or other SAP applications on Db2, ASE, MaxDB, or SQL Server | VPC Infrastructure |
-| **SAP migration to cloud** | Move existing on-premises SAP HANA systems to IBM Cloud with consistent platform and minimal disruption | IBM Power Virtual Server |
+| **SAP migration to cloud** | Move existing on-premises SAP HANA systems to IBM Cloud with consistent platform and minimal disruption | IBM {{site.data.keyword.powerSys_notm}} |
 | **SAP AnyDB migration to cloud** | Move existing on-premises AnyDB-based SAP systems to IBM Cloud | VPC Infrastructure |
-| **Development and test environments** | Create isolated development, test, and sandbox environments for SAP projects with flexible sizing and rapid provisioning | IBM Power Virtual Server (HANA); VPC Infrastructure (AnyDB) |
-| **High availability** | Deploy highly available SAP systems with automated failover using SAP HANA System Replication and cluster solutions | IBM Power Virtual Server (HANA); VPC Infrastructure (AnyDB) |
-| **Disaster recovery** | Implement disaster recovery solutions for on-premises or cloud-based SAP systems using IBM Cloud as a secondary site | IBM Power Virtual Server (HANA); VPC Infrastructure (AnyDB) |
-| **AnyDB to HANA migration** | Migrate from SAP AnyDB to SAP HANA on IBM Power Virtual Server for optimal in-memory performance | IBM Power Virtual Server |
+| **Development and test environments** | Create isolated development, test, and sandbox environments for SAP projects with flexible sizing and rapid provisioning | IBM {{site.data.keyword.powerSys_notm}} (HANA); VPC Infrastructure (AnyDB) |
+| **High availability** | Deploy highly available SAP systems with automated failover using SAP HANA System Replication and cluster solutions | IBM {{site.data.keyword.powerSys_notm}} (HANA); VPC Infrastructure (AnyDB) |
+| **Disaster recovery** | Implement disaster recovery solutions for on-premises or cloud-based SAP systems using IBM Cloud as a secondary site | IBM {{site.data.keyword.powerSys_notm}} (HANA); VPC Infrastructure (AnyDB) |
+| **AnyDB to HANA migration** | Migrate from SAP AnyDB to SAP HANA on IBM {{site.data.keyword.powerSys_notm}} for optimal in-memory performance | IBM {{site.data.keyword.powerSys_notm}} |
 {: caption="Common SAP on IBM Cloud use cases" caption-side="bottom"}

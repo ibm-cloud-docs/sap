@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025
-lastupdated: "2026-07-08"
+lastupdated: "2026-10-30"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, SAP HANA scale-out, High Availability, HA, Linux, Pacemaker, RHEL HA Add-On
 subcollection: sap
 ---
@@ -38,7 +38,7 @@ Review the general requirements, product documentation, support articles, and SA
    The setup can be extended to *2n + 1* nodes, where *n* is the number of SAP HANA nodes on one system replication site.
 
    Ensure that the virtual server instances meet the hardware and resource requirements for SAP HANA.
-   Refer to [SAP HANA certified instances on IBM Power Virtual Server](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs) for guidance.
+   Refer to [SAP HANA certified instances on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs) for guidance.
 
    The majoritymaker host must be a dedicated virtual instance with no other workload.
    A minimal configuration of 2 vCPUs and a 50 GB root partition is sufficient.
@@ -73,14 +73,14 @@ These volumes must not be shared between nodes.
 Attach and configure the SAN block storage volumes by following the instructions in [Creating extra storage volumes for SAP HANA Power Virtual Server](/docs/sap?topic=sap-powervs-set-up-power-instances#powervs-set-up-power-hana-volumes).
 For optimal performance, stripe the file systems across four volumes.
 
-Refer to [General storage guidelines for SAP HANA on IBM Power Virtual Server](/docs/sap?topic=sap-plan-storage-powervs#hana-storage-guidelines) for volume sizing recommendations.
+Refer to [General storage guidelines for SAP HANA on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-plan-storage-powervs#hana-storage-guidelines) for volume sizing recommendations.
 Ensure that the file systems `/hana/data/<SID>` and `/hana/log/<SID>` are mounted during the operating system startup on each virtual server instance.
 
 An SAP HANA multiple-host installation requires that the shared storage for the `hana/shared` directory is accessible from all SAP HANA nodes.
 Each site requires its own NFS mount target.
 Provision two NFS shares on the NFS service, one for each site.
 
-To set up a HA NFS service, including NFS targets, {{site.data.keyword.loadbalancer_full}}, {{site.data.keyword.tg_full}}, and client-side NFS access, follow the instructions in [Accessing VPC zonal file storage shares from IBM Power Virtual Server Instances](/docs/sap?topic=sap-nfs-zonal-powervs-intro).
+To set up a HA NFS service, including NFS targets, {{site.data.keyword.loadbalancer_full}}, {{site.data.keyword.tg_full}}, and client-side NFS access, follow the instructions in [Accessing VPC zonal file storage shares from IBM {{site.data.keyword.powerSys_notm}} Instances](/docs/sap?topic=sap-nfs-zonal-powervs-intro).
 The `hana/shared` file system must be mounted from an external NFS server during the operating system startup on each virtual server instance.
 
 To mount the NFS share on SAP HANA nodes at SITE_A, add the following line to `/etc/fstab`:

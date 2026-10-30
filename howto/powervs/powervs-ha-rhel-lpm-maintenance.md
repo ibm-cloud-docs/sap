@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-10-12"
+lastupdated: "2026-10-28"
 keywords: SAP, {{site.data.keyword.cloud_notm}}, SAP-Certified Infrastructure, {{site.data.keyword.ibm_cloud_sap}}, SAP Workloads, SAP HANA, SAP HANA System Replication, High Availability, HA, Linux, Pacemaker, RHEL HA AddOn, Live Partition Mobility, Live Partition Mobility, HA cluster, Live Partition Mobility maintenance
 subcollection: sap
 ---
@@ -21,7 +21,7 @@ If the pinning policy is set to the `none` or `soft`, the {{site.data.keyword.cl
 {: note}
 
 ## Preparing the cluster for Live Partition Mobility operation
-{: #lpm-preparing-cluster-before-mainenance}
+{: #lpm-preparing-cluster-before-maintenance}
 
 After the {{site.data.keyword.cloud_notm}} Operations team notifies you of an upcoming Live Partition Mobility operation, ensure that the cluster and all associated resources are ready.
 
@@ -75,7 +75,7 @@ If the output shows no issues and both cluster nodes are online, complete the fo
 
 
 ## Restoring the cluster after Live Partition Mobility maintenance
-{: #lpm-restoring-cluster-after-mainenance}
+{: #lpm-restoring-cluster-after-maintenance}
 
 After the {{site.data.keyword.cloud_notm}} Operations team completes the Live Partition Mobility maintenance, they notify you that the operation is finished. Then, restore the cluster node to normal operation by completing the following steps:
 

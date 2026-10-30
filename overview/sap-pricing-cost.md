@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-09-30"
+lastupdated: "2026-10-30"
 keywords: SAP, pricing, cost, billing, cost optimization, pricing model
 subcollection: sap
 ---
@@ -38,7 +38,7 @@ For detailed pricing information, use the [IBM Cloud Cost Estimator](https://clo
 | --- | --- | --- |
 | **VPC virtual servers** | Hourly or monthly, based on profile (vCPU and memory) | Development, test, and smaller production workloads |
 | **VPC bare metal servers** | Monthly, based on server configuration (CPU cores, memory, local storage) | Production workloads requiring dedicated resources |
-| **IBM Power Virtual Server** | Hourly, based on core count and memory allocation | Mission-critical workloads, AIX, maximum SAP HANA performance |
+| **IBM {{site.data.keyword.powerSys_notm}}** | Hourly, based on core count and memory allocation | Mission-critical workloads, AIX, maximum SAP HANA performance |
 {: caption="Compute cost billing" caption-side="bottom"}
 
 ### Storage costs

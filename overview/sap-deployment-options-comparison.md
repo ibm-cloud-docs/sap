@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2026
-lastupdated: "2026-09-30"
+lastupdated: "2026-10-30"
 keywords: SAP, deployment options, VPC, Power Virtual Server, Classic Infrastructure, comparison, infrastructure
 subcollection: sap
 ---
@@ -12,13 +12,13 @@ subcollection: sap
 # SAP deployment options comparison
 {: #deployment-options-comparison}
 
-IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastructure, IBM Power Virtual Server, and Classic Infrastructure. This comparison helps you select the optimal platform for your SAP deployment requirements.
+IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastructure, IBM {{site.data.keyword.powerSys_notm}}, and Classic Infrastructure. This comparison helps you select the optimal platform for your SAP deployment requirements.
 {: shortdesc}
 
 ## Platform overview
 {: #platform-overview}
 
-| | IBM Power Virtual Server | VPC Infrastructure | Classic Infrastructure |
+| | IBM {{site.data.keyword.powerSys_notm}} | VPC Infrastructure | Classic Infrastructure |
 | --- | --- | --- | --- |
 | **Status** | Preferred platform for SAP HANA workloads | Preferred platform for SAP AnyDB workloads and application servers | Legacy platform (migration recommended) |
 | **Architecture** | Enterprise-grade Power Systems | Modern cloud-native platform | Legacy dedicated infrastructure |
@@ -30,7 +30,7 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 ## SAP certifications and support
 {: #certifications-support}
 
-| Feature | IBM Power Virtual Server | VPC Infrastructure | Classic Infrastructure |
+| Feature | IBM {{site.data.keyword.powerSys_notm}} | VPC Infrastructure | Classic Infrastructure |
 | --- | --- | --- | --- |
 | **SAP HANA maximum size** | Up to 30.5 TB | Virtual servers: 5.7 TB \n Bare metal: 12 TB | Up to 12 TB |
 | **SAP HANA scale-out** | Supported | Supported | Supported |
@@ -45,7 +45,7 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 ## Operating system support
 {: #operating-systems}
 
-| Operating system | IBM Power Virtual Server | VPC Infrastructure | Classic Infrastructure |
+| Operating system | IBM {{site.data.keyword.powerSys_notm}} | VPC Infrastructure | Classic Infrastructure |
 | --- | --- | --- | --- |
 | **SUSE Linux Enterprise Server** | Supported | Supported | Supported |
 | **Red Hat Enterprise Linux** | Supported | Supported | Supported |
@@ -56,7 +56,7 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 ## Compute capabilities
 {: #compute-capabilities}
 
-| Feature | IBM Power Virtual Server | VPC Infrastructure | Classic Infrastructure |
+| Feature | IBM {{site.data.keyword.powerSys_notm}} | VPC Infrastructure | Classic Infrastructure |
 | --- | --- | --- | --- |
 | **Virtual servers** | Available with dedicated/shared processors | Available with flexible profiles | Not available |
 | **Bare metal servers** | Not applicable (virtual on physical Power) | Available with VPC networking | Available |
@@ -70,7 +70,7 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 ## Storage options
 {: #storage-options}
 
-| Feature | IBM Power Virtual Server | VPC Infrastructure | Classic Infrastructure |
+| Feature | IBM {{site.data.keyword.powerSys_notm}} | VPC Infrastructure | Classic Infrastructure |
 | --- | --- | --- | --- |
 | **Block storage** | Tier 0, Tier 1, Tier 3, Fixed IOPS | Customizable IOPS (3-48K) | SAN storage |
 | **File storage** | Not available | NFS-based file storage | NAS storage |
@@ -82,7 +82,7 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 ## Networking capabilities
 {: #networking-capabilities}
 
-| Feature | IBM Power Virtual Server | VPC Infrastructure | Classic Infrastructure |
+| Feature | IBM {{site.data.keyword.powerSys_notm}} | VPC Infrastructure | Classic Infrastructure |
 | --- | --- | --- | --- |
 | **Network architecture** | Private networking | Software-defined VPC | VLAN-based networking |
 | **Network isolation** | Private network segments | Complete VPC isolation | VLAN isolation |
@@ -98,7 +98,7 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 ## High availability and disaster recovery
 {: #ha-dr}
 
-| Feature | IBM Power Virtual Server | VPC Infrastructure | Classic Infrastructure |
+| Feature | IBM {{site.data.keyword.powerSys_notm}} | VPC Infrastructure | Classic Infrastructure |
 | --- | --- | --- | --- |
 | **Multi-zone deployments** | Multi-location deployments | Native support across availability zones | Multi-data center deployments |
 | **SAP HANA System Replication** | Supported | Supported | Supported |
@@ -111,7 +111,7 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 ## Security features
 {: #security-features}
 
-| Feature | IBM Power Virtual Server | VPC Infrastructure | Classic Infrastructure |
+| Feature | IBM {{site.data.keyword.powerSys_notm}} | VPC Infrastructure | Classic Infrastructure |
 | --- | --- | --- | --- |
 | **Network isolation** | Private network isolation | Complete VPC isolation | VLAN isolation |
 | **Encryption at rest** | IBM Key Protect, HPCS | IBM Key Protect, HPCS | Available |
@@ -127,16 +127,16 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 
 | Use case | Preferred platform | Rationale |
 | --- | --- | --- |
-| **SAP HANA (all sizes, all environments)** | IBM Power Virtual Server | Industry-leading HANA performance on Power Systems architecture; consistent platform from dev/test to the largest production systems (up to 30.5 TB) |
-| **SAP S/4HANA production** | IBM Power Virtual Server | Optimal performance and enterprise-grade reliability for mission-critical ERP workloads |
-| **SAP BW/4HANA and analytics** | IBM Power Virtual Server | Optimized for in-memory computing and large-scale analytics workloads |
+| **SAP HANA (all sizes, all environments)** | IBM {{site.data.keyword.powerSys_notm}} | Industry-leading HANA performance on Power Systems architecture; consistent platform from dev/test to the largest production systems (up to 30.5 TB) |
+| **SAP S/4HANA production** | IBM {{site.data.keyword.powerSys_notm}} | Optimal performance and enterprise-grade reliability for mission-critical ERP workloads |
+| **SAP BW/4HANA and analytics** | IBM {{site.data.keyword.powerSys_notm}} | Optimized for in-memory computing and large-scale analytics workloads |
 | **SAP AnyDB workloads** (Db2, ASE, MaxDB, SQL Server) | VPC Infrastructure | Recommended platform for all SAP AnyDB databases; flexible compute and storage options |
 | **SAP application servers** (ASCS, ERS, PAS, AAS) | VPC Infrastructure | Cost-effective, rapidly provisioned virtual servers for the application tier |
 | **SAP Web Dispatcher / Gateway** | VPC Infrastructure | Advanced networking and flexible scaling for SAP connectivity components |
-| **AIX-based SAP workloads** | IBM Power Virtual Server | Only cloud platform supporting AIX operating system |
+| **AIX-based SAP workloads** | IBM {{site.data.keyword.powerSys_notm}} | Only cloud platform supporting AIX operating system |
 | **Hybrid cloud integration** | VPC Infrastructure | Advanced networking features, Direct Link, and seamless on-premises integration |
 | **Existing Classic Infrastructure deployments** | Classic Infrastructure (short-term) | Continue existing deployments while planning migration to VPC or Power Virtual Server |
-| **SAP HANA dev/test (strict cost constraints)** | IBM Power Virtual Server (preferred); VPC virtual servers (acceptable) | PowerVS preferred for consistency; VPC acceptable when cost is the primary constraint |
+| **SAP HANA dev/test (strict cost constraints)** | IBM {{site.data.keyword.powerSys_notm}} (preferred); VPC virtual servers (acceptable) | PowerVS preferred for consistency; VPC acceptable when cost is the primary constraint |
 {: caption="Use case recommendations" caption-side="bottom"}
 
 ## Migration paths
@@ -145,10 +145,10 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 | From | To | Key considerations |
 | --- | --- | --- |
 | **Classic Infrastructure** | VPC Infrastructure | Modernize with cloud-native capabilities, enhanced security, advanced networking |
-| **Classic Infrastructure** | IBM Power Virtual Server | Migrate SAP HANA for superior performance, migrate AIX workloads |
+| **Classic Infrastructure** | IBM {{site.data.keyword.powerSys_notm}} | Migrate SAP HANA for superior performance, migrate AIX workloads |
 | **On-premises x86** | VPC Infrastructure | Lift-and-shift or re-architect for cloud-native deployment |
-| **On-premises Power Systems** | IBM Power Virtual Server | Maintain Power architecture expertise, migrate AIX workloads |
-| **On-premises AIX** | IBM Power Virtual Server | Only cloud option for AIX-based SAP NetWeaver |
+| **On-premises Power Systems** | IBM {{site.data.keyword.powerSys_notm}} | Maintain Power architecture expertise, migrate AIX workloads |
+| **On-premises AIX** | IBM {{site.data.keyword.powerSys_notm}} | Only cloud option for AIX-based SAP NetWeaver |
 | **Other cloud providers** | VPC Infrastructure or Power Virtual Server | Leverage IBM Cloud capabilities, competitive pricing |
 {: caption="Migration paths" caption-side="bottom"}
 
@@ -157,7 +157,7 @@ IBM Cloud offers three infrastructure platforms for SAP workloads: VPC Infrastru
 
 For a full breakdown of pricing models, cost components, and optimization strategies across all platforms, see [Pricing and cost considerations](/docs/sap?topic=sap-pricing).
 
-IBM Power Virtual Server is typically priced compatitively and is used for SAP HANA workloads. 
+IBM {{site.data.keyword.powerSys_notm}} is typically priced compatitively and is used for SAP HANA workloads.
 VPC Infrastructure supports SAP AnyDB workloads and SAP application servers across virtual servers and bare metal servers.
 
 ## Next steps

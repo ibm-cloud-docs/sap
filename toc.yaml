@@ -151,6 +151,8 @@ toc:
               topics:
               - navtitle: Building RHEL
                 topic: howto/powervs/powervs-custom-os-image-build-rhel.md
+          - navtitle: Tuning OS for SAP
+            topic: howto/powervs/powervs-tuning-os-for-sap.md
           - topicgroup:
               id: howto-powervs-iam
               label: Identity and Access Management

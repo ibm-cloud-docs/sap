@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2025, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-30"
 keywords: release notes, new feature, feature update, what's new, updates
 subcollection: sap
 ---
@@ -14,6 +14,14 @@ subcollection: sap
 
 Use these release notes to learn about the latest updates to SAP on {{site.data.keyword.BluSoftlayer_notm}}.
 {: shortdesc}
+
+## October 2026
+{: #sap-2026-10}
+
+- Introduced new [P10 sr2 profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr2-profiles) for SAP HANA Cockpit on {{site.data.keyword.powerSysFull}}.
+- Introduced new [P11 sr3 profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr3-profiles) for SAP HANA Cockpit on {{site.data.keyword.powerSysFull}}.
+- New document: [Tuning OS for SAP on IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-powervs-tuning-os-for-sap)
+- New document: [IBM {{site.data.keyword.powerSys_notm}} maintenance operations in high availability clusters](/docs/sap?topic=sap-powervs-ha-lpm-overview)
 
 ## September 2026
 {: #sap-2026-09}
@@ -47,7 +55,7 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 ## May 2026
 {: #sap-2026-05}
 
-- New document: [Preparing SAP solutions for disaster recovery on IBM Power Virtual Server using rsync](/docs/sap?topic=sap-ha-dr-hana-rsync-overview).
+- New document: [Preparing SAP solutions for disaster recovery on IBM {{site.data.keyword.powerSys_notm}} using rsync](/docs/sap?topic=sap-ha-dr-hana-rsync-overview).
 - Introduced new [Intel Sapphire Rapids](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi#nw-sr-profiles) `bx3` and `mx3` profiles for SAP application servers on virtual server instances in VPC Infrastructure, with vCPU-to-RAM ratios of 1:4 (bx3) and 1:8 (mx3), to be compatible with Gen 2 and Gen 4 profiles.
 - **4-node SAP HANA scale-out** is now certified and supported on {{site.data.keyword.powerSys_notm}} profile `sr3-229x30500`, see [sr3 - Certified profiles](/docs/sap?topic=sap-hana-iaas-offerings-profiles-power-vs#sr3-profiles-sizing).
 
@@ -125,8 +133,8 @@ Use these release notes to learn about the latest updates to SAP on {{site.data.
 - Introduced new [sr2 profiles](/docs/sap?topic=sap-nw-iaas-offerings-profiles-power-vs#sr2-nw-profiles) for SAP NetWeaver/Application Servers on {{site.data.keyword.powerSysFull}}.
 - New documentation: [Configuring high availability for SAP S/4HANA (ASCS and ERS) on Red Hat Enterprise Linux HA Add-On clusters in a multizone region with simple mount](/docs/sap?topic=sap-ha-rhel-ensa-sm-mz)
 - New documentation: [Configuring SAP HANA scale-up system replication in a Red Hat Enterprise Linux High Availability Add-On cluster with the sap-hana-ha resource agent](/docs/sap?topic=sap-ha-rhel-hana-ng-sh)
-- New documentation: [Accessing File Storage for VPC with regional availability from IBM Power Virtual Server instances](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro)
-- New documentation: [Creating a static route and an overlay IP address for a virtual server instance in IBM Power Virtual Server](/docs/sap?topic=sap-ha-rt-ovl-ip-intro)
+- New documentation: [Accessing File Storage for VPC with regional availability from IBM {{site.data.keyword.powerSys_notm}} instances](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro)
+- New documentation: [Creating a static route and an overlay IP address for a virtual server instance in IBM {{site.data.keyword.powerSys_notm}}](/docs/sap?topic=sap-ha-rt-ovl-ip-intro)
 - New reference architecture: [SAP NetWeaver 7.5 on SAP ASE with High Availability on SLES](/docs/sap?topic=sap-sap-nw-hadr-intro)
 - New reference architecture: [SAP NetWeaver 7.5 on SAP HANA with Disaster Recovery on RHEL](/docs/sap?topic=sap-sap-nw-hana-dr-intro)
 
