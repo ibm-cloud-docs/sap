@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-10-29"
+lastupdated: "2026-11-01"
 keywords: SAP-Certified HANA profiles, ush1, bh1, ch1, mh1, umh, cnp, sr2, sh2, bh2, ch2, mh2, sr3, Rise, P9, P10, P11, storage, powervs, log, data, shared, iops, tiers, tier
 subcollection: sap
 ---
@@ -155,7 +155,7 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 
 | **sr3\nCertified profile** | **IOPs\nrequired**| **Log file system\nstorage config (GB)** | **Log file system\nstorage tier**  | **Log file system\nsize(GB)**| **IOPs\nobtained** |
 |--------------------------- |------------------ |----------------------------------------- |------------------------------------|------------------------------|--------------------|
-| sr3-4x64                   | -                 |   4 x 16 GB                              | Tier 0                             |64 GB                         | 1,600              |
+| sr3-4x64                   | N/A               |   4 x 16 GB                              | Tier 0                             |64 GB                         | 1,600              |
 | sr3-6x256                  | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-6x384                  | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
 | sr3-11x512                 | 12,000            |   4 x 128 GB                             | Tier 0                             |512 GB                        | 12,800             |
@@ -190,7 +190,7 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 
 | **sr3\nCertified profile** | **IOPs\nrequired**| **Data file system\nstorage config (GB)** | **Data file system\nstorage tier**  | **Data file system\nsize(GB)**| **IOPs\nobtained** |
 |--------------------------- |------------------ |------------------------------------------ |-------------------------------------|-------------------------------|--------------------|
-| sr3-4x64                   | -                 | 4 x 38 GB                                 | Tier 0                              | 152 GB                        | 3,800              |
+| sr3-4x64                   | N/A               | 4 x 38 GB                                 | Tier 0                              | 152 GB                        | 3,800              |
 | sr3-6x256                  | 8,000             | 4 x 80 GB                                 | Tier 0                              | 320 GB                        | 8,000              |
 | sr3-6x384                  | 8,000             | 4 x 116 GB                                | Tier 0                              | 464 GB                        | 11,600             |
 | sr3-11x512                 | 8,000             | 4 x 154 GB                                | Tier 0                              | 616 GB                        | 15,400             |
@@ -225,7 +225,7 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 
 | **sr3\nCertified profile** | **IOPs\nrequired**| **Shared file system\nstorage config (GB)** | **Shared file system\nstorage tier**  | **Shared file system\nsize(GB)**| **IOPs\nobtained** |
 |--------------------------- |------------------ |-------------------------------------------- |---------------------------------------|---------------------------------|--------------------|
-|  sr3-4x64                  | -                 |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|  sr3-4x64                  | N/A               |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-6x256                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-6x384                 | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |  sr3-11x512                | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
@@ -356,7 +356,7 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 
 | **sr2\nCertified profile** | **IOPs\nrequired**| **Log file system\nstorage config (GB)**|**Log file system\nstorage tier**|**Log file system \nsize (GB)**|**IOPs\nobtained**|
 |--------------------------- |------------------ |---------------------------------------- |---------------------------------|-------------------------------|------------------|
-| sr2-4x64                   | -                 |   4 x 16 GB                             | Tier 0                          | 64 GB                         | 1,600            |
+| sr2-4x64                   | N/A               |   4 x 16 GB                             | Tier 0                          | 64 GB                         | 1,600            |
 | sr2-7x256                  | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
 | sr2-7x384                  | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
 | sr2-14x512                 | 12,000            |   4 x 128 GB                            | Tier 0                          | 512 GB                        | 12,800           |
@@ -390,7 +390,7 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 
 |**sr2 Certified profile** |**IOPs required**|**Data file system\nstorage config (GB)**|**Data file system \nstorage tier**|**Data file system \nsize (GB)**|**IOPs obtained** |
 |--------------------------|-----------------|-----------------------------------------|-----------------------------------|--------------------------------|----------------- |
-|sr2-4x64                  | -               |      4 x 38 GB                          | Tier 0                            |     152 GB                     | 3,800            |
+|sr2-4x64                  | N/A             |      4 x 38 GB                          | Tier 0                            |     152 GB                     | 3,800            |
 |sr2-7x256                 |   8,000         |      4 x 80 GB                          | Tier 0                            |     320 GB                     | 8,000            |
 |sr2-7x384                 |   8,000         |      4 x 116 GB                         | Tier 0                            |     464 GB                     | 11,600           |
 |sr2-14x512                |   8,000         |      4 x 154 GB                         | Tier 0                            |     616 GB                     | 15,400           |
@@ -424,7 +424,7 @@ Data volume storage is sized at 120% of memory, following SAP’s recommendation
 
 | **sr2\nCertified profile** | **IOPs\nrequired**| **Shared file system\nstorage config (GB)** | **Shared file system\nstorage tier**  | **Shared file system\nsize(GB)**| **IOPs\nobtained** |
 |--------------------------- |------------------ |-------------------------------------------- |---------------------------------------|---------------------------------|--------------------|
-|    sr2-4x64                | -                 |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
+|    sr2-4x64                | N/A               |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |    sr2-7x256               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |    sr2-7x384               | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
 |    sr2-14x512              | 3,000             |  1 x 200 GB                                 | Tier 0                                | 200 GB                          | 5,000              |
